@@ -74,21 +74,21 @@ public class AmGems {
 	/** Foot placement; analogous to Pisces. */
 	public static final int GEMSTONE_LEFT_FOOT = 17;
 	
-	/** The pure terror that causes those to flee. Rubies don't experience this. */
+	/** The pure terror that causes those to flee. */
 	public static final float EMOTION_DREAD = 1.0F / 8.0F * 0.0F;	// RED
-	/** The feeling of having lost something. Jaspers don't experience this. */
+	/** The feeling of having lost something. */
 	public static final float EMOTION_GRIEF = 1.0F / 8.0F * 1.0F;	// ORANGE
-	/** When your brain is deciding to fight or flee. Topazes don't experience this. */
+	/** When your brain is deciding to fight or flee. */
 	public static final float EMOTION_DOUBT = 1.0F / 8.0F * 2.0F;	// YELLOW
-	/** Self-deprecation that lowers attack potency. Peridots don't experience this. */ 
+	/** Self-deprecation that lowers attack potency. */ 
 	public static final float EMOTION_SHAME = 1.0F / 8.0F * 3.0F;	// GREEN
-	/** Sudden barrage of input that speeds up a gem. Sapphires don't experience this. */
+	/** Sudden barrage of input that speeds up a gem. */
 	public static final float EMOTION_HYPED = 1.0F / 8.0F * 4.0F;	// CYAN
-	/** The feeling of being content and satisfied. Lapises don't experience this. */ 
+	/** The feeling of being content and satisfied. */ 
 	public static final float EMOTION_HAPPY = 1.0F / 8.0F * 5.0F;	// BLUE
-	/** Self-justification that increases attack potency. Amethysts don't experience this. */
+	/** Self-justification that increases attack potency. */
 	public static final float EMOTION_PRIDE = 1.0F / 8.0F * 6.0F;	// VIOLET
-	/** The pure power that causes those to fight. Rose Quartzes don't experience this. */
+	/** The pure power that causes those to fight. */
 	public static final float EMOTION_ANGER = 1.0F / 8.0F * 7.0F;	// PINK
 	/** Used to reset the emotional spectrum. */
 	public static final float EMOTION_LIMIT = 1.0F;					// RESET
