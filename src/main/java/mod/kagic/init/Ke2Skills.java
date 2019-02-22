@@ -1,6 +1,6 @@
 package mod.kagic.init;
 
-public class AmSkills {
+public class Ke2Skills {
 	public static void register() {
 		
 	}

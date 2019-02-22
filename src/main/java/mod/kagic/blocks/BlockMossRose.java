@@ -1,6 +1,6 @@
 package mod.kagic.blocks;
 
-import mod.kagic.init.AmBlocks;
+import mod.kagic.init.Ke2Blocks;
 import mod.kagic.init.KAGIC;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.MapColor;
@@ -22,12 +22,12 @@ public class BlockMossRose extends BlockBush {
 	}
 	@Override
 	protected boolean canSustainBush(IBlockState state) {
-        return state.getBlock() == AmBlocks.MAGIC_MOSS && state.getValue(BlockMagicMoss.SHORT);
+        return state.getBlock() == Ke2Blocks.MAGIC_MOSS && state.getValue(BlockMagicMoss.SHORT);
     }
 	@Override
 	public boolean canPlaceBlockAt(World world, BlockPos pos) {
 		IBlockState state = world.getBlockState(pos.down());
-        return state.getBlock() == AmBlocks.MAGIC_MOSS && state.getValue(BlockMagicMoss.SHORT);
+        return state.getBlock() == Ke2Blocks.MAGIC_MOSS && state.getValue(BlockMagicMoss.SHORT);
     }
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {

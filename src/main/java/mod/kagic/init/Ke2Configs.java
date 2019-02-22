@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Config(modid = KAGIC.MODID)
 @Config.LangKey("kagic.config.title")
 @Mod.EventBusSubscriber
-public class AmConfigs {
+public class Ke2Configs {
 	@Config.Name("Grow Agates?")
 	public static boolean enableAgate = true;
 	@Config.Name("Grow Amethysts?")
@@ -93,7 +93,7 @@ public class AmConfigs {
 	public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent e) {
 		if (e.getModID().equals(KAGIC.MODID)) {
 			ConfigManager.sync(KAGIC.MODID, Config.Type.INSTANCE);
-			AmConfigs.register();
+			Ke2Configs.register();
 		}
 	}
 	public static void register() {

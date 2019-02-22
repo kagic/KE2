@@ -5,7 +5,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class AmTileEntities {
+public class Ke2TileEntities {
 	public static void register() {
 		registerTileEntity(TileEntityWailingStone.class, new ResourceLocation("kagic:wailing_stone"));
 	}

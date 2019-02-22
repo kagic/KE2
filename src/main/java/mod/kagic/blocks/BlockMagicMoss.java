@@ -2,7 +2,7 @@ package mod.kagic.blocks;
 
 import java.util.Random;
 
-import mod.kagic.init.AmBlocks;
+import mod.kagic.init.Ke2Blocks;
 import mod.kagic.init.KAGIC;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -52,25 +52,25 @@ public class BlockMagicMoss extends Block {
 			}
 			else if (world.isAirBlock(pos.up())) {
 				if (world.rand.nextBoolean()) {
-					world.setBlockState(pos.up(), AmBlocks.MOSS_ROSE.getDefaultState());
+					world.setBlockState(pos.up(), Ke2Blocks.MOSS_ROSE.getDefaultState());
 				}
 			}
 		}
 	}
 	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
-    	boolean set = world.getBlockState(pos.up()).getBlock() == AmBlocks.MOSS_ROSE || world.isAirBlock(pos.up());
+    	boolean set = world.getBlockState(pos.up()).getBlock() == Ke2Blocks.MOSS_ROSE || world.isAirBlock(pos.up());
 		return this.getDefaultState().withProperty(SHORT, set);
     }
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
-		boolean set = world.getBlockState(pos.up()).getBlock() == AmBlocks.MOSS_ROSE || world.isAirBlock(pos.up());
+		boolean set = world.getBlockState(pos.up()).getBlock() == Ke2Blocks.MOSS_ROSE || world.isAirBlock(pos.up());
 		world.setBlockState(pos, state.withProperty(SHORT, set));
 		super.neighborChanged(state, world, pos, block, fromPos);
     }
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
-		boolean set = world.getBlockState(pos.up()).getBlock() == AmBlocks.MOSS_ROSE || world.isAirBlock(pos.up());
+		boolean set = world.getBlockState(pos.up()).getBlock() == Ke2Blocks.MOSS_ROSE || world.isAirBlock(pos.up());
 		world.setBlockState(pos, state.withProperty(SHORT, set));
     	super.onBlockAdded(world, pos, state);
     }

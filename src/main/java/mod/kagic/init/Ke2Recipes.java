@@ -3,7 +3,7 @@ package mod.kagic.init;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class AmRecipes {
+public class Ke2Recipes {
 	public static void register() {
 		
 	}

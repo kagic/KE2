@@ -2,19 +2,18 @@ package mod.kagic.entity.gem;
 
 import java.util.ArrayList;
 
-import mod.kagic.entity.EntityGem;
+import mod.kagic.entity.EntityGemGarnet;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class EntityRuby extends EntityGem {
+public class EntityPyrope extends EntityGemGarnet {
 	public static final ArrayList<ResourceLocation> INSIGNIAS = new ArrayList<ResourceLocation>();
 	public static final ArrayList<ResourceLocation> UNIFORMS = new ArrayList<ResourceLocation>();
-	public static final ArrayList<ResourceLocation> HAIRSTYLES = new ArrayList<ResourceLocation>();
 	static {
 		
 	}
-	public EntityRuby(World world) {
+	public EntityPyrope(World world) {
 		super(world);
 	}
 	@Override

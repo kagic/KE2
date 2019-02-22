@@ -6,7 +6,7 @@ import java.util.UUID;
 import com.google.common.base.Optional;
 
 import io.netty.buffer.ByteBuf;
-import mod.kagic.init.AmGems;
+import mod.kagic.init.Ke2Gems;
 import mod.kagic.injection.GemSpawnData;
 import mod.kagic.util.DamageCracked;
 import mod.kagic.util.DamagePoofed;
@@ -95,7 +95,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		this.dataManager.register(GEM_OWNER_ID, Optional.absent());
 		this.dataManager.register(GEM_LEADER_ID, Optional.absent());
 		this.dataManager.register(GEM_ALIGNMENT, 0);
-		this.dataManager.register(GEM_EMOTION, AmGems.EMOTION_HAPPY);
+		this.dataManager.register(GEM_EMOTION, Ke2Gems.EMOTION_HAPPY);
 		this.dataManager.register(IS_SWINGING_ARMS, false);
 		this.dataManager.register(IS_HIGHLIGHTED, false);
 		this.dataManager.register(ORIGINAL_POS, BlockPos.ORIGIN);
@@ -122,7 +122,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		if (data instanceof GemSpawnData) {
 			GemSpawnData gemSpawnData = (GemSpawnData)(data);
 			this.setGemOwnerID(gemSpawnData.getOwner());
-			this.setGemAlignment(AmGems.ALIGNED_WITH_PLAYERS);
+			this.setGemAlignment(Ke2Gems.ALIGNED_WITH_PLAYERS);
 			this.setInsigniaColor(gemSpawnData.getColor());
 			this.setDefective(gemSpawnData.isDefective());
 			this.setPerfect(gemSpawnData.isPerfect());
@@ -191,7 +191,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
-		compound.setString("Species", AmGems.GEM_TABLE.get(this.getClass()).toString());
+		compound.setString("Species", Ke2Gems.GEM_TABLE.get(this.getClass()).toString());
 		if (this.getGemGlobalID() != null) {
 			compound.setString("GemGlobalID", this.getGemGlobalID().toString());
 		}
@@ -447,8 +447,8 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		this.dataManager.set(COLOR_DYE_INSIGNIA, color);
 	}
 	public int getInsigniaColor() {
-		if (this.getGemAlignment() >= AmGems.CONTROLLED_BY_WHITE) {
-			return AmGems.BASIC_WHITE;
+		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
+			return Ke2Gems.BASIC_WHITE;
 		}
 		else {
 			return this.dataManager.get(COLOR_DYE_INSIGNIA);
@@ -458,7 +458,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		this.dataManager.set(COLOR_RGB_UNIFORM, color);
 	}
 	public int getUniformColor() {
-		if (this.getGemAlignment() >= AmGems.CONTROLLED_BY_WHITE) {
+		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
 		}
 		else {
@@ -469,7 +469,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		this.dataManager.set(COLOR_RGB_SKIN, color);
 	}
 	public int getSkinColor() {
-		if (this.getGemAlignment() >= AmGems.CONTROLLED_BY_WHITE) {
+		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
 		}
 		else {
@@ -480,7 +480,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		this.dataManager.set(COLOR_RGB_HAIR, color);
 	}
 	public int getHairColor() {
-		if (this.getGemAlignment() >= AmGems.CONTROLLED_BY_WHITE) {
+		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
 		}
 		else {
@@ -491,7 +491,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		this.dataManager.set(COLOR_RGB_GEMSTONE, color);
 	}
 	public int getGemstoneColor() {
-		if (this.getGemAlignment() >= AmGems.CONTROLLED_BY_WHITE) {
+		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
 		}
 		else {
@@ -668,26 +668,26 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
         this.chasingPosZ += z * 0.25D;
     }
 	public float getClosestEmotion() {
-    	int emotion = AmGems.EMOTIONAL_WAVELENGTHS[(int)(this.getEmotion() % 1 * 8)];
+    	int emotion = Ke2Gems.EMOTIONAL_WAVELENGTHS[(int)(this.getEmotion() % 1 * 8)];
     	switch (emotion) {
     	case 0:
-    		return AmGems.EMOTION_DREAD;
+    		return Ke2Gems.EMOTION_DREAD;
     	case 1:
-    		return AmGems.EMOTION_GRIEF;
+    		return Ke2Gems.EMOTION_GRIEF;
     	case 2:
-    		return AmGems.EMOTION_DOUBT;
+    		return Ke2Gems.EMOTION_DOUBT;
     	case 3:
-    		return AmGems.EMOTION_SHAME;
+    		return Ke2Gems.EMOTION_SHAME;
     	case 4:
-    		return AmGems.EMOTION_HYPED;
+    		return Ke2Gems.EMOTION_HYPED;
     	case 5:
-    		return AmGems.EMOTION_HAPPY;
+    		return Ke2Gems.EMOTION_HAPPY;
     	case 6:
-    		return AmGems.EMOTION_PRIDE;
+    		return Ke2Gems.EMOTION_PRIDE;
     	case 7:
-    		return AmGems.EMOTION_ANGER;
+    		return Ke2Gems.EMOTION_ANGER;
     	default:
-        	return AmGems.EMOTION_DREAD;
+        	return Ke2Gems.EMOTION_DREAD;
     	}
 	}
 	public boolean setEmotion(float emotion, float step) {
@@ -707,9 +707,9 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 	    float r = (this.getSkinColor() & 16711680) >> 16;
         float g = (this.getSkinColor() & 65280) >> 8;
 		float b = (this.getSkinColor() & 255) >> 0;
-    	int color = AmGems.EMOTIONAL_WAVELENGTHS[(int)(range * 8)];
+    	int color = Ke2Gems.EMOTIONAL_WAVELENGTHS[(int)(range * 8)];
     	int closestColor = -1;
-    	for (int i = 0; i < AmGems.EMOTIONAL_WAVELENGTHS.length; ++i) {
+    	for (int i = 0; i < Ke2Gems.EMOTIONAL_WAVELENGTHS.length; ++i) {
 			float eR = (color & 16711680) >> 16;
 	        float eG = (color & 65280) >> 8;
 	        float eB = (color & 255) >> 0;
@@ -725,7 +725,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		return false;
 	}
 	protected float generateEmotion() {
-		return AmGems.EMOTION_HAPPY;
+		return Ke2Gems.EMOTION_HAPPY;
 	}
 	@Override
 	public void writeSpawnData(ByteBuf buffer) {

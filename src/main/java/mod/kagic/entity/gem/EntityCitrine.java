@@ -7,8 +7,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class EntityPearl extends EntityGem {
-	public static final Map<>
+public class EntityCitrine extends EntityGem {
 	public static final int[] PEARL_BASE_COLORS = new int[] { 
 		0xfff2f2,	// White
 		0xffd1d1,	// Red
@@ -41,7 +40,7 @@ public class EntityPearl extends EntityGem {
 	static {
 		
 	}
-	public EntityPearl(World world) {
+	public EntityCitrine(World world) {
 		super(world);
 	}
 	@Override

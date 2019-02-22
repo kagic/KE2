@@ -6,7 +6,7 @@ import mod.kagic.handles.HandleGuarding;
 import mod.kagic.handles.HandleShattering;
 import net.minecraftforge.common.MinecraftForge;
 
-public class AmHandles {
+public class Ke2Handles {
 	public static void register() {
 		registerHandle(new HandleBubbling());
 		registerHandle(new HandleCapturing());

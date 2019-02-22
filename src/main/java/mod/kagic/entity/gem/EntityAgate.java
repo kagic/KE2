@@ -2,19 +2,18 @@ package mod.kagic.entity.gem;
 
 import java.util.ArrayList;
 
-import mod.kagic.entity.EntityGem;
+import mod.kagic.entity.EntityGemQuartz;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class EntityRuby extends EntityGem {
+public class EntityAgate extends EntityGemQuartz {
 	public static final ArrayList<ResourceLocation> INSIGNIAS = new ArrayList<ResourceLocation>();
 	public static final ArrayList<ResourceLocation> UNIFORMS = new ArrayList<ResourceLocation>();
-	public static final ArrayList<ResourceLocation> HAIRSTYLES = new ArrayList<ResourceLocation>();
 	static {
 		
 	}
-	public EntityRuby(World world) {
+	public EntityAgate(World world) {
 		super(world);
 	}
 	@Override
@@ -43,7 +42,7 @@ public class EntityRuby extends EntityGem {
 	}
 	@Override
 	public int generateSkinVariant() {
-		return 0;
+		return this.rand.nextInt(PEARL_BASE_COLORS.length);
 	}
 	@Override
 	public int generateGemstonePosition() {

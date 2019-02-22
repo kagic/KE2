@@ -3,7 +3,7 @@ package mod.kagic.client.model;
 import java.util.ArrayList;
 
 import mod.kagic.entity.EntityGemFusion;
-import mod.kagic.init.AmGems;
+import mod.kagic.init.Ke2Gems;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -62,58 +62,58 @@ public class ModelGemFusion extends ModelBiped {
 				this.bipedGems.get(i).offsetY = 0;
 				this.bipedGems.get(i).offsetZ = 0;
 				switch (gem.getGemstonePosition(i)) {
-				case AmGems.GEMSTONE_FOREHEAD:
+				case Ke2Gems.GEMSTONE_FOREHEAD:
 					super.copyModelAngles(this.bipedHead, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_BACK_OF_HEAD:
+				case Ke2Gems.GEMSTONE_BACK_OF_HEAD:
 					super.copyModelAngles(this.bipedHead, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_RIGHT_EYE:
+				case Ke2Gems.GEMSTONE_RIGHT_EYE:
 					super.copyModelAngles(this.bipedHead, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_LEFT_EYE:
+				case Ke2Gems.GEMSTONE_LEFT_EYE:
 					super.copyModelAngles(this.bipedHead, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_NOSE:
+				case Ke2Gems.GEMSTONE_NOSE:
 					super.copyModelAngles(this.bipedHead, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_RIGHT_SHOULDER:
+				case Ke2Gems.GEMSTONE_RIGHT_SHOULDER:
 					super.copyModelAngles(this.bipedRightArm, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_LEFT_SHOULDER:
+				case Ke2Gems.GEMSTONE_LEFT_SHOULDER:
 					super.copyModelAngles(this.bipedLeftArm, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_RIGHT_HAND:
+				case Ke2Gems.GEMSTONE_RIGHT_HAND:
 					super.copyModelAngles(this.bipedRightArm, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_LEFT_HAND:
+				case Ke2Gems.GEMSTONE_LEFT_HAND:
 					super.copyModelAngles(this.bipedLeftArm, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_CHEST:
+				case Ke2Gems.GEMSTONE_CHEST:
 					super.copyModelAngles(this.bipedBody, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_BACK:
+				case Ke2Gems.GEMSTONE_BACK:
 					super.copyModelAngles(this.bipedBody, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_NAVEL:
+				case Ke2Gems.GEMSTONE_NAVEL:
 					super.copyModelAngles(this.bipedBody, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_RIGHT_THIGH:
+				case Ke2Gems.GEMSTONE_RIGHT_THIGH:
 					super.copyModelAngles(this.bipedRightLeg, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_LEFT_THIGH:
+				case Ke2Gems.GEMSTONE_LEFT_THIGH:
 					super.copyModelAngles(this.bipedLeftLeg, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_RIGHT_KNEE:
+				case Ke2Gems.GEMSTONE_RIGHT_KNEE:
 					super.copyModelAngles(this.bipedRightLeg, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_LEFT_KNEE:
+				case Ke2Gems.GEMSTONE_LEFT_KNEE:
 					super.copyModelAngles(this.bipedLeftLeg, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_RIGHT_FOOT:
+				case Ke2Gems.GEMSTONE_RIGHT_FOOT:
 					super.copyModelAngles(this.bipedRightLeg, this.bipedGems.get(i));
 					break;
-				case AmGems.GEMSTONE_LEFT_FOOT:
+				case Ke2Gems.GEMSTONE_LEFT_FOOT:
 					super.copyModelAngles(this.bipedLeftLeg, this.bipedGems.get(i));
 					break;
 				}

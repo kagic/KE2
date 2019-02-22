@@ -2,7 +2,7 @@ package mod.kagic.entity;
 
 import java.util.Iterator;
 
-import mod.kagic.init.AmGems;
+import mod.kagic.init.Ke2Gems;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -114,7 +114,7 @@ public abstract class EntityGemFusion extends EntityGem {
 		while (it.hasNext()) {
 			NBTTagCompound compound = this.getFusionComponents().getCompoundTag(it.next());
 			try {
-				EntityGem gem = AmGems.GEM_REGISTRY.get(new ResourceLocation(compound.getString("Species"))).getDeclaredConstructor(World.class).newInstance(this.world);
+				EntityGem gem = Ke2Gems.GEM_REGISTRY.get(new ResourceLocation(compound.getString("Species"))).getDeclaredConstructor(World.class).newInstance(this.world);
 				gem.readFromNBT(compound);
 				gem.setPosition(this.posX, this.posY, this.posZ);
 				gem.setHealth(gem.getMaxHealth());

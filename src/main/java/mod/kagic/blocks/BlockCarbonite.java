@@ -2,8 +2,8 @@ package mod.kagic.blocks;
 
 import java.util.Random;
 
-import mod.kagic.init.AmBlocks;
-import mod.kagic.init.AmGems;
+import mod.kagic.init.Ke2Blocks;
+import mod.kagic.init.Ke2Gems;
 import mod.kagic.init.KAGIC;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
@@ -102,78 +102,78 @@ public class BlockCarbonite extends Block {
     }
     public IBlockState getUnpoweredState() {
     	switch (this.color) {
-    	case AmGems.BASIC_WHITE:
-        	return AmBlocks.WHITE_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_ORANGE:
-        	return AmBlocks.ORANGE_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_MAGENTA:
-        	return AmBlocks.MAGENTA_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_LIGHTBLUE:
-        	return AmBlocks.LIGHTBLUE_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_YELLOW:
-        	return AmBlocks.YELLOW_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_LIME:
-        	return AmBlocks.LIME_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_PINK:
-        	return AmBlocks.PINK_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_GRAY:
-        	return AmBlocks.GRAY_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_SILVER:
-        	return AmBlocks.SILVER_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_CYAN:
-        	return AmBlocks.CYAN_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_PURPLE:
-        	return AmBlocks.PURPLE_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_BLUE:
-        	return AmBlocks.BLUE_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_BROWN:
-        	return AmBlocks.BROWN_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_GREEN:
-        	return AmBlocks.GREEN_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_RED:
-        	return AmBlocks.RED_CARBONITE_OFF.getDefaultState();
-    	case AmGems.BASIC_BLACK:
-        	return AmBlocks.BLACK_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_WHITE:
+        	return Ke2Blocks.WHITE_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_ORANGE:
+        	return Ke2Blocks.ORANGE_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_MAGENTA:
+        	return Ke2Blocks.MAGENTA_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_LIGHTBLUE:
+        	return Ke2Blocks.LIGHTBLUE_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_YELLOW:
+        	return Ke2Blocks.YELLOW_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_LIME:
+        	return Ke2Blocks.LIME_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_PINK:
+        	return Ke2Blocks.PINK_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_GRAY:
+        	return Ke2Blocks.GRAY_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_SILVER:
+        	return Ke2Blocks.SILVER_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_CYAN:
+        	return Ke2Blocks.CYAN_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_PURPLE:
+        	return Ke2Blocks.PURPLE_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_BLUE:
+        	return Ke2Blocks.BLUE_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_BROWN:
+        	return Ke2Blocks.BROWN_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_GREEN:
+        	return Ke2Blocks.GREEN_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_RED:
+        	return Ke2Blocks.RED_CARBONITE_OFF.getDefaultState();
+    	case Ke2Gems.BASIC_BLACK:
+        	return Ke2Blocks.BLACK_CARBONITE_OFF.getDefaultState();
         default:
-        	return AmBlocks.WHITE_CARBONITE_OFF.getDefaultState();
+        	return Ke2Blocks.WHITE_CARBONITE_OFF.getDefaultState();
     	}
     }
     public IBlockState getPoweredState() {
     	switch (this.color) {
-    	case AmGems.BASIC_WHITE:
-        	return AmBlocks.WHITE_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_ORANGE:
-        	return AmBlocks.ORANGE_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_MAGENTA:
-        	return AmBlocks.MAGENTA_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_LIGHTBLUE:
-        	return AmBlocks.LIGHTBLUE_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_YELLOW:
-        	return AmBlocks.YELLOW_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_LIME:
-        	return AmBlocks.LIME_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_PINK:
-        	return AmBlocks.PINK_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_GRAY:
-        	return AmBlocks.GRAY_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_SILVER:
-        	return AmBlocks.SILVER_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_CYAN:
-        	return AmBlocks.CYAN_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_PURPLE:
-        	return AmBlocks.PURPLE_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_BLUE:
-        	return AmBlocks.BLUE_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_BROWN:
-        	return AmBlocks.BROWN_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_GREEN:
-        	return AmBlocks.GREEN_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_RED:
-        	return AmBlocks.RED_CARBONITE_ON.getDefaultState();
-    	case AmGems.BASIC_BLACK:
-        	return AmBlocks.BLACK_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_WHITE:
+        	return Ke2Blocks.WHITE_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_ORANGE:
+        	return Ke2Blocks.ORANGE_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_MAGENTA:
+        	return Ke2Blocks.MAGENTA_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_LIGHTBLUE:
+        	return Ke2Blocks.LIGHTBLUE_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_YELLOW:
+        	return Ke2Blocks.YELLOW_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_LIME:
+        	return Ke2Blocks.LIME_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_PINK:
+        	return Ke2Blocks.PINK_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_GRAY:
+        	return Ke2Blocks.GRAY_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_SILVER:
+        	return Ke2Blocks.SILVER_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_CYAN:
+        	return Ke2Blocks.CYAN_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_PURPLE:
+        	return Ke2Blocks.PURPLE_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_BLUE:
+        	return Ke2Blocks.BLUE_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_BROWN:
+        	return Ke2Blocks.BROWN_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_GREEN:
+        	return Ke2Blocks.GREEN_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_RED:
+        	return Ke2Blocks.RED_CARBONITE_ON.getDefaultState();
+    	case Ke2Gems.BASIC_BLACK:
+        	return Ke2Blocks.BLACK_CARBONITE_ON.getDefaultState();
         default:
-        	return AmBlocks.WHITE_CARBONITE_ON.getDefaultState();
+        	return Ke2Blocks.WHITE_CARBONITE_ON.getDefaultState();
     	}
     }
 }

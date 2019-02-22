@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.UUID;
 
 import mod.kagic.entity.EntityGem;
-import mod.kagic.init.AmBlocks;
-import mod.kagic.init.AmGems;
+import mod.kagic.init.Ke2Blocks;
+import mod.kagic.init.Ke2Gems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,10 +17,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class InjectorResult {
-	public static final Block[] RED_DRAIN_BLOCKS = new Block[] { AmBlocks.LIGHT_RED_DRAIN_BLOCK, AmBlocks.BANDED_RED_DRAIN_BLOCK, AmBlocks.DARK_RED_DRAIN_BLOCK, AmBlocks.ERODED_RED_DRAIN_BLOCK };
-	public static final Block[] ORANGE_DRAIN_BLOCKS = new Block[] { AmBlocks.LIGHT_ORANGE_DRAIN_BLOCK, AmBlocks.BANDED_ORANGE_DRAIN_BLOCK, AmBlocks.DARK_ORANGE_DRAIN_BLOCK, AmBlocks.ERODED_ORANGE_DRAIN_BLOCK };
-	public static final Block[] PURPLE_DRAIN_BLOCKS = new Block[] { AmBlocks.LIGHT_PURPLE_DRAIN_BLOCK, AmBlocks.BANDED_PURPLE_DRAIN_BLOCK, AmBlocks.DARK_PURPLE_DRAIN_BLOCK, AmBlocks.ERODED_PURPLE_DRAIN_BLOCK };
-	public static final Block[] BLUE_DRAIN_BLOCKS = new Block[] { AmBlocks.LIGHT_BLUE_DRAIN_BLOCK, AmBlocks.BANDED_BLUE_DRAIN_BLOCK, AmBlocks.DARK_BLUE_DRAIN_BLOCK, AmBlocks.ERODED_BLUE_DRAIN_BLOCK };
+	public static final Block[] RED_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_RED_DRAIN_BLOCK, Ke2Blocks.BANDED_RED_DRAIN_BLOCK, Ke2Blocks.DARK_RED_DRAIN_BLOCK, Ke2Blocks.ERODED_RED_DRAIN_BLOCK };
+	public static final Block[] ORANGE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_ORANGE_DRAIN_BLOCK, Ke2Blocks.BANDED_ORANGE_DRAIN_BLOCK, Ke2Blocks.DARK_ORANGE_DRAIN_BLOCK, Ke2Blocks.ERODED_ORANGE_DRAIN_BLOCK };
+	public static final Block[] PURPLE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_PURPLE_DRAIN_BLOCK, Ke2Blocks.BANDED_PURPLE_DRAIN_BLOCK, Ke2Blocks.DARK_PURPLE_DRAIN_BLOCK, Ke2Blocks.ERODED_PURPLE_DRAIN_BLOCK };
+	public static final Block[] BLUE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_BLUE_DRAIN_BLOCK, Ke2Blocks.BANDED_BLUE_DRAIN_BLOCK, Ke2Blocks.DARK_BLUE_DRAIN_BLOCK, Ke2Blocks.ERODED_BLUE_DRAIN_BLOCK };
 	private final EntityGem gem;
 	private final BlockPos position;
 	private final ExitHole exitHole;
@@ -55,7 +55,7 @@ public class InjectorResult {
 		return InjectorResult.create(world, pos, generate, new UUID(0, 0), -1);
 	}
 	public static InjectorResult create(World world, BlockPos pos, boolean generate, UUID owner, int color) {
-		HashMap<ResourceLocation, ArrayList<CruxEntry>> cruxes = AmGems.CRUXES;
+		HashMap<ResourceLocation, ArrayList<CruxEntry>> cruxes = Ke2Gems.CRUXES;
 		ArrayList<IBlockState> image = new ArrayList<IBlockState>();
 		for (int y = -2; y < 2; ++y) {
 			for (int x = -2; x < 2; ++x) {
@@ -97,7 +97,7 @@ public class InjectorResult {
 		}
 		EntityGem gem = null;
 		try {
-			gem = (EntityGem)(AmGems.GEM_REGISTRY.get(key).getConstructors()[0].newInstance(world));
+			gem = (EntityGem)(Ke2Gems.GEM_REGISTRY.get(key).getConstructors()[0].newInstance(world));
 		} catch (Exception e) {
 			System.out.println("Gem called '" + key + "' failed to load!");
 			return null;
@@ -155,13 +155,13 @@ public class InjectorResult {
 			}
 			if (material == Material.PLANTS) {
 				if (world.getBlockState(pos).getBlock() == Blocks.WATERLILY) {
-					world.setBlockState(pos, AmBlocks.MOSS_ROSE.getDefaultState());
+					world.setBlockState(pos, Ke2Blocks.MOSS_ROSE.getDefaultState());
 					for (int x = -1; x <= 1; ++x) {
 						for (int z = -1; z <= 1; ++z) {
 							if (world.rand.nextBoolean()) {
 								BlockPos check = pos.add(x, -1, z);
 								if (world.getBlockState(check).getMaterial() == Material.WATER) {
-									world.setBlockState(check, AmBlocks.MAGIC_MOSS.getDefaultState());
+									world.setBlockState(check, Ke2Blocks.MAGIC_MOSS.getDefaultState());
 								}
 							}
 						}
@@ -178,17 +178,17 @@ public class InjectorResult {
 	}
 	public static IBlockState getDrainLily(World world, BlockPos pos) {
 		if (world.provider.isNether()) {
-			return AmBlocks.NETHER_DRAIN_LILY.getDefaultState();
+			return Ke2Blocks.NETHER_DRAIN_LILY.getDefaultState();
 		}
 		else {
 			float temp = world.getBiome(pos).getTemperature(pos);
 			if (world.canSnowAt(pos, false)) {
-				return AmBlocks.ALPINE_DRAIN_LILY.getDefaultState();
+				return Ke2Blocks.ALPINE_DRAIN_LILY.getDefaultState();
 			}
 			else if (temp > 0.95) {
-				return AmBlocks.DESERT_DRAIN_LILY.getDefaultState();
+				return Ke2Blocks.DESERT_DRAIN_LILY.getDefaultState();
 			}
 		}
-		return AmBlocks.VALLEY_DRAIN_LILY.getDefaultState();
+		return Ke2Blocks.VALLEY_DRAIN_LILY.getDefaultState();
 	}
 }

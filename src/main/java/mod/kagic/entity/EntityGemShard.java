@@ -1,6 +1,6 @@
 package mod.kagic.entity;
 
-import mod.kagic.init.AmItems;
+import mod.kagic.init.Ke2Items;
 import mod.kagic.init.KAGIC;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -41,22 +41,22 @@ public class EntityGemShard extends EntityMob {
 	private static final DataParameter<NBTTagCompound> ITEM = EntityDataManager.<NBTTagCompound>createKey(EntityGemShard.class, DataSerializers.COMPOUND_TAG);
 	private static final DataParameter<Integer> COLOR = EntityDataManager.<Integer>createKey(EntityGemShard.class, DataSerializers.VARINT);
 	public static final ItemStack[] ITEMS = new ItemStack[] {
-		new ItemStack(AmItems.WHITE_GEM_SHARD),
-		new ItemStack(AmItems.ORANGE_GEM_SHARD),
-		new ItemStack(AmItems.MAGENTA_GEM_SHARD),
-		new ItemStack(AmItems.LIGHTBLUE_GEM_SHARD),
-		new ItemStack(AmItems.YELLOW_GEM_SHARD),
-		new ItemStack(AmItems.LIME_GEM_SHARD),
-		new ItemStack(AmItems.PINK_GEM_SHARD),
-		new ItemStack(AmItems.GRAY_GEM_SHARD),
-		new ItemStack(AmItems.SILVER_GEM_SHARD),
-		new ItemStack(AmItems.CYAN_GEM_SHARD),
-		new ItemStack(AmItems.PURPLE_GEM_SHARD),
-		new ItemStack(AmItems.BLUE_GEM_SHARD),
-		new ItemStack(AmItems.BROWN_GEM_SHARD),
-		new ItemStack(AmItems.GREEN_GEM_SHARD),
-		new ItemStack(AmItems.RED_GEM_SHARD),
-		new ItemStack(AmItems.BLACK_GEM_SHARD)
+		new ItemStack(Ke2Items.WHITE_GEM_SHARD),
+		new ItemStack(Ke2Items.ORANGE_GEM_SHARD),
+		new ItemStack(Ke2Items.MAGENTA_GEM_SHARD),
+		new ItemStack(Ke2Items.LIGHTBLUE_GEM_SHARD),
+		new ItemStack(Ke2Items.YELLOW_GEM_SHARD),
+		new ItemStack(Ke2Items.LIME_GEM_SHARD),
+		new ItemStack(Ke2Items.PINK_GEM_SHARD),
+		new ItemStack(Ke2Items.GRAY_GEM_SHARD),
+		new ItemStack(Ke2Items.SILVER_GEM_SHARD),
+		new ItemStack(Ke2Items.CYAN_GEM_SHARD),
+		new ItemStack(Ke2Items.PURPLE_GEM_SHARD),
+		new ItemStack(Ke2Items.BLUE_GEM_SHARD),
+		new ItemStack(Ke2Items.BROWN_GEM_SHARD),
+		new ItemStack(Ke2Items.GREEN_GEM_SHARD),
+		new ItemStack(Ke2Items.RED_GEM_SHARD),
+		new ItemStack(Ke2Items.BLACK_GEM_SHARD)
 	};
 	public static final int[] PARTICLE_COLORS = new int[] {
 		0xFFFFFF,

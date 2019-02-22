@@ -3,7 +3,7 @@ package mod.kagic.entity.vehicle;
 import java.util.List;
 
 import mod.kagic.entity.EntityGemMachine;
-import mod.kagic.init.AmItems;
+import mod.kagic.init.Ke2Items;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.entity.Entity;
@@ -78,7 +78,7 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 		if (!this.world.isRemote) {
 			ItemStack stack = player.getHeldItem(hand);
 			if (player.isSneaking()) {
-				if (stack.getItem() == AmItems.GEM_STAFF) {
+				if (stack.getItem() == Ke2Items.GEM_STAFF) {
 					if (this.getPlayerBeingFollowed() != null && this.getPlayerBeingFollowed().isEntityEqual(player)) {
 						this.say(player, this.getName() + " will not follow you.");
 						this.setPlayerBeingFollowed(null);

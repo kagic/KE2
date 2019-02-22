@@ -2,7 +2,7 @@ package mod.kagic.blocks;
 
 import java.util.Random;
 
-import mod.kagic.init.AmBlocks;
+import mod.kagic.init.Ke2Blocks;
 import mod.kagic.init.KAGIC;
 import mod.kagic.tileentity.TileEntityWailingStone;
 import net.minecraft.block.BlockFalling;
@@ -102,8 +102,8 @@ public class BlockWailingStone extends BlockFalling implements ITileEntityProvid
 	}
 	public static void setState(boolean active, World world, BlockPos pos) {
 		IBlockState state = world.getBlockState(pos);
-		world.setBlockState(pos, AmBlocks.WAILING_STONE.getDefaultState().withProperty(FACING, state.getValue(FACING)), 3);
-		world.setBlockState(pos, AmBlocks.WAILING_STONE.getDefaultState().withProperty(FACING, state.getValue(FACING)), 3);
+		world.setBlockState(pos, Ke2Blocks.WAILING_STONE.getDefaultState().withProperty(FACING, state.getValue(FACING)), 3);
+		world.setBlockState(pos, Ke2Blocks.WAILING_STONE.getDefaultState().withProperty(FACING, state.getValue(FACING)), 3);
 	}
 	@Override
 	public IBlockState getStateFromMeta(int meta) {

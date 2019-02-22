@@ -9,13 +9,13 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class AmWorldGen implements IWorldGenerator {
+public class Ke2WorldGen implements IWorldGenerator {
 	public enum Type { ORES, STRUCTURES, OTHER }
 	public Type type;
 	public static final void register() {
-		GameRegistry.registerWorldGenerator(new AmWorldGen(Type.ORES), 2);
+		GameRegistry.registerWorldGenerator(new Ke2WorldGen(Type.ORES), 2);
 	}
-	public AmWorldGen(Type type) {
+	public Ke2WorldGen(Type type) {
 		this.type = type;
 	}
 	@Override

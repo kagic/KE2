@@ -29,38 +29,38 @@ public class KAGIC {
 		public ItemStack getTabIconItem() {
 			int index = (int)(System.currentTimeMillis() / 1000L) % 16;
 			switch (index) {
-			case AmGems.BASIC_WHITE:
-				return new ItemStack(AmItems.WHITE_GEM_SHARD);
-			case AmGems.BASIC_ORANGE:
-				return new ItemStack(AmItems.ORANGE_GEM_SHARD);
-			case AmGems.BASIC_MAGENTA:
-				return new ItemStack(AmItems.MAGENTA_GEM_SHARD);
-			case AmGems.BASIC_LIGHTBLUE:
-				return new ItemStack(AmItems.LIGHTBLUE_GEM_SHARD);
-			case AmGems.BASIC_YELLOW:
-				return new ItemStack(AmItems.YELLOW_GEM_SHARD);
-			case AmGems.BASIC_LIME:
-				return new ItemStack(AmItems.LIME_GEM_SHARD);
-			case AmGems.BASIC_PINK:
-				return new ItemStack(AmItems.PINK_GEM_SHARD);
-			case AmGems.BASIC_GRAY:
-				return new ItemStack(AmItems.GRAY_GEM_SHARD);
-			case AmGems.BASIC_SILVER:
-				return new ItemStack(AmItems.SILVER_GEM_SHARD);
-			case AmGems.BASIC_CYAN:
-				return new ItemStack(AmItems.CYAN_GEM_SHARD);
-			case AmGems.BASIC_PURPLE:
-				return new ItemStack(AmItems.PURPLE_GEM_SHARD);
-			case AmGems.BASIC_BLUE:
-				return new ItemStack(AmItems.BLUE_GEM_SHARD);
-			case AmGems.BASIC_BROWN:
-				return new ItemStack(AmItems.BROWN_GEM_SHARD);
-			case AmGems.BASIC_GREEN:
-				return new ItemStack(AmItems.GREEN_GEM_SHARD);
-			case AmGems.BASIC_RED:
-				return new ItemStack(AmItems.RED_GEM_SHARD);
+			case Ke2Gems.BASIC_WHITE:
+				return new ItemStack(Ke2Items.WHITE_GEM_SHARD);
+			case Ke2Gems.BASIC_ORANGE:
+				return new ItemStack(Ke2Items.ORANGE_GEM_SHARD);
+			case Ke2Gems.BASIC_MAGENTA:
+				return new ItemStack(Ke2Items.MAGENTA_GEM_SHARD);
+			case Ke2Gems.BASIC_LIGHTBLUE:
+				return new ItemStack(Ke2Items.LIGHTBLUE_GEM_SHARD);
+			case Ke2Gems.BASIC_YELLOW:
+				return new ItemStack(Ke2Items.YELLOW_GEM_SHARD);
+			case Ke2Gems.BASIC_LIME:
+				return new ItemStack(Ke2Items.LIME_GEM_SHARD);
+			case Ke2Gems.BASIC_PINK:
+				return new ItemStack(Ke2Items.PINK_GEM_SHARD);
+			case Ke2Gems.BASIC_GRAY:
+				return new ItemStack(Ke2Items.GRAY_GEM_SHARD);
+			case Ke2Gems.BASIC_SILVER:
+				return new ItemStack(Ke2Items.SILVER_GEM_SHARD);
+			case Ke2Gems.BASIC_CYAN:
+				return new ItemStack(Ke2Items.CYAN_GEM_SHARD);
+			case Ke2Gems.BASIC_PURPLE:
+				return new ItemStack(Ke2Items.PURPLE_GEM_SHARD);
+			case Ke2Gems.BASIC_BLUE:
+				return new ItemStack(Ke2Items.BLUE_GEM_SHARD);
+			case Ke2Gems.BASIC_BROWN:
+				return new ItemStack(Ke2Items.BROWN_GEM_SHARD);
+			case Ke2Gems.BASIC_GREEN:
+				return new ItemStack(Ke2Items.GREEN_GEM_SHARD);
+			case Ke2Gems.BASIC_RED:
+				return new ItemStack(Ke2Items.RED_GEM_SHARD);
 			default:
-				return new ItemStack(AmItems.BLACK_GEM_SHARD);
+				return new ItemStack(Ke2Items.BLACK_GEM_SHARD);
 			}
 		}
 	};
@@ -73,21 +73,21 @@ public class KAGIC {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-    	AmWorldGen.register();
-    	AmRecipes.register();
-    	AmEntities.register(0);
+    	Ke2WorldGen.register();
+    	Ke2Recipes.register();
+    	Ke2Entities.register(0);
     }
     @EventHandler
     public void init(FMLInitializationEvent event) {
-    	AmHandles.register();
-    	AmTileEntities.register();
-    	AmEntities.register(1);
+    	Ke2Handles.register();
+    	Ke2TileEntities.register();
+    	Ke2Entities.register(1);
     }
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-    	AmConfigs.register();
-    	AmSkills.register();
-    	AmCruxes.register();
+    	Ke2Configs.register();
+    	Ke2Skills.register();
+    	Ke2Cruxes.register();
     }
     @EventHandler
     public void serverStarting(FMLServerStartingEvent e) {
@@ -98,19 +98,19 @@ public class KAGIC {
 	public static class RegistrationHandler {
     	@SubscribeEvent
 		public static void registerEnchants(RegistryEvent.Register<Enchantment> event) {
-			AmEnchants.register(event);
+			Ke2Enchants.register(event);
 		}
     	@SubscribeEvent
 		public static void registerItems(RegistryEvent.Register<Item> event) {
-			AmItems.register(event);
+			Ke2Items.register(event);
 		}
     	@SubscribeEvent
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
-			AmBlocks.register(event);
+			Ke2Blocks.register(event);
 		}
 		@SubscribeEvent
 		public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
-			AmSounds.register(event);
+			Ke2Sounds.register(event);
 		}
 	}
 }

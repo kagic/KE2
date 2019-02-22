@@ -8,7 +8,7 @@ import mod.kagic.injection.CruxEntry;
 import mod.kagic.items.ItemGem;
 import net.minecraft.util.ResourceLocation;
 
-public class AmGems {
+public class Ke2Gems {
 	public static final HashMap<ResourceLocation, Class<? extends EntityGem>> GEM_REGISTRY = new HashMap<ResourceLocation, Class<? extends EntityGem>>();
 	public static final HashMap<Class<? extends EntityGem>, ResourceLocation> GEM_TABLE = new HashMap<Class<? extends EntityGem>, ResourceLocation>();
 	public static final HashMap<ResourceLocation, ArrayList<CruxEntry>> CRUXES = new HashMap<ResourceLocation, ArrayList<CruxEntry>>();
@@ -178,8 +178,8 @@ public class AmGems {
 	public static ItemGem setGemItem(Class<? extends EntityGem> entity, String name) {
 		ItemGem normal = new ItemGem(entity, name, false);
 		ItemGem cracked = new ItemGem(entity, name, true);
-		AmGems.GEM_ITEMS.add(normal); AmGems.GEM_ITEMS.add(cracked);
-		AmGems.NORMAL_TO_CRACKED.put(normal, cracked);
+		Ke2Gems.GEM_ITEMS.add(normal); Ke2Gems.GEM_ITEMS.add(cracked);
+		Ke2Gems.NORMAL_TO_CRACKED.put(normal, cracked);
 		return normal;
 	}
 }

@@ -23,7 +23,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class AmEntities {
+public class Ke2Entities {
 	private static int currentID = 0;
 	public static void register(int pass) {
 		registerEntity("injector", EntityInjector.class, RenderInjector::new, pass);
@@ -33,16 +33,16 @@ public class AmEntities {
 		registerEntity("hand_ship", EntityHandShip.class, RenderHandShip::new, pass);
 	}
 	public static <T extends EntityGem> void registerGem(String name, Class<T> entity, IRenderFactory<T> renderer, int back, int fore, ArrayList<CruxEntry> cruxes, int pass) {
-		AmEntities.registerMob(name, entity, renderer, back, fore, pass);
+		Ke2Entities.registerMob(name, entity, renderer, back, fore, pass);
 		if (pass > 0) {
-			AmGems.registerGemEntity(new ResourceLocation("kagic:" + name), entity, cruxes);
+			Ke2Gems.registerGemEntity(new ResourceLocation("kagic:" + name), entity, cruxes);
 		}
 	}
 	public static <T extends EntityGem> void registerGem(String name, Class<T> entity, IRenderFactory<T> renderer, int pass) {
-		AmEntities.registerEntity(name, entity, renderer, pass);
+		Ke2Entities.registerEntity(name, entity, renderer, pass);
 	}
 	public static <T extends EntityLiving> void registerMob(String name, Class<T> entity, IRenderFactory<T> renderer, int back, int fore, int pass) {
-		AmEntities.registerEntity(name, entity, renderer, pass);
+		Ke2Entities.registerEntity(name, entity, renderer, pass);
 		if (pass > 0) {
 			EntityRegistry.registerEgg(new ResourceLocation("kagic:" + name), back, fore);
 		}
@@ -50,7 +50,7 @@ public class AmEntities {
 	public static <T extends Entity> void registerEntity(String name, Class<T> entity, IRenderFactory<T> renderer, int pass) {
 		if (pass > 0) {
 			EntityRegistry.registerModEntity(new ResourceLocation("kagic:" + name), entity, name, currentID, KAGIC.instance, 256, 1, true);
-			++AmEntities.currentID;
+			++Ke2Entities.currentID;
 		}
 		else if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			RenderingRegistry.registerEntityRenderingHandler(entity, renderer);

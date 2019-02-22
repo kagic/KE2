@@ -3,7 +3,7 @@ package mod.kagic.entity.machine;
 import java.util.List;
 
 import mod.kagic.entity.EntityGem;
-import mod.kagic.init.AmSounds;
+import mod.kagic.init.Ke2Sounds;
 import mod.kagic.items.ItemGem;
 import mod.kagic.items.ItemGemDestabilizer;
 import net.minecraft.entity.EntityLiving;
@@ -170,12 +170,12 @@ public class EntityBubble extends EntityLiving {
 		return this.dataManager.get(COLOR);
 	}
 	public void playBubbleSound() {
-		this.playSound(AmSounds.BUBBLE_BUBBLE, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+		this.playSound(Ke2Sounds.BUBBLE_BUBBLE, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 	}
 	public void playPopSound() {
-		this.playSound(AmSounds.BUBBLE_POP, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+		this.playSound(Ke2Sounds.BUBBLE_POP, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 	}
 	public void playSendSound() {
-		this.playSound(AmSounds.BUBBLE_SEND, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+		this.playSound(Ke2Sounds.BUBBLE_SEND, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 	}
 }

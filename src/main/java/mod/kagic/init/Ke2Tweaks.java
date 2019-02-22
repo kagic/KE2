@@ -1,6 +1,6 @@
 package mod.kagic.init;
 
-public class AmTweaks {
+public class Ke2Tweaks {
 	/*
 	public static void applyGemTweaks(EntityGem gem) {
 		if (gem instanceof EntityGem) {

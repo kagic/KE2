@@ -2,7 +2,7 @@ package mod.kagic.tileentity;
 
 import java.util.List;
 
-import mod.kagic.init.AmSounds;
+import mod.kagic.init.Ke2Sounds;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,7 +36,7 @@ public class TileEntityWailingStone extends TileEntity implements ITickable {
 				if (this.world.isAirBlock(this.pos.west())) {
 					volume += 0.25F;
 				}
-				this.world.playSound(null, this.pos, AmSounds.WAILING_STONE, SoundCategory.BLOCKS, volume, 1.0F);
+				this.world.playSound(null, this.pos, Ke2Sounds.WAILING_STONE, SoundCategory.BLOCKS, volume, 1.0F);
 				List<EntityLivingBase> entities = this.world.<EntityLivingBase>getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(this.pos).grow(8.0D));
 				for (EntityLivingBase entity : entities) {
 					if (entity instanceof EntityPlayer) {

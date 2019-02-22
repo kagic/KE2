@@ -4,7 +4,7 @@ import mod.kagic.enchant.EnchantShard;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraftforge.event.RegistryEvent;
 
-public class AmEnchants {
+public class Ke2Enchants {
 	public static final EnchantShard WHITE_GEM_SHARD = new EnchantShard(0);
 	public static final EnchantShard ORANGE_GEM_SHARD = new EnchantShard(1);
 	public static final EnchantShard MAGENTA_GEM_SHARD = new EnchantShard(2);

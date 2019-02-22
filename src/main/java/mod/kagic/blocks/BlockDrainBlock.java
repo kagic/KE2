@@ -2,7 +2,7 @@ package mod.kagic.blocks;
 
 import java.util.Random;
 
-import mod.kagic.init.AmBlocks;
+import mod.kagic.init.Ke2Blocks;
 import mod.kagic.init.KAGIC;
 import mod.kagic.injection.InjectorResult;
 import net.minecraft.block.Block;
@@ -113,15 +113,15 @@ public class BlockDrainBlock extends Block {
     public IBlockState getErodedState() {
     	switch (this.color) {
     	case "purple":
-    		return AmBlocks.ERODED_PURPLE_DRAIN_BLOCK.getDefaultState();
+    		return Ke2Blocks.ERODED_PURPLE_DRAIN_BLOCK.getDefaultState();
     	case "orange":
-    		return AmBlocks.ERODED_ORANGE_DRAIN_BLOCK.getDefaultState();
+    		return Ke2Blocks.ERODED_ORANGE_DRAIN_BLOCK.getDefaultState();
     	case "blue":
-    		return AmBlocks.ERODED_BLUE_DRAIN_BLOCK.getDefaultState();
+    		return Ke2Blocks.ERODED_BLUE_DRAIN_BLOCK.getDefaultState();
     	case "red":
-    		return AmBlocks.ERODED_RED_DRAIN_BLOCK.getDefaultState();
+    		return Ke2Blocks.ERODED_RED_DRAIN_BLOCK.getDefaultState();
     	default:
-    		return AmBlocks.ERODED_PURPLE_DRAIN_BLOCK.getDefaultState();
+    		return Ke2Blocks.ERODED_PURPLE_DRAIN_BLOCK.getDefaultState();
     	}
     }
 }

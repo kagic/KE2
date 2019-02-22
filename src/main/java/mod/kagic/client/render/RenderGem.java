@@ -3,7 +3,7 @@ package mod.kagic.client.render;
 import java.util.Iterator;
 
 import mod.kagic.entity.EntityGem;
-import mod.kagic.init.AmConfigs;
+import mod.kagic.init.Ke2Configs;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderBiped;
@@ -34,7 +34,7 @@ public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
 	}
 	@Override
 	protected void renderEntityName(T entity, double x, double y, double z, String name, double distanceSq) {
-		if (AmConfigs.showDescriptors) {
+		if (Ke2Configs.showDescriptors) {
 			this.renderLivingLabel(entity, "(" + entity.getDescriptor() + ")", x, y, z, 64);
 			this.renderLivingLabel(entity, name, x, y + 0.25, z, 64);
 		}

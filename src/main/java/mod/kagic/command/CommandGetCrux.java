@@ -2,7 +2,7 @@ package mod.kagic.command;
 
 import java.util.ArrayList;
 
-import mod.kagic.init.AmGems;
+import mod.kagic.init.Ke2Gems;
 import mod.kagic.injection.CruxEntry;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.state.IBlockState;
@@ -32,7 +32,7 @@ public class CommandGetCrux extends CommandBase {
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		if (args.length > 0) {
 			try {
-				ArrayList<CruxEntry> cruxes = AmGems.CRUXES.get(new ResourceLocation(args[0]));
+				ArrayList<CruxEntry> cruxes = Ke2Gems.CRUXES.get(new ResourceLocation(args[0]));
 				ArrayList<String> entries = new ArrayList<String>();
 				String message = "";
 				for (CruxEntry crux : cruxes) {

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import mod.kagic.entity.EntityGemMachine;
-import mod.kagic.init.AmBlocks;
-import mod.kagic.init.AmItems;
+import mod.kagic.init.Ke2Blocks;
+import mod.kagic.init.Ke2Items;
 import net.minecraft.block.Block;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -76,7 +76,7 @@ public class EntityInjector extends EntityGemMachine {
 	public boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote) {
 			ItemStack stack = player.getHeldItem(hand);
-			if (stack.getItem() == AmItems.GEM_STAFF) {
+			if (stack.getItem() == Ke2Items.GEM_STAFF) {
 				if (player.isSneaking()) {
 					this.say(player, this.getName() + " can produce " + this.getSeedCount() + " gems.");
 				}
@@ -123,7 +123,7 @@ public class EntityInjector extends EntityGemMachine {
 			this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.ANVIL)), 0);
 			this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.DISPENSER)), 0);
 			this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.HOPPER)), 0);
-			this.entityDropItem(new ItemStack(Item.getItemFromBlock(AmBlocks.GEM_SEED), this.getSeedCount()), 0);
+			this.entityDropItem(new ItemStack(Item.getItemFromBlock(Ke2Blocks.GEM_SEED), this.getSeedCount()), 0);
 		}
 		super.onDeath(cause);
 	}
@@ -131,7 +131,7 @@ public class EntityInjector extends EntityGemMachine {
 		return this.getPlayerBeingFollowed() == null && this.getSeedCount() > 0;
 	}
 	public boolean isGemSeed(ItemStack stack) {
-		return Block.getBlockFromItem(stack.getItem()) == AmBlocks.GEM_SEED;
+		return Block.getBlockFromItem(stack.getItem()) == Ke2Blocks.GEM_SEED;
 	}
 	public UUID getLatestOwnerID(boolean remove) {
 		if (this.latestOwnerIDs.isEmpty()) {

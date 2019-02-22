@@ -4,7 +4,7 @@ import java.util.List;
 
 import mod.kagic.entity.EntityGem;
 import mod.kagic.entity.machine.EntityBubble;
-import mod.kagic.init.AmItems;
+import mod.kagic.init.Ke2Items;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -17,7 +17,7 @@ public class HandleBubbling {
 			List<EntityItem> items = e.getEntityPlayer().world.<EntityItem>getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(e.getPos()).grow(1, 1, 1));
 			for (EntityItem item : items) {
 				if (!item.isDead) {
-					if (e.getItemStack().getItem() == AmItems.GEM_STAFF) {
+					if (e.getItemStack().getItem() == Ke2Items.GEM_STAFF) {
 						List<EntityGem> list = e.getEntityPlayer().world.<EntityGem>getEntitiesWithinAABB(EntityGem.class, e.getEntityPlayer().getEntityBoundingBox().grow(4, 4, 4));
 						double distance = Double.MAX_VALUE;
 						EntityGem gem = null;

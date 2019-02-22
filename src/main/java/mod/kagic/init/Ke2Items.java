@@ -14,57 +14,57 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class AmItems {
+public class Ke2Items {
 	public static final ItemGemStaff GEM_STAFF = new ItemGemStaff();
 
-	public static final ItemGemDestabilizer WHITE_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_WHITE);
-	public static final ItemGemShard WHITE_GEM_SHARD = new ItemGemShard(AmGems.BASIC_WHITE);
-	public static final ItemGemDust WHITE_GEM_DUST = new ItemGemDust(AmGems.BASIC_WHITE);
-	public static final ItemGemDestabilizer ORANGE_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_ORANGE);
-	public static final ItemGemShard ORANGE_GEM_SHARD = new ItemGemShard(AmGems.BASIC_ORANGE);
-	public static final ItemGemDust ORANGE_GEM_DUST = new ItemGemDust(AmGems.BASIC_ORANGE);
-	public static final ItemGemDestabilizer MAGENTA_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_MAGENTA);
-	public static final ItemGemShard MAGENTA_GEM_SHARD = new ItemGemShard(AmGems.BASIC_MAGENTA);
-	public static final ItemGemDust MAGENTA_GEM_DUST = new ItemGemDust(AmGems.BASIC_MAGENTA);
-	public static final ItemGemDestabilizer LIGHTBLUE_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_LIGHTBLUE);
-	public static final ItemGemShard LIGHTBLUE_GEM_SHARD = new ItemGemShard(AmGems.BASIC_LIGHTBLUE);
-	public static final ItemGemDust LIGHTBLUE_GEM_DUST = new ItemGemDust(AmGems.BASIC_LIGHTBLUE);
-	public static final ItemGemDestabilizer YELLOW_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_YELLOW);
-	public static final ItemGemShard YELLOW_GEM_SHARD = new ItemGemShard(AmGems.BASIC_YELLOW);
-	public static final ItemGemDust YELLOW_GEM_DUST = new ItemGemDust(AmGems.BASIC_YELLOW);
-	public static final ItemGemDestabilizer LIME_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_LIME);
-	public static final ItemGemShard LIME_GEM_SHARD = new ItemGemShard(AmGems.BASIC_LIME);
-	public static final ItemGemDust LIME_GEM_DUST = new ItemGemDust(AmGems.BASIC_LIME);
-	public static final ItemGemDestabilizer PINK_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_PINK);
-	public static final ItemGemShard PINK_GEM_SHARD = new ItemGemShard(AmGems.BASIC_PINK);
-	public static final ItemGemDust PINK_GEM_DUST = new ItemGemDust(AmGems.BASIC_PINK);
-	public static final ItemGemDestabilizer GRAY_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_GRAY);
-	public static final ItemGemShard GRAY_GEM_SHARD = new ItemGemShard(AmGems.BASIC_GRAY);
-	public static final ItemGemDust GRAY_GEM_DUST = new ItemGemDust(AmGems.BASIC_GRAY);
-	public static final ItemGemDestabilizer SILVER_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_SILVER);
-	public static final ItemGemShard SILVER_GEM_SHARD = new ItemGemShard(AmGems.BASIC_SILVER);
-	public static final ItemGemDust SILVER_GEM_DUST = new ItemGemDust(AmGems.BASIC_SILVER);
-	public static final ItemGemDestabilizer CYAN_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_CYAN);
-	public static final ItemGemShard CYAN_GEM_SHARD = new ItemGemShard(AmGems.BASIC_CYAN);
-	public static final ItemGemDust CYAN_GEM_DUST = new ItemGemDust(AmGems.BASIC_CYAN);
-	public static final ItemGemDestabilizer PURPLE_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_PURPLE);
-	public static final ItemGemShard PURPLE_GEM_SHARD = new ItemGemShard(AmGems.BASIC_PURPLE);
-	public static final ItemGemDust PURPLE_GEM_DUST = new ItemGemDust(AmGems.BASIC_PURPLE);
-	public static final ItemGemDestabilizer BLUE_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_BLUE);
-	public static final ItemGemShard BLUE_GEM_SHARD = new ItemGemShard(AmGems.BASIC_BLUE);
-	public static final ItemGemDust BLUE_GEM_DUST = new ItemGemDust(AmGems.BASIC_BLUE);
-	public static final ItemGemDestabilizer BROWN_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_BROWN);
-	public static final ItemGemShard BROWN_GEM_SHARD = new ItemGemShard(AmGems.BASIC_BROWN);
-	public static final ItemGemDust BROWN_GEM_DUST = new ItemGemDust(AmGems.BASIC_BROWN);
-	public static final ItemGemDestabilizer GREEN_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_GREEN);
-	public static final ItemGemShard GREEN_GEM_SHARD = new ItemGemShard(AmGems.BASIC_GREEN);
-	public static final ItemGemDust GREEN_GEM_DUST = new ItemGemDust(AmGems.BASIC_GREEN);
-	public static final ItemGemDestabilizer RED_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_RED);
-	public static final ItemGemShard RED_GEM_SHARD = new ItemGemShard(AmGems.BASIC_RED);
-	public static final ItemGemDust RED_GEM_DUST = new ItemGemDust(AmGems.BASIC_RED);
-	public static final ItemGemDestabilizer BLACK_GEM_DESTABILIZER = new ItemGemDestabilizer(AmGems.BASIC_BLACK);
-	public static final ItemGemShard BLACK_GEM_SHARD = new ItemGemShard(AmGems.BASIC_BLACK);
-	public static final ItemGemDust BLACK_GEM_DUST = new ItemGemDust(AmGems.BASIC_BLACK);
+	public static final ItemGemDestabilizer WHITE_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_WHITE);
+	public static final ItemGemShard WHITE_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_WHITE);
+	public static final ItemGemDust WHITE_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_WHITE);
+	public static final ItemGemDestabilizer ORANGE_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_ORANGE);
+	public static final ItemGemShard ORANGE_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_ORANGE);
+	public static final ItemGemDust ORANGE_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_ORANGE);
+	public static final ItemGemDestabilizer MAGENTA_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_MAGENTA);
+	public static final ItemGemShard MAGENTA_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_MAGENTA);
+	public static final ItemGemDust MAGENTA_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_MAGENTA);
+	public static final ItemGemDestabilizer LIGHTBLUE_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_LIGHTBLUE);
+	public static final ItemGemShard LIGHTBLUE_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_LIGHTBLUE);
+	public static final ItemGemDust LIGHTBLUE_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_LIGHTBLUE);
+	public static final ItemGemDestabilizer YELLOW_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_YELLOW);
+	public static final ItemGemShard YELLOW_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_YELLOW);
+	public static final ItemGemDust YELLOW_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_YELLOW);
+	public static final ItemGemDestabilizer LIME_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_LIME);
+	public static final ItemGemShard LIME_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_LIME);
+	public static final ItemGemDust LIME_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_LIME);
+	public static final ItemGemDestabilizer PINK_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_PINK);
+	public static final ItemGemShard PINK_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_PINK);
+	public static final ItemGemDust PINK_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_PINK);
+	public static final ItemGemDestabilizer GRAY_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_GRAY);
+	public static final ItemGemShard GRAY_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_GRAY);
+	public static final ItemGemDust GRAY_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_GRAY);
+	public static final ItemGemDestabilizer SILVER_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_SILVER);
+	public static final ItemGemShard SILVER_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_SILVER);
+	public static final ItemGemDust SILVER_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_SILVER);
+	public static final ItemGemDestabilizer CYAN_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_CYAN);
+	public static final ItemGemShard CYAN_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_CYAN);
+	public static final ItemGemDust CYAN_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_CYAN);
+	public static final ItemGemDestabilizer PURPLE_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_PURPLE);
+	public static final ItemGemShard PURPLE_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_PURPLE);
+	public static final ItemGemDust PURPLE_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_PURPLE);
+	public static final ItemGemDestabilizer BLUE_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_BLUE);
+	public static final ItemGemShard BLUE_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_BLUE);
+	public static final ItemGemDust BLUE_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_BLUE);
+	public static final ItemGemDestabilizer BROWN_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_BROWN);
+	public static final ItemGemShard BROWN_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_BROWN);
+	public static final ItemGemDust BROWN_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_BROWN);
+	public static final ItemGemDestabilizer GREEN_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_GREEN);
+	public static final ItemGemShard GREEN_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_GREEN);
+	public static final ItemGemDust GREEN_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_GREEN);
+	public static final ItemGemDestabilizer RED_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_RED);
+	public static final ItemGemShard RED_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_RED);
+	public static final ItemGemDust RED_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_RED);
+	public static final ItemGemDestabilizer BLACK_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_BLACK);
+	public static final ItemGemShard BLACK_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_BLACK);
+	public static final ItemGemDust BLACK_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_BLACK);
 	
 	public static void register(RegistryEvent.Register<Item> event) {
 		registerItem(GEM_STAFF, new ResourceLocation("kagic:gem_staff"), event);
@@ -118,15 +118,15 @@ public class AmItems {
 		registerItem(BLACK_GEM_SHARD, new ResourceLocation("kagic:black_gem_shard"), event);
 		registerItem(BLACK_GEM_DUST, new ResourceLocation("kagic:black_gem_dust"), event);
 		
-		for (Item item : AmBlocks.ITEMS) {
+		for (Item item : Ke2Blocks.ITEMS) {
 			registerItem(item, null, event);
 		}
 	}
 	public static void registerGemItem(ItemGem normal, ItemGem cracked, ResourceLocation name, RegistryEvent.Register<Item> event) {
-		AmItems.registerItem(cracked, new ResourceLocation(name.getResourcePath(), "cracked_" + name.getResourceDomain()), event);
-		AmItems.registerItem(normal, name, event);
-		AmGems.NORMAL_TO_CRACKED.put(normal, cracked);
-		AmGems.CRACKED_TO_NORMAL.put(cracked, normal);
+		Ke2Items.registerItem(cracked, new ResourceLocation(name.getResourcePath(), "cracked_" + name.getResourceDomain()), event);
+		Ke2Items.registerItem(normal, name, event);
+		Ke2Gems.NORMAL_TO_CRACKED.put(normal, cracked);
+		Ke2Gems.CRACKED_TO_NORMAL.put(cracked, normal);
 	}
 	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event, String...meta) {
 		event.getRegistry().register(name == null ? (item.getRegistryName() != null ? item : item.setRegistryName("kagic:" + ((ItemBlock)(item)).getBlock().getUnlocalizedName().replaceAll("tile\\.", ""))) : item.setRegistryName(name));
@@ -137,6 +137,6 @@ public class AmItems {
 		}
 	}
 	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event) {
-		AmItems.registerItem(item, name, event, "inventory");
+		Ke2Items.registerItem(item, name, event, "inventory");
 	}
 }

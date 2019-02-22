@@ -2,7 +2,7 @@ package mod.kagic.blocks;
 
 import java.util.Random;
 
-import mod.kagic.init.AmBlocks;
+import mod.kagic.init.Ke2Blocks;
 import mod.kagic.init.KAGIC;
 import mod.kagic.injection.InjectorResult;
 import net.minecraft.block.Block;
@@ -41,16 +41,16 @@ public class BlockDrainLily extends BlockBush {
 			if (down.getMaterial() == BlockDrainBlock.DRAINED) {
 				BlockPos check = pos.add(world.rand.nextInt(3) - 1, 0, world.rand.nextInt(3) - 1);
 				if (world.isAirBlock(check) && world.isSideSolid(check.down(), EnumFacing.UP)) {
-					IBlockState lily = AmBlocks.VALLEY_DRAIN_LILY.getDefaultState();
+					IBlockState lily = Ke2Blocks.VALLEY_DRAIN_LILY.getDefaultState();
 					switch (this.prefix) {
 					case "desert":
-						lily = AmBlocks.DESERT_DRAIN_LILY.getDefaultState();
+						lily = Ke2Blocks.DESERT_DRAIN_LILY.getDefaultState();
 						break;
 					case "alpine":
-						lily = AmBlocks.ALPINE_DRAIN_LILY.getDefaultState();
+						lily = Ke2Blocks.ALPINE_DRAIN_LILY.getDefaultState();
 						break;
 					case "nether":
-						lily = AmBlocks.NETHER_DRAIN_LILY.getDefaultState();
+						lily = Ke2Blocks.NETHER_DRAIN_LILY.getDefaultState();
 						break;
 					}
 					world.setBlockState(check, lily);

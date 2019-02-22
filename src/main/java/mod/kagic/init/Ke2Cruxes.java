@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import mod.kagic.injection.CruxEntry;
 
-public class AmCruxes {
+public class Ke2Cruxes {
 	public static final ArrayList<CruxEntry> AGATE = new ArrayList<CruxEntry>();
 	public static final ArrayList<CruxEntry> AMETHYST = new ArrayList<CruxEntry>();
 	public static final ArrayList<CruxEntry> AQUA_AURA_QUARTZ = new ArrayList<CruxEntry>();
@@ -30,76 +30,76 @@ public class AmCruxes {
 	public static final ArrayList<CruxEntry> WATERMELON_TOURMALINE = new ArrayList<CruxEntry>();
 	public static final ArrayList<CruxEntry> ZIRCON = new ArrayList<CruxEntry>();
 	public static void register() {
-		if (AmConfigs.enableAgate) {
+		if (Ke2Configs.enableAgate) {
 			
 		}
-		if (AmConfigs.enableAmethyst) {
+		if (Ke2Configs.enableAmethyst) {
 			
 		}
-		if (AmConfigs.enableAquaAuraQuartz) {
+		if (Ke2Configs.enableAquaAuraQuartz) {
 			
 		}
-		if (AmConfigs.enableBismuth) {
+		if (Ke2Configs.enableBismuth) {
 			
 		}
-		if (AmConfigs.enableCarnelian) {
+		if (Ke2Configs.enableCarnelian) {
 			
 		}
-		if (AmConfigs.enableCitrine) {
+		if (Ke2Configs.enableCitrine) {
 			
 		}
-		if (AmConfigs.enableEmerald) {
+		if (Ke2Configs.enableEmerald) {
 			
 		}
-		if (AmConfigs.enableEnderPearl) {
+		if (Ke2Configs.enableEnderPearl) {
 			
 		}
-		if (AmConfigs.enableHessonite) {
+		if (Ke2Configs.enableHessonite) {
 			
 		}
-		if (AmConfigs.enableJasper) {
+		if (Ke2Configs.enableJasper) {
 			
 		}
-		if (AmConfigs.enableLapisLazuli) {
+		if (Ke2Configs.enableLapisLazuli) {
 			
 		}
-		if (AmConfigs.enableMelanite) {
+		if (Ke2Configs.enableMelanite) {
 			
 		}
-		if (AmConfigs.enableNacre) {
+		if (Ke2Configs.enableNacre) {
 			
 		}
-		if (AmConfigs.enableNephrite) {
+		if (Ke2Configs.enableNephrite) {
 			
 		}
-		if (AmConfigs.enablePearl) {
+		if (Ke2Configs.enablePearl) {
 			
 		}
-		if (AmConfigs.enablePeridot) {
+		if (Ke2Configs.enablePeridot) {
 			
 		}
-		if (AmConfigs.enablePyrite) {
+		if (Ke2Configs.enablePyrite) {
 			
 		}
-		if (AmConfigs.enableRoseQuartz) {
+		if (Ke2Configs.enableRoseQuartz) {
 			
 		}
-		if (AmConfigs.enableRuby) {
+		if (Ke2Configs.enableRuby) {
 			
 		}
-		if (AmConfigs.enableRutile) {
+		if (Ke2Configs.enableRutile) {
 			
 		}
-		if (AmConfigs.enableSapphire) {
+		if (Ke2Configs.enableSapphire) {
 			
 		}
-		if (AmConfigs.enableTopaz) {
+		if (Ke2Configs.enableTopaz) {
 			
 		}
-		if (AmConfigs.enableWatermelonTourmaline) {
+		if (Ke2Configs.enableWatermelonTourmaline) {
 			
 		}
-		if (AmConfigs.enableZircon) {
+		if (Ke2Configs.enableZircon) {
 			
 		}
 		/*

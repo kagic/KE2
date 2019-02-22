@@ -4,7 +4,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 
-public class AmSounds {
+public class Ke2Sounds {
 	public static final SoundEvent RECORD_LOVE_LIKE_YOU = new SoundEvent(new ResourceLocation("kagic:records.love_like_you"));
 	
 	public static final SoundEvent BUBBLE_BUBBLE = new SoundEvent(new ResourceLocation("kagic:bubble.bubble"));
