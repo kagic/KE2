@@ -1,0 +1,11 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "kagic:alpine_drain_lily"
+		}
+	],
+	"result": {
+		"item": "kagic:cyan_gem_shard"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "kagic:items/lime_gem_destabilizer"
+	}
+}

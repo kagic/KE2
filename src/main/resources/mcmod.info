@@ -1,0 +1,22 @@
+[
+	{
+		"modid": "kagic",
+		"name": "KAGIC",
+		"description": "The Steven Universe mod that adamantly denies it is a Steven Universe mod, KAGIC adds machines called \"Injectors\" that players can build to infuse the earth with an essence that transmutes the surrounding ores to create various magical soldiers and servants called \"gems.\" Use your new gems to make more new gems, allowing you build to colonies and invade the world!",
+		"credits": "\"Steven Universe\" and all related characters and elements are trademarks of Cartoon Network."
+		"url": "https://kagic.wikia.com/wiki/",
+		"logoFile": "assets/kagic/icon.png"
+		"version": "${version}",
+		"mcversion": "1.12.2",
+		"authorList": [
+			"akrivus",
+			"HeimrArnadalr",
+			"Judacraz",
+			"Lattie",
+			"obsidian29",
+			"Seartisian",
+			"taaffeite",
+			"Tourmaline-Iris"
+		]
+	}
+]

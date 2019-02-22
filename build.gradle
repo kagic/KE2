@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        maven { url = "http://files.minecraftforge.net/maven" }
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = new Date().format('yy.MM.dd')
+group = "mod.akrivus.kagic"
+archivesBaseName = "kagic"
+
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+
+minecraft {
+    replace "@version", project.version
+    version = "1.12.2-14.23.5.2814"
+    runDir = "run"
+    mappings = "snapshot_20171003"
+}
+processResources {
+    inputs.property "version", project.version
+    from (sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version': project.version
+    }
+    from (sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+compileJava {
+    sourceCompatibility = project.sourceCompatibility
+    targetCompatibility = project.targetCompatibility
+}

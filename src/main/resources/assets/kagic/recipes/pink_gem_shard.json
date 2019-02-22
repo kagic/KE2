@@ -1,0 +1,11 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "kagic:moss_rose"
+		}
+	],
+	"result": {
+		"item": "kagic:pink_gem_shard"
+	}
+}

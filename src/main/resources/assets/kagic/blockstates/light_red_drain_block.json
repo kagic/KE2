@@ -1,0 +1,18 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "minecraft:cube_column",
+		"textures": {
+			"side": "kagic:blocks/light_red_drain_block_side",
+			"end": "kagic:blocks/light_red_drain_block_top"
+		}
+	},
+	"variants": {
+		"inventory": {
+		    "model": "minecraft:cube_column"
+		},
+		"normal": {
+		    "model": "minecraft:cube_column"
+		}
+	}
+}

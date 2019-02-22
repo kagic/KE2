@@ -1,0 +1,398 @@
+{
+	"records.love_like_you": {
+        "sounds": [
+            { "name": "kagic:records/love_like_you", "stream": true }
+        ]
+    },
+    "bubble.bubble": {
+        "sounds": [
+            { "name": "kagic:bubble" }
+        ]
+    },
+    "bubble.pop": {
+        "sounds": [
+            { "name": "kagic:pop" }
+        ]
+    },
+    "bubble.send": {
+        "sounds": [
+            { "name": "kagic:send" }
+        ]
+    },
+    "wailing_stone": {
+    	"sounds": [
+    		{ "name": "kagic:wailing_stone" }
+    	]
+    },
+    "destabilizer": {
+    	"sounds": [
+    		{ "name": "kagic:destabilizer" }
+    	]
+    },
+	"entities.pyrite.hurt": {
+        "sounds": [
+            { "name": "kagic:entities/pyrite/hurt1" },
+            { "name": "kagic:entities/pyrite/hurt2" },
+            { "name": "kagic:entities/pyrite/hurt3" },
+            { "name": "kagic:entities/pyrite/hurt4" }
+        ]
+    },
+    "entities.pyrite.obey": {
+        "sounds": [
+            { "name": "kagic:entities/pyrite/obey1" },
+			{ "name": "kagic:entities/pyrite/obey2" },
+			{ "name": "kagic:entities/pyrite/obey3" }
+        ]
+    },
+	"entities.pyrite.death": {
+        "sounds": [
+            { "name": "kagic:entities/pyrite/death1" },
+            { "name": "kagic:entities/pyrite/death2" }
+        ]
+    },
+    "entities.ender_pearl.hurt": {
+        "sounds": [
+            { "name": "kagic:entities/ender_pearl/hurt1" },
+			{ "name": "kagic:entities/ender_pearl/hurt2" },
+			{ "name": "kagic:entities/ender_pearl/hurt3" },
+			{ "name": "kagic:entities/ender_pearl/hurt4" },
+			{ "name": "kagic:entities/ender_pearl/hurt5" }
+        ]
+    },
+    "entities.ender_pearl.obey": {
+        "sounds": [
+            { "name": "kagic:entities/ender_pearl/obey1" },
+			{ "name": "kagic:entities/ender_pearl/obey2" },
+			{ "name": "kagic:entities/ender_pearl/obey3" },
+			{ "name": "kagic:entities/ender_pearl/obey4" }
+        ]
+    },
+	"entities.ender_pearl.death": {
+        "sounds": [
+            { "name": "kagic:entities/ender_pearl/death1" },
+			{ "name": "kagic:entities/ender_pearl/death2" },
+			{ "name": "kagic:entities/ender_pearl/death3" },
+			{ "name": "kagic:entities/ender_pearl/death4" },
+			{ "name": "kagic:entities/ender_pearl/death5" }
+        ]
+    },
+    "entities.ender_pearl.sing": {
+    	"sounds": [
+            { "name": "kagic:entities/ender_pearl/note1" }
+        ]
+    },
+	"entities.ender_pearl.weird": {
+        "sounds": [
+            { "name": "kagic:entities/ender_pearl/weird1" },
+			{ "name": "kagic:entities/ender_pearl/weird2" },
+			{ "name": "kagic:entities/ender_pearl/weird3" },
+			{ "name": "kagic:entities/ender_pearl/weird4" },
+			{ "name": "kagic:entities/ender_pearl/weird5" },
+			{ "name": "kagic:entities/ender_pearl/weird6" },
+			{ "name": "kagic:entities/ender_pearl/weird7" },
+			{ "name": "kagic:entities/ender_pearl/weird8" },
+			{ "name": "kagic:entities/ender_pearl/weird9" }
+        ]
+    },
+    "entities.nacre.sneeze": {
+        "sounds": [
+            { "name": "kagic:entities/nacre/sneeze1" },
+            { "name": "kagic:entities/nacre/sneeze2" },
+            { "name": "kagic:entities/nacre/sneeze3" }
+        ]
+    },
+    "entities.nacre.hurt": {
+        "sounds": [
+            { "name": "kagic:entities/nacre/hurt1" },
+            { "name": "kagic:entities/nacre/hurt2" },
+            { "name": "kagic:entities/nacre/hurt3" }
+        ]
+    },
+    "entities.nacre.obey": {
+        "sounds": [
+            { "name": "kagic:entities/nacre/obey1" },
+			{ "name": "kagic:entities/nacre/obey2" }
+        ]
+    },
+	"entities.nacre.death": {
+        "sounds": [
+            { "name": "kagic:entities/nacre/death1" }
+        ]
+    },
+    "entities.baby_pearl.oh": {
+        "sounds": [
+            { "name": "kagic:entities/baby_pearl/oh1" },
+			{ "name": "kagic:entities/baby_pearl/oh2" }
+        ]
+    },
+    "entities.baby_pearl.obey": {
+        "sounds": [
+            { "name": "kagic:entities/baby_pearl/obey1" }
+        ]
+    },
+    "entities.nephrite.injure": {
+        "sounds": [
+            { "name": "kagic:entities/nephrite/injure1" },
+            { "name": "kagic:entities/nephrite/injure2" },
+            { "name": "kagic:entities/nephrite/injure3" },
+            { "name": "kagic:entities/nephrite/injure4" }
+        ]
+    },
+    "entities.nephrite.obey": {
+        "sounds": [
+            { "name": "kagic:entities/nephrite/obey1" }
+        ]
+    },
+	"entities.nephrite.living": {
+        "sounds": [
+            { "name": "kagic:entities/nephrite/living1" },
+            { "name": "kagic:entities/nephrite/living2" },
+            { "name": "kagic:entities/nephrite/living3" },
+            { "name": "kagic:entities/nephrite/living4" },
+            { "name": "kagic:entities/nephrite/living5" }
+        ]
+    },
+	"entities.steven.hello": {
+		"sounds": [
+			{ "name": "kagic:entities/steven/hello1" }
+		]
+	},
+	"entities.steven.living": {
+		"sounds": [
+			{ "name": "kagic:entities/steven/living1" },
+			{ "name": "kagic:entities/steven/living2" },
+			{ "name": "kagic:entities/steven/living3" },
+			{ "name": "kagic:entities/steven/living4" },
+			{ "name": "kagic:entities/steven/living5" },
+			{ "name": "kagic:entities/steven/living6" },
+			{ "name": "kagic:entities/steven/living7" },
+			{ "name": "kagic:entities/steven/living8" },
+			{ "name": "kagic:entities/steven/living9" }
+		]
+	},
+	"entities.steven.hurt": {
+		"sounds": [
+			{ "name": "kagic:entities/steven/hurt1" },
+			{ "name": "kagic:entities/steven/hurt2" },
+			{ "name": "kagic:entities/steven/hurt3" },
+			{ "name": "kagic:entities/steven/hurt4" },
+			{ "name": "kagic:entities/steven/hurt5" },
+			{ "name": "kagic:entities/steven/hurt6" },
+			{ "name": "kagic:entities/steven/hurt7" },
+			{ "name": "kagic:entities/steven/hurt8" },
+			{ "name": "kagic:entities/steven/hurt9" }
+		]
+	},
+	"entities.steven.protect": {
+		"sounds": [
+			{ "name": "kagic:entities/steven/protect1" },
+			{ "name": "kagic:entities/steven/protect2" },
+			{ "name": "kagic:entities/steven/protect3" }
+		]
+	},
+	"entities.steven.death": {
+		"sounds": [
+			{ "name": "kagic:entities/steven/death1" },
+			{ "name": "kagic:entities/steven/death2" },
+			{ "name": "kagic:entities/steven/death3" },
+			{ "name": "kagic:entities/steven/death4" },
+			{ "name": "kagic:entities/steven/death5" },
+			{ "name": "kagic:entities/steven/death6" }
+		]
+	},
+	"entities.steven.sneeze": {
+		"sounds": [
+			{ "name": "kagic:entities/steven/sneeze1" }
+		]
+	},
+	"entities.connie.hello": {
+		"sounds": [
+			{ "name": "kagic:entities/connie/hello1" }
+		]
+	},
+	"entities.connie.living": {
+		"sounds": [
+			{ "name": "kagic:entities/connie/living1" },
+			{ "name": "kagic:entities/connie/living2" },
+			{ "name": "kagic:entities/connie/living3" },
+			{ "name": "kagic:entities/connie/living4" },
+			{ "name": "kagic:entities/connie/living5" },
+			{ "name": "kagic:entities/connie/living6" },
+			{ "name": "kagic:entities/connie/living7" },
+			{ "name": "kagic:entities/connie/living8" },
+			{ "name": "kagic:entities/connie/living9" },
+			{ "name": "kagic:entities/connie/living10" },
+			{ "name": "kagic:entities/connie/living11" },
+			{ "name": "kagic:entities/connie/living12" },
+			{ "name": "kagic:entities/connie/living13" },
+			{ "name": "kagic:entities/connie/living14" }
+		]
+	},
+	"entities.connie.hurt": {
+		"sounds": [
+			{ "name": "kagic:entities/connie/hurt1" },
+			{ "name": "kagic:entities/connie/hurt2" },
+			{ "name": "kagic:entities/connie/hurt3" },
+			{ "name": "kagic:entities/connie/hurt4" },
+			{ "name": "kagic:entities/connie/hurt5" }
+		]
+	},
+	"entities.connie.protect": {
+		"sounds": [
+			{ "name": "kagic:entities/connie/protect1" },
+			{ "name": "kagic:entities/connie/protect2" },
+			{ "name": "kagic:entities/connie/protect3" },
+			{ "name": "kagic:entities/connie/protect4" },
+			{ "name": "kagic:entities/connie/protect5" }
+		]
+	},
+	"entities.connie.death": {
+		"sounds": [
+			{ "name": "kagic:entities/connie/death1" },
+			{ "name": "kagic:entities/connie/death2" },
+			{ "name": "kagic:entities/connie/death3" },
+			{ "name": "kagic:entities/connie/death4" }
+		]
+	},
+	"entities.emerald.death": {
+        "sounds": [
+            { "name": "kagic:entities/emerald/death1" },
+            { "name": "kagic:entities/emerald/death2" },
+            { "name": "kagic:entities/emerald/death3" }
+        ]
+    },
+	"entities.emerald.hurt": {
+        "sounds": [
+            { "name": "kagic:entities/emerald/hurt1" },
+            { "name": "kagic:entities/emerald/hurt2" },
+            { "name": "kagic:entities/emerald/hurt3" },
+            { "name": "kagic:entities/emerald/hurt4" },
+            { "name": "kagic:entities/emerald/hurt5" },
+            { "name": "kagic:entities/emerald/hurt6" }
+        ]
+    },
+    "entities.emerald.obey": {
+        "sounds": [
+            { "name": "kagic:entities/emerald/obey1" },
+            { "name": "kagic:entities/emerald/obey2" }
+        ]
+    },
+	"entities.emerald.living": {
+        "sounds": [
+            { "name": "kagic:entities/emerald/living1" },
+            { "name": "kagic:entities/emerald/living2" },
+            { "name": "kagic:entities/emerald/living3" }
+        ]
+    },
+    "entities.emerald.deny": {
+        "sounds": [
+            { "name": "kagic:entities/emerald/deny1" }
+        ]
+    },
+    "entities.stevonnie.living": {
+		"sounds": [
+			{ "name": "kagic:entities/stevonnie/living1" },
+			{ "name": "kagic:entities/stevonnie/living2" },
+			{ "name": "kagic:entities/stevonnie/living3" }
+		]
+	},
+	"entities.stevonnie.hurt": {
+		"sounds": [
+			{ "name": "kagic:entities/stevonnie/hurt1" },
+			{ "name": "kagic:entities/stevonnie/hurt2" },
+			{ "name": "kagic:entities/stevonnie/hurt3" }
+		]
+	},
+	"entities.stevonnie.death": {
+		"sounds": [
+			{ "name": "kagic:entities/stevonnie/death1" }
+		]
+	},
+	"entities.aqua_aura_quartz.hurt": {
+        "sounds": [
+            { "name": "kagic:entities/aqua_aura_quartz/hurt1" },
+            { "name": "kagic:entities/aqua_aura_quartz/hurt2" },
+            { "name": "kagic:entities/aqua_aura_quartz/hurt3" },
+            { "name": "kagic:entities/aqua_aura_quartz/hurt4" }
+        ]
+    },
+    "entities.aqua_aura_quartz.obey": {
+        "sounds": [
+            { "name": "kagic:entities/aqua_aura_quartz/obey1" },
+			{ "name": "kagic:entities/aqua_aura_quartz/obey2" },
+            { "name": "kagic:entities/aqua_aura_quartz/obey3" },
+            { "name": "kagic:entities/aqua_aura_quartz/obey4" }
+        ]
+    },
+	"entities.aqua_aura_quartz.death": {
+        "sounds": [
+            { "name": "kagic:entities/aqua_aura_quartz/death1" },
+            { "name": "kagic:entities/aqua_aura_quartz/death2" },
+            { "name": "kagic:entities/aqua_aura_quartz/death3" },
+            { "name": "kagic:entities/aqua_aura_quartz/death4" }
+        ]
+    },
+    "entities.aqua_aura_quartz.prime.hurt": {
+        "sounds": [
+            { "name": "kagic:entities/aqua_aura_quartz/prime/hurt1" },
+            { "name": "kagic:entities/aqua_aura_quartz/prime/hurt2" },
+            { "name": "kagic:entities/aqua_aura_quartz/prime/hurt3" },
+            { "name": "kagic:entities/aqua_aura_quartz/prime/hurt4" }
+        ]
+    },
+    "entities.aqua_aura_quartz.prime.obey": {
+        "sounds": [
+            { "name": "kagic:entities/aqua_aura_quartz/prime/obey1" },
+			{ "name": "kagic:entities/aqua_aura_quartz/prime/obey2" }
+        ]
+    },
+	"entities.aqua_aura_quartz.prime.death": {
+        "sounds": [
+            { "name": "kagic:entities/aqua_aura_quartz/prime/death1" },
+            { "name": "kagic:entities/aqua_aura_quartz/prime/death2" },
+            { "name": "kagic:entities/aqua_aura_quartz/prime/death3" }
+        ]
+    },
+    "entities.wtourmaline.hurt": {
+        "sounds": [
+            { "name": "kagic:entities/wtourmaline/hurt1" },
+            { "name": "kagic:entities/wtourmaline/hurt2" },
+            { "name": "kagic:entities/wtourmaline/hurt3" }
+        ]
+    },
+    "entities.wtourmaline.obey": {
+        "sounds": [
+            { "name": "kagic:entities/wtourmaline/obey1" },
+			{ "name": "kagic:entities/wtourmaline/obey2" },
+            { "name": "kagic:entities/wtourmaline/obey3" }
+        ]
+    },
+	"entities.wtourmaline.death": {
+        "sounds": [
+            { "name": "kagic:entities/wtourmaline/death1" },
+            { "name": "kagic:entities/wtourmaline/death2" },
+            { "name": "kagic:entities/wtourmaline/death3" }
+        ]
+    },
+    "entities.citrine.hurt": {
+        "sounds": [
+            { "name": "kagic:entities/citrine/hurt1" },
+            { "name": "kagic:entities/citrine/hurt2" },
+            { "name": "kagic:entities/citrine/hurt3" }
+        ]
+    },
+    "entities.citrine.obey": {
+        "sounds": [
+            { "name": "kagic:entities/citrine/obey1" },
+			{ "name": "kagic:entities/citrine/obey2" },
+            { "name": "kagic:entities/citrine/obey3" }
+        ]
+    },
+	"entities.citrine.death": {
+        "sounds": [
+            { "name": "kagic:entities/citrine/death1" },
+            { "name": "kagic:entities/citrine/death2" },
+            { "name": "kagic:entities/citrine/death3" }
+        ]
+    }
+}

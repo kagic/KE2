@@ -1,0 +1,11 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "kagic:nether_drain_lily"
+		}
+	],
+	"result": {
+		"item": "kagic:purple_gem_shard"
+	}
+}

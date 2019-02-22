@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" p ",
+		"bnb",
+		"ggg"
+	],
+	"key": {
+		"p": {
+			"item": "minecraft:light_weighted_pressure_plate"
+		},
+		"b": {
+			"item": "minecraft:nether_brick"
+		},
+		"n": {
+			"item": "minecraft:noteblock"
+		},
+		"g": {
+			"item": "minecraft:gold_ingot"
+		}
+	},
+	"result": {
+		"item": "kagic:wailing_stone"
+	}
+}
