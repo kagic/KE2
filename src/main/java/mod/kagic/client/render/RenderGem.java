@@ -2,9 +2,9 @@ package mod.kagic.client.render;
 
 import java.util.Iterator;
 
+import mod.kagic.client.model.ModelGem;
 import mod.kagic.entity.EntityGem;
 import mod.kagic.init.Ke2Configs;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.EntityLivingBase;
 
 public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
-	public RenderGem(RenderManager manager, ModelBiped model, float shadowSize) {
+	public RenderGem(RenderManager manager, ModelGem model, float shadowSize) {
 		super(manager, model, shadowSize);
 		for (Iterator<LayerRenderer<T>> it = this.layerRenderers.iterator(); it.hasNext();) {
 			LayerRenderer<? extends EntityLivingBase> layer = it.next();
