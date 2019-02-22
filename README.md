@@ -86,3 +86,8 @@ Click [here](https://discord.gg/Entz7q2) to join.
 1. Fork, install, and setup KAGIC on your machine.
 2. Write code with comments for increased legibility.
 3. Summarize any changes for future pull requests.
+
+## Legal Disclaimer
+"KAGIC" source code and its derivatives, including bytecode and executables, are licensed under an MIT License by "The KAGIC Team" ("akrivus", "HeimrArnadalr", "Judacraz", "Lattie", "obsidian29", "Seartisian", "taaffeite", "Tourmaline-Iris"). For more information about the MIT License, please look [here.](./LICENSE)
+
+"Steven Universe" and all related characters and elements are trademarks of Cartoon Network.
