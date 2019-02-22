@@ -68,6 +68,24 @@
 * Hiddenite, green gem that is immune to arrows and makes nearby plants grow faster.
 * Cancrinite, crab-like gem that hunts, farms, and forages for food, shears sheep.
 * Desert Glass, green tiny gem that erects sand pillars around herself and enemies.
+* The Crystal Gems, a group of 4 gems that convert your gems and destroy your base.
+    * Lead by Rose Quartz, the alter ego of Pink Diamond, and Pearl.
+    * Appears randomly to protect villagers, the planet, and defeat corrupted gems.
+    * Different members have different powers and conversion success:
+        * Rose Quartz converts all gems, heals cracked gems, and instantly poofs gems.
+        * Pearl defends Rose Quartz's weak points and converts accessorial gems.
+        * Bismuth converts utilitary gems and shatters gems she defeats.
+        * Garnet converts closeted fusions and tells the members when to leave.
+        * Amethyst appears when Bismuth disappears, she converts fighter gems.
+    * Converted rebel gems stay behind and spy or leave and return in the next raid.
+    * Raids eventually stop when gems have no reason to rebel.
+    * When raids stop, Rose Quartz disappears and is replaced by Steven.
+* The Jam Buds, the son of a rebel leader and his human friend.
+    * Steven randomly appears, socializes with gems, boosts morale, and heals gems.
+    * Connie follows Steven when she's in town. Her sword instantly poofs gems.
+    * The Crystal Gems don't appear unless Steven is under attack.
+    * Stevonnie appears as a second line of defense before The Crystal Gems.
+* Cluster Experiments and Hand Ships replace raids after Steven appears.
 
 ## Downloads
 Check our [releases page](https://github.com/kagic/KAGIC/releases) for downloads.
