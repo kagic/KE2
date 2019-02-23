@@ -6,6 +6,7 @@
 * Drained Blocks, blocks that are left behind after a gem is created and emerges from the ground.
     * Comes in up to 4 colors based on biome temperature.
     * Drained blocks spread across wood, killing trees.
+    * Drained blocks can be eroded and enriched back into dirt.
 * Drain Lilies, flowers that drain the world around them and spread.
 * Magic Moss, toxic sludge that expands in water and has pink blossoms.
 * Wailing Stone, block that attracts nearby gems when activated.
@@ -15,6 +16,7 @@
     * Decorative Carbonite features various designs.
 * Gem Shards, harvested from Drain Lilies and Moss Blooms to enchant items.
 * Gem Dust, created from shards, used as dye.
+* Bubbles, created by gems and used to transport items and entities.
 
 ## Plans
 * Tape Path, used to arrange Injectors and follow a specific path.
@@ -86,6 +88,8 @@
     * The Crystal Gems don't appear unless Steven is under attack.
     * Stevonnie appears as a second line of defense before The Crystal Gems.
 * Cluster Experiments and Hand Ships replace raids after Steven appears.
+* Slag, a byproduct of mass injecting that trap and consume gems.
+* Pebbles, a byproduct of gem production that craft and steal random items.
 
 ## Downloads
 Check our [releases page](https://github.com/kagic/KAGIC/releases) for downloads.
