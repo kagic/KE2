@@ -1,5 +1,8 @@
 package mod.kagic.init;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 import mod.kagic.command.CommandGetCrux;
 import mod.kagic.proxies.CommonProxy;
 import net.minecraft.block.Block;
@@ -7,6 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +23,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = KAGIC.MODID, version = KAGIC.VERSION, acceptedMinecraftVersions = KAGIC.MCVERSION, dependencies="after:kagic")
+@Mod(modid = KAGIC.MODID, version = KAGIC.VERSION, acceptedMinecraftVersions = KAGIC.MCVERSION)
 public class KAGIC {
     public static final String VERSION = "@version";
     public static final String MCVERSION = "1.12.2";
@@ -63,6 +67,16 @@ public class KAGIC {
 				return new ItemStack(Ke2Items.BLACK_GEM_SHARD);
 			}
 		}
+		@Override
+		public void displayAllRelevantItems(NonNullList<ItemStack> items) {
+			super.displayAllRelevantItems(items);
+	        Collections.sort(items, new Comparator<ItemStack>() {
+				@Override
+				public int compare(ItemStack left, ItemStack right) {
+					return left.getUnlocalizedName().compareTo(right.getUnlocalizedName());
+				}
+	        });
+	    }
 	};
 
 	@SidedProxy(clientSide = "mod.kagic.proxies.ClientProxy", serverSide = "mod.kagic.proxies.ServerProxy")

@@ -33,6 +33,7 @@ public class BlockMagicMoss extends Block {
 		this.setTickRandomly(true);
 		this.setCreativeTab(KAGIC.CREATIVE_TAB);
 	}
+	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 		if (entity instanceof EntityLivingBase) {
 			entity.attackEntityFrom(DamageSource.IN_WALL, 0.1F);

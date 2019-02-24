@@ -42,7 +42,7 @@ public class EntityRoseQuartz extends EntityGemQuartz {
 	}
 	@Override
 	public int generateSkinVariant() {
-		return this.rand.nextInt(PEARL_BASE_COLORS.length);
+		return 0;
 	}
 	@Override
 	public int generateGemstonePosition() {

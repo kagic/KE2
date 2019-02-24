@@ -2,9 +2,9 @@ package mod.kagic.blocks;
 
 import java.util.Random;
 
+import mod.kagic.init.KAGIC;
 import mod.kagic.init.Ke2Blocks;
 import mod.kagic.init.Ke2Gems;
-import mod.kagic.init.KAGIC;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.MapColor;
@@ -12,41 +12,77 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
+import net.minecraft.util.BlockRenderLayer;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockCarbonite extends Block {
+	public enum Variety {
+		INERT(false, "$_carbonite"), ACTIVE(true, "$_carbonite"),
+		DECORATIVE(false, "$_decorative_carbonite"),
+		HOLOGRAPHIC(true, "$_holographic_carbonite");
+		private final boolean canBePowered;
+		private final String localName;
+		Variety(boolean canBePowered, String localName) {
+			this.canBePowered = canBePowered;
+			this.localName = localName;
+		}
+		public boolean canBePowered() {
+			return this.canBePowered;
+		}
+		public String getName() {
+			return this.localName;
+		}
+	}
+	private Variety variety = Variety.INERT;
 	private boolean canBePowered = true;
 	private boolean powered;
 	private int color;
-	public BlockCarbonite(boolean powered, int color) {
+	public BlockCarbonite(Variety variety, int color, boolean powered) {
 		super(Material.ROCK);
-        this.color = color;
 		String name = EnumDyeColor.byMetadata(color).toString().toLowerCase();
-        this.powered = powered;
-        if (this.powered) {
-    		this.setUnlocalizedName(name + "_carbonite_on");
+		this.canBePowered = variety.canBePowered();
+        this.powered = powered; this.color = color;
+    	if (this.powered) {
+    		this.setUnlocalizedName(variety.getName().replaceAll("\\$", name) + "_on");
         	this.setResistance(6000000);
         	this.setHardness(-1);
-        }
-        else {
-    		this.setUnlocalizedName(name + "_carbonite_off");
-        	this.setCreativeTab(KAGIC.CREATIVE_TAB);
+    	}
+    	else {
+            if (this.canBePowered) {
+            	this.setUnlocalizedName(variety.getName().replaceAll("\\$", name) + "_off");
+            }
+            else {
+            	this.setUnlocalizedName(variety.getName().replaceAll("\\$", name));
+            }
         	this.setResistance(30);
         	this.setHardness(2);
-        }
+        	this.setCreativeTab(KAGIC.CREATIVE_TAB);
+    	}
 	}
-	public BlockCarbonite(int color) {
-		super(Material.ROCK);
-		this.canBePowered = false;
-        this.color = color;
-		String name = EnumDyeColor.byMetadata(color).toString().toLowerCase();
-	    this.setUnlocalizedName(name + "_carbonite");
-    	this.setCreativeTab(KAGIC.CREATIVE_TAB);
-    	this.setResistance(30);
-    	this.setHardness(2);
+	public BlockCarbonite(Variety variety, int color) {
+		this(variety, color, false);
 	}
+	@Override
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
+		if (this.variety == Variety.HOLOGRAPHIC && this.powered) {
+			return Block.NULL_AABB;
+		}
+		else {
+			return Block.FULL_BLOCK_AABB;
+		}
+    }
+	@Override
+    public BlockRenderLayer getBlockLayer() {
+		if (this.variety == Variety.HOLOGRAPHIC && this.powered) {
+			return BlockRenderLayer.CUTOUT;
+		}
+		else {
+			return BlockRenderLayer.SOLID;
+		}
+    }
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
 		super.onBlockAdded(world, pos, state);
@@ -70,6 +106,10 @@ public class BlockCarbonite extends Block {
 	public EnumPushReaction getMobilityFlag(IBlockState state) {
 		return EnumPushReaction.BLOCK;
 	}
+	@Override
+    public boolean isFullCube(IBlockState state) {
+        return false;
+    }
     @Override
 	public Item getItemDropped(IBlockState state, Random random, int fortune){
 		return Item.getItemFromBlock(this);
@@ -85,95 +125,343 @@ public class BlockCarbonite extends Block {
 						powered = true;
 					}
 					else if (powered) {
-						world.setBlockState(fromPos, carbonite.getPoweredState());
+						world.setBlockState(fromPos, carbonite.getReverseState());
 					}
 				}
 			}
-			if (!this.powered && powered) {
-				world.setBlockState(pos, this.getPoweredState());
-			}
-			if (!powered && this.powered) {
-				world.setBlockState(pos, this.getUnpoweredState());
+			if ((!this.powered && powered) || (!powered && this.powered)) {
+				world.setBlockState(pos, this.getReverseState());
 			}
 		}
     }
     public boolean isPowered() {
     	return this.powered;
     }
-    public IBlockState getUnpoweredState() {
+    public IBlockState getReverseState() {
     	switch (this.color) {
     	case Ke2Gems.BASIC_WHITE:
-        	return Ke2Blocks.WHITE_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.WHITE_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.WHITE_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.WHITE_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.WHITE_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.WHITE_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_ORANGE:
-        	return Ke2Blocks.ORANGE_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.ORANGE_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.ORANGE_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.ORANGE_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.ORANGE_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.ORANGE_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_MAGENTA:
-        	return Ke2Blocks.MAGENTA_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.MAGENTA_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.MAGENTA_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.MAGENTA_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.MAGENTA_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.MAGENTA_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_LIGHTBLUE:
-        	return Ke2Blocks.LIGHTBLUE_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.LIGHTBLUE_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.LIGHTBLUE_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.LIGHTBLUE_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.LIGHTBLUE_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.LIGHTBLUE_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_YELLOW:
-        	return Ke2Blocks.YELLOW_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.YELLOW_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.YELLOW_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.YELLOW_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.YELLOW_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.YELLOW_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_LIME:
-        	return Ke2Blocks.LIME_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.LIME_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.LIME_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.LIME_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.LIME_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.LIME_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_PINK:
-        	return Ke2Blocks.PINK_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.PINK_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.PINK_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.PINK_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.PINK_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.PINK_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_GRAY:
-        	return Ke2Blocks.GRAY_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.GRAY_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.GRAY_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.GRAY_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.GRAY_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.GRAY_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_SILVER:
-        	return Ke2Blocks.SILVER_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.SILVER_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.SILVER_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.SILVER_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.SILVER_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.SILVER_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_CYAN:
-        	return Ke2Blocks.CYAN_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.CYAN_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.CYAN_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.CYAN_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.CYAN_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.CYAN_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_PURPLE:
-        	return Ke2Blocks.PURPLE_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.PURPLE_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.PURPLE_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.PURPLE_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.PURPLE_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.PURPLE_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_BLUE:
-        	return Ke2Blocks.BLUE_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.BLUE_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.BLUE_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.BLUE_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.BLUE_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.BLUE_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_BROWN:
-        	return Ke2Blocks.BROWN_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.BROWN_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.BROWN_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.BROWN_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.BROWN_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.BROWN_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_GREEN:
-        	return Ke2Blocks.GREEN_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.GREEN_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.GREEN_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.GREEN_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.GREEN_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.GREEN_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_RED:
-        	return Ke2Blocks.RED_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.RED_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.RED_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.RED_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.RED_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.RED_CARBONITE.getDefaultState();
+    		}
     	case Ke2Gems.BASIC_BLACK:
-        	return Ke2Blocks.BLACK_CARBONITE_OFF.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.BLACK_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.BLACK_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.BLACK_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.BLACK_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.BLACK_CARBONITE.getDefaultState();
+    		}
         default:
-        	return Ke2Blocks.WHITE_CARBONITE_OFF.getDefaultState();
-    	}
-    }
-    public IBlockState getPoweredState() {
-    	switch (this.color) {
-    	case Ke2Gems.BASIC_WHITE:
-        	return Ke2Blocks.WHITE_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_ORANGE:
-        	return Ke2Blocks.ORANGE_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_MAGENTA:
-        	return Ke2Blocks.MAGENTA_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_LIGHTBLUE:
-        	return Ke2Blocks.LIGHTBLUE_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_YELLOW:
-        	return Ke2Blocks.YELLOW_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_LIME:
-        	return Ke2Blocks.LIME_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_PINK:
-        	return Ke2Blocks.PINK_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_GRAY:
-        	return Ke2Blocks.GRAY_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_SILVER:
-        	return Ke2Blocks.SILVER_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_CYAN:
-        	return Ke2Blocks.CYAN_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_PURPLE:
-        	return Ke2Blocks.PURPLE_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_BLUE:
-        	return Ke2Blocks.BLUE_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_BROWN:
-        	return Ke2Blocks.BROWN_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_GREEN:
-        	return Ke2Blocks.GREEN_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_RED:
-        	return Ke2Blocks.RED_CARBONITE_ON.getDefaultState();
-    	case Ke2Gems.BASIC_BLACK:
-        	return Ke2Blocks.BLACK_CARBONITE_ON.getDefaultState();
-        default:
-        	return Ke2Blocks.WHITE_CARBONITE_ON.getDefaultState();
+    		switch (this.variety) {
+    		case ACTIVE:
+    			if (this.powered) {
+    	        	return Ke2Blocks.WHITE_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.WHITE_CARBONITE_ON.getDefaultState();
+    			}
+    		case HOLOGRAPHIC:
+    			if (this.powered) {
+    	        	return Ke2Blocks.WHITE_HOLOGRAPHIC_CARBONITE_OFF.getDefaultState();
+    			}
+    			else {
+    	        	return Ke2Blocks.WHITE_HOLOGRAPHIC_CARBONITE_ON.getDefaultState();
+    			}
+    		default:
+    			return Ke2Blocks.WHITE_CARBONITE.getDefaultState();
+    		}
     	}
     }
 }

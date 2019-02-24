@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class EntityPearl extends EntityGem {
-	public static final Map<>
+	//public static final Map<>
 	public static final int[] PEARL_BASE_COLORS = new int[] { 
 		0xfff2f2,	// White
 		0xffd1d1,	// Red
