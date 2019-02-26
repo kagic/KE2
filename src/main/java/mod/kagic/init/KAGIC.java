@@ -3,6 +3,7 @@ package mod.kagic.init;
 import java.util.Collections;
 import java.util.Comparator;
 
+import mod.kagic.blocks.BlockCarbonite;
 import mod.kagic.command.CommandGetCrux;
 import mod.kagic.proxies.CommonProxy;
 import net.minecraft.block.Block;
@@ -99,8 +100,8 @@ public class KAGIC {
     }
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
+    	BlockCarbonite.registerConversionTables();
     	Ke2Configs.register();
-    	Ke2Skills.register();
     	Ke2Cruxes.register();
     }
     @EventHandler
