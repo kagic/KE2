@@ -11,7 +11,7 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = new Date().format('yy.MM.dd')
+version = new Date().format('2.yy.MM.dd')
 group = "mod.akrivus.kagic"
 archivesBaseName = "kagic"
 

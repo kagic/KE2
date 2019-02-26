@@ -44,9 +44,9 @@
 * Sapphire, prophetic gem with the ability to see forward in the future and tell you what will happen.
 * Quartzes, a family of tall, barrelling, and intimidating warrior gems:
     * Amethyst, Carnelian, and Jasper are normal warrior gems with no special powers.
-    * Citrines are born with power and tenacity, but slowly lose it with age.
+    * Citrines fight with power and tenacity at night but lose it when exposed to the sun.
     * Rose Quartzes are able to "give up health" to heal their peers.
-    * Agates are colorful gems that have an impending stare that turn mobs away.
+    * Agates are colorful gems that have an imposing stare that turn mobs away.
 * Topaz, powerful gem that comes in yellow, pink, and blue, and can transport entities in its arms.
 * Nephrite, inspector gem designed to scout out and neutralize hazards in unknown areas.
 * Mother of Pearl, caring gem that has a craving for sand, which it uses to produce Pearls.
