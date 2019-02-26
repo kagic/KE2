@@ -160,21 +160,6 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
 		}
     }
 	@Override
-	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
-		super.neighborChanged(state, world, pos, block, fromPos);
-		this.activate(world, pos, world.getBlockState(fromPos), fromPos);
-    }
-	@Override
-	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
-		super.onBlockAdded(world, pos, state);
-		//this.activate(world, pos);
-    }
-	@Override
-	public void updateTick(World world, BlockPos pos, IBlockState state, Random rand) {
-		super.updateTick(world, pos, state, rand);
-		this.activate(world, pos);
-    }
-	@Override
     public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
         return MapColor.getBlockColor(EnumDyeColor.byDyeDamage(this.color));
     }
@@ -208,43 +193,6 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
 	public Item getItemDropped(IBlockState state, Random random, int fortune) {
 		return Item.getItemFromBlock(this);
 	}
-    public void activate(World world, BlockPos pos, IBlockState from, BlockPos fromPos) {
-    	if (this.canBePowered) { 
-	    	TileEntity te = world.getTileEntity(pos);
-	    	if (te instanceof TileEntityCarbonite) {
-	    		TileEntityCarbonite carbonite = (TileEntityCarbonite)(te);
-	    		carbonite.activate(this, from, fromPos);
-	    	}
-    	}
-    }
-    public void activate(World world, BlockPos pos) {
-    	if (this.canBePowered) {
-	    	for (int x = -1; x <= 1; ++x) {
-				if (x == 0) {
-					for (int y = -1; y <= 1; ++y) {
-						if (y != 0) {
-							activate(world, pos, world.getBlockState(pos.add(x, y, 0)), pos.add(x, y, 0));
-						}
-			    	}
-				}
-				else {
-					activate(world, pos, world.getBlockState(pos.add(x, 0, 0)), pos.add(x, 0, 0));
-				}
-			}
-			for (int z = -1; z <= 1; ++z) {
-		    	if (z == 0) {
-					for (int y = -1; y <= 1; ++y) {
-						if (y != 0) {
-							activate(world, pos, world.getBlockState(pos.add(0, y, z)), pos.add(0, y, z));
-						}
-			    	}
-		    	}
-				else {
-					activate(world, pos, world.getBlockState(pos.add(0, 0, z)), pos.add(0, 0, z));
-				}
-		    }
-    	}
-    }
     public boolean is(Variety variety) {
     	return this.variety == variety;
     }

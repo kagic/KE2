@@ -1,73 +1,92 @@
 package mod.kagic.tileentity;
 
 import mod.kagic.blocks.BlockCarbonite;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class TileEntityCarbonite extends TileEntity {
-	private long updateTime = -1;
+public class TileEntityCarbonite extends TileEntity implements ITickable {
+	private boolean isPoweredByRedstone = false;
+	private boolean isAttachedToPoweredBlock = false;
+	public int ticksExisted = 0;
 	@Override
-	public void setWorld(World world) {
-		super.setWorld(world);
-		this.updateTime = this.world.getWorldTime();
-		this.markDirty();
-    }
-	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-		super.writeToNBT(compound);
-		compound.setLong("UpdateTime", this.updateTime);
-		return compound;
-    }
-	@Override
-	public void readFromNBT(NBTTagCompound compound) {
-		super.readFromNBT(compound);
-		this.updateTime = compound.getLong("UpdateTime");
-    }
-	@Override
-	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newState) {
-        return false;
-    }
-	public void activate(BlockCarbonite block, IBlockState from, BlockPos fromPos) {
-		if (block.canBePowered()) {
-			boolean activated = false;
-			if (this.world.getTileEntity(fromPos) instanceof TileEntityCarbonite) {
-				TileEntityCarbonite carbonite = (TileEntityCarbonite)(this.world.getTileEntity(fromPos));
-				BlockCarbonite fromBlock = (BlockCarbonite)(from.getBlock());
-				/*
-				 * If the adjacent carbonite block IS powered, power WILL transfer to the
-				 * current carbonite block ASSUMING the adjacent block is younger, and
-				 * has a larger age in ticks.
-				 * 
-				 * If the adjacent carbonite block IS NOT powered, power on the current
-				 * carbonite block WILL deplete ASSUMING the adjacent block is younger.
-				 */
-				if (fromBlock.isPowered()) {
-					activated = carbonite.getUpdateTime() > this.updateTime;
-				}
-				else if (carbonite.getUpdateTime() > this.updateTime) {
-					activated = false;
-				}
-			}
+	public void update() {
+		++this.ticksExisted;
+		if (!this.world.isRemote) {
 			if (this.world.isBlockPowered(this.pos)) {
-				activated = true;
+				this.isPoweredByRedstone = true;
+				this.turnOn();
+				return;
 			}
-			/*
-			 * If activated and the block is not powered, power it.
-			 * ~~OR~~
-			 * If NOT activated and block is powered, unpower it.
-			 */
-			if ((activated && !block.isPowered()) || (!activated && block.isPowered())) {
-				this.world.setBlockState(this.pos, block.getReverseState());
-				this.updateTime = this.world.getWorldTime();
-				this.markDirty();
+			else if (this.isPoweredByRedstone) {
+				this.turnOff();
+				return;
+			}
+			else {
+				for (int i = 0; i < EnumFacing.VALUES.length; ++i) {
+					EnumFacing face = EnumFacing.VALUES[i]; BlockPos check = this.pos.offset(face);
+					Block block = this.world.getBlockState(check).getBlock();
+					if (block instanceof BlockCarbonite) {
+						TileEntityCarbonite entity = (TileEntityCarbonite)(this.world.getTileEntity(check));
+						if (entity.isPowered()) {
+							if (entity.isAttachedToPoweredBlock()) {
+								this.isAttachedToPoweredBlock = entity.isPoweredByRedstone();
+								this.turnOn();
+								return;
+							}
+							else if (entity.isPoweredByRedstone()) {
+								this.isAttachedToPoweredBlock = true;
+								this.turnOn();
+								return;
+							}
+						}
+						this.isAttachedToPoweredBlock = false;
+					}
+				}
+			}
+			this.turnOff();
+		}
+	}
+	@Override
+	public boolean shouldRefresh(World world, BlockPos pos, IBlockState original, IBlockState state) {
+        return state.getBlock() instanceof BlockCarbonite;
+    }
+	public void turnOff() {
+		this.ticksExisted = 0;
+		Block block = this.world.getBlockState(this.pos).getBlock();
+		if (block instanceof BlockCarbonite) {
+			BlockCarbonite carbonite = (BlockCarbonite)(block);
+			if (carbonite.isPowered()) {
+				this.world.setBlockState(this.pos, carbonite.getReverseState());
 			}
 		}
 	}
-	public long getUpdateTime() {
-		return this.updateTime;
+	public void turnOn() {
+		this.ticksExisted = 0;
+		Block block = this.world.getBlockState(this.pos).getBlock();
+		if (block instanceof BlockCarbonite) {
+			BlockCarbonite carbonite = (BlockCarbonite)(block);
+			if (!carbonite.isPowered()) {
+				this.world.setBlockState(this.pos, carbonite.getReverseState());
+			}
+		}
+	}
+	public boolean isPowered() {
+		Block block = this.world.getBlockState(this.pos).getBlock();
+		if (block instanceof BlockCarbonite) {
+			BlockCarbonite carbonite = (BlockCarbonite)(block);
+			return carbonite.isPowered();
+		}
+		return false;
+	}
+	public boolean isAttachedToPoweredBlock() {
+		return this.isAttachedToPoweredBlock;
+	}
+	public boolean isPoweredByRedstone() {
+		return this.isPoweredByRedstone;
 	}
 }
