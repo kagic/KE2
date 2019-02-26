@@ -215,6 +215,8 @@ public class Ke2Blocks {
 		registerBlock(PINK_HOLOGRAPHIC_CARBONITE_OFF, new ResourceLocation("kagic:pink_holographic_carbonite_off"), event);
 		registerBlock(PINK_HOLOGRAPHIC_CARBONITE_ON, new ResourceLocation("kagic:pink_holographic_carbonite_on"), event);
 		registerBlock(GRAY_CARBONITE, new ResourceLocation("kagic:gray_carbonite"), event);
+		registerBlock(GRAY_CARBONITE_OFF, new ResourceLocation("kagic:gray_carbonite_off"), event);
+		registerBlock(GRAY_CARBONITE_ON, new ResourceLocation("kagic:gray_carbonite_on"), event);
 		registerBlock(GRAY_DECORATIVE_CARBONITE, new ResourceLocation("kagic:gray_decorative_carbonite"), event);
 		registerBlock(GRAY_HOLOGRAPHIC_CARBONITE_OFF, new ResourceLocation("kagic:gray_holographic_carbonite_off"), event);
 		registerBlock(GRAY_HOLOGRAPHIC_CARBONITE_ON, new ResourceLocation("kagic:gray_holographic_carbonite_on"), event);
