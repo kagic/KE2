@@ -65,10 +65,9 @@
 * Watermelon Tourmaline, tall green and pink gem that can blow massive blasts of air at enemies.
 * Snowflake Obsidian, large black and white gem that harvests resources and ores.
 * Larimar, short blue gem that gives enemies a bad time with snowmen and snowballs.
-* Serandite, redstone powered gem that shoots lasers out of its eye and is immune to arrows.
 * Kunzite, purple gem that is immune to arrows and helps animals breed and grow faster.
 * Hiddenite, green gem that is immune to arrows and makes nearby plants grow faster.
-* Cancrinite, crab-like gem that hunts, farms, and forages for food, shears sheep.
+* Coral, one-eyed gem that hunts, farms, and forages for food and is immune to arrows.
 * Desert Glass, green tiny gem that erects sand pillars around herself and enemies.
 * The Crystal Gems, a group of 4 gems that convert your gems and destroy your base.
     * Lead by Rose Quartz, the alter ego of Pink Diamond, and Pearl.

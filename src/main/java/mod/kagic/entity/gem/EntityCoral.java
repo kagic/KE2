@@ -7,14 +7,14 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class EntitySerandite extends EntityGem {
+public class EntityCoral extends EntityGem {
 	public static final ArrayList<ResourceLocation> INSIGNIAS = new ArrayList<ResourceLocation>();
 	public static final ArrayList<ResourceLocation> UNIFORMS = new ArrayList<ResourceLocation>();
 	public static final ArrayList<ResourceLocation> HAIRSTYLES = new ArrayList<ResourceLocation>();
 	static {
 		
 	}
-	public EntitySerandite(World world) {
+	public EntityCoral(World world) {
 		super(world);
 	}
 	@Override
