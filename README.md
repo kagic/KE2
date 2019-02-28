@@ -117,7 +117,7 @@ Click [here](https://discord.gg/Entz7q2) to join.
 ### Build
 1. Go to the directory of your repository.
 2. Run command: `.\gradlew build`
-3. Find `KAGIC-19.x.x.jar` in the `build/lib` folder.
+3. Find `KAGIC-2.19.x.x.jar` in the `build/lib` folder.
 4. KAGIC has been built for distribution.
 
 ### Testing
