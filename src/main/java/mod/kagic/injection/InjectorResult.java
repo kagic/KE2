@@ -56,11 +56,11 @@ public class InjectorResult {
 	}
 	public static InjectorResult create(World world, BlockPos pos, boolean generate, UUID owner, int color) {
 		HashMap<ResourceLocation, ArrayList<CruxEntry>> cruxes = Ke2Gems.CRUXES;
-		ArrayList<IBlockState> image = new ArrayList<IBlockState>();
+		ArrayList<CruxCandidate> image = new ArrayList<CruxCandidate>();
 		for (int y = -2; y < 2; ++y) {
 			for (int x = -2; x < 2; ++x) {
 				for (int z = -2; z < 2; ++z) {
-					image.add(world.getBlockState(pos.add(x, y, z)));
+					image.add(new CruxCandidate(world.getBlockState(pos.add(x, y, z)), world, pos.add(x, y, z)));
 				}
 			}
 		}
@@ -73,12 +73,9 @@ public class InjectorResult {
 			yields.put(gem, 0.0);
 			while (crits.hasNext()) {
 				CruxEntry crit = crits.next();
-				Iterator<IBlockState> bits = image.iterator();
+				Iterator<CruxCandidate> bits = image.iterator();
 				while (bits.hasNext()) {
-					if (bits.next().equals(crit.getState())) {
-						double yield = crit.getYield() * (1.0D - (pos.getY() / crit.getLimit()));
-						yields.put(gem, yields.get(gem) + yield);
-					}
+					yields.put(gem, yields.get(gem) + crit.getYield(bits.next()));
 				}
 			}
 		}

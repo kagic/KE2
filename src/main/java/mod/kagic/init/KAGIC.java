@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import mod.kagic.blocks.BlockCarbonite;
-import mod.kagic.command.CommandGetCrux;
 import mod.kagic.proxies.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -106,7 +105,7 @@ public class KAGIC {
     }
     @EventHandler
     public void serverStarting(FMLServerStartingEvent e) {
-    	e.registerServerCommand(new CommandGetCrux());
+    	//e.registerServerCommand(new CommandGetCrux());
     }
     
     @Mod.EventBusSubscriber(modid = KAGIC.MODID)
