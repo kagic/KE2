@@ -45,7 +45,7 @@ public class ModelGemFusion extends ModelBiped {
 		if (entity instanceof EntityGemFusion) {
 			ItemStack stack = entity.getHeldItem(EnumHand.MAIN_HAND);
 			EntityGemFusion gem = (EntityGemFusion)(entity);
-			if (stack != null && stack.getItem() == Items.BOW && gem.getSwingingArms()) {
+			if (stack != null && stack.getItem() == Items.BOW && gem.isSwingingArms()) {
 				if (gem.getPrimaryHand() == EnumHandSide.RIGHT) {
 					this.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
 				}

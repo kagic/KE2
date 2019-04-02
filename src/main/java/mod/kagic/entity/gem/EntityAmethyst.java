@@ -9,7 +9,10 @@ import net.minecraft.world.World;
 
 public class EntityAmethyst extends EntityGemQuartz {
 	public static final ArrayList<ResourceLocation> INSIGNIAS = new ArrayList<ResourceLocation>();
+	public static final ArrayList<ResourceLocation> JACKETS = new ArrayList<ResourceLocation>();
 	public static final ArrayList<ResourceLocation> UNIFORMS = new ArrayList<ResourceLocation>();
+	public static final ArrayList<ResourceLocation> HAIRSTYLES = new ArrayList<ResourceLocation>();
+	public static final ArrayList<ResourceLocation> GEMSTONES = new ArrayList<ResourceLocation>();
 	static {
 		
 	}
@@ -30,6 +33,10 @@ public class EntityAmethyst extends EntityGemQuartz {
 	}
 	@Override
 	public int generateInsigniaVariant() {
+		return 0;
+	}
+	@Override
+	public int generateJacketVariant() {
 		return 0;
 	}
 	@Override

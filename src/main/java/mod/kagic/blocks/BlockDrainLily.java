@@ -2,8 +2,8 @@ package mod.kagic.blocks;
 
 import java.util.Random;
 
-import mod.kagic.init.Ke2Blocks;
 import mod.kagic.init.KAGIC;
+import mod.kagic.init.Ke2Blocks;
 import mod.kagic.injection.InjectorResult;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;

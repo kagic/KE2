@@ -7,6 +7,7 @@ public interface IGems extends INpc {
 	public int generateHairColor();
 	public int generateGemstoneColor();
 	public int generateInsigniaVariant();
+	public int generateJacketVariant();
 	public int generateUniformVariant();
 	public int generateHairVariant();
 	public int generateSkinVariant();

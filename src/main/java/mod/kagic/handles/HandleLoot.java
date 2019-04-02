@@ -1,6 +1,7 @@
 package mod.kagic.handles;
 
 import mod.kagic.entity.EntityGem;
+import net.minecraft.crash.CrashReport;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -17,7 +18,7 @@ public class HandleLoot {
 			try {
 				ReflectionHelper.<EntityLivingBase, Integer>setPrivateValue(EntityLivingBase.class, event.getEntityLiving(), 100, "recentlyHit", "field_70718_bc", "aT");
 			} catch (UnableToAccessFieldException e) {
-				System.out.println("Deprecated code on LINE 19 has failed, please report to @akrivus#1337.");
+				CrashReport.makeCrashReport(e, "Deprecated code on LINE 19 has failed, please report to @akrivus#1337.");
 			}
 		}
 	}

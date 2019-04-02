@@ -1,7 +1,7 @@
 package mod.kagic.entity;
 
-import mod.kagic.init.Ke2Items;
 import mod.kagic.init.KAGIC;
+import mod.kagic.init.Ke2Items;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;

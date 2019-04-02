@@ -35,9 +35,11 @@ public class EntityPearl extends EntityGem {
 	public static final int PEARL_PURPLE = 9;
 	public static final int PEARL_PINK = 10;
 	public static final int PEARL_BLACK = 11;
-	public static final ArrayList<ResourceLocation> PEARL_INSIGNIAS = new ArrayList<ResourceLocation>();
-	public static final ArrayList<ResourceLocation> PEARL_UNIFORMS = new ArrayList<ResourceLocation>();
-	public static final ArrayList<ResourceLocation> PEARL_HAIRSTYLES = new ArrayList<ResourceLocation>();
+	public static final ArrayList<ResourceLocation> INSIGNIAS = new ArrayList<ResourceLocation>();
+	public static final ArrayList<ResourceLocation> JACKETS = new ArrayList<ResourceLocation>();
+	public static final ArrayList<ResourceLocation> UNIFORMS = new ArrayList<ResourceLocation>();
+	public static final ArrayList<ResourceLocation> HAIRSTYLES = new ArrayList<ResourceLocation>();
+	public static final ArrayList<ResourceLocation> GEMSTONES = new ArrayList<ResourceLocation>();
 	static {
 		
 	}
@@ -58,6 +60,10 @@ public class EntityPearl extends EntityGem {
 	}
 	@Override
 	public int generateInsigniaVariant() {
+		return 0;
+	}
+	@Override
+	public int generateJacketVariant() {
 		return 0;
 	}
 	@Override

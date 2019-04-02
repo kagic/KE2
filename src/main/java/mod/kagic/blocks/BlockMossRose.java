@@ -1,7 +1,7 @@
 package mod.kagic.blocks;
 
-import mod.kagic.init.Ke2Blocks;
 import mod.kagic.init.KAGIC;
+import mod.kagic.init.Ke2Blocks;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;

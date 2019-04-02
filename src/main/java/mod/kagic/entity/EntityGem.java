@@ -47,12 +47,22 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
 public abstract class EntityGem extends EntityMob implements IGems, IInventoryChangedListener, IRangedAttackMob, IEntityAdditionalSpawnData {
+	public enum Pose {
+		DEFAULT,
+		KNOCKING_BOW,
+		FLAILING,
+		USING_POWERS,
+		SALUTING,
+		WAVING,
+		DABBING,
+		POSSESSED
+	}
 	protected static final DataParameter<Optional<UUID>> GEM_GLOBAL_ID 		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
 	protected static final DataParameter<Optional<UUID>> GEM_OWNER_ID 		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
 	protected static final DataParameter<Optional<UUID>> GEM_LEADER_ID		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
 	protected static final DataParameter<Integer>		 GEM_ALIGNMENT 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Float>			 GEM_EMOTION 		= EntityDataManager.<Float>createKey(EntityGem.class, DataSerializers.FLOAT);
-	protected static final DataParameter<Boolean> 		 IS_SWINGING_ARMS 	= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
+	protected static final DataParameter<Integer> 		 POSE	 			= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Boolean> 		 IS_HIGHLIGHTED 	= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<BlockPos> 		 ORIGINAL_POS 		= EntityDataManager.<BlockPos>createKey(EntityGem.class, DataSerializers.BLOCK_POS);
 	protected static final DataParameter<Integer> 		 ORIGINAL_DIM 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
@@ -62,6 +72,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 	protected static final DataParameter<Integer>		 COLOR_RGB_HAIR 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>	 	 COLOR_RGB_GEMSTONE = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>		 VARIANT_INSIGNIA	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Integer>		 VARIANT_JACKET		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>		 VARIANT_UNIFORM	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>		 VARIANT_HAIR		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>		 VARIANT_SKIN		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
@@ -96,7 +107,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		this.dataManager.register(GEM_LEADER_ID, Optional.absent());
 		this.dataManager.register(GEM_ALIGNMENT, 0);
 		this.dataManager.register(GEM_EMOTION, Ke2Gems.EMOTION_HAPPY);
-		this.dataManager.register(IS_SWINGING_ARMS, false);
+		this.dataManager.register(POSE, 0);
 		this.dataManager.register(IS_HIGHLIGHTED, false);
 		this.dataManager.register(ORIGINAL_POS, BlockPos.ORIGIN);
 		this.dataManager.register(ORIGINAL_DIM, 0);
@@ -106,6 +117,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		this.dataManager.register(COLOR_RGB_HAIR, 0);
 		this.dataManager.register(COLOR_RGB_GEMSTONE, 0);
 		this.dataManager.register(VARIANT_INSIGNIA, 0);
+		this.dataManager.register(VARIANT_JACKET, 0);
 		this.dataManager.register(VARIANT_UNIFORM, 0);
 		this.dataManager.register(VARIANT_HAIR, 0);
 		this.dataManager.register(VARIANT_SKIN, 0);
@@ -130,6 +142,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		this.setOriginalPosition(this.getPosition());
 		this.setOriginalDimension(this.dimension);
 		this.setInsigniaVariant(this.generateInsigniaVariant());
+		this.setJacketVariant(this.generateJacketVariant());
 		this.setUniformVariant(this.generateUniformVariant());
 		this.setHairVariant(this.generateHairVariant());
 		this.setSkinVariant(this.generateSkinVariant());
@@ -169,6 +182,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		this.setHairColor(compound.getInteger("HairColor"));
 		this.setGemstoneColor(compound.getInteger("GemstoneColor"));
 		this.setInsigniaVariant(compound.getInteger("InsigniaVariant"));
+		this.setJacketVariant(compound.getInteger("JacketVariant"));
 		this.setUniformVariant(compound.getInteger("UniformVariant"));
 		this.setHairVariant(compound.getInteger("HairVariant"));
 		this.setSkinVariant(compound.getInteger("SkinVariant"));
@@ -203,7 +217,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		}
 		compound.setInteger("GemAlignment", this.getGemAlignment());
 		compound.setFloat("Emotion", this.getEmotion());
-		compound.setBoolean("SwingingArms", this.getSwingingArms());
+		compound.setInteger("Pose", this.getPose().ordinal());
 		compound.setBoolean("Highlighted", this.isHighlighted());
 		compound.setLong("OriginalPosition", this.getOriginalPosition().toLong());
 		compound.setInteger("OriginalDimension", this.getOriginalDimension());
@@ -213,6 +227,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		compound.setInteger("HairColor", this.getHairColor());
 		compound.setInteger("GemstoneColor", this.getGemstoneColor());
 		compound.setInteger("InsigniaVariant", this.getInsigniaVariant());
+		compound.setInteger("JacketVariant", this.getJacketVariant());
 		compound.setInteger("UniformVariant", this.getUniformVariant());
 		compound.setInteger("HairVariant", this.getHairVariant());
 		compound.setInteger("SkinVariant", this.getSkinVariant());
@@ -222,6 +237,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		compound.setBoolean("Visor", this.hasVisor());
 		compound.setBoolean("Defective", this.isDefective());
 		compound.setBoolean("Perfect", this.isPerfect());
+		this.createInventory();
 		NBTTagList inventory = new NBTTagList();
 		for (int i = 0; i < this.inventory.getSizeInventory(); ++i) {
 			ItemStack stack = this.inventory.getStackInSlot(i);
@@ -239,6 +255,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 	@Override
 	public void onUpdate() {
         super.onUpdate();
+        this.motionY *= this.getFallSpeed();
         if (this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
             this.dead = this.getHealth() > 0;
         }
@@ -262,9 +279,15 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 				fusion.setDead();
 			}
 			else {
-				this.setCustomNameTag(String.format("%s-%s", this.getName(), this.getDescriptor(3)));
 				if (this.world.getGameRules().getBoolean("showDeathMessages")) {
-					this.sendMessage(cause.getDeathMessage(this).getUnformattedText());
+					if (!this.hasCustomName()) {
+						this.setCustomNameTag(String.format("%s-%s", this.getName(), this.getDescriptor(3)));
+						this.sendMessage(cause.getDeathMessage(this).getUnformattedText());
+						this.setCustomNameTag("");
+					}
+					else {
+						this.sendMessage(cause.getDeathMessage(this).getUnformattedText());
+					}
 				}
 			}
 		}
@@ -277,6 +300,7 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if (!this.world.isRemote) {
+			// TODO: Ensure we have all the (universal) damage types listed.
 			if (source.damageType.matches("(?i:magic|drown|vacuum|oxygen_suffocation|electricity|radiation)")) {
 				return false;
 			}
@@ -329,6 +353,9 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 		else {
 			return false;
 		}
+	}
+	public double getFallSpeed() {
+		return 1.0D;
 	}
 	public void sendMessageTo(EntityPlayer player, String line, Object... formatting) {
 		player.sendMessage(new TextComponentString("<" + this.getName() + "> " + String.format(line, formatting)));
@@ -386,10 +413,21 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 	}
 	@Override
 	public void setSwingingArms(boolean swinging) {
-		this.dataManager.set(IS_SWINGING_ARMS, swinging);
+		if (swinging) {
+			this.setPose(Pose.KNOCKING_BOW);
+		}
+		else if (this.isSwingingArms()) {
+			this.setPose(Pose.DEFAULT);
+		}
 	}
-	public boolean getSwingingArms() {
-		return this.dataManager.get(IS_SWINGING_ARMS);
+	public boolean isSwingingArms() {
+		return this.getPose() == Pose.KNOCKING_BOW;
+	}
+	public void setPose(Pose pose) {
+		this.dataManager.set(POSE, pose.ordinal());
+	}
+	public Pose getPose() {
+		return Pose.values()[this.dataManager.get(POSE)];
 	}
 	public void setHighlighted(boolean highlighted) {
 		this.dataManager.set(IS_HIGHLIGHTED, highlighted);
@@ -509,6 +547,12 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 	}
 	public int getUniformVariant() {
 		return this.dataManager.get(VARIANT_UNIFORM);
+	}
+	public void setJacketVariant(int variant) {
+		this.dataManager.set(VARIANT_JACKET, variant);
+	}
+	public int getJacketVariant() {
+		return this.dataManager.get(VARIANT_JACKET);
 	}
 	public void setHairVariant(int variant) {
 		this.dataManager.set(VARIANT_HAIR, variant);
