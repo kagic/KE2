@@ -1,6 +1,7 @@
 package mod.ke2.init;
 
 public class Ke2Tweaks {
+	
 	/*
 	public static void applyGemTweaks(EntityGem gem) {
 		if (gem instanceof EntityGem) {
