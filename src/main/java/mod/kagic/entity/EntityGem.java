@@ -49,7 +49,7 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 public abstract class EntityGem extends EntityMob implements IGems, IInventoryChangedListener, IRangedAttackMob, IEntityAdditionalSpawnData {
 	public enum Pose {
 		DEFAULT,
-		KNOCKING_BOW,
+		NOCKING_BOW,
 		FLAILING,
 		USING_POWERS,
 		SALUTING,
@@ -357,6 +357,9 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 	public double getFallSpeed() {
 		return 1.0D;
 	}
+	public boolean hasNoDyeOverlay() {
+		return false;
+	}
 	public void sendMessageTo(EntityPlayer player, String line, Object... formatting) {
 		player.sendMessage(new TextComponentString("<" + this.getName() + "> " + String.format(line, formatting)));
 	}
@@ -414,14 +417,14 @@ public abstract class EntityGem extends EntityMob implements IGems, IInventoryCh
 	@Override
 	public void setSwingingArms(boolean swinging) {
 		if (swinging) {
-			this.setPose(Pose.KNOCKING_BOW);
+			this.setPose(Pose.NOCKING_BOW);
 		}
 		else if (this.isSwingingArms()) {
 			this.setPose(Pose.DEFAULT);
 		}
 	}
 	public boolean isSwingingArms() {
-		return this.getPose() == Pose.KNOCKING_BOW;
+		return this.getPose() == Pose.NOCKING_BOW;
 	}
 	public void setPose(Pose pose) {
 		this.dataManager.set(POSE, pose.ordinal());

@@ -17,14 +17,16 @@ public class LayerHair implements LayerRenderer<EntityGem> {
 	}
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.renderer.bindTexture(this.getHairStyle(gem, gem.getHairVariant()));
-		int color = gem.getHairColor();
-        float r = ((color & 16711680) >> 16) / 255f;
-        float g = ((color & 65280) >> 8) / 255f;
-        float b = ((color & 255) >> 0) / 255f;
-		GlStateManager.color(r, g, b);
-		this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		GlStateManager.disableBlend();
+		if (!this.hairstyles.isEmpty() && gem.getHairVariant() > -1) {
+			this.renderer.bindTexture(this.getHairStyle(gem, gem.getHairVariant()));
+			int color = gem.getHairColor();
+	        float r = ((color & 16711680) >> 16) / 255f;
+	        float g = ((color & 65280) >> 8) / 255f;
+	        float b = ((color & 255) >> 0) / 255f;
+			GlStateManager.color(r, g, b);
+			this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			GlStateManager.disableBlend();
+		}
 	}
 	@Override
 	public boolean shouldCombineTextures() {

@@ -18,13 +18,15 @@ public class LayerJacket implements LayerRenderer<EntityGem> {
 	
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.renderer.bindTexture(this.jackets.get(gem.getJacketVariant()));
-		int jacket = gem.getUniformColor();
-		float r = ((jacket & 16711680) >> 16) / 255f;
-		float g = ((jacket & 65280) >> 8) / 255f;
-		float b = ((jacket & 255) >> 0) / 255f;
-		GlStateManager.color(r, g, b);
-        this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		if (!this.jackets.isEmpty() && gem.getJacketVariant() > -1) {
+			this.renderer.bindTexture(this.jackets.get(gem.getJacketVariant()));
+			int jacket = gem.getUniformColor();
+			float r = ((jacket & 16711680) >> 16) / 255f;
+			float g = ((jacket & 65280) >> 8) / 255f;
+			float b = ((jacket & 255) >> 0) / 255f;
+			GlStateManager.color(r, g, b);
+	        this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		}
 	}
 	@Override
 	public boolean shouldCombineTextures() {

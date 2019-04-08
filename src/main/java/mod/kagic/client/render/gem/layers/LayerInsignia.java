@@ -18,11 +18,13 @@ public class LayerInsignia implements LayerRenderer<EntityGem> {
 	}
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.renderer.bindTexture(this.insignias.get(gem.getGemstoneCut()));
-		float[] color = EnumDyeColor.byDyeDamage(gem.getInsigniaColor()).getColorComponentValues();
-		GlStateManager.color(color[0], color[1], color[2]);
-        this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		GlStateManager.disableBlend();
+		if (!this.insignias.isEmpty() && gem.getInsigniaVariant() > -1) {
+			this.renderer.bindTexture(this.insignias.get(gem.getInsigniaVariant()));
+			float[] color = EnumDyeColor.byDyeDamage(gem.getInsigniaColor()).getColorComponentValues();
+			GlStateManager.color(color[0], color[1], color[2]);
+	        this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			GlStateManager.disableBlend();
+		}
 	}
 	@Override
 	public boolean shouldCombineTextures() {

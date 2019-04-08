@@ -14,22 +14,25 @@ public class EntityRuby extends EntityGem {
 	public static final ArrayList<ResourceLocation> HAIRSTYLES = new ArrayList<ResourceLocation>();
 	public static final ArrayList<ResourceLocation> GEMSTONES = new ArrayList<ResourceLocation>();
 	static {
-		
+		INSIGNIAS.add(new ResourceLocation("kagic:textures/entities/ruby/outfit/insignia.png"));
+		UNIFORMS.add(new ResourceLocation("kagic:textures/entities/ruby/outfit/uniform.png"));
+		HAIRSTYLES.add(new ResourceLocation("kagic:textures/entities/ruby/hair/hair.png"));
+		GEMSTONES.add(new ResourceLocation("kagic:textures/items/red_gem_dust.png"));
 	}
 	public EntityRuby(World world) {
 		super(world);
 	}
 	@Override
 	public int generateSkinColor() {
-		return 0;
+		return 0xFF0000;
 	}
 	@Override
 	public int generateHairColor() {
-		return 0;
+		return 0x220000;
 	}
 	@Override
 	public int generateGemstoneColor() {
-		return 0;
+		return 0xCC0000;
 	}
 	@Override
 	public int generateInsigniaVariant() {
