@@ -12,8 +12,8 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 version = new Date().format('2.yy.MM.dd')
-group = "mod.akrivus.kagic"
-archivesBaseName = "kagic"
+group = "mod.ke2"
+archivesBaseName = "KAGIC"
 
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
@@ -37,4 +37,28 @@ processResources {
 compileJava {
     sourceCompatibility = project.sourceCompatibility
     targetCompatibility = project.targetCompatibility
+}
+configurations {
+	customCompile
+}
+dependencies {
+	customCompile fileTree(dir: 'lib', includes: ['*.jar'])
+	compile configurations.customCompile
+}
+jar {
+	from sourceSets.api.output
+	from (
+		configurations.customCompile.collect {
+			it.isDirectory() ? it : zipTree(it)
+		}
+	) { exclude 'META-INF/**' }
+}
+task deobf(type: Jar) {
+	from sourceSets.main.output
+	from sourceSets.api.output
+	appendix = "deobf"
+	classifier = "deobf"
+}
+artifacts {
+	archives deobf
 }

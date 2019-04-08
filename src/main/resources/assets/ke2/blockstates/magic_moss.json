@@ -1,0 +1,36 @@
+
+{
+    "forge_marker": 1,
+	"defaults": {
+		"model": "minecraft:cube_all",
+		"textures": {
+			"all": "ke2:blocks/magic_moss"
+		}
+	},
+    "variants": {
+        "inventory": {
+	    	"model": "minecraft:cube_all",
+			"textures": {
+				"all": "ke2:blocks/magic_moss"
+			}
+        },
+        "normal": {
+	    	"model": "minecraft:cube_all",
+			"textures": {
+				"all": "ke2:blocks/magic_moss"
+			}
+        },
+        "short=true": {
+	    	"model": "ke2:magic_moss",
+			"textures": {
+				"tex": "ke2:blocks/magic_moss"
+			}
+        },
+        "short=false": {
+	    	"model": "minecraft:cube_all",
+			"textures": {
+				"all": "ke2:blocks/magic_moss"
+			}
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "ke2:moss_rose"
+		}
+	],
+	"result": {
+		"item": "ke2:pink_gem_shard"
+	}
+}

@@ -91,16 +91,16 @@
 * Pebbles, a byproduct of gem production that craft and steal random items.
 
 ## Downloads
-Check our [releases page](https://github.com/kagic/KAGIC/releases) for downloads.
+Check our [releases page](https://github.com/kagic/KE2/releases) for downloads.
 
 ## Issues
 1. Collect any helpful logs, screenshots, or snippets.
-2. Report issues to our [issue tracker.](https://github.com/kagic/KAGIC/issues)
-3. Ask for help in our [Discord.](https://discord.gg/C982t9a)
+2. Report issues to our [issue tracker.](https://github.com/kagic/KE2/issues)
+3. Ask for help in our [Discord.](https://discord.gg/MwEuu9x)
 
 ## Discord
 The Discord server is a place to collaborate, learn, showcase, and discuss the development of KAGIC, download the latest releases, communicate with the community, report bugs and ask for and provide help and support.
-Click [here](https://discord.gg/Entz7q2) to join.
+Click [here](https://discord.gg/MwEuu9x) to join.
 
 ## Development
 ### Prerequisites
@@ -109,7 +109,7 @@ Click [here](https://discord.gg/Entz7q2) to join.
 
 ### Setup
 1. Install the above prerequisites.
-2. Run command: `git clone https://github.com/kagic/KAGIC.git`
+2. Run command: `git clone https://github.com/kagic/KE2.git`
 3.  repository folder, run: `.\gradlew setupDecompWorkspace`
 4. Run `.\gradlew eclipse` or `.\gradlew idea` depending on your IDE.
 5. KAGIC is now installed.
@@ -117,7 +117,7 @@ Click [here](https://discord.gg/Entz7q2) to join.
 ### Build
 1. Go to the directory of your repository.
 2. Run command: `.\gradlew build`
-3. Find `KAGIC-2.19.x.x.jar` in the `build/lib` folder.
+3. Find `KAGIC-x.jar` in the `build/lib` folder.
 4. KAGIC has been built for distribution.
 
 ### Testing

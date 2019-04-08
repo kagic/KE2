@@ -1,0 +1,42 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "ke2:wailing_stone",
+		"textures": {
+			"top": "ke2:blocks/wailing_stone_top",
+			"face": "ke2:blocks/wailing_stone_face",
+			"side": "ke2:blocks/wailing_stone_side",
+			"bottom": "ke2:blocks/wailing_stone_bottom",
+			"particle": "ke2:blocks/wailing_stone_bottom"
+		}
+	},
+	"variants": {
+		"facing=down": {
+			"model": "ke2:wailing_stone",
+			"y": 90
+		},
+		"facing=up": {
+			"model": "ke2:wailing_stone",
+			"y": 90
+		},
+		"facing=east": {
+			"model": "ke2:wailing_stone"
+		},
+		"facing=west": {
+			"model": "ke2:wailing_stone",
+			"y": 180
+		},
+		"facing=north": {
+			"model": "ke2:wailing_stone",
+			"y": 270
+		},
+		"facing=south": {
+			"model": "ke2:wailing_stone",
+			"y": 90
+		},
+		"inventory": {
+			"model": "ke2:wailing_stone",
+			"y": 90
+		}
+	}
+}

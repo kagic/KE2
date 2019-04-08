@@ -1,0 +1,17 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "minecraft:cube_all",
+		"textures": {
+			"all": "ke2:blocks/green_carbonite_on"
+		}
+	},
+	"variants": {
+		"inventory": {
+		    "model": "minecraft:cube_all"
+		},
+		"normal": {
+		    "model": "minecraft:cube_all"
+		}
+	}
+}

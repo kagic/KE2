@@ -1,0 +1,11 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "ke2:valley_drain_lily"
+		}
+	],
+	"result": {
+		"item": "ke2:yellow_gem_shard"
+	}
+}

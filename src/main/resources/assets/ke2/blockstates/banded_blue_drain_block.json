@@ -1,0 +1,18 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "minecraft:cube_column",
+		"textures": {
+			"side": "ke2:blocks/banded_blue_drain_block_side",
+			"end": "ke2:blocks/banded_blue_drain_block_top"
+		}
+	},
+	"variants": {
+		"inventory": {
+		    "model": "minecraft:cube_column"
+		},
+		"normal": {
+		    "model": "minecraft:cube_column"
+		}
+	}
+}

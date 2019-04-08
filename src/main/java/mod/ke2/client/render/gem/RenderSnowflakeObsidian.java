@@ -1,0 +1,28 @@
+package mod.ke2.client.render.gem;
+
+import mod.ke2.client.model.gem.ModelSnowflakeObsidian;
+import mod.ke2.client.render.RenderGem;
+import mod.ke2.client.render.gem.layers.LayerGemstone;
+import mod.ke2.client.render.gem.layers.LayerHair;
+import mod.ke2.client.render.gem.layers.LayerInsignia;
+import mod.ke2.client.render.gem.layers.LayerJacket;
+import mod.ke2.client.render.gem.layers.LayerNoDyeOverlay;
+import mod.ke2.client.render.gem.layers.LayerSkin;
+import mod.ke2.client.render.gem.layers.LayerUniform;
+import mod.ke2.client.render.gem.layers.LayerVisor;
+import mod.ke2.entity.gem.EntitySnowflakeObsidian;
+import net.minecraft.client.renderer.entity.RenderManager;
+
+public class RenderSnowflakeObsidian<T extends EntitySnowflakeObsidian> extends RenderGem<T> {
+	public RenderSnowflakeObsidian(RenderManager manager) {
+		super(manager, new ModelSnowflakeObsidian(), 0.5F);
+		this.addLayer(new LayerSkin(this));
+		this.addLayer(new LayerUniform(this, EntitySnowflakeObsidian.UNIFORMS));
+		this.addLayer(new LayerInsignia(this, EntitySnowflakeObsidian.INSIGNIAS));
+		this.addLayer(new LayerHair(this, EntitySnowflakeObsidian.HAIRSTYLES));
+		this.addLayer(new LayerVisor(this));
+		this.addLayer(new LayerNoDyeOverlay(this));
+		this.addLayer(new LayerJacket(this, EntitySnowflakeObsidian.JACKETS));
+		this.addLayer(new LayerGemstone(this, EntitySnowflakeObsidian.GEMSTONES));
+	}
+}

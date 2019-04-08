@@ -1,0 +1,27 @@
+{
+    "misc.bubble.create": {
+        "sounds": [
+            { "name": "ke2:misc/bubble/create" }
+        ]
+    },
+    "misc.bubble.pop": {
+        "sounds": [
+            { "name": "ke2:misc/bubble/pop" }
+        ]
+    },
+    "misc.bubble.send": {
+        "sounds": [
+            { "name": "ke2:misc/bubble/send" }
+        ]
+    },
+    "block.wailing_stone": {
+    	"sounds": [
+    		{ "name": "ke2:block/wailing_stone" }
+    	]
+    },
+    "item.destabilizer": {
+    	"sounds": [
+    		{ "name": "ke2:item/destabilizer" }
+    	]
+    }
+}
