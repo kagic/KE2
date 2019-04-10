@@ -2,8 +2,8 @@ package mod.ke2.client.render;
 
 import java.util.Iterator;
 
+import mod.ke2.api.EntityGem;
 import mod.ke2.client.model.ModelGem;
-import mod.ke2.entity.EntityGem;
 import mod.ke2.init.Ke2Configs;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderBiped;

@@ -1,4 +1,4 @@
-package mod.ke2.entity;
+package mod.ke2.api;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,12 +6,11 @@ import java.util.UUID;
 import com.google.common.base.Optional;
 
 import io.netty.buffer.ByteBuf;
+import mod.ke2.api.DamageCracked;
+import mod.ke2.api.DamagePoofed;
+import mod.ke2.api.DamageShatter;
+import mod.ke2.api.injection.GemSpawnData;
 import mod.ke2.init.Ke2Gems;
-import mod.ke2.injection.GemSpawnData;
-import mod.ke2.util.DamageCracked;
-import mod.ke2.util.DamagePoofed;
-import mod.ke2.util.DamageShatter;
-import mod.ke2.util.IGem;
 import mod.ke2.world.data.WorldDataAuthorities;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -72,13 +71,12 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	protected static final DataParameter<Integer>		 COLOR_RGB_SKIN 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>		 COLOR_RGB_HAIR 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>	 	 COLOR_RGB_GEMSTONE = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Integer>		 VARIANT_CLOTHING	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Integer>		 VARIANT_HAIR		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Integer>		 VARIANT_SKIN		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<String>		 VARIANT_CLOTHING	= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
+	protected static final DataParameter<String>		 VARIANT_HAIR		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
+	protected static final DataParameter<String>		 VARIANT_SKIN		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<Integer>		 GEMSTONE_POS 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<EnumFacing>	 GEMSTONE_DIR 		= EntityDataManager.<EnumFacing>createKey(EntityGem.class, DataSerializers.FACING);
-	protected static final DataParameter<Integer>		 GEMSTONE_CUT 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Boolean>		 HAS_VISOR 			= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);	
+	protected static final DataParameter<String>		 GEMSTONE_CUT 		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<Boolean>		 IS_DEFECTIVE		= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Boolean>		 IS_PERFECT			= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	
@@ -115,13 +113,12 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.dataManager.register(COLOR_RGB_SKIN, 0);
 		this.dataManager.register(COLOR_RGB_HAIR, 0);
 		this.dataManager.register(COLOR_RGB_GEMSTONE, 0);
-		this.dataManager.register(VARIANT_CLOTHING, 0);
-		this.dataManager.register(VARIANT_HAIR, 0);
-		this.dataManager.register(VARIANT_SKIN, 0);
+		this.dataManager.register(VARIANT_CLOTHING, "");
+		this.dataManager.register(VARIANT_HAIR, "");
+		this.dataManager.register(VARIANT_SKIN, "");
 		this.dataManager.register(GEMSTONE_POS, 0);
 		this.dataManager.register(GEMSTONE_DIR, EnumFacing.NORTH);
-		this.dataManager.register(GEMSTONE_CUT, 0);
-		this.dataManager.register(HAS_VISOR, false);
+		this.dataManager.register(GEMSTONE_CUT, "");
 		this.dataManager.register(IS_DEFECTIVE, false);
 		this.dataManager.register(IS_PERFECT, false);
 	}

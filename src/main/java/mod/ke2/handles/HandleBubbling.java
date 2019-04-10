@@ -2,7 +2,7 @@ package mod.ke2.handles;
 
 import java.util.List;
 
-import mod.ke2.entity.EntityGem;
+import mod.ke2.api.EntityGem;
 import mod.ke2.entity.machine.EntityBubble;
 import mod.ke2.init.Ke2Items;
 import net.minecraft.entity.item.EntityItem;

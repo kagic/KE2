@@ -2,7 +2,7 @@ package mod.ke2.entity.machine;
 
 import java.util.List;
 
-import mod.ke2.entity.EntityGem;
+import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Sounds;
 import mod.ke2.items.ItemGem;
 import mod.ke2.items.ItemGemDestabilizer;

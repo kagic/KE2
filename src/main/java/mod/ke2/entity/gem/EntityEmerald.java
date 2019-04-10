@@ -2,7 +2,7 @@ package mod.ke2.entity.gem;
 
 import java.util.ArrayList;
 
-import mod.ke2.entity.EntityGem;
+import mod.ke2.api.EntityGem;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;

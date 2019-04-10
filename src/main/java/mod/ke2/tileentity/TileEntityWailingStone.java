@@ -68,7 +68,7 @@ public class TileEntityWailingStone extends TileEntity implements ITickable {
 	public void setWailing(boolean wailing) {
 		this.wailing = wailing;
 	}
-	public void toggleActivate() {
+	public void toggle() {
 		this.wailing = !this.wailing;
 		this.markDirty();
 	}

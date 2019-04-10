@@ -2,8 +2,8 @@ package mod.ke2.client.render.gem.layers;
 
 import java.util.ArrayList;
 
+import mod.ke2.api.EntityGem;
 import mod.ke2.client.render.RenderGem;
-import mod.ke2.entity.EntityGem;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;

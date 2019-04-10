@@ -1,8 +1,8 @@
 package mod.ke2.entity.machine.ai;
 
+import mod.ke2.api.injection.GemSpawnData;
 import mod.ke2.entity.machine.EntityInjector;
 import mod.ke2.init.Ke2Blocks;
-import mod.ke2.injection.GemSpawnData;
 import mod.ke2.tileentity.TileEntityGemSeed;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;

@@ -1,7 +1,7 @@
 package mod.ke2.client.render.gem.layers;
 
+import mod.ke2.api.EntityGem;
 import mod.ke2.client.render.RenderGem;
-import mod.ke2.entity.EntityGem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.GlStateManager;

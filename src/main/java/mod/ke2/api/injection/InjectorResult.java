@@ -1,11 +1,11 @@
-package mod.ke2.injection;
+package mod.ke2.api.injection;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.UUID;
 
-import mod.ke2.entity.EntityGem;
+import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.block.Block;

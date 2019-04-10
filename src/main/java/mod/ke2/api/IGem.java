@@ -1,4 +1,4 @@
-package mod.ke2.util;
+package mod.ke2.api;
 
 import net.minecraft.entity.INpc;
 

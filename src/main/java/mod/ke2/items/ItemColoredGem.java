@@ -1,6 +1,6 @@
 package mod.ke2.items;
 
-import mod.ke2.entity.EntityGem;
+import mod.ke2.api.EntityGem;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

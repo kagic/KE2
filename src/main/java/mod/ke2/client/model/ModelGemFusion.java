@@ -2,7 +2,7 @@ package mod.ke2.client.model;
 
 import java.util.ArrayList;
 
-import mod.ke2.entity.EntityGemFusion;
+import mod.ke2.api.EntityGemFusion;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;

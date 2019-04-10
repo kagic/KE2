@@ -2,6 +2,8 @@ package mod.ke2.init;
 
 import java.util.ArrayList;
 
+import mod.ke2.api.EntityGem;
+import mod.ke2.api.injection.CruxEntry;
 import mod.ke2.client.render.RenderGemShard;
 import mod.ke2.client.render.gem.RenderAgate;
 import mod.ke2.client.render.gem.RenderAmethyst;
@@ -40,7 +42,6 @@ import mod.ke2.client.render.machine.RenderBubble;
 import mod.ke2.client.render.machine.RenderInjector;
 import mod.ke2.client.render.vehicle.RenderHandShip;
 import mod.ke2.client.render.vehicle.RenderPalanquin;
-import mod.ke2.entity.EntityGem;
 import mod.ke2.entity.EntityGemShard;
 import mod.ke2.entity.gem.EntityAgate;
 import mod.ke2.entity.gem.EntityAmethyst;
@@ -79,7 +80,6 @@ import mod.ke2.entity.machine.EntityBubble;
 import mod.ke2.entity.machine.EntityInjector;
 import mod.ke2.entity.vehicle.EntityHandShip;
 import mod.ke2.entity.vehicle.EntityPalanquin;
-import mod.ke2.injection.CruxEntry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;

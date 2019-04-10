@@ -2,7 +2,7 @@ package mod.ke2.init;
 
 import java.util.ArrayList;
 
-import mod.ke2.injection.CruxEntry;
+import mod.ke2.api.injection.CruxEntry;
 
 public class Ke2Cruxes {
 	public static final ArrayList<CruxEntry> AGATE = new ArrayList<CruxEntry>();

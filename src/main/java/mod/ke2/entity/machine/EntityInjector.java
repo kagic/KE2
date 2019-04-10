@@ -3,7 +3,6 @@ package mod.ke2.entity.machine;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import mod.ke2.entity.EntityGemMachine;
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2Items;
 import net.minecraft.block.Block;

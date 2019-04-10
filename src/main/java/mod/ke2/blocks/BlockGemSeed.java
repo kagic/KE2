@@ -1,6 +1,7 @@
 package mod.ke2.blocks;
 
 import mod.ke2.init.KAGIC;
+import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.tileentity.TileEntityGemSeed;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.ITileEntityProvider;
@@ -20,7 +21,7 @@ public class BlockGemSeed extends BlockFalling implements ITileEntityProvider {
 		this.setResistance(1000);
 		this.setHardness(100);
 		this.setHarvestLevel("pickaxe", 3);
-		this.setCreativeTab(KAGIC.CREATIVE_TAB);
+		this.setCreativeTab(Ke2CreativeTabs.MISCELLANEOUS);
 	}
 	@Override
     public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {

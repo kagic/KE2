@@ -3,8 +3,8 @@ package mod.ke2.init;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import mod.ke2.entity.EntityGem;
-import mod.ke2.injection.CruxEntry;
+import mod.ke2.api.EntityGem;
+import mod.ke2.api.injection.CruxEntry;
 import mod.ke2.items.ItemGem;
 import net.minecraft.util.ResourceLocation;
 

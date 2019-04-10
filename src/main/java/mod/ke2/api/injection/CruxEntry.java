@@ -1,4 +1,4 @@
-package mod.ke2.injection;
+package mod.ke2.api.injection;
 
 import java.util.ArrayList;
 

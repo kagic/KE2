@@ -1,6 +1,6 @@
 package mod.ke2.client.render.gem.layers;
 
-import mod.ke2.entity.EntityGem;
+import mod.ke2.api.EntityGem;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.GlStateManager.DestFactor;

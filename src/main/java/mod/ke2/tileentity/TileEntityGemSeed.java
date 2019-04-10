@@ -1,7 +1,7 @@
 package mod.ke2.tileentity;
 
-import mod.ke2.injection.GemSpawnData;
-import mod.ke2.injection.InjectorResult;
+import mod.ke2.api.injection.GemSpawnData;
+import mod.ke2.api.injection.InjectorResult;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;

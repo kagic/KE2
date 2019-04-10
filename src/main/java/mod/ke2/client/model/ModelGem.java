@@ -1,6 +1,6 @@
 package mod.ke2.client.model;
 
-import mod.ke2.entity.EntityGem;
+import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;

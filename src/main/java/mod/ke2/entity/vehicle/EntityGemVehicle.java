@@ -1,5 +1,6 @@
-package mod.ke2.entity;
+package mod.ke2.entity.vehicle;
 
+import mod.ke2.entity.machine.EntityGemMachine;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;

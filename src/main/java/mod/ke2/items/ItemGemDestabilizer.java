@@ -2,11 +2,11 @@ package mod.ke2.items;
 
 import java.util.List;
 
-import mod.ke2.entity.EntityGem;
+import mod.ke2.api.EntityGem;
 import mod.ke2.entity.EntityGemShard;
 import mod.ke2.entity.machine.EntityBubble;
-import mod.ke2.init.KAGIC;
-import mod.ke2.util.DamagePoofed;
+import mod.ke2.init.Ke2;
+import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -31,7 +31,7 @@ public class ItemGemDestabilizer extends ItemSword {
 		this.setUnlocalizedName(name + "_gem_destabilizer");
 		this.setMaxStackSize(1);
 		this.setMaxDamage(24);
-		this.setCreativeTab(KAGIC.CREATIVE_TAB);
+		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 		this.color = index;
 	}
 	@Override
@@ -58,7 +58,7 @@ public class ItemGemDestabilizer extends ItemSword {
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         stack.damageItem(1, attacker);
         if (target instanceof EntityGem) {
-        	target.attackEntityFrom(new DamagePoofed(), target.getHealth());
+        	target.attackEntityFrom(Ke2.DAMAGE_POOFED, target.getHealth());
         }
         return true;
     }

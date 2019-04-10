@@ -1,6 +1,6 @@
 package mod.ke2.handles;
 
-import mod.ke2.entity.EntityGem;
+import mod.ke2.api.EntityGem;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

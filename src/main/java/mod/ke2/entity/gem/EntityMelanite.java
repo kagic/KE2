@@ -2,12 +2,11 @@ package mod.ke2.entity.gem;
 
 import java.util.ArrayList;
 
-import mod.ke2.entity.EntityGemGarnet;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class EntityMelanite extends EntityGemGarnet {
+public class EntityMelanite extends AbstractGarnet {
 	public static final ArrayList<ResourceLocation> INSIGNIAS = new ArrayList<ResourceLocation>();
 	public static final ArrayList<ResourceLocation> JACKETS = new ArrayList<ResourceLocation>();
 	public static final ArrayList<ResourceLocation> UNIFORMS = new ArrayList<ResourceLocation>();

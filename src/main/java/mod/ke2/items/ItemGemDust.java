@@ -3,6 +3,7 @@ package mod.ke2.items;
 import java.util.ArrayList;
 
 import mod.ke2.init.KAGIC;
+import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 
@@ -13,7 +14,7 @@ public class ItemGemDust extends Item {
 		String name = EnumDyeColor.byMetadata(index).toString().toLowerCase();
 		this.setUnlocalizedName(name + "_gem_dust");
 		this.setMaxStackSize(64);
-		this.setCreativeTab(KAGIC.CREATIVE_TAB);
+		this.setCreativeTab(Ke2CreativeTabs.MISCELLANEOUS);
 		ItemGemDust.DUST_COLORS.add(this);
 		this.color = index;
 	}

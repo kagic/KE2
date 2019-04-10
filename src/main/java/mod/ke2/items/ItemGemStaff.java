@@ -1,6 +1,7 @@
 package mod.ke2.items;
 
 import mod.ke2.init.KAGIC;
+import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,7 +16,7 @@ public class ItemGemStaff extends Item {
 	public ItemGemStaff() {
 		super();
 		this.setUnlocalizedName("gem_staff");
-		this.setCreativeTab(KAGIC.CREATIVE_TAB);
+		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 		this.setMaxStackSize(1);
 	}
 	@Override

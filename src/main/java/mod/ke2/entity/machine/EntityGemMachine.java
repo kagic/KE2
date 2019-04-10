@@ -1,4 +1,4 @@
-package mod.ke2.entity;
+package mod.ke2.entity.machine;
 
 import java.util.UUID;
 

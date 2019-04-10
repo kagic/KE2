@@ -4,6 +4,7 @@ import java.util.Random;
 
 import mod.ke2.init.KAGIC;
 import mod.ke2.init.Ke2Blocks;
+import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.tileentity.TileEntityWailingStone;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.BlockHorizontal;
@@ -43,7 +44,7 @@ public class BlockWailingStone extends BlockFalling implements ITileEntityProvid
 		this.setResistance(30);
 		this.setHardness(2);
 		this.setHarvestLevel("pickaxe", 0);
-		this.setCreativeTab(KAGIC.CREATIVE_TAB);
+		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
@@ -61,8 +62,8 @@ public class BlockWailingStone extends BlockFalling implements ITileEntityProvid
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		TileEntity container = world.getTileEntity(pos);
 		if (container != null && container instanceof TileEntityWailingStone) {
-			TileEntityWailingStone wailingStone = (TileEntityWailingStone) container;
-			wailingStone.toggleActivate();
+			TileEntityWailingStone stone = (TileEntityWailingStone)(container);
+			stone.toggle();
 		}
 		return true;
 	}

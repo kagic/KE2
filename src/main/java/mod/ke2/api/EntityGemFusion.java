@@ -1,4 +1,4 @@
-package mod.ke2.entity;
+package mod.ke2.api;
 
 import java.util.Iterator;
 

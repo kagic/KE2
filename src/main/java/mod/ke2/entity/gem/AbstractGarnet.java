@@ -1,7 +1,8 @@
-package mod.ke2.entity;
+package mod.ke2.entity.gem;
 
 import java.util.ArrayList;
 
+import mod.ke2.api.EntityGem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -19,12 +20,12 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
-public abstract class EntityGemGarnet extends EntityGem {
+public abstract class AbstractGarnet extends EntityGem {
 	public static final ArrayList<ResourceLocation> HAIRSTYLES = new ArrayList<ResourceLocation>();
 	static {
 		
 	}
-	public EntityGemGarnet(World world) {
+	public AbstractGarnet(World world) {
 		super(world);
 		this.setSize(0.9F, 2.3F);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);

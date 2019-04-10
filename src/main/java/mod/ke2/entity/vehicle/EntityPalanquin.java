@@ -2,7 +2,7 @@ package mod.ke2.entity.vehicle;
 
 import java.util.List;
 
-import mod.ke2.entity.EntityGemMachine;
+import mod.ke2.entity.machine.EntityGemMachine;
 import mod.ke2.init.Ke2Items;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
