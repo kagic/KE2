@@ -17,12 +17,12 @@ public class RenderPearl<T extends EntityPearl> extends RenderGem<T> {
 	public RenderPearl(RenderManager manager) {
 		super(manager, new ModelPearl(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityPearl.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityPearl.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityPearl.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityPearl.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityPearl.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

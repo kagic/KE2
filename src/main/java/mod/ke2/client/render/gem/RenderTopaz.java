@@ -17,12 +17,12 @@ public class RenderTopaz<T extends EntityTopaz> extends RenderGem<T> {
 	public RenderTopaz(RenderManager manager) {
 		super(manager, new ModelTopaz(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityTopaz.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityTopaz.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityTopaz.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityTopaz.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityTopaz.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

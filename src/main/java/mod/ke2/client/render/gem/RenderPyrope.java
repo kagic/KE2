@@ -17,12 +17,12 @@ public class RenderPyrope<T extends EntityPyrope> extends RenderGem<T> {
 	public RenderPyrope(RenderManager manager) {
 		super(manager, new ModelGarnet(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityPyrope.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityPyrope.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityPyrope.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityPyrope.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityPyrope.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

@@ -17,12 +17,12 @@ public class RenderSapphire<T extends EntitySapphire> extends RenderGem<T> {
 	public RenderSapphire(RenderManager manager) {
 		super(manager, new ModelSapphire(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntitySapphire.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntitySapphire.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntitySapphire.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntitySapphire.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntitySapphire.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

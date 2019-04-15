@@ -17,12 +17,12 @@ public class RenderHiddenite<T extends EntityHiddenite> extends RenderGem<T> {
 	public RenderHiddenite(RenderManager manager) {
 		super(manager, new ModelSpodumene(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityHiddenite.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityHiddenite.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityHiddenite.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityHiddenite.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityHiddenite.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

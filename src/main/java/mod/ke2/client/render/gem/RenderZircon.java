@@ -17,12 +17,12 @@ public class RenderZircon<T extends EntityZircon> extends RenderGem<T> {
 	public RenderZircon(RenderManager manager) {
 		super(manager, new ModelZircon(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityZircon.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityZircon.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityZircon.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityZircon.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityZircon.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

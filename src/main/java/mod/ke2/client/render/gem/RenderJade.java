@@ -17,12 +17,12 @@ public class RenderJade<T extends EntityJade> extends RenderGem<T> {
 	public RenderJade(RenderManager manager) {
 		super(manager, new ModelJade(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityJade.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityJade.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityJade.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityJade.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityJade.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

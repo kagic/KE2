@@ -3,6 +3,7 @@ package mod.ke2.entity.gem;
 import java.util.ArrayList;
 
 import mod.ke2.api.EntityGem;
+import mod.ke2.init.Ke2Gems;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
@@ -28,40 +29,36 @@ public class EntityEnderPearl extends EntityGem {
 		return 0;
 	}
 	@Override
+	public int generateOutfitColor() {
+		return 0;
+	}
+	@Override
+	public int generateVisorColor() {
+		return 0;
+	}
+	@Override
 	public int generateGemstoneColor() {
 		return 0;
 	}
 	@Override
-	public int generateInsigniaVariant() {
-		return 0;
-	}
-	@Override
-	public int generateJacketVariant() {
-		return 0;
-	}
-	@Override
-	public int generateUniformVariant() {
-		return 0;
-	}
-	@Override
-	public int generateHairVariant() {
-		return 0;
-	}
-	@Override
-	public int generateSkinVariant() {
-		return 0;
-	}
-	@Override
 	public int generateGemstonePosition() {
-		return 0;
+		return Ke2Gems.GEMSTONE_CHEST;
 	}
 	@Override
-	public int generateGemstoneCut() {
-		return 0;
+	public String generateGemstoneCut() {
+		return "kagic:null";
 	}
 	@Override
-	public boolean generateVisor() {
-		return false;
+	public String generateOutfitVariant() {
+		return "kagic:null";
+	}
+	@Override
+	public String generateHairVariant() {
+		return "kagic:null";
+	}
+	@Override
+	public String generateSkinVariant() {
+		return "kagic:null";
 	}
 	@Override
 	public void onInventoryChanged(IInventory inventory) {

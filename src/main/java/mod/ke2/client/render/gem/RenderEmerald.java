@@ -17,12 +17,12 @@ public class RenderEmerald<T extends EntityEmerald> extends RenderGem<T> {
 	public RenderEmerald(RenderManager manager) {
 		super(manager, new ModelEmerald(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityEmerald.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityEmerald.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityEmerald.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityEmerald.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityEmerald.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

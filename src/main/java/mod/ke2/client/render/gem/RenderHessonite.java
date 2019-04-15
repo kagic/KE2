@@ -17,12 +17,12 @@ public class RenderHessonite<T extends EntityHessonite> extends RenderGem<T> {
 	public RenderHessonite(RenderManager manager) {
 		super(manager, new ModelGarnet(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityHessonite.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityHessonite.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityHessonite.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityHessonite.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityHessonite.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

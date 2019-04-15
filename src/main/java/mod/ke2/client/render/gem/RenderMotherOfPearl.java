@@ -17,12 +17,12 @@ public class RenderMotherOfPearl<T extends EntityMotherOfPearl> extends RenderGe
 	public RenderMotherOfPearl(RenderManager manager) {
 		super(manager, new ModelMotherOfPearl(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityMotherOfPearl.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityMotherOfPearl.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityMotherOfPearl.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityMotherOfPearl.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityMotherOfPearl.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

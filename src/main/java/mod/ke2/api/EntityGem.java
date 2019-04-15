@@ -6,10 +6,8 @@ import java.util.UUID;
 import com.google.common.base.Optional;
 
 import io.netty.buffer.ByteBuf;
-import mod.ke2.api.DamageCracked;
-import mod.ke2.api.DamagePoofed;
-import mod.ke2.api.DamageShatter;
 import mod.ke2.api.injection.GemSpawnData;
+import mod.ke2.init.Ke2;
 import mod.ke2.init.Ke2Gems;
 import mod.ke2.world.data.WorldDataAuthorities;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -67,11 +65,12 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	protected static final DataParameter<BlockPos> 		 ORIGINAL_POS 		= EntityDataManager.<BlockPos>createKey(EntityGem.class, DataSerializers.BLOCK_POS);
 	protected static final DataParameter<Integer> 		 ORIGINAL_DIM 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>		 COLOR_DYE_INSIGNIA = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Integer>		 COLOR_RGB_UNIFORM 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Integer>		 COLOR_RGB_OUTFIT 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Integer>		 COLOR_RGB_VISOR 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>		 COLOR_RGB_SKIN 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>		 COLOR_RGB_HAIR 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>	 	 COLOR_RGB_GEMSTONE = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<String>		 VARIANT_CLOTHING	= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
+	protected static final DataParameter<String>		 VARIANT_OUTFIT		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<String>		 VARIANT_HAIR		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<String>		 VARIANT_SKIN		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<Integer>		 GEMSTONE_POS 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
@@ -82,8 +81,8 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	
 	/** If true, then the gem is 50% size when defective and 150% size when perfect. */
 	protected boolean changesScaleBasedOnCondition = true;
-	/** Default uniform color is analog to KAGIC's native color. */
-	protected int defaultUniformColor = 0;
+	/** Default outfit color is analog to KAGIC's native color. */
+	protected int defaultOutfitColor = 0;
 	
 	/** Handles inventory events for AI purposes. */
 	public InvWrapper storageHandler;
@@ -109,11 +108,12 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.dataManager.register(ORIGINAL_POS, BlockPos.ORIGIN);
 		this.dataManager.register(ORIGINAL_DIM, 0);
 		this.dataManager.register(COLOR_DYE_INSIGNIA, -1);
-		this.dataManager.register(COLOR_RGB_UNIFORM, 0);
+		this.dataManager.register(COLOR_RGB_OUTFIT, 0);
+		this.dataManager.register(COLOR_RGB_VISOR, 0);
 		this.dataManager.register(COLOR_RGB_SKIN, 0);
 		this.dataManager.register(COLOR_RGB_HAIR, 0);
 		this.dataManager.register(COLOR_RGB_GEMSTONE, 0);
-		this.dataManager.register(VARIANT_CLOTHING, "");
+		this.dataManager.register(VARIANT_OUTFIT, "");
 		this.dataManager.register(VARIANT_HAIR, "");
 		this.dataManager.register(VARIANT_SKIN, "");
 		this.dataManager.register(GEMSTONE_POS, 0);
@@ -135,18 +135,16 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		}
 		this.setOriginalPosition(this.getPosition());
 		this.setOriginalDimension(this.dimension);
-		this.setInsigniaVariant(this.generateInsigniaVariant());
-		this.setJacketVariant(this.generateJacketVariant());
-		this.setUniformVariant(this.generateUniformVariant());
+		this.setOutfitVariant(this.generateOutfitVariant());
 		this.setHairVariant(this.generateHairVariant());
 		this.setSkinVariant(this.generateSkinVariant());
-		this.setUniformColor(this.defaultUniformColor);
+		this.setOutfitColor(this.generateOutfitColor());
+		this.setVisorColor(this.generateVisorColor());
 		this.setSkinColor(this.generateSkinColor());
 		this.setHairColor(this.generateHairColor());
 		this.setGemstoneColor(this.generateGemstoneColor());
 		this.setGemstonePosition(this.generateGemstonePosition());
 		this.setGemstoneCut(this.generateGemstoneCut());
-		this.setVisor(this.generateVisor());
 		this.setEmotion(this.generateEmotion());
 		this.setHealth(this.getMaxHealth());
 		this.stepHeight = Math.min(0.5F, this.height / 2);
@@ -171,19 +169,17 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setOriginalPosition(BlockPos.fromLong(compound.getLong("OriginalPosition")));
 		this.setOriginalDimension(compound.getInteger("OriginalDimension"));
 		this.setInsigniaColor(compound.getInteger("InsigniaColor"));
-		this.setUniformColor(compound.getInteger("UniformColor"));
+		this.setOutfitColor(compound.getInteger("OutfitColor"));
+		this.setVisorColor(compound.getInteger("VisorColor"));
 		this.setSkinColor(compound.getInteger("SkinColor"));
 		this.setHairColor(compound.getInteger("HairColor"));
 		this.setGemstoneColor(compound.getInteger("GemstoneColor"));
-		this.setInsigniaVariant(compound.getInteger("InsigniaVariant"));
-		this.setJacketVariant(compound.getInteger("JacketVariant"));
-		this.setUniformVariant(compound.getInteger("UniformVariant"));
-		this.setHairVariant(compound.getInteger("HairVariant"));
-		this.setSkinVariant(compound.getInteger("SkinVariant"));
+		this.setOutfitVariant(compound.getString("OutfitVariant"));
+		this.setHairVariant(compound.getString("HairVariant"));
+		this.setSkinVariant(compound.getString("SkinVariant"));
 		this.setGemstonePosition(compound.getInteger("GemstonePosition"));
 		this.setGemstoneDirection(EnumFacing.byName(compound.getString("GemstoneDirection")));
-		this.setGemstoneCut(compound.getInteger("GemstoneCut"));
-		this.setVisor(compound.getBoolean("HasVisor"));
+		this.setGemstoneCut(compound.getString("GemstoneCut"));
 		this.setDefective(compound.getBoolean("Defective"));
 		this.setPerfect(compound.getBoolean("Perfect"));
 		this.createInventory();
@@ -216,19 +212,17 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		compound.setLong("OriginalPosition", this.getOriginalPosition().toLong());
 		compound.setInteger("OriginalDimension", this.getOriginalDimension());
 		compound.setInteger("InsigniaColor", this.getInsigniaColor());
-		compound.setInteger("UniformColor", this.getUniformColor());
+		compound.setInteger("OutfitColor", this.getOutfitColor());
+		compound.setInteger("VisorColor", this.getVisorColor());
 		compound.setInteger("SkinColor", this.getSkinColor());
 		compound.setInteger("HairColor", this.getHairColor());
 		compound.setInteger("GemstoneColor", this.getGemstoneColor());
-		compound.setInteger("InsigniaVariant", this.getInsigniaVariant());
-		compound.setInteger("JacketVariant", this.getJacketVariant());
-		compound.setInteger("UniformVariant", this.getUniformVariant());
-		compound.setInteger("HairVariant", this.getHairVariant());
-		compound.setInteger("SkinVariant", this.getSkinVariant());
+		compound.setString("OutfitVariant", this.getOutfitVariant());
+		compound.setString("HairVariant", this.getHairVariant());
+		compound.setString("SkinVariant", this.getSkinVariant());
 		compound.setInteger("GemstonePosition", this.getGemstonePosition());
 		compound.setString("GemstoneDirection", this.getGemstoneDirection().toString());
-		compound.setInteger("GemstoneCut", this.getGemstoneCut());
-		compound.setBoolean("Visor", this.hasVisor());
+		compound.setString("GemstoneCut", this.getGemstoneCut());
 		compound.setBoolean("Defective", this.isDefective());
 		compound.setBoolean("Perfect", this.isPerfect());
 		this.createInventory();
@@ -300,13 +294,13 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 			}
 			float health = this.getHealth() - amount;
 			if (health < -50) {
-				source = new DamageShatter();
+				source = Ke2.DAMAGE_SHATTERED;
 			}
 			else if (health < -10) {
-				source = new DamageCracked();
+				source = Ke2.DAMAGE_CRACKED;
 			}
 			else {
-				source = new DamagePoofed();
+				source = Ke2.DAMAGE_POOFED;
 			}
 		}
 		return super.attackEntityFrom(source, amount);
@@ -452,7 +446,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public int getOriginalDimension() {
 		return this.dataManager.get(ORIGINAL_DIM);
 	}
-	public String getNameFromCut(int cut) {
+	public String getNameFromCut(String cut) {
 		return "Cut";
 	}
 	public String getDescriptor(int piece) {
@@ -489,15 +483,26 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 			return this.dataManager.get(COLOR_DYE_INSIGNIA);
 		}
 	}
-	public void setUniformColor(int color) {
-		this.dataManager.set(COLOR_RGB_UNIFORM, color);
+	public void setOutfitColor(int color) {
+		this.dataManager.set(COLOR_RGB_OUTFIT, color);
 	}
-	public int getUniformColor() {
+	public int getOutfitColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
 		}
 		else {
-			return this.dataManager.get(COLOR_RGB_UNIFORM);
+			return this.dataManager.get(COLOR_RGB_OUTFIT);
+		}
+	}
+	public void setVisorColor(int color) {
+		this.dataManager.set(COLOR_RGB_VISOR, color);
+	}
+	public int getVisorColor() {
+		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
+			return 0xFFFFFF;
+		}
+		else {
+			return this.dataManager.get(COLOR_RGB_VISOR);
 		}
 	}
 	public void setSkinColor(int color) {
@@ -533,34 +538,22 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 			return this.dataManager.get(COLOR_RGB_GEMSTONE);
 		}
 	}
-	public void setInsigniaVariant(int variant) {
-		this.dataManager.set(VARIANT_INSIGNIA, variant);
-	}
-	public int getInsigniaVariant() {
-		return this.dataManager.get(VARIANT_INSIGNIA);
-	}
-	public void setUniformVariant(int variant) {
-		this.dataManager.set(VARIANT_UNIFORM, variant);
-	}
-	public int getUniformVariant() {
-		return this.dataManager.get(VARIANT_UNIFORM);
-	}
-	public void setJacketVariant(int variant) {
-		this.dataManager.set(VARIANT_JACKET, variant);
-	}
-	public int getJacketVariant() {
-		return this.dataManager.get(VARIANT_JACKET);
-	}
-	public void setHairVariant(int variant) {
+	public void setHairVariant(String variant) {
 		this.dataManager.set(VARIANT_HAIR, variant);
 	}
-	public int getHairVariant() {
+	public String getHairVariant() {
 		return this.dataManager.get(VARIANT_HAIR);
 	}
-	public void setSkinVariant(int variant) {
+	public void setOutfitVariant(String variant) {
+		this.dataManager.set(VARIANT_OUTFIT, variant);
+	}
+	public String getOutfitVariant() {
+		return this.dataManager.get(VARIANT_OUTFIT);
+	}
+	public void setSkinVariant(String variant) {
 		this.dataManager.set(VARIANT_SKIN, variant);
 	}
-	public int getSkinVariant() {
+	public String getSkinVariant() {
 		return this.dataManager.get(VARIANT_SKIN);
 	}
 	public void setGemstonePosition(int pos) {
@@ -584,17 +577,11 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 			return direction;
 		}
 	}
-	public void setGemstoneCut(int cut) {
+	public void setGemstoneCut(String cut) {
 		this.dataManager.set(GEMSTONE_CUT, cut);
 	}
-	public int getGemstoneCut() {
+	public String getGemstoneCut() {
 		return this.dataManager.get(GEMSTONE_CUT);
-	}
-	public void setVisor(boolean hasVisor) {
-		this.dataManager.set(HAS_VISOR, hasVisor);
-	}
-	public boolean hasVisor() {
-		return this.dataManager.get(HAS_VISOR);
 	}
 	public void setDefective(boolean defective) {
 		this.dataManager.set(IS_DEFECTIVE, defective);

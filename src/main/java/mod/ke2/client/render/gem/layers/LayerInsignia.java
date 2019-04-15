@@ -1,7 +1,5 @@
 package mod.ke2.client.render.gem.layers;
 
-import java.util.ArrayList;
-
 import mod.ke2.api.EntityGem;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
@@ -11,15 +9,13 @@ import net.minecraft.util.ResourceLocation;
 
 public class LayerInsignia implements LayerRenderer<EntityGem> {
 	private final RenderLivingBase<?> renderer;
-	private final ArrayList<ResourceLocation> insignias;
-	public LayerInsignia(RenderLivingBase<?> renderer, ArrayList<ResourceLocation> insignias) {
+	public LayerInsignia(RenderLivingBase<?> renderer) {
 		this.renderer = renderer;
-		this.insignias = insignias;
 	}
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		if (!this.insignias.isEmpty() && gem.getInsigniaVariant() > -1) {
-			this.renderer.bindTexture(this.insignias.get(gem.getInsigniaVariant()));
+		if (gem.getOutfitVariant() != null) {
+			this.renderer.bindTexture(new ResourceLocation(gem.getOutfitVariant() + "_insignia.png"));
 			float[] color = EnumDyeColor.byDyeDamage(gem.getInsigniaColor()).getColorComponentValues();
 			GlStateManager.color(color[0], color[1], color[2]);
 	        this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -28,6 +24,6 @@ public class LayerInsignia implements LayerRenderer<EntityGem> {
 	}
 	@Override
 	public boolean shouldCombineTextures() {
-		return true;
+		return false;
 	}
 }

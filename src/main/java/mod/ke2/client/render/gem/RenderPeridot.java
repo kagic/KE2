@@ -17,12 +17,12 @@ public class RenderPeridot<T extends EntityPeridot> extends RenderGem<T> {
 	public RenderPeridot(RenderManager manager) {
 		super(manager, new ModelPeridot(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityPeridot.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityPeridot.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityPeridot.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityPeridot.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityPeridot.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

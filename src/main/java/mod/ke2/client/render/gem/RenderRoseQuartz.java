@@ -17,12 +17,12 @@ public class RenderRoseQuartz<T extends EntityRoseQuartz> extends RenderGem<T> {
 	public RenderRoseQuartz(RenderManager manager) {
 		super(manager, new ModelQuartz(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityRoseQuartz.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityRoseQuartz.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityRoseQuartz.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityRoseQuartz.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityRoseQuartz.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

@@ -17,12 +17,12 @@ public class RenderBismuth<T extends EntityBismuth> extends RenderGem<T> {
 	public RenderBismuth(RenderManager manager) {
 		super(manager, new ModelBismuth(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityBismuth.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityBismuth.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityBismuth.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityBismuth.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityBismuth.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

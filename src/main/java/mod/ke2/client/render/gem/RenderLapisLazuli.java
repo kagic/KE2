@@ -17,12 +17,12 @@ public class RenderLapisLazuli<T extends EntityLapisLazuli> extends RenderGem<T>
 	public RenderLapisLazuli(RenderManager manager) {
 		super(manager, new ModelLapisLazuli(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityLapisLazuli.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityLapisLazuli.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityLapisLazuli.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityLapisLazuli.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityLapisLazuli.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

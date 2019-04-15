@@ -17,12 +17,12 @@ public class RenderAquamarine<T extends EntityAquamarine> extends RenderGem<T> {
 	public RenderAquamarine(RenderManager manager) {
 		super(manager, new ModelQuartz(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityAquamarine.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityAquamarine.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityAquamarine.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityAquamarine.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityAquamarine.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

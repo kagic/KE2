@@ -93,12 +93,12 @@ public abstract class EntityGemFusion extends EntityGem {
 		if (this.getFusionGemCount() > 0) {
 			this.setLocationAndAngles((this.posX + gem.posX) / 2, (this.posY + gem.posY) / 2, (this.posZ + gem.posZ) / 2, (this.rotationYaw + gem.rotationYaw) / 2, (this.rotationPitch + gem.rotationPitch) / 2);
 			this.setInsigniaColor((this.getInsigniaColor() / gem.getInsigniaColor()) / 2);
-			this.setUniformColor((this.getUniformColor() / gem.getUniformColor()) / 2);
+			this.setOutfitColor((this.getOutfitColor() / gem.getOutfitColor()) / 2);
 		}
 		else {
 			this.setLocationAndAngles(gem.posX, gem.posY, gem.posZ, gem.rotationYaw, gem.rotationPitch);
 			this.setInsigniaColor(gem.getInsigniaColor());
-			this.setUniformColor(gem.getUniformColor());
+			this.setOutfitColor(gem.getOutfitColor());
 		}
 		if (this.getHeldItem(EnumHand.MAIN_HAND).isEmpty()) {
 			this.setHeldItem(EnumHand.MAIN_HAND, gem.getHeldItem(EnumHand.MAIN_HAND).copy());

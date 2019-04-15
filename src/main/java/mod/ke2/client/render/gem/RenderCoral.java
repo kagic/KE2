@@ -17,12 +17,12 @@ public class RenderCoral<T extends EntityCoral> extends RenderGem<T> {
 	public RenderCoral(RenderManager manager) {
 		super(manager, new ModelCoral(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityCoral.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityCoral.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityCoral.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityCoral.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityCoral.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

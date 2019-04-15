@@ -17,12 +17,12 @@ public class RenderRutile<T extends EntityRutile> extends RenderGem<T> {
 	public RenderRutile(RenderManager manager) {
 		super(manager, new ModelRutile(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityRutile.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityRutile.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityRutile.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityRutile.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityRutile.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

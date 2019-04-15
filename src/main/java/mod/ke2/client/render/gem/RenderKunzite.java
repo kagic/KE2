@@ -17,12 +17,12 @@ public class RenderKunzite<T extends EntityKunzite> extends RenderGem<T> {
 	public RenderKunzite(RenderManager manager) {
 		super(manager, new ModelSpodumene(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityKunzite.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityKunzite.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityKunzite.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityKunzite.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityKunzite.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

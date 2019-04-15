@@ -17,12 +17,12 @@ public class RenderJasper<T extends EntityJasper> extends RenderGem<T> {
 	public RenderJasper(RenderManager manager) {
 		super(manager, new ModelQuartz(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityJasper.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityJasper.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityJasper.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityJasper.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityJasper.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

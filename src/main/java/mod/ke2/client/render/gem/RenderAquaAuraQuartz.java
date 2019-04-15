@@ -17,12 +17,12 @@ public class RenderAquaAuraQuartz<T extends EntityAquaAuraQuartz> extends Render
 	public RenderAquaAuraQuartz(RenderManager manager) {
 		super(manager, new ModelQuartz(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityAquaAuraQuartz.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityAquaAuraQuartz.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityAquaAuraQuartz.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityAquaAuraQuartz.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityAquaAuraQuartz.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

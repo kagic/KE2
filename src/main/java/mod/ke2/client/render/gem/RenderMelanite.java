@@ -17,12 +17,12 @@ public class RenderMelanite<T extends EntityMelanite> extends RenderGem<T> {
 	public RenderMelanite(RenderManager manager) {
 		super(manager, new ModelGarnet(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityMelanite.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityMelanite.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityMelanite.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityMelanite.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityMelanite.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }

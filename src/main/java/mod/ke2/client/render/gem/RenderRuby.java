@@ -17,12 +17,12 @@ public class RenderRuby<T extends EntityRuby> extends RenderGem<T> {
 	public RenderRuby(RenderManager manager) {
 		super(manager, new ModelRuby(), 0.5F);
 		this.addLayer(new LayerSkin(this));
-		this.addLayer(new LayerUniform(this, EntityRuby.UNIFORMS));
-		this.addLayer(new LayerInsignia(this, EntityRuby.INSIGNIAS));
-		this.addLayer(new LayerHair(this, EntityRuby.HAIRSTYLES));
+		this.addLayer(new LayerUniform(this));
+		this.addLayer(new LayerInsignia(this));
+		this.addLayer(new LayerHair(this));
 		this.addLayer(new LayerVisor(this));
 		this.addLayer(new LayerNoDyeOverlay(this));
-		this.addLayer(new LayerJacket(this, EntityRuby.JACKETS));
-		this.addLayer(new LayerGemstone(this, EntityRuby.GEMSTONES));
+		this.addLayer(new LayerJacket(this));
+		this.addLayer(new LayerGemstone(this));
 	}
 }
