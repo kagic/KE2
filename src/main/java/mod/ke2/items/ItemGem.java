@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import mod.ke2.api.EntityGem;
-import mod.ke2.init.KAGIC;
 import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;

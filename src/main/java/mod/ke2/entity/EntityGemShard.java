@@ -2,6 +2,7 @@ package mod.ke2.entity;
 
 import mod.ke2.init.KAGIC;
 import mod.ke2.init.Ke2Items;
+import mod.ke2.init.Ke2Particles;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -130,7 +131,7 @@ public class EntityGemShard extends EntityMob {
 	public void onLivingUpdate() {
         if (this.world.isRemote) {
             for (int i = 0; i < 1; ++i) {
-            	KAGIC.proxy.addShardParticle(this.world, this.posX + (this.rand.nextFloat() * this.width * 2.0F) - this.width, this.posY + 0.5D + (this.rand.nextFloat() * this.height), this.posZ + (this.rand.nextFloat() * this.width * 2.0F) - this.width, this.rand.nextGaussian() * 0.02D, this.rand.nextGaussian() * 0.02D, this.rand.nextGaussian() * 0.02D, EntityGemShard.PARTICLE_COLORS[this.getColor()]);
+            	KAGIC.proxy.addParticle(Ke2Particles.SHARD, this.world, this.posX + (this.rand.nextFloat() * this.width * 2.0F) - this.width, this.posY + 0.5D + (this.rand.nextFloat() * this.height), this.posZ + (this.rand.nextFloat() * this.width * 2.0F) - this.width, this.rand.nextGaussian() * 0.02D, this.rand.nextGaussian() * 0.02D, this.rand.nextGaussian() * 0.02D, EntityGemShard.PARTICLE_COLORS[this.getColor()]);
             }
         }
         super.onLivingUpdate();

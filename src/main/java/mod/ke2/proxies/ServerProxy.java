@@ -1,5 +1,6 @@
 package mod.ke2.proxies;
 
+import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -19,8 +20,7 @@ public class ServerProxy implements CommonProxy {
 		
 	}
 	@Override
-	public void addShardParticle(World world, double x, double y, double z, double dX, double dY, double dZ, int color) {
+	public void addParticle(IParticleFactory factory, World world, double x, double y, double z, double dX, double dY, double dZ, int color) {
 		// Reserved for client functionality.
 	}
-
 }

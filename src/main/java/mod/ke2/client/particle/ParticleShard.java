@@ -62,12 +62,11 @@ public class ParticleShard extends Particle {
             this.motionZ *= 0.699999988079071D;
         }
     }
-
     @SideOnly(Side.CLIENT)
     public static class Factory implements IParticleFactory {
     	@Override
-		public Particle createParticle(int particleID, World world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, int... p_178902_15_) {
-    		return new ParticleShard(world, xCoord, yCoord, zCoord, xSpeed, ySpeed, zSpeed, p_178902_15_[0]);
+		public Particle createParticle(int particleID, World world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, int... params) {
+    		return new ParticleShard(world, xCoord, yCoord, zCoord, xSpeed, ySpeed, zSpeed, params[0]);
         }
     }
 }

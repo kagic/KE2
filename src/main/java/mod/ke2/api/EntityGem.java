@@ -7,7 +7,7 @@ import com.google.common.base.Optional;
 
 import io.netty.buffer.ByteBuf;
 import mod.ke2.api.injection.GemSpawnData;
-import mod.ke2.init.Ke2;
+import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Gems;
 import mod.ke2.world.data.WorldDataAuthorities;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -294,13 +294,13 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 			}
 			float health = this.getHealth() - amount;
 			if (health < -50) {
-				source = Ke2.DAMAGE_SHATTERED;
+				source = Ke2Damage.SHATTER;
 			}
 			else if (health < -10) {
-				source = Ke2.DAMAGE_CRACKED;
+				source = Ke2Damage.CRACK;
 			}
 			else {
-				source = Ke2.DAMAGE_POOFED;
+				source = Ke2Damage.POOF;
 			}
 		}
 		return super.attackEntityFrom(source, amount);

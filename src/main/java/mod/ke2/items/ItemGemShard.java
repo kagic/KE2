@@ -2,7 +2,6 @@ package mod.ke2.items;
 
 import java.util.ArrayList;
 
-import mod.ke2.init.KAGIC;
 import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;

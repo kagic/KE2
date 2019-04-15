@@ -3,7 +3,6 @@ package mod.ke2.blocks;
 import java.util.Random;
 
 import mod.ke2.api.injection.InjectorResult;
-import mod.ke2.init.Ke2;
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.block.Block;

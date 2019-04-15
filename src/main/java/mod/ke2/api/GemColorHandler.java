@@ -1,17 +1,10 @@
-package mod.ke2.items;
+package mod.ke2.api;
 
-import mod.ke2.api.EntityGem;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 
-public class ItemColoredGem extends ItemGem implements IItemColor {
-	public ItemColoredGem(Class<? extends EntityGem> gemClass, String name, boolean cracked) {
-		super(gemClass, name, cracked);
-	}
-	public ItemColoredGem(Class<? extends EntityGem> gemClass, String name) {
-		super(gemClass, name);
-	}
+public class GemColorHandler implements IItemColor {
 	@Override
 	public int colorMultiplier(ItemStack stack, int tint) {
 		if (stack.hasTagCompound()) {

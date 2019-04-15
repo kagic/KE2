@@ -5,7 +5,7 @@ import java.util.List;
 import mod.ke2.api.EntityGem;
 import mod.ke2.entity.EntityGemShard;
 import mod.ke2.entity.machine.EntityBubble;
-import mod.ke2.init.Ke2;
+import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -58,7 +58,7 @@ public class ItemGemDestabilizer extends ItemSword {
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         stack.damageItem(1, attacker);
         if (target instanceof EntityGem) {
-        	target.attackEntityFrom(Ke2.DAMAGE_POOFED, target.getHealth());
+        	target.attackEntityFrom(Ke2Damage.POOF, target.getHealth());
         }
         return true;
     }

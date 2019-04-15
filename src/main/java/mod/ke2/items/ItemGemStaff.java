@@ -1,6 +1,5 @@
 package mod.ke2.items;
 
-import mod.ke2.init.KAGIC;
 import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

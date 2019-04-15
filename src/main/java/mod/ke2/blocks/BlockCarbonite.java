@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import mod.ke2.init.KAGIC;
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.tileentity.TileEntityCarbonite;
