@@ -46,19 +46,19 @@ public class EntityAquamarine extends EntityGem {
 	}
 	@Override
 	public String generateGemstoneCut() {
-		return "kagic:null";
+		return "ke2:textures/entities/null/null";
 	}
 	@Override
 	public String generateOutfitVariant() {
-		return "kagic:null";
+		return "ke2:textures/entities/null/null";
 	}
 	@Override
 	public String generateHairVariant() {
-		return "kagic:null";
+		return "ke2:textures/entities/null/null";
 	}
 	@Override
 	public String generateSkinVariant() {
-		return "kagic:null";
+		return "ke2:textures/entities/null/null";
 	}
 	@Override
 	public void onInventoryChanged(IInventory inventory) {

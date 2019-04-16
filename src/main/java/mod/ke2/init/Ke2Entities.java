@@ -92,11 +92,6 @@ import net.minecraftforge.fml.relauncher.Side;
 public class Ke2Entities {
 	private static int currentID = 0;
 	public static void register(int pass) {
-		registerEntity("bubble", EntityBubble.class, RenderBubble::new, pass);
-		registerEntity("gem_shard", EntityGemShard.class, RenderGemShard::new, pass);
-		registerEntity("hand_ship", EntityHandShip.class, RenderHandShip::new, pass);
-		registerEntity("injector", EntityInjector.class, RenderInjector::new, pass);
-		registerEntity("palanquin", EntityPalanquin.class, RenderPalanquin::new, pass);
 		registerGem("agate", EntityAgate.class, RenderAgate::new, 0x000000, 0xFFFFFF, Ke2Cruxes.AGATE, pass);
 		registerGem("amethyst", EntityAmethyst.class, RenderAmethyst::new, 0x000000, 0xFFFFFF, Ke2Cruxes.AMETHYST, pass);
 		registerGem("aqua_aura_quartz", EntityAquaAuraQuartz.class, RenderAquaAuraQuartz::new, 0x000000, 0xFFFFFF, Ke2Cruxes.AQUA_AURA_QUARTZ, pass);
@@ -130,6 +125,11 @@ public class Ke2Entities {
 		registerGem("topaz", EntityTopaz.class, RenderTopaz::new, 0x000000, 0xFFFFFF, Ke2Cruxes.TOPAZ, pass);
 		registerGem("watermelon_tourmaline", EntityWatermelonTourmaline.class, RenderWatermelonTourmaline::new, 0x000000, 0xFFFFFF, Ke2Cruxes.WATERMELON_TOURMALINE, pass);
 		registerGem("zircon", EntityZircon.class, RenderZircon::new, 0x000000, 0xFFFFFF, Ke2Cruxes.ZIRCON, pass);
+		registerEntity("palanquin", EntityPalanquin.class, RenderPalanquin::new, pass);
+		registerEntity("injector", EntityInjector.class, RenderInjector::new, pass);
+		registerEntity("hand_ship", EntityHandShip.class, RenderHandShip::new, pass);
+		registerEntity("gem_shard", EntityGemShard.class, RenderGemShard::new, pass);
+		registerEntity("bubble", EntityBubble.class, RenderBubble::new, pass);
 	}
 	public static <T extends EntityGem> void registerGem(String name, Class<T> entity, IRenderFactory<T> renderer, int back, int fore, ArrayList<CruxEntry> cruxes, int pass) {
 		Ke2Entities.registerMob(name, entity, renderer, back, fore, pass);

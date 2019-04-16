@@ -345,9 +345,6 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public double getFallSpeed() {
 		return 1.0D;
 	}
-	public boolean hasNoDyeOverlay() {
-		return false;
-	}
 	public void sendMessageTo(EntityPlayer player, String line, Object... formatting) {
 		player.sendMessage(new TextComponentString("<" + this.getName() + "> " + String.format(line, formatting)));
 	}

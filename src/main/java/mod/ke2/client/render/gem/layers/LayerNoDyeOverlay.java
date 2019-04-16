@@ -13,10 +13,10 @@ public class LayerNoDyeOverlay implements LayerRenderer<EntityGem> {
 	}
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		if (gem.hasNoDyeOverlay()) {
+		if (gem.getOutfitVariant() != null) {
 			GlStateManager.color(1.0F, 1.0F, 1.0F);
 			this.renderer.bindTexture(new ResourceLocation(gem.getOutfitVariant() + "_nodye.png"));
-	        this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 			GlStateManager.disableBlend();
 		}
 	}

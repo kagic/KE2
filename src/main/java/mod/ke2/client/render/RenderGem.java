@@ -5,12 +5,14 @@ import java.util.Iterator;
 import mod.ke2.api.EntityGem;
 import mod.ke2.client.model.ModelGem;
 import mod.ke2.init.Ke2Configs;
+import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.layers.LayerHeldItem;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.ResourceLocation;
 
 public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
 	public RenderGem(RenderManager manager, ModelGem model, float shadowSize) {
@@ -42,4 +44,13 @@ public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
 			this.renderLivingLabel(entity, name, x, y, z, 64);
 		}
     }
+	@Override
+	protected ResourceLocation getEntityTexture(EntityGem gem) {
+		ResourceLocation texture = Ke2Gems.GEM_TABLE.get(gem.getClass());
+		return new ResourceLocation(
+			texture.getResourceDomain() + ":textures/entities/" +
+			texture.getResourcePath() + "/" +
+			texture.getResourcePath() + ".png"
+		);
+	}
 }
