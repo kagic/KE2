@@ -18,6 +18,10 @@ public class ModelGem extends ModelBiped {
 	public ModelRenderer bipedCape;
 	public ModelRenderer bipedGem;
 	public final int gemSize;
+	public float heldItemHandOffset;
+	public float heldItemOffsetX;
+	public float heldItemOffsetY;
+	public float heldItemOffsetZ;
 	public ModelGem(float modelSize, float offset, int width, int height, int gemSize) {
 		super(modelSize, offset, width, height);
 		this.gemSize = gemSize;

@@ -73,19 +73,19 @@ public class EntityPearl extends EntityGem {
 	}
 	@Override
 	public String generateGemstoneCut() {
-		return "ke2:textures/entities/null/null";
+		return "ke2:textures/entities/none/null";
 	}
 	@Override
 	public String generateOutfitVariant() {
-		return "ke2:textures/entities/null/null";
+		return "ke2:textures/entities/none/null";
 	}
 	@Override
 	public String generateHairVariant() {
-		return "ke2:textures/entities/null/null";
+		return "ke2:textures/entities/none/null";
 	}
 	@Override
 	public String generateSkinVariant() {
-		return "ke2:textures/entities/null/null";
+		return "ke2:textures/entities/none/null";
 	}
 	@Override
 	public void onInventoryChanged(IInventory inventory) {

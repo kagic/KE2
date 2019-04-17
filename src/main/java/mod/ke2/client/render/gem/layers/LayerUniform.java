@@ -7,14 +7,14 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
 public class LayerUniform implements LayerRenderer<EntityGem> {
-	private final RenderLivingBase<?> renderer;;
+	private final RenderLivingBase<?> renderer;
 	public LayerUniform(RenderLivingBase<?> renderer) {
 		this.renderer = renderer;
 	}
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getOutfitVariant() != null) {
-			this.renderer.bindTexture(new ResourceLocation(gem.getOutfitVariant() + "_uniform"));
+			this.renderer.bindTexture(new ResourceLocation(gem.getOutfitVariant() + "_uniform.png"));
 			int color = gem.getOutfitColor();
 			float r = ((color & 16711680) >> 16) / 255.0F;
 			float g = ((color & 65280) >> 8) / 255.0F;

@@ -15,16 +15,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerHeldItem implements LayerRenderer<EntityGem> {
     protected final RenderGem<?> renderer;
-    protected final float postRenderArm;
-    protected final float offX;
-    protected final float offY;
-    protected final float offZ;
-    public LayerHeldItem(RenderGem<?> renderer, float postRenderArm, float offX, float offY, float offZ) {
+    public LayerHeldItem(RenderGem<?> renderer) {
         this.renderer = renderer;
-        this.postRenderArm = postRenderArm;
-        this.offX = offX;
-        this.offY = offY;
-        this.offZ = offZ;
     }
     @Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
@@ -52,12 +44,13 @@ public class LayerHeldItem implements LayerRenderer<EntityGem> {
             GlStateManager.rotate(-90.0F, 1.0F, 0.0F, 0.0F);
             GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
             boolean lefty = side == EnumHandSide.LEFT;
-            GlStateManager.translate((lefty ? -1 : 1) / this.offX, this.offY, this.offZ);
+            GlStateManager.translate((lefty ? -1 : 1) / this.renderer.getModel().heldItemOffsetX,
+            	this.renderer.getModel().heldItemOffsetY, this.renderer.getModel().heldItemOffsetZ);
             Minecraft.getMinecraft().getItemRenderer().renderItemSide(gem, stack, camera, lefty);
             GlStateManager.popMatrix();
         }
     }
     protected void setSide(EnumHandSide side) {
-        ((ModelBiped)(this.renderer.getMainModel())).postRenderArm(this.postRenderArm, side);
+        ((ModelBiped)(this.renderer.getMainModel())).postRenderArm(this.renderer.getModel().heldItemHandOffset, side);
     }
 }

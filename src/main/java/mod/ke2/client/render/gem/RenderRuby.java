@@ -4,6 +4,7 @@ import mod.ke2.client.model.gem.ModelRuby;
 import mod.ke2.client.render.RenderGem;
 import mod.ke2.client.render.gem.layers.LayerGemstone;
 import mod.ke2.client.render.gem.layers.LayerHair;
+import mod.ke2.client.render.gem.layers.LayerHeldItem;
 import mod.ke2.client.render.gem.layers.LayerInsignia;
 import mod.ke2.client.render.gem.layers.LayerJacket;
 import mod.ke2.client.render.gem.layers.LayerNoDyeOverlay;
@@ -24,5 +25,6 @@ public class RenderRuby<T extends EntityRuby> extends RenderGem<T> {
 		this.addLayer(new LayerNoDyeOverlay(this));
 		this.addLayer(new LayerJacket(this));
 		this.addLayer(new LayerGemstone(this));
+		this.addLayer(new LayerHeldItem(this));
 	}
 }
