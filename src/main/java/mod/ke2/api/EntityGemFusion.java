@@ -75,7 +75,7 @@ public abstract class EntityGemFusion extends EntityGem {
 				if (compound.getBoolean("Defective")) {
 					scale -= 1;
 				}
-				if (compound.getBoolean("Perfect")) {
+				if (compound.getBoolean("Perfective")) {
 					scale += 1;
 				}
 			}

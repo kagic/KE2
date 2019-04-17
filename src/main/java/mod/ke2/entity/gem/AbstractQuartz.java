@@ -26,7 +26,7 @@ public abstract class AbstractQuartz extends EntityGem {
 	}
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
-    	if (this.isPerfect()) {
+    	if (this.isPerfective()) {
     		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
     		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120.0D);
     	}

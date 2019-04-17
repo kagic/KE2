@@ -79,7 +79,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	protected static final DataParameter<Boolean>		 IS_DEFECTIVE		= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Boolean>		 IS_PERFECT			= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	
-	/** If true, then the gem is 50% size when defective and 150% size when perfect. */
+	/** If true, then the gem is 50% size when defective and 150% size when perfective. */
 	protected boolean changesScaleBasedOnCondition = true;
 	/** Default outfit color is analog to KAGIC's native color. */
 	protected int defaultOutfitColor = 0;
@@ -131,7 +131,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 			this.setGemAlignment(Ke2Gems.ALIGNED_WITH_PLAYERS);
 			this.setInsigniaColor(gemSpawnData.getColor());
 			this.setDefective(gemSpawnData.isDefective());
-			this.setPerfect(gemSpawnData.isPerfect());
+			this.setPerfective(gemSpawnData.isPerfective());
 		}
 		this.setOriginalPosition(this.getPosition());
 		this.setOriginalDimension(this.dimension);
@@ -181,7 +181,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setGemstoneDirection(EnumFacing.byName(compound.getString("GemstoneDirection")));
 		this.setGemstoneCut(compound.getString("GemstoneCut"));
 		this.setDefective(compound.getBoolean("Defective"));
-		this.setPerfect(compound.getBoolean("Perfect"));
+		this.setPerfective(compound.getBoolean("Perfective"));
 		this.createInventory();
 		NBTTagList inventory = compound.getTagList("Inventory", 10);
 		for (int i = 0; i < inventory.tagCount(); ++i) {
@@ -195,7 +195,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
-		compound.setString("Species", Ke2Gems.GEM_TABLE.get(this.getClass()).toString());
+		compound.setString("Species", Ke2Gems.GEM_REGISTRY_REVERSE.get(this.getClass()).toString());
 		if (this.getGemGlobalID() != null) {
 			compound.setString("GemGlobalID", this.getGemGlobalID().toString());
 		}
@@ -224,7 +224,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		compound.setString("GemstoneDirection", this.getGemstoneDirection().toString());
 		compound.setString("GemstoneCut", this.getGemstoneCut());
 		compound.setBoolean("Defective", this.isDefective());
-		compound.setBoolean("Perfect", this.isPerfect());
+		compound.setBoolean("Perfective", this.isPerfective());
 		this.createInventory();
 		NBTTagList inventory = new NBTTagList();
 		for (int i = 0; i < this.inventory.getSizeInventory(); ++i) {
@@ -589,13 +589,13 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public boolean isDefective() {
 		return this.dataManager.get(IS_DEFECTIVE);
 	}
-	public void setPerfect(boolean perfect) {
-		this.dataManager.set(IS_PERFECT, perfect);
-		if (this.isPerfect() && this.changesScaleBasedOnCondition) {
+	public void setPerfective(boolean perfective) {
+		this.dataManager.set(IS_PERFECT, perfective);
+		if (this.isPerfective() && this.changesScaleBasedOnCondition) {
 			this.setSize(this.width * 1.5F, this.height * 1.5F);
 		}
 	}
-	public boolean isPerfect() {
+	public boolean isPerfective() {
 		return this.dataManager.get(IS_PERFECT);
 	}
 	@Override

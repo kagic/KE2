@@ -34,7 +34,7 @@ public class TileEntityGemSeed extends TileEntity implements ITickable {
 			compound.setUniqueId("Owner", this.data.getOwner());
 			compound.setInteger("Color", this.data.getColor());
 			compound.setBoolean("Defective", this.data.isDefective());
-			compound.setBoolean("Perfect", this.data.isPerfect());
+			compound.setBoolean("Perfective", this.data.isPerfective());
 		}
 		return compound;
 	}
@@ -46,7 +46,7 @@ public class TileEntityGemSeed extends TileEntity implements ITickable {
 			this.data = new GemSpawnData(compound.getUniqueId("Owner"),
 				compound.getInteger("Color"),
 				compound.getBoolean("Defective"),
-				compound.getBoolean("Perfect"));
+				compound.getBoolean("Perfective"));
 		} catch (Exception e) {
 			this.data = null;
 		}

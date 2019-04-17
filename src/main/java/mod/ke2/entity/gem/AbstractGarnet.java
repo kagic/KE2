@@ -25,7 +25,7 @@ public abstract class AbstractGarnet extends EntityGem {
 	}
     @Override
     public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
-    	if (this.isPerfect()) {
+    	if (this.isPerfective()) {
     		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(16.0D);
     		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(180.0D);
     	}
@@ -58,7 +58,7 @@ public abstract class AbstractGarnet extends EntityGem {
 		return attacked;
 	}
 	private float getDisarmChance() {
-		return this.isPerfect() ? 1.0F : this.isDefective() ? 0.0F : 0.5F;
+		return this.isPerfective() ? 1.0F : this.isDefective() ? 0.0F : 0.5F;
 	}
 	public boolean disarm(EntityLivingBase enemy) {
 		if (enemy.hasItemInSlot(EntityEquipmentSlot.MAINHAND)) {

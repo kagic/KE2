@@ -1,5 +1,7 @@
 package mod.ke2.init;
 
+import com.google.gson.Gson;
+
 import mod.ke2.blocks.BlockCarbonite;
 import mod.ke2.proxies.CommonProxy;
 import net.minecraft.block.Block;
@@ -22,6 +24,7 @@ public class KAGIC {
     public static final String VERSION = "@version";
     public static final String MCVERSION = "1.12.2";
 	public static final String MODID = "ke2";
+	public static final Gson JSON = new Gson();
 	
 	@SidedProxy(clientSide = "mod.ke2.proxies.ClientProxy", serverSide = "mod.ke2.proxies.ServerProxy")
 	public static CommonProxy proxy;

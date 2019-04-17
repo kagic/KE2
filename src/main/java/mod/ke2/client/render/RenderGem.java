@@ -30,7 +30,7 @@ public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
 		if (gem.isDefective()) {
 			GlStateManager.scale(0.5F, 0.5F, 0.5F);
 		}
-		if (gem.isPerfect()) {
+		if (gem.isPerfective()) {
 			GlStateManager.scale(1.5F, 1.5F, 1.5F);
 		}
 	}
@@ -46,7 +46,7 @@ public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
     }
 	@Override
 	protected ResourceLocation getEntityTexture(EntityGem gem) {
-		ResourceLocation texture = Ke2Gems.GEM_TABLE.get(gem.getClass());
+		ResourceLocation texture = Ke2Gems.GEM_REGISTRY_REVERSE.get(gem.getClass());
 		return new ResourceLocation(
 			texture.getResourceDomain() + ":textures/entities/" +
 			texture.getResourcePath() + "/" +

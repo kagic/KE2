@@ -112,6 +112,7 @@ public class InjectorResult {
 			}
 		}
 		GemSpawnData data = new GemSpawnData(owner, color, random < (volume * 0.1), random > (volume * 0.8));
+		data.setSpawn(world, pos);
 		return new InjectorResult(gem, pos, exit, data);
 	}
 	public static void drain(World world, BlockPos pos, Block[] blocks) {
