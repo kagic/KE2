@@ -1,7 +1,5 @@
 package mod.ke2.entity.gem;
 
-import java.util.ArrayList;
-
 import mod.ke2.api.EntityGem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,16 +13,11 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public abstract class AbstractGarnet extends EntityGem {
-	public static final ArrayList<ResourceLocation> HAIRSTYLES = new ArrayList<ResourceLocation>();
-	static {
-		
-	}
 	public AbstractGarnet(World world) {
 		super(world);
 		this.setSize(0.9F, 2.3F);

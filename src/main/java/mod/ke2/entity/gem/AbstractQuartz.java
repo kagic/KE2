@@ -1,7 +1,5 @@
 package mod.ke2.entity.gem;
 
-import java.util.ArrayList;
-
 import mod.ke2.api.EntityGem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -11,16 +9,11 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public abstract class AbstractQuartz extends EntityGem {
 	private static final DataParameter<Boolean> CHARGED = EntityDataManager.<Boolean>createKey(AbstractQuartz.class, DataSerializers.BOOLEAN);
-	public static final ArrayList<ResourceLocation> HAIRSTYLES = new ArrayList<ResourceLocation>();
-	static {
-		
-	}
 	public boolean chargedByTakingDamageNotDelivering;
 	private int ticksCharged = 0;
 	private int hitCount = 0;

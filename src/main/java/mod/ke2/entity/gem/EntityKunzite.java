@@ -1,22 +1,11 @@
 package mod.ke2.entity.gem;
 
-import java.util.ArrayList;
-
 import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class EntityKunzite extends EntityGem {
-	public static final ArrayList<ResourceLocation> INSIGNIAS = new ArrayList<ResourceLocation>();
-	public static final ArrayList<ResourceLocation> JACKETS = new ArrayList<ResourceLocation>();
-	public static final ArrayList<ResourceLocation> UNIFORMS = new ArrayList<ResourceLocation>();
-	public static final ArrayList<ResourceLocation> HAIRSTYLES = new ArrayList<ResourceLocation>();
-	public static final ArrayList<ResourceLocation> GEMSTONES = new ArrayList<ResourceLocation>();
-	static {
-		
-	}
 	public EntityKunzite(World world) {
 		super(world);
 	}
