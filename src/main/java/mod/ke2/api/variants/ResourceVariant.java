@@ -3,7 +3,6 @@ package mod.ke2.api.variants;
 import java.util.ArrayList;
 
 import mod.ke2.api.EntityGem;
-import mod.ke2.api.injection.GemSpawnData;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.util.ResourceLocation;
 
@@ -12,10 +11,11 @@ public class ResourceVariant implements IVariant {
 	protected String category;
 	protected String[] gems;
 	protected String function;
+	protected String param;
 	protected String value;
 	
 	@Override
-	public boolean matches(EntityGem gem, ResourceLocation category, GemSpawnData data) {
+	public boolean matches(EntityGem gem, ResourceLocation category) {
 		if (category.equals(this.getCategory())) {
 			ArrayList<ResourceLocation> gems = this.getGems();
 			if (gems.contains(Ke2Gems.GEM_REGISTRY_REVERSE.get(gem.getClass()))) {
@@ -48,6 +48,10 @@ public class ResourceVariant implements IVariant {
 	@Override
 	public ResourceLocation getCategory() {
 		return new ResourceLocation(this.category);
+	}
+	@Override
+	public String getValue() {
+		return this.value;
 	}
 	public ArrayList<ResourceLocation> getGems() {
 		ArrayList<ResourceLocation> gems = new ArrayList<ResourceLocation>();

@@ -1,8 +1,13 @@
 package mod.ke2.api.variants;
 
+import java.util.Iterator;
 import java.util.Random;
 
+import mod.ke2.api.EntityGem;
+import mod.ke2.api.GemColorHandler;
 import mod.ke2.api.injection.GemSpawnData;
+import mod.ke2.init.Ke2Gems;
+import net.minecraft.util.ResourceLocation;
 
 public class Variants {
 	public enum Functions {
@@ -80,5 +85,31 @@ public class Variants {
 			depth = 64;
 		}
 		return data.getPosition().getY() > depth;
+	}
+	public static int loadColor(EntityGem gem, ResourceLocation category) {
+		Iterator<ResourceLocation> it = Ke2Gems.VARIANT_REGISTRY.keySet().iterator();
+		while (it.hasNext()) {
+			IVariant variant = Ke2Gems.VARIANT_REGISTRY.get(it.next());
+			if (variant.matches(gem, category)) {
+				String value = variant.getValue();
+				String[] hex = value.split(",");
+				int[] colors = new int[hex.length];
+				for (int i = 0; i < colors.length; ++i) {
+					colors[i] = Integer.parseInt(hex[i], 16);
+				}
+				return GemColorHandler.mix(gem.world.rand, colors);
+			}
+		}
+		return 0;
+	}
+	public static String loadResource(EntityGem gem, ResourceLocation category) {
+		Iterator<ResourceLocation> it = Ke2Gems.VARIANT_REGISTRY.keySet().iterator();
+		while (it.hasNext()) {
+			IVariant variant = Ke2Gems.VARIANT_REGISTRY.get(it.next());
+			if (variant.matches(gem, category)) {
+				return variant.getValue();
+			}
+		}
+		return "kagic:textures/entities/none/null";
 	}
 }

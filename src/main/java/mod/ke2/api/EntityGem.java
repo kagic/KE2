@@ -7,6 +7,7 @@ import com.google.common.base.Optional;
 
 import io.netty.buffer.ByteBuf;
 import mod.ke2.api.injection.GemSpawnData;
+import mod.ke2.api.variants.Variants;
 import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Gems;
 import mod.ke2.world.data.WorldDataAuthorities;
@@ -35,6 +36,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentString;
@@ -649,26 +651,6 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public int getMaxInventorySlots() {
 		return 0;
 	}
-	protected int extrapolate(int... colors) {
-		if (colors.length == 0) {
-			return 0x000000;
-		}
-		if (colors.length == 1) {
-			return colors[0];
-		}
-		int bound = this.rand.nextInt(colors.length - 1);
-		float rand = this.rand.nextFloat();
-        int bR = (colors[bound] & 16711680) >> 16;
-        int bG = (colors[bound] & 65280) >> 8;
-        int bB = (colors[bound] & 255) >> 0;
-        int eR = (colors[bound + 1] & 16711680) >> 16;
-        int eG = (colors[bound + 1] & 65280) >> 8;
-        int eB = (colors[bound + 1] & 255) >> 0;
-        int r = (int)(rand * bR + (1 - rand) * eR); 
-		int g = (int)(rand * bG + (1 - rand) * eG); 
-		int b = (int)(rand * bB + (1 - rand) * eB); 
-		return (r << 16) + (g << 8) + b;
-	}
 	private void updateCape() {
         this.prevChasingPosX = this.chasingPosX;
         this.prevChasingPosY = this.chasingPosY;
@@ -760,5 +742,41 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	@Override
 	public void readSpawnData(ByteBuf buffer) {
 		this.setSize(buffer.readFloat(), buffer.readFloat());
+	}
+	@Override
+	public int generateSkinColor() {
+		return Variants.loadColor(this, new ResourceLocation("ke2:skin_color"));
+	}
+	@Override
+	public int generateHairColor() {
+		return Variants.loadColor(this, new ResourceLocation("ke2:hair_color"));
+	}
+	@Override
+	public int generateOutfitColor() {
+		return Variants.loadColor(this, new ResourceLocation("ke2:outfit_color"));
+	}
+	@Override
+	public int generateVisorColor() {
+		return Variants.loadColor(this, new ResourceLocation("ke2:visor_color"));
+	}
+	@Override
+	public int generateGemstoneColor() {
+		return Variants.loadColor(this, new ResourceLocation("ke2:gemstone_color"));
+	}
+	@Override
+	public String generateGemstoneCut() {
+		return Variants.loadResource(this, new ResourceLocation("ke2:gemstone_cut"));
+	}
+	@Override
+	public String generateOutfitVariant() {
+		return Variants.loadResource(this, new ResourceLocation("ke2:outfit"));
+	}
+	@Override
+	public String generateHairVariant() {
+		return Variants.loadResource(this, new ResourceLocation("ke2:hair"));
+	}
+	@Override
+	public String generateSkinVariant() {
+		return Variants.loadResource(this, new ResourceLocation("ke2:skin"));
 	}
 }
