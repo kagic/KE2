@@ -6,9 +6,9 @@ import mod.ke2.items.ItemGemDust;
 import mod.ke2.items.ItemGemShard;
 import mod.ke2.items.ItemGemStaff;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -141,8 +141,8 @@ public class Ke2Items {
 	}
 	public static void registerGemItem(ItemGem normal, ItemGem cracked, ResourceLocation name, RegistryEvent.Register<Item> event) {
 		if (!Ke2Gems.NORMAL_TO_CRACKED.containsKey(normal)) {
-			Ke2Items.registerItem(cracked, new ResourceLocation(name.getResourcePath(), "cracked_" + name.getResourceDomain()), event);
-			Ke2Items.registerItem(normal, name, event);
+			Ke2Items.registerItem(cracked, new ResourceLocation(name.getResourcePath(), "cracked_" + name.getResourceDomain()), event, Ke2CreativeTabs.GEMSTONES);
+			Ke2Items.registerItem(normal, name, event, Ke2CreativeTabs.GEMSTONES);
 			Ke2Gems.NORMAL_TO_CRACKED.put(normal, cracked);
 			Ke2Gems.CRACKED_TO_NORMAL.put(cracked, normal);
 		}
@@ -151,11 +151,13 @@ public class Ke2Items {
 			KAGIC.LOGGER.warn("Report this to addon or mod author!");
 		}
 	}
-	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event) {
-		name = name == null ? new ResourceLocation("ke2:" + ((ItemBlock)(item)).getBlock().getUnlocalizedName().replaceAll("tile\\.", "")) : name;
-		event.getRegistry().register(item.getRegistryName() != null ? item : item.setRegistryName(name));
+	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event, CreativeTabs tab) {
+		event.getRegistry().register(item.getRegistryName() == null ? item.setCreativeTab(tab).setRegistryName(name) : item.setCreativeTab(tab));
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
 		}
+	}
+	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event) {
+		registerItem(item, name, event, Ke2CreativeTabs.GEM_TECH);
 	}
 }

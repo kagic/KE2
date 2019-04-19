@@ -2,8 +2,6 @@ package mod.ke2.items;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
-
 import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.client.util.ITooltipFlag;
@@ -27,21 +25,21 @@ public class ItemGem extends Item {
 	private final Class<? extends EntityGem> entity;
 	private final String name;
 	private final boolean isCracked;
-	public ItemGem(Class<? extends EntityGem> entity, String name, boolean cracked) {
+	public ItemGem(Class<? extends EntityGem> gem, String name, boolean cracked) {
 		this.setUnlocalizedName((cracked ? "cracked_" : "") + name + "_gem");
 		this.setMaxStackSize(1);
 		this.setMaxDamage(60);
 		this.setCreativeTab(Ke2CreativeTabs.GEMSTONES);
-		this.entity = entity;
+		this.entity = gem;
 		this.name = name;
 		this.isCracked = cracked;
 	}
-	public ItemGem(Class<? extends EntityGem> gemClass, String name) {
-		this(gemClass, name, false);
+	public ItemGem(Class<? extends EntityGem> gem, String name) {
+		this(gem, name, false);
 	}
 	@Override
 	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack stack, @Nullable World world, List<String> tooltip, ITooltipFlag flag) {
+	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
 		try {
 			NBTTagCompound tag = stack.getTagCompound();
 			if (tag.hasKey("Name")) {
@@ -122,15 +120,15 @@ public class ItemGem extends Item {
 			}
 			else {
 				try {
-					EntityGem newGem = (EntityGem)(this.entity.getConstructors()[0].newInstance(world));
-	            	newGem.onInitialSpawn(world.getDifficultyForLocation(pos), null);
-					newGem.readFromNBT(stack.getTagCompound());
-					newGem.setUniqueId(MathHelper.getRandomUUID(world.rand));
-					newGem.setPosition(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
-					newGem.setAttackTarget(null);
-					newGem.extinguish();
-					newGem.clearActivePotions();
-					world.spawnEntity(newGem);
+					EntityGem gem = (EntityGem)(this.entity.getConstructors()[0].newInstance(world));
+					gem.onInitialSpawn(world.getDifficultyForLocation(pos), null);
+					gem.readFromNBT(stack.getTagCompound());
+					gem.setUniqueId(MathHelper.getRandomUUID(world.rand));
+					gem.setPosition(pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5);
+					gem.setAttackTarget(null);
+					gem.extinguish();
+					gem.clearActivePotions();
+					world.spawnEntity(gem);
 				}
 				catch (Exception e) {
 					e.printStackTrace();
