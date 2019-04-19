@@ -152,9 +152,7 @@ public class Ke2Items {
 		}
 	}
 	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event) {
-		if (name == null) {
-			name = new ResourceLocation("ke2:" + ((ItemBlock)(item)).getBlock().getUnlocalizedName().replaceAll("tile\\.", ""));
-		}
+		name = name == null ? new ResourceLocation("ke2:" + ((ItemBlock)(item)).getBlock().getUnlocalizedName().replaceAll("tile\\.", "")) : name;
 		event.getRegistry().register(item.getRegistryName() != null ? item : item.setRegistryName(name));
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));

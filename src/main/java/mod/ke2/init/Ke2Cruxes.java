@@ -8,7 +8,6 @@ import net.minecraft.util.ResourceLocation;
 
 public class Ke2Cruxes {
 	public static final HashMap<ResourceLocation, ArrayList<CruxEntry>> TABLE = new HashMap<ResourceLocation, ArrayList<CruxEntry>>();
-	
 	public static void register() {
 		if (Ke2Configs.enableAgate) {
 			
@@ -37,7 +36,13 @@ public class Ke2Cruxes {
 		if (Ke2Configs.enableHessonite) {
 			
 		}
+		if (Ke2Configs.enableHiddenite) {
+			
+		}
 		if (Ke2Configs.enableJasper) {
+			
+		}
+		if (Ke2Configs.enableKunzite) {
 			
 		}
 		if (Ke2Configs.enableLapisLazuli) {
@@ -56,9 +61,6 @@ public class Ke2Cruxes {
 			
 		}
 		if (Ke2Configs.enablePeridot) {
-			
-		}
-		if (Ke2Configs.enablePyrite) {
 			
 		}
 		if (Ke2Configs.enableRoseQuartz) {

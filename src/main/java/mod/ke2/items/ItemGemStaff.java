@@ -15,7 +15,7 @@ public class ItemGemStaff extends Item {
 	public ItemGemStaff() {
 		super();
 		this.setUnlocalizedName("gem_staff");
-		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
+		this.setCreativeTab(Ke2CreativeTabs.GEMSTONES);
 		this.setMaxStackSize(1);
 	}
 	@Override

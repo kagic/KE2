@@ -34,18 +34,20 @@ public class Ke2Configs {
 	public static boolean enableEnderPearl = true;
 	@Config.Name("Grow Hessonites?")
 	public static boolean enableHessonite = true;
+	@Config.Name("Grow Hiddenite?")
+	public static boolean enableHiddenite = true;
 	@Config.Name("Grow Jades?")
 	public static boolean enableJade = true;
 	@Config.Name("Grow Jaspers?")
 	public static boolean enableJasper = true;
+	@Config.Name("Grow Kunzite?")
+	public static boolean enableKunzite = true;
 	@Config.Name("Grow Lapis Lazulis?")
 	public static boolean enableLapisLazuli = true;
 	@Config.Name("Grow Larimar?")
 	public static boolean enableLarimar = true;
-	@Config.Name("Grow Melanites? (By Snappy)")
+	@Config.Name("Grow Melanites?")
 	public static boolean enableMelanite = false;
-	@Config.Name("Grow Moonstone? (By Lenhi)")
-	public static boolean enableMoonstone = false;
 	@Config.Name("Grow Mother of Pearls?")
 	public static boolean enableNacre = true;
 	@Config.Name("Grow Nephrites?")
@@ -56,8 +58,6 @@ public class Ke2Configs {
 	public static boolean enablePearl = true;
 	@Config.Name("Grow Peridots?")
 	public static boolean enablePeridot = true;
-	@Config.Name("Grow Pyrites? (By Akri)")
-	public static boolean enablePyrite = false;
 	@Config.Name("Grow Pyrope?")
 	public static boolean enablePyrope = true;
 	@Config.Name("Grow Rose Quartzes?")
@@ -68,8 +68,6 @@ public class Ke2Configs {
 	public static boolean enableRutile = true;
 	@Config.Name("Grow Sapphires?")
 	public static boolean enableSapphire = true;
-	@Config.Name("Grow Spodumene?")
-	public static boolean enableSpodumene = true;
 	@Config.Name("Grow Topazes?")
 	public static boolean enableTopaz = true;
 	@Config.Name("Grow Watermelon Tourmalines?")
