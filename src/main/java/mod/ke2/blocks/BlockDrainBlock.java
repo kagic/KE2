@@ -4,6 +4,7 @@ import java.util.Random;
 
 import mod.ke2.api.injection.InjectorResult;
 import mod.ke2.init.Ke2Blocks;
+import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.MapColor;
@@ -49,6 +50,7 @@ public class BlockDrainBlock extends Block {
 		this.setHardness(3);
 		this.setTickRandomly(true);
 		this.setHarvestLevel("pickaxe", 0);
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {

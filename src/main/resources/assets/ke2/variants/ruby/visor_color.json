@@ -1,7 +1,7 @@
 {
-	"function": "is_normal",
+	"function": "always_true",
 	"parameter": "true",
-	"tags": ["visor_color"],
+	"tags": ["ke2:color.visor"],
 	"value": [
 		"ffaa00"
 	]

@@ -1,7 +1,5 @@
 package mod.ke2.api;
 
-import java.util.Random;
-
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -14,7 +12,7 @@ public class GemColorHandler implements IItemColor {
 		if (colors.length == 1) {
 			return colors[0];
 		}
-		int bound = (int)(Math.random() * colors.length);
+		int bound = (int)(Math.random() * (colors.length - 1));
 		float set = (float)(Math.random());
         int bR = (colors[bound] & 16711680) >> 16;
         int bG = (colors[bound] & 65280) >> 8;

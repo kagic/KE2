@@ -744,38 +744,38 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	}
 	@Override
 	public int generateSkinColor() {
-		return VariantHelper.loadVariantColor(this, "ke2:skin_color");
+		return VariantHelper.loadVariantColor(this, "ke2:color.skin");
 	}
 	@Override
 	public int generateHairColor() {
-		return VariantHelper.loadVariantColor(this, "ke2:hair_color");
+		return VariantHelper.loadVariantColor(this, "ke2:color.hair");
 	}
 	@Override
 	public int generateOutfitColor() {
-		return VariantHelper.loadVariantColor(this, "ke2:outfit_color");
+		return VariantHelper.loadVariantColor(this, "ke2:color.outfit");
 	}
 	@Override
 	public int generateVisorColor() {
-		return VariantHelper.loadVariantColor(this, "ke2:visor_color");
+		return VariantHelper.loadVariantColor(this, "ke2:color.visor");
 	}
 	@Override
 	public int generateGemstoneColor() {
-		return VariantHelper.loadVariantColor(this, "ke2:gemstone_color");
+		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone");
 	}
 	@Override
 	public String generateGemstoneCut() {
-		return VariantHelper.loadVariantPath(this, "ke2:gemstone_cut").toString();
+		return VariantHelper.loadVariantPath(this, "ke2:texture.gemstone").toString();
 	}
 	@Override
 	public String generateOutfitVariant() {
-		return VariantHelper.loadVariantPath(this, "ke2:outfit_name").toString();
+		return VariantHelper.loadVariantPath(this, "ke2:texture.outfit").toString();
 	}
 	@Override
 	public String generateHairVariant() {
-		return VariantHelper.loadVariantPath(this, "ke2:hairstyle").toString();
+		return VariantHelper.loadVariantPath(this, "ke2:texture.hair").toString();
 	}
 	@Override
 	public String generateSkinVariant() {
-		return VariantHelper.loadVariantPath(this, "ke2:skin_texture").toString();
+		return VariantHelper.loadVariantPath(this, "ke2:texture.skin").toString();
 	}
 }

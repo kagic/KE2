@@ -1,6 +1,6 @@
 {
-	"function": "is_normal",
+	"function": "always_true",
 	"parameter": "true",
-	"tags": ["outfit_name"],
+	"tags": ["ke2:texture.outfit"],
 	"value": "ke2:textures/entities/ruby/outfit/default"
 }

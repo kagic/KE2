@@ -1,6 +1,6 @@
 {
-	"function": "is_normal",
+	"function": "always_true",
 	"parameter": "true",
-	"tags": ["hairstyle"],
+	"tags": ["ke2:texture.hair"],
 	"value": "ke2:textures/entities/ruby/hair"
 }

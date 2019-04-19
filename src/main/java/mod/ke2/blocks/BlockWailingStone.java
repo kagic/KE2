@@ -3,6 +3,7 @@ package mod.ke2.blocks;
 import java.util.Random;
 
 import mod.ke2.init.Ke2Blocks;
+import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.tileentity.TileEntityWailingStone;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.BlockHorizontal;
@@ -42,6 +43,7 @@ public class BlockWailingStone extends BlockFalling implements ITileEntityProvid
 		this.setResistance(30);
 		this.setHardness(2);
 		this.setHarvestLevel("pickaxe", 0);
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {

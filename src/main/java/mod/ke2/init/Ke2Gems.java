@@ -177,7 +177,7 @@ public class Ke2Gems {
 			Ke2Cruxes.TABLE.put(loc, new ArrayList<CruxEntry>());
 		}
 		else {
-			KAGIC.LOGGER.warn("Gem '%s' already exists! Skipping!", loc);
+			KAGIC.LOGGER.warn("Gem '{}' already exists! Skipping!", loc.toString());
 			KAGIC.LOGGER.warn("Report this to addon or mod author!");
 		}
 	}

@@ -1,7 +1,7 @@
 {
 	"function": "is_normal",
 	"parameter": "true",
-	"tags": ["gemstone_color"],
+	"tags": ["ke2:color.gemstone"],
 	"value": [
 		"ee2331"
 	]

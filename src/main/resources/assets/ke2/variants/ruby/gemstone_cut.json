@@ -1,6 +1,6 @@
 {
 	"function": "is_normal",
 	"parameter": "true",
-	"tags": ["gemstone_cut"],
+	"tags": ["ke2:texture.gemstone"],
 	"value": "ke2:textures/entities/faceted_gem"
 }

@@ -1,7 +1,7 @@
 {
 	"function": "is_normal",
 	"parameter": "true",
-	"tags": ["skin_color"],
+	"tags": ["ke2:color.skin"],
 	"value": [
 		"e0316f",
 		"e52c5c",

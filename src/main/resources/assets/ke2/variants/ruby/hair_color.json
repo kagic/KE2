@@ -1,7 +1,7 @@
 {
 	"function": "is_normal",
 	"parameter": "true",
-	"tags": ["hair_color"],
+	"tags": ["ke2:color.hair"],
 	"value": [
 		"3b0015",
 		"3a0015"

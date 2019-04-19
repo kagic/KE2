@@ -17,6 +17,9 @@ public class LayerVisor implements LayerRenderer<EntityGem> {
 			ResourceLocation texture = new ResourceLocation(gem.getOutfitVariant() + "_visor.png");
 			if (this.renderer.getRenderManager().renderEngine.getTexture(texture) != null) {
 				this.renderer.bindTexture(texture);
+				GlStateManager.enableNormalize();
+	            GlStateManager.enableBlend();
+	            GlStateManager.blendFunc(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA);
 				int color = gem.getVisorColor();
 				float r = ((color & 16711680) >> 16) / 255.0F;
 				float g = ((color & 65280) >> 8) / 255.0F;
@@ -24,6 +27,7 @@ public class LayerVisor implements LayerRenderer<EntityGem> {
 				GlStateManager.color(r, g, b);
 		        this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		        GlStateManager.disableBlend();
+	            GlStateManager.disableNormalize();
 			}
 		}
 	}

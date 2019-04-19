@@ -1,6 +1,6 @@
 {
-	"function": "is_normal",
-	"parameter": "true",
-	"tags": ["outfit_name"],
+	"function": "weighted",
+	"parameter": "0.1",
+	"tags": ["ke2:texture.outfit"],
 	"value": "ke2:textures/entities/ruby/outfit/doc"
 }

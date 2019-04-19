@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Random;
 
 import mod.ke2.init.Ke2Blocks;
+import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.tileentity.TileEntityCarbonite;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -131,6 +132,7 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
         	this.setResistance(30);
         	this.setHardness(2);
     	}
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	public BlockCarbonite(Variety variety, int color) {
 		this(variety, color, false);

@@ -66,13 +66,19 @@ public class VariantHelper {
 		return gem.getInsigniaColor() == color;
 	}
 	public static boolean tryIsNormal(EntityGem gem, String value) {
-		return !(tryIsDefective(gem, value) || tryIsPerfective(gem, value)) && Boolean.parseBoolean(value);
+		if (tryIsDefective(gem, value)) {
+			return false;
+		}
+		if (tryIsPerfective(gem, value)) {
+			return false;
+		}
+		return true;
 	}
 	public static boolean tryIsPerfective(EntityGem gem, String value) {
-		return gem.isPerfective() == Boolean.getBoolean(value) && Boolean.parseBoolean(value);
+		return gem.isPerfective() == Boolean.parseBoolean(value);
 	}
 	public static boolean tryIsDefective(EntityGem gem, String value) {
-		return gem.isDefective() == Boolean.getBoolean(value) && Boolean.parseBoolean(value);
+		return gem.isDefective() == Boolean.parseBoolean(value);
 	}
 	public static boolean trySpawnedInBiome(EntityGem gem, String value) {
 		String[] biomes = value.split(",");
@@ -103,35 +109,38 @@ public class VariantHelper {
 	}
 	public static int loadVariantColor(EntityGem gem, String... tags) {
 		ArrayList<ResourceLocation> variants = Ke2Variants.TABLE.get(Ke2Gems.REGISTRY_REVERSE.get(gem.getClass()));
+		int color = 0xFFFFFF;
 		for (int i = 0; i < variants.size(); ++i) {
 			IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
 			if (v.matches(gem, VariantColor.class, tags)) {
 				VariantColor c = (VariantColor)(v);
-				return c.getColor();
+				color = c.getColor();
 			}
 		}
-		return 0x000000;
+		return color;
 	}
 	public static String loadVariantName(EntityGem gem, String... tags) {
 		ArrayList<ResourceLocation> variants = Ke2Variants.TABLE.get(Ke2Gems.REGISTRY_REVERSE.get(gem.getClass()));
+		String name = "null";
 		for (int i = 0; i < variants.size(); ++i) {
 			IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
 			if (v.matches(gem, VariantName.class, tags)) {
 				VariantName n = (VariantName)(v);
-				return n.getName();
+				name = n.getName();
 			}
 		}
-		return "null";
+		return name;
 	}
 	public static ResourceLocation loadVariantPath(EntityGem gem, String... tags) {
 		ArrayList<ResourceLocation> variants = Ke2Variants.TABLE.get(Ke2Gems.REGISTRY_REVERSE.get(gem.getClass()));
+		ResourceLocation path = VariantPath.getDefaultPath();
 		for (int i = 0; i < variants.size(); ++i) {
 			IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
 			if (v.matches(gem, VariantPath.class, tags)) {
 				VariantPath p = (VariantPath)(v);
-				return p.getPath();
+				path = p.getPath();
 			}
 		}
-		return VariantPath.getDefaultPath();
+		return path;
 	}
 }
