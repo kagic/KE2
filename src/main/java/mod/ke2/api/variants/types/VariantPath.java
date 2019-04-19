@@ -8,6 +8,6 @@ public class VariantPath extends AbstractVariant<ResourceLocation> implements IV
 		return this.getValue();
 	}
 	public static ResourceLocation getDefaultPath() {
-		return new ResourceLocation("kagic:textures/entities/none/null");
+		return new ResourceLocation("ke2:textures/entities/none/null");
 	}
 }

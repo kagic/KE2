@@ -1,0 +1,8 @@
+{
+	"function": "is_normal",
+	"parameter": "true",
+	"tags": ["visor_color"],
+	"value": [
+		"ffaa00"
+	]
+}

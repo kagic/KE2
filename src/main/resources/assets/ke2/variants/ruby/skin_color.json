@@ -1,0 +1,10 @@
+{
+	"function": "is_normal",
+	"parameter": "true",
+	"tags": ["skin_color"],
+	"value": [
+		"e0316f",
+		"e52c5c",
+		"ed294c"
+	]
+}

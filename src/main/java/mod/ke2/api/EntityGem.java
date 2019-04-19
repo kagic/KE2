@@ -1,6 +1,5 @@
 package mod.ke2.api;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -8,12 +7,9 @@ import com.google.common.base.Optional;
 
 import io.netty.buffer.ByteBuf;
 import mod.ke2.api.injection.GemSpawnData;
-import mod.ke2.api.variants.IVariant;
 import mod.ke2.api.variants.VariantHelper;
-import mod.ke2.api.variants.types.VariantColor;
 import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Gems;
-import mod.ke2.init.Ke2Variants;
 import mod.ke2.world.data.WorldDataAuthorities;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -40,7 +36,6 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentString;
@@ -773,14 +768,14 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	}
 	@Override
 	public String generateOutfitVariant() {
-		return VariantHelper.loadVariantPath(this, "ke2:outfit_variant").toString();
+		return VariantHelper.loadVariantPath(this, "ke2:outfit_name").toString();
 	}
 	@Override
 	public String generateHairVariant() {
-		return VariantHelper.loadVariantPath(this, "ke2:hair_variant").toString();
+		return VariantHelper.loadVariantPath(this, "ke2:hairstyle").toString();
 	}
 	@Override
 	public String generateSkinVariant() {
-		return VariantHelper.loadVariantPath(this, "ke2:skin_variant").toString();
+		return VariantHelper.loadVariantPath(this, "ke2:skin_texture").toString();
 	}
 }

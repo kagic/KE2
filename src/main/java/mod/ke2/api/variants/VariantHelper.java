@@ -14,8 +14,8 @@ import net.minecraft.util.ResourceLocation;
 public class VariantHelper {
 	public enum Functions {
 		SPAWNED_BELOW("spawned_below"), SPAWNED_ABOVE("spawned_above"), SPAWNED_IN_BIOME("spawned_in"),
-		IS_DEFECTIVE("is_defective"), IS_PERFECTIVE("is_perfective"), INSIGNIA_COLOR("insignia_color"),
-		ALWAYS_TRUE("always_true"), RANDOM("random"), WEIGHTED("weighted"); 
+		IS_DEFECTIVE("is_defective"), IS_PERFECTIVE("is_perfective"), IS_NORMAL("is_normal"),
+		INSIGNIA_COLOR("insignia_color"), ALWAYS_TRUE("always_true"), RANDOM("random"), WEIGHTED("weighted"); 
 		private final String code;
 		private Functions(String code) {
 			this.code = code;
@@ -34,7 +34,7 @@ public class VariantHelper {
 		}
 	}
 	public static boolean tryAlwaysTrue(EntityGem gem, String value) {
-		return true;
+		return true && Boolean.parseBoolean(value);
 	}
 	public static boolean tryRandom(EntityGem gem, String value) {
 		Random rand = gem.world.rand;
@@ -65,11 +65,14 @@ public class VariantHelper {
 		}
 		return gem.getInsigniaColor() == color;
 	}
+	public static boolean tryIsNormal(EntityGem gem, String value) {
+		return !(tryIsDefective(gem, value) || tryIsPerfective(gem, value)) && Boolean.parseBoolean(value);
+	}
 	public static boolean tryIsPerfective(EntityGem gem, String value) {
-		return gem.isPerfective() == Boolean.getBoolean(value);
+		return gem.isPerfective() == Boolean.getBoolean(value) && Boolean.parseBoolean(value);
 	}
 	public static boolean tryIsDefective(EntityGem gem, String value) {
-		return gem.isDefective() == Boolean.getBoolean(value);
+		return gem.isDefective() == Boolean.getBoolean(value) && Boolean.parseBoolean(value);
 	}
 	public static boolean trySpawnedInBiome(EntityGem gem, String value) {
 		String[] biomes = value.split(",");
