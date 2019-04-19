@@ -3,7 +3,9 @@ package mod.ke2.init;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import mod.ke2.api.EntityGem;
 import mod.ke2.api.injection.CruxEntry;
+import mod.ke2.entity.gem.EntityRuby;
 import net.minecraft.util.ResourceLocation;
 
 public class Ke2Cruxes {
@@ -67,7 +69,16 @@ public class Ke2Cruxes {
 			
 		}
 		if (Ke2Configs.enableRuby) {
-			
+			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_TRACE, "netherrack");
+			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_PARTIAL, "oreRedstone");
+			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_AVERAGE, "blockRedstone");
+			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_AVERAGE, "stoneGranite");
+			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_COMMON, "oreAluminium");
+			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_COMMON, "oreAluminum");
+			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_TOTAL, "blockAluminium");
+			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_TOTAL, "blockAluminum");
+			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_BLOCK, "blockRuby");
+			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_TOTAL, "oreRuby");;
 		}
 		if (Ke2Configs.enableRutile) {
 			
@@ -84,104 +95,11 @@ public class Ke2Cruxes {
 		if (Ke2Configs.enableZircon) {
 			
 		}
-		/*
-		if (AmConfigs.enableCitrine) {
-			ModEntities.registerOreDictValue(EntityCitrine.CITRINE_YIELDS, 0.10, "stoneDiorite");
-			ModEntities.registerOreDictValue(EntityCitrine.CITRINE_YIELDS, 0.20, "stoneGranite");
-			ModEntities.registerOreDictValue(EntityCitrine.CITRINE_YIELDS, 0.30, "stoneAndesite");
-			ModEntities.registerOreDictValue(EntityCitrine.CITRINE_YIELDS, 0.40, "stoneBasalt");
-			ModEntities.registerOreDictValue(EntityCitrine.CITRINE_YIELDS, 0.40, "oreIron");
-			ModEntities.registerOreDictValue(EntityCitrine.CITRINE_YIELDS, 1.00, "oreQuartz");
-			ModEntities.registerOreDictValue(EntityCitrine.CITRINE_YIELDS, 4.50, "oreCitrine");
-			ModEntities.registerOreDictValue(EntityCitrine.CITRINE_YIELDS, 9.00, "blockCitrine");
-			ModEntities.registerOreDictValue(EntityCitrine.CITRINE_YIELDS, 1.00, "endstone");
-		}
-		if (AmConfigs.enableAquaAuraQuartz) {
-			ModEntities.registerOreDictValue(EntityAquaAuraQuartz.AQUA_AURA_QUARTZ_YIELDS, 0.10, "stoneDiorite");
-			ModEntities.registerOreDictValue(EntityAquaAuraQuartz.AQUA_AURA_QUARTZ_YIELDS, 0.20, "stoneGranite");
-			ModEntities.registerOreDictValue(EntityAquaAuraQuartz.AQUA_AURA_QUARTZ_YIELDS, 0.30, "stoneAndesite");
-			ModEntities.registerOreDictValue(EntityAquaAuraQuartz.AQUA_AURA_QUARTZ_YIELDS, 0.40, "stoneBasalt");
-			ModEntities.registerOreDictValue(EntityAquaAuraQuartz.AQUA_AURA_QUARTZ_YIELDS, 0.40, "oreGold");
-			ModEntities.registerOreDictValue(EntityAquaAuraQuartz.AQUA_AURA_QUARTZ_YIELDS, 1.00, "oreQuartz");
-			ModEntities.registerOreDictValue(EntityAquaAuraQuartz.AQUA_AURA_QUARTZ_YIELDS, 4.50, "oreAquaAuraQuartz");
-			ModEntities.registerOreDictValue(EntityAquaAuraQuartz.AQUA_AURA_QUARTZ_YIELDS, 9.00, "blockAquaAuraQuartz");
-			ModEntities.registerOreDictValue(EntityAquaAuraQuartz.AQUA_AURA_QUARTZ_YIELDS, 1.00, "endstone");
-		}
-		if (AmConfigs.enableWatermelonTourmaline) {
-			EntityWatermelonTourmaline.WTOURMALINE_YIELDS.put(Blocks.MELON_BLOCK.getDefaultState(), 9.00);
-			ModEntities.registerOreDictValue(EntityWatermelonTourmaline.WTOURMALINE_YIELDS, 0.25, "stoneGranite");
-			ModEntities.registerOreDictValue(EntityWatermelonTourmaline.WTOURMALINE_YIELDS, 0.25, "stoneMarble");
-			ModEntities.registerOreDictValue(EntityWatermelonTourmaline.WTOURMALINE_YIELDS, 0.50, "oreLithium");
-			ModEntities.registerOreDictValue(EntityWatermelonTourmaline.WTOURMALINE_YIELDS, 9.00, "blockTourmaline");
-			ModEntities.registerOreDictValue(EntityWatermelonTourmaline.WTOURMALINE_YIELDS, 4.50, "oreTourmaline");
-		}
-		if (AmConfigs.enableMelanite) {
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 9.00, "blockMelanite");
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 4.50, "oreMelanite");
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 2.00, "blockGarnet");
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 1.00, "oreGarnet");
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 0.50, "blockAluminum");
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 0.20, "oreAluminium");
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 0.50, "blockCalcium");
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 0.20, "oreCalcium");
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 0.30, "blockIron");
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 0.10, "oreIron");
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 0.05, "stoneAndesite");
-			ModEntities.registerOreDictValue(EntityMelanite.MELANITE_YIELDS, 1.00, "endstone");
-		}
-		if (AmConfigs.enablePyrite) { 
-			ModEntities.registerOreDictValue(EntityPyrite.PYRITE_YIELDS, 0.25, "stoneLimestone");
-			ModEntities.registerOreDictValue(EntityPyrite.PYRITE_YIELDS, 0.10, "stoneDiorite");
-			ModEntities.registerOreDictValue(EntityPyrite.PYRITE_YIELDS, 0.10, "stoneMarble");
-			ModEntities.registerOreDictValue(EntityPyrite.PYRITE_YIELDS, 0.25, "oreIron");
-			ModEntities.registerOreDictValue(EntityPyrite.PYRITE_YIELDS, 2.25, "oreGold");
-			ModEntities.registerOreDictValue(EntityPyrite.PYRITE_YIELDS, 4.50, "blockGold");
-			ModEntities.registerOreDictValue(EntityPyrite.PYRITE_YIELDS, 4.50, "orePyrite");
-			ModEntities.registerOreDictValue(EntityPyrite.PYRITE_YIELDS, 9.00, "blockPyrite");
-			EntityPyrite.PYRITE_YIELDS.put(Blocks.MAGMA.getDefaultState(), 0.75);
-			EntityPyrite.PYRITE_YIELDS.put(Blocks.LAVA.getDefaultState(), 0.50);
-		}
-		if (AmConfigs.enableEnderPearl) {
-			ModEntities.registerOreDictValue(EntityEnderPearl.ENDER_PEARL_YIELDS, 1.00, "endstone");
-			ModEntities.registerOreDictValue(EntityEnderPearl.ENDER_PEARL_YIELDS, 1.00, "obsidian");
-		}
-		if (AmConfigs.enableNacre) {
-			EntityNacre.NACRE_YIELDS.put(Blocks.SOUL_SAND.getDefaultState(), 0.50);
-			EntityNacre.NACRE_YIELDS.put(Blocks.CLAY.getDefaultState(), 1.00);
-			ModEntities.registerOreDictValue(EntityNacre.NACRE_YIELDS, 1.00, "sand");
-			ModEntities.registerOreDictValue(EntityNacre.NACRE_YIELDS, 0.50, "blockSalt");
-			ModEntities.registerOreDictValue(EntityNacre.NACRE_YIELDS, 0.50, "blockHalite");
-			ModEntities.registerOreDictValue(EntityNacre.NACRE_YIELDS, 0.20, "oreSalt");
-			ModEntities.registerOreDictValue(EntityNacre.NACRE_YIELDS, 0.20, "oreHalite");
-			ModEntities.registerOreDictValue(EntityNacre.NACRE_YIELDS, 0.50, "blockCalcite");
-			ModEntities.registerOreDictValue(EntityNacre.NACRE_YIELDS, 0.20, "oreCalcite");
-			ModEntities.registerOreDictValue(EntityNacre.NACRE_YIELDS, 0.40, "stoneLimestone");
-		}
-		if (AmConfigs.enableNephrite) {
-			ModEntities.registerOreDictValue(EntityNephrite.NEPHRITE_YIELDS, 0.50, "oreCoal");
-			ModEntities.registerOreDictValue(EntityNephrite.NEPHRITE_YIELDS, 9.00, "blockNephrite");
-			ModEntities.registerOreDictValue(EntityNephrite.NEPHRITE_YIELDS, 4.50, "oreNephrite");
-			ModEntities.registerOreDictValue(EntityNephrite.NEPHRITE_YIELDS, 4.50, "blockJade");
-			ModEntities.registerOreDictValue(EntityNephrite.NEPHRITE_YIELDS, 2.25, "oreJade");
-			ModEntities.registerOreDictValue(EntityNephrite.NEPHRITE_YIELDS, 0.20, "stoneAndesite");
-			ModEntities.registerOreDictValue(EntityNephrite.NEPHRITE_YIELDS, 0.10, "stoneDiorite");
-		}
-		if (AmConfigs.enableEmerald) {
-			ModEntities.registerOreDictValue(EntityEmerald.EMERALD_YIELDS, 9.00, "blockEmerald");
-			ModEntities.registerOreDictValue(EntityEmerald.EMERALD_YIELDS, 4.50, "oreEmerald");
-		}
-		AmTweaks.Aquamarine.alterCruxes();
-		AmTweaks.Bismuth.alterCruxes();
-		AmTweaks.Hessonite.alterCruxes();
-		AmTweaks.LapisLazuli.alterCruxes();
-		AmTweaks.Pearl.alterCruxes();
-		AmTweaks.Peridot.alterCruxes();
-		AmTweaks.Quartz.alterCruxes();
-		AmTweaks.Ruby.alterCruxes();
-		AmTweaks.Rutile.alterCruxes();
-		AmTweaks.Sapphire.alterCruxes();
-		AmTweaks.Topaz.alterCruxes();
-		AmTweaks.Zircon.alterCruxes();
-		*/
+	}
+	public static void addCrux(Class<? extends EntityGem> gem, CruxEntry entry) {
+		addCrux(Ke2Gems.REGISTRY_REVERSE.get(gem), entry);
+	}
+	public static void addCrux(ResourceLocation gem, CruxEntry entry) {
+		Ke2Cruxes.TABLE.get(gem).add(entry);
 	}
 }

@@ -1,13 +1,15 @@
 package mod.ke2.api.injection;
 
-import java.util.ArrayList;
-
 import com.google.common.base.Predicate;
 
+import mod.ke2.api.EntityGem;
+import mod.ke2.init.Ke2Cruxes;
+import mod.ke2.init.Ke2Gems;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class CruxEntry {
@@ -41,18 +43,24 @@ public class CruxEntry {
 	public double getYield(CruxCandidate input) {
 		return this.predicate.apply(input) ? this.yield : 0.0;
 	}
-	public static void fromOreDict(ArrayList<CruxEntry> cruxes, double yield, int min, int max, String...ores) {
+	public static void fromOreDict(ResourceLocation gem, double yield, int min, int max, String...ores) {
 		for (int i = 0; i < ores.length; ++i) {
 			NonNullList<ItemStack> stacks = OreDictionary.getOres(ores[i]);
 			for (ItemStack stack : stacks) {
 				if (stack.getItem() instanceof ItemBlock) {
 					IBlockState state = ((ItemBlock)(stack.getItem())).getBlock().getStateFromMeta(stack.getMetadata());
-					cruxes.add(new CruxEntry(state, yield, min, max));
+					Ke2Cruxes.addCrux(gem, new CruxEntry(state, yield, min, max));
 				}
 			}
 		}
 	}
-	public static void fromOreDict(ArrayList<CruxEntry> cruxes, double yield, String...ores) {
-		CruxEntry.fromOreDict(cruxes, yield, 0, 255, ores);
+	public static void fromOreDict(Class<? extends EntityGem> gem, double yield, int min, int max, String...ores) {
+		CruxEntry.fromOreDict(Ke2Gems.REGISTRY_REVERSE.get(gem), yield, min, max, ores);
+	}
+	public static void fromOreDict(ResourceLocation gem, double yield, String...ores) {
+		CruxEntry.fromOreDict(gem, yield, 0, 255, ores);
+	}
+	public static void fromOreDict(Class<? extends EntityGem> gem, double yield, String...ores) {
+		CruxEntry.fromOreDict(gem, yield, 0, 255, ores);
 	}
 }

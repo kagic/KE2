@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import mod.ke2.api.variants.IVariant;
+import mod.ke2.api.variants.types.VariantColor;
+import mod.ke2.api.variants.types.VariantPath;
 import net.minecraft.util.ResourceLocation;
 
 public class Ke2Variants {
@@ -14,10 +16,18 @@ public class Ke2Variants {
 	public static final HashMap<ResourceLocation, IVariant<?>> REGISTRY = new HashMap<ResourceLocation, IVariant<?>>();
 	
 	public static void register() {
-		
+		registerVariant(new ResourceLocation("ke2:variants/ruby/default_hairstyle"), VariantPath.class);
+		registerVariant(new ResourceLocation("ke2:variants/ruby/default_outfit"), VariantPath.class);
+		registerVariant(new ResourceLocation("ke2:variants/ruby/doc_outfit"), VariantPath.class);
+		registerVariant(new ResourceLocation("ke2:variants/ruby/gemstone_cut"), VariantPath.class);
+		registerVariant(new ResourceLocation("ke2:variants/ruby/gemstone_color"), VariantColor.class);
+		registerVariant(new ResourceLocation("ke2:variants/ruby/hair_color"), VariantColor.class);
+		registerVariant(new ResourceLocation("ke2:variants/ruby/outfit_color"), VariantColor.class);
+		registerVariant(new ResourceLocation("ke2:variants/ruby/skin_color"), VariantColor.class);
+		registerVariant(new ResourceLocation("ke2:variants/ruby/visor_color"), VariantColor.class);
 	}
 	public static void registerVariant(ResourceLocation loc, Class<? extends IVariant<?>> type) {
-		InputStream in = Ke2Gems.class.getResourceAsStream("assets/" + loc.getResourcePath() + "/" + loc.getResourceDomain());
+		InputStream in = Ke2Gems.class.getResourceAsStream("assets/" + loc.getResourcePath() + "/" + loc.getResourceDomain() + ".json");
 		IVariant<?> variant = KAGIC.JSON.fromJson(new BufferedReader(new InputStreamReader(in)), type);
 		registerVariant(loc, variant);
 	}
