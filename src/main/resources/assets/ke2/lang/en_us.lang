@@ -1,5 +1,6 @@
 ke2.config.title=Configure KAGIC
-itemGroup.ke2=KAGIC
+itemGroup.ke2_gemstones=Gemstones (KAGIC)
+itemGroup.ke2_gem_tech=Gem Tech (KAGIC)
 
 entity.injector.name=Injector
 entity.gem_shard.name=Gem Shard

@@ -170,7 +170,7 @@ public class EntityBubble extends EntityLiving {
 		return this.dataManager.get(COLOR);
 	}
 	public void playBubbleSound() {
-		this.playSound(Ke2Sounds.BUBBLE_BUBBLE, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+		this.playSound(Ke2Sounds.BUBBLE_CREATE, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 	}
 	public void playPopSound() {
 		this.playSound(Ke2Sounds.BUBBLE_POP, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);

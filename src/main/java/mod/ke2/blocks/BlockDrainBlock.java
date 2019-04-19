@@ -50,7 +50,7 @@ public class BlockDrainBlock extends Block {
 		this.setHardness(3);
 		this.setTickRandomly(true);
 		this.setHarvestLevel("pickaxe", 0);
-		this.setCreativeTab(Ke2CreativeTabs.MISCELLANEOUS);
+		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {

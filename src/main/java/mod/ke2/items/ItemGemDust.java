@@ -13,7 +13,7 @@ public class ItemGemDust extends Item {
 		String name = EnumDyeColor.byMetadata(index).toString().toLowerCase();
 		this.setUnlocalizedName(name + "_gem_dust");
 		this.setMaxStackSize(64);
-		this.setCreativeTab(Ke2CreativeTabs.MISCELLANEOUS);
+		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 		ItemGemDust.DUST_COLORS.add(this);
 		this.color = index;
 	}

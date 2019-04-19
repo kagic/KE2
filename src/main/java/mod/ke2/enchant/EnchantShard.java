@@ -9,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.potion.PotionEffect;
@@ -19,10 +20,11 @@ public class EnchantShard extends Enchantment {
 	public final int color;
 	public EnchantShard(int color) {
 		super(Rarity.UNCOMMON, EnumEnchantmentType.ALL, new EntityEquipmentSlot[] { EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND });
-		this.setRegistryName(new ResourceLocation("ke2:gem_shard_" + color));
-		this.setName("gem_shard_" + color + ".name");
+		String name = EnumDyeColor.byMetadata(color).toString().toLowerCase();
+		this.setRegistryName(new ResourceLocation("ke2:" + name + "_gem_shard"));
+		this.setName(name + "_gem_shard.name");
+		ENCHANTS.put(name + "_gem_shard", this);
 		this.color = color;
-		ENCHANTS.put("gem_shard_" + color, this);
 	}
 	@Override
 	public void onEntityDamaged(EntityLivingBase user, Entity target, int level) {

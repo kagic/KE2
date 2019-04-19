@@ -18,7 +18,7 @@ public class BlockMossRose extends BlockBush {
 		super(Material.PLANTS, MapColor.PINK);
 		this.setUnlocalizedName("moss_rose");
 		this.setLightLevel(4.0F);
-		this.setCreativeTab(Ke2CreativeTabs.MISCELLANEOUS);
+		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	@Override
 	protected boolean canSustainBush(IBlockState state) {

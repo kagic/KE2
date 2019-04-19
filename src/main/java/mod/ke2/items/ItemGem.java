@@ -31,7 +31,7 @@ public class ItemGem extends Item {
 		this.setUnlocalizedName((cracked ? "cracked_" : "") + name + "_gem");
 		this.setMaxStackSize(1);
 		this.setMaxDamage(60);
-		this.setCreativeTab(Ke2CreativeTabs.GOOD_GEMS);
+		this.setCreativeTab(Ke2CreativeTabs.GEMSTONES);
 		this.entity = entity;
 		this.name = name;
 		this.isCracked = cracked;

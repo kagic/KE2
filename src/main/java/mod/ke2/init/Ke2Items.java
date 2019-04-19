@@ -6,6 +6,7 @@ import mod.ke2.items.ItemGemDust;
 import mod.ke2.items.ItemGemShard;
 import mod.ke2.items.ItemGemStaff;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
@@ -13,10 +14,10 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class Ke2Items {
 	public static final ItemGemStaff GEM_STAFF = new ItemGemStaff();
-
 	public static final ItemGemDestabilizer WHITE_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_WHITE);
 	public static final ItemGemShard WHITE_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_WHITE);
 	public static final ItemGemDust WHITE_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_WHITE);
@@ -68,7 +69,6 @@ public class Ke2Items {
 	
 	public static void register(RegistryEvent.Register<Item> event) {
 		registerItem(GEM_STAFF, new ResourceLocation("ke2:gem_staff"), event);
-		
 		registerItem(WHITE_GEM_DESTABILIZER, new ResourceLocation("ke2:white_gem_destabilizer"), event);
 		registerItem(WHITE_GEM_SHARD, new ResourceLocation("ke2:white_gem_shard"), event);
 		registerItem(WHITE_GEM_DUST, new ResourceLocation("ke2:white_gem_dust"), event);
@@ -118,6 +118,23 @@ public class Ke2Items {
 		registerItem(BLACK_GEM_SHARD, new ResourceLocation("ke2:black_gem_shard"), event);
 		registerItem(BLACK_GEM_DUST, new ResourceLocation("ke2:black_gem_dust"), event);
 		
+		OreDictionary.registerOre("ke2GemShard", WHITE_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", ORANGE_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", MAGENTA_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", LIGHTBLUE_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", YELLOW_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", LIME_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", PINK_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", GRAY_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", SILVER_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", CYAN_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", PURPLE_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", BROWN_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", GREEN_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", RED_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", BLACK_GEM_SHARD);
+		OreDictionary.registerOre("ke2GemShard", Items.DIAMOND);
+		
 		for (Item item : Ke2Blocks.ITEMS) {
 			registerItem(item, null, event);
 		}
@@ -134,15 +151,13 @@ public class Ke2Items {
 			KAGIC.LOGGER.warn("Report this to addon or mod author!");
 		}
 	}
-	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event, String...meta) {
-		event.getRegistry().register(name == null ? (item.getRegistryName() != null ? item : item.setRegistryName("ke2:" + ((ItemBlock)(item)).getBlock().getUnlocalizedName().replaceAll("tile\\.", ""))) : item.setRegistryName(name));
-		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
-			for (int i = 0; i < meta.length; ++i) {
-				ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(item.getRegistryName(), meta[i]));
-			}
-		}
-	}
 	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event) {
-		Ke2Items.registerItem(item, name, event, "inventory");
+		if (name == null) {
+			name = new ResourceLocation("ke2:" + ((ItemBlock)(item)).getBlock().getUnlocalizedName().replaceAll("tile\\.", ""));
+		}
+		event.getRegistry().register(item.getRegistryName() != null ? item : item.setRegistryName(name));
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
+			ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		}
 	}
 }

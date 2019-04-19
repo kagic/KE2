@@ -31,7 +31,7 @@ public class BlockMagicMoss extends Block {
 		this.setHardness(0.4F);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(SHORT, false));
 		this.setTickRandomly(true);
-		this.setCreativeTab(Ke2CreativeTabs.MISCELLANEOUS);
+		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {

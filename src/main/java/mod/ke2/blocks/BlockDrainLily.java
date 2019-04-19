@@ -22,7 +22,7 @@ public class BlockDrainLily extends BlockBush {
 		this.setUnlocalizedName(prefix + "_drain_lily");
 		this.setLightLevel(4.0F);
 		this.setTickRandomly(true);
-		this.setCreativeTab(Ke2CreativeTabs.MISCELLANEOUS);
+		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 		this.prefix = prefix;
 	}
 	@Override

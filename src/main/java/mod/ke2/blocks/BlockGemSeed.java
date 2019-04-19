@@ -20,7 +20,7 @@ public class BlockGemSeed extends BlockFalling implements ITileEntityProvider {
 		this.setResistance(1000);
 		this.setHardness(100);
 		this.setHarvestLevel("pickaxe", 3);
-		this.setCreativeTab(Ke2CreativeTabs.MISCELLANEOUS);
+		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	@Override
     public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
