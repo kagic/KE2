@@ -1,0 +1,6 @@
+{
+	"function": "is_normal",
+	"parameter": "true",
+	"tags": ["outfit_name"],
+	"value": "ke2:textures/entities/ruby/outfit/doc"
+}
