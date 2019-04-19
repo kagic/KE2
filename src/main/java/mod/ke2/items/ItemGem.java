@@ -3,7 +3,6 @@ package mod.ke2.items;
 import java.util.List;
 
 import mod.ke2.api.EntityGem;
-import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -29,7 +28,6 @@ public class ItemGem extends Item {
 		this.setUnlocalizedName((cracked ? "cracked_" : "") + name + "_gem");
 		this.setMaxStackSize(1);
 		this.setMaxDamage(60);
-		this.setCreativeTab(Ke2CreativeTabs.GEMSTONES);
 		this.entity = gem;
 		this.name = name;
 		this.isCracked = cracked;

@@ -1,7 +1,6 @@
 package mod.ke2.blocks;
 
 import mod.ke2.init.Ke2Blocks;
-import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -18,7 +17,6 @@ public class BlockMossRose extends BlockBush {
 		super(Material.PLANTS, MapColor.PINK);
 		this.setUnlocalizedName("moss_rose");
 		this.setLightLevel(4.0F);
-		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	@Override
 	protected boolean canSustainBush(IBlockState state) {

@@ -4,7 +4,6 @@ import java.util.Random;
 
 import mod.ke2.api.injection.InjectorResult;
 import mod.ke2.init.Ke2Blocks;
-import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.MapColor;
@@ -22,7 +21,6 @@ public class BlockDrainLily extends BlockBush {
 		this.setUnlocalizedName(prefix + "_drain_lily");
 		this.setLightLevel(4.0F);
 		this.setTickRandomly(true);
-		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 		this.prefix = prefix;
 	}
 	@Override

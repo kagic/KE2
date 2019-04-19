@@ -5,7 +5,6 @@ import java.util.List;
 import mod.ke2.api.EntityGem;
 import mod.ke2.entity.EntityGemShard;
 import mod.ke2.entity.machine.EntityBubble;
-import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.init.Ke2Damage;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -31,7 +30,6 @@ public class ItemGemDestabilizer extends ItemSword {
 		this.setUnlocalizedName(name + "_gem_destabilizer");
 		this.setMaxStackSize(1);
 		this.setMaxDamage(24);
-		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 		this.color = index;
 	}
 	@Override

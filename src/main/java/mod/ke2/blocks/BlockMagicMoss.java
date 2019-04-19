@@ -3,7 +3,6 @@ package mod.ke2.blocks;
 import java.util.Random;
 
 import mod.ke2.init.Ke2Blocks;
-import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -31,7 +30,6 @@ public class BlockMagicMoss extends Block {
 		this.setHardness(0.4F);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(SHORT, false));
 		this.setTickRandomly(true);
-		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
