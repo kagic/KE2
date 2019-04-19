@@ -1,24 +1,17 @@
 package mod.ke2.init;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import mod.ke2.api.EntityGem;
 import mod.ke2.api.injection.CruxEntry;
-import mod.ke2.api.variants.IVariant;
-import mod.ke2.api.variants.ResourceVariant;
 import mod.ke2.items.ItemGem;
 import net.minecraft.util.ResourceLocation;
 
 public class Ke2Gems {
-	public static final HashMap<ResourceLocation, Class<? extends EntityGem>> GEM_REGISTRY = new HashMap<ResourceLocation, Class<? extends EntityGem>>();
-	public static final HashMap<Class<? extends EntityGem>, ResourceLocation> GEM_REGISTRY_REVERSE = new HashMap<Class<? extends EntityGem>, ResourceLocation>();
-	public static final HashMap<ResourceLocation, IVariant> VARIANT_REGISTRY = new HashMap<ResourceLocation, IVariant>();
-	public static final HashMap<ResourceLocation, ArrayList<CruxEntry>> CRUXES = new HashMap<ResourceLocation, ArrayList<CruxEntry>>();
-	public static final ArrayList<ItemGem> GEM_ITEMS = new ArrayList<ItemGem>();
+	public static final HashMap<ResourceLocation, Class<? extends EntityGem>> REGISTRY = new HashMap<ResourceLocation, Class<? extends EntityGem>>();
+	public static final HashMap<Class<? extends EntityGem>, ResourceLocation> REGISTRY_REVERSE = new HashMap<Class<? extends EntityGem>, ResourceLocation>();
+	public static final ArrayList<ItemGem> GEMSTONES = new ArrayList<ItemGem>();
 	public static final HashMap<ItemGem, ItemGem> NORMAL_TO_CRACKED = new HashMap<ItemGem, ItemGem>();
 	public static final HashMap<ItemGem, ItemGem> CRACKED_TO_NORMAL = new HashMap<ItemGem, ItemGem>();
 	
@@ -176,24 +169,16 @@ public class Ke2Gems {
 	/** Dye damage is 15, block meta is 0. */
 	public static final int BLOCK_BLACK = 0;
 	
-	public static void registerGemEntity(ResourceLocation loc, Class<? extends EntityGem> entity, ArrayList<CruxEntry> cruxes) {
-		GEM_REGISTRY.put(loc, entity);
-		GEM_REGISTRY_REVERSE.put(entity, loc);
-		CRUXES.put(loc, cruxes);
-	}
-	public static void registerGemVariant(ResourceLocation loc) {
-		InputStream in = Ke2Gems.class.getResourceAsStream("assets/" + loc.getResourcePath() + "/" + loc.getResourceDomain());
-		ResourceVariant variant = KAGIC.JSON.fromJson(new BufferedReader(new InputStreamReader(in)), ResourceVariant.class);
-		registerGemVariant(variant);
-	}
-	public static void registerGemVariant(IVariant variant) {
-		Ke2Gems.VARIANT_REGISTRY.put(variant.getName(), variant);
-	}
-	public static ItemGem setGemItem(Class<? extends EntityGem> entity, String name) {
-		ItemGem normal = new ItemGem(entity, name, false);
-		ItemGem cracked = new ItemGem(entity, name, true);
-		Ke2Gems.GEM_ITEMS.add(normal); Ke2Gems.GEM_ITEMS.add(cracked);
-		Ke2Gems.NORMAL_TO_CRACKED.put(normal, cracked);
-		return normal;
+	public static void registerGemEntity(ResourceLocation loc, Class<? extends EntityGem> entity) {
+		if (!Ke2Gems.REGISTRY.containsKey(loc)) {
+			Ke2Gems.REGISTRY.put(loc, entity);
+			Ke2Gems.REGISTRY_REVERSE.put(entity, loc);
+			Ke2Variants.TABLE.put(loc, new ArrayList<ResourceLocation>());
+			Ke2Cruxes.TABLE.put(loc, new ArrayList<CruxEntry>());
+		}
+		else {
+			KAGIC.LOGGER.warn("Gem '%s' already exists! Skipping!", loc);
+			KAGIC.LOGGER.warn("Report this to addon or mod author!");
+		}
 	}
 }

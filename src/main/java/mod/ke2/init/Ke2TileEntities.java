@@ -19,7 +19,8 @@ public class Ke2TileEntities {
 			GameRegistry.registerTileEntity(tileentity, location);
 		}
 		catch (NoSuchMethodError e) {
-			// this is why you don't roll out API changes in the middle of a stable release cycle.
+			// This is why you don't roll out API changes in the middle of a stable release cycle.
+			KAGIC.LOGGER.warn("Using deprecated fallback code for tile entity registration. Update Forge!!!");
 			GameRegistry.registerTileEntity(tileentity, location.toString());
 		}
 	}

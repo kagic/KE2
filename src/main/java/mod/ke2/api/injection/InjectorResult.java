@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Blocks;
+import mod.ke2.init.Ke2Cruxes;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -55,7 +56,7 @@ public class InjectorResult {
 		return InjectorResult.create(world, pos, generate, new UUID(0, 0), -1);
 	}
 	public static InjectorResult create(World world, BlockPos pos, boolean generate, UUID owner, int color) {
-		HashMap<ResourceLocation, ArrayList<CruxEntry>> cruxes = Ke2Gems.CRUXES;
+		HashMap<ResourceLocation, ArrayList<CruxEntry>> cruxes = Ke2Cruxes.TABLE;
 		ArrayList<CruxCandidate> image = new ArrayList<CruxCandidate>();
 		for (int y = -2; y < 2; ++y) {
 			for (int x = -2; x < 2; ++x) {
@@ -94,7 +95,7 @@ public class InjectorResult {
 		}
 		EntityGem gem = null;
 		try {
-			gem = (EntityGem)(Ke2Gems.GEM_REGISTRY.get(key).getConstructors()[0].newInstance(world));
+			gem = (EntityGem)(Ke2Gems.REGISTRY.get(key).getConstructors()[0].newInstance(world));
 		} catch (Exception e) {
 			System.out.println("Gem called '" + key + "' failed to load!");
 			return null;
@@ -112,7 +113,6 @@ public class InjectorResult {
 			}
 		}
 		GemSpawnData data = new GemSpawnData(owner, color, random < (volume * 0.1), random > (volume * 0.8));
-		data.setSpawn(world, pos);
 		return new InjectorResult(gem, pos, exit, data);
 	}
 	public static void drain(World world, BlockPos pos, Block[] blocks) {

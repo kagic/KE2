@@ -1,9 +1,6 @@
 package mod.ke2.init;
 
-import java.util.ArrayList;
-
 import mod.ke2.api.EntityGem;
-import mod.ke2.api.injection.CruxEntry;
 import mod.ke2.client.render.RenderGemShard;
 import mod.ke2.client.render.gem.RenderAgate;
 import mod.ke2.client.render.gem.RenderAmethyst;
@@ -92,49 +89,49 @@ import net.minecraftforge.fml.relauncher.Side;
 public class Ke2Entities {
 	private static int currentID = 0;
 	public static void register(int pass) {
-		registerGem("agate", EntityAgate.class, RenderAgate::new, 0x000000, 0xFFFFFF, Ke2Cruxes.AGATE, pass);
-		registerGem("amethyst", EntityAmethyst.class, RenderAmethyst::new, 0x000000, 0xFFFFFF, Ke2Cruxes.AMETHYST, pass);
-		registerGem("aqua_aura_quartz", EntityAquaAuraQuartz.class, RenderAquaAuraQuartz::new, 0x000000, 0xFFFFFF, Ke2Cruxes.AQUA_AURA_QUARTZ, pass);
-		registerGem("aquamarine", EntityAquamarine.class, RenderAquamarine::new, 0x000000, 0xFFFFFF, Ke2Cruxes.AQUAMARINE, pass);
-		registerGem("bismuth", EntityBismuth.class, RenderBismuth::new, 0x000000, 0xFFFFFF, Ke2Cruxes.BISMUTH, pass);
-		registerGem("carnelian", EntityCarnelian.class, RenderCarnelian::new, 0x000000, 0xFFFFFF, Ke2Cruxes.CARNELIAN, pass);
-		registerGem("citrine", EntityCitrine.class, RenderCitrine::new, 0x000000, 0xFFFFFF, Ke2Cruxes.CITRINE, pass);
-		registerGem("coral", EntityCoral.class, RenderCoral::new, 0x000000, 0xFFFFFF, Ke2Cruxes.CORAL, pass);
-		registerGem("demantoid", EntityDemantoid.class, RenderDemantoid::new, 0x000000, 0xFFFFFF, Ke2Cruxes.DEMANTOID, pass);
-		registerGem("desert_glass", EntityDesertGlass.class, RenderDesertGlass::new, 0x000000, 0xFFFFFF, Ke2Cruxes.DESERT_GLASS, pass);
-		registerGem("emerald", EntityEmerald.class, RenderEmerald::new, 0x000000, 0xFFFFFF, Ke2Cruxes.EMERALD, pass);
-		registerGem("ender_pearl", EntityEnderPearl.class, RenderEnderPearl::new, 0x000000, 0xFFFFFF, Ke2Cruxes.ENDER_PEARL, pass);
-		registerGem("hessonite", EntityHessonite.class, RenderHessonite::new, 0x000000, 0xFFFFFF, Ke2Cruxes.HESSONITE, pass);
-		registerGem("hiddenite", EntityHiddenite.class, RenderHiddenite::new, 0x000000, 0xFFFFFF, Ke2Cruxes.HIDDENITE, pass);
-		registerGem("jade", EntityJade.class, RenderJade::new, 0x000000, 0xFFFFFF, Ke2Cruxes.JADE, pass);
-		registerGem("jasper", EntityJasper.class, RenderJasper::new, 0x000000, 0xFFFFFF, Ke2Cruxes.JASPER, pass);
-		registerGem("kunzite", EntityKunzite.class, RenderKunzite::new, 0x000000, 0xFFFFFF, Ke2Cruxes.KUNZITE, pass);
-		registerGem("lapis_lazuli", EntityLapisLazuli.class, RenderLapisLazuli::new, 0x000000, 0xFFFFFF, Ke2Cruxes.LAPIS_LAZULI, pass);
-		registerGem("larimar", EntityLarimar.class, RenderLarimar::new, 0x000000, 0xFFFFFF, Ke2Cruxes.LARIMAR, pass);
-		registerGem("melanite", EntityMelanite.class, RenderMelanite::new, 0x000000, 0xFFFFFF, Ke2Cruxes.MELANITE, pass);
-		registerGem("mother_of_pearl", EntityMotherOfPearl.class, RenderMotherOfPearl::new, 0x000000, 0xFFFFFF, Ke2Cruxes.MOTHER_OF_PEARL, pass);
-		registerGem("nephrite", EntityNephrite.class, RenderNephrite::new, 0x000000, 0xFFFFFF, Ke2Cruxes.NEPHRITE, pass);
-		registerGem("pearl", EntityPearl.class, RenderPearl::new, 0x000000, 0xFFFFFF, Ke2Cruxes.PEARL, pass);
-		registerGem("peridot", EntityPeridot.class, RenderPeridot::new, 0x000000, 0xFFFFFF, Ke2Cruxes.PERIDOT, pass);
-		registerGem("pyrope", EntityPyrope.class, RenderPyrope::new, 0x000000, 0xFFFFFF, Ke2Cruxes.PYROPE, pass);
-		registerGem("rose_quartz", EntityRoseQuartz.class, RenderRoseQuartz::new, 0x000000, 0xFFFFFF, Ke2Cruxes.ROSE_QUARTZ, pass);
-		registerGem("ruby", EntityRuby.class, RenderRuby::new, 0x000000, 0xFFFFFF, Ke2Cruxes.RUBY, pass);
-		registerGem("rutile", EntityRutile.class, RenderRutile::new, 0x000000, 0xFFFFFF, Ke2Cruxes.RUTILE, pass);
-		registerGem("sapphire", EntitySapphire.class, RenderSapphire::new, 0x000000, 0xFFFFFF, Ke2Cruxes.SAPPHIRE, pass);
-		registerGem("snowflake_obsidian", EntitySnowflakeObsidian.class, RenderSnowflakeObsidian::new, 0x000000, 0xFFFFFF, Ke2Cruxes.SNOWFLAKE_OBSIDIAN, pass);
-		registerGem("topaz", EntityTopaz.class, RenderTopaz::new, 0x000000, 0xFFFFFF, Ke2Cruxes.TOPAZ, pass);
-		registerGem("watermelon_tourmaline", EntityWatermelonTourmaline.class, RenderWatermelonTourmaline::new, 0x000000, 0xFFFFFF, Ke2Cruxes.WATERMELON_TOURMALINE, pass);
-		registerGem("zircon", EntityZircon.class, RenderZircon::new, 0x000000, 0xFFFFFF, Ke2Cruxes.ZIRCON, pass);
+		registerGem("agate", EntityAgate.class, RenderAgate::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("amethyst", EntityAmethyst.class, RenderAmethyst::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("aqua_aura_quartz", EntityAquaAuraQuartz.class, RenderAquaAuraQuartz::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("aquamarine", EntityAquamarine.class, RenderAquamarine::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("bismuth", EntityBismuth.class, RenderBismuth::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("carnelian", EntityCarnelian.class, RenderCarnelian::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("citrine", EntityCitrine.class, RenderCitrine::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("coral", EntityCoral.class, RenderCoral::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("demantoid", EntityDemantoid.class, RenderDemantoid::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("desert_glass", EntityDesertGlass.class, RenderDesertGlass::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("emerald", EntityEmerald.class, RenderEmerald::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("ender_pearl", EntityEnderPearl.class, RenderEnderPearl::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("hessonite", EntityHessonite.class, RenderHessonite::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("hiddenite", EntityHiddenite.class, RenderHiddenite::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("jade", EntityJade.class, RenderJade::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("jasper", EntityJasper.class, RenderJasper::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("kunzite", EntityKunzite.class, RenderKunzite::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("lapis_lazuli", EntityLapisLazuli.class, RenderLapisLazuli::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("larimar", EntityLarimar.class, RenderLarimar::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("melanite", EntityMelanite.class, RenderMelanite::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("mother_of_pearl", EntityMotherOfPearl.class, RenderMotherOfPearl::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("nephrite", EntityNephrite.class, RenderNephrite::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("pearl", EntityPearl.class, RenderPearl::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("peridot", EntityPeridot.class, RenderPeridot::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("pyrope", EntityPyrope.class, RenderPyrope::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("rose_quartz", EntityRoseQuartz.class, RenderRoseQuartz::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("ruby", EntityRuby.class, RenderRuby::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("rutile", EntityRutile.class, RenderRutile::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("sapphire", EntitySapphire.class, RenderSapphire::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("snowflake_obsidian", EntitySnowflakeObsidian.class, RenderSnowflakeObsidian::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("topaz", EntityTopaz.class, RenderTopaz::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("watermelon_tourmaline", EntityWatermelonTourmaline.class, RenderWatermelonTourmaline::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("zircon", EntityZircon.class, RenderZircon::new, 0x000000, 0xFFFFFF, pass);
 		registerEntity("palanquin", EntityPalanquin.class, RenderPalanquin::new, pass);
 		registerEntity("injector", EntityInjector.class, RenderInjector::new, pass);
 		registerEntity("hand_ship", EntityHandShip.class, RenderHandShip::new, pass);
 		registerEntity("gem_shard", EntityGemShard.class, RenderGemShard::new, pass);
 		registerEntity("bubble", EntityBubble.class, RenderBubble::new, pass);
 	}
-	public static <T extends EntityGem> void registerGem(String name, Class<T> entity, IRenderFactory<T> renderer, int back, int fore, ArrayList<CruxEntry> cruxes, int pass) {
+	public static <T extends EntityGem> void registerGem(String name, Class<T> entity, IRenderFactory<T> renderer, int back, int fore, int pass) {
 		Ke2Entities.registerMob(name, entity, renderer, back, fore, pass);
 		if (pass > 0) {
-			Ke2Gems.registerGemEntity(new ResourceLocation("ke2:" + name), entity, cruxes);
+			Ke2Gems.registerGemEntity(new ResourceLocation("ke2:" + name), entity);
 		}
 	}
 	public static <T extends EntityGem> void registerGem(String name, Class<T> entity, IRenderFactory<T> renderer, int pass) {

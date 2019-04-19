@@ -46,7 +46,7 @@ public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
     }
 	@Override
 	protected ResourceLocation getEntityTexture(EntityGem gem) {
-		ResourceLocation texture = Ke2Gems.GEM_REGISTRY_REVERSE.get(gem.getClass());
+		ResourceLocation texture = Ke2Gems.REGISTRY_REVERSE.get(gem.getClass());
 		return new ResourceLocation(
 			texture.getResourceDomain() + ":textures/entities/" +
 			texture.getResourcePath() + "/" +

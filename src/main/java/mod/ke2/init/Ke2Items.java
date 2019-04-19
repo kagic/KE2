@@ -123,10 +123,16 @@ public class Ke2Items {
 		}
 	}
 	public static void registerGemItem(ItemGem normal, ItemGem cracked, ResourceLocation name, RegistryEvent.Register<Item> event) {
-		Ke2Items.registerItem(cracked, new ResourceLocation(name.getResourcePath(), "cracked_" + name.getResourceDomain()), event);
-		Ke2Items.registerItem(normal, name, event);
-		Ke2Gems.NORMAL_TO_CRACKED.put(normal, cracked);
-		Ke2Gems.CRACKED_TO_NORMAL.put(cracked, normal);
+		if (!Ke2Gems.NORMAL_TO_CRACKED.containsKey(normal)) {
+			Ke2Items.registerItem(cracked, new ResourceLocation(name.getResourcePath(), "cracked_" + name.getResourceDomain()), event);
+			Ke2Items.registerItem(normal, name, event);
+			Ke2Gems.NORMAL_TO_CRACKED.put(normal, cracked);
+			Ke2Gems.CRACKED_TO_NORMAL.put(cracked, normal);
+		}
+		else {
+			KAGIC.LOGGER.warn("Gem '%s' already exists! Skipping!", name);
+			KAGIC.LOGGER.warn("Report this to addon or mod author!");
+		}
 	}
 	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event, String...meta) {
 		event.getRegistry().register(name == null ? (item.getRegistryName() != null ? item : item.setRegistryName("ke2:" + ((ItemBlock)(item)).getBlock().getUnlocalizedName().replaceAll("tile\\.", ""))) : item.setRegistryName(name));

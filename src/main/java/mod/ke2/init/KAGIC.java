@@ -1,5 +1,9 @@
 package mod.ke2.init;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.google.gson.Gson;
 
 import mod.ke2.blocks.BlockCarbonite;
@@ -24,6 +28,8 @@ public class KAGIC {
     public static final String VERSION = "@version";
     public static final String MCVERSION = "1.12.2";
 	public static final String MODID = "ke2";
+	
+	public static final Logger LOGGER = LogManager.getLogger(KAGIC.MODID);
 	public static final Gson JSON = new Gson();
 	
 	@SidedProxy(clientSide = "mod.ke2.proxies.ClientProxy", serverSide = "mod.ke2.proxies.ServerProxy")
@@ -43,6 +49,7 @@ public class KAGIC {
     	Ke2Handles.register();
     	Ke2TileEntities.register();
     	Ke2Entities.register(1);
+    	Ke2Variants.register();
     }
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {

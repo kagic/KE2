@@ -1,5 +1,6 @@
 package mod.ke2.api;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -7,9 +8,12 @@ import com.google.common.base.Optional;
 
 import io.netty.buffer.ByteBuf;
 import mod.ke2.api.injection.GemSpawnData;
-import mod.ke2.api.variants.Variants;
+import mod.ke2.api.variants.IVariant;
+import mod.ke2.api.variants.VariantHelper;
+import mod.ke2.api.variants.types.VariantColor;
 import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Gems;
+import mod.ke2.init.Ke2Variants;
 import mod.ke2.world.data.WorldDataAuthorities;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -197,7 +201,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
-		compound.setString("Species", Ke2Gems.GEM_REGISTRY_REVERSE.get(this.getClass()).toString());
+		compound.setString("Species", Ke2Gems.REGISTRY_REVERSE.get(this.getClass()).toString());
 		if (this.getGemGlobalID() != null) {
 			compound.setString("GemGlobalID", this.getGemGlobalID().toString());
 		}
@@ -745,38 +749,38 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	}
 	@Override
 	public int generateSkinColor() {
-		return Variants.loadColor(this, new ResourceLocation("ke2:skin_color"));
+		return VariantHelper.loadVariantColor(this, "ke2:skin_color");
 	}
 	@Override
 	public int generateHairColor() {
-		return Variants.loadColor(this, new ResourceLocation("ke2:hair_color"));
+		return VariantHelper.loadVariantColor(this, "ke2:hair_color");
 	}
 	@Override
 	public int generateOutfitColor() {
-		return Variants.loadColor(this, new ResourceLocation("ke2:outfit_color"));
+		return VariantHelper.loadVariantColor(this, "ke2:outfit_color");
 	}
 	@Override
 	public int generateVisorColor() {
-		return Variants.loadColor(this, new ResourceLocation("ke2:visor_color"));
+		return VariantHelper.loadVariantColor(this, "ke2:visor_color");
 	}
 	@Override
 	public int generateGemstoneColor() {
-		return Variants.loadColor(this, new ResourceLocation("ke2:gemstone_color"));
+		return VariantHelper.loadVariantColor(this, "ke2:gemstone_color");
 	}
 	@Override
 	public String generateGemstoneCut() {
-		return Variants.loadResource(this, new ResourceLocation("ke2:gemstone_cut"));
+		return VariantHelper.loadVariantPath(this, "ke2:gemstone_cut").toString();
 	}
 	@Override
 	public String generateOutfitVariant() {
-		return Variants.loadResource(this, new ResourceLocation("ke2:outfit"));
+		return VariantHelper.loadVariantPath(this, "ke2:outfit_variant").toString();
 	}
 	@Override
 	public String generateHairVariant() {
-		return Variants.loadResource(this, new ResourceLocation("ke2:hair"));
+		return VariantHelper.loadVariantPath(this, "ke2:hair_variant").toString();
 	}
 	@Override
 	public String generateSkinVariant() {
-		return Variants.loadResource(this, new ResourceLocation("ke2:skin"));
+		return VariantHelper.loadVariantPath(this, "ke2:skin_variant").toString();
 	}
 }

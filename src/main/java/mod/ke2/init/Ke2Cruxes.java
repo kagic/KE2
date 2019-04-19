@@ -1,43 +1,14 @@
 package mod.ke2.init;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import mod.ke2.api.injection.CruxEntry;
+import net.minecraft.util.ResourceLocation;
 
 public class Ke2Cruxes {
-	public static final ArrayList<CruxEntry> AGATE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> AMETHYST = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> AQUA_AURA_QUARTZ = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> AQUAMARINE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> BISMUTH = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> CARNELIAN = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> CITRINE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> CORAL = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> DEMANTOID = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> DESERT_GLASS = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> EMERALD = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> ENDER_PEARL = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> HESSONITE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> HIDDENITE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> JADE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> JASPER = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> KUNZITE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> LAPIS_LAZULI = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> LARIMAR = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> MELANITE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> MOTHER_OF_PEARL = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> NEPHRITE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> PEARL = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> PERIDOT = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> PYROPE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> ROSE_QUARTZ = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> RUBY = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> RUTILE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> SAPPHIRE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> SNOWFLAKE_OBSIDIAN = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> TOPAZ = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> WATERMELON_TOURMALINE = new ArrayList<CruxEntry>();
-	public static final ArrayList<CruxEntry> ZIRCON = new ArrayList<CruxEntry>();
+	public static final HashMap<ResourceLocation, ArrayList<CruxEntry>> TABLE = new HashMap<ResourceLocation, ArrayList<CruxEntry>>();
+	
 	public static void register() {
 		if (Ke2Configs.enableAgate) {
 			

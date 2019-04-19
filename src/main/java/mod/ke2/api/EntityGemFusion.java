@@ -114,7 +114,7 @@ public abstract class EntityGemFusion extends EntityGem {
 		while (it.hasNext()) {
 			NBTTagCompound compound = this.getFusionComponents().getCompoundTag(it.next());
 			try {
-				EntityGem gem = Ke2Gems.GEM_REGISTRY.get(new ResourceLocation(compound.getString("Species"))).getDeclaredConstructor(World.class).newInstance(this.world);
+				EntityGem gem = Ke2Gems.REGISTRY.get(new ResourceLocation(compound.getString("Species"))).getDeclaredConstructor(World.class).newInstance(this.world);
 				gem.readFromNBT(compound);
 				gem.setPosition(this.posX, this.posY, this.posZ);
 				gem.setHealth(gem.getMaxHealth());
