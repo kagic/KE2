@@ -764,18 +764,18 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	}
 	@Override
 	public String generateGemstoneCut() {
-		return VariantHelper.loadVariantPath(this, "ke2:texture.gemstone").toString();
+		return VariantHelper.loadVariantPath(this, "ke2:texture.gemstone");
 	}
 	@Override
 	public String generateOutfitVariant() {
-		return VariantHelper.loadVariantPath(this, "ke2:texture.outfit").toString();
+		return VariantHelper.loadVariantPath(this, "ke2:texture.outfit");
 	}
 	@Override
 	public String generateHairVariant() {
-		return VariantHelper.loadVariantPath(this, "ke2:texture.hair").toString();
+		return VariantHelper.loadVariantPath(this, "ke2:texture.hair");
 	}
 	@Override
 	public String generateSkinVariant() {
-		return VariantHelper.loadVariantPath(this, "ke2:texture.skin").toString();
+		return VariantHelper.loadVariantPath(this, "ke2:texture.skin");
 	}
 }

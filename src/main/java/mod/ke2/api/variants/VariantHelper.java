@@ -131,7 +131,7 @@ public class VariantHelper {
 		}
 		return name;
 	}
-	public static ResourceLocation loadVariantPath(EntityGem gem, String... tags) {
+	public static String loadVariantPath(EntityGem gem, String... tags) {
 		ArrayList<ResourceLocation> variants = Ke2Variants.TABLE.get(Ke2Gems.REGISTRY_REVERSE.get(gem.getClass()));
 		ResourceLocation path = VariantPath.getDefaultPath();
 		for (int i = 0; i < variants.size(); ++i) {
@@ -141,6 +141,6 @@ public class VariantHelper {
 				path = p.getPath();
 			}
 		}
-		return path;
+		return path.toString();
 	}
 }

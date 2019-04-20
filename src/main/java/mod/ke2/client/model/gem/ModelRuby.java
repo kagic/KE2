@@ -11,7 +11,7 @@ public class ModelRuby extends ModelGem {
 	public ModelRuby() {
 		super(0.0F, 0.0F, 64, 64, 4);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
-		this.bipedHead.addBox(-6F, -4F, -4F, 12, 12, 8);
+		this.bipedHead.addBox(-7F, -4F, -4F, 14, 12, 8);
 	    this.bipedHead.setRotationPoint(0F, 4F, 0F);
 	    this.bipedBody = new ModelRenderer(this, 16, 20);
 	    this.bipedBody.addBox(-4F, 8F, -2F, 8, 8, 4);
