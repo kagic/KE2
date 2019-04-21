@@ -1,6 +1,6 @@
 {
-	"function": "weighted",
-	"parameter": "0.1",
+	"function": "gem_placement",
+	"parameter": "chest",
 	"tags": ["ke2:texture.outfit"],
 	"value": "ke2:textures/entities/ruby/outfit/doc"
 }

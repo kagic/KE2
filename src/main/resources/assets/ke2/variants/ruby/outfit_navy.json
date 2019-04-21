@@ -1,0 +1,6 @@
+{
+	"function": "gem_placement",
+	"parameter": "belly",
+	"tags": ["ke2:texture.outfit"],
+	"value": "ke2:textures/entities/ruby/outfit/navy"
+}

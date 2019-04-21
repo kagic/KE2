@@ -1,0 +1,6 @@
+{
+	"function": "gem_placement",
+	"parameter": "forehead",
+	"tags": ["ke2:texture.hair"],
+	"value": "ke2:textures/entities/ruby/hair_forehead"
+}

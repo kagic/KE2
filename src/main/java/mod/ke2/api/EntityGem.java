@@ -767,6 +767,10 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		return VariantHelper.loadVariantPath(this, "ke2:texture.gemstone");
 	}
 	@Override
+	public int generateGemstonePosition() {
+		return this.rand.nextInt(18);
+	}
+	@Override
 	public String generateOutfitVariant() {
 		return VariantHelper.loadVariantPath(this, "ke2:texture.outfit");
 	}
