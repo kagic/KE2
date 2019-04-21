@@ -2,6 +2,7 @@ package mod.ke2.client.render.gem;
 
 import mod.ke2.client.model.gem.ModelMotherOfPearl;
 import mod.ke2.client.render.RenderGem;
+import mod.ke2.client.render.gem.layers.LayerFlower;
 import mod.ke2.client.render.gem.layers.LayerGemstone;
 import mod.ke2.client.render.gem.layers.LayerHair;
 import mod.ke2.client.render.gem.layers.LayerHeldItem;
@@ -26,5 +27,6 @@ public class RenderMotherOfPearl<T extends EntityMotherOfPearl> extends RenderGe
 		this.addLayer(new LayerJacket(this));
 		this.addLayer(new LayerGemstone(this));
 		this.addLayer(new LayerHeldItem(this));
+		this.addLayer(new LayerFlower(this));
 	}
 }
