@@ -18,18 +18,7 @@ public class Ke2Variants {
 	public static final HashMap<ResourceLocation, IVariant<?>> REGISTRY = new HashMap<ResourceLocation, IVariant<?>>();
 	
 	public static void register() {
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/hair_default"), VariantPath.class), EntityRuby.class);
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/hair_forehead"), VariantPath.class), EntityRuby.class);
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/outfit_default"), VariantPath.class), EntityRuby.class);
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/outfit_doc"), VariantPath.class), EntityRuby.class);
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/outfit_navy"), VariantPath.class), EntityRuby.class);
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/skin_default"), VariantPath.class), EntityRuby.class);
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/cut_faceted"), VariantPath.class), EntityRuby.class);
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/color_gemstone"), VariantColor.class), EntityRuby.class);
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/color_hair"), VariantColor.class), EntityRuby.class);
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/color_outfit"), VariantColor.class), EntityRuby.class);
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/color_skin"), VariantColor.class), EntityRuby.class);
-		addVariantToGem(registerVariant(new ResourceLocation("ke2:variants/ruby/color_skin"), VariantColor.class), EntityRuby.class);
+		
 	}
 	public static ResourceLocation registerVariant(ResourceLocation loc, Class<? extends IVariant<?>> type) {
 		try {
