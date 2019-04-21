@@ -33,7 +33,6 @@ public class ModelGem extends ModelBiped {
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		this.bipedGem.render(scale);
     }
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float limbSwingAmount, float ageInTicks, float partialTickTime) {
@@ -134,6 +133,9 @@ public class ModelGem extends ModelBiped {
 				break;
 			}
 		}
+		this.bipedGem.offsetX = 10.0F;
+		this.bipedGem.offsetY = 10.0F;
+		this.bipedGem.offsetZ = 10.0F;
 		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
 	}
 }

@@ -30,7 +30,7 @@ public class LayerGemstone implements LayerRenderer<EntityGem> {
 		        float g = ((color & 65280) >> 8) / 255.0F;
 		        float b = ((color & 255) >> 0) / 255.0F;
 				GlStateManager.color(r, g, b);
-		        this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		        this.renderer.getModel().bipedGem.render(scale);
 		        GlStateManager.disableBlend();
 			}
 		}

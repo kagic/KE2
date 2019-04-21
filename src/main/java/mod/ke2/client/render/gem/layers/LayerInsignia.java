@@ -14,7 +14,7 @@ public class LayerInsignia implements LayerRenderer<EntityGem> {
 	}
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		if (gem.getOutfitVariant() != null) {
+		if (gem.getOutfitVariant() != null && gem.getInsigniaColor() > -1) {
 			this.renderer.bindTexture(new ResourceLocation(gem.getOutfitVariant() + "_insignia.png"));
 			float[] color = EnumDyeColor.byDyeDamage(gem.getInsigniaColor()).getColorComponentValues();
 			GlStateManager.color(color[0], color[1], color[2]);
