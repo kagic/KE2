@@ -4,6 +4,7 @@ import mod.ke2.api.EntityGem;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
+import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.util.ResourceLocation;
 
 public class LayerJacket implements LayerRenderer<EntityGem> {
@@ -15,7 +16,7 @@ public class LayerJacket implements LayerRenderer<EntityGem> {
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getOutfitVariant() != null) {
 			ResourceLocation texture = new ResourceLocation(gem.getOutfitVariant() + "_jacket.png");
-			if (this.renderer.getRenderManager().renderEngine.getTexture(texture) != null) {
+			if (this.renderer.getRenderManager().renderEngine.getTexture(texture) != TextureUtil.MISSING_TEXTURE) {
 				this.renderer.bindTexture(texture);
 				int color = gem.getOutfitColor();
 				float r = ((color & 16711680) >> 16) / 255.0F;

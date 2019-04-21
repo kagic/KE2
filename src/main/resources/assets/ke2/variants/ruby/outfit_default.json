@@ -2,5 +2,5 @@
 	"function": "always_true",
 	"parameter": "true",
 	"tags": ["ke2:texture.outfit"],
-	"value": "ke2:textures/entities/ruby/outfit/default"
+	"value": "ke2:textures/entities/ruby/outfits/default"
 }

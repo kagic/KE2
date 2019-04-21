@@ -136,6 +136,9 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		}
 		this.setOriginalPosition(this.getPosition());
 		this.setOriginalDimension(this.dimension);
+		this.setGemstoneColor(this.generateGemstoneColor());
+		this.setGemstonePosition(this.generateGemstonePosition());
+		this.setGemstoneCut(this.generateGemstoneCut());
 		this.setOutfitVariant(this.generateOutfitVariant());
 		this.setHairVariant(this.generateHairVariant());
 		this.setSkinVariant(this.generateSkinVariant());
@@ -143,9 +146,6 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setVisorColor(this.generateVisorColor());
 		this.setSkinColor(this.generateSkinColor());
 		this.setHairColor(this.generateHairColor());
-		this.setGemstoneColor(this.generateGemstoneColor());
-		this.setGemstonePosition(this.generateGemstonePosition());
-		this.setGemstoneCut(this.generateGemstoneCut());
 		this.setEmotion(this.generateEmotion());
 		this.setHealth(this.getMaxHealth());
 		this.stepHeight = Math.min(0.5F, this.height / 2);

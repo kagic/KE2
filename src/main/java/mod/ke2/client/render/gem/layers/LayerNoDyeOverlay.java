@@ -4,6 +4,7 @@ import mod.ke2.api.EntityGem;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
+import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.util.ResourceLocation;
 
 public class LayerNoDyeOverlay implements LayerRenderer<EntityGem> {
@@ -15,7 +16,7 @@ public class LayerNoDyeOverlay implements LayerRenderer<EntityGem> {
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getOutfitVariant() != null) {
 			ResourceLocation texture = new ResourceLocation(gem.getOutfitVariant() + "_nodye.png");
-			if (this.renderer.getRenderManager().renderEngine.getTexture(texture) != null) {
+			if (this.renderer.getRenderManager().renderEngine.getTexture(texture) != TextureUtil.MISSING_TEXTURE) {
 				GlStateManager.color(1.0F, 1.0F, 1.0F);
 				this.renderer.bindTexture(texture);
 				this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);

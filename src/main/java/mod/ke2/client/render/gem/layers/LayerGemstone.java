@@ -16,7 +16,7 @@ public class LayerGemstone implements LayerRenderer<EntityGem> {
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getGemstoneCut() != null) {
 			int max = gem.canGemstoneGlow() ? 2 : 1;	// Render twice IF GLOWING to create an backwhite
-			for (int i = 0; max < i; ++i) {				// that highlights the gem and decreases gamma
+			for (int i = 0; i < max; ++i) {				// that highlights the gem and decreases gamma
 				if (i == 2) {							// caused by underlying layers.
 					GlStateManager.enableBlend();
 			        GlStateManager.blendFunc(GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ONE);
