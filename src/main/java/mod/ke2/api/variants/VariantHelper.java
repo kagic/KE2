@@ -12,26 +12,20 @@ import mod.ke2.init.Ke2Variants;
 import net.minecraft.util.ResourceLocation;
 
 public class VariantHelper {
+	public enum Colors {
+		WHITE, ORANGE, MAGENTA, LIGHTBLUE, YELLOW, LIME,
+		PINK, GRAY, SILVER, CYAN, PURPLE, BLUE, BROWN,
+		GREEN, RED, BLACK;
+	}
+	public enum Placements {
+		FOREHEAD, BACK_OF_HEAD, RIGHT_EYE, LEFT_EYE, NOSE, RIGHT_SHOULDER,
+		LEFT_SHOULDER, RIGHT_HAND, LEFT_HAND, CHEST, BACK, NAVEL,
+		RIGHT_THIGH, LEFT_THIGH, RIGHT_KNEE, LEFT_KNEE, RIGHT_FOOT, LEFT_FOOT
+	}
 	public enum Functions {
-		SPAWNED_BELOW("spawned_below"), SPAWNED_ABOVE("spawned_above"), SPAWNED_IN_BIOME("spawned_in"),
-		IS_DEFECTIVE("is_defective"), IS_PERFECTIVE("is_perfective"), IS_NORMAL("is_normal"),
-		INSIGNIA_COLOR("insignia_color"), ALWAYS_TRUE("always_true"), RANDOM("random"), WEIGHTED("weighted"); 
-		private final String code;
-		private Functions(String code) {
-			this.code = code;
-		}
-		@Override
-		public String toString() {
-			return this.code;
-		}
-		public static Functions fromCode(String code) {
-			for (int i = 0; i < Functions.values().length; ++i) {
-				if (code.equals(Functions.values()[i].toString())) {
-					return Functions.values()[i];
-				}
-			}
-			return Functions.ALWAYS_TRUE;
-		}
+		SPAWNED_BELOW, SPAWNED_ABOVE, SPAWNED_IN_BIOME,
+		IS_DEFECTIVE, IS_PERFECTIVE, IS_NORMAL, GEM_PLACEMENT,
+		INSIGNIA_COLOR, ALWAYS_TRUE, RANDOM, WEIGHTED;
 	}
 	public static boolean tryAlwaysTrue(EntityGem gem, String value) {
 		return true && Boolean.parseBoolean(value);
@@ -56,14 +50,11 @@ public class VariantHelper {
 		}
 		return rand.nextFloat() < bound;
 	}
+	public static boolean tryGemPlacement(EntityGem gem, String value) {
+		return gem.getGemstonePosition() == Placements.valueOf(value.toUpperCase()).ordinal();
+	}
 	public static boolean tryInsigniaColor(EntityGem gem, String value) {
-		int color = -1;
-		try {
-			color = Integer.parseInt(value);
-		} catch (NumberFormatException e) {
-			color = -1;
-		}
-		return gem.getInsigniaColor() == color;
+		return gem.getInsigniaColor() == Colors.valueOf(value.toUpperCase()).ordinal();
 	}
 	public static boolean tryIsNormal(EntityGem gem, String value) {
 		if (tryIsDefective(gem, value)) {

@@ -15,7 +15,7 @@ public class AbstractVariant<T> implements IVariant<T> {
 		for (int x = 0; x < this.tags.length; ++x) {
 			for (int y = 0; y < tags.length; ++y) {
 				if (this.tags[x].equals(tags[y])) {
-					switch (VariantHelper.Functions.fromCode(this.getFunction())) {
+					switch (VariantHelper.Functions.valueOf(this.getFunction().toUpperCase())) {
 					case INSIGNIA_COLOR:
 						return VariantHelper.tryInsigniaColor(gem, this.getParameter());
 					case IS_DEFECTIVE:
