@@ -1,15 +1,15 @@
 package mod.ke2.client.render.gem.layers;
 
 import mod.ke2.api.EntityGem;
+import mod.ke2.client.render.RenderGem;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.client.renderer.texture.TextureUtil;
 import net.minecraft.util.ResourceLocation;
 
 public class LayerVisor implements LayerRenderer<EntityGem> {
-	private final RenderLivingBase<?> renderer;
-	public LayerVisor(RenderLivingBase<?> renderer) {
+	private final RenderGem<?> renderer;
+	public LayerVisor(RenderGem<?> renderer) {
 		this.renderer = renderer;
 	}
 	@Override

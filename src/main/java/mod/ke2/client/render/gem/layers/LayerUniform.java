@@ -1,14 +1,14 @@
 package mod.ke2.client.render.gem.layers;
 
 import mod.ke2.api.EntityGem;
+import mod.ke2.client.render.RenderGem;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.entity.RenderLivingBase;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.util.ResourceLocation;
 
 public class LayerUniform implements LayerRenderer<EntityGem> {
-	private final RenderLivingBase<?> renderer;
-	public LayerUniform(RenderLivingBase<?> renderer) {
+	private final RenderGem<?> renderer;
+	public LayerUniform(RenderGem<?> renderer) {
 		this.renderer = renderer;
 	}
 	@Override

@@ -11,7 +11,6 @@ import mod.ke2.api.variants.VariantHelper;
 import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Gems;
 import mod.ke2.world.data.WorldDataAuthorities;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -21,7 +20,6 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityTippedArrow;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
@@ -82,7 +80,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	protected static final DataParameter<String>		 GEMSTONE_CUT 		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<Boolean>		 IS_DEFECTIVE		= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Boolean>		 IS_PERFECT			= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
-	protected static final DataParameter<ItemStack>		 FLOWER_IN_HAIR		= EntityDataManager.<ItemStack>createKey(EntityGem.class, DataSerializers.ITEM_STACK);
+	protected static final DataParameter<Integer>		 FLOWER_IN_HAIR		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	
 	/** If true, then the gem is 50% size when defective and 150% size when perfective. */
 	protected boolean changesScaleBasedOnCondition = true;
@@ -126,7 +124,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.dataManager.register(GEMSTONE_CUT, "");
 		this.dataManager.register(IS_DEFECTIVE, false);
 		this.dataManager.register(IS_PERFECT, false);
-		this.dataManager.register(FLOWER_IN_HAIR, ItemStack.EMPTY);
+		this.dataManager.register(FLOWER_IN_HAIR, 0);
 	}
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
@@ -188,7 +186,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setGemstoneDirection(EnumFacing.byName(compound.getString("GemstoneDirection")));
 		this.setDefective(compound.getBoolean("Defective"));
 		this.setPerfective(compound.getBoolean("Perfective"));
-		this.setFlowerInHair(new ItemStack(compound.getCompoundTag("FlowerInHair")));
+		this.setFlowerInHair(compound.getInteger("FlowerInHair"));
 		this.createInventory();
 		NBTTagList inventory = compound.getTagList("Inventory", 10);
 		for (int i = 0; i < inventory.tagCount(); ++i) {
@@ -232,7 +230,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		compound.setString("GemstoneDirection", this.getGemstoneDirection().toString());
 		compound.setBoolean("Defective", this.isDefective());
 		compound.setBoolean("Perfective", this.isPerfective());
-		compound.setTag("FlowerInHair", this.getFlowerInHair().serializeNBT());
+		compound.setInteger("FlowerInHair", this.getFlowerInHair());
 		this.createInventory();
 		NBTTagList inventory = new NBTTagList();
 		for (int i = 0; i < this.inventory.getSizeInventory(); ++i) {
@@ -606,10 +604,10 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public boolean isPerfective() {
 		return this.dataManager.get(IS_PERFECT);
 	}
-	public void setFlowerInHair(ItemStack flower) {
+	public void setFlowerInHair(int flower) {
 		this.dataManager.set(FLOWER_IN_HAIR, flower);
 	}
-	public ItemStack getFlowerInHair() {
+	public int getFlowerInHair() {
 		return this.dataManager.get(FLOWER_IN_HAIR);
 	}
 	@Override

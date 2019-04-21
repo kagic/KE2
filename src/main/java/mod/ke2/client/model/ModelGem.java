@@ -22,6 +22,9 @@ public class ModelGem extends ModelBiped {
 	public float heldItemOffsetX;
 	public float heldItemOffsetY;
 	public float heldItemOffsetZ;
+	public float flowerOffsetX;
+	public float flowerOffsetY;
+	public float flowerOffsetZ;
 	
 	public ModelGem(float modelSize, float offset, int width, int height, int gemSize) {
 		super(modelSize, offset, width, height);
