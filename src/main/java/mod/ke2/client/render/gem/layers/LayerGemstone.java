@@ -37,6 +37,6 @@ public class LayerGemstone implements LayerRenderer<EntityGem> {
 	}
 	@Override
 	public boolean shouldCombineTextures() {
-		return true;
+		return false;
 	}
 }

@@ -136,8 +136,8 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		}
 		this.setOriginalPosition(this.getPosition());
 		this.setOriginalDimension(this.dimension);
+		this.setGemstonePlacement(this.rand.nextInt(18));
 		this.setGemstoneColor(this.generateGemstoneColor());
-		this.setGemstonePosition(this.generateGemstonePosition());
 		this.setGemstoneCut(this.generateGemstoneCut());
 		this.setOutfitVariant(this.generateOutfitVariant());
 		this.setHairVariant(this.generateHairVariant());
@@ -175,12 +175,12 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setSkinColor(compound.getInteger("SkinColor"));
 		this.setHairColor(compound.getInteger("HairColor"));
 		this.setGemstoneColor(compound.getInteger("GemstoneColor"));
+		this.setGemstoneCut(compound.getString("GemstoneCut"));
 		this.setOutfitVariant(compound.getString("OutfitVariant"));
 		this.setHairVariant(compound.getString("HairVariant"));
 		this.setSkinVariant(compound.getString("SkinVariant"));
-		this.setGemstonePosition(compound.getInteger("GemstonePosition"));
+		this.setGemstonePlacement(compound.getInteger("GemstonePlacement"));
 		this.setGemstoneDirection(EnumFacing.byName(compound.getString("GemstoneDirection")));
-		this.setGemstoneCut(compound.getString("GemstoneCut"));
 		this.setDefective(compound.getBoolean("Defective"));
 		this.setPerfective(compound.getBoolean("Perfective"));
 		this.createInventory();
@@ -218,12 +218,12 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		compound.setInteger("SkinColor", this.getSkinColor());
 		compound.setInteger("HairColor", this.getHairColor());
 		compound.setInteger("GemstoneColor", this.getGemstoneColor());
+		compound.setString("GemstoneCut", this.getGemstoneCut());
 		compound.setString("OutfitVariant", this.getOutfitVariant());
 		compound.setString("HairVariant", this.getHairVariant());
 		compound.setString("SkinVariant", this.getSkinVariant());
-		compound.setInteger("GemstonePosition", this.getGemstonePosition());
+		compound.setInteger("GemstonePlacement", this.getGemstonePlacement());
 		compound.setString("GemstoneDirection", this.getGemstoneDirection().toString());
-		compound.setString("GemstoneCut", this.getGemstoneCut());
 		compound.setBoolean("Defective", this.isDefective());
 		compound.setBoolean("Perfective", this.isPerfective());
 		this.createInventory();
@@ -536,6 +536,12 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 			return this.dataManager.get(COLOR_RGB_GEMSTONE);
 		}
 	}
+	public void setGemstoneCut(String cut) {
+		this.dataManager.set(GEMSTONE_CUT, cut);
+	}
+	public String getGemstoneCut() {
+		return this.dataManager.get(GEMSTONE_CUT);
+	}
 	public void setHairVariant(String variant) {
 		this.dataManager.set(VARIANT_HAIR, variant);
 	}
@@ -554,10 +560,10 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public String getSkinVariant() {
 		return this.dataManager.get(VARIANT_SKIN);
 	}
-	public void setGemstonePosition(int pos) {
+	public void setGemstonePlacement(int pos) {
 		this.dataManager.set(GEMSTONE_POS, pos);
 	}
-	public int getGemstonePosition() {
+	public int getGemstonePlacement() {
 		return this.dataManager.get(GEMSTONE_POS);
 	}
 	public boolean canGemstoneGlow() {
@@ -574,12 +580,6 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		else {
 			return direction;
 		}
-	}
-	public void setGemstoneCut(String cut) {
-		this.dataManager.set(GEMSTONE_CUT, cut);
-	}
-	public String getGemstoneCut() {
-		return this.dataManager.get(GEMSTONE_CUT);
 	}
 	public void setDefective(boolean defective) {
 		this.dataManager.set(IS_DEFECTIVE, defective);
@@ -765,10 +765,6 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	@Override
 	public String generateGemstoneCut() {
 		return VariantHelper.loadVariantPath(this, "ke2:texture.gemstone");
-	}
-	@Override
-	public int generateGemstonePosition() {
-		return this.rand.nextInt(18);
 	}
 	@Override
 	public String generateOutfitVariant() {

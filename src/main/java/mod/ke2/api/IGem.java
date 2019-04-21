@@ -8,7 +8,6 @@ public interface IGem extends INpc {
 	public int generateOutfitColor();
 	public int generateVisorColor();
 	public int generateGemstoneColor();
-	public int generateGemstonePosition();
 	public String generateGemstoneCut();
 	public String generateOutfitVariant();
 	public String generateHairVariant();

@@ -53,6 +53,9 @@ public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
 			texture.getResourcePath() + ".png"
 		);
 	}
+	public ResourceLocation getBaseTexture(EntityGem gem) {
+		return this.getEntityTexture(gem);
+	}
 	public ModelGem getModel() {
 		return (ModelGem)(this.getMainModel());
 	}

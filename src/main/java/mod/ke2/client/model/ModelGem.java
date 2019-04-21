@@ -28,7 +28,6 @@ public class ModelGem extends ModelBiped {
         this.bipedGem = new ModelRenderer(this, 0, 0);
         this.bipedGem.setRotationPoint(this.gemSize / 2, this.gemSize / 2, this.gemSize / 2);
         this.bipedGem.addBox(0.0F, 0.0F, 0.0F, this.gemSize, this.gemSize, this.gemSize);
-		this.bipedGem.setTextureSize(this.gemSize * 4, this.gemSize * 2);
     }
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
@@ -56,7 +55,7 @@ public class ModelGem extends ModelBiped {
 			this.bipedGem.offsetX = 0;
 			this.bipedGem.offsetY = 0;
 			this.bipedGem.offsetZ = 0;
-			switch (gem.getGemstonePosition()) {
+			switch (gem.getGemstonePlacement()) {
 			case Ke2Gems.GEMSTONE_FOREHEAD:
 				super.copyModelAngles(this.bipedHead, this.bipedGem);
 				break;
@@ -133,9 +132,6 @@ public class ModelGem extends ModelBiped {
 				break;
 			}
 		}
-		this.bipedGem.offsetX = 10.0F;
-		this.bipedGem.offsetY = 10.0F;
-		this.bipedGem.offsetZ = 10.0F;
 		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
 	}
 }

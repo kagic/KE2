@@ -51,7 +51,7 @@ public class VariantHelper {
 		return rand.nextFloat() < bound;
 	}
 	public static boolean tryGemPlacement(EntityGem gem, String value) {
-		return gem.getGemstonePosition() == Placements.valueOf(value.toUpperCase()).ordinal();
+		return gem.getGemstonePlacement() == Placements.valueOf(value.toUpperCase()).ordinal();
 	}
 	public static boolean tryInsigniaColor(EntityGem gem, String value) {
 		return gem.getInsigniaColor() == Colors.valueOf(value.toUpperCase()).ordinal();
