@@ -1,6 +1,7 @@
 package mod.ke2.entity.gem;
 
 import mod.ke2.api.EntityGem;
+import mod.ke2.api.variants.VariantHelper;
 import mod.ke2.api.variants.types.VariantColor;
 import mod.ke2.api.variants.types.VariantPath;
 import mod.ke2.init.Ke2Variants;
@@ -16,7 +17,8 @@ import net.minecraft.world.World;
 
 public class EntityPeridot extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/hair_default"), VariantPath.class), EntityPeridot.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/hair_square"), VariantPath.class), EntityPeridot.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/hair_triangle"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/outfit_default"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/outfit_shorts"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/skin_default"), VariantPath.class), EntityPeridot.class);
@@ -33,9 +35,8 @@ public class EntityPeridot extends EntityGem {
 	}
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
-		data = super.onInitialSpawn(difficulty, data);
 		this.setSquareHair(this.rand.nextBoolean());
-		return data;
+		return super.onInitialSpawn(difficulty, data);
 	}
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
@@ -52,6 +53,10 @@ public class EntityPeridot extends EntityGem {
 	}
 	public boolean hasSquareHair() {
 		return this.dataManager.get(SQUARE_HAIR);
+	}
+	@Override
+	public String generateHairVariant() {
+		return VariantHelper.loadVariantPath(this, "ke2:texture.hair", this.hasSquareHair() ? "ke2:peridot.hair.square" : "ke2:peridot.hair.triangle");
 	}
 	@Override
 	public void onInventoryChanged(IInventory inventory) {

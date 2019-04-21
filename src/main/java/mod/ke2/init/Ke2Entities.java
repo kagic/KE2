@@ -112,7 +112,7 @@ public class Ke2Entities {
 		registerGem("mother_of_pearl", EntityMotherOfPearl.class, RenderMotherOfPearl::new, 0x000000, 0xFFFFFF, pass);
 		registerGem("nephrite", EntityNephrite.class, RenderNephrite::new, 0x000000, 0xFFFFFF, pass);
 		registerGem("pearl", EntityPearl.class, RenderPearl::new, 0x000000, 0xFFFFFF, pass);
-		registerGem("peridot", EntityPeridot.class, RenderPeridot::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("peridot", EntityPeridot.class, RenderPeridot::new, 0x98FF72, 0x13BA54, pass);
 		registerGem("pyrope", EntityPyrope.class, RenderPyrope::new, 0x000000, 0xFFFFFF, pass);
 		registerGem("rose_quartz", EntityRoseQuartz.class, RenderRoseQuartz::new, 0x000000, 0xFFFFFF, pass);
 		registerGem("ruby", EntityRuby.class, RenderRuby::new, 0xE52C5C, 0x3A0015, pass);

@@ -12,7 +12,7 @@ public class ModelPeridot extends ModelGem {
 	public ModelPeridot() {
 		super(0.0F, 0.0F, 64, 64, 4);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
-		this.bipedHead.addBox(-4.0F, 0.0F, -4.0F, 8, 8, 8);
+		this.bipedHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8);
 	    this.bipedHead.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.bipedHeadwear = new ModelRenderer(this, 0, 40);
 		this.bipedHeadwear.addBox(-7.0F, -8.0F, -4.0F, 14, 14, 10);
@@ -52,14 +52,15 @@ public class ModelPeridot extends ModelGem {
 			EntityPeridot gem = (EntityPeridot)(entity);
 			if (gem.hasSquareHair()) {
 				this.bipedHeadwear.rotateAngleZ += 0.0000000F;
+				this.bipedHeadwear.offsetX =  0.00F;
+				this.bipedHeadwear.offsetY = -0.12F;
 			}
 			else {
 				this.bipedHeadwear.rotateAngleZ += 0.7853982F;
 				this.bipedHeadwear.offsetX = -0.039F;
-				this.bipedHeadwear.offsetY = -0.07F;
+				this.bipedHeadwear.offsetY = -0.06F;
 			}
 		}
 		this.bipedHeadwear.offsetZ = 0.001F;
-		this.bipedHead.offsetY = -0.2F;
 	}
 }

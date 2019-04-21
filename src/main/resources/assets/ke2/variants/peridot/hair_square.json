@@ -1,0 +1,6 @@
+{
+	"function": "always_true",
+	"parameter": "true",
+	"tags": ["ke2:texture.hair", "ke2:peridot.hair.square"],
+	"value": "ke2:textures/entities/peridot/hair_square"
+}

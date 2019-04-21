@@ -23,6 +23,8 @@ public class LayerJacket implements LayerRenderer<EntityGem> {
 				float g = ((color & 65280) >> 8) / 255.0F;
 				float b = ((color & 255) >> 0) / 255.0F;
 				GlStateManager.color(r, g, b);
+				GlStateManager.scale(1.1F, 1.1F, 1.1F);
+				GlStateManager.translate(0.0F, -0.05F, 0.0F);
 		        this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		        GlStateManager.disableBlend();
 			}
