@@ -15,6 +15,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
+	public static boolean updateModelsDespiteTheFactItCausesMemoryLeaks = true;
 	public RenderGem(RenderManager manager, ModelGem model, float shadowSize) {
 		super(manager, model, shadowSize);
 		for (Iterator<LayerRenderer<T>> it = this.layerRenderers.iterator(); it.hasNext();) {
@@ -26,6 +27,13 @@ public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
 	}
 	@Override
 	protected void preRenderCallback(T gem, float partialTickTime) {
+		try {
+			if (updateModelsDespiteTheFactItCausesMemoryLeaks && partialTickTime > 0.9F) {
+				this.mainModel = this.getModel().getClass().newInstance();
+			}
+		} catch (Exception e) {
+			updateModelsDespiteTheFactItCausesMemoryLeaks = false;
+		}
 		GlStateManager.scale(0.925F, 0.925F, 0.925F);
 		if (gem.isDefective()) {
 			GlStateManager.scale(0.5F, 0.5F, 0.5F);
