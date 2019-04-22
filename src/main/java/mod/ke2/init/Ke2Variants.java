@@ -8,9 +8,6 @@ import java.util.HashMap;
 
 import mod.ke2.api.EntityGem;
 import mod.ke2.api.variants.IVariant;
-import mod.ke2.api.variants.types.VariantColor;
-import mod.ke2.api.variants.types.VariantPath;
-import mod.ke2.entity.gem.EntityRuby;
 import net.minecraft.util.ResourceLocation;
 
 public class Ke2Variants {

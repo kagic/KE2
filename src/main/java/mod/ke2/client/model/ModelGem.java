@@ -17,6 +17,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModelGem extends ModelBiped {
 	public ModelRenderer bipedCape;
 	public ModelRenderer bipedGem;
+	public ModelRenderer bipedSkirt;
 	public final int gemSize;
 	public float heldItemHandOffset;
 	public float heldItemOffsetX;
