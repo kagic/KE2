@@ -17,7 +17,7 @@ public class TagType implements Comparable<TagType> {
 		return this.tag;
 	}
 	public static TagType weigh(ArrayList<TagType> tags) {
-		Collections.sort(tags);
+		Collections.shuffle(tags);
 		int volume = 0;
 		for (int i = 0; i < tags.size(); ++i) {
 			volume += tags.get(i).getWeight();

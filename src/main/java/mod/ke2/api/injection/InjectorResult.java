@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.UUID;
 
 import mod.ke2.api.EntityGem;
+import mod.ke2.entity.EntityGemBurst;
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2Cruxes;
 import mod.ke2.init.Ke2Gems;
@@ -93,16 +94,18 @@ public class InjectorResult {
 				break;
 			}
 		}
-		EntityGem gem = null;
-		try {
-			gem = (EntityGem)(Ke2Gems.REGISTRY.get(key).getConstructors()[0].newInstance(world));
-		} catch (Exception e) {
-			System.out.println("Gem called '" + key + "' failed to load!");
-			return null;
+		EntityGem gem = new EntityGemBurst(world);
+		if (key != null) {
+			try {
+				gem = (EntityGem)(Ke2Gems.REGISTRY.get(key).getConstructors()[0].newInstance(world));
+			} catch (Exception e) {
+				System.out.println("Gem called '" + key + "' failed to load!");
+				return null;
+			}
 		}
 		ExitHole exit = null;
 		if (generate) {
-			exit = ExitHole.create(world, pos, gem.height, random > (volume * 0.8));
+			exit = ExitHole.create(world, pos, gem.height, gem.width, random > (volume * 0.8));
 			exit.emerge(world);
 			for (int y = -2; y < 2; ++y) {
 				for (int x = -2; x < 2; ++x) {

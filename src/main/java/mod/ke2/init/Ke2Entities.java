@@ -1,6 +1,7 @@
 package mod.ke2.init;
 
 import mod.ke2.api.EntityGem;
+import mod.ke2.client.render.RenderGemBurst;
 import mod.ke2.client.render.RenderGemShard;
 import mod.ke2.client.render.gem.RenderAgate;
 import mod.ke2.client.render.gem.RenderAmethyst;
@@ -39,6 +40,7 @@ import mod.ke2.client.render.machine.RenderBubble;
 import mod.ke2.client.render.machine.RenderInjector;
 import mod.ke2.client.render.vehicle.RenderHandShip;
 import mod.ke2.client.render.vehicle.RenderPalanquin;
+import mod.ke2.entity.EntityGemBurst;
 import mod.ke2.entity.EntityGemShard;
 import mod.ke2.entity.gem.EntityAgate;
 import mod.ke2.entity.gem.EntityAmethyst;
@@ -122,6 +124,7 @@ public class Ke2Entities {
 		registerGem("topaz", EntityTopaz.class, RenderTopaz::new, 0x000000, 0xFFFFFF, pass);
 		registerGem("watermelon_tourmaline", EntityWatermelonTourmaline.class, RenderWatermelonTourmaline::new, 0x000000, 0xFFFFFF, pass);
 		registerGem("zircon", EntityZircon.class, RenderZircon::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("gem_burst", EntityGemBurst.class, RenderGemBurst::new, 0x333333, 0xCCCCCC, pass);
 		registerEntity("palanquin", EntityPalanquin.class, RenderPalanquin::new, pass);
 		registerEntity("injector", EntityInjector.class, RenderInjector::new, pass);
 		registerEntity("hand_ship", EntityHandShip.class, RenderHandShip::new, pass);

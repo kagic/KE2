@@ -8,6 +8,7 @@ public class Ke2Sounds {
 	public static final SoundEvent BUBBLE_CREATE = new SoundEvent(new ResourceLocation("ke2:misc.bubble.create"));
 	public static final SoundEvent BUBBLE_POP = new SoundEvent(new ResourceLocation("ke2:misc.bubble.pop"));
 	public static final SoundEvent BUBBLE_SEND = new SoundEvent(new ResourceLocation("ke2:misc.bubble.send"));
+	public static final SoundEvent GEM_BURST = new SoundEvent(new ResourceLocation("ke2:misc.burst"));
 	public static final SoundEvent WAILING_STONE = new SoundEvent(new ResourceLocation("ke2:block.wailing_stone"));
 	public static final SoundEvent DESTABILIZER = new SoundEvent(new ResourceLocation("ke2:item.destabilizer"));
 	
@@ -15,6 +16,7 @@ public class Ke2Sounds {
 		registerSound(BUBBLE_CREATE, new ResourceLocation("ke2:misc.bubble.create"), event);
 		registerSound(BUBBLE_POP, new ResourceLocation("ke2:misc.bubble.pop"), event);
 		registerSound(BUBBLE_SEND, new ResourceLocation("ke2:misc.bubble.send"), event);
+		registerSound(GEM_BURST, new ResourceLocation("ke2:misc.burst"), event);
 		registerSound(WAILING_STONE, new ResourceLocation("ke2:block.wailing_stone"), event);
 		registerSound(DESTABILIZER, new ResourceLocation("ke2:item.destabilizer"), event);
 	}

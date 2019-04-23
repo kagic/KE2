@@ -14,6 +14,11 @@
             { "name": "ke2:misc/bubble/send" }
         ]
     },
+    "misc.burst": {
+        "sounds": [
+            { "name": "ke2:misc/burst" }
+        ]
+    },
     "block.wailing_stone": {
     	"sounds": [
     		{ "name": "ke2:block/wailing_stone" }

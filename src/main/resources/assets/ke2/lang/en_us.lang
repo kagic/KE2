@@ -36,6 +36,7 @@ entity.topaz.name=Topaz
 entity.watermelon_tourmaline.name=Watermelon Tourmaline
 entity.zircon.name=Zircon
 
+entity.gem_burst.name=Gem Burst
 entity.injector.name=Injector
 entity.gem_shard.name=Gem Shard
 entity.bubble.name=Bubble

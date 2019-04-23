@@ -37,10 +37,12 @@ public class ExitHole {
 			}
 		}
 	}
-	public static ExitHole create(World world, BlockPos pos, double height, boolean meltRocks) {
+	public static ExitHole create(World world, BlockPos pos, double height, double width, boolean meltRocks) {
 		ArrayList<BlockPos> blocksToDelete = new ArrayList<BlockPos>();
 		PriorityQueue<ExitPotential> exitQueue = new PriorityQueue<ExitPotential>(4, new ExitPotential());
 		exitQueue.add(new ExitPotential(false, 0, 10, 'o'));
+		int widthBegin = (int)(Math.ceil(width / -2.0));
+		int widthEnd = (int)(Math.ceil(width / 2.0));
 		for (int x = -1; x >= -9; --x) {
 			BlockPos check = pos.add(x, 0, 0);
 			if (world.isAirBlock(check)) {
@@ -85,33 +87,41 @@ public class ExitHole {
 		case 'n':
 			for (int z = 0; z <= exit.length; ++z) {
 				for (int y = 0; y < height; ++y) {
-					blocksToDelete.add(pos.add(0, y, -z));
+					for (int x = widthBegin; x < widthEnd; ++x) {
+						blocksToDelete.add(pos.add(x, y, -z));
+					}
 				}
 			}
 			break;
 		case 's':
 			for (int z = 0; z <= exit.length; ++z) {
 				for (int y = 0; y < height; ++y) {
-					blocksToDelete.add(pos.add(0, y, z));
+					for (int x = widthBegin; x < widthEnd; ++x) {
+						blocksToDelete.add(pos.add(x, y, z));
+					}
 				}
 			}
 			break;
 		case 'e':
 			for (int x = 0; x <= exit.length; ++x) {
 				for (int y = 0; y < height; ++y) {
-					blocksToDelete.add(pos.add(x, y, 0));
+					for (int z = widthBegin; z < widthEnd; ++z) {
+						blocksToDelete.add(pos.add(x, y, z));
+					}
 				}
 			}
 			break;
 		case 'w':
 			for (int x = 0; x <= exit.length; ++x) {
 				for (int y = 0; y < height; ++y) {
-					blocksToDelete.add(pos.add(-x, y, 0));
+					for (int z = widthBegin; z < widthEnd; ++z) {
+						blocksToDelete.add(pos.add(-x, y, z));
+					}
 				}
 			}
 			break;
 		}
 		boolean direction = exit.direction == 'e' || exit.direction == 'w';
-		return new ExitHole(blocksToDelete.toArray(new BlockPos[0]), blocksToDelete.size() <= height, meltRocks, direction, pos.getY());
+		return new ExitHole(blocksToDelete.toArray(new BlockPos[0]), blocksToDelete.size() <= height * width, meltRocks, direction, pos.getY());
 	}
 }
