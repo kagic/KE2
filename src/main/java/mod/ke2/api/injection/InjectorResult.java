@@ -50,8 +50,10 @@ public class InjectorResult {
 	}
 	public void generate(World world) {
 		this.exitHole.emerge(world);
-		world.spawnEntity(this.gem);
 		this.gem.onInitialSpawn(world.getDifficultyForLocation(this.getPosition()), this.data);
+		if (!world.isRemote) {
+			world.spawnEntity(this.gem);
+		}
 	}
 	public static InjectorResult create(World world, BlockPos pos, boolean generate) {
 		return InjectorResult.create(world, pos, generate, new UUID(0, 0), -1);
@@ -103,18 +105,28 @@ public class InjectorResult {
 				return null;
 			}
 		}
-		ExitHole exit = null;
+		ExitHole exit = null; float angle = world.rand.nextFloat();
 		if (generate) {
 			exit = ExitHole.create(world, pos, gem.height, gem.width, random > (volume * 0.8));
-			exit.emerge(world);
-			for (int y = -2; y < 2; ++y) {
-				for (int x = -2; x < 2; ++x) {
-					for (int z = -2; z < 2; ++z) {
+			exit.emerge(world); angle = exit.getAngle();
+			for (int y = -2 - (int)(gem.width); y <= 2 + (int)(gem.width); ++y) {
+				for (int x = -2 - (int)(gem.width); x <= 2 + (int)(gem.width); ++x) {
+					for (int z = -2 - (int)(gem.width); z <= 2 + (int)(gem.width); ++z) {
+						if (Math.random() * (int)(Math.abs((y + x + z) / 3) + 1) < 1.0D) {
+							InjectorResult.drain(world, pos.add(x, y, z));
+						}
+					}
+				}
+			}
+			for (int y = -2 - (int)(gem.width / 2.0F); y < 2 + (int)(gem.width / 2.0F); ++y) {
+				for (int x = -2 - (int)(gem.width / 2.0F); x < 2 + (int)(gem.width / 2.0F); ++x) {
+					for (int z = -2 - (int)(gem.width / 2.0F); z < 2 + (int)(gem.width / 2.0F); ++z) {
 						InjectorResult.drain(world, pos.add(x, y, z));
 					}
 				}
 			}
 		}
+		gem.setPositionAndRotation(pos.getX() + 0.5F, pos.getY(), pos.getZ() + 0.5F, angle, 0.0F);
 		GemSpawnData data = new GemSpawnData(owner, color, random < (volume * 0.1), random > (volume * 0.8));
 		return new InjectorResult(gem, pos, exit, data);
 	}

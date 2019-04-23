@@ -3,6 +3,7 @@ package mod.ke2.entity.gem;
 import java.util.ArrayList;
 
 import mod.ke2.api.EntityGem;
+import mod.ke2.api.variants.VariantHelper;
 import mod.ke2.api.variants.types.TagType;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.inventory.IInventory;
@@ -17,7 +18,6 @@ public class EntitySapphire extends EntityGem {
 	/***
 	 * TODO: Add the variant registries in the static block.
 	 * 		 Tune the hair and skin color generators to factor in the tag type.
-	 * 		 Figure out how we're doing eye color.
 	 * THESE SOLUTIONS ARE NECESSARY BEFORE WE FINISH QUARTZES.
 	 * 		 - Citrine
 	 *       - Amethyst
@@ -67,6 +67,26 @@ public class EntitySapphire extends EntityGem {
 	}
 	public String generateSapphireColor() {
 		return TagType.weigh(SAPPHIRE_COLORS).getTag();
+	}
+	@Override
+	public int generateSkinColor() {
+		return VariantHelper.loadVariantColor(this, "ke2:color.skin", this.getSapphireColor());
+	}
+	@Override
+	public int generateHairColor() {
+		return VariantHelper.loadVariantColor(this, "ke2:color.hair", this.getSapphireColor());
+	}
+	@Override
+	public int generateOutfitColor() {
+		return VariantHelper.loadVariantColor(this, "ke2:color.outfit", this.getSapphireColor());
+	}
+	@Override
+	public int generateVisorColor() {
+		return VariantHelper.loadVariantColor(this, "ke2:color.visor", this.getSapphireColor());
+	}
+	@Override
+	public int generateGemstoneColor() {
+		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone", this.getSapphireColor());
 	}
 	@Override
 	public void onInventoryChanged(IInventory inventory) {

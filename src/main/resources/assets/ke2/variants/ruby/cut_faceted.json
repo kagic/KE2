@@ -2,5 +2,5 @@
 	"function": "always_true",
 	"parameter": "true",
 	"tags": ["ke2:texture.gemstone"],
-	"value": "ke2:textures/entities/ruby/faceted_gem"
+	"value": "ke2:textures/entities/faceted_gem"
 }

@@ -12,7 +12,7 @@ public class TileEntityGemSeed extends TileEntity implements ITickable {
 	private int ticksExisted = 0;
 	@Override
 	public void update() {
-		if (this.ticksExisted > 5000) {
+		if (this.ticksExisted > 3600) {
 			InjectorResult result = InjectorResult.create(this.world, this.pos, true, this.data.getOwner(), this.data.getColor());
 			result.generate(this.world);
 		}

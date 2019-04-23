@@ -3,21 +3,30 @@ package mod.ke2.api.injection;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ExitHole {
 	private final BlockPos[] blocks;
+	private final EnumFacing facing;
 	private final boolean canCreate;
 	private final boolean meltRocks;
 	private final boolean direction;
 	private final int minY;
-	public ExitHole(BlockPos[] blocks, boolean canCreate, boolean meltRocks, boolean direction, int y) {
+	public ExitHole(BlockPos[] blocks, EnumFacing facing, boolean canCreate, boolean meltRocks, boolean direction, int y) {
 		this.blocks = blocks;
+		this.facing = facing;
 		this.canCreate = canCreate;
 		this.meltRocks = meltRocks;
 		this.direction = direction;
 		this.minY = y;
+	}
+	public EnumFacing getFacing() {
+		return this.facing;
+	}
+	public float getAngle() {
+		return this.facing.getHorizontalAngle();
 	}
 	public boolean canCreate() {
 		return this.canCreate;
@@ -82,9 +91,11 @@ public class ExitHole {
 		for (int y = 0; y < height; ++y) {
 			blocksToDelete.add(pos.up(y));
 		}
+		EnumFacing facing = EnumFacing.NORTH;
 		ExitPotential exit = exitQueue.peek();
 		switch (exit.direction) {
 		case 'n':
+			facing = EnumFacing.NORTH;
 			for (int z = 0; z <= exit.length; ++z) {
 				for (int y = 0; y < height; ++y) {
 					for (int x = widthBegin; x < widthEnd; ++x) {
@@ -94,6 +105,7 @@ public class ExitHole {
 			}
 			break;
 		case 's':
+			facing = EnumFacing.SOUTH;
 			for (int z = 0; z <= exit.length; ++z) {
 				for (int y = 0; y < height; ++y) {
 					for (int x = widthBegin; x < widthEnd; ++x) {
@@ -103,6 +115,7 @@ public class ExitHole {
 			}
 			break;
 		case 'e':
+			facing = EnumFacing.EAST;
 			for (int x = 0; x <= exit.length; ++x) {
 				for (int y = 0; y < height; ++y) {
 					for (int z = widthBegin; z < widthEnd; ++z) {
@@ -112,6 +125,7 @@ public class ExitHole {
 			}
 			break;
 		case 'w':
+			facing = EnumFacing.WEST;
 			for (int x = 0; x <= exit.length; ++x) {
 				for (int y = 0; y < height; ++y) {
 					for (int z = widthBegin; z < widthEnd; ++z) {
@@ -122,6 +136,6 @@ public class ExitHole {
 			break;
 		}
 		boolean direction = exit.direction == 'e' || exit.direction == 'w';
-		return new ExitHole(blocksToDelete.toArray(new BlockPos[0]), blocksToDelete.size() <= height * width, meltRocks, direction, pos.getY());
+		return new ExitHole(blocksToDelete.toArray(new BlockPos[0]), facing, blocksToDelete.size() <= height * width, meltRocks, direction, pos.getY());
 	}
 }
