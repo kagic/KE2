@@ -20,7 +20,7 @@ public class EntityGemBurst extends EntityGem {
 	public void onUpdate() {
 		List<EntityLivingBase> entities = this.world.<EntityLivingBase>getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(6.0, 2.0, 6.0));
 		for (EntityLivingBase entity : entities) {
-			if (!entity.equals(this) && !entity.isImmuneToFire()) {
+			if (!entity.equals(this) && !entity.isImmuneToFire() && entity.canEntityBeSeen(this)) {
 				entity.setFire(5);
 			}
 		}
