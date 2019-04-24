@@ -39,6 +39,7 @@
 * Gem Dispatcher, block that poofs nearby gems for easier transportation.
 * Gem Grinder, block that cracks, shatters, and powderizes gems.
 * Gem Reactors, block that slowly destroys gems and converts them into energy.
+* Crystal Chandelier, block that emits status effects based on the shards dangling from it.
 * Ruby, small, pyrokinetic soldier gem that attack in groups and can combine into one large entity.
 * Peridot, studious gem with a diverse range of interests ranging from agriculture to geology.
 * Sapphire, prophetic gem with the ability to see forward in the future and tell you what will happen.
