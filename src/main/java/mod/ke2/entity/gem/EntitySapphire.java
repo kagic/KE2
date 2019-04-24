@@ -34,6 +34,7 @@ public class EntitySapphire extends EntityGem {
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(5,  "ke2:sapphire.color.pink"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(5,  "ke2:sapphire.color.green"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(2,  "ke2:sapphire.color.peach"));
+		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(2,  "ke2:sapphire.color.orange"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(2,  "ke2:sapphire.color.brown"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(2,  "ke2:sapphire.color.yellow"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(1,  "ke2:sapphire.color.white"));
