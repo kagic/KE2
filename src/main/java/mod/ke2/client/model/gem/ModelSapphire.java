@@ -11,21 +11,21 @@ public class ModelSapphire extends ModelGem {
     public ModelSapphire() {
 		super(0.0F, 0.0F, 64, 64, 4);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
-		this.bipedHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8);
+		this.bipedHead.addBox(-4.0F, -6.0F, -4.0F, 8, 8, 8);
 		this.bipedHead.offsetY = 0.25F;
-	    this.bipedHeadwear = new ModelRenderer(this, 32, 0);
-		this.bipedHeadwear.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 1.1F);
+	    this.bipedHeadwear = new ModelRenderer(this, 36, 0);
+		this.bipedHeadwear.addBox(-5.0F, -6.0F, -4.0F, 10, 14, 8, 1.1F);
 		this.bipedHeadwear.offsetY = 0.25F;
 	    this.bipedRightArm = new ModelRenderer(this, 28, 16);
-	    this.bipedRightArm.addBox(0F, 0F, -1F, 2, 8, 2);
+	    this.bipedRightArm.addBox(-1F, -2F, -1F, 2, 8, 2);
 	    this.bipedRightArm.offsetY = 0.5F;
-	    this.bipedLeftArm = new ModelRenderer(this, 36, 16);
-	    this.bipedLeftArm.addBox(-2F, 0F, -1F, 2, 8, 2);
+	    this.bipedLeftArm = new ModelRenderer(this, 28, 26);
+	    this.bipedLeftArm.addBox(-1F, -2F, -1F, 2, 8, 2);
 	    this.bipedLeftArm.offsetY = 0.5F;
-	    this.bipedBody = new ModelRenderer(this, 8, 16);
-	    this.bipedBody.addBox(-3.0F, 8.0F, -2.0F, 6, 8, 4);
-	    this.bipedSkirt = new ModelRenderer(this, 0, 28);
-	    this.bipedSkirt.addBox(-5.0F, 16.0F, -5.0F, 10, 8, 10);
+	    this.bipedBody = new ModelRenderer(this, 0, 16);
+	    this.bipedBody.addBox(-4.0F, 6.0F, -3.0F, 8, 8, 6);
+	    this.bipedSkirt = new ModelRenderer(this, 0, 30);
+	    this.bipedSkirt.addBox(-6.0F, 14.0F, -6.0F, 12, 10, 12);
     }
     @Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {

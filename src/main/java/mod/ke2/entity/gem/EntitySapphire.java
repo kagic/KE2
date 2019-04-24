@@ -28,14 +28,11 @@ public class EntitySapphire extends EntityGem {
 	 */
 	public static final ArrayList<TagType> SAPPHIRE_COLORS = new ArrayList<TagType>();
 	static {
-		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(50, "ke2:sapphire.color.blue"));
+		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(80, "ke2:sapphire.color.blue"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(10, "ke2:sapphire.color.purple"));
-		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(10, "ke2:sapphire.color.cyan"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(5,  "ke2:sapphire.color.pink"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(5,  "ke2:sapphire.color.green"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(2,  "ke2:sapphire.color.peach"));
-		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(2,  "ke2:sapphire.color.orange"));
-		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(2,  "ke2:sapphire.color.brown"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(2,  "ke2:sapphire.color.yellow"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(1,  "ke2:sapphire.color.white"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(1,  "ke2:sapphire.color.black"));
