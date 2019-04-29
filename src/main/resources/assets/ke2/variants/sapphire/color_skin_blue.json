@@ -1,8 +1,9 @@
 {
 	"function": "is_normal",
 	"parameter": "true",
-	"tags": ["ke2:color.outfit"],
+	"tags": ["ke2:color.skin"],
 	"value": [
-		"12b951"
+		"98ff72",
+		"9cec4d"
 	]
 }

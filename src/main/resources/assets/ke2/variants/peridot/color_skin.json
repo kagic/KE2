@@ -1,5 +1,5 @@
 {
-	"function": "is_normal",
+	"function": "always_true",
 	"parameter": "true",
 	"tags": ["ke2:color.skin"],
 	"value": [

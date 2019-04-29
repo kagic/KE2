@@ -1,9 +1,9 @@
 {
 	"function": "is_normal",
 	"parameter": "true",
-	"tags": ["ke2:color.hair"],
+	"tags": ["ke2:color.skin"],
 	"value": [
-		"eff6b4",
-		"ffff9b"
+		"98ff72",
+		"9cec4d"
 	]
 }
