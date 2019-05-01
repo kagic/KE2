@@ -33,6 +33,7 @@ public class ModelGem extends ModelBiped {
         this.bipedGem = new ModelRenderer(this, 0, 0);
         this.bipedGem.setRotationPoint(this.gemSize / 2, this.gemSize / 2, this.gemSize / 2);
         this.bipedGem.addBox(0.0F, 0.0F, 0.0F, this.gemSize, this.gemSize, this.gemSize);
+        this.bipedGem.setTextureSize(this.gemSize * 4, this.gemSize * 2);
     }
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {

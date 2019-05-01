@@ -9,12 +9,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ModelSapphire extends ModelGem {
     public ModelSapphire() {
-		super(0.0F, 0.0F, 64, 64, 4);
+		super(0.0F, 0.0F, 96, 64, 4);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-4.0F, -6.0F, -4.0F, 8, 8, 8);
 		this.bipedHead.offsetY = 0.25F;
 	    this.bipedHeadwear = new ModelRenderer(this, 36, 0);
-		this.bipedHeadwear.addBox(-5.0F, -6.0F, -4.0F, 10, 14, 8, 1.1F);
+		this.bipedHeadwear.addBox(-5.0F, -6.0F, -4.0F, 8, 14, 8, 1.1F);
 		this.bipedHeadwear.offsetY = 0.25F;
 	    this.bipedRightArm = new ModelRenderer(this, 28, 16);
 	    this.bipedRightArm.addBox(-1F, -2F, -1F, 2, 8, 2);
