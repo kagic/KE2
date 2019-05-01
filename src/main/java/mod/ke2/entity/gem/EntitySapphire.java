@@ -8,6 +8,7 @@ import mod.ke2.api.variants.types.TagType;
 import mod.ke2.api.variants.types.VariantColor;
 import mod.ke2.api.variants.types.VariantPath;
 import mod.ke2.init.Ke2Variants;
+import net.minecraft.block.Block;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.nbt.NBTTagCompound;
@@ -15,6 +16,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
@@ -102,6 +104,10 @@ public class EntitySapphire extends EntityGem {
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
 		compound.setString("SapphireColor", this.getSapphireColor());
+	}
+	@Override
+	protected void playStepSound(BlockPos pos, Block block) {
+		//Sapphires have no legs and are thus completely silent
 	}
 	public void setSapphireColor(String color) {
 		this.dataManager.set(SAPPHIRE_COLOR, color);

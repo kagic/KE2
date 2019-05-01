@@ -1,9 +1,9 @@
 {
 	"function": "always_true",
 	"parameter": "true",
-	"tags": ["ke2:color.hair"],
+	"tags": ["ke2:color.hair", "ke2:sapphire.color.white"],
 	"value": [
-		"eff6b4",
-		"ffff9b"
+		"fffeff",
+		"e4dfdb"
 	]
 }

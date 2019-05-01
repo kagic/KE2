@@ -1,8 +1,8 @@
 {
 	"function": "always_true",
 	"parameter": "true",
-	"tags": ["ke2:color.outfit"],
+	"tags": ["ke2:color.outfit", "ke2:sapphire.color.yellow"],
 	"value": [
-		"12b951"
+		"febc35"
 	]
 }

@@ -1,6 +1,6 @@
 {
-	"function": "always_true",
-	"parameter": "true",
+	"function": "weighted",
+	"parameter": "0.4",
 	"tags": ["ke2:texture.outfit"],
 	"value": "ke2:textures/entities/sapphire/outfits/robe"
 }

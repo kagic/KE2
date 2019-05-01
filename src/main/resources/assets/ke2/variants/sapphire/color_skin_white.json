@@ -1,9 +1,9 @@
 {
-	"function": "is_normal",
+	"function": "always_true",
 	"parameter": "true",
-	"tags": ["ke2:color.skin"],
+	"tags": ["ke2:color.skin", "ke2:sapphire.color.white"],
 	"value": [
-		"98ff72",
-		"9cec4d"
+		"fff5f0",
+		"fff3f0"
 	]
 }

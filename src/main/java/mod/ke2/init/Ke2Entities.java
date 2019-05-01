@@ -119,7 +119,7 @@ public class Ke2Entities {
 		registerGem("rose_quartz", EntityRoseQuartz.class, RenderRoseQuartz::new, 0x000000, 0xFFFFFF, pass);
 		registerGem("ruby", EntityRuby.class, RenderRuby::new, 0xE52C5C, 0x3A0015, pass);
 		registerGem("rutile", EntityRutile.class, RenderRutile::new, 0x000000, 0xFFFFFF, pass);
-		registerGem("sapphire", EntitySapphire.class, RenderSapphire::new, 0x000000, 0xFFFFFF, pass);
+		registerGem("sapphire", EntitySapphire.class, RenderSapphire::new, 0xBAF5FD, 0x7298EC, pass);
 		registerGem("snowflake_obsidian", EntitySnowflakeObsidian.class, RenderSnowflakeObsidian::new, 0x000000, 0xFFFFFF, pass);
 		registerGem("topaz", EntityTopaz.class, RenderTopaz::new, 0x000000, 0xFFFFFF, pass);
 		registerGem("watermelon_tourmaline", EntityWatermelonTourmaline.class, RenderWatermelonTourmaline::new, 0x000000, 0xFFFFFF, pass);

@@ -18,6 +18,8 @@ public class LayerNoDyeOverlay implements LayerRenderer<EntityGem> {
 			ResourceLocation texture = new ResourceLocation(gem.getOutfitVariant() + "_nodye.png");
 			if (this.renderer.getRenderManager().renderEngine.getTexture(texture) != TextureUtil.MISSING_TEXTURE) {
 				GlStateManager.color(1.0F, 1.0F, 1.0F);
+				GlStateManager.scale(1.01F, 1.01F, 1.01F);
+				GlStateManager.translate(0.0F, -0.005F, 0.0F);
 				this.renderer.bindTexture(texture);
 				this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 				GlStateManager.disableBlend();

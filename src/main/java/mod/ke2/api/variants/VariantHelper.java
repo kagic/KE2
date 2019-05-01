@@ -100,36 +100,42 @@ public class VariantHelper {
 	}
 	public static int loadVariantColor(EntityGem gem, String... tags) {
 		ArrayList<ResourceLocation> variants = Ke2Variants.TABLE.get(Ke2Gems.REGISTRY_REVERSE.get(gem.getClass()));
-		int color = 0xFFFFFF;
-		for (int i = 0; i < variants.size(); ++i) {
-			IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
-			if (v.matches(gem, VariantColor.class, tags)) {
-				VariantColor c = (VariantColor)(v);
-				color = c.getColor();
+		int color = 0xFFFFFF; int rolls = 30;
+		for (int r = 0; r < rolls; ++r) {
+			for (int i = 0; i < variants.size(); ++i) {
+				IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
+				if (v.matches(gem, VariantColor.class, tags)) {
+					VariantColor c = (VariantColor)(v);
+					color = c.getColor(); rolls = r;
+				}
 			}
 		}
 		return color;
 	}
 	public static String loadVariantName(EntityGem gem, String... tags) {
 		ArrayList<ResourceLocation> variants = Ke2Variants.TABLE.get(Ke2Gems.REGISTRY_REVERSE.get(gem.getClass()));
-		String name = "null";
-		for (int i = 0; i < variants.size(); ++i) {
-			IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
-			if (v.matches(gem, VariantName.class, tags)) {
-				VariantName n = (VariantName)(v);
-				name = n.getName();
+		String name = "null"; int rolls = 30;
+		for (int r = 0; r < rolls; ++r) {
+			for (int i = 0; i < variants.size(); ++i) {
+				IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
+				if (v.matches(gem, VariantName.class, tags)) {
+					VariantName n = (VariantName)(v);
+					name = n.getName(); rolls = r;
+				}
 			}
 		}
 		return name;
 	}
 	public static String loadVariantPath(EntityGem gem, String... tags) {
 		ArrayList<ResourceLocation> variants = Ke2Variants.TABLE.get(Ke2Gems.REGISTRY_REVERSE.get(gem.getClass()));
-		ResourceLocation path = VariantPath.getDefaultPath();
-		for (int i = 0; i < variants.size(); ++i) {
-			IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
-			if (v.matches(gem, VariantPath.class, tags)) {
-				VariantPath p = (VariantPath)(v);
-				path = p.getPath();
+		ResourceLocation path = VariantPath.getDefaultPath(); int rolls = 30;
+		for (int r = 0; r < rolls; ++r) {
+			for (int i = 0; i < variants.size(); ++i) {
+				IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
+				if (v.matches(gem, VariantPath.class, tags)) {
+					VariantPath p = (VariantPath)(v);
+					path = p.getPath(); rolls = r;
+				}
 			}
 		}
 		return path.toString();

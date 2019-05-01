@@ -1,8 +1,8 @@
 {
 	"function": "always_true",
 	"parameter": "true",
-	"tags": ["ke2:color.gemstone"],
+	"tags": ["ke2:color.gemstone", "ke2:sapphire.color.purple"],
 	"value": [
-		"2ff82a"
+		"45195d"
 	]
 }
