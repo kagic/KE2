@@ -24,7 +24,7 @@ public class ModelSapphire extends ModelGem {
 	    this.bipedLeftArm.offsetY = 0.5F;
 	    this.bipedBody = new ModelRenderer(this, 0, 16);
 	    this.bipedBody.addBox(-4.0F, 6.0F, -3.0F, 8, 8, 6);
-	    this.bipedSkirt = new ModelRenderer(this, 0, 30);
+	    this.bipedSkirt = new ModelRenderer(this, 36, 24);
 	    this.bipedSkirt.addBox(-6.0F, 14.0F, -6.0F, 12, 10, 12);
     }
     @Override

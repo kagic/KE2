@@ -2,5 +2,5 @@
 	"function": "always_true",
 	"parameter": "true",
 	"tags": ["ke2:texture.hair"],
-	"value": "ke2:textures/entities/sapphire/hair_bangs"
+	"value": "ke2:textures/entities/sapphire/hairstyles/bangs"
 }
