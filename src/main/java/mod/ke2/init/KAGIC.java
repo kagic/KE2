@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import mod.ke2.blocks.BlockCarbonite;
 import mod.ke2.proxies.CommonProxy;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.util.SoundEvent;
@@ -43,6 +44,7 @@ public class KAGIC {
     	Ke2WorldGen.register();
     	Ke2Recipes.register();
     	Ke2Entities.register(0);
+    	proxy.preInit(event);
     }
     @EventHandler
     public void init(FMLInitializationEvent event) {
@@ -50,18 +52,14 @@ public class KAGIC {
     	Ke2TileEntities.register();
     	Ke2Entities.register(1);
     	Ke2Variants.register();
+    	proxy.init(event);
     }
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-    	BlockCarbonite.registerConversionTables();
     	Ke2Configs.register();
     	Ke2Cruxes.register();
+    	proxy.postInit(event);
     }
-    @EventHandler
-    public void serverStarting(FMLServerStartingEvent e) {
-    	//e.registerServerCommand(new CommandGetCrux());
-    }
-    
     @Mod.EventBusSubscriber(modid = KAGIC.MODID)
 	public static class RegistrationHandler {
     	@SubscribeEvent
