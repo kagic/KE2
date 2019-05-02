@@ -2,5 +2,5 @@
 	"function": "always_true",
 	"parameter": "true",
 	"tags": ["ke2:texture.gemstone"],
-	"value": "ke2:textures/entities/triangular_gem"
+	"value": "ke2:textures/entities/down_triangular_gem"
 }

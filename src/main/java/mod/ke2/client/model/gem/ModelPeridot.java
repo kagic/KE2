@@ -47,7 +47,7 @@ public class ModelPeridot extends ModelGem {
 			EntityPeridot gem = (EntityPeridot)(entity);
 			if (gem.hasSquareHair()) {
 				this.bipedHeadwear.rotateAngleZ += 0.0000000F;
-				this.bipedHeadwear.offsetX =  0.00F;
+				this.bipedHeadwear.offsetX =  0.25F;
 				this.bipedHeadwear.offsetY = -0.12F;
 			}
 			else {
