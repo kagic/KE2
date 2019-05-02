@@ -1,11 +1,6 @@
 package mod.ke2.command;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
-
+import mod.ke2.init.KAGIC;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.command.CommandBase;
@@ -32,24 +27,9 @@ public class CommandReportBug extends CommandBase {
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		if (sender.getCommandSenderEntity() instanceof EntityPlayerSP) {
 			try {
-				sender.sendMessage(new TextComponentString("Creating bug report..."));
-				ScreenShotHelper.saveScreenshot(Minecraft.getMinecraft().mcDataDir, "./logs/screen.png", Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().getFramebuffer());
-				FileOutputStream f = new FileOutputStream("./report.zip"); ZipOutputStream zip = new ZipOutputStream(f);
-				String[] files = new String[] { "./logs/screen.png", "./logs/latest.log" };
-				for (int i = 0; i < files.length; ++i) {
-					zip.putNextEntry(new ZipEntry(files[i]));
-					FileInputStream input = new FileInputStream(files[i]);
-		            byte[] buffer = new byte[1024]; int offset;
-		            while ((offset = input.read(buffer)) > 0) {
-		                zip.write(buffer, 0, offset);
-		            }
-		            zip.closeEntry();
-		            input.close();
-				}
-	            zip.close();
-	            f.close();
-				sender.sendMessage(new TextComponentString("Sending bug report..."));
-			} catch (IOException e) {
+				ScreenShotHelper.saveScreenshot(Minecraft.getMinecraft().mcDataDir, "latest.png", Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().getFramebuffer());
+				KAGIC.submitReport(sender.getName(), String.join(" ", args), "screenshots/latest.png", "logs/latest.log");
+			} catch (Exception e) {
 				sender.sendMessage(new TextComponentString("Command failed; " + e.getMessage()));
 			}
 		}

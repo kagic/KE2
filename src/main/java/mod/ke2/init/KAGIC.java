@@ -1,15 +1,31 @@
 package mod.ke2.init;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.FileEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.google.gson.Gson;
 
-import mod.ke2.blocks.BlockCarbonite;
 import mod.ke2.proxies.CommonProxy;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.util.SoundEvent;
@@ -21,7 +37,6 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod(modid = KAGIC.MODID, version = KAGIC.VERSION, acceptedMinecraftVersions = KAGIC.MCVERSION)
@@ -29,7 +44,8 @@ public class KAGIC {
     public static final String VERSION = "@version";
     public static final String MCVERSION = "1.12.2";
 	public static final String MODID = "ke2";
-	
+
+	public static final String ENDPOINT = "http://localhost:4567/report";
 	public static final Logger LOGGER = LogManager.getLogger(KAGIC.MODID);
 	public static final Gson JSON = new Gson();
 	
@@ -41,6 +57,27 @@ public class KAGIC {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+    	Runtime.getRuntime().addShutdownHook(new Thread() {
+    		@Override
+    		public void run() {
+    			String report = "crash-" + new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss").format(new Date());
+    			String[] sides = new String[] {"client", "server"};
+    			for (int i = 0; i < sides.length; ++i) {
+    				String crash = "crash-reports/" + report + "-" + sides[i] + ".txt";
+	    			if (new File(crash).exists()) {
+	    				try {
+	    					String crashReport = new String(Files.readAllBytes(Paths.get("./" + crash)), StandardCharsets.UTF_8);
+	    					if (crashReport.contains("at mod.ke2")) {
+	    						KAGIC.submitReport("Minecraft automatically", "a " + sides[i] + "-side crash occurred involving KAGIC.", crash, "logs/latest.log");
+	    						return;
+	    					}
+	    				} catch (Exception e) {
+	    					return;
+	    				}
+	    			}
+    			}
+    		}
+    	});
     	Ke2WorldGen.register();
     	Ke2Recipes.register();
     	Ke2Entities.register(0);
@@ -59,6 +96,31 @@ public class KAGIC {
     	Ke2Configs.register();
     	Ke2Cruxes.register();
     	proxy.postInit(event);
+    }
+    public static String submitReport(String name, String description, String... files) {
+    	try {
+	    	FileOutputStream f = new FileOutputStream("./report.zip"); ZipOutputStream zip = new ZipOutputStream(f);
+			for (int i = 0; i < files.length; ++i) {
+				zip.putNextEntry(new ZipEntry(files[i]));
+				FileInputStream input = new FileInputStream("./" + files[i]);
+	            byte[] buffer = new byte[1024]; int offset;
+	            while ((offset = input.read(buffer)) > 0) {
+	                zip.write(buffer, 0, offset);
+	            }
+	            zip.closeEntry();
+	            input.close();
+			}
+	        zip.close();
+	        f.close();
+			CloseableHttpClient client = HttpClients.createDefault();
+		    HttpPost post = new HttpPost(KAGIC.ENDPOINT + "?name=" + URLEncoder.encode(name, "UTF-8") + "&desc=" + URLEncoder.encode(description, "UTF-8"));
+		    post.setEntity(new FileEntity(new File("./report.zip"), ContentType.DEFAULT_BINARY));
+		    CloseableHttpResponse response = client.execute(post);
+		    client.close();
+		    return EntityUtils.toString(response.getEntity(), "UTF-8");
+    	} catch (Exception e) {
+    		return e.getMessage();
+		}
     }
     @Mod.EventBusSubscriber(modid = KAGIC.MODID)
 	public static class RegistrationHandler {
