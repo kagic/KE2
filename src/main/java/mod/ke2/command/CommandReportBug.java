@@ -28,7 +28,7 @@ public class CommandReportBug extends CommandBase {
 		if (sender.getCommandSenderEntity() instanceof EntityPlayerSP) {
 			try {
 				ScreenShotHelper.saveScreenshot(Minecraft.getMinecraft().mcDataDir, "latest.png", Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().getFramebuffer());
-				KAGIC.submitReport(sender.getName(), String.join(" ", args), "screenshots/latest.png", "logs/latest.log");
+				sender.sendMessage(new TextComponentString(KAGIC.submitReport(sender.getName(), String.join(" ", args), "screenshots/latest.png", "logs/latest.log")));
 			} catch (Exception e) {
 				sender.sendMessage(new TextComponentString("Command failed; " + e.getMessage()));
 			}

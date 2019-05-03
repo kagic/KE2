@@ -21,14 +21,20 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.lwjgl.input.Keyboard;
 
 import com.google.gson.Gson;
 
 import mod.ke2.proxies.CommonProxy;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
+import net.minecraft.util.ScreenShotHelper;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -38,6 +44,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.InputEvent.KeyInputEvent;
 
 @Mod(modid = KAGIC.MODID, version = KAGIC.VERSION, acceptedMinecraftVersions = KAGIC.MCVERSION)
 public class KAGIC {
@@ -45,7 +52,9 @@ public class KAGIC {
     public static final String MCVERSION = "1.12.2";
 	public static final String MODID = "ke2";
 
-	public static final String ENDPOINT = "http://localhost:4567/report";
+	public static final KeyBinding KEY_BUG_REPORT = new KeyBinding("key.bug.report", Keyboard.KEY_GRAVE, "key.ke2.category");
+	public static final String EYEBALL_ENDPOINT = "http://localhost:4567/report";
+	
 	public static final Logger LOGGER = LogManager.getLogger(KAGIC.MODID);
 	public static final Gson JSON = new Gson();
 	
@@ -97,6 +106,12 @@ public class KAGIC {
     	Ke2Cruxes.register();
     	proxy.postInit(event);
     }
+    public static boolean isClient() {
+    	return proxy.isClient();
+    }
+    public static boolean isServer() {
+    	return proxy.isServer();
+    }
     public static String submitReport(String name, String description, String... files) {
     	try {
 	    	FileOutputStream f = new FileOutputStream("./report.zip"); ZipOutputStream zip = new ZipOutputStream(f);
@@ -113,11 +128,12 @@ public class KAGIC {
 	        zip.close();
 	        f.close();
 			CloseableHttpClient client = HttpClients.createDefault();
-		    HttpPost post = new HttpPost(KAGIC.ENDPOINT + "?name=" + URLEncoder.encode(name, "UTF-8") + "&desc=" + URLEncoder.encode(description, "UTF-8"));
+		    HttpPost post = new HttpPost(KAGIC.EYEBALL_ENDPOINT + "?name=" + URLEncoder.encode(name, "UTF-8") + "&desc=" + URLEncoder.encode(description, "UTF-8"));
 		    post.setEntity(new FileEntity(new File("./report.zip"), ContentType.DEFAULT_BINARY));
 		    CloseableHttpResponse response = client.execute(post);
+		    String body = EntityUtils.toString(response.getEntity(), "UTF-8");
 		    client.close();
-		    return EntityUtils.toString(response.getEntity(), "UTF-8");
+		    return body;
     	} catch (Exception e) {
     		return e.getMessage();
 		}
@@ -139,6 +155,18 @@ public class KAGIC {
 		@SubscribeEvent
 		public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
 			Ke2Sounds.register(event);
+		}
+		@SubscribeEvent
+		public static void useKeyBindings(KeyInputEvent event) {
+			if (KAGIC.isClient() && KAGIC.KEY_BUG_REPORT.isPressed()) {
+				EntityPlayerSP sender = Minecraft.getMinecraft().player;
+				try {
+					ScreenShotHelper.saveScreenshot(Minecraft.getMinecraft().mcDataDir, "latest.png", Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().getFramebuffer());
+					sender.sendMessage(new TextComponentString(KAGIC.submitReport(sender.getName() + " automatically", "pressed bug report button.", "screenshots/latest.png", "logs/latest.log")));
+				} catch (Exception e) {
+					sender.sendMessage(new TextComponentString("Command failed; " + e.getMessage()));
+				}
+			}
 		}
 	}
 }

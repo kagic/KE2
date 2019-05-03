@@ -10,5 +10,7 @@ public interface CommonProxy {
 	public void preInit(FMLPreInitializationEvent e);
 	public void init(FMLInitializationEvent e);
 	public void postInit(FMLPostInitializationEvent e);
+	public boolean isClient();
+	public boolean isServer();
 	public void addParticle(IParticleFactory factory, World world, double x, double y, double z, double dX, double dY, double dZ, int color);
 }

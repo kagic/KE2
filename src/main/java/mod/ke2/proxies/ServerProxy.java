@@ -21,6 +21,14 @@ public class ServerProxy implements CommonProxy {
     	BlockCarbonite.registerConversionTables();
 	}
 	@Override
+	public boolean isClient() {
+		return false;
+	}
+	@Override
+	public boolean isServer() {
+		return true;
+	}
+	@Override
 	public void addParticle(IParticleFactory factory, World world, double x, double y, double z, double dX, double dY, double dZ, int color) {
 		// Reserved for client functionality.
 	}
