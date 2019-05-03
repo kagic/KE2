@@ -1,6 +1,7 @@
 package mod.ke2.api.injection;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.UUID;
@@ -23,6 +24,7 @@ public class InjectorResult {
 	public static final Block[] ORANGE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_ORANGE_DRAIN_BLOCK, Ke2Blocks.BANDED_ORANGE_DRAIN_BLOCK, Ke2Blocks.DARK_ORANGE_DRAIN_BLOCK, Ke2Blocks.ERODED_ORANGE_DRAIN_BLOCK };
 	public static final Block[] PURPLE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_PURPLE_DRAIN_BLOCK, Ke2Blocks.BANDED_PURPLE_DRAIN_BLOCK, Ke2Blocks.DARK_PURPLE_DRAIN_BLOCK, Ke2Blocks.ERODED_PURPLE_DRAIN_BLOCK };
 	public static final Block[] BLUE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_BLUE_DRAIN_BLOCK, Ke2Blocks.BANDED_BLUE_DRAIN_BLOCK, Ke2Blocks.DARK_BLUE_DRAIN_BLOCK, Ke2Blocks.ERODED_BLUE_DRAIN_BLOCK };
+	public static final double CRUX_MARGIN = 1.0D;
 	private final EntityGem gem;
 	private final BlockPos position;
 	private final ExitHole exitHole;
@@ -83,11 +85,11 @@ public class InjectorResult {
 				}
 			}
 		}
-		double random = Math.random() * volume;
+		double random = Math.random() * volume * CRUX_MARGIN;
 		ResourceLocation key = null;
-		Iterator<ResourceLocation> yits = yields.keySet().iterator();
-		while (yits.hasNext()) {
-			ResourceLocation gem = yits.next();
+		ArrayList<ResourceLocation> table = new ArrayList<ResourceLocation>(yields.keySet());
+		Collections.shuffle(table);
+		for (ResourceLocation gem : table) {
 			double yield = yields.get(gem);
 			random -= yield;
 			if (random <= 0.0) {
