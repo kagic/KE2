@@ -53,7 +53,7 @@ public class KAGIC {
 	public static final String MODID = "ke2";
 
 	public static final KeyBinding KEY_BUG_REPORT = new KeyBinding("key.bug.report", Keyboard.KEY_GRAVE, "key.ke2.category");
-	public static final String EYEBALL_ENDPOINT = "http://localhost:4567/report";
+	public static final String EYEBALL_ENDPOINT = "https://akriv.us/report";
 	
 	public static final Logger LOGGER = LogManager.getLogger(KAGIC.MODID);
 	public static final Gson JSON = new Gson();
