@@ -70,7 +70,7 @@ public class InjectorResult {
 				}
 			}
 		}
-		double volume = 64.0F;
+		double volume = 0.0;
 		HashMap<ResourceLocation, Double> yields = new HashMap<ResourceLocation, Double>();
 		Iterator<ResourceLocation> gits = cruxes.keySet().iterator();
 		while (gits.hasNext()) {
@@ -81,7 +81,11 @@ public class InjectorResult {
 				CruxEntry crit = crits.next();
 				Iterator<CruxCandidate> bits = image.iterator();
 				while (bits.hasNext()) {
+					double former = yields.get(gem);
 					yields.put(gem, yields.get(gem) + crit.getYield(bits.next()));
+					if (yields.get(gem) - former > 0.0) {
+						volume += 1.0;
+					}
 				}
 			}
 		}
