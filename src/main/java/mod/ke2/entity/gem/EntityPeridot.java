@@ -21,6 +21,7 @@ public class EntityPeridot extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/hair_triangle"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/outfit_default"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/outfit_shorts"), VariantPath.class), EntityPeridot.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/outfit_belly"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/skin_default"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/cut_triangular"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/color_gemstone"), VariantColor.class), EntityPeridot.class);

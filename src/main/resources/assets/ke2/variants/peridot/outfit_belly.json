@@ -1,0 +1,6 @@
+{
+	"function": "gem_placement",
+	"parameter": "navel",
+	"tags": ["ke2:texture.outfit"],
+	"value": "ke2:textures/entities/peridot/outfits/belly"
+}
