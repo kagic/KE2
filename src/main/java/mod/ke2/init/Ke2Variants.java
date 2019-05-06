@@ -22,6 +22,7 @@ public class Ke2Variants {
 	}
 	public static void registerQuartzVariants() {
 		AbstractQuartz.GLOBAL_VARIANT_PATHS.add(registerVariant(new ResourceLocation("ke2:variants/quartz/hair_long_and_straight"), VariantPath.class));
+		AbstractQuartz.GLOBAL_VARIANT_PATHS.add(registerVariant(new ResourceLocation("ke2:variants/quartz/outfit_default"), VariantPath.class));
 		AbstractQuartz.GLOBAL_VARIANT_PATHS.add(registerVariant(new ResourceLocation("ke2:variants/quartz/skin_default"), VariantPath.class));
 		AbstractQuartz.GLOBAL_VARIANT_PATHS.add(registerVariant(new ResourceLocation("ke2:variants/quartz/cut_faceted"), VariantPath.class));
 		for (Class<? extends AbstractQuartz> quartz : AbstractQuartz.GLOBAL_VARIANT_CLASSES) {

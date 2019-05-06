@@ -21,17 +21,6 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public class EntitySapphire extends EntityGem {
-	/***
-	 * TODO: Add the variant registries in the static block.
-	 * 		 Tune the hair and skin color generators to factor in the tag type.
-	 * THESE SOLUTIONS ARE NECESSARY BEFORE WE FINISH QUARTZES.
-	 * 		 - Citrine
-	 *       - Amethyst
-	 *       - Rose Quartz
-	 *       - Agate	(~17 variants)
-	 *       - Jasper	(~8  variants)
-	 *       - Aqua Aura
-	 */
 	public static final ArrayList<TagType> SAPPHIRE_COLORS = new ArrayList<TagType>();
 	static {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/sapphire/hair_floof"), VariantPath.class), EntitySapphire.class);
