@@ -104,7 +104,7 @@ public class VariantHelper {
 		for (int r = 0; r < rolls; ++r) {
 			for (int i = 0; i < variants.size(); ++i) {
 				IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
-				if (v.matches(gem, VariantColor.class, tags)) {
+				if (v instanceof VariantColor && v.matches(gem, VariantColor.class, tags)) {
 					VariantColor c = (VariantColor)(v);
 					color = c.getColor(); rolls = r;
 				}
@@ -118,7 +118,7 @@ public class VariantHelper {
 		for (int r = 0; r < rolls; ++r) {
 			for (int i = 0; i < variants.size(); ++i) {
 				IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
-				if (v.matches(gem, VariantName.class, tags)) {
+				if (v instanceof VariantName && v.matches(gem, VariantName.class, tags)) {
 					VariantName n = (VariantName)(v);
 					name = n.getName(); rolls = r;
 				}
@@ -132,7 +132,7 @@ public class VariantHelper {
 		for (int r = 0; r < rolls; ++r) {
 			for (int i = 0; i < variants.size(); ++i) {
 				IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
-				if (v.matches(gem, VariantPath.class, tags)) {
+				if (v instanceof VariantPath && v.matches(gem, VariantPath.class, tags)) {
 					VariantPath p = (VariantPath)(v);
 					path = p.getPath(); rolls = r;
 				}

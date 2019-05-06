@@ -8,6 +8,9 @@ import java.util.HashMap;
 
 import mod.ke2.api.EntityGem;
 import mod.ke2.api.variants.IVariant;
+import mod.ke2.api.variants.types.VariantPath;
+import mod.ke2.entity.gem.AbstractQuartz;
+import mod.ke2.entity.gem.EntityAmethyst;
 import net.minecraft.util.ResourceLocation;
 
 public class Ke2Variants {
@@ -15,7 +18,17 @@ public class Ke2Variants {
 	public static final HashMap<ResourceLocation, IVariant<?>> REGISTRY = new HashMap<ResourceLocation, IVariant<?>>();
 	
 	public static void register() {
-		
+		registerQuartzVariants();
+	}
+	public static void registerQuartzVariants() {
+		AbstractQuartz.GLOBAL_VARIANT_PATHS.add(registerVariant(new ResourceLocation("ke2:variants/quartz/hair_long_and_straight"), VariantPath.class));
+		AbstractQuartz.GLOBAL_VARIANT_PATHS.add(registerVariant(new ResourceLocation("ke2:variants/quartz/skin_default"), VariantPath.class));
+		AbstractQuartz.GLOBAL_VARIANT_PATHS.add(registerVariant(new ResourceLocation("ke2:variants/quartz/cut_faceted"), VariantPath.class));
+		for (Class<? extends AbstractQuartz> quartz : AbstractQuartz.GLOBAL_VARIANT_CLASSES) {
+			for (ResourceLocation variant : AbstractQuartz.GLOBAL_VARIANT_PATHS) {
+				addVariantToGem(variant, quartz);
+			}
+		}
 	}
 	public static ResourceLocation registerVariant(ResourceLocation loc, Class<? extends IVariant<?>> type) {
 		try {

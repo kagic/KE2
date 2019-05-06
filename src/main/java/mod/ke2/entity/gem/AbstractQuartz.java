@@ -1,5 +1,7 @@
 package mod.ke2.entity.gem;
 
+import java.util.ArrayList;
+
 import mod.ke2.api.EntityGem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,10 +11,22 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public abstract class AbstractQuartz extends EntityGem {
+	public static final ArrayList<Class<? extends AbstractQuartz>> GLOBAL_VARIANT_CLASSES = new ArrayList<Class<? extends AbstractQuartz>>();
+	public static final ArrayList<ResourceLocation> GLOBAL_VARIANT_PATHS = new ArrayList<ResourceLocation>();
+	static {
+		GLOBAL_VARIANT_CLASSES.add(EntityAgate.class);
+		GLOBAL_VARIANT_CLASSES.add(EntityAmethyst.class);
+		GLOBAL_VARIANT_CLASSES.add(EntityAquaAuraQuartz.class);
+		GLOBAL_VARIANT_CLASSES.add(EntityCarnelian.class);
+		GLOBAL_VARIANT_CLASSES.add(EntityCitrine.class);
+		GLOBAL_VARIANT_CLASSES.add(EntityJasper.class);
+		GLOBAL_VARIANT_CLASSES.add(EntityRoseQuartz.class);
+	}
 	private static final DataParameter<Boolean> CHARGED = EntityDataManager.<Boolean>createKey(AbstractQuartz.class, DataSerializers.BOOLEAN);
 	public boolean chargedByTakingDamageNotDelivering;
 	private int ticksCharged = 0;

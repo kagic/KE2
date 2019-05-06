@@ -14,7 +14,7 @@ public class ModelQuartz extends ModelGem {
 		this.bipedHead.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8);
 		this.bipedHead.offsetY = -1.0F;
 		this.bipedHeadwear = new ModelRenderer(this, 84, 0);
-		this.bipedHeadwear.addBox(-9.0F, -12.0F, -4.0F, 18, 28, 12, 1.1F);
+		this.bipedHeadwear.addBox(-9.0F, -12.0F, -3.0F, 18, 28, 12, 1.1F);
 		this.bipedHead.addChild(this.bipedHeadwear);
 		this.bipedSideBuns = new ModelRenderer(this, 84, 40);
 		this.bipedSideBuns.addBox(-9.0F, -6.0F, -2.0F, 18, 4, 4);
