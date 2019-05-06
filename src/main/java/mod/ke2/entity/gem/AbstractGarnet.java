@@ -1,5 +1,7 @@
 package mod.ke2.entity.gem;
 
+import java.util.ArrayList;
+
 import mod.ke2.api.EntityGem;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,11 +15,20 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntityDamageSourceIndirect;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 public abstract class AbstractGarnet extends EntityGem {
+	public static final ArrayList<Class<? extends AbstractGarnet>> GLOBAL_VARIANT_CLASSES = new ArrayList<Class<? extends AbstractGarnet>>();
+	public static final ArrayList<ResourceLocation> GLOBAL_VARIANT_PATHS = new ArrayList<ResourceLocation>();
+	static {
+		GLOBAL_VARIANT_CLASSES.add(EntityDemantoid.class);
+		GLOBAL_VARIANT_CLASSES.add(EntityHessonite.class);
+		GLOBAL_VARIANT_CLASSES.add(EntityMelanite.class);
+		GLOBAL_VARIANT_CLASSES.add(EntityPyrope.class);
+	}
 	public AbstractGarnet(World world) {
 		super(world);
 		this.setSize(0.9F, 2.3F);
