@@ -13,7 +13,7 @@ public class EntityBismuth extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/bismuth/hair_default"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/bismuth/outfit_default"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/bismuth/skin_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/bismuth/cut_triangular"), VariantPath.class), EntityPeridot.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/bismuth/cut_innie"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/bismuth/color_gemstone"), VariantColor.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/bismuth/color_hair"), VariantColor.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/bismuth/color_outfit"), VariantColor.class), EntityPeridot.class);

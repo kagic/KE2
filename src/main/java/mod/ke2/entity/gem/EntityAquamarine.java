@@ -13,7 +13,7 @@ public class EntityAquamarine extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/hair_default"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/outfit_default"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/skin_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/cut_triangular"), VariantPath.class), EntityPeridot.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/cut_teardrop"), VariantPath.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/color_gemstone"), VariantColor.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/color_hair"), VariantColor.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/color_outfit"), VariantColor.class), EntityPeridot.class);
