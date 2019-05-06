@@ -1,6 +1,6 @@
 package mod.ke2.command;
 
-import mod.ke2.init.KAGIC;
+import mod.ke2.KAGIC;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.command.CommandBase;

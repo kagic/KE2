@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import mod.ke2.KAGIC;
 import mod.ke2.api.EntityGem;
 import mod.ke2.api.variants.IVariant;
 import mod.ke2.api.variants.types.VariantPath;

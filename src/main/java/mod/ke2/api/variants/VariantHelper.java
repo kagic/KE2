@@ -17,14 +17,14 @@ public class VariantHelper {
 		PINK, GRAY, SILVER, CYAN, PURPLE, BLUE, BROWN,
 		GREEN, RED, BLACK;
 	}
-	public enum Placements {
+	public enum Positions {
 		FOREHEAD, BACK_OF_HEAD, RIGHT_EYE, LEFT_EYE, NOSE, RIGHT_SHOULDER,
 		LEFT_SHOULDER, RIGHT_HAND, LEFT_HAND, CHEST, BACK, NAVEL,
 		RIGHT_THIGH, LEFT_THIGH, RIGHT_KNEE, LEFT_KNEE, RIGHT_FOOT, LEFT_FOOT
 	}
 	public enum Functions {
 		SPAWNED_BELOW, SPAWNED_ABOVE, SPAWNED_IN_BIOME,
-		IS_DEFECTIVE, IS_PERFECTIVE, IS_NORMAL, GEM_PLACEMENT,
+		IS_DEFECTIVE, IS_PERFECTIVE, IS_NORMAL, GEM_POSITION,
 		INSIGNIA_COLOR, ALWAYS_TRUE, RANDOM, WEIGHTED;
 	}
 	public static boolean tryAlwaysTrue(EntityGem gem, String value) {
@@ -50,8 +50,8 @@ public class VariantHelper {
 		}
 		return rand.nextFloat() < bound;
 	}
-	public static boolean tryGemPlacement(EntityGem gem, String value) {
-		return gem.getGemstonePlacement() == Placements.valueOf(value.toUpperCase()).ordinal();
+	public static boolean tryGemPosition(EntityGem gem, String value) {
+		return gem.getGemstonePosition() == Positions.valueOf(value.toUpperCase()).ordinal();
 	}
 	public static boolean tryInsigniaColor(EntityGem gem, String value) {
 		return gem.getInsigniaColor() == Colors.valueOf(value.toUpperCase()).ordinal();

@@ -1,6 +1,6 @@
 package mod.ke2.entity;
 
-import mod.ke2.init.KAGIC;
+import mod.ke2.KAGIC;
 import mod.ke2.init.Ke2Items;
 import mod.ke2.init.Ke2Particles;
 import net.minecraft.entity.EntityLivingBase;

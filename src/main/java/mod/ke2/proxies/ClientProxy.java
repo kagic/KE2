@@ -1,8 +1,8 @@
 package mod.ke2.proxies;
 
+import mod.ke2.KAGIC;
 import mod.ke2.blocks.BlockCarbonite;
 import mod.ke2.command.CommandReportBug;
-import mod.ke2.init.KAGIC;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.world.World;

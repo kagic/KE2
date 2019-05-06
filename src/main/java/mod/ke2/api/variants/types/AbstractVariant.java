@@ -18,8 +18,8 @@ public class AbstractVariant<T> implements IVariant<T> {
 			switch (VariantHelper.Functions.valueOf(this.getFunction().toUpperCase())) {
 			case INSIGNIA_COLOR:
 				return VariantHelper.tryInsigniaColor(gem, this.getParameter());
-			case GEM_PLACEMENT:
-				return VariantHelper.tryGemPlacement(gem, this.getParameter());
+			case GEM_POSITION:
+				return VariantHelper.tryGemPosition(gem, this.getParameter());
 			case IS_DEFECTIVE:
 				return VariantHelper.tryIsDefective(gem, this.getParameter());
 			case IS_PERFECTIVE:

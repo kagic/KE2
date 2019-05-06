@@ -68,15 +68,12 @@ public class HandleShattering {
 			}
 		}
 		if (e.getItemInput().getItem() instanceof ItemGem) {
-			ItemGem gem = (ItemGem)(e.getItemInput().getItem());
-			if (gem.isCracked()) {
-				if (e.getIngredientInput().getItem().getToolClasses(e.getIngredientInput()).contains("pickaxe")) {
-					ItemStack stack = e.getIngredientInput().copy();
-					stack.damageItem(1, e.getEntityPlayer());
-					boolean added = e.getEntityPlayer().addItemStackToInventory(stack);
-					if (!added) {
-						e.getEntityPlayer().dropItem(stack, true);
-					}
+			if (e.getIngredientInput().getItem().getToolClasses(e.getIngredientInput()).contains("pickaxe")) {
+				ItemStack stack = e.getIngredientInput().copy();
+				stack.damageItem(1, e.getEntityPlayer());
+				boolean added = e.getEntityPlayer().addItemStackToInventory(stack);
+				if (!added) {
+					e.getEntityPlayer().dropItem(stack, true);
 				}
 			}
 		}
@@ -111,36 +108,33 @@ public class HandleShattering {
 				canBreak = mat.getHarvestLevel() > 1;
 			}
 			if (canBreak) {
-				ItemGem gem = (ItemGem)(e.getLeft().getItem());
-				if (gem.isCracked()) {
-				    int gemColor = rand.nextInt(16777215);
-				    if (e.getLeft().hasTagCompound()) {
-				    	NBTTagCompound nbt = e.getLeft().getTagCompound();
-				    	if (nbt.hasKey("GemstoneColor")) {
-				    		gemColor = nbt.getInteger("GemstoneColor");
-				    	}
-				    }
-				    double maxDist = Double.MAX_VALUE;
-				    int dyeColor = 0;
-				    float r = (gemColor & 16711680) >> 16;
-			        float g = (gemColor & 65280) >> 8;
-			        float b = (gemColor & 255) >> 0;
-				    for (int i = 0; i < EntityGemShard.PARTICLE_COLORS.length; ++i) {
-				    	int color = EntityGemShard.PARTICLE_COLORS[i];
-						float shardR = (color & 16711680) >> 16;
-				        float shardG = (color & 65280) >> 8;
-				        float shardB = (color & 255) >> 0;
-						double dist = Math.sqrt(Math.pow(shardR - r, 2) + Math.pow(shardG - g, 2) + Math.pow(shardB - b, 2));
-						if (dist < maxDist) {
-							maxDist = dist;
-							dyeColor = i;
-						}
-				    }
-				    e.setOutput(new ItemStack(ItemGemShard.SHARD_COLORS.get(dyeColor), 9));
-				    if (!e.getOutput().isEmpty()) {
-						e.setResult(Result.ALLOW);
-						e.setCost(1);
+			    int gemColor = rand.nextInt(16777215);
+			    if (e.getLeft().hasTagCompound()) {
+			    	NBTTagCompound nbt = e.getLeft().getTagCompound();
+			    	if (nbt.hasKey("GemstoneColor")) {
+			    		gemColor = nbt.getInteger("GemstoneColor");
+			    	}
+			    }
+			    double maxDist = Double.MAX_VALUE;
+			    int dyeColor = 0;
+			    float r = (gemColor & 16711680) >> 16;
+		        float g = (gemColor & 65280) >> 8;
+		        float b = (gemColor & 255) >> 0;
+			    for (int i = 0; i < EntityGemShard.PARTICLE_COLORS.length; ++i) {
+			    	int color = EntityGemShard.PARTICLE_COLORS[i];
+					float shardR = (color & 16711680) >> 16;
+			        float shardG = (color & 65280) >> 8;
+			        float shardB = (color & 255) >> 0;
+					double dist = Math.sqrt(Math.pow(shardR - r, 2) + Math.pow(shardG - g, 2) + Math.pow(shardB - b, 2));
+					if (dist < maxDist) {
+						maxDist = dist;
+						dyeColor = i;
 					}
+			    }
+			    e.setOutput(new ItemStack(ItemGemShard.SHARD_COLORS.get(dyeColor), 9));
+			    if (!e.getOutput().isEmpty()) {
+					e.setResult(Result.ALLOW);
+					e.setCost(1);
 				}
 			}
 		}

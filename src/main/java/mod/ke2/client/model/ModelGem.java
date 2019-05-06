@@ -61,7 +61,7 @@ public class ModelGem extends ModelBiped {
 			this.bipedGem.offsetX = 0;
 			this.bipedGem.offsetY = 0;
 			this.bipedGem.offsetZ = 0;
-			switch (gem.getGemstonePlacement()) {
+			switch (gem.getGemstonePosition()) {
 			case Ke2Gems.GEMSTONE_FOREHEAD:
 				super.copyModelAngles(this.bipedHead, this.bipedGem);
 				break;
@@ -115,26 +115,6 @@ public class ModelGem extends ModelBiped {
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT:
 				super.copyModelAngles(this.bipedLeftLeg, this.bipedGem);
-				break;
-			}
-			switch (gem.getGemstoneDirection()) {
-			case NORTH:
-				this.bipedGem.rotateAngleY += 0.0000F;
-				break;
-			case SOUTH:
-				this.bipedGem.rotateAngleY += 3.1415F;
-				break;
-			case EAST:
-				this.bipedGem.rotateAngleY += 4.7123F;
-				break;
-			case WEST:
-				this.bipedGem.rotateAngleY += 1.5708F;
-				break;
-			case UP:
-				this.bipedGem.rotateAngleX += 0.0000F;
-				break;
-			case DOWN:
-				this.bipedGem.rotateAngleX += 3.1415F;
 				break;
 			}
 		}

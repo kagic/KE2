@@ -1,4 +1,4 @@
-package mod.ke2.init;
+package mod.ke2;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,6 +25,18 @@ import org.lwjgl.input.Keyboard;
 
 import com.google.gson.Gson;
 
+import mod.ke2.init.Ke2Blocks;
+import mod.ke2.init.Ke2Configs;
+import mod.ke2.init.Ke2Cruxes;
+import mod.ke2.init.Ke2Enchants;
+import mod.ke2.init.Ke2Entities;
+import mod.ke2.init.Ke2Handles;
+import mod.ke2.init.Ke2Items;
+import mod.ke2.init.Ke2Recipes;
+import mod.ke2.init.Ke2Sounds;
+import mod.ke2.init.Ke2TileEntities;
+import mod.ke2.init.Ke2Variants;
+import mod.ke2.init.Ke2WorldGen;
 import mod.ke2.proxies.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;

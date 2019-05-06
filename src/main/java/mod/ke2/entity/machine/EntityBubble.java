@@ -116,12 +116,7 @@ public class EntityBubble extends EntityLiving {
 			}
 			if (this.getItem().getItem() instanceof ItemGem) {
 				ItemGem gem = (ItemGem)(this.getItem().getItem());
-				if (!gem.isCracked()) {
-					gem.spawnGem(this.world, player, this.getPosition(), this.getItem());
-				}
-				else {
-					this.entityDropItem(this.getItem(), 0.0F);
-				}
+				gem.spawnGem(this.world, player, this.getPosition(), this.getItem());
 			}
 			else {
 				this.entityDropItem(this.getItem(), 0.0F);

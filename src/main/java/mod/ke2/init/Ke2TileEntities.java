@@ -1,5 +1,6 @@
 package mod.ke2.init;
 
+import mod.ke2.KAGIC;
 import mod.ke2.tileentity.TileEntityCarbonite;
 import mod.ke2.tileentity.TileEntityGemSeed;
 import mod.ke2.tileentity.TileEntityWailingStone;

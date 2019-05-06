@@ -2,8 +2,8 @@ package mod.ke2.entity;
 
 import java.util.List;
 
+import mod.ke2.KAGIC;
 import mod.ke2.api.EntityGem;
-import mod.ke2.init.KAGIC;
 import mod.ke2.init.Ke2Particles;
 import mod.ke2.init.Ke2Sounds;
 import mod.ke2.items.ItemGemDust;

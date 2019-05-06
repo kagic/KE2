@@ -1,5 +1,6 @@
 package mod.ke2.init;
 
+import mod.ke2.KAGIC;
 import mod.ke2.api.EntityGem;
 import mod.ke2.client.render.RenderGemBurst;
 import mod.ke2.client.render.RenderGemShard;

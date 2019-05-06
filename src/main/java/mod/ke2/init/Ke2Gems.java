@@ -3,6 +3,7 @@ package mod.ke2.init;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import mod.ke2.KAGIC;
 import mod.ke2.api.EntityGem;
 import mod.ke2.api.injection.CruxEntry;
 import mod.ke2.items.ItemGem;

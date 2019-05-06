@@ -1,5 +1,6 @@
 package mod.ke2.init;
 
+import mod.ke2.KAGIC;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

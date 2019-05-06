@@ -79,7 +79,6 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	protected static final DataParameter<String>		 VARIANT_HAIR		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<String>		 VARIANT_SKIN		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<Integer>		 GEMSTONE_POS 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<EnumFacing>	 GEMSTONE_DIR 		= EntityDataManager.<EnumFacing>createKey(EntityGem.class, DataSerializers.FACING);
 	protected static final DataParameter<String>		 GEMSTONE_CUT 		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<Boolean>		 IS_DEFECTIVE		= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Boolean>		 IS_PERFECT			= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
@@ -125,7 +124,6 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.dataManager.register(VARIANT_HAIR, "");
 		this.dataManager.register(VARIANT_SKIN, "");
 		this.dataManager.register(GEMSTONE_POS, 0);
-		this.dataManager.register(GEMSTONE_DIR, EnumFacing.NORTH);
 		this.dataManager.register(GEMSTONE_CUT, "");
 		this.dataManager.register(IS_DEFECTIVE, false);
 		this.dataManager.register(IS_PERFECT, false);
@@ -144,7 +142,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		}
 		this.setOriginalPosition(this.getPosition());
 		this.setOriginalDimension(this.dimension);
-		this.setGemstonePlacement(this.rand.nextInt(18));
+		this.setGemstonePosition(this.rand.nextInt(18));
 		this.setGemstoneColor(this.generateGemstoneColor());
 		this.setGemstoneCut(this.generateGemstoneCut());
 		this.setOutfitVariant(this.generateOutfitVariant());
@@ -187,8 +185,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setOutfitVariant(compound.getString("OutfitVariant"));
 		this.setHairVariant(compound.getString("HairVariant"));
 		this.setSkinVariant(compound.getString("SkinVariant"));
-		this.setGemstonePlacement(compound.getInteger("GemstonePlacement"));
-		this.setGemstoneDirection(EnumFacing.byName(compound.getString("GemstoneDirection")));
+		this.setGemstonePosition(compound.getInteger("GemstonePosition"));
 		this.setDefective(compound.getBoolean("Defective"));
 		this.setPerfective(compound.getBoolean("Perfective"));
 		this.setFlowerInHair(compound.getInteger("FlowerInHair"));
@@ -231,8 +228,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		compound.setString("OutfitVariant", this.getOutfitVariant());
 		compound.setString("HairVariant", this.getHairVariant());
 		compound.setString("SkinVariant", this.getSkinVariant());
-		compound.setInteger("GemstonePlacement", this.getGemstonePlacement());
-		compound.setString("GemstoneDirection", this.getGemstoneDirection().toString());
+		compound.setInteger("GemstonePosition", this.getGemstonePosition());
 		compound.setBoolean("Defective", this.isDefective());
 		compound.setBoolean("Perfective", this.isPerfective());
 		compound.setInteger("FlowerInHair", this.getFlowerInHair());
@@ -570,26 +566,14 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public String getSkinVariant() {
 		return this.dataManager.get(VARIANT_SKIN);
 	}
-	public void setGemstonePlacement(int pos) {
+	public void setGemstonePosition(int pos) {
 		this.dataManager.set(GEMSTONE_POS, pos);
 	}
-	public int getGemstonePlacement() {
+	public int getGemstonePosition() {
 		return this.dataManager.get(GEMSTONE_POS);
 	}
 	public boolean canGemstoneGlow() {
 		return this.world.getLight(this.getPosition().down()) < 5;
-	}
-	public void setGemstoneDirection(EnumFacing direction) {
-		this.dataManager.set(GEMSTONE_DIR, direction);
-	}
-	public EnumFacing getGemstoneDirection() {
-		EnumFacing direction = this.dataManager.get(GEMSTONE_DIR);
-		if (direction == null) {
-			return EnumFacing.NORTH;
-		}
-		else {
-			return direction;
-		}
 	}
 	public void setDefective(boolean defective) {
 		this.dataManager.set(IS_DEFECTIVE, defective);
