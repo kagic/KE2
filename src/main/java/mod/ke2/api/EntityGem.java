@@ -12,10 +12,13 @@ import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Gems;
 import mod.ke2.world.data.WorldDataAuthorities;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -101,6 +104,8 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	
 	public EntityGem(World world) {
 		super(world);
+		this.tasks.addTask(7, new EntityAIWatchClosest(this, Entity.class, 8.0F));
+		this.tasks.addTask(7, new EntityAIWander(this, 0.3D));
 		this.dataManager.register(GEM_GLOBAL_ID, Optional.absent());
 		this.dataManager.register(GEM_OWNER_ID, Optional.absent());
 		this.dataManager.register(GEM_LEADER_ID, Optional.absent());
