@@ -88,7 +88,7 @@
     * The Crystal Gems don't appear unless Steven is under attack.
     * Stevonnie appears as a second line of defense before The Crystal Gems.
 * Cluster Experiments and Hand Ships replace raids after Steven appears.
-* Slag, a byproduct of mass injecting that trap and consume gems.
+* Gem Bursts, the product of a gem failing to emerge, creating a violent maelstrom of sound and fire.
 * Pebbles, a byproduct of gem production that craft and steal random items.
 
 ## Downloads
@@ -132,6 +132,6 @@ Click [here](https://discord.gg/MwEuu9x) to join.
 3. Summarize any changes for future pull requests.
 
 ## Legal Disclaimer
-"KAGIC" source code and its derivatives, including bytecode and executables, are licensed under an MIT License by "The KAGIC Team" ("akrivus", "HeimrArnadalr", "Judacraz", "Lattie", "obsidian29", "Seartisian", "taaffeite", "Tourmaline-Iris"). For more information about the MIT License, please look [here.](./LICENSE)
+"KAGIC" source code and its derivatives, including bytecode and executables, are licensed under an MIT License by "The KAGIC Team" ("akrivus", "HeimrArnadalr", "Judacraz", "Lattie", "obsidian29", "Seartisian", "taaffeite", "Tourmaline-Iris", "Alfhilld", "joel"). For more information about the MIT License, please look [here.](./LICENSE)
 
 "Steven Universe" and all related characters and elements are trademarks of Cartoon Network.
