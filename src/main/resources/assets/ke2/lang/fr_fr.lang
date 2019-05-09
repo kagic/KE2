@@ -44,6 +44,7 @@ entity.palanquin.name=Palanquin
 
 item.gem_staff.name=Bâton de gemme
 
+
 item.white_gem_destabilizer.name=Gemme blanc déstabilisateur
 item.white_gem_shard.name=Éclat blanc de gemme
 item.white_gem_dust.name=Poussière de gemme blanche
@@ -92,6 +93,7 @@ item.red_gem_dust.name=Poussière de gemme Rouge
 item.black_gem_destabilizer.name=Déstabilisateur de gemme Noire
 item.black_gem_shard.name=Éclat Noire
 item.black_gem_dust.name=Poussière de gemme Noire
+item.manual.name=Guide de la garderie
 
 tile.wailing_stone.name=Pierre des lamentations
 tile.gem_seed.name=Graine de gemme

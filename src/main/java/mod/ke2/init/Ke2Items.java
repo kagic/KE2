@@ -6,6 +6,7 @@ import mod.ke2.items.ItemGemDestabilizer;
 import mod.ke2.items.ItemGemDust;
 import mod.ke2.items.ItemGemShard;
 import mod.ke2.items.ItemGemStaff;
+import mod.ke2.items.ItemManual;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -18,6 +19,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class Ke2Items {
+	public static final ItemManual MANUAL = new ItemManual();
 	public static final ItemGemStaff GEM_STAFF = new ItemGemStaff();
 	public static final ItemGemDestabilizer WHITE_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_WHITE);
 	public static final ItemGemShard WHITE_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_WHITE);
@@ -68,7 +70,9 @@ public class Ke2Items {
 	public static final ItemGemShard BLACK_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_BLACK);
 	public static final ItemGemDust BLACK_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_BLACK);
 	
+	
 	public static void register(RegistryEvent.Register<Item> event) {
+		registerItem(MANUAL, new ResourceLocation("ke2:manual"), event);
 		registerItem(GEM_STAFF, new ResourceLocation("ke2:gem_staff"), event);
 		registerItem(WHITE_GEM_DESTABILIZER, new ResourceLocation("ke2:white_gem_destabilizer"), event);
 		registerItem(WHITE_GEM_SHARD, new ResourceLocation("ke2:white_gem_shard"), event);

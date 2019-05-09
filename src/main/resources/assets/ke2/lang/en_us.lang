@@ -92,6 +92,7 @@ item.red_gem_dust.name=Red Gem Dust
 item.black_gem_destabilizer.name=Black Gem Destabilizer
 item.black_gem_shard.name=Black Gem Shard
 item.black_gem_dust.name=Black Gem Dust
+item.manual.name=Kindergartener's Guide
 
 tile.wailing_stone.name=Wailing Stone
 tile.gem_seed.name=Gem Seed
