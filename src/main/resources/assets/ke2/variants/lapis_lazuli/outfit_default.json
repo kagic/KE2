@@ -1,0 +1,6 @@
+{
+	"function": "always_true",
+	"parameter": "true",
+	"tags": ["ke2:texture.outfit"],
+	"value": "ke2:textures/entities/lapis_lazuli/outfits/default"
+}

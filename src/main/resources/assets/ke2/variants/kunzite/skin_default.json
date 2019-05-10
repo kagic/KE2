@@ -1,0 +1,6 @@
+{
+	"function": "always_true",
+	"parameter": "true",
+	"tags": ["ke2:texture.skin"],
+	"value": "ke2:textures/entities/kunzite/skin"
+}

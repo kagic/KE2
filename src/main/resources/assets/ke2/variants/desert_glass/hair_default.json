@@ -1,0 +1,6 @@
+{
+	"function": "always_true",
+	"parameter": "true",
+	"tags": ["ke2:texture.hair"],
+	"value": "ke2:textures/entities/desert_glass/hair_default"
+}
