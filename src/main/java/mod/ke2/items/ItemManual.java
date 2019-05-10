@@ -50,7 +50,7 @@ public class ItemManual extends Item{
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 		if (!worldIn.isRemote){
-			playerIn.sendMessage(new TextComponentString("Used"));
+			//Used to have some text, but was used for debugging.
 		}else{
 			Minecraft.getMinecraft().displayGuiScreen(new GUIManual());
 			
