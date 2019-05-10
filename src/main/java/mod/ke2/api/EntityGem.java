@@ -300,10 +300,10 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 				return false;
 			}
 			float health = this.getHealth() - amount;
-			if (health < -50) {
+			if (health < -70) {
 				source = Ke2Damage.SHATTER;
 			}
-			else if (health < -10) {
+			else if (health < -30) {
 				source = Ke2Damage.CRACK;
 			}
 			else {

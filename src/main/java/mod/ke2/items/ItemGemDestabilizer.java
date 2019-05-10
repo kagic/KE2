@@ -18,6 +18,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -56,7 +57,7 @@ public class ItemGemDestabilizer extends ItemSword {
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         stack.damageItem(1, attacker);
         if (target instanceof EntityGem) {
-        	target.attackEntityFrom(Ke2Damage.POOF, target.getHealth());
+        	target.attackEntityFrom(Ke2Damage.POOF, target.getMaxHealth());
         }
         return true;
     }
