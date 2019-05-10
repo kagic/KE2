@@ -2,5 +2,13 @@
 	"parent": "item/generated",
 	"textures": {
 		"layer0": "ke2:items/manual"
-	}
+	},
+	"overrides": [
+        {
+            "predicate": {
+                "using": 1
+            },
+            "model": "ke2:item/manual_1"
+        }
+    ]
 }

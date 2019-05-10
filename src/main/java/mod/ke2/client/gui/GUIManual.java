@@ -22,6 +22,7 @@ public class GUIManual extends GuiScreen{
 		int centreX = (width / 2) - guiWidth / 2;
 		int centreY = (height / 2) - guiHeight / 2;
 		drawTexturedModalRect(centreX, centreY, 0, 0, guiWidth, guiHeight);
+		drawString(mc.fontRenderer, "Test!", centreX + 15, centreY + 15, 0xffffff);
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
 	

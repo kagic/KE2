@@ -2,6 +2,9 @@ ke2.config.title=Configurer KAGIC
 itemGroup.ke2_gemstones=Pierres précieuses (KAGIC)
 itemGroup.ke2_gem_tech=Gemme Technologie (KAGIC)
 
+key.ke2.category.name=KAGIC
+key.bug.report.name=Report Bug
+
 entity.agate.name=Agate
 entity.amethyst.name=Améthyste
 entity.aqua_aura_quartz.name=Aqua Aura Quartz
