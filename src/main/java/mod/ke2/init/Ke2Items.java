@@ -21,8 +21,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class Ke2Items {
-	public static final ToolMaterial DESTABILIZER_MATERIAL = EnumHelper.addToolMaterial("DESTABILIZER_MATERIAL", 1, 24, 0.1f, 1f, 1);
-	
+	public static final ToolMaterial DESTABILIZER_MATERIAL = EnumHelper.addToolMaterial("DESTABILIZER_MATERIAL", 0, 24, 0.1f, 0.0f, 1);
+	//WOOD(0, 59, 2.0F, 0.0F, 15)
 	public static final ItemManual MANUAL = new ItemManual();
 	public static final ItemGemStaff GEM_STAFF = new ItemGemStaff();
 	public static final ItemGemDestabilizer WHITE_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_WHITE);
