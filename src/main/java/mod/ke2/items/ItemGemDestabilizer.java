@@ -37,7 +37,6 @@ public class ItemGemDestabilizer extends ItemSword {
 		this.setMaxStackSize(1);
 		this.setMaxDamage(24);
 		this.color = index;
-		this.primed = this.getNBTShareTag(new ItemStack(this)).getBoolean("primed");
 	}
 
 	@Override
