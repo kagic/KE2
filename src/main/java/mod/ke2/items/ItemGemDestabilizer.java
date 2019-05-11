@@ -6,6 +6,7 @@ import mod.ke2.api.EntityGem;
 import mod.ke2.entity.EntityGemShard;
 import mod.ke2.entity.machine.EntityBubble;
 import mod.ke2.init.Ke2Damage;
+import mod.ke2.init.Ke2Items;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -16,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -31,7 +33,7 @@ public class ItemGemDestabilizer extends ItemSword {
 	public boolean primed;
 
 	public ItemGemDestabilizer(int index) {
-		super(ToolMaterial.GOLD);
+		super(Ke2Items.DESTABILIZER_MATERIAL);
 		String name = EnumDyeColor.byMetadata(index).toString().toLowerCase();
 		this.setUnlocalizedName(name + "_gem_destabilizer");
 		this.setMaxStackSize(1);
@@ -65,13 +67,14 @@ public class ItemGemDestabilizer extends ItemSword {
         return 72000;
     }
 
-	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
+	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft, List<String> tooltip) {
 		if(!worldIn.isRemote) {
 			NBTTagCompound compo = stack.getTagCompound();
 			if (!this.primed) {
 				int i = this.getMaxItemUseDuration(stack) - timeLeft;
 				if (i < 100) {
 					this.primed = true;
+					tooltip.add("Destabilizer Primed!");
 				}
 				NBTTagCompound comp = new NBTTagCompound();
 				comp.setBoolean("primed", this.primed);
@@ -87,6 +90,7 @@ public class ItemGemDestabilizer extends ItemSword {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
             playerIn.setActiveHand(handIn);
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+            
     }
 
 	@Override
@@ -97,12 +101,15 @@ public class ItemGemDestabilizer extends ItemSword {
 				target.attackEntityFrom(Ke2Damage.POOF, 1);
 			}
 			else{
+				
 				target.attackEntityFrom(Ke2Damage.POOF, target.getMaxHealth());
 				this.primed = false;
 				NBTTagCompound comp = new NBTTagCompound();
 				comp.setBoolean("primed", false);
 				stack.setTagCompound(comp);
 			}
+        }else{
+        	target.attackEntityFrom(DamageSource.GENERIC, 1);
         }
         return true;
     }

@@ -11,14 +11,18 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class Ke2Items {
+	public static final ToolMaterial DESTABILIZER_MATERIAL = EnumHelper.addToolMaterial("DESTABILIZER_MATERIAL", 1, 24, 2f, 1f, 1);
+	
 	public static final ItemManual MANUAL = new ItemManual();
 	public static final ItemGemStaff GEM_STAFF = new ItemGemStaff();
 	public static final ItemGemDestabilizer WHITE_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_WHITE);
