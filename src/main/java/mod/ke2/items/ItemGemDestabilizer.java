@@ -68,7 +68,7 @@ public class ItemGemDestabilizer extends ItemSword {
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
 		if(!worldIn.isRemote) {
 			NBTTagCompound compo = stack.getTagCompound();
-			if (!compo.getBoolean("primed")) {
+			if (!this.primed) {
 				int i = this.getMaxItemUseDuration(stack) - timeLeft;
 				if (i < 100) {
 					this.primed = true;
