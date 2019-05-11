@@ -8,6 +8,7 @@ import mod.ke2.entity.machine.EntityBubble;
 import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Items;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -40,7 +41,6 @@ public class ItemGemDestabilizer extends ItemSword {
 		this.setMaxDamage(24);
 		this.color = index;
 	}
-
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		player.swingArm(hand);
@@ -61,20 +61,17 @@ public class ItemGemDestabilizer extends ItemSword {
 		}
 		return EnumActionResult.PASS;
 	}
-
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {
         return 72000;
     }
-
-	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft, List<String> tooltip) {
+	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
 		if(!worldIn.isRemote) {
 			NBTTagCompound compo = stack.getTagCompound();
 			if (!this.primed) {
 				int i = this.getMaxItemUseDuration(stack) - timeLeft;
 				if (i < 100) {
 					this.primed = true;
-					tooltip.add("Destabilizer Primed!");
 				}
 				NBTTagCompound comp = new NBTTagCompound();
 				comp.setBoolean("primed", this.primed);
@@ -82,7 +79,18 @@ public class ItemGemDestabilizer extends ItemSword {
 			}
 		}
 	}
-
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		try {
+			NBTTagCompound tag = stack.getTagCompound();
+			if(tag.hasKey("primed")){
+				tooltip.add("Destabilizer Primed!");
+			}
+		}catch (NullPointerException e) {
+            tooltip.add("");
+        }
+		super.addInformation(stack, worldIn, tooltip, flagIn);
+	}
     /**
      * Called when the equipped item is right clicked.
      */
@@ -92,7 +100,6 @@ public class ItemGemDestabilizer extends ItemSword {
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
             
     }
-
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         stack.damageItem(1, attacker);
@@ -113,7 +120,6 @@ public class ItemGemDestabilizer extends ItemSword {
         }
         return true;
     }
-
 	@Override
 	public boolean onBlockDestroyed(ItemStack stack, World world, IBlockState state, BlockPos pos, EntityLivingBase entity) {
         if (state.getBlockHardness(world, pos) != 0.0F) {
@@ -121,7 +127,6 @@ public class ItemGemDestabilizer extends ItemSword {
         }
         return true;
     }
-
 	@Override
 	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
 		if (repair.getItem() instanceof ItemGemShard) {
@@ -130,13 +135,11 @@ public class ItemGemDestabilizer extends ItemSword {
 		}
 		return false;
     }
-
     @Override
 	@SideOnly(Side.CLIENT)
     public boolean isFull3D() {
         return true;
     }
-
 	@SideOnly(Side.CLIENT)
 	public boolean hasEffect(ItemStack stack) {
 		if (stack.getTagCompound() != null) {
