@@ -14,6 +14,7 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -27,6 +28,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemGemDestabilizer extends ItemSword {
 	public int color;
+	public boolean primed;
+
 	public ItemGemDestabilizer(int index) {
 		super(ToolMaterial.GOLD);
 		String name = EnumDyeColor.byMetadata(index).toString().toLowerCase();
@@ -34,7 +37,9 @@ public class ItemGemDestabilizer extends ItemSword {
 		this.setMaxStackSize(1);
 		this.setMaxDamage(24);
 		this.color = index;
+		this.primed = this.getNBTShareTag(new ItemStack(this)).getBoolean("primed");
 	}
+
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		player.swingArm(hand);
@@ -55,28 +60,54 @@ public class ItemGemDestabilizer extends ItemSword {
 		}
 		return EnumActionResult.PASS;
 	}
-	
-	public int getMaxItemUseDuration(ItemStack stack)
-    {
+
+	@Override
+	public int getMaxItemUseDuration(ItemStack stack) {
         return 72000;
     }
+
+	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
+		if(!worldIn.isRemote) {
+			NBTTagCompound compo = stack.getTagCompound();
+			if (!compo.getBoolean("primed")) {
+				int i = this.getMaxItemUseDuration(stack) - timeLeft;
+				if (i < 100) {
+					this.primed = true;
+				}
+				NBTTagCompound comp = new NBTTagCompound();
+				comp.setBoolean("primed", this.primed);
+				stack.setTagCompound(comp);
+			}
+		}
+	}
+
     /**
      * Called when the equipped item is right clicked.
      */
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
-    {
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
             playerIn.setActiveHand(handIn);
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
     }
+
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         stack.damageItem(1, attacker);
         if (target instanceof EntityGem) {
-        	target.attackEntityFrom(Ke2Damage.POOF, target.getMaxHealth());
+        	if(!this.primed) {
+				target.attackEntityFrom(Ke2Damage.POOF, 1);
+			}
+			else{
+				target.attackEntityFrom(Ke2Damage.POOF, target.getMaxHealth());
+				this.primed = false;
+				NBTTagCompound comp = new NBTTagCompound();
+				comp.setBoolean("primed", false);
+				stack.setTagCompound(comp);
+			}
         }
         return true;
     }
+
 	@Override
 	public boolean onBlockDestroyed(ItemStack stack, World world, IBlockState state, BlockPos pos, EntityLivingBase entity) {
         if (state.getBlockHardness(world, pos) != 0.0F) {
@@ -84,6 +115,7 @@ public class ItemGemDestabilizer extends ItemSword {
         }
         return true;
     }
+
 	@Override
 	public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
 		if (repair.getItem() instanceof ItemGemShard) {
@@ -92,9 +124,19 @@ public class ItemGemDestabilizer extends ItemSword {
 		}
 		return false;
     }
+
     @Override
 	@SideOnly(Side.CLIENT)
     public boolean isFull3D() {
         return true;
     }
+
+	@SideOnly(Side.CLIENT)
+	public boolean hasEffect(ItemStack stack) {
+		if (stack.getTagCompound() != null) {
+			NBTTagCompound tag = stack.getTagCompound();
+			return tag.getBoolean("primed");
+		}
+		return false;
+	}
 }
