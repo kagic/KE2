@@ -60,15 +60,6 @@ public class ItemGemDestabilizer extends ItemSword {
     {
         return 72000;
     }
-
-    /**
-     * returns the action that specifies what animation to play when the items is being used
-     */
-    public EnumAction getItemUseAction(ItemStack stack)
-    {
-        return EnumAction.BOW;
-    }
-
     /**
      * Called when the equipped item is right clicked.
      */
