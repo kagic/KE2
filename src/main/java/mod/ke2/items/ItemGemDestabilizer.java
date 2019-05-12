@@ -10,13 +10,13 @@ import mod.ke2.entity.EntityGemShard;
 import mod.ke2.entity.machine.EntityBubble;
 import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Items;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.passive.EntitySquid;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumDyeColor;
@@ -30,7 +30,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -120,12 +119,10 @@ public class ItemGemDestabilizer extends ItemSword {
         	if (stack.hasTagCompound() && stack.getTagCompound().getBoolean("primed")) {
 		        target.attackEntityFrom(Ke2Damage.POOF, target.getMaxHealth());
 		        stack.getTagCompound().setBoolean("primed", false);
-	        }
-	        else{
+	        }else{
 				target.attackEntityFrom(Ke2Damage.POOF, 1);
 			}
-        }
-        else{
+        }else{
 			target.attackEntityFrom(DamageSource.GENERIC, 1);
 		}
         return super.hitEntity(stack, target, attacker);

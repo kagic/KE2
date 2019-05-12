@@ -4,12 +4,14 @@ import mod.ke2.KAGIC;
 import mod.ke2.tileentity.TileEntityCarbonite;
 import mod.ke2.tileentity.TileEntityGemSeed;
 import mod.ke2.tileentity.TileEntityWailingStone;
+import mod.ke2.tileentity.TileEntityWarpPadCore;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class Ke2TileEntities {
 	public static void register() {
+		registerTileEntity(TileEntityWarpPadCore.class, new ResourceLocation("ke2:warp_pad_core"));
 		registerTileEntity(TileEntityGemSeed.class, new ResourceLocation("ke2:gem_seed"));
 		registerTileEntity(TileEntityWailingStone.class, new ResourceLocation("ke2:wailing_stone"));
 		registerTileEntity(TileEntityCarbonite.class, new ResourceLocation("ke2:carbonite"));

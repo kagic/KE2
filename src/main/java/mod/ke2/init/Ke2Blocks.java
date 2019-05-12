@@ -10,6 +10,7 @@ import mod.ke2.blocks.BlockGemSeed;
 import mod.ke2.blocks.BlockMagicMoss;
 import mod.ke2.blocks.BlockMossRose;
 import mod.ke2.blocks.BlockWailingStone;
+import mod.ke2.blocks.BlockWarpPadCore;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -24,6 +25,7 @@ public class Ke2Blocks {
 	
 	public static final BlockWailingStone WAILING_STONE = new BlockWailingStone();
 	public static final BlockGemSeed GEM_SEED = new BlockGemSeed();
+	public static final BlockWarpPadCore WARP_PAD_CORE = new BlockWarpPadCore();
 	
 	public static final BlockMagicMoss MAGIC_MOSS = new BlockMagicMoss();
 	public static final BlockMossRose MOSS_ROSE = new BlockMossRose();
@@ -150,6 +152,7 @@ public class Ke2Blocks {
 	public static void register(RegistryEvent.Register<Block> event) {
 		registerBlock(WAILING_STONE, new ResourceLocation("ke2:wailing_stone"), event);
 		registerBlock(GEM_SEED, new ResourceLocation("ke2:gem_seed"), event);
+		registerBlock(WARP_PAD_CORE, new ResourceLocation("ke2:warp_pad"), event);
 		registerBlock(MAGIC_MOSS, new ResourceLocation("ke2:magic_moss"), event);
 		registerBlock(MOSS_ROSE, new ResourceLocation("ke2:moss_rose"), event);
 		registerBlock(VALLEY_DRAIN_LILY, new ResourceLocation("ke2:valley_drain_lily"), event);
