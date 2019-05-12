@@ -121,7 +121,13 @@ public class ItemGemDestabilizer extends ItemSword {
 		        target.attackEntityFrom(Ke2Damage.POOF, target.getMaxHealth());
 		        stack.getTagCompound().setBoolean("primed", false);
 	        }
+	        else{
+				target.attackEntityFrom(Ke2Damage.POOF, 1);
+			}
         }
+        else{
+			target.attackEntityFrom(DamageSource.GENERIC, 1);
+		}
         return super.hitEntity(stack, target, attacker);
     }
 
