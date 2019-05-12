@@ -12,6 +12,7 @@ import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Items;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -82,9 +83,9 @@ public class ItemGemDestabilizer extends ItemSword {
 
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
 		if(!worldIn.isRemote) {
-			entityLiving.sendMessage(new TextComponentString(timeLeft + " left"));
+//			entityLiving.sendMessage(new TextComponentString(timeLeft + " left"));
 			int i = this.getMaxItemUseDuration(stack) - timeLeft;
-			entityLiving.sendMessage(new TextComponentString(i + " i"));
+//			entityLiving.sendMessage(new TextComponentString(i + " i"));
 			if (i > 60){
 				if(!stack.hasTagCompound()) {
 					stack.setTagCompound(new NBTTagCompound());
@@ -96,7 +97,7 @@ public class ItemGemDestabilizer extends ItemSword {
 			}
 		}
 	}
-
+	
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		super.addInformation(stack, worldIn, tooltip, flagIn);
@@ -105,12 +106,12 @@ public class ItemGemDestabilizer extends ItemSword {
 		}
 	}
 	
-
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		ItemStack stack = player.getHeldItem(hand);
 		player.setActiveHand(hand);
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
     }
+    
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         stack.damageItem(1, attacker);
@@ -140,5 +141,15 @@ public class ItemGemDestabilizer extends ItemSword {
 	@SideOnly(Side.CLIENT)
 	public boolean hasEffect(ItemStack stack) {
 		return stack.hasTagCompound() ? stack.getTagCompound().getBoolean("primed") : super.hasEffect(stack);
+	}
+	
+	@Override
+	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+		return false;
+	}
+	
+	@Override
+	public float getAttackDamage() {
+		return 1;
 	}
 }
