@@ -29,6 +29,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -81,11 +82,17 @@ public class ItemGemDestabilizer extends ItemSword {
 
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
 		if(!worldIn.isRemote) {
+			entityLiving.sendMessage(new TextComponentString(timeLeft + " left"));
 			int i = this.getMaxItemUseDuration(stack) - timeLeft;
-			if (i < 0){
+			entityLiving.sendMessage(new TextComponentString(i + " i"));
+			if (i > 60){
+				if(!stack.hasTagCompound()) {
+					stack.setTagCompound(new NBTTagCompound());
+				}
 				stack.getTagCompound().setBoolean("primed", true);
-				}else {entityLiving.sendMessage(new TextComponentTranslation("Charge longer!"));
-			
+			}
+			else {
+				entityLiving.sendMessage(new TextComponentTranslation("Charge longer!"));
 			}
 		}
 	}
@@ -108,8 +115,10 @@ public class ItemGemDestabilizer extends ItemSword {
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         stack.damageItem(1, attacker);
         if (target instanceof EntityGem) {
-        	if (stack.hasTagCompound() && stack.getTagCompound().getBoolean("primed"))
-	        {
+			if(!stack.hasTagCompound()) {
+				stack.setTagCompound(new NBTTagCompound());
+			}
+        	if (stack.hasTagCompound() && stack.getTagCompound().getBoolean("primed")) {
 		        target.attackEntityFrom(Ke2Damage.POOF, target.getMaxHealth());
 		        stack.getTagCompound().setBoolean("primed", false);
 	        }
