@@ -82,9 +82,9 @@ public class ItemGemDestabilizer extends ItemSword {
 
 	public void onPlayerStoppedUsing(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int timeLeft) {
 		if(!worldIn.isRemote) {
-			entityLiving.sendMessage(new TextComponentString(timeLeft + " left"));
+			//entityLiving.sendMessage(new TextComponentString(timeLeft + " left"));
 			int i = this.getMaxItemUseDuration(stack) - timeLeft;
-			entityLiving.sendMessage(new TextComponentString(i + " i"));
+			//entityLiving.sendMessage(new TextComponentString(i + " i"));
 			if (i > 60){
 				if(!stack.hasTagCompound()) {
 					stack.setTagCompound(new NBTTagCompound());
@@ -104,7 +104,6 @@ public class ItemGemDestabilizer extends ItemSword {
 			tooltip.add("Destabilizer Primed!");
 		}
 	}
-	
 
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		ItemStack stack = player.getHeldItem(hand);
