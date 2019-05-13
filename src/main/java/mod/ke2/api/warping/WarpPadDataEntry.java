@@ -1,4 +1,4 @@
-package mod.ke2.world.data;
+package mod.ke2.api.warping;
 
 public class WarpPadDataEntry {
 	public String name = "";

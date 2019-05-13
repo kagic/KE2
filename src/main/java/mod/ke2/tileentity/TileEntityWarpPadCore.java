@@ -4,7 +4,9 @@ import java.util.Iterator;
 import java.util.List;
 
 import mod.ke2.KAGIC;
+import mod.ke2.init.Ke2Packets;
 import mod.ke2.init.Ke2Sounds;
+import mod.ke2.networking.PacketEntityTeleport;
 import mod.ke2.world.data.WorldDataWarpPad;
 import net.minecraft.block.BlockQuartz;
 import net.minecraft.block.BlockStairs;
@@ -34,43 +36,41 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TileEntityWarpPadCore extends TileEntity implements ITickable {
-	public static final int warpTicks = 2 * 20;
-	public static final int warpCooldownTicks = 1 * 20;
-	protected int warpTicksLeft = 0;
-	protected int cooldownTicksLeft = 0;
+	private static final int TICKS_FOR_LOADING_CHUNKS = 100;
+	public static final int TICKS_FOR_COOLDOWN = 20;
+	public static final int TICKS_FOR_ACTION = 40;
+	private int remainingLoadingChunkTicks = 0;
+	protected int remainingCooldownTicks = 0;
+	protected int remainingActionTicks = 0;
 	protected BlockPos destination = null;
-	public int renderTicks = 0;
+	
 	public int renderCooldown = 0;
+	public int renderTicks = 0;
+	
+	public String name = "";
+	private Ticket ticket = null;
 	
 	private int ticksSinceLastCheck = 0;
+	
 	protected final int clearanceHeight = 6;
 	protected boolean isClear = false;
 	protected boolean isPadValid = false;
-	public String name = "";
 	protected boolean warping = false;
 	protected boolean cooling = false;
 	
-	private Ticket ticket = null;
-	private static final int loadChunkTicks = 100;
-	private int loadChunkTicksLeft = 0;
-
 	protected void setDirty() {
-		//KAGIC.instance.chatInfoMessage("Setting dirty");
 		this.markDirty();
-		IBlockState state = this.world.getBlockState(this.pos);
-		world.notifyBlockUpdate(this.pos, state, state, 3);
+		this.world.notifyBlockUpdate(this.pos, this.world.getBlockState(this.pos), this.world.getBlockState(this.pos), 3);
 		if (!this.world.isRemote) {
-			WorldDataWarpPad.get(this.world).addWarpPadEntry(name, this.isPadValid, this.isClear, this.pos);
+			WorldDataWarpPad.get(this.world).addWarpPadEntry(this.name, this.isPadValid, this.isClear, this.pos);
 		}
 	}
-	
 	protected boolean isStair(IBlockState state) {
 		if (state.getBlock() != Blocks.QUARTZ_STAIRS || state.getValue(BlockStairs.HALF) != EnumHalf.BOTTOM) {
 			return false;
 		}
 		return true;
 	}
-	
 	protected boolean validateStairs() {
 		IBlockState state = this.world.getBlockState(this.pos.add(2, 0, 0));
 		if (state.getBlock() != Blocks.QUARTZ_STAIRS || state.getValue(BlockStairs.FACING) != EnumFacing.WEST || state.getValue(BlockStairs.HALF) != EnumHalf.BOTTOM || state.getValue(BlockStairs.SHAPE) != EnumShape.STRAIGHT) {
@@ -389,7 +389,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 			}
 			
 			for (EntityPlayer player : ((WorldServer) this.world).getEntityTracker().getTrackingPlayers(entity)) {
-				KTPacketHandler.INSTANCE.sendTo(new EntityTeleportMessage(entity.getEntityId(), posX, posY, posZ), (EntityPlayerMP) player);
+				Ke2Packets.INSTANCE.sendTo(new PacketEntityTeleport(entity.getEntityId(), posX, posY, posZ), (EntityPlayerMP) player);
 			}
 		}
 		
