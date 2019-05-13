@@ -1,10 +1,10 @@
 package mod.ke2.blocks;
 
-import mod.kagic.init.KAGIC;
 import mod.kagic.init.ModCreativeTabs;
 import mod.kagic.init.ModItems;
-import mod.kagic.tileentity.TileEntityGalaxyPadCore;
-import mod.kagic.tileentity.TileEntityWarpPadCore;
+import mod.ke2.KAGIC;
+import mod.ke2.init.Ke2CreativeTabs;
+import mod.ke2.tileentity.TileEntityGalaxyWarpPadCore;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -21,7 +21,7 @@ public class BlockGalaxyWarpPadCore extends Block implements ITileEntityProvider
 	public BlockGalaxyWarpPadCore() {
 		super(Material.ROCK);
         this.setUnlocalizedName("galaxy_pad_core");
-        this.setCreativeTab(ModCreativeTabs.CREATIVE_TAB_OTHER);
+        this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
         
         this.setResistance(4);
         this.setHardness(0.8f);

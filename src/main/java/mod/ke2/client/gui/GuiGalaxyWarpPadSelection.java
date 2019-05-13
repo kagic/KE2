@@ -6,93 +6,84 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import mod.kagic.tileentity.TileEntityWarpPadCore;
-import mod.kagic.worlddata.GalaxyPadLocation;
-import mod.kagic.worlddata.WarpPadDataEntry;
-import mod.kagic.worlddata.WorldDataGalaxyPad;
-import mod.kagic.worlddata.WorldDataWarpPad;
+import org.lwjgl.input.Keyboard;
+
+import mod.ke2.api.warping.GalaxyWarpPadLocation;
+import mod.ke2.api.warping.WarpPadDataEntry;
+import mod.ke2.tileentity.TileEntityGalaxyWarpPadCore;
+import mod.ke2.world.data.WorldDataGalaxyWarpPad;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.util.math.BlockPos;
 
-public class GUIGalaxyPadSelection extends GuiScreen {
-	private final TileEntityWarpPadCore tilePad;
-	private Map<GalaxyWarpPadLocation, WarpPadDataEntry> padData = null;
-	private SortedMap<Double, GalaxyWarpPadLocation> sortedPoses;
-	private GUIGalaxyPadList padList;
-	private GuiButton buttonDone; 
+public class GuiGalaxyWarpPadSelection extends GuiScreen {
+	private SortedMap<Double, BlockPos> positions = new TreeMap<Double, BlockPos>();
+	private Map<GalaxyWarpPadLocation, WarpPadDataEntry> data = null;
+	private final TileEntityGalaxyWarpPadCore pad;
 	protected String screenTitle = "Select Destination";
+	private GuiGalaxyWarpPadList padList;
+	private GuiButton buttonDone; 
 	
-	public GUIGalaxyPadSelection(LinkedHashMap<GalaxyWarpPadLocation, WarpPadDataEntry> data, int x, int y, int z) {
-		//KAGICTech.instance.chatInfoMessage("Getting Warp Pad TE at " + x + ", " + y + ", " + z);
-		this.tilePad = (TileEntityWarpPadCore) Minecraft.getMinecraft().world.getTileEntity(new BlockPos(x, y, z));
-		this.padData = data;
-		//KAGICTech.instance.chatInfoMessage("padData has size of " + padData.size());
-		sortedPoses = WorldDataGalaxyPad.getSortedPositions(padData, this.tilePad.getPos());
+	public GuiWarpPadSelection(LinkedHashMap<GalaxyWarpPadLocation, WarpPadDataEntry> data, int x, int y, int z) {
+		this.pad = (TileEntityGalaxyWarpPadCore)(Minecraft.getMinecraft().world.getTileEntity(new BlockPos(x, y, z)));
+		this.positions = WorldDataGalaxyWarpPad.getSortedPositions(data, this.pad.getPos());
+		this.data = data;
 	}
-	
-	public WarpPadDataEntry getPadDataEntry(GalaxyWarpPadLocation gLoc) {
-		if (this.padData.containsKey(gLoc)) {
-			return this.padData.get(gLoc);
-		} else {
+	public WarpPadDataEntry getPadDataEntry(BlockPos pos) {
+		if (this.data.containsKey(pos)) {
+			return this.data.get(pos);
+		}
+		else {
 			return null;
 		}
 	}
-	
 	@Override
 	public boolean doesGuiPauseGame() {
 		return false;
 	}
-	
 	@Override
 	public void updateScreen() {
+		
 	}
-
 	public void initGui() {
-		this.padList = new GUIGalaxyPadList(this, this.tilePad.getPos(), this.sortedPoses, this.mc, this.width, this.height, 0, this.height, 50);
+		this.padList = new GuiGalaxyWarpPadList(this, this.pad.getPos(), this.positions, this.mc, this.width, this.height, 0, this.height, 50);
 		this.buttonDone = this.addButton(new GuiButton(618, this.width / 2 - 75, this.height - 25, 150, 20, I18n.format("gui.cancel", new Object[0])));
 	}
-	
 	public void onGuiClosed() {
 		
 	}
-	
 	@Override
-	protected void actionPerformed(GuiButton button) throws IOException
-	{
-		if (button.id == 618) {
+	protected void actionPerformed(GuiButton button) throws IOException {
+		switch (button.id) {
+		case 618:
 			Minecraft.getMinecraft().player.closeScreen();
-		} else {
+			break;
+		default:
 			this.padList.actionPerformed(button);
 			super.actionPerformed(button);
 		}
 	}
-
 	protected void keyTyped(char typedChar, int keyCode) throws IOException {
-		if (keyCode == 1) { //ESC key
+		if (keyCode == Keyboard.KEY_ESCAPE) {
 			Minecraft.getMinecraft().player.closeScreen();
 		}
 	}
-	
 	public void handleMouseInput() throws IOException {
 		super.handleMouseInput();
 		this.padList.handleMouseInput();
 	}
-	
 	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 		if (!this.padList.mouseClicked(mouseX, mouseY, mouseButton)) {
 			super.mouseClicked(mouseX, mouseY, mouseButton);
 		}
 	}
-
 	protected void mouseReleased(int mouseX, int mouseY, int state) {
 		if (!this.padList.mouseReleased(mouseX, mouseY, state)) {
 			super.mouseReleased(mouseX, mouseY, state);
 		}
 	}
-
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		this.drawDefaultBackground();

@@ -26,11 +26,9 @@ public class WorldDataGalaxyWarpPad extends WorldSavedData {
 	public WorldDataGalaxyWarpPad() {
 		super(DATA_NAME);
 	}
-	
 	public WorldDataGalaxyWarpPad(String identifier) {
 		super(identifier);
 	}
-	
 	public static WorldDataGalaxyWarpPad get(World world) {
 		if (!world.isRemote) {
 			MapStorage storage = world.getMapStorage();
@@ -46,7 +44,6 @@ public class WorldDataGalaxyWarpPad extends WorldSavedData {
 			return null;
 		}
 	}
-
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		NBTTagList list = new NBTTagList();
@@ -66,7 +63,6 @@ public class WorldDataGalaxyWarpPad extends WorldSavedData {
 		compound.setTag("pads", list);
 		return compound;
 	}
-	
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		NBTTagList list = compound.getTagList("pads", Constants.NBT.TAG_COMPOUND);
@@ -80,7 +76,6 @@ public class WorldDataGalaxyWarpPad extends WorldSavedData {
 			this.galaxyPadData.put(new GalaxyWarpPadLocation(dim, pos), new WarpPadDataEntry(name, valid, clear));
 		}
 	}
-	
 	public void addGalaxyPadEntry(String name, boolean valid, boolean clear, GalaxyWarpPadLocation gLoc) {
 		this.galaxyPadData.put(gLoc, new WarpPadDataEntry(name, valid, clear));
 		this.markDirty();

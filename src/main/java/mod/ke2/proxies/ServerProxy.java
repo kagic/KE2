@@ -1,7 +1,14 @@
 package mod.ke2.proxies;
 
 import mod.ke2.blocks.BlockCarbonite;
+import mod.ke2.client.gui.GuiWarpPad;
+import mod.ke2.client.gui.GuiWarpPadContainer;
+import mod.ke2.client.gui.GuiWarpPadSelectionContainer;
+import mod.ke2.tileentity.TileEntityWarpPadCore;
 import net.minecraft.client.particle.IParticleFactory;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -31,5 +38,18 @@ public class ServerProxy implements CommonProxy {
 	@Override
 	public void addParticle(IParticleFactory factory, World world, double x, double y, double z, double dX, double dY, double dZ, int color) {
 		// Reserved for client functionality.
+	}
+	public Object getClientGuiElement(int i, EntityPlayer player, World world, int x, int y, int z) {
+		return null;
+	}
+	@Override
+	public Object getServerGuiElement(int i, EntityPlayer player, World world, int x, int y, int z) {
+		switch (i) {
+		case CommonProxy.GUI_WARP_PAD:
+			return new GuiWarpPadContainer();
+		case CommonProxy.GUI_WARP_PAD_SELECTION:
+			return new GuiWarpPadSelectionContainer();
+		}
+		return null;
 	}
 }

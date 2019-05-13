@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import mod.ke2.client.gui.GUIManual;
+import mod.ke2.client.gui.GuiManual;
 import mod.ke2.init.Ke2Items;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -52,7 +52,7 @@ public class ItemManual extends Item{
 		if (!worldIn.isRemote){
 			//Used to have some text, but was used for debugging.
 		}else{
-			Minecraft.getMinecraft().displayGuiScreen(new GUIManual());
+			Minecraft.getMinecraft().displayGuiScreen(new GuiManual());
 			
 		}
 		return super.onItemRightClick(worldIn, playerIn, handIn);

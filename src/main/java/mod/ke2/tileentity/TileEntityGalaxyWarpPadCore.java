@@ -3,10 +3,6 @@ package mod.ke2.tileentity;
 import java.util.Iterator;
 import java.util.List;
 
-import mod.kagic.init.ModSounds;
-import mod.kagic.world.GalaxyTeleporter;
-import mod.kagic.worlddata.GalaxyPadLocation;
-import mod.kagic.worlddata.WorldDataGalaxyPad;
 import mod.ke2.KAGIC;
 import mod.ke2.api.warping.GalaxyWarpPadLocation;
 import mod.ke2.api.warping.WarpPadDataEntry;
@@ -61,7 +57,6 @@ public class TileEntityGalaxyWarpPadCore extends TileEntityWarpPadCore {
 				return false;
 			}
 		}
-		
 		for (int z = -1; z <= 1; ++z) {
 			IBlockState state = this.world.getBlockState(this.pos.add(-3, -1, z));
 			if (state.getBlock() != Blocks.QUARTZ_STAIRS || state.getValue(BlockStairs.FACING) != EnumFacing.EAST || state.getValue(BlockStairs.HALF) != EnumHalf.BOTTOM || state.getValue(BlockStairs.SHAPE) != EnumShape.STRAIGHT) {
@@ -72,7 +67,6 @@ public class TileEntityGalaxyWarpPadCore extends TileEntityWarpPadCore {
 				return false;
 			}
 		}
-		
 		IBlockState state = this.world.getBlockState(this.pos.add(2, -1, 3));
 		if (state.getBlock() != Blocks.STONE_SLAB || state.getValue(BlockHalfStoneSlab.VARIANT) != BlockStoneSlab.EnumType.QUARTZ || state.getValue(BlockSlab.HALF) != EnumBlockHalf.BOTTOM) {
 			return false;
@@ -82,40 +76,32 @@ public class TileEntityGalaxyWarpPadCore extends TileEntityWarpPadCore {
 		if (state.getBlock() != Blocks.STONE_SLAB || state.getValue(BlockHalfStoneSlab.VARIANT) != BlockStoneSlab.EnumType.QUARTZ || state.getValue(BlockSlab.HALF) != EnumBlockHalf.BOTTOM) {
 			return false;
 		}
-
 		state = this.world.getBlockState(this.pos.add(-2, -1, 3));
 		if (state.getBlock() != Blocks.STONE_SLAB || state.getValue(BlockHalfStoneSlab.VARIANT) != BlockStoneSlab.EnumType.QUARTZ || state.getValue(BlockSlab.HALF) != EnumBlockHalf.BOTTOM) {
 			return false;
 		}
-
 		state = this.world.getBlockState(this.pos.add(-2, -1, -3));
 		if (state.getBlock() != Blocks.STONE_SLAB || state.getValue(BlockHalfStoneSlab.VARIANT) != BlockStoneSlab.EnumType.QUARTZ || state.getValue(BlockSlab.HALF) != EnumBlockHalf.BOTTOM) {
 			return false;
 		}
-
 		state = this.world.getBlockState(this.pos.add(3, -1, 2));
 		if (state.getBlock() != Blocks.STONE_SLAB || state.getValue(BlockHalfStoneSlab.VARIANT) != BlockStoneSlab.EnumType.QUARTZ || state.getValue(BlockSlab.HALF) != EnumBlockHalf.BOTTOM) {
 			return false;
 		}
-
 		state = this.world.getBlockState(this.pos.add(3, -1, -2));
 		if (state.getBlock() != Blocks.STONE_SLAB || state.getValue(BlockHalfStoneSlab.VARIANT) != BlockStoneSlab.EnumType.QUARTZ || state.getValue(BlockSlab.HALF) != EnumBlockHalf.BOTTOM) {
 			return false;
 		}
-
 		state = this.world.getBlockState(this.pos.add(-3, -1, 2));
 		if (state.getBlock() != Blocks.STONE_SLAB || state.getValue(BlockHalfStoneSlab.VARIANT) != BlockStoneSlab.EnumType.QUARTZ || state.getValue(BlockSlab.HALF) != EnumBlockHalf.BOTTOM) {
 			return false;
 		}
-
 		state = this.world.getBlockState(this.pos.add(-3, -1, -2));
 		if (state.getBlock() != Blocks.STONE_SLAB || state.getValue(BlockHalfStoneSlab.VARIANT) != BlockStoneSlab.EnumType.QUARTZ || state.getValue(BlockSlab.HALF) != EnumBlockHalf.BOTTOM) {
 			return false;
 		}
-
 		return super.validateStairs();
 	}
-
 	@Override
 	protected boolean validatePad() {
 		for (int x = -2; x <= 2; ++x) {
@@ -128,24 +114,20 @@ public class TileEntityGalaxyWarpPadCore extends TileEntityWarpPadCore {
 		}
 		return super.validatePad();
 	}
-	
-	public void beginWarp(GalaxyPadLocation destination) {
+	public void beginWarp(GalaxyWarpPadLocation destination) {
 		Ticket ticket = ForgeChunkManager.requestTicket(KAGIC.instance, this.world, Type.NORMAL);
 		TileEntityGalaxyWarpPadCore destPad = (TileEntityGalaxyWarpPadCore) this.world.getTileEntity(destination.getPos());
 		this.loadPadChunks(this, ticket);
-		
 		this.warpTicksLeft = this.warpTicks;
 		this.destination = destination;
 		this.warping = true;
 		this.setDirty();
 		this.world.playSound(null, this.pos, ModSounds.WARP_PAD, SoundCategory.BLOCKS, 20.0f, 1.0f);
 	}
-	
 	@Override
 	public void destroy() {
 		WorldDataGalaxyWarpPad.get(this.world).removeGalaxyPadEntry(this.getLocation());
 	}
-	
 	@Override
 	public void WARP() {
 		int oldDimension = this.world.provider.getDimension();

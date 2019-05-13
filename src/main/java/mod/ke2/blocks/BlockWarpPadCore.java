@@ -21,29 +21,25 @@ public class BlockWarpPadCore extends Block implements ITileEntityProvider {
 		super(Material.ROCK);
         this.setUnlocalizedName("warp_pad_core");        
         this.setResistance(4);
-        this.setHardness(0.8f);
+        this.setHardness(0.8F);
         this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
-	
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		return new TileEntityWarpPadCore();
 	}
-	
-	private TileEntityWarpPadCore getTE(World world, BlockPos pos) {
+	private TileEntityWarpPadCore getWarpPad(World world, BlockPos pos) {
 		return (TileEntityWarpPadCore) world.getTileEntity(pos);
 	}
-	
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if (worldIn.isRemote) {
 			ItemStack heldItem = playerIn.getHeldItem(hand);
-
 			if (heldItem.getItem() == Ke2Items.GEM_STAFF) {
-				TileEntityWarpPadCore entityPad = this.getTE(worldIn, pos);
+				TileEntityWarpPadCore entityPad = this.getWarpPad(worldIn, pos);
 				entityPad.validateWarpPad();
 				if (entityPad.isValidPad()) {
-					playerIn.openGui(KAGIC.instance, KTGUIProxy.GUIWARPPADID, worldIn, pos.getX(), pos.getY(), pos.getZ());
+					playerIn.openGui(KAGIC.instance, Ke2GuiProxy.GUIWARPPADID, worldIn, pos.getX(), pos.getY(), pos.getZ());
 					return true;
 				}
 			}

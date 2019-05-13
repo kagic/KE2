@@ -14,12 +14,12 @@ import net.minecraft.client.gui.GuiListExtended;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 
-public class GUIGalaxyPadList extends GuiListExtended {
+public class GuiGalaxyWarpPadList extends GuiListExtended {
 	private final Minecraft mc;
-	private final GUIGalaxyPadSelection selectionScreen;
+	private final GuiGalaxyWarpPadSelection selectionScreen;
 	private final GuiListExtended.IGuiListEntry[] padListEntries;
 
-	public GUIGalaxyPadList(GUIGalaxyPadSelection parent, BlockPos sourcePos, SortedMap<Double, GalaxyWarpPadLocation> positions, Minecraft mcIn, int widthIn, int heightIn, int topIn, int bottomIn, int slotHeightIn) {
+	public GuiGalaxyWarpPadList(GuiGalaxyWarpPadSelection parent, BlockPos sourcePos, SortedMap<Double, GalaxyWarpPadLocation> positions, Minecraft mcIn, int widthIn, int heightIn, int topIn, int bottomIn, int slotHeightIn) {
 		super(mcIn, widthIn, heightIn, topIn + 30, bottomIn - 30, slotHeightIn);
 		this.mc = mcIn;
 		this.selectionScreen = parent;
@@ -62,7 +62,7 @@ public class GUIGalaxyPadList extends GuiListExtended {
 
 		@Override
 		public void drawEntry(int slotIndex, int x, int y, int listWidth, int slotHeight, int mouseX, int mouseY, boolean isSelected, float partialTicks) {
-			this.padButton.x = GUIGalaxyPadList.this.mc.currentScreen.width / 2 - this.padButton.width / 2;
+			this.padButton.x = GuiGalaxyWarpPadList.this.mc.currentScreen.width / 2 - this.padButton.width / 2;
 			this.padButton.y = y + 10;
 			if (!this.padData.valid) {
 				this.padButton.displayString = TextFormatting.RED + this.padData.name;
@@ -73,12 +73,12 @@ public class GUIGalaxyPadList extends GuiListExtended {
 			} else {
 				this.padButton.displayString = TextFormatting.AQUA + this.padData.name;
 			}
-			this.padButton.drawButton(GUIGalaxyPadList.this.mc, mouseX, mouseY, partialTicks);
+			this.padButton.drawButton(GuiGalaxyWarpPadList.this.mc, mouseX, mouseY, partialTicks);
 		}
 
 		@Override
 		public boolean mousePressed(int slotIndex, int mouseX, int mouseY, int mouseEvent, int relativeX, int relativeY) {
-			if (this.padButton.mousePressed(GUIGalaxyPadList.this.mc, mouseX, mouseY)) {
+			if (this.padButton.mousePressed(GuiGalaxyWarpPadList.this.mc, mouseX, mouseY)) {
 				Ke2Packets.INSTANCE.sendToServer(new PacketGalaxyWarpPadSignal(this.sourcePos, this.padPos));
 				Minecraft.getMinecraft().player.closeScreen();
 				return true;

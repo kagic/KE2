@@ -3,8 +3,8 @@ package mod.ke2.client.gui;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 
-public class GUIWarpPadSelectionContainer extends Container {
-	public GUIWarpPadSelectionContainer() {
+public class GuiWarpPadSelectionContainer extends Container {
+	public GuiWarpPadSelectionContainer() {
 		
 	}
 	
