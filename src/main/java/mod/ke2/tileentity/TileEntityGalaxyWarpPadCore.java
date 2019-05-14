@@ -4,8 +4,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import mod.ke2.KAGIC;
-import mod.ke2.api.warping.GalaxyWarpPadLocation;
 import mod.ke2.api.warping.WarpPadDataEntry;
+import mod.ke2.api.warping.pos.GalaxyWarpPadPos;
 import mod.ke2.init.Ke2Packets;
 import mod.ke2.networking.PacketEntityTeleport;
 import mod.ke2.world.data.WorldDataGalaxyWarpPad;
@@ -33,9 +33,9 @@ import net.minecraftforge.common.ForgeChunkManager.Ticket;
 import net.minecraftforge.common.ForgeChunkManager.Type;
 
 public class TileEntityGalaxyWarpPadCore extends TileEntityWarpPadCore {
-	private GalaxyWarpPadLocation destination;
-	protected GalaxyWarpPadLocation getLocation() {
-		return new GalaxyWarpPadLocation(this.world.provider.getDimension(), this.pos);
+	private GalaxyWarpPadPos destination;
+	protected GalaxyWarpPadPos getLocation() {
+		return new GalaxyWarpPadPos(this.world.provider.getDimension(), this.pos);
 	}
 	@Override
 	protected void setDirty() {
@@ -114,7 +114,7 @@ public class TileEntityGalaxyWarpPadCore extends TileEntityWarpPadCore {
 		}
 		return super.validatePad();
 	}
-	public void beginWarp(GalaxyWarpPadLocation destination) {
+	public void beginWarp(GalaxyWarpPadPos destination) {
 		Ticket ticket = ForgeChunkManager.requestTicket(KAGIC.instance, this.world, Type.NORMAL);
 		TileEntityGalaxyWarpPadCore destPad = (TileEntityGalaxyWarpPadCore) this.world.getTileEntity(destination.getPos());
 		this.loadPadChunks(this, ticket);

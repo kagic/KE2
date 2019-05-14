@@ -8,8 +8,8 @@ import java.util.TreeMap;
 
 import org.lwjgl.input.Keyboard;
 
-import mod.ke2.api.warping.GalaxyWarpPadLocation;
 import mod.ke2.api.warping.WarpPadDataEntry;
+import mod.ke2.api.warping.pos.GalaxyWarpPadPos;
 import mod.ke2.tileentity.TileEntityGalaxyWarpPadCore;
 import mod.ke2.world.data.WorldDataGalaxyWarpPad;
 import net.minecraft.client.Minecraft;
@@ -20,13 +20,13 @@ import net.minecraft.util.math.BlockPos;
 
 public class GuiGalaxyWarpPadSelection extends GuiScreen {
 	private SortedMap<Double, BlockPos> positions = new TreeMap<Double, BlockPos>();
-	private Map<GalaxyWarpPadLocation, WarpPadDataEntry> data = null;
+	private Map<GalaxyWarpPadPos, WarpPadDataEntry> data = null;
 	private final TileEntityGalaxyWarpPadCore pad;
 	protected String screenTitle = "Select Destination";
 	private GuiGalaxyWarpPadList padList;
 	private GuiButton buttonDone; 
 	
-	public GuiWarpPadSelection(LinkedHashMap<GalaxyWarpPadLocation, WarpPadDataEntry> data, int x, int y, int z) {
+	public GuiWarpPadSelection(LinkedHashMap<GalaxyWarpPadPos, WarpPadDataEntry> data, int x, int y, int z) {
 		this.pad = (TileEntityGalaxyWarpPadCore)(Minecraft.getMinecraft().world.getTileEntity(new BlockPos(x, y, z)));
 		this.positions = WorldDataGalaxyWarpPad.getSortedPositions(data, this.pad.getPos());
 		this.data = data;

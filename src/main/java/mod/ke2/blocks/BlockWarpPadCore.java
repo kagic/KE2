@@ -3,6 +3,7 @@ package mod.ke2.blocks;
 import mod.ke2.KAGIC;
 import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.init.Ke2Items;
+import mod.ke2.proxies.CommonProxy;
 import mod.ke2.tileentity.TileEntityWarpPadCore;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -39,7 +40,7 @@ public class BlockWarpPadCore extends Block implements ITileEntityProvider {
 				TileEntityWarpPadCore entityPad = this.getWarpPad(worldIn, pos);
 				entityPad.validateWarpPad();
 				if (entityPad.isValidPad()) {
-					playerIn.openGui(KAGIC.instance, Ke2GuiProxy.GUIWARPPADID, worldIn, pos.getX(), pos.getY(), pos.getZ());
+					playerIn.openGui(KAGIC.instance, CommonProxy.GUI_WARP_PAD, worldIn, pos.getX(), pos.getY(), pos.getZ());
 					return true;
 				}
 			}

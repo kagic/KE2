@@ -19,7 +19,7 @@ public class GuiGalaxyWarpPadList extends GuiListExtended {
 	private final GuiGalaxyWarpPadSelection selectionScreen;
 	private final GuiListExtended.IGuiListEntry[] padListEntries;
 
-	public GuiGalaxyWarpPadList(GuiGalaxyWarpPadSelection parent, BlockPos sourcePos, SortedMap<Double, GalaxyWarpPadLocation> positions, Minecraft mcIn, int widthIn, int heightIn, int topIn, int bottomIn, int slotHeightIn) {
+	public GuiGalaxyWarpPadList(GuiGalaxyWarpPadSelection parent, BlockPos sourcePos, SortedMap<Double, GalaxyWarpPadPos> positions, Minecraft mcIn, int widthIn, int heightIn, int topIn, int bottomIn, int slotHeightIn) {
 		super(mcIn, widthIn, heightIn, topIn + 30, bottomIn - 30, slotHeightIn);
 		this.mc = mcIn;
 		this.selectionScreen = parent;
@@ -28,7 +28,7 @@ public class GuiGalaxyWarpPadList extends GuiListExtended {
 		Iterator it = positions.values().iterator();
 		int i = 0;
 		while (it.hasNext()) {
-			GalaxyWarpPadLocation gLoc = (GalaxyWarpPadLocation) it.next();
+			GalaxyWarpPadPos gLoc = (GalaxyWarpPadPos) it.next();
 			WarpPadDataEntry data = this.selectionScreen.getPadDataEntry(gLoc);
 			padListEntries[i] = new PadListEntry(sourcePos, gLoc, data);
 			++i;
@@ -49,11 +49,11 @@ public class GuiGalaxyWarpPadList extends GuiListExtended {
 	
 	public class PadListEntry implements GuiListExtended.IGuiListEntry {
 		private final BlockPos sourcePos;
-		private final GalaxyWarpPadLocation padPos;
+		private final GalaxyWarpPadPos padPos;
 		private final WarpPadDataEntry padData;
 		private final GuiButton padButton;
 
-		PadListEntry(BlockPos sourcePos, GalaxyWarpPadLocation gLoc, WarpPadDataEntry data) {
+		PadListEntry(BlockPos sourcePos, GalaxyWarpPadPos gLoc, WarpPadDataEntry data) {
 			this.sourcePos = sourcePos;
 			this.padPos = gLoc;
 			this.padData = data;

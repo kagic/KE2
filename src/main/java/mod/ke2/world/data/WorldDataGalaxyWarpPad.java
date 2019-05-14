@@ -9,8 +9,8 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import mod.ke2.KAGIC;
-import mod.ke2.api.warping.GalaxyWarpPadLocation;
 import mod.ke2.api.warping.WarpPadDataEntry;
+import mod.ke2.api.warping.pos.GalaxyWarpPadPos;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.math.BlockPos;
@@ -21,7 +21,7 @@ import net.minecraftforge.common.util.Constants;
 
 public class WorldDataGalaxyWarpPad extends WorldSavedData {
 	private static final String DATA_NAME = KAGIC.MODID + "_galaxypads";
-	private final Map<GalaxyWarpPadLocation, WarpPadDataEntry> galaxyPadData = new LinkedHashMap<GalaxyWarpPadLocation, WarpPadDataEntry>();
+	private final Map<GalaxyWarpPadPos, WarpPadDataEntry> galaxyPadData = new LinkedHashMap<GalaxyWarpPadPos, WarpPadDataEntry>();
 	
 	public WorldDataGalaxyWarpPad() {
 		super(DATA_NAME);
@@ -47,17 +47,17 @@ public class WorldDataGalaxyWarpPad extends WorldSavedData {
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		NBTTagList list = new NBTTagList();
-		Iterator<Entry<GalaxyWarpPadLocation, WarpPadDataEntry>> it = this.galaxyPadData.entrySet().iterator();
+		Iterator<Entry<GalaxyWarpPadPos, WarpPadDataEntry>> it = this.galaxyPadData.entrySet().iterator();
 		while (it.hasNext()) {
 			NBTTagCompound tc = new NBTTagCompound();
-			Entry<GalaxyWarpPadLocation, WarpPadDataEntry> pair = it.next();
+			Entry<GalaxyWarpPadPos, WarpPadDataEntry> pair = it.next();
 			tc.setString("name", ((WarpPadDataEntry)(pair.getValue())).name);
 			tc.setBoolean("valid", ((WarpPadDataEntry)(pair.getValue())).valid);
 			tc.setBoolean("clear", ((WarpPadDataEntry)(pair.getValue())).clear);
-			tc.setInteger("dim", ((GalaxyWarpPadLocation) pair.getKey()).getDimension());
-			tc.setInteger("x", ((GalaxyWarpPadLocation) pair.getKey()).getPos().getX());
-			tc.setInteger("y", ((GalaxyWarpPadLocation) pair.getKey()).getPos().getY());
-			tc.setInteger("z", ((GalaxyWarpPadLocation) pair.getKey()).getPos().getZ());
+			tc.setInteger("dim", ((GalaxyWarpPadPos) pair.getKey()).getDimension());
+			tc.setInteger("x", ((GalaxyWarpPadPos) pair.getKey()).getPos().getX());
+			tc.setInteger("y", ((GalaxyWarpPadPos) pair.getKey()).getPos().getY());
+			tc.setInteger("z", ((GalaxyWarpPadPos) pair.getKey()).getPos().getZ());
 			list.appendTag(tc);
 		}
 		compound.setTag("pads", list);
@@ -73,20 +73,20 @@ public class WorldDataGalaxyWarpPad extends WorldSavedData {
 			String name = tc.getString("name");
 			boolean valid = tc.getBoolean("valid");
 			boolean clear = tc.getBoolean("clear");
-			this.galaxyPadData.put(new GalaxyWarpPadLocation(dim, pos), new WarpPadDataEntry(name, valid, clear));
+			this.galaxyPadData.put(new GalaxyWarpPadPos(dim, pos), new WarpPadDataEntry(name, valid, clear));
 		}
 	}
-	public void addGalaxyPadEntry(String name, boolean valid, boolean clear, GalaxyWarpPadLocation gLoc) {
+	public void addGalaxyPadEntry(String name, boolean valid, boolean clear, GalaxyWarpPadPos gLoc) {
 		this.galaxyPadData.put(gLoc, new WarpPadDataEntry(name, valid, clear));
 		this.markDirty();
 	}
-	public void removeGalaxyPadEntry(GalaxyWarpPadLocation gpLoc) {
+	public void removeGalaxyPadEntry(GalaxyWarpPadPos gpLoc) {
 		if (this.galaxyPadData.containsKey(gpLoc)) {
 			this.galaxyPadData.remove(gpLoc);
 			this.markDirty();
 		}
 	}
-	public String getNameFromPos(GalaxyWarpPadLocation gpLoc) {
+	public String getNameFromPos(GalaxyWarpPadPos gpLoc) {
 		if (this.galaxyPadData.containsKey(gpLoc)) {
 			return this.galaxyPadData.get(gpLoc).name;			
 		}
@@ -94,15 +94,15 @@ public class WorldDataGalaxyWarpPad extends WorldSavedData {
 			return null;
 		}
 	}
-	public Map<GalaxyWarpPadLocation, WarpPadDataEntry> getGalaxyPadData() {
+	public Map<GalaxyWarpPadPos, WarpPadDataEntry> getGalaxyPadData() {
 		return this.galaxyPadData;
 	}
-	public static SortedMap<Double, GalaxyWarpPadLocation> getSortedPositions(Map<GalaxyWarpPadLocation, WarpPadDataEntry> data, BlockPos pos) {
-		SortedMap<Double, GalaxyWarpPadLocation> sortedPoses = new TreeMap<Double, GalaxyWarpPadLocation>();
-		Set<Entry<GalaxyWarpPadLocation, WarpPadDataEntry>> entrySet = data.entrySet();
-		Iterator<Entry<GalaxyWarpPadLocation, WarpPadDataEntry>> it = entrySet.iterator();
+	public static SortedMap<Double, GalaxyWarpPadPos> getSortedPositions(Map<GalaxyWarpPadPos, WarpPadDataEntry> data, BlockPos pos) {
+		SortedMap<Double, GalaxyWarpPadPos> sortedPoses = new TreeMap<Double, GalaxyWarpPadPos>();
+		Set<Entry<GalaxyWarpPadPos, WarpPadDataEntry>> entrySet = data.entrySet();
+		Iterator<Entry<GalaxyWarpPadPos, WarpPadDataEntry>> it = entrySet.iterator();
 		while (it.hasNext()) {
-			GalaxyWarpPadLocation gLoc = ((GalaxyWarpPadLocation)it.next().getKey());
+			GalaxyWarpPadPos gLoc = ((GalaxyWarpPadPos)it.next().getKey());
 			BlockPos otherPos = gLoc.getPos();
 			if (otherPos.equals(pos)) {
 				continue;

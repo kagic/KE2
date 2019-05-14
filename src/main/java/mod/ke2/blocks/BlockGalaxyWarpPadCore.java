@@ -1,6 +1,5 @@
 package mod.ke2.blocks;
 
-import mod.kagic.init.ModCreativeTabs;
 import mod.kagic.init.ModItems;
 import mod.ke2.KAGIC;
 import mod.ke2.init.Ke2CreativeTabs;
