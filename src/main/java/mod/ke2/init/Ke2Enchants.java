@@ -21,6 +21,7 @@ public class Ke2Enchants {
 	public static final EnchantShard GREEN_GEM_SHARD = new EnchantShard(Ke2Gems.BASIC_GREEN);
 	public static final EnchantShard RED_GEM_SHARD = new EnchantShard(Ke2Gems.BASIC_RED);
 	public static final EnchantShard BLACK_GEM_SHARD = new EnchantShard(Ke2Gems.BASIC_BLACK);
+	public static final EnumEnchantmentType BUBBLE = EnumHelper.addEnchantmentType("bubble", (item)->(item instanceof ItemSword));
 	
 	public static void register(RegistryEvent.Register<Enchantment> event) {
 		registerEnchant(WHITE_GEM_SHARD, event);
@@ -39,6 +40,7 @@ public class Ke2Enchants {
 		registerEnchant(GREEN_GEM_SHARD, event);
 		registerEnchant(RED_GEM_SHARD, event);
 		registerEnchant(BLACK_GEM_SHARD, event);
+		registerEnchant(BUBBLE, event);
 	}
 	private static void registerEnchant(Enchantment enchant, RegistryEvent.Register<Enchantment> event) {
 		event.getRegistry().register(enchant);
