@@ -37,11 +37,7 @@ public class EnchantBubble extends Enchantment {
         return 55;
     }
 	@Override
-	public int getMinLevel() {
-        return 1;
-    }
-	@Override
 	public int getMaxLevel() {
-        return 0;
+        return 1;
     }
 }
