@@ -7,6 +7,7 @@ import mod.ke2.items.ItemGemDust;
 import mod.ke2.items.ItemGemShard;
 import mod.ke2.items.ItemGemStaff;
 import mod.ke2.items.ItemManual;
+import mod.ke2.items.ItemWarpWhistle;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
@@ -22,9 +23,10 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class Ke2Items {
 	public static final ToolMaterial DESTABILIZER_MATERIAL = EnumHelper.addToolMaterial("DESTABILIZER_MATERIAL", 0, 24, 0.1f, 0.0f, 1);
-	//WOOD(0, 59, 2.0F, 0.0F, 15)
+	
 	public static final ItemManual MANUAL = new ItemManual();
 	public static final ItemGemStaff GEM_STAFF = new ItemGemStaff();
+	public static final ItemWarpWhistle WARP_WHISTLE = new ItemWarpWhistle();
 	public static final ItemGemDestabilizer WHITE_GEM_DESTABILIZER = new ItemGemDestabilizer(Ke2Gems.BASIC_WHITE);
 	public static final ItemGemShard WHITE_GEM_SHARD = new ItemGemShard(Ke2Gems.BASIC_WHITE);
 	public static final ItemGemDust WHITE_GEM_DUST = new ItemGemDust(Ke2Gems.BASIC_WHITE);
@@ -78,6 +80,7 @@ public class Ke2Items {
 	public static void register(RegistryEvent.Register<Item> event) {
 		registerItem(MANUAL, new ResourceLocation("ke2:manual"), event);
 		registerItem(GEM_STAFF, new ResourceLocation("ke2:gem_staff"), event);
+		registerItem(WARP_WHISTLE, new ResourceLocation("ke2:warp_whistle"), event);
 		registerItem(WHITE_GEM_DESTABILIZER, new ResourceLocation("ke2:white_gem_destabilizer"), event);
 		registerItem(WHITE_GEM_SHARD, new ResourceLocation("ke2:white_gem_shard"), event);
 		registerItem(WHITE_GEM_DUST, new ResourceLocation("ke2:white_gem_dust"), event);

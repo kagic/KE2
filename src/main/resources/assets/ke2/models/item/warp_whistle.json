@@ -1,0 +1,7 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "ke2:items/warp_whistle_white",
+		"layer1": "ke2:items/warp_whistle_color"
+	}
+}

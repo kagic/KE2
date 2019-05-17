@@ -5,6 +5,7 @@ import mod.ke2.blocks.BlockCarbonite;
 import mod.ke2.client.gui.GuiWarpPad;
 import mod.ke2.client.gui.GuiWarpPadSelection;
 import mod.ke2.command.CommandReportBug;
+import mod.ke2.init.Ke2Colors;
 import mod.ke2.tileentity.TileEntityWarpPadCore;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
@@ -27,6 +28,7 @@ public class ClientProxy implements CommonProxy {
 	@Override
 	public void init(FMLInitializationEvent e) {
 		ClientCommandHandler.instance.registerCommand(new CommandReportBug());
+		Ke2Colors.register();
 	}
 	@Override
 	public void postInit(FMLPostInitializationEvent e) {
