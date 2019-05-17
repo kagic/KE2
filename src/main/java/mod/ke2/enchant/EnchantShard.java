@@ -19,7 +19,7 @@ public class EnchantShard extends Enchantment {
 	public static final HashMap<String, EnchantShard> ENCHANTS = new HashMap<String, EnchantShard>();
 	public final int color;
 	public EnchantShard(int color) {
-		super(Rarity.UNCOMMON, EnumEnchantmentType.ALL, new EntityEquipmentSlot[] { EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND });
+		super(Rarity.UNCOMMON, null, new EntityEquipmentSlot[] { EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND });
 		String name = EnumDyeColor.byMetadata(color).toString().toLowerCase();
 		this.setRegistryName(new ResourceLocation("ke2:" + name + "_gem_shard"));
 		this.setName(name + "_gem_shard.name");
@@ -66,7 +66,7 @@ public class EnchantShard extends Enchantment {
     }
     @Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
-        return false;
+        return true;
     }
     @Override
 	public boolean isTreasureEnchantment() {
@@ -74,19 +74,19 @@ public class EnchantShard extends Enchantment {
     }
     @Override
 	public boolean isCurse() {
-        return true;
+        return false;
     }
 	@Override
 	public boolean isAllowedOnBooks() {
-		return false;
+		return true;
 	}
 	@Override
 	public int getMinEnchantability(int enchantmentLevel) {
-        return 5;
+        return 2147483647;
     }
     @Override
 	public int getMaxEnchantability(int enchantmentLevel) {
-        return 55;
+        return 2147483647;
     }
 	@Override
 	public int getMaxLevel() {
