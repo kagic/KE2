@@ -3,9 +3,9 @@
 	"defaults": {
 		"model": "minecraft:stairs",
 		"textures": {
-			"bottom": "ke2:blocks/black_warp_frame",
-			"top": "ke2:blocks/black_warp_frame",
-			"side": "ke2:blocks/black_warp_frame"
+			"bottom": "ke2:blocks/black_warp_pad_frame",
+			"top": "ke2:blocks/black_warp_pad_frame",
+			"side": "ke2:blocks/black_warp_pad_frame"
 		}
 	},
     "variants": {
