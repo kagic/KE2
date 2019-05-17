@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class Ke2CreativeTabs extends CreativeTabs {
-	public static final Ke2CreativeTabs GEMSTONES = new Ke2CreativeTabs(Ke2Items.GREEN_GEM_SHARD, "gemstones");
+	public static final Ke2CreativeTabs GEMSTONES = new Ke2CreativeTabs(Ke2Items.MANUAL, "gemstones");
 	public static final Ke2CreativeTabs GEM_TECH = new Ke2CreativeTabs(Ke2Blocks.WAILING_STONE, "gem_tech");
 	private final String suffix;
 	private final Item item;

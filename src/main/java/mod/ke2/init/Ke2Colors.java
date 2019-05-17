@@ -15,10 +15,10 @@ public class Ke2Colors {
 						return stack.getTagCompound().getInteger("Color");
 					}
 					else {
-						return 0xf2ffff;
+						return 0xb2ffff;
 					}
 				}
-				return 0xfffff;
+				return 0xffffff;
 			}
 		}, Ke2Items.WARP_WHISTLE);
 	}
