@@ -60,9 +60,12 @@ public class ItemGemDestabilizer extends Item {
     }
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-		if (super.hitEntity(stack, target, attacker) && stack.hasTagCompound()) {
+		System.out.println("test");
+		if (stack.hasTagCompound()) {
+			System.out.println("test 1");
 			if (target instanceof EntityGem) {
 	        	if (stack.getTagCompound().getBoolean("Primed")) {
+	        		System.out.println("test 2");
 			        target.attackEntityFrom(Ke2Damage.POOF, target.getMaxHealth());
 			        stack.getTagCompound().setBoolean("Primed", false);
 		        }
