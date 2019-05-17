@@ -1,5 +1,6 @@
 package mod.ke2.init;
 
+import mod.ke2.enchant.EnchantBubble;
 import mod.ke2.enchant.EnchantShard;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraftforge.event.RegistryEvent;
@@ -21,7 +22,7 @@ public class Ke2Enchants {
 	public static final EnchantShard GREEN_GEM_SHARD = new EnchantShard(Ke2Gems.BASIC_GREEN);
 	public static final EnchantShard RED_GEM_SHARD = new EnchantShard(Ke2Gems.BASIC_RED);
 	public static final EnchantShard BLACK_GEM_SHARD = new EnchantShard(Ke2Gems.BASIC_BLACK);
-	public static final EnumEnchantmentType BUBBLE = EnumHelper.addEnchantmentType("bubble", (item)->(item instanceof ItemSword));
+	public static final EnchantBubble BUBBLE = new EnchantBubble();
 	
 	public static void register(RegistryEvent.Register<Enchantment> event) {
 		registerEnchant(WHITE_GEM_SHARD, event);
