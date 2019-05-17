@@ -10,6 +10,7 @@ import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
@@ -18,12 +19,17 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockWarpPadCore extends Block implements ITileEntityProvider {
-	public BlockWarpPadCore() {
+	private final int color;
+	public BlockWarpPadCore(int color) {
 		super(Material.ROCK);
-        this.setUnlocalizedName("warp_pad_core");
+        this.color = color;
+		this.setUnlocalizedName(EnumDyeColor.byMetadata(color).toString().toLowerCase() + "_warp_pad_core");
     	this.setResistance(30);
     	this.setHardness(2);
         this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
+	}
+	public int getColor() {
+		return this.color;
 	}
 	protected TileEntityWarpPadCore getWarpPad(World world, BlockPos pos) {
 		return (TileEntityWarpPadCore) world.getTileEntity(pos);
