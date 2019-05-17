@@ -3,11 +3,10 @@ package mod.ke2.client.gui;
 import java.util.Iterator;
 import java.util.SortedMap;
 
-import mod.kagic.worlddata.GalaxyPadLocation;
-import mod.kagic.worlddata.WarpPadDataEntry;
+import mod.ke2.api.warping.WarpPadDataEntry;
+import mod.ke2.api.warping.pos.GalaxyWarpPadPos;
 import mod.ke2.init.Ke2Packets;
 import mod.ke2.networking.PacketGalaxyWarpPadSignal;
-import mod.ke2.networking.PacketWarpPadSignal;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiListExtended;

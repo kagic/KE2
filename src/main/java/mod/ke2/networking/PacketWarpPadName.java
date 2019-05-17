@@ -1,8 +1,8 @@
 package mod.ke2.networking;
 
 import io.netty.buffer.ByteBuf;
-import mod.kagic.init.KAGIC;
-import mod.kagic.tileentity.TileEntityWarpPadCore;
+import mod.ke2.KAGIC;
+import mod.ke2.tileentity.TileEntityWarpPadCore;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

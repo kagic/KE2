@@ -1,10 +1,9 @@
 package mod.ke2.networking;
 
 import io.netty.buffer.ByteBuf;
-import mod.kagic.init.KAGIC;
 import mod.kagic.tileentity.TileEntityGalaxyPadCore;
-import mod.kagic.tileentity.TileEntityWarpPadCore;
-import mod.kagic.worlddata.GalaxyPadLocation;
+import mod.ke2.KAGIC;
+import mod.ke2.api.warping.pos.GalaxyWarpPadPos;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -15,9 +14,9 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class PacketGalaxyWarpPadSignal implements IMessage {
 	private BlockPos sourcePad;
-	private GalaxyPadLocation destinationPad;
+	private GalaxyWarpPadPos destinationPad;
 	
-	public PacketGalaxyWarpPadSignal(BlockPos source, GalaxyPadLocation dest) {
+	public PacketGalaxyWarpPadSignal(BlockPos source, GalaxyWarpPadPos dest) {
 		this.sourcePad = source;
 		this.destinationPad = dest;
 	}
@@ -27,7 +26,7 @@ public class PacketGalaxyWarpPadSignal implements IMessage {
 	@Override
 	public void fromBytes(ByteBuf buf) {
 		this.sourcePad = new BlockPos(buf.readInt(), buf.readInt(), buf.readInt());
-		this.destinationPad = new GalaxyPadLocation(buf.readInt(), new BlockPos(buf.readInt(), buf.readInt(), buf.readInt()));
+		this.destinationPad = new GalaxyWarpPadPos(buf.readInt(), new BlockPos(buf.readInt(), buf.readInt(), buf.readInt()));
 	}
 
 	@Override

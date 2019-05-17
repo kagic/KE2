@@ -20,17 +20,17 @@ import net.minecraft.world.World;
 public class BlockWarpPadCore extends Block implements ITileEntityProvider {
 	public BlockWarpPadCore() {
 		super(Material.ROCK);
-        this.setUnlocalizedName("warp_pad_core");        
-        this.setResistance(4);
-        this.setHardness(0.8F);
+        this.setUnlocalizedName("warp_pad_core");
+    	this.setResistance(30);
+    	this.setHardness(2);
         this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
+	}
+	protected TileEntityWarpPadCore getWarpPad(World world, BlockPos pos) {
+		return (TileEntityWarpPadCore) world.getTileEntity(pos);
 	}
 	@Override
 	public TileEntity createNewTileEntity(World worldIn, int meta) {
 		return new TileEntityWarpPadCore();
-	}
-	private TileEntityWarpPadCore getWarpPad(World world, BlockPos pos) {
-		return (TileEntityWarpPadCore) world.getTileEntity(pos);
 	}
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
@@ -47,10 +47,9 @@ public class BlockWarpPadCore extends Block implements ITileEntityProvider {
 		}
 		return false;
 	}
-	
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
-		((TileEntityWarpPadCore) world.getTileEntity(pos)).destroy();
+		this.getWarpPad(world, pos).destroy();
 		super.breakBlock(world, pos, state);
 	}
 }

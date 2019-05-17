@@ -17,7 +17,7 @@ public class GuiWarpPad extends GuiScreen {
 	private final TileEntityWarpPadCore tilePad;
 	private GuiTextField nameTextField;
 	private GuiButton doneButton;
-	GuiWarpPad(TileEntityWarpPadCore tePad){
+	public GuiWarpPad(TileEntityWarpPadCore tePad){
 		this.tilePad = tePad;
 	}
 	@Override

@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 
 import io.netty.buffer.ByteBuf;
-import mod.kagic.init.KAGIC;
 import mod.kagic.worlddata.GalaxyPadLocation;
-import mod.kagic.worlddata.WarpPadDataEntry;
+import mod.ke2.KAGIC;
+import mod.ke2.api.warping.WarpPadDataEntry;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;

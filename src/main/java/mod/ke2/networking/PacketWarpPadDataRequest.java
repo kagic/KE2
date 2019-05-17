@@ -2,8 +2,8 @@ package mod.ke2.networking;
 
 import io.netty.buffer.ByteBuf;
 import mod.kagic.worlddata.WorldDataGalaxyPad;
-import mod.kagic.worlddata.WorldDataWarpPad;
 import mod.ke2.init.Ke2Packets;
+import mod.ke2.world.data.WorldDataWarpPad;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
