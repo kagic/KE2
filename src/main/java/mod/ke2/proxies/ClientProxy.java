@@ -3,9 +3,11 @@ package mod.ke2.proxies;
 import mod.ke2.KAGIC;
 import mod.ke2.blocks.BlockCarbonite;
 import mod.ke2.client.gui.GuiWarpPad;
+import mod.ke2.client.gui.GuiWarpPadSelection;
 import mod.ke2.command.CommandReportBug;
 import mod.ke2.tileentity.TileEntityWarpPadCore;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -44,7 +46,7 @@ public class ClientProxy implements CommonProxy {
 	}
 	@Override
 	public Object getClientGuiElement(int i, EntityPlayer player, World world, int x, int y, int z) {
-		if (world.isRemote) {
+		if (world == null || world.isRemote) {
 			switch (i) {
 			case CommonProxy.GUI_WARP_PAD:
 				TileEntity pad = world.getTileEntity(new BlockPos(x, y, z));
@@ -59,7 +61,10 @@ public class ClientProxy implements CommonProxy {
 	}
 	@Override
 	public Object getServerGuiElement(int i, EntityPlayer player, World world, int x, int y, int z) {
-
 		return null;
+	}
+	@Override
+	public void openGuiScreen(GuiScreen screen) {
+		Minecraft.getMinecraft().displayGuiScreen(screen);
 	}
 }

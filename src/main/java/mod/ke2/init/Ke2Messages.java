@@ -1,40 +1,32 @@
 package mod.ke2.init;
 
 import mod.ke2.networking.PacketEntityTeleport;
-import mod.ke2.networking.PacketGalaxyWarpPadSignal;
 import mod.ke2.networking.PacketWarpPadData;
 import mod.ke2.networking.PacketWarpPadDataRequest;
 import mod.ke2.networking.PacketWarpPadName;
 import mod.ke2.networking.PacketWarpPadSignal;
-import mod.ke2.networking.PacketEntityTeleport.EntityTeleportMessageHandler;
-import mod.ke2.networking.PacketGalaxyWarpPadSignal.GalaxySignalMessageHandler;
-import mod.ke2.networking.PacketWarpPadData.PadDataMessageHandler;
-import mod.ke2.networking.PacketWarpPadDataRequest.PadDataRequestMessageHandler;
-import mod.ke2.networking.PacketWarpPadName.TENameMessageHandler;
-import mod.ke2.networking.PacketWarpPadSignal.WarpSignalMessageHandler;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
+import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class Ke2Packets {
-	private static int packetID = 0;
+public class Ke2Messages {
 	public static SimpleNetworkWrapper INSTANCE = null;
-	
-	public static int nextID() {
-		return packetID++;
+	private static int ID = 0;
+	public static void register(String channel) {
+		Ke2Messages.INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(channel);
+		register();
 	}
-	
-	public static void registerMessages(String channelName) {
-		INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(channelName);
-		registerMessages();
+	public static void register() {
+		registerMessage(PacketWarpPadName.Handler.class, PacketWarpPadName.class, Side.SERVER);
+		registerMessage(PacketWarpPadDataRequest.Handler.class, PacketWarpPadDataRequest.class, Side.SERVER);
+		registerMessage(PacketWarpPadData.Handler.class, PacketWarpPadData.class, Side.CLIENT);
+		registerMessage(PacketWarpPadSignal.Handler.class, PacketWarpPadSignal.class, Side.SERVER);
+		registerMessage(PacketEntityTeleport.Handler.class, PacketEntityTeleport.class, Side.CLIENT);
 	}
-	
-	public static void registerMessages() {
-		INSTANCE.registerMessage(PacketWarpPadName.TENameMessageHandler.class, PacketWarpPadName.class, nextID(), Side.SERVER);
-		INSTANCE.registerMessage(PacketWarpPadDataRequest.PadDataRequestMessageHandler.class, PacketWarpPadDataRequest.class, nextID(), Side.SERVER);
-		INSTANCE.registerMessage(PacketWarpPadData.PadDataMessageHandler.class, PacketWarpPadData.class, nextID(), Side.CLIENT);
-		INSTANCE.registerMessage(PacketWarpPadSignal.WarpSignalMessageHandler.class, PacketWarpPadSignal.class, nextID(), Side.SERVER);
-		INSTANCE.registerMessage(PacketEntityTeleport.EntityTeleportMessageHandler.class, PacketEntityTeleport.class, nextID(), Side.CLIENT);
-		INSTANCE.registerMessage(PacketGalaxyWarpPadSignal.GalaxySignalMessageHandler.class, PacketGalaxyWarpPadSignal.class, nextID(), Side.SERVER);
+	public static <REQ extends IMessage, REPLY extends IMessage> void registerMessage(Class<? extends IMessageHandler<REQ, REPLY>> handler, Class<REQ> type, Side side) {
+		Ke2Messages.INSTANCE.registerMessage(handler, type, Ke2Messages.ID, side);
+		++Ke2Messages.ID;
 	}
 }

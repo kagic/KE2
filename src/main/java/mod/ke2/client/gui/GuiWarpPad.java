@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.lwjgl.input.Keyboard;
 
-import mod.ke2.init.Ke2Packets;
+import mod.ke2.init.Ke2Messages;
 import mod.ke2.networking.PacketWarpPadName;
 import mod.ke2.tileentity.TileEntityWarpPadCore;
 import net.minecraft.client.Minecraft;
@@ -14,11 +14,11 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.resources.I18n;
 
 public class GuiWarpPad extends GuiScreen {
-	private final TileEntityWarpPadCore tilePad;
-	private GuiTextField nameTextField;
-	private GuiButton doneButton;
-	public GuiWarpPad(TileEntityWarpPadCore tePad){
-		this.tilePad = tePad;
+	private final TileEntityWarpPadCore pad;
+	protected String title = "Enter a new warp pad name.";
+	protected GuiTextField textName;
+	public GuiWarpPad(TileEntityWarpPadCore pad){
+		this.pad = pad;
 	}
 	@Override
 	public boolean doesGuiPauseGame() {
@@ -26,19 +26,26 @@ public class GuiWarpPad extends GuiScreen {
 	}
 	@Override
 	public void updateScreen() {
-		this.nameTextField.updateCursorCounter();
+		this.textName.updateCursorCounter();
 	}
 	public void initGui() {
 		this.buttonList.clear();
 		Keyboard.enableRepeatEvents(true);
-		this.nameTextField = new GuiTextField(2, this.fontRenderer, this.width / 2 - 100, this.height / 2 - 10, 200, 20);
-		this.nameTextField.setMaxStringLength(256);
-		this.nameTextField.setText(this.tilePad.name);
-		this.nameTextField.setFocused(true);
-		this.doneButton = this.addButton(new GuiButton(0, this.width / 2 - 100, this.height / 2 + 30, I18n.format("gui.done", new Object[0])));
+		this.textName = new GuiTextField(2, this.fontRenderer, this.width / 2 - 100, this.height / 2 - 10, 200, 20);
+		this.textName.setMaxStringLength(256);
+		this.textName.setText(this.pad.name);
+		this.textName.setFocused(true);
+		this.addButton(new GuiButton(0, this.width / 2 - 100, this.height / 2 + 30, I18n.format("gui.done", new Object[0])));
 	}
 	public void onGuiClosed() {
-		Ke2Packets.INSTANCE.sendToServer(new PacketWarpPadName(nameTextField.getText(), tilePad.getPos().getX(), tilePad.getPos().getY(), tilePad.getPos().getZ()));
+		Ke2Messages.INSTANCE.sendToServer(
+			new PacketWarpPadName(
+				this.textName.getText(),
+				this.pad.getPos().getX(),
+				this.pad.getPos().getY(),
+				this.pad.getPos().getZ()
+			)
+		);
 		Keyboard.enableRepeatEvents(false);
 	}
 	@Override
@@ -55,18 +62,18 @@ public class GuiWarpPad extends GuiScreen {
 			Minecraft.getMinecraft().player.closeScreen();
 			break;
 		default:
-			this.nameTextField.textboxKeyTyped(typedChar, keyCode);
+			this.textName.textboxKeyTyped(typedChar, keyCode);
 		}
 	}
 	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 		super.mouseClicked(mouseX, mouseY, mouseButton);
-		this.nameTextField.mouseClicked(mouseX, mouseY, mouseButton);
+		this.textName.mouseClicked(mouseX, mouseY, mouseButton);
 	}
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
         this.drawDefaultBackground();
-        this.drawCenteredString(this.fontRenderer, "Enter Warp Pad Name", this.width / 2, this.height / 2 - 30, 0xFFFFF);
-		this.nameTextField.drawTextBox();
+        this.drawCenteredString(this.fontRenderer, this.title, this.width / 2, this.height / 2 - 30, 0xFFFFF);
+		this.textName.drawTextBox();
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
 }

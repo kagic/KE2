@@ -4,7 +4,6 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.Entity;
-import net.minecraft.network.play.server.SPacketEntityTeleport;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
@@ -15,16 +14,13 @@ public class PacketEntityTeleport implements IMessage {
 	private double x;
 	private double y;
 	private double z;
-	
-	public PacketEntityTeleport() {}
-
+	public PacketEntityTeleport() { }
 	public PacketEntityTeleport(int entityID, double x, double y, double z) {
 		this.entityID = entityID;
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
-		
 	@Override
 	public void fromBytes(ByteBuf buf) {
 		this.entityID = buf.readInt();
@@ -32,7 +28,6 @@ public class PacketEntityTeleport implements IMessage {
 		this.y = buf.readDouble();
 		this.z = buf.readDouble();
 	}
-
 	@Override
 	public void toBytes(ByteBuf buf) {
 		buf.writeInt(this.entityID);
@@ -40,16 +35,13 @@ public class PacketEntityTeleport implements IMessage {
 		buf.writeDouble(this.y);
 		buf.writeDouble(this.z);
 	}
-
-	public static class EntityTeleportMessageHandler implements IMessageHandler<PacketEntityTeleport, IMessage> {
+	public static class Handler implements IMessageHandler<PacketEntityTeleport, IMessage> {
 		@Override
-		public IMessage onMessage(PacketEntityTeleport message, MessageContext ctx) {
-			FMLCommonHandler.instance().getWorldThread(ctx.netHandler).addScheduledTask(() -> handle(message, ctx));
+		public IMessage onMessage(PacketEntityTeleport message, MessageContext context) {
+			FMLCommonHandler.instance().getWorldThread(context.netHandler).addScheduledTask(() -> handle(message, context));
 			return null;
 		}
-		
-		private void handle(PacketEntityTeleport message, MessageContext ctx) {
-			SPacketEntityTeleport x;
+		private void handle(PacketEntityTeleport message, MessageContext context) {
 			WorldClient world = Minecraft.getMinecraft().world;
 			Entity e = world.getEntityByID(message.entityID);
 			e.setPositionAndUpdate(message.x, message.y, message.z);

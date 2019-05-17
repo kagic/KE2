@@ -90,7 +90,7 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class Ke2Entities {
-	private static int currentID = 0;
+	private static int ID = 0;
 	public static void register(int pass) {
 		registerGem("agate", EntityAgate.class, RenderAgate::new, 0x000000, 0xFFFFFF, pass);
 		registerGem("amethyst", EntityAmethyst.class, RenderAmethyst::new, 0x000000, 0xFFFFFF, pass);
@@ -149,8 +149,8 @@ public class Ke2Entities {
 	}
 	public static <T extends Entity> void registerEntity(String name, Class<T> entity, IRenderFactory<T> renderer, int pass) {
 		if (pass > 0) {
-			EntityRegistry.registerModEntity(new ResourceLocation("ke2:" + name), entity, name, currentID, KAGIC.instance, 256, 1, true);
-			++Ke2Entities.currentID;
+			EntityRegistry.registerModEntity(new ResourceLocation("ke2:" + name), entity, name, Ke2Entities.ID, KAGIC.instance, 256, 1, true);
+			++Ke2Entities.ID;
 		}
 		else if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {
 			RenderingRegistry.registerEntityRenderingHandler(entity, renderer);

@@ -11,13 +11,13 @@ import net.minecraft.world.storage.MapStorage;
 import net.minecraft.world.storage.WorldSavedData;
 
 public class WorldDataAuthorities extends WorldSavedData {
-	private static final String DATA_NAME = "ke2_authorities";
+	private static final String NAMESPACE = "ke2_authorities";
 	public static WorldDataAuthorities get(World world) {
 		if (!world.isRemote) {
 			MapStorage storage = world.getMapStorage();
-			WorldDataAuthorities instance = (WorldDataAuthorities)(storage.getOrLoadData(WorldDataAuthorities.class, WorldDataAuthorities.DATA_NAME));
+			WorldDataAuthorities instance = (WorldDataAuthorities)(storage.getOrLoadData(WorldDataAuthorities.class, WorldDataAuthorities.NAMESPACE));
 			if (instance == null) {
-				storage.setData(WorldDataAuthorities.DATA_NAME, new WorldDataAuthorities());
+				storage.setData(WorldDataAuthorities.NAMESPACE, new WorldDataAuthorities());
 			}
 			return instance;
 		}
@@ -28,7 +28,7 @@ public class WorldDataAuthorities extends WorldSavedData {
 		super(name);
 	}
 	public WorldDataAuthorities() {
-		this(DATA_NAME);
+		this(WorldDataAuthorities.NAMESPACE);
 	}
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
@@ -47,12 +47,18 @@ public class WorldDataAuthorities extends WorldSavedData {
 		}
 		return compound;
 	}
-	public void getAuthority(UUID id, UUID auth) {
-		this.authorities.put(id, auth);
-		this.markDirty();
+	public void setAuthority(UUID id, UUID auth) {
+		if (id != null) {
+			this.authorities.put(id, auth);
+			this.markDirty();
+		}
 	}
 	public UUID getAuthority(UUID id) {
-		return this.authorities.get(id);
+		UUID auth = this.authorities.get(id);
+		if (auth != null) {
+			return auth;
+		}
+		return new UUID(0, 0);
 	}
 	public boolean isAuthorized(UUID foreign, UUID target) {
 		UUID auth = this.getAuthority(foreign);

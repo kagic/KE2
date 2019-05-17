@@ -36,12 +36,10 @@ public class WarpRenderer extends TileEntitySpecialRenderer<TileEntityWarpPadCor
 			GlStateManager.enableTexture2D();
 			this.bindTexture(WARP_STREAM_TEXTURE);
 			GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
-
 			BufferBuilder renderer = tessellator.getBuffer();
-
-			double offset = -1.0;
-			double progress = pad.renderCooldown > 0 ? 0 : ((double) pad.renderTicks / (double) pad.warpTicks) - partialTicks / (double) pad.warpTicks;
+			double progress = pad.renderCooldown > 0 ? 0 : (pad.renderTicks / TileEntityWarpPadCore.TICKS_FOR_ACTION) - partialTicks / TileEntityWarpPadCore.TICKS_FOR_ACTION;
 			double height = WarpRenderer.STREAM_HEIGHT - progress * WarpRenderer.STREAM_HEIGHT;
+			double offset = -1.0;
 			
 			renderer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
 			renderVertex(renderer,		offset,	   height - 1,		offset,	1, 0.5);
@@ -78,14 +76,10 @@ public class WarpRenderer extends TileEntitySpecialRenderer<TileEntityWarpPadCor
 			renderVertex(renderer,	1 - offset,    height - 1,		offset, 1, 0.5);
 			tessellator.draw();
 			
-			if (pad.renderTicks > 0) {
-				--pad.renderTicks;
-			}
-			if (pad.renderCooldown > 0) {
-				--pad.renderCooldown;
-			}
+			if (pad.renderTicks > 0)	{ --pad.renderTicks;	}
+			if (pad.renderCooldown > 0) { --pad.renderCooldown; }
 			if (pad.renderTicks == 0 && pad.renderCooldown == 0) {
-				pad.renderCooldown = pad.warpCooldownTicks;
+				pad.renderCooldown = TileEntityWarpPadCore.TICKS_FOR_COOLDOWN;
 			}
 			
 			GlStateManager.depthMask(true);

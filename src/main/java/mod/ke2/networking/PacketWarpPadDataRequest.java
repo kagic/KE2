@@ -1,9 +1,8 @@
 package mod.ke2.networking;
 
 import io.netty.buffer.ByteBuf;
-import mod.kagic.worlddata.WorldDataGalaxyPad;
-import mod.ke2.init.Ke2Packets;
-import mod.ke2.world.data.WorldDataWarpPad;
+import mod.ke2.init.Ke2Messages;
+import mod.ke2.world.data.WorldDataWarpPads;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -43,28 +42,20 @@ public class PacketWarpPadDataRequest implements IMessage {
 		buf.writeInt(this.z);
 	}
 
-	public static class PadDataRequestMessageHandler implements IMessageHandler<PacketWarpPadDataRequest, IMessage> {
+	public static class Handler implements IMessageHandler<PacketWarpPadDataRequest, IMessage> {
 		@Override
-		public IMessage onMessage(PacketWarpPadDataRequest message, MessageContext ctx) {
-			((WorldServer) ctx.getServerHandler().player.world).addScheduledTask(() -> handle(message, ctx));
+		public IMessage onMessage(PacketWarpPadDataRequest message, MessageContext context) {
+			((WorldServer) context.getServerHandler().player.world).addScheduledTask(() -> handle(message, context));
 			return null;
 		}
 		
-		private void handle(PacketWarpPadDataRequest message, MessageContext ctx) {
-			EntityPlayerMP playerEntity = ctx.getServerHandler().player;
-			World world = playerEntity.getEntityWorld();
-			NBTTagCompound data = new NBTTagCompound();
-			if (message.isGalaxy) {
-				WorldDataGalaxyPad padData = WorldDataGalaxyPad.get(world);
-				data = padData.writeToNBT(data);
-				data.setBoolean("galaxy", true);
-				Ke2Packets.INSTANCE.sendTo(new PacketWarpPadData(data, message.x, message.y, message.z), ctx.getServerHandler().player);
-			} else {
-				WorldDataWarpPad padData = WorldDataWarpPad.get(world);
-				data = padData.writeToNBT(data);
-				data.setBoolean("galaxy", false);
-				Ke2Packets.INSTANCE.sendTo(new PacketWarpPadData(data, message.x, message.y, message.z), ctx.getServerHandler().player);
-			}
+		private void handle(PacketWarpPadDataRequest message, MessageContext context) {
+			EntityPlayerMP player = context.getServerHandler().player;
+			World world = player.getEntityWorld();
+			WorldDataWarpPads data = WorldDataWarpPads.get(world);
+			Ke2Messages.INSTANCE.sendTo(new PacketWarpPadData(
+				data.writeToNBT(new NBTTagCompound())),
+			context.getServerHandler().player);
 		}
 	}
 }

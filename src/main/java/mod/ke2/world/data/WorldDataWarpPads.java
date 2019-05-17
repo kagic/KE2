@@ -1,121 +1,86 @@
 package mod.ke2.world.data;
 
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import mod.ke2.KAGIC;
 import mod.ke2.api.warping.WarpPadDataEntry;
+import mod.ke2.api.warping.WarpPadPos;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.MapStorage;
 import net.minecraft.world.storage.WorldSavedData;
-import net.minecraftforge.common.util.Constants;
 
-public class WorldDataWarpPad extends WorldSavedData {
-	private static final String DATA_NAME = KAGIC.MODID + "_warppads";
-	private final Map<BlockPos, WarpPadDataEntry> warpPadData = new LinkedHashMap<BlockPos, WarpPadDataEntry>();
-	
-	public WorldDataWarpPad() {
-		super(DATA_NAME);
-	}
-	
-	public WorldDataWarpPad(String identifier) {
-		super(identifier);
-	}
-	
-	public static WorldDataWarpPad get(World world) {
+public class WorldDataWarpPads extends WorldSavedData {
+	private static final String NAMESPACE = "ke2_warp_pads";
+	public static WorldDataWarpPads get(World world) {
 		if (!world.isRemote) {
 			MapStorage storage = world.getPerWorldStorage();
-			WorldDataWarpPad instance = (WorldDataWarpPad) storage.getOrLoadData(WorldDataWarpPad.class, DATA_NAME);
+			WorldDataWarpPads instance = (WorldDataWarpPads) storage.getOrLoadData(WorldDataWarpPads.class, WorldDataWarpPads.NAMESPACE);
 			if (instance == null) {
-				//KAGICTech.instance.chatInfoMessage("Data on server was null");
-				instance = new WorldDataWarpPad();
-				storage.setData(DATA_NAME, instance);
+				instance = new WorldDataWarpPads();
+				storage.setData(WorldDataWarpPads.NAMESPACE, instance);
 			}
 			return instance;
-		} else {
-			System.out.print("Tried to get world data from client");
-			return null;
 		}
+		return null;
 	}
-
+	private final HashMap<WarpPadPos, WarpPadDataEntry> entries = new HashMap<WarpPadPos, WarpPadDataEntry>();
+	public WorldDataWarpPads() {
+		super(WorldDataWarpPads.NAMESPACE);
+	}
+	public WorldDataWarpPads(String identifier) {
+		super(identifier);
+	}
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		NBTTagList list = new NBTTagList();
-		Iterator<Entry<BlockPos, WarpPadDataEntry>> it = this.warpPadData.entrySet().iterator();
+		Iterator<WarpPadDataEntry> it = this.entries.values().iterator();
 		while (it.hasNext()) {
-			NBTTagCompound tc = new NBTTagCompound();
-			Entry<BlockPos, WarpPadDataEntry> pair = it.next();
-			tc.setString("name", ((WarpPadDataEntry)(pair.getValue())).name);
-			tc.setBoolean("valid", ((WarpPadDataEntry)(pair.getValue())).valid);
-			tc.setBoolean("clear", ((WarpPadDataEntry)(pair.getValue())).clear);
-			tc.setInteger("x", ((BlockPos) pair.getKey()).getX());
-			tc.setInteger("y", ((BlockPos) pair.getKey()).getY());
-			tc.setInteger("z", ((BlockPos) pair.getKey()).getZ());
-			list.appendTag(tc);
+			list.appendTag(it.next().writeToNBT(new NBTTagCompound()));
 		}
-		compound.setTag("pads", list);
+		compound.setTag("WarpPads", list);
 		return compound;
 	}
-	
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
-		NBTTagList list = compound.getTagList("pads", Constants.NBT.TAG_COMPOUND);
+		NBTTagList list = compound.getTagList("WarpPads", 10);
 		for (int i = 0; i < list.tagCount(); ++i) {
-			NBTTagCompound tc = list.getCompoundTagAt(i);
-			BlockPos pos = new BlockPos(tc.getInteger("x"), tc.getInteger("y"), tc.getInteger("z"));
-			String name = tc.getString("name");
-			boolean valid = tc.getBoolean("valid");
-			boolean clear = tc.getBoolean("clear");
-			this.warpPadData.put(pos, new WarpPadDataEntry(name, valid, clear));
+			WarpPadDataEntry entry = WarpPadDataEntry.readFromNBT(list.getCompoundTagAt(i));
+			this.entries.put(entry.getPos(), entry);
 		}
 	}
-	
-	public void addWarpPadEntry(String name, boolean valid, boolean clear, BlockPos pos) {
-		//KAGIC.instance.chatInfoMessage("Adding entry");
-		this.warpPadData.put(pos, new WarpPadDataEntry(name, valid, clear));
+	public void addWarpPadEntry(String name, boolean valid, boolean clear, WarpPadPos pos) {
+		this.entries.put(pos, new WarpPadDataEntry(name, valid, clear, pos));
 		this.markDirty();
 	}
-	
-	public void removeWarpPadEntry(BlockPos pos) {
-		if (this.warpPadData.containsKey(pos)) {
-			this.warpPadData.remove(pos);
+	public void removeWarpPadEntry(WarpPadPos pos) {
+		if (this.entries.containsKey(pos)) {
+			this.entries.remove(pos);
 			this.markDirty();
 		}
 	}
-	
-	public String getNameFromPos(BlockPos pos) {
-		if (this.warpPadData.containsKey(pos)) {
-			return this.warpPadData.get(pos).name;			
-		} else {
-			System.out.println("Tried getting name of nonexistent BlockPos");
-			return null;
-		}
+	public WarpPadDataEntry getWarpPadEntry(WarpPadPos pos) {
+		return this.entries.get(pos);
 	}
-	
-	public Map<BlockPos, WarpPadDataEntry> getWarpPadData() {
-		return this.warpPadData;
+	public HashMap<WarpPadPos, WarpPadDataEntry> getWarpPadData() {
+		return this.entries;
 	}
-	
-	public static SortedMap<Double, BlockPos> getSortedPositions(Map<BlockPos, WarpPadDataEntry> data, BlockPos pos) {
-		SortedMap<Double, BlockPos> sortedPoses = new TreeMap<Double, BlockPos>();
-		Set<Entry<BlockPos, WarpPadDataEntry>> entrySet = data.entrySet();
-		Iterator<Entry<BlockPos, WarpPadDataEntry>> it = entrySet.iterator();
+	public static SortedMap<Double, WarpPadDataEntry> getSortedPositions(HashMap<WarpPadPos, WarpPadDataEntry> data, BlockPos pos) {
+		SortedMap<Double, WarpPadDataEntry> sortedWarpPads = new TreeMap<Double, WarpPadDataEntry>();
+		Set<Entry<WarpPadPos, WarpPadDataEntry>> set = data.entrySet();
+		Iterator<Entry<WarpPadPos, WarpPadDataEntry>> it = set.iterator();
 		while (it.hasNext()) {
-			BlockPos otherPos = ((BlockPos)it.next().getKey());
-			if (otherPos.equals(pos)) {
-				continue;
-			}
-			double dist = pos.distanceSq(otherPos.getX(), otherPos.getY(), otherPos.getZ());
-			sortedPoses.put(dist, otherPos);
+			WarpPadDataEntry entry = it.next().getValue();
+			WarpPadPos party = it.next().getKey();
+			double distance = pos.distanceSq(party.getX(), party.getY(), party.getZ());
+			sortedWarpPads.put(distance, entry);
 		}
-		return sortedPoses;
+		return sortedWarpPads;
 	}
 }

@@ -5,6 +5,8 @@ import mod.ke2.client.gui.GuiWarpPad;
 import mod.ke2.client.gui.GuiWarpPadContainer;
 import mod.ke2.client.gui.GuiWarpPadSelectionContainer;
 import mod.ke2.tileentity.TileEntityWarpPadCore;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.particle.IParticleFactory;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -51,5 +53,9 @@ public class ServerProxy implements CommonProxy {
 			return new GuiWarpPadSelectionContainer();
 		}
 		return null;
+	}
+	@Override
+	public void openGuiScreen(GuiScreen screen) {
+		// Reserved for client functionality.
 	}
 }

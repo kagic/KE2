@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import mod.ke2.KAGIC;
-import mod.ke2.init.Ke2Packets;
+import mod.ke2.init.Ke2Messages;
 import mod.ke2.init.Ke2Sounds;
 import mod.ke2.networking.PacketEntityTeleport;
-import mod.ke2.world.data.WorldDataWarpPad;
+import mod.ke2.world.data.WorldDataWarpPads;
 import net.minecraft.block.BlockQuartz;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.BlockStairs.EnumHalf;
@@ -36,10 +36,10 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TileEntityWarpPadCore extends TileEntity implements ITickable {
-	private static final int TICKS_FOR_LOADING_CHUNKS = 100;
+	public static final int TICKS_FOR_LOADING_CHUNKS = 100;
 	public static final int TICKS_FOR_COOLDOWN = 20;
 	public static final int TICKS_FOR_ACTION = 40;
-	private int remainingLoadingChunkTicks = 0;
+	protected int remainingLoadingChunkTicks = 0;
 	protected int remainingCooldownTicks = 0;
 	protected int remainingActionTicks = 0;
 	protected BlockPos destination = null;
@@ -62,7 +62,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		this.markDirty();
 		this.world.notifyBlockUpdate(this.pos, this.world.getBlockState(this.pos), this.world.getBlockState(this.pos), 3);
 		if (!this.world.isRemote) {
-			WorldDataWarpPad.get(this.world).addWarpPadEntry(this.name, this.isPadValid, this.isClear, this.pos);
+			//WorldDataWarpPads.get(this.world).addWarpPadEntry(this.name, this.isPadValid, this.isClear, this.pos);
 		}
 	}
 	protected boolean isStair(IBlockState state) {
@@ -234,28 +234,28 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 				this.ticksSinceLastCheck = 0;
 			}
 		
-			if (this.warpTicksLeft > 0) {
-				--this.warpTicksLeft;
-				if (this.warpTicksLeft <= 0) {
+			if (this.remainingActionTicks > 0) {
+				--this.remainingActionTicks;
+				if (this.remainingActionTicks <= 0) {
 					this.WARP();
 				}
 			} 
 			
-			if (this.cooldownTicksLeft >= 0) {
-				--this.cooldownTicksLeft;
+			if (this.remainingCooldownTicks >= 0) {
+				--this.remainingCooldownTicks;
 			} else if (this.cooling) {
 				this.cooling = false;
 				this.setDirty();
 			}
 			
 			if (this.ticket != null) {
-				--this.loadChunkTicksLeft;
+				--this.remainingLoadingChunkTicks;
 			}
-			if (this.loadChunkTicksLeft < 0 && this.ticket != null) {
+			if (this.remainingLoadingChunkTicks < 0 && this.ticket != null) {
 				//KAGIC.instance.chatInfoMessage("Releasing ticket");
 				ForgeChunkManager.releaseTicket(ticket);
 				this.ticket = null;
-				this.loadChunkTicksLeft = 0;
+				this.remainingLoadingChunkTicks = 0;
 			}
 		}
 	}
@@ -268,7 +268,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		compound.setBoolean("warping", this.warping);
 		compound.setBoolean("cooling", this.cooling);
 		compound.setString("name", this.name);
-		compound.setInteger("renderTicks", this.warpTicksLeft);
+		compound.setInteger("renderTicks", this.remainingActionTicks);
 		return compound;
 	}
 	
@@ -317,7 +317,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 	}
 	
 	public void destroy() {
-		WorldDataWarpPad.get(this.world).removeWarpPadEntry(this.pos);
+		//WorldDataWarpPads.get(this.world).removeWarpPadEntry(this.pos);
 	}
 	
 	public void loadPadChunks(TileEntityWarpPadCore pad, Ticket ticket) {
@@ -341,7 +341,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
         }
         
         this.ticket = ticket;
-        this.loadChunkTicksLeft = this.loadChunkTicks;
+        this.remainingLoadingChunkTicks = TileEntityWarpPadCore.TICKS_FOR_LOADING_CHUNKS;
 	}
 	
 	public void beginWarp(BlockPos destination) {
@@ -350,11 +350,11 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		this.loadPadChunks(this, ticket);
 		this.loadPadChunks(destPad, ticket);
 		
-		this.warpTicksLeft = this.warpTicks;
+		this.remainingActionTicks = TileEntityWarpPadCore.TICKS_FOR_ACTION;
 		this.destination = destination;
 		this.warping = true;
 		this.setDirty();
-		this.world.playSound(null, this.pos, Ke2Sounds.WARP_PAD, SoundCategory.BLOCKS, 20.0f, 1.0f);
+		//this.world.playSound(null, this.pos, Ke2Sounds.WARP_PAD, SoundCategory.BLOCKS, 20.0f, 1.0f);
 	}
 	
 	public void WARP() {
@@ -365,7 +365,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		Iterator<Entity> it = entitiesToWarp.iterator();
 		TileEntityWarpPadCore destPad = (TileEntityWarpPadCore) this.world.getTileEntity(this.destination);
 		if (destPad == null || !destPad.isValidPad()) {
-			this.cooldownTicksLeft = 1;
+			this.remainingCooldownTicks = 1;
 			this.warping = false;
 			this.cooling = true;
 			return;
@@ -389,13 +389,13 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 			}
 			
 			for (EntityPlayer player : ((WorldServer) this.world).getEntityTracker().getTrackingPlayers(entity)) {
-				Ke2Packets.INSTANCE.sendTo(new PacketEntityTeleport(entity.getEntityId(), posX, posY, posZ), (EntityPlayerMP) player);
+				Ke2Messages.INSTANCE.sendTo(new PacketEntityTeleport(entity.getEntityId(), posX, posY, posZ), (EntityPlayerMP) player);
 			}
 		}
 		
 		this.warping = false;
 		this.cooling = true;
-		this.cooldownTicksLeft = this.warpCooldownTicks;
+		this.remainingCooldownTicks = TileEntityWarpPadCore.TICKS_FOR_COOLDOWN;
 		this.setDirty();
 	}
 	

@@ -1,7 +1,6 @@
 package mod.ke2.networking;
 
 import io.netty.buffer.ByteBuf;
-import mod.ke2.KAGIC;
 import mod.ke2.tileentity.TileEntityWarpPadCore;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.math.BlockPos;
@@ -43,22 +42,19 @@ public class PacketWarpPadName implements IMessage{
 		this.z = buf.readInt();
 	}
 	
-	public static class TENameMessageHandler implements IMessageHandler<PacketWarpPadName, IMessage> {
+	public static class Handler implements IMessageHandler<PacketWarpPadName, IMessage> {
 		@Override
-		public IMessage onMessage(PacketWarpPadName message, MessageContext ctx) {
-			FMLCommonHandler.instance().getWorldThread(ctx.netHandler).addScheduledTask(() -> handle(message, ctx));
+		public IMessage onMessage(PacketWarpPadName message, MessageContext context) {
+			FMLCommonHandler.instance().getWorldThread(context.netHandler).addScheduledTask(() -> handle(message, context));
 			return null;
 		}
 		
-		private void handle(PacketWarpPadName message, MessageContext ctx) {
-			KAGIC.instance.chatInfoMessage("Handling name");
-			EntityPlayerMP playerEntity = ctx.getServerHandler().player;
-			World world = playerEntity.getEntityWorld();
-			TileEntityWarpPadCore te = (TileEntityWarpPadCore) world.getTileEntity(new BlockPos(message.x, message.y, message.z));
-			if (te != null) {
-				te.setName(message.name);
-			} else {
-				KAGIC.instance.chatInfoMessage("TE was null!");				
+		private void handle(PacketWarpPadName message, MessageContext context) {
+			EntityPlayerMP player = context.getServerHandler().player;
+			World world = player.getEntityWorld();
+			TileEntityWarpPadCore pad = (TileEntityWarpPadCore) world.getTileEntity(new BlockPos(message.x, message.y, message.z));
+			if (pad != null) {
+				pad.setName(message.name);
 			}
 		}
 	}
