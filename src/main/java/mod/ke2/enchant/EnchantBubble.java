@@ -4,10 +4,13 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 
 public class EnchantBubble extends Enchantment {
 	public EnchantBubble() {
 		super(Rarity.RARE, EnumEnchantmentType.ALL, new EntityEquipmentSlot[] { EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND });
+		this.setRegistryName(new ResourceLocation("ke2:bubble"));
+		this.setName("bubble");
 	}
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
@@ -34,7 +37,11 @@ public class EnchantBubble extends Enchantment {
         return 55;
     }
 	@Override
-	public int getMaxLevel() {
+	public int getMinLevel() {
         return 1;
+    }
+	@Override
+	public int getMaxLevel() {
+        return 0;
     }
 }
