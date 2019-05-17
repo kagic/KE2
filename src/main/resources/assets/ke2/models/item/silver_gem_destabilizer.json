@@ -1,6 +1,0 @@
-{
-	"parent": "item/handheld",
-	"textures": {
-		"layer0": "ke2:items/silver_gem_destabilizer"
-	}
-}

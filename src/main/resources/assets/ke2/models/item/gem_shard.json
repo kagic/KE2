@@ -1,0 +1,104 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "ke2:items/gem_shard_0"
+	},
+	"overrides": [
+        {
+            "predicate": {
+                "variant": 0.0000
+            },
+            "model": "ke2:item/gem_shard_0"
+        },
+        {
+            "predicate": {
+                "variant": 0.0625
+            },
+            "model": "ke2:item/gem_shard_1"
+        },
+        {
+            "predicate": {
+                "variant": 0.1250
+            },
+            "model": "ke2:item/gem_shard_2"
+        },
+        {
+            "predicate": {
+                "variant": 0.1875
+            },
+            "model": "ke2:item/gem_shard_3"
+        },
+        {
+            "predicate": {
+                "variant": 0.2500
+            },
+            "model": "ke2:item/gem_shard_4"
+        },
+        {
+            "predicate": {
+                "variant": 0.3125
+            },
+            "model": "ke2:item/gem_shard_5"
+        },
+        {
+            "predicate": {
+                "variant": 0.3750
+            },
+            "model": "ke2:item/gem_shard_6"
+        },
+        {
+            "predicate": {
+                "variant": 0.4375
+            },
+            "model": "ke2:item/gem_shard_7"
+        },
+        {
+            "predicate": {
+                "variant": 0.5000
+            },
+            "model": "ke2:item/gem_shard_8"
+        },
+        {
+            "predicate": {
+                "variant": 0.5625
+            },
+            "model": "ke2:item/gem_shard_9"
+        },
+        {
+            "predicate": {
+                "variant": 0.6250
+            },
+            "model": "ke2:item/gem_shard_10"
+        },
+        {
+            "predicate": {
+                "variant": 0.6875
+            },
+            "model": "ke2:item/gem_shard_11"
+        },
+        {
+            "predicate": {
+                "variant": 0.7500
+            },
+            "model": "ke2:item/gem_shard_12"
+        },
+        {
+            "predicate": {
+                "variant": 0.8125
+            },
+            "model": "ke2:item/gem_shard_13"
+        },
+        {
+            "predicate": {
+                "variant": 0.8750
+            },
+            "model": "ke2:item/gem_shard_14"
+        },
+        {
+            "predicate": {
+                "variant": 0.9375
+            },
+            "model": "ke2:item/gem_shard_15"
+        }
+    ]
+}

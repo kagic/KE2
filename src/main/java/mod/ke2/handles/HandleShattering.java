@@ -4,6 +4,7 @@ import java.util.Random;
 
 import mod.ke2.enchant.EnchantShard;
 import mod.ke2.entity.EntityGemShard;
+import mod.ke2.init.Ke2Items;
 import mod.ke2.items.ItemGem;
 import mod.ke2.items.ItemGemShard;
 import net.minecraft.enchantment.Enchantment;
@@ -131,7 +132,7 @@ public class HandleShattering {
 						dyeColor = i;
 					}
 			    }
-			    e.setOutput(new ItemStack(ItemGemShard.SHARD_COLORS.get(dyeColor), 9));
+			    e.setOutput(new ItemStack(Ke2Items.GEM_SHARD, 9));
 			    if (!e.getOutput().isEmpty()) {
 					e.setResult(Result.ALLOW);
 					e.setCost(1);

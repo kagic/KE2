@@ -39,7 +39,7 @@ public class LayerGemstone implements LayerRenderer<EntityGem> {
 				GlStateManager.pushMatrix();
 				GlStateManager.translate(0, 0, -0.25);
 				GlStateManager.scale(0.25, 0.25, 0.25);
-	            Minecraft.getMinecraft().getItemRenderer().renderItemSide(gem, new ItemStack(Ke2Items.RED_GEM_SHARD), TransformType.FIXED, false);
+	            Minecraft.getMinecraft().getItemRenderer().renderItemSide(gem, new ItemStack(Ke2Items.GEM_SHARD), TransformType.FIXED, false);
 	            GlStateManager.popMatrix();
 	            GlStateManager.popMatrix();
 		        GlStateManager.disableBlend();

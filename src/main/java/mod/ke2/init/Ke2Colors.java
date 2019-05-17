@@ -10,17 +10,18 @@ public class Ke2Colors {
 		registerColor(new IItemColor() {
 			@Override
 			public int colorMultiplier(ItemStack stack, int layer) {
-				if (layer == 1) {
-					if (stack.hasTagCompound()) {
-						return stack.getTagCompound().getInteger("Color");
-					}
-					else {
-						return 0xb2ffff;
-					}
-				}
+				if (stack.hasTagCompound()) { return stack.getTagCompound().getInteger("GemstoneColor"); }
 				return 0xffffff;
 			}
-		}, Ke2Items.WARP_WHISTLE);
+		}, Ke2Items.GEM_DUST, Ke2Items.GEM_SHARD);
+		registerColor(new IItemColor() {
+			@Override
+			public int colorMultiplier(ItemStack stack, int layer) {
+				if (layer == 0 && stack.hasTagCompound()) { return stack.getTagCompound().getInteger("UpperColor"); }
+				if (layer == 1 && stack.hasTagCompound()) { return stack.getTagCompound().getInteger("LowerColor"); }
+				return 0xffffff;
+			}
+		}, Ke2Items.GEM_DESTABILIZER, Ke2Items.WARP_WHISTLE);
 	}
 	public static void registerColor(IItemColor handler, Item... items) {
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(handler, items);

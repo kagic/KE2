@@ -17,6 +17,7 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -41,24 +42,6 @@ import net.minecraft.world.World;
 public class EntityGemShard extends EntityMob {
 	private static final DataParameter<NBTTagCompound> ITEM = EntityDataManager.<NBTTagCompound>createKey(EntityGemShard.class, DataSerializers.COMPOUND_TAG);
 	private static final DataParameter<Integer> COLOR = EntityDataManager.<Integer>createKey(EntityGemShard.class, DataSerializers.VARINT);
-	public static final ItemStack[] ITEMS = new ItemStack[] {
-		new ItemStack(Ke2Items.WHITE_GEM_SHARD),
-		new ItemStack(Ke2Items.ORANGE_GEM_SHARD),
-		new ItemStack(Ke2Items.MAGENTA_GEM_SHARD),
-		new ItemStack(Ke2Items.LIGHTBLUE_GEM_SHARD),
-		new ItemStack(Ke2Items.YELLOW_GEM_SHARD),
-		new ItemStack(Ke2Items.LIME_GEM_SHARD),
-		new ItemStack(Ke2Items.PINK_GEM_SHARD),
-		new ItemStack(Ke2Items.GRAY_GEM_SHARD),
-		new ItemStack(Ke2Items.SILVER_GEM_SHARD),
-		new ItemStack(Ke2Items.CYAN_GEM_SHARD),
-		new ItemStack(Ke2Items.PURPLE_GEM_SHARD),
-		new ItemStack(Ke2Items.BLUE_GEM_SHARD),
-		new ItemStack(Ke2Items.BROWN_GEM_SHARD),
-		new ItemStack(Ke2Items.GREEN_GEM_SHARD),
-		new ItemStack(Ke2Items.RED_GEM_SHARD),
-		new ItemStack(Ke2Items.BLACK_GEM_SHARD)
-	};
 	public static final int[] PARTICLE_COLORS = new int[] {
 		0xFFFFFF,
 		0xFDC84D,
@@ -92,7 +75,7 @@ public class EntityGemShard extends EntityMob {
 		((PathNavigateGround) this.getNavigator()).setBreakDoors(true);
 		((PathNavigateGround) this.getNavigator()).setEnterDoors(true);
 		this.dataManager.register(COLOR, this.rand.nextInt(16));
-		this.dataManager.register(ITEM, EntityGemShard.ITEMS[this.dataManager.get(COLOR)].serializeNBT());
+		this.dataManager.register(ITEM, new ItemStack(Items.DIAMOND_SWORD).serializeNBT());
 		this.setStatsBasedOnItem();
 	}
 	@Override

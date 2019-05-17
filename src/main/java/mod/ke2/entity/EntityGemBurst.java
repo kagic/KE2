@@ -4,13 +4,14 @@ import java.util.List;
 
 import mod.ke2.KAGIC;
 import mod.ke2.api.EntityGem;
+import mod.ke2.init.Ke2Items;
 import mod.ke2.init.Ke2Particles;
 import mod.ke2.init.Ke2Sounds;
-import mod.ke2.items.ItemGemDust;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class EntityGemBurst extends EntityGem {
@@ -37,7 +38,7 @@ public class EntityGemBurst extends EntityGem {
 		}
 		if (this.ticksExisted > 200) {
 			if (!this.world.isRemote) {
-				this.dropItem(ItemGemDust.DUST_COLORS.get(color), 1);
+				this.dropItem(Ke2Items.GEM_DUST, 1);
 			}
 			this.setDead();
 		}

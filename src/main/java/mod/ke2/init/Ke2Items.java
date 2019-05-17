@@ -10,7 +10,6 @@ import mod.ke2.items.ItemManual;
 import mod.ke2.items.ItemWarpWhistle;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.util.ResourceLocation;
@@ -19,18 +18,14 @@ import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class Ke2Items {
-	public static final ToolMaterial DESTABILIZER_MATERIAL = EnumHelper.addToolMaterial("DESTABILIZER_MATERIAL", 0, 24, 0.1f, 0.0f, 1);
-	
 	public static final ItemManual MANUAL = new ItemManual();
 	public static final ItemGemStaff GEM_STAFF = new ItemGemStaff();
 	public static final ItemWarpWhistle WARP_WHISTLE = new ItemWarpWhistle();
 	public static final ItemGemDestabilizer GEM_DESTABILIZER = new ItemGemDestabilizer();
 	public static final ItemGemShard GEM_SHARD = new ItemGemShard();
 	public static final ItemGemDust GEM_DUST = new ItemGemDust();
-	
 	
 	public static void register(RegistryEvent.Register<Item> event) {
 		registerItem(MANUAL, new ResourceLocation("ke2:manual"), event);

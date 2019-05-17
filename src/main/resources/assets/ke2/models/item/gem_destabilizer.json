@@ -1,0 +1,14 @@
+{
+	"parent": "item/handheld",
+	"textures": {
+		"layer1": "ke2:items/gem_destabilizer_closed"
+	},
+	"overrides": [
+        {
+            "predicate": {
+                "primed": 1.0
+            },
+            "model": "ke2:item/gem_destabilizer_primed"
+        }
+    ]
+}

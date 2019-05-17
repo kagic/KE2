@@ -1,5 +1,5 @@
 {
-	"function": "gem_placement",
+	"function": "gem_position",
 	"parameter": "navel",
 	"tags": ["ke2:texture.outfit"],
 	"value": "ke2:textures/entities/ruby/outfits/navy"
