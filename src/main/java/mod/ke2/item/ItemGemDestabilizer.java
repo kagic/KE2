@@ -83,7 +83,8 @@ public class ItemGemDestabilizer extends Item {
     		for (EnumDyeColor color : EnumDyeColor.values()) {
     			for (int i = 0; i < 2; ++i) {
 	    			NBTTagCompound compound = new NBTTagCompound();
-		        	compound.setInteger("Color", color.getColorValue());
+		        	compound.setInteger("LowerColor", color.getColorValue());
+		        	compound.setInteger("UpperColor", 0xffffff);
 		        	compound.setBoolean("Primed", i == 0);
 		        	ItemStack stack = new ItemStack(this);
 		        	stack.setTagCompound(compound);

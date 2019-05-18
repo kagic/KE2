@@ -51,7 +51,10 @@ public class ItemWarpWhistle extends Item {
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
         if (this.isInCreativeTab(tab)) {
         	for (int i = 0; i < 16; ++i) {
-	        	NBTTagCompound compound = new NBTTagCompound(); compound.setInteger("Color", DEFAULT_WARP_WHISTLE_COLORS[i]);
+	        	NBTTagCompound compound = new NBTTagCompound();
+	        	compound.setInteger("LowerColor", DEFAULT_WARP_WHISTLE_COLORS[i]);
+	        	compound.setInteger("UpperColor", 0xffffff);
+	        	compound.setInteger("WarpColor", i);
 	        	ItemStack stack = new ItemStack(this);
 	        	stack.setTagCompound(compound);
 	            items.add(stack);

@@ -34,7 +34,7 @@ public class ItemGemDust extends Item {
         if (this.isInCreativeTab(tab)) {
     		for (int color : ItemGemDust.DEFAULT_GEM_DUST_COLORS) {
     			NBTTagCompound compound = new NBTTagCompound();
-	        	compound.setInteger("Color", color);
+	        	compound.setInteger("GemstoneColor", color);
 	        	ItemStack stack = new ItemStack(this);
 	        	stack.setTagCompound(compound);
 	            items.add(stack);

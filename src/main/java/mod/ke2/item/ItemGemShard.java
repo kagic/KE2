@@ -50,7 +50,7 @@ public class ItemGemShard extends Item {
         	for (int i = 0; i < 16; ++i) {
         		for (int color : ItemGemShard.DEFAULT_GEM_SHARD_COLORS) {
         			NBTTagCompound compound = new NBTTagCompound();
-		        	compound.setInteger("Color", color);
+		        	compound.setInteger("GemstoneColor", color);
 		        	compound.setInteger("Variant", i);
 		        	ItemStack stack = new ItemStack(this);
 		        	stack.setTagCompound(compound);
