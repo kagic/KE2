@@ -1,9 +1,9 @@
-package mod.ke2.blocks;
+package mod.ke2.block;
 
 import mod.ke2.KAGIC;
 import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.init.Ke2Items;
-import mod.ke2.proxies.CommonProxy;
+import mod.ke2.proxy.CommonProxy;
 import mod.ke2.tileentity.TileEntityWarpPadCore;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;

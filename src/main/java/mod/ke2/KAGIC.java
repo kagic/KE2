@@ -37,7 +37,7 @@ import mod.ke2.init.Ke2Sounds;
 import mod.ke2.init.Ke2TileEntities;
 import mod.ke2.init.Ke2Variants;
 import mod.ke2.init.Ke2WorldGen;
-import mod.ke2.proxies.CommonProxy;
+import mod.ke2.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -70,7 +70,7 @@ public class KAGIC {
 	public static final Logger LOGGER = LogManager.getLogger(KAGIC.MODID);
 	public static final Gson JSON = new Gson();
 	
-	@SidedProxy(clientSide = "mod.ke2.proxies.ClientProxy", serverSide = "mod.ke2.proxies.ServerProxy")
+	@SidedProxy(clientSide = "mod.ke2.proxy.ClientProxy", serverSide = "mod.ke2.proxy.ServerProxy")
 	public static CommonProxy proxy;
 	
     @Instance

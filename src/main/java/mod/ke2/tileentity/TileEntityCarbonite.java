@@ -1,6 +1,6 @@
 package mod.ke2.tileentity;
 
-import mod.ke2.blocks.BlockCarbonite;
+import mod.ke2.block.BlockCarbonite;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;

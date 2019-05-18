@@ -1,4 +1,4 @@
-package mod.ke2.proxies;
+package mod.ke2.proxy;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.particle.IParticleFactory;

@@ -1,4 +1,4 @@
-package mod.ke2.blocks;
+package mod.ke2.block;
 
 import java.util.Random;
 

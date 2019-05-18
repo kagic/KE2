@@ -1,4 +1,4 @@
-package mod.ke2.blocks;
+package mod.ke2.block;
 
 import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.tileentity.TileEntityGemSeed;

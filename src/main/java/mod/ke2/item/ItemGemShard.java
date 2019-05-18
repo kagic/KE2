@@ -1,4 +1,4 @@
-package mod.ke2.items;
+package mod.ke2.item;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;

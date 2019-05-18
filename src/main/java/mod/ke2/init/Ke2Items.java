@@ -1,13 +1,13 @@
 package mod.ke2.init;
 
 import mod.ke2.KAGIC;
-import mod.ke2.items.ItemGem;
-import mod.ke2.items.ItemGemDestabilizer;
-import mod.ke2.items.ItemGemDust;
-import mod.ke2.items.ItemGemShard;
-import mod.ke2.items.ItemGemStaff;
-import mod.ke2.items.ItemManual;
-import mod.ke2.items.ItemWarpWhistle;
+import mod.ke2.item.ItemGem;
+import mod.ke2.item.ItemGemDestabilizer;
+import mod.ke2.item.ItemGemDust;
+import mod.ke2.item.ItemGemShard;
+import mod.ke2.item.ItemGemStaff;
+import mod.ke2.item.ItemManual;
+import mod.ke2.item.ItemWarpWhistle;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;

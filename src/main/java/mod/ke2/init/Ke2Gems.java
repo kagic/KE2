@@ -6,7 +6,7 @@ import java.util.HashMap;
 import mod.ke2.KAGIC;
 import mod.ke2.api.EntityGem;
 import mod.ke2.api.injection.CruxEntry;
-import mod.ke2.items.ItemGem;
+import mod.ke2.item.ItemGem;
 import net.minecraft.util.ResourceLocation;
 
 public class Ke2Gems {

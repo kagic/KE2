@@ -1,4 +1,4 @@
-package mod.ke2.items;
+package mod.ke2.item;
 
 import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Damage;
