@@ -2,9 +2,11 @@ package mod.ke2.item;
 
 import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Damage;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,6 +14,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -73,6 +76,21 @@ public class ItemGemDestabilizer extends Item {
 			return true;
         }
 		return false;
+    }
+	@Override
+	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+        if (this.isInCreativeTab(tab)) {
+    		for (EnumDyeColor color : EnumDyeColor.values()) {
+    			for (int i = 0; i < 2; ++i) {
+	    			NBTTagCompound compound = new NBTTagCompound();
+		        	compound.setInteger("Color", color.getColorValue());
+		        	compound.setBoolean("Primed", i == 0);
+		        	ItemStack stack = new ItemStack(this);
+		        	stack.setTagCompound(compound);
+		            items.add(stack);
+    			}
+    		}
+        }
     }
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
