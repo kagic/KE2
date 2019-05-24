@@ -29,7 +29,7 @@ public class GemColorHandler implements IItemColor {
 	public int colorMultiplier(ItemStack stack, int tint) {
 		if (stack.hasTagCompound()) {
 			NBTTagCompound compound = stack.getTagCompound();
-			return compound.getInteger("gemColor");
+			return compound.getInteger("GemstoneColor");
 		}
 		return 0xFFFFFF;
 	}
