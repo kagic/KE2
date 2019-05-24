@@ -13,6 +13,7 @@ public class EntityCarnelian extends AbstractQuartz {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_outfit"), VariantColor.class), EntityAmethyst.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_skin"), VariantColor.class), EntityAmethyst.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_visor"), VariantColor.class), EntityAmethyst.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_eyes"), VariantColor.class), EntityAmethyst.class);
 	}
 	public EntityCarnelian(World world) {
 		super(world);

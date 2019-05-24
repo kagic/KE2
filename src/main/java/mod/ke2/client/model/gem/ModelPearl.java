@@ -5,7 +5,6 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class ModelPearl extends ModelGem {
-    public ModelRenderer bipedSkirt;
     public ModelRenderer bipedNose;
     public ModelRenderer bipedLeftSleeve;
     public ModelRenderer bipedRightSleeve;

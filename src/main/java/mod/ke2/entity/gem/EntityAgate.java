@@ -8,11 +8,12 @@ import net.minecraft.world.World;
 
 public class EntityAgate extends AbstractQuartz {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_gemstone"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_hair"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_outfit"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_skin"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_visor"), VariantColor.class), EntityAmethyst.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_gemstone"), VariantColor.class), EntityAgate.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_hair"), VariantColor.class), EntityAgate.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_outfit"), VariantColor.class), EntityAgate.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_skin"), VariantColor.class), EntityAgate.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_visor"), VariantColor.class), EntityAgate.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_eyes"), VariantColor.class), EntityAgate.class);
 	}
 	public EntityAgate(World world) {
 		super(world);

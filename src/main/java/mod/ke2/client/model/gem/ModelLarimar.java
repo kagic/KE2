@@ -8,7 +8,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ModelLarimar extends ModelGem {
-	private ModelRenderer bipedSkirt;
     public ModelLarimar() {
 		super(0.0F, 0.0F, 64, 64, 4);
 		this.bipedHead = new ModelRenderer(this, 0, 0);

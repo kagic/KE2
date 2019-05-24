@@ -13,6 +13,7 @@ public class EntityRoseQuartz extends AbstractQuartz {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_outfit"), VariantColor.class), EntityAmethyst.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_skin"), VariantColor.class), EntityAmethyst.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_visor"), VariantColor.class), EntityAmethyst.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_eyes"), VariantColor.class), EntityAmethyst.class);
 	}
 	public EntityRoseQuartz(World world) {
 		super(world);

@@ -3,10 +3,13 @@ package mod.ke2.entity.gem;
 import java.util.ArrayList;
 
 import mod.ke2.api.EntityGem;
+import mod.ke2.api.variants.VariantHelper;
+import mod.ke2.init.Ke2Gems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -27,33 +30,42 @@ public abstract class AbstractQuartz extends EntityGem {
 		GLOBAL_VARIANT_CLASSES.add(EntityJasper.class);
 		GLOBAL_VARIANT_CLASSES.add(EntityRoseQuartz.class);
 	}
-	private static final DataParameter<Boolean> CHARGED = EntityDataManager.<Boolean>createKey(AbstractQuartz.class, DataSerializers.BOOLEAN);
+	private static final DataParameter<String>	VARIANT_EYES	= EntityDataManager.<String>createKey(AbstractQuartz.class, DataSerializers.STRING);
+	private static final DataParameter<Integer>	COLOR_RGB_EYES	= EntityDataManager.<Integer>createKey(AbstractQuartz.class, DataSerializers.VARINT);
+	private static final DataParameter<Boolean> CHARGED			= EntityDataManager.<Boolean>createKey(AbstractQuartz.class, DataSerializers.BOOLEAN);
 	public boolean chargedByTakingDamageNotDelivering;
 	private int ticksCharged = 0;
 	private int hitCount = 0;
 	public AbstractQuartz(World world) {
 		super(world);
 		this.setSize(0.9F, 2.3F);
+		this.dataManager.register(VARIANT_EYES, "");
+		this.dataManager.register(COLOR_RGB_EYES, 0);
 		this.dataManager.register(CHARGED, false);
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
 	}
-    @Override
-    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
-    	if (this.isPerfective()) {
-    		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
-    		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120.0D);
-    	}
-    	else if (this.isDefective()) {
-    		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(4.0D);
-    		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-    	}
-    	else {
-    		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-    		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60.0D);
-    	}
-        return super.onInitialSpawn(difficulty, livingdata);
-    }
+	@Override
+	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
+		data = super.onInitialSpawn(difficulty, data);
+		this.setEyesVariant(this.generateEyesVariant());
+		this.setEyesColor(this.generateEyesColor());
+		return data;
+	}
+	@Override
+	public void readEntityFromNBT(NBTTagCompound compound) {
+		super.readEntityFromNBT(compound);
+		this.setEyesVariant(compound.getString("EyesVariant"));
+		this.setEyesColor(compound.getInteger("EyesColor"));
+		this.setCharged(compound.getBoolean("Charged"));
+	}
+	@Override
+	public void writeEntityToNBT(NBTTagCompound compound) {
+		super.writeEntityToNBT(compound);
+		compound.setString("EyesVariant", this.getEyesVariant());
+		compound.setInteger("EyesColor", this.getEyesColor());
+		compound.setBoolean("Charged", this.isCharged());
+	}
     @Override
 	public void onLivingUpdate() {
 		if (this.ticksCharged < 0) {
@@ -89,6 +101,29 @@ public abstract class AbstractQuartz extends EntityGem {
 			this.hitCount += 1;
 		}
 		return super.attackEntityAsMob(target);
+	}
+	public String generateEyesVariant() {
+		return VariantHelper.loadVariantPath(this, "ke2:quartz.texture.eyes");
+	}
+	public void setEyesVariant(String variant) {
+		this.dataManager.set(VARIANT_EYES, variant);
+	}
+	public String getEyesVariant() {
+		return this.dataManager.get(VARIANT_EYES);
+	}
+	public int generateEyesColor() {
+		return VariantHelper.loadVariantColor(this, "ke2:quartz.color.eyes");
+	}
+	public void setEyesColor(int color) {
+		this.dataManager.set(COLOR_RGB_EYES, color);
+	}
+	public int getEyesColor() {
+		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
+			return 0xCCCCCC;
+		}
+		else {
+			return this.dataManager.get(COLOR_RGB_EYES);
+		}
 	}
 	@Override
     public int getBrightnessForRender() {

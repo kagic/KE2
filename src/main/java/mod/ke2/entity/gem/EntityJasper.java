@@ -13,6 +13,7 @@ public class EntityJasper extends AbstractQuartz {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_outfit"), VariantColor.class), EntityAmethyst.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_skin"), VariantColor.class), EntityAmethyst.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_visor"), VariantColor.class), EntityAmethyst.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_eyes"), VariantColor.class), EntityAmethyst.class);
 	}
 	public EntityJasper(World world) {
 		super(world);

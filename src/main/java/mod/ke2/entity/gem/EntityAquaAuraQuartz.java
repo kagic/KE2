@@ -13,6 +13,7 @@ public class EntityAquaAuraQuartz extends AbstractQuartz {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_outfit"), VariantColor.class), EntityAmethyst.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_skin"), VariantColor.class), EntityAmethyst.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_visor"), VariantColor.class), EntityAmethyst.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_eyes"), VariantColor.class), EntityAmethyst.class);
 	}
 	public EntityAquaAuraQuartz(World world) {
 		super(world);

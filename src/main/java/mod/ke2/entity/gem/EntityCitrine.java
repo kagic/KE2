@@ -13,6 +13,7 @@ public class EntityCitrine extends AbstractQuartz {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/citrine/color_outfit"), VariantColor.class), EntityAmethyst.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/citrine/color_skin"), VariantColor.class), EntityAmethyst.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/citrine/color_visor"), VariantColor.class), EntityAmethyst.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/citrine/color_eyes"), VariantColor.class), EntityAmethyst.class);
 	}
 	public EntityCitrine(World world) {
 		super(world);
