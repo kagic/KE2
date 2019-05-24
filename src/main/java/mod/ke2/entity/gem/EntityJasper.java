@@ -8,12 +8,12 @@ import net.minecraft.world.World;
 
 public class EntityJasper extends AbstractQuartz {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_gemstone"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_hair"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_outfit"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_skin"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_visor"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_eyes"), VariantColor.class), EntityAmethyst.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_gemstone"), VariantColor.class), EntityJasper.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_hair"), VariantColor.class), EntityJasper.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_outfit"), VariantColor.class), EntityJasper.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_skin"), VariantColor.class), EntityJasper.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_visor"), VariantColor.class), EntityJasper.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_eyes"), VariantColor.class), EntityJasper.class);
 	}
 	public EntityJasper(World world) {
 		super(world);

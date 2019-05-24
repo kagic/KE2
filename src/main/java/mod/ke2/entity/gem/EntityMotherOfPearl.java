@@ -10,15 +10,15 @@ import net.minecraft.world.World;
 
 public class EntityMotherOfPearl extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/hair_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/outfit_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/skin_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/cut_triangular"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_gemstone"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_hair"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_outfit"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_skin"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_visor"), VariantColor.class), EntityPeridot.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/hair_default"), VariantPath.class), EntityMotherOfPearl.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/outfit_default"), VariantPath.class), EntityMotherOfPearl.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/skin_default"), VariantPath.class), EntityMotherOfPearl.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/cut_triangular"), VariantPath.class), EntityMotherOfPearl.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_gemstone"), VariantColor.class), EntityMotherOfPearl.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_hair"), VariantColor.class), EntityMotherOfPearl.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_outfit"), VariantColor.class), EntityMotherOfPearl.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_skin"), VariantColor.class), EntityMotherOfPearl.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_visor"), VariantColor.class), EntityMotherOfPearl.class);
 	}
 	public EntityMotherOfPearl(World world) {
 		super(world);

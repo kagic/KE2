@@ -10,15 +10,15 @@ import net.minecraft.world.World;
 
 public class EntityLapisLazuli extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/hair_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/outfit_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/skin_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/cut_triangular"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_gemstone"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_hair"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_outfit"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_skin"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_visor"), VariantColor.class), EntityPeridot.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/hair_default"), VariantPath.class), EntityLapisLazuli.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/outfit_default"), VariantPath.class), EntityLapisLazuli.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/skin_default"), VariantPath.class), EntityLapisLazuli.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/cut_triangular"), VariantPath.class), EntityLapisLazuli.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_gemstone"), VariantColor.class), EntityLapisLazuli.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_hair"), VariantColor.class), EntityLapisLazuli.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_outfit"), VariantColor.class), EntityLapisLazuli.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_skin"), VariantColor.class), EntityLapisLazuli.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_visor"), VariantColor.class), EntityLapisLazuli.class);
 	}
 	public EntityLapisLazuli(World world) {
 		super(world);

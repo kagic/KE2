@@ -8,12 +8,12 @@ import net.minecraft.world.World;
 
 public class EntityCarnelian extends AbstractQuartz {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_gemstone"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_hair"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_outfit"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_skin"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_visor"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_eyes"), VariantColor.class), EntityAmethyst.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_gemstone"), VariantColor.class), EntityCarnelian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_hair"), VariantColor.class), EntityCarnelian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_outfit"), VariantColor.class), EntityCarnelian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_skin"), VariantColor.class), EntityCarnelian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_visor"), VariantColor.class), EntityCarnelian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/carnelian/color_eyes"), VariantColor.class), EntityCarnelian.class);
 	}
 	public EntityCarnelian(World world) {
 		super(world);

@@ -10,15 +10,15 @@ import net.minecraft.world.World;
 
 public class EntitySnowflakeObsidian extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/hair_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/outfit_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/skin_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/cut_triangular"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_gemstone"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_hair"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_outfit"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_skin"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_visor"), VariantColor.class), EntityPeridot.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/hair_default"), VariantPath.class), EntitySnowflakeObsidian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/outfit_default"), VariantPath.class), EntitySnowflakeObsidian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/skin_default"), VariantPath.class), EntitySnowflakeObsidian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/cut_triangular"), VariantPath.class), EntitySnowflakeObsidian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_gemstone"), VariantColor.class), EntitySnowflakeObsidian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_hair"), VariantColor.class), EntitySnowflakeObsidian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_outfit"), VariantColor.class), EntitySnowflakeObsidian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_skin"), VariantColor.class), EntitySnowflakeObsidian.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_visor"), VariantColor.class), EntitySnowflakeObsidian.class);
 	}
 	public EntitySnowflakeObsidian(World world) {
 		super(world);

@@ -10,15 +10,15 @@ import net.minecraft.world.World;
 
 public class EntityWatermelonTourmaline extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/hair_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/outfit_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/skin_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/cut_triangular"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_gemstone"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_hair"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_outfit"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_skin"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_visor"), VariantColor.class), EntityPeridot.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/hair_default"), VariantPath.class), EntityWatermelonTourmaline.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/outfit_default"), VariantPath.class), EntityWatermelonTourmaline.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/skin_default"), VariantPath.class), EntityWatermelonTourmaline.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/cut_triangular"), VariantPath.class), EntityWatermelonTourmaline.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_gemstone"), VariantColor.class), EntityWatermelonTourmaline.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_hair"), VariantColor.class), EntityWatermelonTourmaline.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_outfit"), VariantColor.class), EntityWatermelonTourmaline.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_skin"), VariantColor.class), EntityWatermelonTourmaline.class);
+		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_visor"), VariantColor.class), EntityWatermelonTourmaline.class);
 	}
 	public EntityWatermelonTourmaline(World world) {
 		super(world);
