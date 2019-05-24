@@ -23,7 +23,6 @@ public class Ke2Variants {
 		registerQuartzVariants();
 	}
 	public static void registerGarnetVariants() {
-		AbstractGarnet.GLOBAL_VARIANT_PATHS.add(registerVariant(new ResourceLocation("ke2:variants/garnet/hair_long_and_straight"), VariantPath.class));
 		AbstractGarnet.GLOBAL_VARIANT_PATHS.add(registerVariant(new ResourceLocation("ke2:variants/garnet/outfit_default"), VariantPath.class));
 		AbstractGarnet.GLOBAL_VARIANT_PATHS.add(registerVariant(new ResourceLocation("ke2:variants/garnet/skin_default"), VariantPath.class));
 		AbstractGarnet.GLOBAL_VARIANT_PATHS.add(registerVariant(new ResourceLocation("ke2:variants/garnet/cut_faceted"), VariantPath.class));
