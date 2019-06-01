@@ -2,8 +2,8 @@ ke2.config.title=Configure KAGIC
 itemGroup.ke2_gemstones=Gemstones (KAGIC)
 itemGroup.ke2_gem_tech=Gem Tech (KAGIC)
 
-key.ke2.category.name=KAGIC
-key.bug.report.name=Report Bug
+key.ke2.category=KAGIC
+key.bug.report=Report Bug
 
 entity.agate.name=Agate
 entity.amethyst.name=Amethyst
