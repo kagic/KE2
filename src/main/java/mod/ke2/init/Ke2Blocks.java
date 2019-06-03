@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import mod.ke2.block.BlockCarbonite;
+import mod.ke2.block.BlockCluster;
 import mod.ke2.block.BlockDrainBlock;
 import mod.ke2.block.BlockDrainLily;
 import mod.ke2.block.BlockGemSeed;
@@ -199,7 +200,10 @@ public class Ke2Blocks {
 	public static final BlockWarpPadFrame BLACK_WARP_PAD_FRAME = new BlockWarpPadFrame(Ke2Gems.BASIC_BLACK);
 	public static final BlockWarpPadEdge BLACK_WARP_PAD_EDGE = new BlockWarpPadEdge(BLACK_WARP_PAD_FRAME.getDefaultState());
 	
+	public static final BlockCluster CLUSTER = new BlockCluster();
+	
 	public static void register(RegistryEvent.Register<Block> event) {
+		registerBlock(CLUSTER, new ResourceLocation("ke2:cluster"), event);
 		registerBlock(WAILING_STONE, new ResourceLocation("ke2:wailing_stone"), event);
 		registerBlock(GEM_SEED, new ResourceLocation("ke2:gem_seed"), event);
 		registerBlock(MAGIC_MOSS, new ResourceLocation("ke2:magic_moss"), event);
