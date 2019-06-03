@@ -10,23 +10,23 @@ public class ModelQuartz extends ModelGem {
 	private ModelRenderer bipedSideBuns;
 	private ModelRenderer bipedBackBun;
 	public ModelQuartz() {
-		super(0.0F, 0.0F, 128, 80, 4);
+		super(0.0F, 0.0F, 144, 80, 4);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-5.0F, -12.0F, -5.0F, 10, 12, 10);
 		this.bipedHead.offsetY = -1.0F;
-		this.bipedHeadwear = new ModelRenderer(this, 84, 0);
+		this.bipedHeadwear = new ModelRenderer(this, 90, 0);
 		this.bipedHeadwear.addBox(-5.0F, -12.0F, -5.0F, 10, 28, 10, 1.1F);
 		this.bipedHead.addChild(this.bipedHeadwear);
-		this.bipedHairFloof = new ModelRenderer(this, 40, 10);
-		this.bipedHairFloof.addBox(-5.0F, -12.0F, -7.0F, 12, 12, 0, 1.1F);
+		this.bipedHairFloof = new ModelRenderer(this, 63, 9);
+		this.bipedHairFloof.addBox(-6.0F, -12.0F, -6.0F, 12, 12, 1, 1.1F);
 		this.bipedHead.addChild(this.bipedHairFloof);
-		this.bipedSideBuns = new ModelRenderer(this, 84, 40);
+		this.bipedSideBuns = new ModelRenderer(this, 88, 40);
 		this.bipedSideBuns.addBox(-9.0F, -6.0F, -2.0F, 18, 4, 4);
 		this.bipedHead.addChild(this.bipedSideBuns);
-		this.bipedTopBun = new ModelRenderer(this, 84, 48);
+		this.bipedTopBun = new ModelRenderer(this, 88, 48);
 		this.bipedTopBun.addBox(-2.0F, -12.0F, -2.0F, 4, 4, 4);
 		this.bipedHead.addChild(this.bipedTopBun);
-		this.bipedBackBun = new ModelRenderer(this, 100, 48);
+		this.bipedBackBun = new ModelRenderer(this, 104, 48);
 		this.bipedBackBun.addBox(-2.0F, -6.0F, 4.0F, 4, 4, 4);
 		this.bipedHead.addChild(this.bipedBackBun);
 		this.bipedBody = new ModelRenderer(this, 24, 22);
@@ -57,5 +57,12 @@ public class ModelQuartz extends ModelGem {
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
+		this.bipedHeadwear.rotateAngleY = this.bipedHead.rotateAngleY * 0.05F;
+		if (this.bipedHead.rotateAngleX > -0.3F) {
+			this.bipedHeadwear.rotateAngleX = this.bipedHead.rotateAngleX * 0.05F;
+		}
+		else {
+			this.bipedHeadwear.rotateAngleX = -0.3F;
+		}
 	}
 }
