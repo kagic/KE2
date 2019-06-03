@@ -5,11 +5,11 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class ModelGarnet extends ModelGem {
-    public ModelRenderer bipedLeftCalve;
-    public ModelRenderer bipedRightCalve;
-    public ModelRenderer bipedCape;
-    public ModelRenderer bipedCapeBack;
-    public ModelRenderer bipedHips;
+	public ModelRenderer bipedLeftCalve;
+	public ModelRenderer bipedRightCalve;
+	public ModelRenderer bipedCape;
+	public ModelRenderer bipedCapeBack;
+	public ModelRenderer bipedHips;
     public ModelGarnet() {
 		super(0F, 0F, 64, 64, 6);
         this.bipedHead = new ModelRenderer(this, 0, 0);

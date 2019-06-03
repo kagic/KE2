@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class ModelZircon extends ModelGem {
-	private ModelRenderer bipedNose;
+	public ModelRenderer bipedNose;
     public ModelZircon() {
 		super(0.0F, 0.0F, 64, 64, 4);
         this.bipedHead = new ModelRenderer(this, 0, 0);

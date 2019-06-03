@@ -5,9 +5,9 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class ModelMotherOfPearl extends ModelGem {
-	private ModelRenderer bipedShelmet;
-	private ModelRenderer bipedSkirt;
-	private ModelRenderer bipedNose;
+	public ModelRenderer bipedShelmet;
+	public ModelRenderer bipedSkirt;
+	public ModelRenderer bipedNose;
 	public ModelMotherOfPearl() {
 		super(0.0F, 0.0F, 96, 96, 4);
 		this.bipedHead = new ModelRenderer(this, 0, 0);

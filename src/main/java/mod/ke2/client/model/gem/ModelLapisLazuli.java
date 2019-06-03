@@ -6,8 +6,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
 
 public class ModelLapisLazuli extends ModelGem {
-	private ModelRenderer bipedLeftWing;
-	private ModelRenderer bipedRightWing;
+	public ModelRenderer bipedLeftWing;
+	public ModelRenderer bipedRightWing;
 	public ModelLapisLazuli() {
 		super(0.0F, 0.0F, 64, 64, 4);
 		this.bipedHead = new ModelRenderer(this, 0, 0);

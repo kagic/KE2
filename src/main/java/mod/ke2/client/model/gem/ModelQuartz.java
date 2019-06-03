@@ -5,10 +5,10 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class ModelQuartz extends ModelGem {
-	private ModelRenderer bipedHairFloof;
-	private ModelRenderer bipedTopBun;
-	private ModelRenderer bipedSideBuns;
-	private ModelRenderer bipedBackBun;
+	public ModelRenderer bipedHairFloof;
+	public ModelRenderer bipedTopBun;
+	public ModelRenderer bipedSideBuns;
+	public ModelRenderer bipedBackBun;
 	public ModelQuartz() {
 		super(0.0F, 0.0F, 144, 80, 4);
 		this.bipedHead = new ModelRenderer(this, 0, 0);

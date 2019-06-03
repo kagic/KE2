@@ -9,22 +9,20 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ModelAquamarine extends ModelGem {
-	private ModelRenderer bipedLeftWing;
-	private ModelRenderer bipedRightWing;
+	public ModelRenderer bipedLeftWing;
+	public ModelRenderer bipedRightWing;
 	public ModelAquamarine() {
 		super(0.0F, 0.0F, 64, 64, 4);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
-		this.bipedHead.addBox(-4F, 0F, -4F, 8, 8, 8);
-	    this.bipedHead.setRotationPoint(0F, 0F, 0F);
+		this.bipedHead.addBox(-3.0F, 0.0F, -3.0F, 6, 6, 6);
 	    this.bipedHeadwear = new ModelRenderer(this, 32, 0);
-		this.bipedHeadwear.addBox(-4F, 0F, -4F, 8, 8, 8, 1.1F);
-	    this.bipedHeadwear.setRotationPoint(0F, 0F, 0F);
+		this.bipedHeadwear.addBox(-5F, 0F, -3F, 10, 6, 6, 1.1F);
+		//this.bipedHead.addChild(this.bipedHeadwear);
 	    this.bipedBody = new ModelRenderer(this, 8, 16);
-	    this.bipedBody.addBox(-3F, 8F, -2F, 6, 8, 4);
-	    this.bipedBody.setRotationPoint(0F, 0F, 0F);
+	    this.bipedBody.addBox(-2.0F, 6.0F, -2.0F, 4, 4, 4);
 	    this.bipedSkirt = new ModelRenderer(this, 24, 24);
 	    this.bipedSkirt.addBox(-5F, 15F, -5F, 10, 8, 10);
-	    this.bipedSkirt.setRotationPoint(0F, 0F, 0F);
+	    this.bipedBody.addChild(this.bipedSkirt);
 		this.bipedRightWing = new ModelRenderer(this, -1, 42);
         this.bipedRightWing.addBox(-4F, 6F, 1F, 10, 10, 1);
         this.bipedRightWing.setRotationPoint(-5F, 0.5F, 0F);
@@ -48,9 +46,7 @@ public class ModelAquamarine extends ModelGem {
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
 		this.bipedHead.render(scale);
-		this.bipedHeadwear.render(scale);
 		this.bipedBody.render(scale);
-		this.bipedSkirt.render(scale);
 		this.bipedRightArm.render(scale);
 		this.bipedLeftArm.render(scale);
 		this.bipedRightLeg.render(scale);

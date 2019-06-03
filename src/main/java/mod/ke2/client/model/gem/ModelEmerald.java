@@ -5,11 +5,11 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class ModelEmerald extends ModelGem {
-	private ModelRenderer bipedLeftShoulder;
-	private ModelRenderer bipedRightShoulder;
-	private ModelRenderer bipedHair;
-	private ModelRenderer bipedWaist;
-	private ModelRenderer bipedHips;
+	public ModelRenderer bipedLeftShoulder;
+	public ModelRenderer bipedRightShoulder;
+	public ModelRenderer bipedHair;
+	public ModelRenderer bipedWaist;
+	public ModelRenderer bipedHips;
     public ModelEmerald() {
 		super(0F, 0F, 64, 64, 6);
         this.bipedHead = new ModelRenderer(this, 28, 14);
