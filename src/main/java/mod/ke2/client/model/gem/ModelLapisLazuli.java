@@ -33,10 +33,6 @@ public class ModelLapisLazuli extends ModelGem {
         this.bipedSkirt = new ModelRenderer(this, 36, 0);
         this.bipedSkirt.addBox(-4.0F, 12.0F, -4.0F, 8, 12, 8, 0.0F);
         this.bipedBody.addChild(this.bipedSkirt);
-        this.bipedLeftLeg = new ModelRenderer(this, 28, 16);
-        this.bipedLeftLeg.addBox(-3.0F, 0.0F, -1.0F, 2, 12, 2, 0.0F);
-        this.bipedRightLeg = new ModelRenderer(this, 28, 30);
-        this.bipedRightLeg.addBox(1.0F, 0.0F, -1.0F, 2, 12, 2, 0.0F);
 	}
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
@@ -45,8 +41,6 @@ public class ModelLapisLazuli extends ModelGem {
 		this.bipedLeftArm.render(scale);
 		this.bipedRightArm.render(scale);
 		this.bipedBody.render(scale);
-		this.bipedLeftLeg.render(scale);
-		this.bipedRightLeg.render(scale);
 	}
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
