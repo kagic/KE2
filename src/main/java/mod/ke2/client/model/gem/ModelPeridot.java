@@ -45,15 +45,17 @@ public class ModelPeridot extends ModelGem {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 		if (entity instanceof EntityPeridot) {
 			EntityPeridot gem = (EntityPeridot)(entity);
-			this.bipedHead.rotateAngleY = 0.5F;
 			if (gem.hasSquareHair()) {
+				this.bipedHeadwear.rotateAngleY = 0.0F;
+				this.bipedHeadwear.rotateAngleX = 0.0F;
 				this.bipedHeadwear.rotateAngleZ += 0.0000000F;
 				this.bipedHeadwear.offsetX =  0.25F;
 				this.bipedHeadwear.offsetY = -0.12F;
 			}
 			else {
+				this.bipedHeadwear.rotateAngleY = 0.0F;
+				this.bipedHeadwear.rotateAngleX = 0.0F;
 				this.bipedHeadwear.rotateAngleZ += 0.7853982F;
-				this.bipedHeadwear.rotateAngleZ += 0;
 				this.bipedHeadwear.offsetX = -0.039F;
 				this.bipedHeadwear.offsetY = -0.06F;
 			}
