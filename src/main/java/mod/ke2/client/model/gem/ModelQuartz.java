@@ -57,12 +57,7 @@ public class ModelQuartz extends ModelGem {
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
-		this.bipedHeadwear.rotateAngleY = this.bipedHead.rotateAngleY * 0.05F;
-		if (this.bipedHead.rotateAngleX > -0.3F) {
-			this.bipedHeadwear.rotateAngleX = this.bipedHead.rotateAngleX * 0.05F;
-		}
-		else {
-			this.bipedHeadwear.rotateAngleX = -0.3F;
-		}
+		this.bipedHeadwear.rotateAngleX = 0.0F;
+		this.bipedHeadwear.rotateAngleY = 0.0F;
 	}
 }
