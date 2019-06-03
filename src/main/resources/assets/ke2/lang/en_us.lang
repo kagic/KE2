@@ -45,13 +45,12 @@ entity.gem_shard.name=Gem Shard
 entity.bubble.name=Bubble
 entity.palanquin.name=Palanquin
 
+item.manual.name=Kindergartener's Guide
 item.gem_staff.name=Gem Staff
-
-
+item.warp_whistle.name=Warp Whistle
 item.gem_destabilizer.name=Gem Destabilizer
 item.gem_shard.name=Gem Shard
 item.gem_dust.name=Gem Dust
-item.manual.name=Kindergartener's Guide
 
 tile.wailing_stone.name=Wailing Stone
 tile.gem_seed.name=Gem Seed
