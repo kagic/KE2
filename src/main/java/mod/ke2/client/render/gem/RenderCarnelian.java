@@ -2,6 +2,7 @@ package mod.ke2.client.render.gem;
 
 import mod.ke2.client.model.gem.ModelQuartz;
 import mod.ke2.client.render.RenderGem;
+import mod.ke2.client.render.gem.layers.LayerEyes;
 import mod.ke2.client.render.gem.layers.LayerFlower;
 import mod.ke2.client.render.gem.layers.LayerGemstone;
 import mod.ke2.client.render.gem.layers.LayerHair;
@@ -19,6 +20,7 @@ public class RenderCarnelian<T extends EntityCarnelian> extends RenderGem<T> {
 	public RenderCarnelian(RenderManager manager) {
 		super(manager, new ModelQuartz(), 0.5F);
 		this.addLayer(new LayerSkin(this));
+		this.addLayer(new LayerEyes(this));
 		this.addLayer(new LayerUniform(this));
 		this.addLayer(new LayerInsignia(this));
 		this.addLayer(new LayerHair(this));
