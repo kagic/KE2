@@ -11,8 +11,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ModelAquamarine extends ModelGem {
-	public ModelRenderer bipedLeftWing;
 	public ModelRenderer bipedRightWing;
+	public ModelRenderer bipedLeftWing;
 	public ModelAquamarine() {
 		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);

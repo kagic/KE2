@@ -8,8 +8,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.Vec3d;
 
 public class ModelLapisLazuli extends ModelGem {
-	public ModelRenderer bipedLeftWing;
 	public ModelRenderer bipedRightWing;
+	public ModelRenderer bipedLeftWing;
 	public ModelLapisLazuli() {
 		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
