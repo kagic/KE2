@@ -19,7 +19,7 @@ public class ModelAquamarine extends ModelGem {
 		this.bipedHead.addBox(-3.0F, -6.0F, -3.0F, 6, 6, 6, 0.0F);
 		this.bipedHead.offsetY = 0.75F;
 	    this.bipedHeadwear = new ModelRenderer(this, 32, 0);
-		this.bipedHeadwear.addBox(-5.0F, 6.0F, -3.0F, 10, 6, 6, 1.1F);
+		this.bipedHeadwear.addBox(-5.0F, 6.0F, -3.0F, 10, 6, 6, 0.5F);
 		this.bipedHeadwear.offsetY = -0.75F;
 		this.bipedHead.addChild(this.bipedHeadwear);
 	    this.bipedRightArm = new ModelRenderer(this, 28, 16);

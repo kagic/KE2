@@ -13,7 +13,7 @@ public class ModelSteven extends ModelGem {
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-4.0F, 0.0F, -4.0F, 8, 8, 8);
  		this.bipedHeadwear = new ModelRenderer(this, 32, 0);
- 		this.bipedHeadwear.addBox(-4.0F, 0.0F, -4.0F, 8, 8, 8, 1.1F);
+ 		this.bipedHeadwear.addBox(-4.0F, 0.0F, -4.0F, 8, 8, 8, 0.5F);
 	    this.bipedBody = new ModelRenderer(this, 16, 16);
 	    this.bipedBody.addBox(-4.0F, 8.0F, -2.0F, 8, 8, 4);
 	    this.bipedRightArm = new ModelRenderer(this, 40, 16);

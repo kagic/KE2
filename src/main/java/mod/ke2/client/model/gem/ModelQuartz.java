@@ -15,10 +15,10 @@ public class ModelQuartz extends ModelGem {
 		this.bipedHead.addBox(-5.0F, -12.0F, -5.0F, 10, 12, 10);
 		this.bipedHead.offsetY = -1.0F;
 		this.bipedHeadwear = new ModelRenderer(this, 90, 0);
-		this.bipedHeadwear.addBox(-5.0F, -12.0F, -5.0F, 10, 28, 10, 1.1F);
+		this.bipedHeadwear.addBox(-5.0F, -12.0F, -5.0F, 10, 28, 10, 0.5F);
 		this.bipedHead.addChild(this.bipedHeadwear);
 		this.bipedHairFloof = new ModelRenderer(this, 63, 9);
-		this.bipedHairFloof.addBox(-6.0F, -12.0F, -6.0F, 12, 12, 1, 1.1F);
+		this.bipedHairFloof.addBox(-6.0F, -12.0F, -6.0F, 12, 12, 1, 0.5F);
 		this.bipedHead.addChild(this.bipedHairFloof);
 		this.bipedSideBuns = new ModelRenderer(this, 88, 40);
 		this.bipedSideBuns.addBox(-9.0F, -6.0F, -2.0F, 18, 4, 4);

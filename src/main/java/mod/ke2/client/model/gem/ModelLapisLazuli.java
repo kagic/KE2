@@ -16,7 +16,7 @@ public class ModelLapisLazuli extends ModelGem {
         this.bipedHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.0F);
         this.bipedHead.offsetY = -0.125F;
         this.bipedHeadwear = new ModelRenderer(this, 32, 0);
-        this.bipedHeadwear.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 1.1F);
+        this.bipedHeadwear.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.5F);
         this.bipedHead.addChild(this.bipedHeadwear);
         this.bipedLeftArm = new ModelRenderer(this, 0, 16);
         this.bipedLeftArm.addBox(-2.0F, 2.0F, -1.0F, 2, 12, 2, 0.0F);

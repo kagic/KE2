@@ -12,7 +12,7 @@ public class ModelPearl extends ModelGem {
         this.bipedHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.0F);
         this.bipedHead.offsetY = -0.125F;
         this.bipedHeadwear = new ModelRenderer(this, 32, 0);
-        this.bipedHeadwear.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 1.1F);
+        this.bipedHeadwear.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.5F);
         this.bipedHead.addChild(this.bipedHeadwear);
         this.bipedNose = new ModelRenderer(this, 24, 0);
         this.bipedNose.addBox(-0.5F, 1.0F, -6.0F, 1, 1, 2, 0.0F);

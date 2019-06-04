@@ -14,7 +14,7 @@ public class ModelMotherOfPearl extends ModelGem {
 		this.bipedHead.addBox(-4F, -8F, -4F, 8, 8, 8);
 		this.bipedHead.setRotationPoint(0F, 0F, 0F);
 		this.bipedHeadwear = new ModelRenderer(this, 32, 0);
-		this.bipedHeadwear.addBox(-4F, -8F, -4F, 8, 8, 8, 1.1F);
+		this.bipedHeadwear.addBox(-4F, -8F, -4F, 8, 8, 8, 0.5F);
 		this.bipedHeadwear.setRotationPoint(0F, 0F, 0F);
 		this.bipedShelmet = new ModelRenderer(this, 0, 32);
 		this.bipedShelmet.addBox(-6F, -12F, -4F, 12, 12, 12);

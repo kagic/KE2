@@ -14,7 +14,7 @@ public class ModelJade extends ModelGem {
 		this.bipedHead.addBox(-4F, 0F, -4F, 8, 8, 8);
 	    this.bipedHead.setRotationPoint(0F, 0F, 0F);
 	    this.bipedHeadwear = new ModelRenderer(this, 32, 0);
-		this.bipedHeadwear.addBox(-4F, 0F, -4F, 8, 8, 8, 1.1F);
+		this.bipedHeadwear.addBox(-4F, 0F, -4F, 8, 8, 8, 0.5F);
 	    this.bipedHeadwear.setRotationPoint(0F, 0F, 0F);
 	    this.bipedBody = new ModelRenderer(this, 8, 16);
 	    this.bipedBody.addBox(-3F, 8F, -2F, 6, 8, 4);

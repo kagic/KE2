@@ -14,7 +14,7 @@ public class ModelLarimar extends ModelGem {
 		this.bipedHead.addBox(-4.0F, 0.0F, -4.0F, 8, 8, 8);
 	    this.bipedHead.setRotationPoint(0F, 0F, 0F);
 	    this.bipedHeadwear = new ModelRenderer(this, 32, 0);
-		this.bipedHeadwear.addBox(-4.0F, 0.0F, -4.0F, 8, 8, 8, 1.1F);
+		this.bipedHeadwear.addBox(-4.0F, 0.0F, -4.0F, 8, 8, 8, 0.5F);
 	    this.bipedHeadwear.setRotationPoint(0F, 0F, 0F);
 	    this.bipedBody = new ModelRenderer(this, 8, 16);
 	    this.bipedBody.addBox(-3.0F, 8.0F, -2.0F, 6, 8, 4);
