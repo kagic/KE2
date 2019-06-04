@@ -88,6 +88,8 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	protected boolean changesScaleBasedOnCondition = true;
 	/** Default outfit color is analog to KAGIC's native color. */
 	protected int defaultOutfitColor = 0;
+	/** Eye height placeholder value used for scaling with height. */
+	protected float eyeHeight = 0.85F;
 	
 	/** Handles inventory events for AI purposes. */
 	public InvWrapper storageHandler;
@@ -578,7 +580,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public void setDefective(boolean defective) {
 		this.dataManager.set(IS_DEFECTIVE, defective);
 		if (this.isDefective() && this.changesScaleBasedOnCondition) {
-			this.setSize(this.width * 0.5F, this.height * 0.5F);
+			this.setSize(this.width * 0.5F, this.height * 0.5F, this.eyeHeight * 0.5F);
 		}
 	}
 	public boolean isDefective() {
@@ -587,7 +589,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public void setPerfective(boolean perfective) {
 		this.dataManager.set(IS_PERFECT, perfective);
 		if (this.isPerfective() && this.changesScaleBasedOnCondition) {
-			this.setSize(this.width * 1.5F, this.height * 1.5F);
+			this.setSize(this.width * 1.5F, this.height * 1.5F, this.eyeHeight * 1.5F);
 		}
 	}
 	public boolean isPerfective() {
@@ -649,6 +651,13 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
     }
 	public int getMaxInventorySlots() {
 		return 0;
+	}
+	protected void setSize(float width, float height, float eyeHeight) {
+		super.setSize(width, height);
+		this.eyeHeight = eyeHeight;
+	}
+	public float getEyeHeight() {
+		return this.eyeHeight;
 	}
 	private void updateCape() {
         this.prevChasingPosX = this.chasingPosX;

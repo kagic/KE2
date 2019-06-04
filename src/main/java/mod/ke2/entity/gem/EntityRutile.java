@@ -22,6 +22,7 @@ public class EntityRutile extends EntityGem {
 	}
 	public EntityRutile(World world) {
 		super(world);
+		this.changesScaleBasedOnCondition = false;
 	}
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
