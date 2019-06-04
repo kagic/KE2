@@ -39,11 +39,19 @@ public class RenderJade<T extends EntityJade> extends RenderGem<T> {
 	@Override
 	public void preRenderCallback(EntityJade gem, float partialTickTime) {
 		this.preRenderCallback(gem, partialTickTime);
-		if () {
-			this.mainModel = RenderRutile.DEFECT_MODEL;
-		}
-		else {
-			this.mainModel = RenderRutile.NORMAL_MODEL;
+		switch (gem.getJadeShape()) {
+		case "ke2:jade.shape.bell":
+			this.mainModel = RenderJade.BELL_MODEL;
+			break;
+		case "ke2:jade.shape.spur":
+			this.mainModel = RenderJade.SPUR_MODEL;
+			break;
+		case "ke2:jade.shape.rack":
+			this.mainModel = RenderJade.RACK_MODEL;
+			break;
+		case "ke2:jade.shape.worm":
+			this.mainModel = RenderJade.WORM_MODEL;
+			break;
 		}
 	}
 }
