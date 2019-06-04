@@ -16,37 +16,35 @@ public class ModelAquamarine extends ModelGem {
 	public ModelAquamarine() {
 		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
-		this.bipedHead.addBox(-3.0F, -6.0F, -3.0F, 6, 6, 6);
+		this.bipedHead.addBox(-3.0F, -6.0F, -3.0F, 6, 6, 6, 0.0F);
 		this.bipedHead.offsetY = 0.75F;
 	    this.bipedHeadwear = new ModelRenderer(this, 32, 0);
 		this.bipedHeadwear.addBox(-5.0F, 6.0F, -3.0F, 10, 6, 6, 1.1F);
 		this.bipedHeadwear.offsetY = -0.75F;
 		this.bipedHead.addChild(this.bipedHeadwear);
 	    this.bipedRightArm = new ModelRenderer(this, 28, 16);
-	    this.bipedRightArm.addBox(3.0F, 0.0F, -1.0F, 2, 6, 2);
+	    this.bipedRightArm.addBox(3.0F, 0.0F, -1.0F, 2, 6, 2, 0.0F);
 	    this.bipedRightArm.offsetY = 0.64F;
 	    this.bipedLeftArm = new ModelRenderer(this, 36, 16);
-	    this.bipedLeftArm.addBox(-5.0F, 0.0F, -1.0F, 2, 6, 2);
+	    this.bipedLeftArm.addBox(-5.0F, 0.0F, -1.0F, 2, 6, 2, 0.0F);
 	    this.bipedLeftArm.offsetY = 0.64F;
 	    this.bipedBody = new ModelRenderer(this, 8, 16);
-	    this.bipedBody.addBox(-2.0F, 12.0F, -2.0F, 4, 4, 4);
+	    this.bipedBody.addBox(-2.0F, 12.0F, -2.0F, 4, 4, 4, 0.0F);
 		this.bipedRightWing = new ModelRenderer(this, -1, 42);
-        this.bipedRightWing.addBox(-11.0F, 10.0F, 2.0F, 10, 10, 1);
+        this.bipedRightWing.addBox(-11.0F, 10.0F, 2.0F, 10, 10, 1, 0.0F);
 		this.bipedLeftWing = new ModelRenderer(this, -1, 53);
-		this.bipedLeftWing.addBox(1.0F, 10.0F, 2.0F, 10, 10, 1);
+		this.bipedLeftWing.addBox(1.0F, 10.0F, 2.0F, 10, 10, 1, 0.0F);
 	    this.bipedSkirt = new ModelRenderer(this, 24, 24);
-	    this.bipedSkirt.addBox(-4.0F, 16.0F, -4.0F, 8, 6, 8);
+	    this.bipedSkirt.addBox(-4.0F, 16.0F, -4.0F, 8, 6, 8, 0.0F);
 	    this.bipedBody.addChild(this.bipedSkirt);
 	    this.bipedRightLeg = new ModelRenderer(this, 0, 16);
-	    this.bipedRightLeg.addBox(-3F, 10F, -1F, 2, 4, 2);
-	    this.bipedRightLeg.setRotationPoint(0F, 0F, 0F);
+	    this.bipedRightLeg.addBox(-3.0F, 10.0F, -1.0F, 2, 4, 2, 0.0F);
 	    this.bipedLeftLeg = new ModelRenderer(this, 0, 16);
-	    this.bipedLeftLeg.addBox(1F, 10F, -1F, 2, 4, 2);
-	    this.bipedLeftLeg.setRotationPoint(0F, 0F, 0F);
+	    this.bipedLeftLeg.addBox(1.0F, 10.0F, -1.0F, 2, 4, 2, 0.0F);
     }
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.bipedHead.render(scale);
 		this.bipedRightArm.render(scale);
 		this.bipedLeftArm.render(scale);

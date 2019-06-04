@@ -32,7 +32,7 @@ public class ModelCoral extends ModelGem {
 	}
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.bipedHead.render(scale);
 		this.bipedHeadwear.render(scale);
 		this.bipedBody.render(scale);
@@ -40,5 +40,9 @@ public class ModelCoral extends ModelGem {
 		this.bipedLeftArm.render(scale);
 		this.bipedRightLeg.render(scale);
 		this.bipedLeftLeg.render(scale);
+	}
+	@Override
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
+		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 	}
 }

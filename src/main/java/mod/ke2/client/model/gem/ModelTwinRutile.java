@@ -43,7 +43,7 @@ public class ModelTwinRutile extends ModelGem {
 	}
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.bipedLeftTorso.render(scale);
 		this.bipedRightTorso.render(scale);
 		this.bipedBody.render(scale);
