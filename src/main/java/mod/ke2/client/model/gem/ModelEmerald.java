@@ -36,7 +36,7 @@ public class ModelEmerald extends ModelGem {
         this.bipedLeftShoulder.addChild(this.bipedLeftArm);
         this.bipedHips = new ModelRenderer(this, 0, 12);
         this.bipedHips.setRotationPoint(0.0F, 3.0F, 0.0F);
-        this.bipedHips.addBox(-4.0F, -7.0F, -2.0F, 8, 12, 4, 0.0F);
+        this.bipedHips.addBox(-4.0F, -9.0F, -3.0F, 8, 14, 6, 0.0F);
         this.bipedRightLeg = new ModelRenderer(this, 12, 30);
         this.bipedRightLeg.setRotationPoint(1.0F, 4.0F, 0.0F);
         this.bipedRightLeg.addBox(-1.0F, 1.0F, -2.0F, 4, 16, 4, 0.0F);
