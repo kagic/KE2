@@ -46,6 +46,7 @@ public class ModelCoral extends ModelGem {
         this.bipedNeck.render(scale);
         this.bipedTorso.render(scale);
         GlStateManager.enableBlend();
+        ModelCoral.copyModelAngles(this.bipedHead, this.bipedHeadwear);
         GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         GlStateManager.color(1.0F, 1.0F, 1.0F, 0.25F);
 		this.bipedHeadwear.render(scale);
@@ -56,11 +57,9 @@ public class ModelCoral extends ModelGem {
 		this.bipedLeftLeg.render(scale);
         GlStateManager.disableBlend();
 	}
-	public void renderSpecially(ModelRenderer part, float scale) {
-		GlStateManager.enableBlend();
-        GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
-        GlStateManager.color(1.0F, 1.0F, 1.0F, 0.5F);
-        part.render(scale);
-        GlStateManager.disableBlend();
+	@Override
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
+		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
+        
 	}
 }
