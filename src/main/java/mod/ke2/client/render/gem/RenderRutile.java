@@ -33,8 +33,8 @@ public class RenderRutile<T extends EntityRutile> extends RenderGem<T> {
 		this.addLayer(new LayerFlower(this));
 	}
 	@Override
-	public void preRenderCallback(EntityRutile gem, float partialTickTime) {
-		this.preRenderCallback(gem, partialTickTime);
+	public void preRenderCallback(T gem, float partialTickTime) {
+		super.preRenderCallback(gem, partialTickTime);
 		if (gem.isDefective()) {
 			this.mainModel = RenderRutile.DEFECT_MODEL;
 		}

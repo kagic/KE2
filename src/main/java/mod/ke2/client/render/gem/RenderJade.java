@@ -37,8 +37,8 @@ public class RenderJade<T extends EntityJade> extends RenderGem<T> {
 		this.addLayer(new LayerFlower(this));
 	}
 	@Override
-	public void preRenderCallback(EntityJade gem, float partialTickTime) {
-		this.preRenderCallback(gem, partialTickTime);
+	public void preRenderCallback(T gem, float partialTickTime) {
+		super.preRenderCallback(gem, partialTickTime);
 		switch (gem.getJadeShape()) {
 		case "ke2:jade.shape.bell":
 			this.mainModel = RenderJade.BELL_MODEL;
