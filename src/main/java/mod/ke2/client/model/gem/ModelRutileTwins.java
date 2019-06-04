@@ -4,12 +4,12 @@ import mod.ke2.client.model.ModelGem;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelTwinRutile extends ModelGem {
+public class ModelRutileTwins extends ModelGem {
 	public ModelRenderer bipedOtherHead;
 	public ModelRenderer bipedOtherHeadwear;
 	public ModelRenderer bipedLeftTorso;
 	public ModelRenderer bipedRightTorso;
-	public ModelTwinRutile() {
+	public ModelRutileTwins() {
 		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-8.0F, -6.0F, -4.0F, 8, 8, 8);
