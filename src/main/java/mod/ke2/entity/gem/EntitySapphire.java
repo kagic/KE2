@@ -96,16 +96,7 @@ public class EntitySapphire extends EntityGem {
 	}
 	@Override
 	protected void playStepSound(BlockPos pos, Block block) {
-		//Sapphires have no legs and are thus completely silent
-	}
-	public void setSapphireColor(String color) {
-		this.dataManager.set(SAPPHIRE_COLOR, color);
-	}
-	public String getSapphireColor() {
-		return this.dataManager.get(SAPPHIRE_COLOR);
-	}
-	public String generateSapphireColor() {
-		return TagType.weigh(SAPPHIRE_COLORS).getTag();
+		// Sapphires have no legs and are thus completely silent.
 	}
 	@Override
 	public int generateSkinColor() {
@@ -130,5 +121,14 @@ public class EntitySapphire extends EntityGem {
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
 		
+	}
+	public void setSapphireColor(String color) {
+		this.dataManager.set(SAPPHIRE_COLOR, color);
+	}
+	public String getSapphireColor() {
+		return this.dataManager.get(SAPPHIRE_COLOR);
+	}
+	public String generateSapphireColor() {
+		return TagType.weigh(SAPPHIRE_COLORS).getTag();
 	}
 }

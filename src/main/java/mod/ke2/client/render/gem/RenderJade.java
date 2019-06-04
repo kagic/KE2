@@ -1,6 +1,9 @@
 package mod.ke2.client.render.gem;
 
-import mod.ke2.client.model.gem.ModelJade;
+import mod.ke2.client.model.gem.ModelJadeBell;
+import mod.ke2.client.model.gem.ModelJadeRack;
+import mod.ke2.client.model.gem.ModelJadeSpur;
+import mod.ke2.client.model.gem.ModelJadeWorm;
 import mod.ke2.client.render.RenderGem;
 import mod.ke2.client.render.gem.layers.LayerFlower;
 import mod.ke2.client.render.gem.layers.LayerGemstone;
@@ -16,8 +19,12 @@ import mod.ke2.entity.gem.EntityJade;
 import net.minecraft.client.renderer.entity.RenderManager;
 
 public class RenderJade<T extends EntityJade> extends RenderGem<T> {
+	private static final ModelJadeBell BELL_MODEL = new ModelJadeBell();
+	private static final ModelJadeSpur SPUR_MODEL = new ModelJadeSpur();
+	private static final ModelJadeRack RACK_MODEL = new ModelJadeRack();
+	private static final ModelJadeWorm WORM_MODEL = new ModelJadeWorm();
 	public RenderJade(RenderManager manager) {
-		super(manager, new ModelJade(), 0.5F);
+		super(manager, RenderJade.BELL_MODEL, 0.5F);
 		this.addLayer(new LayerSkin(this));
 		this.addLayer(new LayerUniform(this));
 		this.addLayer(new LayerInsignia(this));
@@ -28,5 +35,15 @@ public class RenderJade<T extends EntityJade> extends RenderGem<T> {
 		this.addLayer(new LayerGemstone(this));
 		this.addLayer(new LayerHeldItem(this));
 		this.addLayer(new LayerFlower(this));
+	}
+	@Override
+	public void preRenderCallback(EntityJade gem, float partialTickTime) {
+		this.preRenderCallback(gem, partialTickTime);
+		if () {
+			this.mainModel = RenderRutile.DEFECT_MODEL;
+		}
+		else {
+			this.mainModel = RenderRutile.NORMAL_MODEL;
+		}
 	}
 }
