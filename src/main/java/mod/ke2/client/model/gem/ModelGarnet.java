@@ -11,7 +11,7 @@ public class ModelGarnet extends ModelGem {
 	public ModelRenderer bipedCapeBack;
 	public ModelRenderer bipedHips;
     public ModelGarnet() {
-		super(0F, 0F, 64, 64, 6);
+		super(0.0F, 0.0F, 64, 64);
         this.bipedHead = new ModelRenderer(this, 0, 0);
         this.bipedHead.setRotationPoint(0.0F, 0.0F, 0.0F);
         this.bipedHead.addBox(-6.0F, -12.0F, -4.0F, 12, 12, 8, 0.0F);

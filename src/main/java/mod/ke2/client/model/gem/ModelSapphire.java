@@ -9,7 +9,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ModelSapphire extends ModelGem {
     public ModelSapphire() {
-		super(0.0F, 0.0F, 96, 64, 4);
+		super(0.0F, 0.0F, 96, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-4.0F, -6.0F, -4.0F, 8, 8, 8);
 		this.bipedHead.offsetY = 0.25F;

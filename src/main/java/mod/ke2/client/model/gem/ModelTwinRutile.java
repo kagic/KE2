@@ -10,7 +10,7 @@ public class ModelTwinRutile extends ModelGem {
 	public ModelRenderer bipedLeftTorso;
 	public ModelRenderer bipedRightTorso;
 	public ModelTwinRutile() {
-		super(0.0F, 0.0F, 64, 64, 4);
+		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-8.0F, -6.0F, -4.0F, 8, 8, 8);
         this.bipedHeadwear = new ModelRenderer(this, 32, 0);

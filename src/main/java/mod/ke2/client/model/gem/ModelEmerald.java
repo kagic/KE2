@@ -11,7 +11,7 @@ public class ModelEmerald extends ModelGem {
 	public ModelRenderer bipedWaist;
 	public ModelRenderer bipedHips;
     public ModelEmerald() {
-		super(0F, 0F, 64, 64, 6);
+		super(0.0F, 0.0F, 64, 64);
         this.bipedHead = new ModelRenderer(this, 28, 14);
         this.bipedHead.setRotationPoint(0.0F, -7.0F, 0.3F);
         this.bipedHead.addBox(-4.0F, -8.0F, -4.7F, 8, 8, 8, 0.0F);

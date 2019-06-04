@@ -10,7 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ModelPeridot extends ModelGem {
 	public ModelPeridot() {
-		super(0.0F, 0.0F, 64, 64, 4);
+		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8);
 		this.bipedHead.offsetY = 0.25F;

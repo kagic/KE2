@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 
 public class ModelSnowflakeObsidian extends ModelGem {
 	public ModelSnowflakeObsidian() {
-		super(0.0F, 0.0F, 64, 64, 6);
+		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-4F, -12F, -4F, 8, 8, 8);
 		this.bipedHead.setRotationPoint(0F, 0F, 0F);

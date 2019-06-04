@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 public class ModelZircon extends ModelGem {
 	public ModelRenderer bipedNose;
     public ModelZircon() {
-		super(0.0F, 0.0F, 64, 64, 4);
+		super(0.0F, 0.0F, 64, 64);
         this.bipedHead = new ModelRenderer(this, 0, 0);
         this.bipedHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.0F);
         this.bipedHead.offsetY = -0.125F;

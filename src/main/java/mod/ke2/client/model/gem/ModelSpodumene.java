@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 
 public class ModelSpodumene extends ModelGem {
     public ModelSpodumene() {
-    	super(0.0F, 0.0F, 128, 64, 4);
+    	super(0.0F, 0.0F, 128, 64);
         this.bipedHead = new ModelRenderer(this, 0, 0);
         this.bipedHead.setRotationPoint(0.0F, 4.0F, 0.0F);
         this.bipedHead.addBox(-4.0F, -1.0F, -4.0F, 8, 8, 8, 0.0F);

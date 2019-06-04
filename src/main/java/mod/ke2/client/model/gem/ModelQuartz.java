@@ -10,7 +10,7 @@ public class ModelQuartz extends ModelGem {
 	public ModelRenderer bipedSideBuns;
 	public ModelRenderer bipedBackBun;
 	public ModelQuartz() {
-		super(0.0F, 0.0F, 144, 80, 4);
+		super(0.0F, 0.0F, 144, 80);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-5.0F, -12.0F, -5.0F, 10, 12, 10);
 		this.bipedHead.offsetY = -1.0F;

@@ -13,7 +13,7 @@ public class ModelAquamarine extends ModelGem {
 	public ModelRenderer bipedLeftWing;
 	public ModelRenderer bipedRightWing;
 	public ModelAquamarine() {
-		super(0.0F, 0.0F, 64, 64, 4);
+		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-3.0F, -6.0F, -3.0F, 6, 6, 6);
 		this.bipedHead.offsetY = 0.75F;

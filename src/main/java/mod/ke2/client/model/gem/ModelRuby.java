@@ -9,7 +9,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ModelRuby extends ModelGem {
 	public ModelRuby() {
-		super(0.0F, 0.0F, 64, 64, 4);
+		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-7.0F, -12.0F, -4.0F, 14, 12, 8);
 		this.bipedHead.offsetY = 0.5F;

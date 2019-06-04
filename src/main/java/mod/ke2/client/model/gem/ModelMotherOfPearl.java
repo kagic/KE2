@@ -9,7 +9,7 @@ public class ModelMotherOfPearl extends ModelGem {
 	public ModelRenderer bipedSkirt;
 	public ModelRenderer bipedNose;
 	public ModelMotherOfPearl() {
-		super(0.0F, 0.0F, 96, 96, 4);
+		super(0.0F, 0.0F, 96, 96);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-4F, -8F, -4F, 8, 8, 8);
 		this.bipedHead.setRotationPoint(0F, 0F, 0F);

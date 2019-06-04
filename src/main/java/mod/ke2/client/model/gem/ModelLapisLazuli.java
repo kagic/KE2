@@ -10,7 +10,7 @@ public class ModelLapisLazuli extends ModelGem {
 	public ModelRenderer bipedLeftWing;
 	public ModelRenderer bipedRightWing;
 	public ModelLapisLazuli() {
-		super(0.0F, 0.0F, 64, 64, 4);
+		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
         this.bipedHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.0F);
         this.bipedHead.offsetY = -0.125F;
