@@ -28,7 +28,6 @@ public class ModelGem extends ModelBiped {
     }
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
 		if (entity instanceof EntityLivingBase) {
 			this.setLivingAnimations((EntityLivingBase)(entity), limbSwingAmount, ageInTicks, ageInTicks % 1.0F);
@@ -36,7 +35,6 @@ public class ModelGem extends ModelBiped {
 	}
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float limbSwingAmount, float ageInTicks, float partialTickTime) {
-		this.bipedHead.rotateAngleX = (float)(Math.sin(ageInTicks)) / 5.0F;
 		this.rightArmPose = ModelBiped.ArmPose.EMPTY;
 		this.leftArmPose = ModelBiped.ArmPose.EMPTY;
 		if (entity instanceof EntityGem) {
@@ -49,6 +47,9 @@ public class ModelGem extends ModelBiped {
 				else {
 					this.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
 				}
+			}
+			if (gem.getPose() == EntityGem.Pose.HEAD_BANGING) {
+				this.bipedHead.rotateAngleX = (float)(Math.sin(ageInTicks)) / 5.0F;
 			}
 		}
 		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);

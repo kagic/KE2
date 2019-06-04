@@ -57,7 +57,8 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		WAVING,
 		DABBING,
 		POSSESSED,
-		YELLING
+		YELLING,
+		HEAD_BANGING
 	}
 	protected static final DataParameter<Optional<UUID>> GEM_GLOBAL_ID 		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
 	protected static final DataParameter<Optional<UUID>> GEM_OWNER_ID 		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
