@@ -74,7 +74,7 @@ public class EntitySapphire extends EntityGem {
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(1,  "ke2:sapphire.color.white"));
 		EntitySapphire.SAPPHIRE_COLORS.add(new TagType(1,  "ke2:sapphire.color.black"));
 	}
-	protected static final DataParameter<String> SAPPHIRE_COLOR = EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
+	protected static final DataParameter<String> SAPPHIRE_COLOR = EntityDataManager.<String>createKey(EntitySapphire.class, DataSerializers.STRING);
 	public EntitySapphire(World world) {
 		super(world);
 		this.dataManager.register(SAPPHIRE_COLOR, "ke2:sapphire.color.blue");

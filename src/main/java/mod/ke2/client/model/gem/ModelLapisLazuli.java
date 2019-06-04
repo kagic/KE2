@@ -1,6 +1,7 @@
 package mod.ke2.client.model.gem;
 
 import mod.ke2.client.model.ModelGem;
+import mod.ke2.entity.gem.EntityLapisLazuli;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
@@ -25,11 +26,9 @@ public class ModelLapisLazuli extends ModelGem {
 		this.bipedRightWing = new ModelRenderer(this, 0, 32).setTextureSize(64, 128);
         this.bipedRightWing.addBox(0F, -2F, 2F, 10, 20, 1);
         this.bipedRightWing.setRotationPoint(-5F, 0.5F, 0F);
-        this.bipedBody.addChild(this.bipedRightWing);
 		this.bipedLeftWing = new ModelRenderer(this, 32, 32).setTextureSize(64, 128);
 		this.bipedLeftWing.addBox(-10F, -2F, 2F, 10, 20, 1);
 		this.bipedLeftWing.setRotationPoint(-5F, 0.5F, 0F);
-		this.bipedBody.addChild(this.bipedLeftWing);
         this.bipedSkirt = new ModelRenderer(this, 36, 0);
         this.bipedSkirt.addBox(-4.0F, 12.0F, -4.0F, 8, 12, 8, 0.0F);
         this.bipedBody.addChild(this.bipedSkirt);
@@ -41,6 +40,13 @@ public class ModelLapisLazuli extends ModelGem {
 		this.bipedLeftArm.render(scale);
 		this.bipedRightArm.render(scale);
 		this.bipedBody.render(scale);
+		if (entity instanceof EntityLapisLazuli) {
+			EntityLapisLazuli gem = (EntityLapisLazuli)(entity);
+			if (gem.isWinged()) {
+				this.bipedRightWing.render(scale);
+				this.bipedLeftWing.render(scale);
+			}
+		}
 	}
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
