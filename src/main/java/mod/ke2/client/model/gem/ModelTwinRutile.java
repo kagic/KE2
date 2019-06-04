@@ -3,7 +3,6 @@ package mod.ke2.client.model.gem;
 import mod.ke2.client.model.ModelGem;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 
 public class ModelTwinRutile extends ModelGem {
 	public ModelRenderer bipedOtherHead;

@@ -5,7 +5,6 @@ import mod.ke2.entity.gem.EntityLapisLazuli;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
 public class ModelLapisLazuli extends ModelGem {

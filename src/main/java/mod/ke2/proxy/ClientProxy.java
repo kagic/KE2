@@ -3,7 +3,6 @@ package mod.ke2.proxy;
 import mod.ke2.KAGIC;
 import mod.ke2.block.BlockCarbonite;
 import mod.ke2.client.gui.GuiWarpPad;
-import mod.ke2.client.gui.GuiWarpPadSelection;
 import mod.ke2.command.CommandReportBug;
 import mod.ke2.init.Ke2Colors;
 import mod.ke2.tileentity.TileEntityWarpPadCore;

@@ -28,6 +28,7 @@ public class GuiWarpPad extends GuiScreen {
 	public void updateScreen() {
 		this.textName.updateCursorCounter();
 	}
+	@Override
 	public void initGui() {
 		this.buttonList.clear();
 		Keyboard.enableRepeatEvents(true);
@@ -37,6 +38,7 @@ public class GuiWarpPad extends GuiScreen {
 		this.textName.setFocused(true);
 		this.addButton(new GuiButton(0, this.width / 2 - 100, this.height / 2 + 30, I18n.format("gui.done", new Object[0])));
 	}
+	@Override
 	public void onGuiClosed() {
 		Ke2Messages.INSTANCE.sendToServer(
 			new PacketWarpPadName(
@@ -56,6 +58,7 @@ public class GuiWarpPad extends GuiScreen {
 			}
 		}
 	}
+	@Override
 	protected void keyTyped(char typedChar, int keyCode) throws IOException {
 		switch (keyCode) {
 		case Keyboard.KEY_ESCAPE:
@@ -65,6 +68,7 @@ public class GuiWarpPad extends GuiScreen {
 			this.textName.textboxKeyTyped(typedChar, keyCode);
 		}
 	}
+	@Override
 	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 		super.mouseClicked(mouseX, mouseY, mouseButton);
 		this.textName.mouseClicked(mouseX, mouseY, mouseButton);

@@ -118,7 +118,7 @@ public class InjectorResult {
 			for (int y = -2 - (int)(gem.width); y <= 2 + (int)(gem.width); ++y) {
 				for (int x = -2 - (int)(gem.width); x <= 2 + (int)(gem.width); ++x) {
 					for (int z = -2 - (int)(gem.width); z <= 2 + (int)(gem.width); ++z) {
-						if (Math.random() * (int)(Math.abs((y + x + z) / 3) + 1) < 1.0D) {
+						if (Math.random() * (Math.abs((y + x + z) / 3) + 1) < 1.0D) {
 							InjectorResult.drain(world, pos.add(x, y, z));
 						}
 					}

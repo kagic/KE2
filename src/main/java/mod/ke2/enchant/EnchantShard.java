@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import mod.ke2.entity.EntityGemShard;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.MobEffects;

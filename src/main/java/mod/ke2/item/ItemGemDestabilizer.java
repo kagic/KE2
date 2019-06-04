@@ -26,7 +26,8 @@ public class ItemGemDestabilizer extends Item {
 		this.setUnlocalizedName("gem_destabilizer");
 		this.setMaxStackSize(1);
         this.addPropertyOverride(new ResourceLocation("primed"), new IItemPropertyGetter() {
-        	@SideOnly(Side.CLIENT)
+        	@Override
+			@SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, World world, EntityLivingBase entity) {
                 if (stack.hasTagCompound()) {
                 	return stack.getTagCompound().getBoolean("Primed") ? 1.0F : 0.0F;

@@ -5,9 +5,7 @@ import java.util.List;
 
 import mod.ke2.KAGIC;
 import mod.ke2.init.Ke2Messages;
-import mod.ke2.init.Ke2Sounds;
 import mod.ke2.networking.PacketEntityTeleport;
-import mod.ke2.world.data.WorldDataWarpPads;
 import net.minecraft.block.BlockQuartz;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.BlockStairs.EnumHalf;
@@ -24,7 +22,6 @@ import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -373,7 +370,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		ChunkPos cPos = destPad.world.getChunkFromBlockCoords(destPad.pos).getPos();
 		
 		while (it.hasNext()) {
-			Entity entity = (Entity) it.next();
+			Entity entity = it.next();
 			double posX = this.destination.getX() + entity.posX - this.pos.getX();
 			double posY = this.destination.getY() + entity.posY - this.pos.getY();
 			double posZ = this.destination.getZ() + entity.posZ - this.pos.getZ();
@@ -415,6 +412,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		return this.warping || this.cooling;
 	}
 	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public AxisAlignedBB getRenderBoundingBox() {
 		return new AxisAlignedBB(this.pos.add(-1, 0, -1), this.pos.add(1, 6, 1));

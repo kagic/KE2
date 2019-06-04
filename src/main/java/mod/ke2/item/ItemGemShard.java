@@ -35,10 +35,11 @@ public class ItemGemShard extends Item {
 		this.setUnlocalizedName("gem_shard");
 		this.setMaxStackSize(64);
         this.addPropertyOverride(new ResourceLocation("variant"), new IItemPropertyGetter() {
-            @SideOnly(Side.CLIENT)
+            @Override
+			@SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, World world, EntityLivingBase entity) {
                 if (stack.hasTagCompound()) {
-                	return (float)(stack.getTagCompound().getInteger("Variant")) / 16.0F;
+                	return (stack.getTagCompound().getInteger("Variant")) / 16.0F;
                 }
                 return world.rand.nextFloat();
             }

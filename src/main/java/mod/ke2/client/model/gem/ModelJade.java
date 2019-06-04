@@ -3,7 +3,6 @@ package mod.ke2.client.model.gem;
 import mod.ke2.client.model.ModelGem;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
