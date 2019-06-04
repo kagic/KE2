@@ -8,30 +8,29 @@ public class ModelTopaz extends ModelGem {
 	public ModelTopaz() {
 		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
-		this.bipedHead.addBox(-4F, -12F, -4F, 8, 10, 8, 0.0F);
-		this.bipedHead.setRotationPoint(0F, 0F, 0F);
+		this.bipedHead.addBox(-5.0F, -11.0F, -5.0F, 10, 9, 10, 0.0F);
+		this.bipedHead.offsetY = -1.375F;
 		this.bipedHeadwear = new ModelRenderer(this, 32, 0);
-		this.bipedBody = new ModelRenderer(this, 0, 18);
-		this.bipedBody.addBox(-8F, -4F, -6F, 16, 16, 12, 0.0F);
-		this.bipedBody.setRotationPoint(0F, 0F, 0F);
+		this.bipedHeadwear.addBox(-5.0F, -14.0F, -6.0F, 10, 3, 11, 0.1F);
+		this.bipedHead.addChild(this.bipedHeadwear);
 		this.bipedRightArm = new ModelRenderer(this, 16, 46);
-		this.bipedRightArm.addBox(-7F, -4F, -2F, 4, 14, 4, 0.0F);
-		this.bipedRightArm.setRotationPoint(0F, 0F, 0F);
+		this.bipedRightArm.addBox(-9.0F, 0.0F, -4.0F, 6, 32, 8, 0.0F);
+		this.bipedRightArm.offsetY = -1.5F;
 		this.bipedLeftArm = new ModelRenderer(this, 0, 46);
-		this.bipedLeftArm.addBox(3F, -4F, -2F, 4, 14, 4, 0.0F);
-		this.bipedLeftArm.setRotationPoint(0F, 0F, 0F);
+		this.bipedLeftArm.addBox(3.0F, 0.0F, -4.0F, 6, 32, 8, 0.0F);
+		this.bipedLeftArm.offsetY = -1.5F;
+		this.bipedBody = new ModelRenderer(this, 0, 18);
+		this.bipedBody.addBox(-8.0F, -24.0F, -6.0F, 16, 32, 12, 0.0F);
+		this.bipedBody.setRotationPoint(0F, 0F, 0F);
 		this.bipedRightLeg = new ModelRenderer(this, 32, 46);
-		this.bipedRightLeg.addBox(-7F, 0F, -2F, 4, 12, 4, 0.0F);
-		this.bipedRightLeg.setRotationPoint(0F, 0F, 0F);
+		this.bipedRightLeg.addBox(-8.0F, -4.0F, -3.0F, 6, 16, 6, 0.0F);
 		this.bipedLeftLeg = new ModelRenderer(this, 48, 46);
-		this.bipedLeftLeg.addBox(3F, 0F, -2F, 4, 12, 4, 0.0F);
-		this.bipedLeftLeg.setRotationPoint(0F, 0F, 0F);
+		this.bipedLeftLeg.addBox(2.0F, -4.0F, -3.0F, 6, 16, 6, 0.0F);
 	}
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.bipedHead.render(scale);
-		this.bipedHeadwear.render(scale);
 		this.bipedBody.render(scale);
 		this.bipedRightArm.render(scale);
 		this.bipedLeftArm.render(scale);
@@ -41,5 +40,7 @@ public class ModelTopaz extends ModelGem {
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
+		this.bipedHeadwear.rotateAngleX = 0.0F;
+		this.bipedHeadwear.rotateAngleY = 0.0F;
 	}
 }
