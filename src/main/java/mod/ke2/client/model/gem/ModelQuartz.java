@@ -46,7 +46,7 @@ public class ModelQuartz extends ModelGem {
 	}
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
+		this.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.bipedHead.render(scale);
 		this.bipedBody.render(scale);
 		this.bipedRightArm.render(scale);

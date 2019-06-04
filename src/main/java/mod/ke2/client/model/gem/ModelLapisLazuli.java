@@ -4,6 +4,8 @@ import mod.ke2.client.model.ModelGem;
 import mod.ke2.entity.gem.EntityLapisLazuli;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
 public class ModelLapisLazuli extends ModelGem {
@@ -35,7 +37,7 @@ public class ModelLapisLazuli extends ModelGem {
 	}
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
+		this.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.bipedHead.render(scale);
 		this.bipedLeftArm.render(scale);
 		this.bipedRightArm.render(scale);
@@ -53,19 +55,23 @@ public class ModelLapisLazuli extends ModelGem {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
+	}
+	@Override
+	public void setLivingAnimations(EntityLivingBase entity, float limbSwingAmount, float ageInTicks, float partialTickTime) {
+		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
 		float x = 0.2617994F;
         float y = 1.0F;
         float z = -0.2617994F;
         if (entity.motionY < 0.0D) {
-            Vec3d vec3d = (new Vec3d(entity.motionX, entity.motionY, entity.motionZ)).normalize();
-            y = 1.0F - (float)Math.pow(-vec3d.y, 1.5D);
+            Vec3d vec3d = new Vec3d(entity.motionX, entity.motionY, entity.motionZ).normalize();
+            y = 1.0F - (float)(Math.pow(-vec3d.y, 1.5D));
         }
         else if (entity.motionY > 0.0D) {
-            Vec3d vec3d = (new Vec3d(entity.motionX, entity.motionY, entity.motionZ)).normalize();
-            y = 1.0F + (float)Math.pow(vec3d.y, 1.5D);
+            Vec3d vec3d = new Vec3d(entity.motionX, entity.motionY, entity.motionZ).normalize();
+            y = 1.0F + (float)(Math.pow(vec3d.y, 1.5D));
         }
         x = y * 0.34906584F + (1.0F - y) * x;
-        z = y * -((float)Math.PI / 2F) + (1.0F - y) * z;
+        z = y * -(float)(Math.PI / 2.0F) + (1.0F - y) * z;
         this.bipedLeftWing.rotationPointX = 5.0F;
         this.bipedLeftWing.rotationPointY = 0;
         this.bipedLeftWing.rotateAngleX = x;
@@ -75,8 +81,8 @@ public class ModelLapisLazuli extends ModelGem {
         this.bipedRightWing.rotateAngleX = this.bipedLeftWing.rotateAngleX;
         this.bipedRightWing.rotateAngleZ = -this.bipedLeftWing.rotateAngleZ;
         if (entity.isBeingRidden()) {
-        	this.bipedLeftArm.rotateAngleX = (float)(-Math.PI / 2f);
-        	this.bipedRightArm.rotateAngleX = (float)(-Math.PI / 2f);
+        	this.bipedRightArm.rotateAngleX = (float)(-Math.PI / 2.0F);
+        	this.bipedLeftArm.rotateAngleX = (float)(-Math.PI / 2.0F);
         }
 	}
 }

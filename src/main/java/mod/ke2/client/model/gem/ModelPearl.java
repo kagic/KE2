@@ -33,7 +33,7 @@ public class ModelPearl extends ModelGem {
     }
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
+		this.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.bipedHead.render(scale);
 		this.bipedLeftArm.render(scale);
 		this.bipedRightArm.render(scale);

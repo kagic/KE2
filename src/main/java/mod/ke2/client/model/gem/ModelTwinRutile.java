@@ -3,6 +3,7 @@ package mod.ke2.client.model.gem;
 import mod.ke2.client.model.ModelGem;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 
 public class ModelTwinRutile extends ModelGem {
 	public ModelRenderer bipedOtherHead;
@@ -43,7 +44,7 @@ public class ModelTwinRutile extends ModelGem {
 	}
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
+		this.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.bipedLeftTorso.render(scale);
 		this.bipedRightTorso.render(scale);
 		this.bipedBody.render(scale);

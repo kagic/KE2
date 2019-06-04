@@ -4,6 +4,7 @@ import mod.ke2.client.model.ModelGem;
 import mod.ke2.entity.gem.EntityAquamarine;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -45,7 +46,7 @@ public class ModelAquamarine extends ModelGem {
     }
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
+		this.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.bipedHead.render(scale);
 		this.bipedRightArm.render(scale);
 		this.bipedLeftArm.render(scale);
@@ -67,7 +68,10 @@ public class ModelAquamarine extends ModelGem {
 		this.bipedLeftArm.rotateAngleZ = -0.75F;
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
-		
+	}
+	@Override
+	public void setLivingAnimations(EntityLivingBase entity, float limbSwingAmount, float ageInTicks, float partialTickTime) {
+		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
         this.bipedRightWing.rotateAngleY = MathHelper.cos(ageInTicks * 0.8F) * (float)(Math.PI) * 0.05F;
         this.bipedLeftWing.rotateAngleY = -this.bipedRightWing.rotateAngleY;
 	}

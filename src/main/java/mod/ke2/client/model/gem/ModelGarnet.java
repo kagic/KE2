@@ -58,8 +58,7 @@ public class ModelGarnet extends ModelGem {
     }
     @Override
     public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-    	this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
-    	super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale); 
+		this.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
     	this.bipedRightArm.mirror = true;
     	this.bipedLeftArm.mirror = false;
     	this.bipedBody.render(scale);
