@@ -132,6 +132,6 @@ Click [here](https://discord.gg/MwEuu9x) to join.
 3. Summarize any changes for future pull requests.
 
 ## Legal Disclaimer
-"Steven Universe" and all related characters and elements are trademarks of Cartoon Network. Past versions contained multiple soundtracks composed by "Aivi & Surasshu", as of April 20th, 2019, future versions of KAGIC will no longer contain these soundtracks out of respect to the composers.
+"Steven Universe" and all related characters and elements are trademarks of Cartoon Network. Past versions contained multiple soundtracks composed by "Aivi & Surasshu", as of April 20th, 2019, future versions of KAGIC will no longer contain these soundtracks.
 
 "The KAGIC Team" ("akrivus#1337", "taaffeite#1748", "Seartisian#8944", "Lattie#0575", "Tourmaline-Iris#8832", "Joel#0215") will not accept profit in the distribution of "KAGIC" and its source code and derivatives.
