@@ -132,6 +132,6 @@ Click [here](https://discord.gg/MwEuu9x) to join.
 3. Summarize any changes for future pull requests.
 
 ## Legal Disclaimer
-"KAGIC" source code and its derivatives, including bytecode and executables, are licensed under an MIT License by "The KAGIC Team" ("akrivus", "HeimrArnadalr", "Judacraz", "Lattie", "obsidian29", "Seartisian", "taaffeite", "Tourmaline-Iris", "Alfhilld", "joel"). For more information about the MIT License, please look [here.](./LICENSE)
+"Steven Universe" and all related characters and elements are trademarks of Cartoon Network. Past versions contained multiple soundtracks composed by "Aivi & Surasshu", as of April 20th, 2019, future versions of KAGIC will no longer contain these soundtracks out of respect to the composers.
 
-"Steven Universe" and all related characters and elements are trademarks of Cartoon Network.
+"The KAGIC Team" ("akrivus#1337", "taaffeite#1748", "Seartisian#8944", "Lattie#0575", "Tourmaline-Iris#8832", "Joel#0215") will not accept profit in the distribution of "KAGIC" and its source code and derivatives.
