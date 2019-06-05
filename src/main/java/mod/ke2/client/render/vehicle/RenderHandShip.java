@@ -1,6 +1,6 @@
 package mod.ke2.client.render.vehicle;
 
-import mod.ke2.client.model.machine.ModelHandShip;
+import mod.ke2.client.model.vehicle.ModelHandShip;
 import mod.ke2.entity.vehicle.EntityHandShip;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
