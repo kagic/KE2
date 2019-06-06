@@ -41,6 +41,7 @@ import mod.ke2.client.render.machine.RenderBubble;
 import mod.ke2.client.render.machine.RenderInjector;
 import mod.ke2.client.render.vehicle.RenderHandShip;
 import mod.ke2.client.render.vehicle.RenderPalanquin;
+import mod.ke2.client.render.vehicle.RenderVan;
 import mod.ke2.entity.EntityGemBurst;
 import mod.ke2.entity.EntityGemShard;
 import mod.ke2.entity.gem.EntityAgate;
@@ -80,6 +81,7 @@ import mod.ke2.entity.machine.EntityBubble;
 import mod.ke2.entity.machine.EntityInjector;
 import mod.ke2.entity.vehicle.EntityHandShip;
 import mod.ke2.entity.vehicle.EntityPalanquin;
+import mod.ke2.entity.vehicle.EntityVan;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
@@ -131,6 +133,7 @@ public class Ke2Entities {
 		registerEntity("hand_ship", EntityHandShip.class, RenderHandShip::new, pass);
 		registerEntity("gem_shard", EntityGemShard.class, RenderGemShard::new, pass);
 		registerEntity("bubble", EntityBubble.class, RenderBubble::new, pass);
+		registerEntity("van", EntityVan.class, RenderVan::new, pass);
 	}
 	public static <T extends EntityGem> void registerGem(String name, Class<T> entity, IRenderFactory<T> renderer, int back, int fore, int pass) {
 		Ke2Entities.registerMob(name, entity, renderer, back, fore, pass);

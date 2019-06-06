@@ -12,8 +12,8 @@ public class RenderHandShip extends RenderLiving<EntityHandShip> {
 		super(manager, new ModelHandShip(), 0.0F);
 	}
 	@Override
-	protected void preRenderCallback(EntityHandShip ship, float partialTickTime) {
-		super.preRenderCallback(ship, partialTickTime);
+	protected void preRenderCallback(EntityHandShip entity, float partialTickTime) {
+		super.preRenderCallback(entity, partialTickTime);
 		GlStateManager.scale(32.0D, 32.0D, 32.0D);
 		GlStateManager.translate(0, -0.5, 0);
 	}
