@@ -1,4 +1,4 @@
-package mod.ke2.effect;
+package mod.ke2.potion;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -9,8 +9,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EffectTempermental extends Potion {
-	public EffectTempermental() {
+public class PotionTempermental extends Potion {
+	public PotionTempermental() {
 		super(true, 0x438197);
 		this.setPotionName("effect.tempermental");
 		this.setIconIndex(-1, -1);
