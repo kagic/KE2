@@ -1,8 +1,5 @@
 package mod.ke2.recipe;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2Items;
 import net.minecraft.block.Block;
@@ -20,21 +17,21 @@ public class RecipeDrainLilies implements IRecipe {
 		for (int slot = 0; slot < inventory.getInventoryStackLimit(); ++slot) {
 			if (!inventory.getStackInSlot(slot).isEmpty()) {
 				Block block = Block.getBlockFromItem(inventory.getStackInSlot(slot).getItem());
-				ItemStack stack = new ItemStack(Ke2Items.GEM_SHARD, 1);
+				ItemStack stack = new ItemStack(Ke2Items.GEM_DUST, 1);
 				if (block == Ke2Blocks.MOSS_ROSE) {
-					stack.setTagCompound(generateShard(0xe4679d, 13));
+					stack.setTagCompound(generateDust(0xe4679d));
 				}
 				else if (block == Ke2Blocks.VALLEY_DRAIN_LILY) {
-					stack.setTagCompound(generateShard(0xc6ba35, 13));
+					stack.setTagCompound(generateDust(0xc6ba35));
 				}
 				else if (block == Ke2Blocks.DESERT_DRAIN_LILY) {
-					stack.setTagCompound(generateShard(0x8ba6d3, 13));
+					stack.setTagCompound(generateDust(0x8ba6d3));
 				}
 				else if (block == Ke2Blocks.ALPINE_DRAIN_LILY) {
-					stack.setTagCompound(generateShard(0x68c7cc, 13));
+					stack.setTagCompound(generateDust(0x68c7cc));
 				}
 				else if (block == Ke2Blocks.NETHER_DRAIN_LILY) {
-					stack.setTagCompound(generateShard(0xe59f37, 13));
+					stack.setTagCompound(generateDust(0xe59f37));
 				}
 				return stack;
 			}
@@ -91,10 +88,9 @@ public class RecipeDrainLilies implements IRecipe {
 	public ResourceLocation getRegistryName() {
 		return name;
 	}
-	private static NBTTagCompound generateShard(int color, int variant) {
+	private static NBTTagCompound generateDust(int color) {
 		NBTTagCompound compound = new NBTTagCompound();
 		compound.setInteger("GemstoneColor", color);
-		compound.setInteger("Variant", variant);
 		return compound;
 	}
 }
