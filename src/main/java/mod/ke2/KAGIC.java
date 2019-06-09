@@ -28,6 +28,7 @@ import com.google.gson.Gson;
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2Configs;
 import mod.ke2.init.Ke2Cruxes;
+import mod.ke2.init.Ke2Effects;
 import mod.ke2.init.Ke2Enchants;
 import mod.ke2.init.Ke2Entities;
 import mod.ke2.init.Ke2Handles;
@@ -110,6 +111,7 @@ public class KAGIC {
     	Ke2TileEntities.register();
     	Ke2Entities.register(1);
     	Ke2Variants.register();
+    	Ke2Effects.register();
     	proxy.init(event);
     }
     @EventHandler
