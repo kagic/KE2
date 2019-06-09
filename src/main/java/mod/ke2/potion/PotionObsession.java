@@ -8,23 +8,23 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class PotionMelancholic extends Potion {
-	public PotionMelancholic() {
-		super(false, 0xffffff);
-		this.setPotionName("effect.melancholic");
+public class PotionObsession extends Potion {
+	public PotionObsession() {
+		super(false, 0x5c8af2);
+		this.setPotionName("effect.phlegmatic");
 		this.setIconIndex(-1, -1);
 		this.setBeneficial();
 	}
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void renderInventoryEffect(PotionEffect effect, Gui gui, int x, int y, float z) {
-	    Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("ke2:textures/potions/melancholic.png"));
+	    Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("ke2:textures/potions/obsession.png"));
 		Gui.drawModalRectWithCustomSizedTexture(x + 6, y + 7, 0, 0, 18, 18, 18, 18);
 	}
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void renderHUDEffect(PotionEffect effect, Gui gui, int x, int y, float z, float alpha) {
-	    Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("ke2:textures/potions/melancholic.png"));
+	    Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("ke2:textures/potions/obsession.png"));
 		Gui.drawModalRectWithCustomSizedTexture(x + 3, y + 3, 0, 0, 18, 18, 18, 18);
 	}
 }

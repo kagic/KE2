@@ -1,10 +1,10 @@
 package mod.ke2.init;
 
-import mod.ke2.potion.PotionCholeric;
-import mod.ke2.potion.PotionMelancholic;
-import mod.ke2.potion.PotionPhlegmatic;
-import mod.ke2.potion.PotionSanguine;
-import mod.ke2.potion.PotionTempermental;
+import mod.ke2.potion.PotionImpulsiveness;
+import mod.ke2.potion.PotionAnxiety;
+import mod.ke2.potion.PotionObsession;
+import mod.ke2.potion.PotionCarelessness;
+import mod.ke2.potion.PotionTemperment;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.Item;
@@ -16,28 +16,28 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class Ke2Potions {
-	public static final PotionTempermental TEMPERMENTAL = new PotionTempermental();
-	public static final PotionMelancholic MELANCHOLIC = new PotionMelancholic();
-	public static final PotionCholeric CHOLERIC = new PotionCholeric();
-	public static final PotionPhlegmatic PHLEGMATIC = new PotionPhlegmatic();
-	public static final PotionSanguine SANGUINE = new PotionSanguine();
-	public static final PotionType POTION_OF_TEMPERMENT = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.TEMPERMENTAL, 7200) });
-	public static final PotionType MELANCHOLIC_POTION = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.MELANCHOLIC, 9600) });
-	public static final PotionType CHOLERIC_POTION = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.CHOLERIC, 9600) });
-	public static final PotionType PHLEGMATIC_POTION = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.PHLEGMATIC, 9600) });
-	public static final PotionType SANGUINE_POTION = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.SANGUINE, 9600) });
+	public static final PotionTemperment TEMPERMENT = new PotionTemperment();
+	public static final PotionAnxiety ANXIETY = new PotionAnxiety();
+	public static final PotionImpulsiveness IMPULSIVENESS = new PotionImpulsiveness();
+	public static final PotionObsession OBSESSION = new PotionObsession();
+	public static final PotionCarelessness CARELESS = new PotionCarelessness();
+	public static final PotionType POTION_OF_TEMPERMENT = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.TEMPERMENT, 7200) });
+	public static final PotionType POTION_OF_ANXIETY = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.ANXIETY, 10800) });
+	public static final PotionType POTION_OF_IMPULSIVENESS = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.IMPULSIVENESS, 10800) });
+	public static final PotionType POTION_OF_OBSESSION = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.OBSESSION, 10800) });
+	public static final PotionType POTION_OF_CARELESS = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.CARELESS, 10800) });
 	public static void register() {
-		registerPotion(TEMPERMENTAL, new ResourceLocation("ke2:tempermental"));
-		registerPotionType(POTION_OF_TEMPERMENT, new ResourceLocation("ke2:tempermental"));
+		registerPotion(TEMPERMENT, new ResourceLocation("ke2:temperment"));
+		registerPotionType(POTION_OF_TEMPERMENT, new ResourceLocation("ke2:temperment"));
 		registerPotionMix(PotionTypes.AWKWARD, Ke2Items.TEMPERPLASM, POTION_OF_TEMPERMENT);
-		registerPotionType(MELANCHOLIC_POTION, new ResourceLocation("ke2:melancholic"));
-		registerPotionMix(POTION_OF_TEMPERMENT, Items.SUGAR, MELANCHOLIC_POTION);
-		registerPotionType(CHOLERIC_POTION, new ResourceLocation("ke2:choleric"));
-		registerPotionMix(POTION_OF_TEMPERMENT, Items.GLOWSTONE_DUST, CHOLERIC_POTION);
-		registerPotionType(PHLEGMATIC_POTION, new ResourceLocation("ke2:phlegmatic"));
-		registerPotionMix(POTION_OF_TEMPERMENT, Items.GHAST_TEAR, PHLEGMATIC_POTION);
-		registerPotionType(SANGUINE_POTION, new ResourceLocation("ke2:sanguine"));
-		registerPotionMix(POTION_OF_TEMPERMENT, Items.REDSTONE, SANGUINE_POTION);
+		registerPotionType(POTION_OF_ANXIETY, new ResourceLocation("ke2:anxiety"));
+		registerPotionMix(POTION_OF_TEMPERMENT, Items.SUGAR, POTION_OF_ANXIETY);
+		registerPotionType(POTION_OF_IMPULSIVENESS, new ResourceLocation("ke2:impulsiveness"));
+		registerPotionMix(POTION_OF_TEMPERMENT, Items.GLOWSTONE_DUST, POTION_OF_IMPULSIVENESS);
+		registerPotionType(POTION_OF_OBSESSION, new ResourceLocation("ke2:obsession"));
+		registerPotionMix(POTION_OF_TEMPERMENT, Items.GHAST_TEAR, POTION_OF_OBSESSION);
+		registerPotionType(POTION_OF_CARELESS, new ResourceLocation("ke2:careless"));
+		registerPotionMix(POTION_OF_TEMPERMENT, Items.REDSTONE, POTION_OF_CARELESS);
 	}
 	public static void registerPotion(Potion potion, ResourceLocation name) {
 		ForgeRegistries.POTIONS.register(potion.setRegistryName(name));
