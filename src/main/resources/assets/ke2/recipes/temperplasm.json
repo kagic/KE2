@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" w ",
+		"y b",
+		" p "
+	],
+	"key": {
+		"w": {
+			"item": "minecraft:sugar"
+		},
+		"y": {
+			"item": "minecraft:glowstone_dust"
+		},
+		"b": {
+			"item": "minecraft:ghast_tear"
+		},
+		"p": {
+			"item": "minecraft:redstone"
+		}
+	},
+	"result": {
+		"item": "ke2:temperplasm"
+	}
+}
