@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class PotionAnxiety extends Potion {
 	public PotionAnxiety() {
 		super(false, 0xffffff);
-		this.setPotionName("effect.melancholic");
+		this.setPotionName("effect.anxiety");
 		this.setIconIndex(-1, -1);
 		this.setBeneficial();
 	}

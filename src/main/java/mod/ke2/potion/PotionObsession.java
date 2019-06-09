@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class PotionObsession extends Potion {
 	public PotionObsession() {
 		super(false, 0x5c8af2);
-		this.setPotionName("effect.phlegmatic");
+		this.setPotionName("effect.obsession");
 		this.setIconIndex(-1, -1);
 		this.setBeneficial();
 	}

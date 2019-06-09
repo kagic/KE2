@@ -36,7 +36,7 @@ public class Ke2Potions {
 		registerPotionMix(POTION_OF_TEMPERMENT, Items.GLOWSTONE_DUST, POTION_OF_IMPULSIVENESS);
 		registerPotionType(POTION_OF_OBSESSION, new ResourceLocation("ke2:obsession"));
 		registerPotionMix(POTION_OF_TEMPERMENT, Items.GHAST_TEAR, POTION_OF_OBSESSION);
-		registerPotionType(POTION_OF_CARELESS, new ResourceLocation("ke2:careless"));
+		registerPotionType(POTION_OF_CARELESS, new ResourceLocation("ke2:carelessness"));
 		registerPotionMix(POTION_OF_TEMPERMENT, Items.REDSTONE, POTION_OF_CARELESS);
 	}
 	public static void registerPotion(Potion potion, ResourceLocation name) {

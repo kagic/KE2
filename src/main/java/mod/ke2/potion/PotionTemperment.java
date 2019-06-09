@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class PotionTemperment extends Potion {
 	public PotionTemperment() {
 		super(false, 0xc87a3b);
-		this.setPotionName("effect.tempermental");
+		this.setPotionName("effect.temperment");
 		this.setIconIndex(-1, -1);
 		this.setBeneficial();
 	}

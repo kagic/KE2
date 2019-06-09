@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class PotionImpulsiveness extends Potion {
 	public PotionImpulsiveness() {
 		super(false, 0xf2ea5c);
-		this.setPotionName("effect.choleric");
+		this.setPotionName("effect.impulsiveness");
 		this.setIconIndex(-1, -1);
 		this.setBeneficial();
 	}

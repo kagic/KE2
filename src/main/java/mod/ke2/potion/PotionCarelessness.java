@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class PotionCarelessness extends Potion {
 	public PotionCarelessness() {
 		super(false, 0xe2a5e4);
-		this.setPotionName("effect.sanguine");
+		this.setPotionName("effect.carelessness");
 		this.setIconIndex(-1, -1);
 		this.setBeneficial();
 	}
