@@ -6,6 +6,9 @@ key.ke2.category=KAGIC
 key.bug.report=Report Bug
 
 effect.tempermental=Tempermental
+potion.effect.temperment=Potion of Temperment
+splash_potion.effect.temperment=Splash Potion of Temperment
+lingering_potion.effect.temperment=Lingering Potion of Temperment
 
 entity.agate.name=Agate
 entity.amethyst.name=Amethyst
@@ -53,6 +56,7 @@ item.warp_whistle.name=Warp Whistle
 item.gem_destabilizer.name=Gem Destabilizer
 item.gem_shard.name=Gem Shard
 item.gem_dust.name=Gem Dust
+item.temperplasm.name=Temperplasm
 
 tile.wailing_stone.name=Wailing Stone
 tile.gem_seed.name=Gem Seed
