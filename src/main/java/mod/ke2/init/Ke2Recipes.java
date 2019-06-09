@@ -1,5 +1,6 @@
 package mod.ke2.init;
 
+import mod.ke2.recipe.RecipeDrainLilies;
 import mod.ke2.recipe.RecipeEssences;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -11,6 +12,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class Ke2Recipes {
 	public static void register(RegistryEvent.Register<IRecipe> event) {
 		if (event != null) {
+			registerRecipe(new RecipeDrainLilies(), new ResourceLocation("ke2:drain_lilies"));
 			registerRecipe(new RecipeEssences(), new ResourceLocation("ke2:essences"));
 		}
 		else {

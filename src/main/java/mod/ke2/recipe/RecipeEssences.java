@@ -129,8 +129,7 @@ public class RecipeEssences implements IRecipe {
 	}
 	@Override
 	public boolean canFit(int width, int height) {
-		System.out.println(width + " " + height);
-		return true;
+		return width + height >= 2;
 	}
 	@Override
 	public IRecipe setRegistryName(ResourceLocation name) {
