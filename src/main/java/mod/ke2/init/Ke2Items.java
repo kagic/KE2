@@ -7,6 +7,7 @@ import mod.ke2.item.ItemGemDust;
 import mod.ke2.item.ItemGemShard;
 import mod.ke2.item.ItemGemStaff;
 import mod.ke2.item.ItemManual;
+import mod.ke2.item.ItemTemperplasm;
 import mod.ke2.item.ItemWarpWhistle;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -24,6 +25,7 @@ public class Ke2Items {
 	public static final ItemGemDestabilizer GEM_DESTABILIZER = new ItemGemDestabilizer();
 	public static final ItemGemShard GEM_SHARD = new ItemGemShard();
 	public static final ItemGemDust GEM_DUST = new ItemGemDust();
+	public static final ItemTemperplasm TEMPERPLASM = new ItemTemperplasm();
 	
 	public static void register(RegistryEvent.Register<Item> event) {
 		registerItem(MANUAL, new ResourceLocation("ke2:manual"), event);
@@ -32,6 +34,7 @@ public class Ke2Items {
 		registerItem(GEM_DESTABILIZER, new ResourceLocation("ke2:gem_destabilizer"), event);
 		registerItem(GEM_SHARD, new ResourceLocation("ke2:gem_shard"), event);
 		registerItem(GEM_DUST, new ResourceLocation("ke2:gem_dust"), event);
+		registerItem(TEMPERPLASM, new ResourceLocation("ke2:temperplasm"), event);
 		
 		for (Item item : Ke2Blocks.ITEMS) {
 			registerItem(item, null, event);
