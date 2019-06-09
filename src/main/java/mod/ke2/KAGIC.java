@@ -28,11 +28,11 @@ import com.google.gson.Gson;
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2Configs;
 import mod.ke2.init.Ke2Cruxes;
-import mod.ke2.init.Ke2Potions;
 import mod.ke2.init.Ke2Enchants;
 import mod.ke2.init.Ke2Entities;
 import mod.ke2.init.Ke2Handles;
 import mod.ke2.init.Ke2Items;
+import mod.ke2.init.Ke2Potions;
 import mod.ke2.init.Ke2Recipes;
 import mod.ke2.init.Ke2Sounds;
 import mod.ke2.init.Ke2TileEntities;
@@ -45,6 +45,7 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ScreenShotHelper;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.text.TextComponentString;
@@ -101,7 +102,7 @@ public class KAGIC {
     		}
     	});
     	Ke2WorldGen.register();
-    	Ke2Recipes.register();
+    	Ke2Recipes.register(null);
     	Ke2Entities.register(0);
     	proxy.preInit(event);
     }
@@ -169,6 +170,10 @@ public class KAGIC {
 		@SubscribeEvent
 		public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
 			Ke2Sounds.register(event);
+		}
+		@SubscribeEvent
+		public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
+			Ke2Recipes.register(event);
 		}
 		@SubscribeEvent
 		public static void useKeyBindings(KeyInputEvent event) {

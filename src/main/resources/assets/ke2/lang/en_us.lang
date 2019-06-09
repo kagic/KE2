@@ -82,13 +82,21 @@ entity.gem_shard.name=Gem Shard
 entity.bubble.name=Bubble
 entity.palanquin.name=Palanquin
 
+item.anxious_essence.name=Anxious Essence
+item.awkward_essence.name=Awkward Essence
+item.prideful_essence.name=Prideful Essence
+item.impulsive_essence.name=Impulsive Essence
+item.jealous_essence.name=Jealous Essence
+item.obsessive_essence.name=Obsessive Essence
+item.dependent_essence.name=Dependent Essence
+item.careless_essence.name=Careless Essence
+item.temperplasm.name=Temperplasm
 item.manual.name=Kindergartener's Guide
 item.gem_staff.name=Gem Staff
 item.warp_whistle.name=Warp Whistle
 item.gem_destabilizer.name=Gem Destabilizer
 item.gem_shard.name=Gem Shard
 item.gem_dust.name=Gem Dust
-item.temperplasm.name=Temperplasm
 
 tile.wailing_stone.name=Wailing Stone
 tile.gem_seed.name=Gem Seed
