@@ -3,9 +3,8 @@ package mod.ke2.entity.machine;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2Items;
-import net.minecraft.block.Block;
+import mod.ke2.item.ItemEssence;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.item.EntityItem;
@@ -90,7 +89,7 @@ public class EntityInjector extends EntityGemMachine {
 					}
 				}
 			}
-			else if (this.isGemSeed(stack)) {
+			else if (this.isEssence(stack)) {
 				this.setSeedCount(this.getSeedCount() + 1);
 				this.say(player, this.getName() + " can produce " + this.getSeedCount() + " gems.");
 				this.latestOwnerIDs.add(player.getUniqueID());
@@ -102,7 +101,7 @@ public class EntityInjector extends EntityGemMachine {
 	@Override
 	protected void updateEquipmentIfNeeded(EntityItem entity) {
 		ItemStack stack = entity.getItem();
-		if (this.isGemSeed(stack)) {
+		if (this.isEssence(stack)) {
 			int total = this.getSeedCount() + stack.getCount();
 			if (total > 64) {
 				stack.setCount(64 - total);
@@ -122,15 +121,15 @@ public class EntityInjector extends EntityGemMachine {
 			this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.ANVIL)), 0);
 			this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.DISPENSER)), 0);
 			this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.HOPPER)), 0);
-			this.entityDropItem(new ItemStack(Item.getItemFromBlock(Ke2Blocks.GEM_SEED), this.getSeedCount()), 0);
+			//this.entityDropItem(new ItemStack(Item.getItemFromBlock(Ke2Blocks.GEM_SEED), this.getSeedCount()), 0);
 		}
 		super.onDeath(cause);
 	}
 	public boolean canInject() {
 		return this.getPlayerBeingFollowed() == null && this.getSeedCount() > 0;
 	}
-	public boolean isGemSeed(ItemStack stack) {
-		return Block.getBlockFromItem(stack.getItem()) == Ke2Blocks.GEM_SEED;
+	public boolean isEssence(ItemStack stack) {
+		return stack.getItem() instanceof ItemEssence;
 	}
 	public UUID getLatestOwnerID(boolean remove) {
 		if (this.latestOwnerIDs.isEmpty()) {

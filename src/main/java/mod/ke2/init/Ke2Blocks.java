@@ -7,7 +7,6 @@ import mod.ke2.block.BlockCarbonite;
 import mod.ke2.block.BlockCluster;
 import mod.ke2.block.BlockDrainBlock;
 import mod.ke2.block.BlockDrainLily;
-import mod.ke2.block.BlockGemSeed;
 import mod.ke2.block.BlockMagicMoss;
 import mod.ke2.block.BlockMossRose;
 import mod.ke2.block.BlockWailingStone;
@@ -27,7 +26,6 @@ public class Ke2Blocks {
 	public static final ArrayList<Item> ITEMS = new ArrayList<Item>();
 	
 	public static final BlockWailingStone WAILING_STONE = new BlockWailingStone();
-	public static final BlockGemSeed GEM_SEED = new BlockGemSeed();
 	
 	public static final BlockMagicMoss MAGIC_MOSS = new BlockMagicMoss();
 	public static final BlockMossRose MOSS_ROSE = new BlockMossRose();
@@ -205,7 +203,6 @@ public class Ke2Blocks {
 	public static void register(RegistryEvent.Register<Block> event) {
 		registerBlock(CLUSTER, new ResourceLocation("ke2:cluster"), event);
 		registerBlock(WAILING_STONE, new ResourceLocation("ke2:wailing_stone"), event);
-		registerBlock(GEM_SEED, new ResourceLocation("ke2:gem_seed"), event);
 		registerBlock(MAGIC_MOSS, new ResourceLocation("ke2:magic_moss"), event);
 		registerBlock(MOSS_ROSE, new ResourceLocation("ke2:moss_rose"), event);
 		registerBlock(VALLEY_DRAIN_LILY, new ResourceLocation("ke2:valley_drain_lily"), event);

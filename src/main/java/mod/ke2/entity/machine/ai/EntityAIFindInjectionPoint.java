@@ -50,12 +50,13 @@ public class EntityAIFindInjectionPoint extends EntityAIMoveToBlock {
 		this.injector.getLookHelper().setLookPosition(this.destinationBlock.getX() + 0.5D, this.destinationBlock.getY() + 1, this.destinationBlock.getZ() + 0.5D, 10.0F, this.injector.getVerticalFaceSpeed());
 		if (this.getIsAboveDestination()) {
 			BlockPos point = new BlockPos(this.destinationBlock.getX(), this.getRelativeY(this.injector.world, this.destinationBlock), this.destinationBlock.getZ());
-			this.injector.world.setBlockState(point, Ke2Blocks.GEM_SEED.getDefaultState());
-			if (Ke2Blocks.GEM_SEED.getGemSeed(this.injector.world, point) != null) {
+			this.injector.world.destroyBlock(point, false);
+			// TODO: spawn essence here.
+			/*if (Ke2Blocks.GEM_SEED.getGemSeed(this.injector.world, point) != null) {
 				TileEntityGemSeed seed = Ke2Blocks.GEM_SEED.getGemSeed(this.injector.world, point);
 				seed.setData(new GemSpawnData(this.injector.getLatestOwnerID(true), this.injector.getColor()));
 				this.injector.setSeedCount(this.injector.getSeedCount() - 1);
-			}
+			}*/
 		}
 	}
 	@Override
@@ -138,7 +139,7 @@ public class EntityAIFindInjectionPoint extends EntityAIMoveToBlock {
 		return this.isBlockValid(block);
 	}
 	public boolean isBlockValid(Block block) {
-		if (block == Ke2Blocks.GEM_SEED || block == Blocks.AIR || block instanceof BlockLiquid) {
+		if (block == Blocks.AIR || block instanceof BlockLiquid) {
 			return false;
 		}
 		return true;
