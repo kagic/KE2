@@ -12,11 +12,11 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class Ke2Potions {
 	public static final PotionTempermental TEMPERMENTAL = new PotionTempermental();
-	public static final PotionType TEMPERMENT = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.TEMPERMENTAL, 3600) });
+	public static final PotionType POTION_OF_TEMPERMENT = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.TEMPERMENTAL, 7200) });
 	public static void register() {
 		registerPotion(TEMPERMENTAL, new ResourceLocation("ke2:tempermental"));
-		registerPotionType(TEMPERMENT, new ResourceLocation("ke2:temperment"));
-		registerPotionMix(PotionTypes.AWKWARD, Ke2Items.TEMPERPLASM, TEMPERMENT);
+		registerPotionType(POTION_OF_TEMPERMENT, new ResourceLocation("ke2:tempermental"));
+		registerPotionMix(PotionTypes.AWKWARD, Ke2Items.TEMPERPLASM, POTION_OF_TEMPERMENT);
 	}
 	public static void registerPotion(Potion potion, ResourceLocation name) {
 		ForgeRegistries.POTIONS.register(potion.setRegistryName(name));

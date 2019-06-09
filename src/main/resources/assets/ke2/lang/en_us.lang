@@ -6,9 +6,9 @@ key.ke2.category=KAGIC
 key.bug.report=Report Bug
 
 effect.tempermental=Tempermental
-potion.effect.temperment=Potion of Temperment
-splash_potion.effect.temperment=Splash Potion of Temperment
-lingering_potion.effect.temperment=Lingering Potion of Temperment
+potion.effect.tempermental=Potion of Temperment
+splash_potion.effect.tempermental=Splash Potion of Temperment
+lingering_potion.effect.tempermental=Lingering Potion of Temperment
 
 entity.agate.name=Agate
 entity.amethyst.name=Amethyst
