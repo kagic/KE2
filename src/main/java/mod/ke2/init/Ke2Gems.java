@@ -6,15 +6,15 @@ import java.util.HashMap;
 import mod.ke2.KAGIC;
 import mod.ke2.api.EntityGem;
 import mod.ke2.api.injection.CruxEntry;
-import mod.ke2.item.ItemGem;
+import mod.ke2.item.ItemGemstone;
 import net.minecraft.util.ResourceLocation;
 
 public class Ke2Gems {
 	public static final HashMap<ResourceLocation, Class<? extends EntityGem>> REGISTRY = new HashMap<ResourceLocation, Class<? extends EntityGem>>();
 	public static final HashMap<Class<? extends EntityGem>, ResourceLocation> REGISTRY_REVERSE = new HashMap<Class<? extends EntityGem>, ResourceLocation>();
-	public static final ArrayList<ItemGem> GEMSTONES = new ArrayList<ItemGem>();
-	public static final HashMap<ItemGem, ItemGem> NORMAL_TO_CRACKED = new HashMap<ItemGem, ItemGem>();
-	public static final HashMap<ItemGem, ItemGem> CRACKED_TO_NORMAL = new HashMap<ItemGem, ItemGem>();
+	public static final ArrayList<ItemGemstone> GEMSTONES = new ArrayList<ItemGemstone>();
+	public static final HashMap<ItemGemstone, ItemGemstone> NORMAL_TO_CRACKED = new HashMap<ItemGemstone, ItemGemstone>();
+	public static final HashMap<ItemGemstone, ItemGemstone> CRACKED_TO_NORMAL = new HashMap<ItemGemstone, ItemGemstone>();
 	
 	/** Gem isn't aligned yet, lost/emerged. */
 	public static final int ALIGNED_WITH_NOBODY = 0;

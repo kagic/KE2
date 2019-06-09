@@ -5,7 +5,7 @@ import java.util.Random;
 import mod.ke2.enchant.EnchantShard;
 import mod.ke2.entity.EntityGemShard;
 import mod.ke2.init.Ke2Items;
-import mod.ke2.item.ItemGem;
+import mod.ke2.item.ItemGemstone;
 import mod.ke2.item.ItemGemShard;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -68,7 +68,7 @@ public class HandleShattering {
 				e.getEntityPlayer().dropItem(stack, true);
 			}
 		}
-		if (e.getItemInput().getItem() instanceof ItemGem) {
+		if (e.getItemInput().getItem() instanceof ItemGemstone) {
 			if (e.getIngredientInput().getItem().getToolClasses(e.getIngredientInput()).contains("pickaxe")) {
 				ItemStack stack = e.getIngredientInput().copy();
 				stack.damageItem(1, e.getEntityPlayer());
@@ -101,7 +101,7 @@ public class HandleShattering {
 				e.setCost(1);
 			}
 		}
-		if (e.getLeft().getItem() instanceof ItemGem) {
+		if (e.getLeft().getItem() instanceof ItemGemstone) {
 			boolean canBreak = false;
 			if (e.getRight().getItem() instanceof ItemPickaxe) {
 				ItemPickaxe tool = (ItemPickaxe)(e.getRight().getItem());

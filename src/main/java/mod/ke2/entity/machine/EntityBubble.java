@@ -4,7 +4,7 @@ import java.util.List;
 
 import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Sounds;
-import mod.ke2.item.ItemGem;
+import mod.ke2.item.ItemGemstone;
 import mod.ke2.item.ItemGemDestabilizer;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
@@ -114,8 +114,8 @@ public class EntityBubble extends EntityLiving {
 			if (cause.getTrueSource() instanceof EntityPlayer) {
 				player = (EntityPlayer)(cause.getTrueSource());
 			}
-			if (this.getItem().getItem() instanceof ItemGem) {
-				ItemGem gem = (ItemGem)(this.getItem().getItem());
+			if (this.getItem().getItem() instanceof ItemGemstone) {
+				ItemGemstone gem = (ItemGemstone)(this.getItem().getItem());
 				gem.spawnGem(this.world, player, this.getPosition(), this.getItem());
 			}
 			else {

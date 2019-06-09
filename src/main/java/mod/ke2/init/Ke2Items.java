@@ -2,7 +2,7 @@ package mod.ke2.init;
 
 import mod.ke2.KAGIC;
 import mod.ke2.item.ItemEssence;
-import mod.ke2.item.ItemGem;
+import mod.ke2.item.ItemGemstone;
 import mod.ke2.item.ItemGemDestabilizer;
 import mod.ke2.item.ItemGemDust;
 import mod.ke2.item.ItemGemShard;
@@ -33,6 +33,7 @@ public class Ke2Items {
 	public static final ItemGemStaff GEM_STAFF = new ItemGemStaff();
 	public static final ItemWarpWhistle WARP_WHISTLE = new ItemWarpWhistle();
 	public static final ItemGemDestabilizer GEM_DESTABILIZER = new ItemGemDestabilizer();
+	public static final ItemGemstone GEMSTONE = new ItemGemstone();
 	public static final ItemGemShard GEM_SHARD = new ItemGemShard();
 	public static final ItemGemDust GEM_DUST = new ItemGemDust();
 	
@@ -57,7 +58,7 @@ public class Ke2Items {
 			registerItem(item, null, event);
 		}
 	}
-	public static void registerGemItem(ItemGem normal, ItemGem cracked, ResourceLocation name, RegistryEvent.Register<Item> event) {
+	public static void registerGemItem(ItemGemstone normal, ItemGemstone cracked, ResourceLocation name, RegistryEvent.Register<Item> event) {
 		if (!Ke2Gems.NORMAL_TO_CRACKED.containsKey(normal)) {
 			Ke2Items.registerItem(cracked, new ResourceLocation(name.getResourcePath(), "cracked_" + name.getResourceDomain()), event, Ke2CreativeTabs.GEMSTONES);
 			Ke2Items.registerItem(normal, name, event, Ke2CreativeTabs.GEMSTONES);

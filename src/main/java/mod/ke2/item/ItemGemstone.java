@@ -22,9 +22,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemGem extends Item {
-	public ItemGem(String name) {
-		this.setUnlocalizedName(name);
+public class ItemGemstone extends Item {
+	public ItemGemstone() {
+		this.setUnlocalizedName("gemstone");
 		this.setMaxStackSize(1);
 		this.setMaxDamage(60);
 	}
@@ -80,7 +80,7 @@ public class ItemGem extends Item {
 				stack.setItemDamage(Math.max(stack.getItemDamage() - 2, 0));
 			}
 			if (stack.getItemDamage() == 0) {
-				ItemGem gem = (ItemGem)(stack.getItem());
+				ItemGemstone gem = (ItemGemstone)(stack.getItem());
 				boolean spawned = gem.spawnGem(entity.world, null, entity.getPosition(), entity.getItem());
 				if (spawned) {
 					entity.setDead();
