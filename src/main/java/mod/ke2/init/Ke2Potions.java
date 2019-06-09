@@ -30,10 +30,10 @@ public class Ke2Potions {
 	public static final PotionCarelessness CARELESSNESS = new PotionCarelessness();
 	public static final PotionCarefulness CAREFULNESS = new PotionCarefulness();
 	public static final PotionType POTION_OF_TEMPERMENT = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.TEMPERMENT, 7200) });
-	public static final PotionType POTION_OF_ANXIETY = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.ANXIETY, 10800) });
-	public static final PotionType POTION_OF_IMPULSIVENESS = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.IMPULSIVENESS, 10800) });
-	public static final PotionType POTION_OF_OBSESSION = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.OBSESSION, 10800) });
-	public static final PotionType POTION_OF_CARELESSNESS = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.CARELESSNESS, 10800) });
+	public static final PotionType POTION_OF_ANXIETY = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.ANXIETY, 3600) });
+	public static final PotionType POTION_OF_IMPULSIVENESS = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.IMPULSIVENESS, 3600) });
+	public static final PotionType POTION_OF_OBSESSION = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.OBSESSION, 3600) });
+	public static final PotionType POTION_OF_CARELESSNESS = new PotionType(new PotionEffect[] { new PotionEffect(Ke2Potions.CARELESSNESS, 3600) });
 	public static void register() {
 		registerPotion(TEMPERMENT, new ResourceLocation("ke2:temperment"));
 		registerPotion(ANXIETY, new ResourceLocation("ke2:anxiety"));
