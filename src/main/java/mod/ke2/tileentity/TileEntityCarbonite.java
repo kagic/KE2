@@ -60,7 +60,7 @@ public class TileEntityCarbonite extends TileEntity implements ITickable {
 		Block block = this.world.getBlockState(this.pos).getBlock();
 		if (block instanceof BlockCarbonite) {
 			BlockCarbonite carbonite = (BlockCarbonite)(block);
-			if (carbonite.isPowered()) {
+			if (carbonite.isPowered() && carbonite.canBePowered()) {
 				this.world.setBlockState(this.pos, carbonite.getReverseState());
 			}
 		}
@@ -70,7 +70,7 @@ public class TileEntityCarbonite extends TileEntity implements ITickable {
 		Block block = this.world.getBlockState(this.pos).getBlock();
 		if (block instanceof BlockCarbonite) {
 			BlockCarbonite carbonite = (BlockCarbonite)(block);
-			if (!carbonite.isPowered()) {
+			if (!carbonite.isPowered() && carbonite.canBePowered()) {
 				this.world.setBlockState(this.pos, carbonite.getReverseState());
 			}
 		}
@@ -79,7 +79,7 @@ public class TileEntityCarbonite extends TileEntity implements ITickable {
 		Block block = this.world.getBlockState(this.pos).getBlock();
 		if (block instanceof BlockCarbonite) {
 			BlockCarbonite carbonite = (BlockCarbonite)(block);
-			return carbonite.isPowered();
+			return carbonite.isPowered() && carbonite.canBePowered();
 		}
 		return false;
 	}

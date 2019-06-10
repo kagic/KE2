@@ -1,9 +1,9 @@
 package mod.ke2.block;
 
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
+import mod.ke2.KAGIC;
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.tileentity.TileEntityCarbonite;
@@ -24,7 +24,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockCarbonite extends Block implements ITileEntityProvider {
-	public static final Map<BlockCarbonite, BlockCarbonite> CONVERSION_TABLE = new HashMap<BlockCarbonite, BlockCarbonite>(); 
+	public static final HashMap<BlockCarbonite, BlockCarbonite> CONVERSION_TABLE = new HashMap<BlockCarbonite, BlockCarbonite>(); 
 	public static void registerConversionTables() {
 		CONVERSION_TABLE.put(Ke2Blocks.BLACK_HOLOGRAPHIC_CARBONITE_OFF, Ke2Blocks.BLACK_HOLOGRAPHIC_CARBONITE_ON);
 		CONVERSION_TABLE.put(Ke2Blocks.BLUE_HOLOGRAPHIC_CARBONITE_OFF, Ke2Blocks.BLUE_HOLOGRAPHIC_CARBONITE_ON);
@@ -203,6 +203,9 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
     	return this.canBePowered;
     }
     public IBlockState getReverseState() {
-    	return CONVERSION_TABLE.get(this).getDefaultState();
+    	if (this.canBePowered) {
+    		return CONVERSION_TABLE.get(this).getDefaultState();
+    	}
+    	return this.getDefaultState();
     }
 }

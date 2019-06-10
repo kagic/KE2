@@ -15,7 +15,6 @@ import mod.ke2.client.render.gem.layers.LayerSkin;
 import mod.ke2.client.render.gem.layers.LayerUniform;
 import mod.ke2.client.render.gem.layers.LayerVisor;
 import mod.ke2.entity.gem.EntityAgate;
-import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 

@@ -1,13 +1,13 @@
 package mod.ke2.init;
 
-import mod.ke2.potion.PotionMelancholic;
 import mod.ke2.potion.PotionAnxiety;
-import mod.ke2.potion.PotionLove;
-import mod.ke2.potion.PotionSanguine;
-import mod.ke2.potion.PotionSubmission;
 import mod.ke2.potion.PotionCholeric;
 import mod.ke2.potion.PotionDepression;
+import mod.ke2.potion.PotionLove;
+import mod.ke2.potion.PotionMelancholic;
 import mod.ke2.potion.PotionPhlegmatic;
+import mod.ke2.potion.PotionSanguine;
+import mod.ke2.potion.PotionSubmission;
 import mod.ke2.potion.PotionTemperment;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;

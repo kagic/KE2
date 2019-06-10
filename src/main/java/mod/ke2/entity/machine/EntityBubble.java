@@ -4,8 +4,8 @@ import java.util.List;
 
 import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Sounds;
-import mod.ke2.item.ItemGemstone;
 import mod.ke2.item.ItemGemDestabilizer;
+import mod.ke2.item.ItemGemstone;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;

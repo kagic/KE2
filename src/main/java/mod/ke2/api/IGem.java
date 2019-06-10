@@ -1,7 +1,6 @@
 package mod.ke2.api;
 
 import net.minecraft.entity.INpc;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public interface IGem extends INpc {

@@ -2,11 +2,11 @@ package mod.ke2.init;
 
 import mod.ke2.KAGIC;
 import mod.ke2.item.ItemEssence;
-import mod.ke2.item.ItemGemstone;
 import mod.ke2.item.ItemGemDestabilizer;
 import mod.ke2.item.ItemGemDust;
 import mod.ke2.item.ItemGemShard;
 import mod.ke2.item.ItemGemStaff;
+import mod.ke2.item.ItemGemstone;
 import mod.ke2.item.ItemManual;
 import mod.ke2.item.ItemTemperplasm;
 import mod.ke2.item.ItemWarpWhistle;
