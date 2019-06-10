@@ -54,4 +54,7 @@ public class ModelGem extends ModelBiped {
 		}
 		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
 	}
+	public void renderGemOnBody(int pos, float scale) {
+		
+	}
 }

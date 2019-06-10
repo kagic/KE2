@@ -80,6 +80,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	protected static final DataParameter<String>		 VARIANT_SKIN		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<Integer>		 GEMSTONE_POS 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>		 GEMSTONE_CUT 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<ItemStack>		 GEMSTONE_ITEM 	= EntityDataManager.<ItemStack>createKey(EntityGem.class, DataSerializers.ITEM_STACK);
 	protected static final DataParameter<Boolean>		 IS_DEFECTIVE		= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Boolean>		 IS_PERFECT			= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Integer>		 FLOWER_IN_HAIR		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
@@ -127,6 +128,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.dataManager.register(VARIANT_SKIN, "");
 		this.dataManager.register(GEMSTONE_POS, -1);
 		this.dataManager.register(GEMSTONE_CUT, -1);
+		this.dataManager.register(GEMSTONE_ITEM, ItemStack.EMPTY);
 		this.dataManager.register(IS_DEFECTIVE, false);
 		this.dataManager.register(IS_PERFECT, false);
 		this.dataManager.register(FLOWER_IN_HAIR, 0);
@@ -157,6 +159,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setEmotion(this.generateEmotion());
 		this.setHealth(this.getMaxHealth());
 		this.stepHeight = Math.min(0.5F, this.height / 2);
+		this.setGemstoneItem();
 		return data;
 	}
 	@Override
@@ -200,6 +203,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 				this.inventory.setInventorySlotContents(s, new ItemStack(tag));
 			}
 		}
+		this.setGemstoneItem();
 	}
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
@@ -227,6 +231,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		compound.setInteger("HairColor", this.getHairColor());
 		compound.setInteger("GemstoneColor", this.getGemstoneColor());
 		compound.setInteger("GemstoneCut", this.getGemstoneCut());
+		compound.setTag("GemstoneItem", this.getGemstoneItem().serializeNBT());
 		compound.setString("OutfitVariant", this.getOutfitVariant());
 		compound.setString("HairVariant", this.getHairVariant());
 		compound.setString("SkinVariant", this.getSkinVariant());
@@ -244,6 +249,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 			inventory.appendTag(tag);
 		}
 		compound.setTag("Inventory", inventory);
+		this.setGemstoneItem();
 	}
 	@Override
 	public void onLivingUpdate() {
@@ -550,6 +556,26 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public int getGemstoneCut() {
 		return this.dataManager.get(GEMSTONE_CUT);
 	}
+	public void setGemstoneItem(Item item, int quantity, int meta) {
+		this.dataManager.set(GEMSTONE_ITEM, new ItemStack(item, quantity, quantity, this.writeToNBT(new NBTTagCompound())));
+	}
+	public void setGemstoneItem(ItemStack stack) {
+		this.setGemstoneItem(stack.getItem(), stack.getCount(), stack.getMetadata());
+	}
+	public void setGemstoneItem(Item item) {
+		this.setGemstoneItem(new ItemStack(item));
+	}
+	public void setGemstoneItem() {
+		if (this.getGemstoneItem().isEmpty()) {
+			this.generateGemstoneItem();
+		}
+		else {
+			this.setGemstoneItem(this.getGemstoneItem());
+		}
+	}
+	public ItemStack getGemstoneItem() {
+		return this.dataManager.get(GEMSTONE_ITEM);
+	}
 	public void setHairVariant(String variant) {
 		this.dataManager.set(VARIANT_HAIR, variant);
 	}
@@ -770,6 +796,10 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	@Override
 	public int generateGemstoneColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone");
+	}
+	@Override
+	public ItemStack generateGemstoneItem() {
+		return ItemStack.EMPTY;
 	}
 	@Override
 	public String generateOutfitVariant() {

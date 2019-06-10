@@ -141,6 +141,12 @@
                 "cut": 0.0022
             },
             "model": "ke2:item/colored_gemstone_22"
+        },
+        {
+            "predicate": {
+                "cut": 0.0023
+            },
+            "model": "ke2:item/colored_gemstone_23"
         }
     ]
 }

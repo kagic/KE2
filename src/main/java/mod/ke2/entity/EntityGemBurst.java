@@ -11,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class EntityGemBurst extends EntityGem {
@@ -58,5 +59,9 @@ public class EntityGemBurst extends EntityGem {
 	@Override
 	public int generateGemstoneCut() {
 		return -1;
+	}
+	@Override
+	public ItemStack generateGemstoneItem() {
+		return ItemStack.EMPTY;
 	}
 }
