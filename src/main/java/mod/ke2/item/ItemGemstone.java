@@ -36,7 +36,7 @@ public class ItemGemstone extends Item {
                 if (stack.hasTagCompound()) {
                 	return (stack.getTagCompound().getInteger("GemstoneCut")) / 1000.0F;
                 }
-                return world.rand.nextFloat();
+                return 0.0F;
             }
         });
 	}
