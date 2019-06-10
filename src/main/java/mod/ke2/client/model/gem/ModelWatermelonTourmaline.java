@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 
 public class ModelWatermelonTourmaline extends ModelGem {
     public ModelWatermelonTourmaline() {
-    	super(0.0F, 0.0F, 144, 80);
+    	super(0.0F, 0.0F, 96, 80);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-4.0F, -12.0F, -4.0F, 8, 8, 8);
 		this.bipedHead.offsetY = -1.0F;
