@@ -17,7 +17,6 @@ public class EntityDesertGlass extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/desert_glass/hair_default"), VariantPath.class), EntityDesertGlass.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/desert_glass/outfit_default"), VariantPath.class), EntityDesertGlass.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/desert_glass/skin_default"), VariantPath.class), EntityDesertGlass.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/desert_glass/cut_triangular"), VariantPath.class), EntityDesertGlass.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/desert_glass/color_gemstone"), VariantColor.class), EntityDesertGlass.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/desert_glass/color_hair"), VariantColor.class), EntityDesertGlass.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/desert_glass/color_outfit"), VariantColor.class), EntityDesertGlass.class);

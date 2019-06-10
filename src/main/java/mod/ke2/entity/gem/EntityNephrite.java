@@ -13,7 +13,6 @@ public class EntityNephrite extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/nephrite/hair_default"), VariantPath.class), EntityNephrite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/nephrite/outfit_default"), VariantPath.class), EntityNephrite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/nephrite/skin_default"), VariantPath.class), EntityNephrite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/nephrite/cut_triangular"), VariantPath.class), EntityNephrite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/nephrite/color_gemstone"), VariantColor.class), EntityNephrite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/nephrite/color_hair"), VariantColor.class), EntityNephrite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/nephrite/color_outfit"), VariantColor.class), EntityNephrite.class);

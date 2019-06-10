@@ -13,7 +13,6 @@ public class EntityLarimar extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/hair_default"), VariantPath.class), EntityLarimar.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/outfit_default"), VariantPath.class), EntityLarimar.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/skin_default"), VariantPath.class), EntityLarimar.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/cut_triangular"), VariantPath.class), EntityLarimar.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/color_gemstone"), VariantColor.class), EntityLarimar.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/color_hair"), VariantColor.class), EntityLarimar.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/color_outfit"), VariantColor.class), EntityLarimar.class);

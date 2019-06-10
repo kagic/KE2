@@ -13,7 +13,6 @@ public class EntityTopaz extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/hair_default"), VariantPath.class), EntityTopaz.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/outfit_default"), VariantPath.class), EntityTopaz.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/skin_default"), VariantPath.class), EntityTopaz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/cut_triangular"), VariantPath.class), EntityTopaz.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/color_gemstone"), VariantColor.class), EntityTopaz.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/color_hair"), VariantColor.class), EntityTopaz.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/color_outfit"), VariantColor.class), EntityTopaz.class);

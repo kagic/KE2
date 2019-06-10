@@ -13,7 +13,6 @@ public class EntityEnderPearl extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/ender_pearl/hair_default"), VariantPath.class), EntityEnderPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/ender_pearl/outfit_default"), VariantPath.class), EntityEnderPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/ender_pearl/skin_default"), VariantPath.class), EntityEnderPearl.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/ender_pearl/cut_triangular"), VariantPath.class), EntityEnderPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/ender_pearl/color_gemstone"), VariantColor.class), EntityEnderPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/ender_pearl/color_hair"), VariantColor.class), EntityEnderPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/ender_pearl/color_outfit"), VariantColor.class), EntityEnderPearl.class);

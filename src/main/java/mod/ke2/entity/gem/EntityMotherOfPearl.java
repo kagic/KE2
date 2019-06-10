@@ -13,7 +13,6 @@ public class EntityMotherOfPearl extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/hair_default"), VariantPath.class), EntityMotherOfPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/outfit_default"), VariantPath.class), EntityMotherOfPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/skin_default"), VariantPath.class), EntityMotherOfPearl.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/cut_triangular"), VariantPath.class), EntityMotherOfPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_gemstone"), VariantColor.class), EntityMotherOfPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_hair"), VariantColor.class), EntityMotherOfPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_outfit"), VariantColor.class), EntityMotherOfPearl.class);

@@ -13,7 +13,6 @@ public class EntityWatermelonTourmaline extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/hair_default"), VariantPath.class), EntityWatermelonTourmaline.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/outfit_default"), VariantPath.class), EntityWatermelonTourmaline.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/skin_default"), VariantPath.class), EntityWatermelonTourmaline.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/cut_triangular"), VariantPath.class), EntityWatermelonTourmaline.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_gemstone"), VariantColor.class), EntityWatermelonTourmaline.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_hair"), VariantColor.class), EntityWatermelonTourmaline.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_outfit"), VariantColor.class), EntityWatermelonTourmaline.class);

@@ -13,7 +13,6 @@ public class EntityKunzite extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/hair_default"), VariantPath.class), EntityKunzite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/outfit_default"), VariantPath.class), EntityKunzite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/skin_default"), VariantPath.class), EntityKunzite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/cut_triangular"), VariantPath.class), EntityKunzite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/color_gemstone"), VariantColor.class), EntityKunzite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/color_hair"), VariantColor.class), EntityKunzite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/color_outfit"), VariantColor.class), EntityKunzite.class);

@@ -32,7 +32,6 @@ public class EntitySapphire extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/sapphire/outfit_overskirt"), VariantPath.class), EntitySapphire.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/sapphire/outfit_pinafore"), VariantPath.class), EntitySapphire.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/sapphire/skin_default"), VariantPath.class), EntitySapphire.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/sapphire/cut_faceted"), VariantPath.class), EntitySapphire.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/sapphire/color_gemstone_blue"), VariantColor.class), EntitySapphire.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/sapphire/color_gemstone_purple"), VariantColor.class), EntitySapphire.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/sapphire/color_gemstone_pink"), VariantColor.class), EntitySapphire.class);

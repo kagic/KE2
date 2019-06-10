@@ -25,7 +25,6 @@ public class EntityJade extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/hair_default"), VariantPath.class), EntityJade.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/outfit_default"), VariantPath.class), EntityJade.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/skin_default"), VariantPath.class), EntityJade.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/cut_triangular"), VariantPath.class), EntityJade.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/color_gemstone"), VariantColor.class), EntityJade.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/color_hair"), VariantColor.class), EntityJade.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/color_outfit"), VariantColor.class), EntityJade.class);

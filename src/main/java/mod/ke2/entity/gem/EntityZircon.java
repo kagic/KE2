@@ -13,7 +13,6 @@ public class EntityZircon extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/hair_default"), VariantPath.class), EntityZircon.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/outfit_default"), VariantPath.class), EntityZircon.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/skin_default"), VariantPath.class), EntityZircon.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/cut_triangular"), VariantPath.class), EntityZircon.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/color_gemstone"), VariantColor.class), EntityZircon.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/color_hair"), VariantColor.class), EntityZircon.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/color_outfit"), VariantColor.class), EntityZircon.class);
