@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 public class ModelPearl extends ModelGem {
     public ModelRenderer bipedNose;
     public ModelPearl() {
-		super(0.0F, 0.0F, 72, 64);
+		super(0.0F, 0.0F, 64, 64);
         this.bipedHead = new ModelRenderer(this, 0, 0);
         this.bipedHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.0F);
         this.bipedHead.offsetY = -0.125F;
@@ -23,7 +23,7 @@ public class ModelPearl extends ModelGem {
         this.bipedRightArm.addBox(0.0F, 2.0F, -1.0F, 2, 12, 2, 0.0F);
         this.bipedBody = new ModelRenderer(this, 8, 16);
         this.bipedBody.addBox(-3.0F, 2.0F, -2.0F, 6, 10, 4, 0.0F);
-        this.bipedSkirt = new ModelRenderer(this, 36, 0);
+        this.bipedSkirt = new ModelRenderer(this, 2, 37);
         this.bipedSkirt.addBox(-4.0F, 12.0F, -4.0F, 8, 12, 8, 0.0F);
         this.bipedBody.addChild(this.bipedSkirt);
         this.bipedLeftLeg = new ModelRenderer(this, 28, 16);

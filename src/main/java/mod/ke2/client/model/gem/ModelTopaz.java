@@ -10,21 +10,21 @@ public class ModelTopaz extends ModelGem {
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-5.0F, -11.0F, -5.0F, 10, 9, 10, 0.0F);
 		this.bipedHead.offsetY = -1.375F;
-		this.bipedHeadwear = new ModelRenderer(this, 32, 0);
+		this.bipedHeadwear = new ModelRenderer(this, 38, 4);
 		this.bipedHeadwear.addBox(-5.0F, -14.0F, -6.0F, 10, 3, 11, 0.1F);
 		this.bipedHead.addChild(this.bipedHeadwear);
-		this.bipedRightArm = new ModelRenderer(this, 16, 46);
+		this.bipedRightArm = new ModelRenderer(this, 0, 58);
 		this.bipedRightArm.addBox(-9.0F, 0.0F, -4.0F, 6, 32, 8, 0.0F);
 		this.bipedRightArm.offsetY = -1.5F;
-		this.bipedLeftArm = new ModelRenderer(this, 0, 46);
+		this.bipedLeftArm = new ModelRenderer(this, 0, 18);
 		this.bipedLeftArm.addBox(3.0F, 0.0F, -4.0F, 6, 32, 8, 0.0F);
 		this.bipedLeftArm.offsetY = -1.5F;
-		this.bipedBody = new ModelRenderer(this, 0, 18);
+		this.bipedBody = new ModelRenderer(this, 28, 18);
 		this.bipedBody.addBox(-8.0F, -24.0F, -6.0F, 16, 32, 12, 0.0F);
 		this.bipedBody.setRotationPoint(0F, 0F, 0F);
-		this.bipedRightLeg = new ModelRenderer(this, 32, 46);
+		this.bipedRightLeg = new ModelRenderer(this, 84, 18);
 		this.bipedRightLeg.addBox(-8.0F, -4.0F, -3.0F, 6, 16, 6, 0.0F);
-		this.bipedLeftLeg = new ModelRenderer(this, 48, 46);
+		this.bipedLeftLeg = new ModelRenderer(this, 84, 40);
 		this.bipedLeftLeg.addBox(2.0F, -4.0F, -3.0F, 6, 16, 6, 0.0F);
 	}
 	@Override

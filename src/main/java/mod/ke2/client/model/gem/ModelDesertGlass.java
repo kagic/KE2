@@ -13,32 +13,32 @@ public class ModelDesertGlass extends ModelGem {
     public ModelRenderer bipedJarNeck;
     public ModelRenderer bipedJarEdge;
 	public ModelDesertGlass() {
-		super(0.0F, 0.0F, 64, 64);
+		super(0.0F, 0.0F, 64, 128);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
         this.bipedHead.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8, 0.0F);
         this.bipedHead.offsetY = 0.5F;
-		this.bipedHeadwear = new ModelRenderer(this, 0, 0);
+		this.bipedHeadwear = new ModelRenderer(this, 32, 0);
         this.bipedHeadwear.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8, 0.5F);
         this.bipedHead.addChild(this.bipedHeadwear);
-        this.bipedBody = new ModelRenderer(this, 0, 0);
+        this.bipedBody = new ModelRenderer(this, 8, 16);
         this.bipedBody.addBox(-4.0F, 8.0F, -3.0F, 8, 8, 6, 0.0F);
-        this.bipedJarBase = new ModelRenderer(this, 0, 0);
+        this.bipedJarBase = new ModelRenderer(this, 0, 78);
         this.bipedJarBase.addBox(-8.0F, -12.0F, 3.0F, 16, 32, 16, 0.0F);
-        this.bipedJarNeck = new ModelRenderer(this, 0, 0);
+        this.bipedJarNeck = new ModelRenderer(this, 8, 58);
         this.bipedJarNeck.addBox(-6.0F, -20.0F, 5.0F, 12, 8, 12, 0.0F);
         this.bipedJarBase.addChild(this.bipedJarNeck);
-        this.bipedJarEdge = new ModelRenderer(this, 0, 0);
-        this.bipedJarNeck.addBox(-8.0F, -26.0F, 3.0F, 16, 6, 16, 0.0F);
+        this.bipedJarEdge = new ModelRenderer(this, 8, 36);
+        this.bipedJarEdge.addBox(-8.0F, -26.0F, 3.0F, 16, 6, 16, 0.0F);
         this.bipedJarBase.addChild(this.bipedJarEdge);
-        this.bipedRightArm = new ModelRenderer(this, 0, 0);
+        this.bipedRightArm = new ModelRenderer(this, 0, 26);
         this.bipedRightArm.addBox(-1.0F, 0.0F, -1.0F, 2, 8, 2, 0.0F);
         this.bipedRightArm.offsetY = 0.5F;
-        this.bipedLeftArm = new ModelRenderer(this, 0, 0);
+        this.bipedLeftArm = new ModelRenderer(this, 0, 16);
         this.bipedLeftArm.addBox(-1.0F, 0.0F, -1.0F, 2, 8, 2, 0.0F);
         this.bipedLeftArm.offsetY = 0.5F;
-        this.bipedRightLeg = new ModelRenderer(this, 0, 0);
+        this.bipedRightLeg = new ModelRenderer(this, 36, 26);
         this.bipedRightLeg.addBox(1.0F, 4.0F, -1.0F, 2, 8, 2, 0.0F);
-        this.bipedLeftLeg = new ModelRenderer(this, 0, 0);
+        this.bipedLeftLeg = new ModelRenderer(this, 36, 16);
         this.bipedLeftLeg.addBox(-3.0F, 4.0F, -1.0F, 2, 8, 2, 0.0F);
     }
     @Override

@@ -18,28 +18,28 @@ public class ModelAquamarine extends ModelGem {
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-3.0F, -6.0F, -3.0F, 6, 6, 6, 0.0F);
 		this.bipedHead.offsetY = 0.75F;
-	    this.bipedHeadwear = new ModelRenderer(this, 32, 0);
+	    this.bipedHeadwear = new ModelRenderer(this, 24, 0);
 		this.bipedHeadwear.addBox(-5.0F, 6.0F, -3.0F, 10, 6, 6, 0.5F);
 		this.bipedHeadwear.offsetY = -0.75F;
 		this.bipedHead.addChild(this.bipedHeadwear);
-	    this.bipedRightArm = new ModelRenderer(this, 28, 16);
+	    this.bipedRightArm = new ModelRenderer(this, 0, 20);
 	    this.bipedRightArm.addBox(3.0F, 0.0F, -1.0F, 2, 6, 2, 0.0F);
 	    this.bipedRightArm.offsetY = 0.64F;
-	    this.bipedLeftArm = new ModelRenderer(this, 36, 16);
+	    this.bipedLeftArm = new ModelRenderer(this, 0, 12);
 	    this.bipedLeftArm.addBox(-5.0F, 0.0F, -1.0F, 2, 6, 2, 0.0F);
 	    this.bipedLeftArm.offsetY = 0.64F;
-	    this.bipedBody = new ModelRenderer(this, 8, 16);
+	    this.bipedBody = new ModelRenderer(this, 8, 12);
 	    this.bipedBody.addBox(-2.0F, 12.0F, -2.0F, 4, 4, 4, 0.0F);
-		this.bipedRightWing = new ModelRenderer(this, -1, 42);
+		this.bipedRightWing = new ModelRenderer(this, 32, 53);
         this.bipedRightWing.addBox(-11.0F, 10.0F, 2.0F, 10, 10, 1, 0.0F);
-		this.bipedLeftWing = new ModelRenderer(this, -1, 53);
+		this.bipedLeftWing = new ModelRenderer(this, 10, 53);
 		this.bipedLeftWing.addBox(1.0F, 10.0F, 2.0F, 10, 10, 1, 0.0F);
-	    this.bipedSkirt = new ModelRenderer(this, 24, 24);
+	    this.bipedSkirt = new ModelRenderer(this, 8, 22);
 	    this.bipedSkirt.addBox(-4.0F, 16.0F, -4.0F, 8, 6, 8, 0.0F);
 	    this.bipedBody.addChild(this.bipedSkirt);
-	    this.bipedRightLeg = new ModelRenderer(this, 0, 16);
+	    this.bipedRightLeg = new ModelRenderer(this, 24, 18);
 	    this.bipedRightLeg.addBox(-3.0F, 10.0F, -1.0F, 2, 4, 2, 0.0F);
-	    this.bipedLeftLeg = new ModelRenderer(this, 0, 16);
+	    this.bipedLeftLeg = new ModelRenderer(this, 24, 12);
 	    this.bipedLeftLeg.addBox(1.0F, 10.0F, -1.0F, 2, 4, 2, 0.0F);
     }
 	@Override
@@ -66,6 +66,7 @@ public class ModelAquamarine extends ModelGem {
 		this.bipedLeftArm.rotateAngleZ = -0.75F;
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
+		this.bipedLeftWing.mirror = true;
 	}
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float limbSwingAmount, float ageInTicks, float partialTickTime) {

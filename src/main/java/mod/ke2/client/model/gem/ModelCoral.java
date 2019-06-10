@@ -12,11 +12,11 @@ public class ModelCoral extends ModelGem {
     public ModelRenderer bipedTorso;
     public ModelRenderer bipedNeck;
 	public ModelCoral() {
-		super(0.0F, 0.0F, 64, 64);
+		super(0.0F, 0.0F, 72, 64);
 		this.bipedHeadwear = new ModelRenderer(this, 0, 0);
         this.bipedHeadwear.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.0F);
         this.bipedHeadwear.offsetY = -0.125F;
-        this.bipedHair = new ModelRenderer(this, 32, 0);
+        this.bipedHair = new ModelRenderer(this, 32, 3);
         this.bipedHair.addBox(-3.0F, -5.0F, 2.0F, 6, 7, 6, 0.0F);
         this.bipedHeadwear.addChild(this.bipedHair);
         this.bipedLeftArm = new ModelRenderer(this, 0, 16);
@@ -29,13 +29,13 @@ public class ModelCoral extends ModelGem {
         this.bipedLeftLeg.addBox(-3.0F, 0.0F, -1.0F, 2, 12, 2, 0.0F);
         this.bipedRightLeg = new ModelRenderer(this, 28, 30);
         this.bipedRightLeg.addBox(1.0F, 0.0F, -1.0F, 2, 12, 2, 0.0F);
-        this.bipedHead = new ModelRenderer(this, 32, 0);
+        this.bipedHead = new ModelRenderer(this, 0, 52);
         this.bipedHead.setRotationPoint(0.0F, 3.3F, 0.0F);
         this.bipedHead.addBox(-3.0F, -5.0F, -3.0F, 6, 6, 6, 0.0F);
-        this.bipedTorso = new ModelRenderer(this, 36, 16);
+        this.bipedTorso = new ModelRenderer(this, 24, 54);
         this.bipedTorso.setRotationPoint(0.0F, 13.5F, 0.0F);
         this.bipedTorso.addBox(-2.0F, -10.5F, -1.0F, 4, 8, 2, 0.0F);
-        this.bipedNeck = new ModelRenderer(this, 41, 13);
+        this.bipedNeck = new ModelRenderer(this, 36, 61);
         this.bipedNeck.setRotationPoint(0.0F, 3.0F, 0.0F);
         this.bipedNeck.addBox(-0.5F, -2.0F, -0.5F, 1, 2, 1, 0.0F);
 	}

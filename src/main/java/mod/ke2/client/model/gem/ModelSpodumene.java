@@ -12,7 +12,7 @@ public class ModelSpodumene extends ModelGem {
     	super(0.0F, 0.0F, 64, 64);
         this.bipedHead = new ModelRenderer(this, 0, 0);
         this.bipedHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.0F);
-        this.bipedHeadwear = new ModelRenderer(this, 0, 0);
+        this.bipedHeadwear = new ModelRenderer(this, 40, 8);
         this.bipedHeadwear.addBox(-3.0F, -3.0F, -3.0F, 6, 4, 6, 0.0F);
         this.bipedBody = new ModelRenderer(this, 16, 16);
         this.bipedBody.addBox(-5.0F, 4.0F, -3.0F, 10, 14, 6, 0.0F);
@@ -22,9 +22,9 @@ public class ModelSpodumene extends ModelGem {
         this.bipedLeftArm = new ModelRenderer(this, 0, 16);
         this.bipedLeftArm.addBox(-1.0F, 0.0F, -2.0F, 4, 12, 4, 0.0F);
         this.bipedLeftArm.offsetY = 0.3F;
-        this.bipedRightLeg = new ModelRenderer(this, 48, 28);
+        this.bipedRightLeg = new ModelRenderer(this, 48, 26);
         this.bipedRightLeg.addBox(-4.0F, 6.0F, -2.0F, 4, 6, 4, 0.0F);
-        this.bipedLeftLeg = new ModelRenderer(this, 48, 18);
+        this.bipedLeftLeg = new ModelRenderer(this, 48, 16);
         this.bipedLeftLeg.addBox(0.0F, 6.0F, -2.0F, 4, 6, 4, 0.0F);
     }
     @Override

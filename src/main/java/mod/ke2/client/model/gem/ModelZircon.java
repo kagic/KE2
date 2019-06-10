@@ -11,7 +11,7 @@ public class ModelZircon extends ModelGem {
         this.bipedHead = new ModelRenderer(this, 0, 0);
         this.bipedHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.0F);
         this.bipedHead.offsetY = -0.125F;
-        this.bipedHeadwear = new ModelRenderer(this, 32, 0);
+        this.bipedHeadwear = new ModelRenderer(this, 32, 3);
         this.bipedHeadwear.addBox(-4.0F, -6.0F, -5.0F, 8, 4, 9, 0.1F);
         this.bipedHead.addChild(this.bipedHeadwear);
         this.bipedNose = new ModelRenderer(this, 24, 0);
@@ -21,15 +21,15 @@ public class ModelZircon extends ModelGem {
         this.bipedLeftArm.addBox(-0.5F, 2.0F, -1.0F, 2, 12, 2, 0.0F);
         this.bipedRightArm = new ModelRenderer(this, 0, 30);
         this.bipedRightArm.addBox(-1.5F, 2.0F, -1.0F, 2, 12, 2, 0.0F);
-        this.bipedBody = new ModelRenderer(this, 8, 16);
+        this.bipedBody = new ModelRenderer(this, 14, 28);
         this.bipedBody.addBox(-3.0F, 2.0F, -2.0F, 6, 10, 4, 0.0F);
-        this.bipedSkirt = new ModelRenderer(this, 36, 0);
+        this.bipedSkirt = new ModelRenderer(this, 8, 16);
         this.bipedSkirt.addBox(-5.0F, 2.0F, -3.0F, 10, 6, 6, 0.0F);
         this.bipedBody.addChild(this.bipedSkirt);
-        this.bipedLeftLeg = new ModelRenderer(this, 28, 16);
-        this.bipedLeftLeg.addBox(-3.0F, 0.0F, -1.0F, 2, 12, 2, 0.0F);
-        this.bipedRightLeg = new ModelRenderer(this, 28, 30);
-        this.bipedRightLeg.addBox(1.0F, 0.0F, -1.0F, 2, 12, 2, 0.0F);
+        this.bipedLeftLeg = new ModelRenderer(this, 40, 16);
+        this.bipedLeftLeg.addBox(-2.5F, 0.0F, -1.5F, 3, 12, 3, 0.0F);
+        this.bipedRightLeg = new ModelRenderer(this, 40, 31);
+        this.bipedRightLeg.addBox(1.5F, 0.0F, -1.5F, 3, 12, 3, 0.0F);
     }
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {

@@ -10,18 +10,18 @@ public class ModelRutile extends ModelGem {
 		this.bipedHead = new ModelRenderer(this, 0, 0);
         this.bipedHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.0F);
         this.bipedHead.offsetY = -0.37F;
-        this.bipedHeadwear = new ModelRenderer(this, 32, 0);
+        this.bipedHeadwear = new ModelRenderer(this, 32, 3);
         this.bipedHeadwear.addBox(-4.0F, -8.0F, -5.0F, 8, 4, 9, 0.1F);
         this.bipedHead.addChild(this.bipedHeadwear);
         this.bipedLeftArm = new ModelRenderer(this, 0, 16);
         this.bipedLeftArm.addBox(-2.0F, -2.0F, -1.0F, 2, 14, 2, 0.0F);
-        this.bipedRightArm = new ModelRenderer(this, 0, 30);
+        this.bipedRightArm = new ModelRenderer(this, 0, 32);
         this.bipedRightArm.addBox(0.0F, -2.0F, -1.0F, 2, 14, 2, 0.0F);
         this.bipedBody = new ModelRenderer(this, 8, 16);
         this.bipedBody.addBox(-3.0F, -2.0F, -2.0F, 6, 12, 4, 0.0F);
         this.bipedLeftLeg = new ModelRenderer(this, 28, 16);
         this.bipedLeftLeg.addBox(-3.0F, -2.0F, -1.0F, 2, 14, 2, 0.0F);
-        this.bipedRightLeg = new ModelRenderer(this, 28, 30);
+        this.bipedRightLeg = new ModelRenderer(this, 28, 32);
         this.bipedRightLeg.addBox(1.0F, -2.0F, -1.0F, 2, 14, 2, 0.0F);
 	}
 	@Override

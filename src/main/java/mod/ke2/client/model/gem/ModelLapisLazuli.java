@@ -11,7 +11,7 @@ public class ModelLapisLazuli extends ModelGem {
 	public ModelRenderer bipedRightWing;
 	public ModelRenderer bipedLeftWing;
 	public ModelLapisLazuli() {
-		super(0.0F, 0.0F, 64, 64);
+		super(0.0F, 0.0F, 64, 72);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
         this.bipedHead.addBox(-4.0F, -4.0F, -4.0F, 8, 8, 8, 0.0F);
         this.bipedHead.offsetY = -0.125F;
@@ -22,15 +22,15 @@ public class ModelLapisLazuli extends ModelGem {
         this.bipedLeftArm.addBox(-2.0F, 2.0F, -1.0F, 2, 12, 2, 0.0F);
         this.bipedRightArm = new ModelRenderer(this, 0, 30);
         this.bipedRightArm.addBox(0.0F, 2.0F, -1.0F, 2, 12, 2, 0.0F);
-        this.bipedBody = new ModelRenderer(this, 8, 16);
+        this.bipedBody = new ModelRenderer(this, 14, 16);
         this.bipedBody.addBox(-3.0F, 2.0F, -2.0F, 6, 10, 4, 0.0F);
-		this.bipedRightWing = new ModelRenderer(this, 0, 32).setTextureSize(64, 128);
+		this.bipedRightWing = new ModelRenderer(this, 32, 51);
         this.bipedRightWing.addBox(0F, -2F, 2F, 10, 20, 1);
         this.bipedRightWing.setRotationPoint(-5F, 0.5F, 0F);
-		this.bipedLeftWing = new ModelRenderer(this, 32, 32).setTextureSize(64, 128);
+		this.bipedLeftWing = new ModelRenderer(this, 10, 51);
 		this.bipedLeftWing.addBox(-10F, -2F, 2F, 10, 20, 1);
 		this.bipedLeftWing.setRotationPoint(-5F, 0.5F, 0F);
-        this.bipedSkirt = new ModelRenderer(this, 36, 0);
+        this.bipedSkirt = new ModelRenderer(this, 8, 30);
         this.bipedSkirt.addBox(-4.0F, 12.0F, -4.0F, 8, 12, 8, 0.0F);
         this.bipedBody.addChild(this.bipedSkirt);
 	}
