@@ -13,20 +13,20 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockDrainRoof extends Block {
-	protected static final AxisAlignedBB DRAIN_ROOF_AABB = new AxisAlignedBB(0.0D, 0.5D, 0.0D, 1.0D, 1.0D, 1.0D);
+public class BlockDrainSlab extends Block {
+	protected static final AxisAlignedBB DRAIN_SLAB_AABB = new AxisAlignedBB(0.0D, 0.5D, 0.0D, 1.0D, 1.0D, 1.0D);
 	private final String color;
-	public BlockDrainRoof(String color, int level) {
+	public BlockDrainSlab(String color, int level) {
 		super(BlockDrainBlock.DRAINED);
 		switch (level) {
 		case 0:
-			this.setUnlocalizedName("light_" + color + "_drain_roof");
+			this.setUnlocalizedName("light_" + color + "_drain_slab");
 			break;
 		case 1:
-			this.setUnlocalizedName("banded_" + color + "_drain_roof");
+			this.setUnlocalizedName("banded_" + color + "_drain_slab");
 			break;
 		case 2:
-			this.setUnlocalizedName("dark_" + color + "_drain_roof");
+			this.setUnlocalizedName("dark_" + color + "_drain_slab");
 			break;
 		}
 		this.color = color;
@@ -36,49 +36,49 @@ public class BlockDrainRoof extends Block {
 	}
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-        if (this == Ke2Blocks.LIGHT_PURPLE_DRAIN_ROOF) {
+        if (this == Ke2Blocks.LIGHT_PURPLE_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.LIGHT_PURPLE_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.BANDED_PURPLE_DRAIN_ROOF) {
+        if (this == Ke2Blocks.BANDED_PURPLE_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.BANDED_PURPLE_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.DARK_PURPLE_DRAIN_ROOF) {
+        if (this == Ke2Blocks.DARK_PURPLE_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.DARK_PURPLE_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.LIGHT_ORANGE_DRAIN_ROOF) {
+        if (this == Ke2Blocks.LIGHT_ORANGE_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.LIGHT_ORANGE_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.BANDED_ORANGE_DRAIN_ROOF) {
+        if (this == Ke2Blocks.BANDED_ORANGE_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.BANDED_ORANGE_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.DARK_ORANGE_DRAIN_ROOF) {
+        if (this == Ke2Blocks.DARK_ORANGE_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.DARK_ORANGE_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.LIGHT_BLUE_DRAIN_ROOF) {
+        if (this == Ke2Blocks.LIGHT_BLUE_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.LIGHT_BLUE_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.BANDED_BLUE_DRAIN_ROOF) {
+        if (this == Ke2Blocks.BANDED_BLUE_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.BANDED_BLUE_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.DARK_BLUE_DRAIN_ROOF) {
+        if (this == Ke2Blocks.DARK_BLUE_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.DARK_BLUE_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.LIGHT_BLUE_DRAIN_ROOF) {
+        if (this == Ke2Blocks.LIGHT_BLUE_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.LIGHT_BLUE_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.BANDED_RED_DRAIN_ROOF) {
+        if (this == Ke2Blocks.BANDED_RED_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.BANDED_RED_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.DARK_RED_DRAIN_ROOF) {
+        if (this == Ke2Blocks.DARK_RED_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.DARK_RED_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.LIGHT_RED_DRAIN_ROOF) {
+        if (this == Ke2Blocks.LIGHT_RED_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.LIGHT_RED_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.BANDED_RED_DRAIN_ROOF) {
+        if (this == Ke2Blocks.BANDED_RED_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.BANDED_RED_DRAIN_BLOCK);
         }
-        if (this == Ke2Blocks.DARK_RED_DRAIN_ROOF) {
+        if (this == Ke2Blocks.DARK_RED_DRAIN_SLAB) {
         	return new ItemStack(Ke2Blocks.DARK_RED_DRAIN_BLOCK);
         }
         return new ItemStack(this);
@@ -125,11 +125,11 @@ public class BlockDrainRoof extends Block {
     }
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-		return DRAIN_ROOF_AABB;
+		return DRAIN_SLAB_AABB;
     }
 	@Override
     public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
-		return DRAIN_ROOF_AABB;
+		return DRAIN_SLAB_AABB;
     }
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {

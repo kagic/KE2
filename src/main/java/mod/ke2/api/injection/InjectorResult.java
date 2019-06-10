@@ -22,13 +22,13 @@ import net.minecraft.world.World;
 
 public class InjectorResult {
 	public static final Block[] RED_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_RED_DRAIN_BLOCK, Ke2Blocks.BANDED_RED_DRAIN_BLOCK, Ke2Blocks.DARK_RED_DRAIN_BLOCK, Ke2Blocks.ERODED_RED_DRAIN_BLOCK };
-	public static final Block[] RED_DRAIN_ROOFS = new Block[] { Ke2Blocks.LIGHT_RED_DRAIN_ROOF, Ke2Blocks.BANDED_RED_DRAIN_ROOF, Ke2Blocks.DARK_RED_DRAIN_ROOF };
+	public static final Block[] RED_DRAIN_SLABS = new Block[] { Ke2Blocks.LIGHT_RED_DRAIN_SLAB, Ke2Blocks.BANDED_RED_DRAIN_SLAB, Ke2Blocks.DARK_RED_DRAIN_SLAB };
 	public static final Block[] ORANGE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_ORANGE_DRAIN_BLOCK, Ke2Blocks.BANDED_ORANGE_DRAIN_BLOCK, Ke2Blocks.DARK_ORANGE_DRAIN_BLOCK, Ke2Blocks.ERODED_ORANGE_DRAIN_BLOCK };
-	public static final Block[] ORANGE_DRAIN_ROOFS = new Block[] { Ke2Blocks.LIGHT_ORANGE_DRAIN_ROOF, Ke2Blocks.BANDED_ORANGE_DRAIN_ROOF, Ke2Blocks.DARK_ORANGE_DRAIN_ROOF };
+	public static final Block[] ORANGE_DRAIN_SLABS = new Block[] { Ke2Blocks.LIGHT_ORANGE_DRAIN_SLAB, Ke2Blocks.BANDED_ORANGE_DRAIN_SLAB, Ke2Blocks.DARK_ORANGE_DRAIN_SLAB };
 	public static final Block[] PURPLE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_PURPLE_DRAIN_BLOCK, Ke2Blocks.BANDED_PURPLE_DRAIN_BLOCK, Ke2Blocks.DARK_PURPLE_DRAIN_BLOCK, Ke2Blocks.ERODED_PURPLE_DRAIN_BLOCK };
-	public static final Block[] PURPLE_DRAIN_ROOFS = new Block[] { Ke2Blocks.LIGHT_PURPLE_DRAIN_ROOF, Ke2Blocks.BANDED_PURPLE_DRAIN_ROOF, Ke2Blocks.DARK_PURPLE_DRAIN_ROOF };
+	public static final Block[] PURPLE_DRAIN_SLABS = new Block[] { Ke2Blocks.LIGHT_PURPLE_DRAIN_SLAB, Ke2Blocks.BANDED_PURPLE_DRAIN_SLAB, Ke2Blocks.DARK_PURPLE_DRAIN_SLAB };
 	public static final Block[] BLUE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_BLUE_DRAIN_BLOCK, Ke2Blocks.BANDED_BLUE_DRAIN_BLOCK, Ke2Blocks.DARK_BLUE_DRAIN_BLOCK, Ke2Blocks.ERODED_BLUE_DRAIN_BLOCK };
-	public static final Block[] BLUE_DRAIN_ROOFS = new Block[] { Ke2Blocks.LIGHT_BLUE_DRAIN_ROOF, Ke2Blocks.BANDED_BLUE_DRAIN_ROOF, Ke2Blocks.DARK_BLUE_DRAIN_ROOF };
+	public static final Block[] BLUE_DRAIN_SLABS = new Block[] { Ke2Blocks.LIGHT_BLUE_DRAIN_SLAB, Ke2Blocks.BANDED_BLUE_DRAIN_SLAB, Ke2Blocks.DARK_BLUE_DRAIN_SLAB };
 	public static final double CRUX_MARGIN = 1.0D;
 	private final EntityGem gem;
 	private final BlockPos position;
@@ -214,20 +214,20 @@ public class InjectorResult {
 	}
 	public static void drainSlab(World world, BlockPos pos, Block[] blocks) {
 		if (blocks == null) {
-			blocks = PURPLE_DRAIN_ROOFS;
+			blocks = PURPLE_DRAIN_SLABS;
 			if (world.provider.isNether()) {
-				blocks = RED_DRAIN_ROOFS;
+				blocks = RED_DRAIN_SLABS;
 			}
 			else {
 				float temp = world.getBiome(pos).getTemperature(pos);
 				if (world.canSnowAt(pos, false)) {
-					blocks = BLUE_DRAIN_ROOFS;
+					blocks = BLUE_DRAIN_SLABS;
 				}
 				else if (temp > 0.95) {
-					blocks = ORANGE_DRAIN_ROOFS;
+					blocks = ORANGE_DRAIN_SLABS;
 				}
 				else {
-					blocks = PURPLE_DRAIN_ROOFS;
+					blocks = PURPLE_DRAIN_SLABS;
 				}
 			}
 		}
