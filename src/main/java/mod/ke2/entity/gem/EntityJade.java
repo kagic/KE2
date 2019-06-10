@@ -94,6 +94,10 @@ public class EntityJade extends EntityGem {
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	@Override
+	public int generateGemstoneCut() {
+		return 0;
+	}
 	public void setJadeColor(String color) {
 		this.dataManager.set(JADE_COLOR, color);
 	}

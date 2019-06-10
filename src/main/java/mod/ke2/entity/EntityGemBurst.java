@@ -55,4 +55,8 @@ public class EntityGemBurst extends EntityGem {
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	@Override
+	public int generateGemstoneCut() {
+		return -1;
+	}
 }

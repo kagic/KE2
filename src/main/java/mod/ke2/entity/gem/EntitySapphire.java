@@ -122,6 +122,10 @@ public class EntitySapphire extends EntityGem {
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	@Override
+	public int generateGemstoneCut() {
+		return 0;
+	}
 	public void setSapphireColor(String color) {
 		this.dataManager.set(SAPPHIRE_COLOR, color);
 	}

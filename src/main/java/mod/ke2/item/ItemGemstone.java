@@ -6,8 +6,10 @@ import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -23,10 +25,20 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemGemstone extends Item {
-	public ItemGemstone() {
-		this.setUnlocalizedName("gemstone");
+	public ItemGemstone(String name) {
+		this.setUnlocalizedName(name);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(60);
+        this.addPropertyOverride(new ResourceLocation("cut"), new IItemPropertyGetter() {
+            @Override
+			@SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, World world, EntityLivingBase entity) {
+                if (stack.hasTagCompound()) {
+                	return (stack.getTagCompound().getInteger("GemstoneCut")) / 1000.0F;
+                }
+                return world.rand.nextFloat();
+            }
+        });
 	}
 	@Override
 	@SideOnly(Side.CLIENT)

@@ -17,7 +17,7 @@ public class LayerGemstone implements LayerRenderer<EntityGem> {
 	}
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
-		if (gem.getGemstoneCut() != null) {
+		if (gem.getGemstoneCut() > -1) {
 			// TODO: Create limb attachment code + gem position code. Possibly a gem placement finder designated on a per gem basis?
             // this.renderer.getModel().bipedGem.postRender(1.0F);
 			this.renderer.bindTexture(new ResourceLocation(gem.getGemstoneCut() + ".png"));

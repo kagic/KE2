@@ -27,4 +27,8 @@ public class EntityMotherOfPearl extends EntityGem {
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	@Override
+	public int generateGemstoneCut() {
+		return 0;
+	}
 }

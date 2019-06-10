@@ -22,4 +22,8 @@ public class EntityCitrine extends AbstractQuartz {
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	@Override
+	public int generateGemstoneCut() {
+		return 0;
+	}
 }

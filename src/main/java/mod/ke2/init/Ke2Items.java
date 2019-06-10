@@ -33,7 +33,7 @@ public class Ke2Items {
 	public static final ItemGemStaff GEM_STAFF = new ItemGemStaff();
 	public static final ItemWarpWhistle WARP_WHISTLE = new ItemWarpWhistle();
 	public static final ItemGemDestabilizer GEM_DESTABILIZER = new ItemGemDestabilizer();
-	public static final ItemGemstone GEMSTONE = new ItemGemstone();
+	public static final ItemGemstone COLORED_GEMSTONE = new ItemGemstone("colored_gemstone");
 	public static final ItemGemShard GEM_SHARD = new ItemGemShard();
 	public static final ItemGemDust GEM_DUST = new ItemGemDust();
 	
@@ -51,6 +51,7 @@ public class Ke2Items {
 		registerItem(GEM_STAFF, new ResourceLocation("ke2:gem_staff"), event);
 		registerItem(WARP_WHISTLE, new ResourceLocation("ke2:warp_whistle"), event);
 		registerItem(GEM_DESTABILIZER, new ResourceLocation("ke2:gem_destabilizer"), event);
+		registerItem(COLORED_GEMSTONE, new ResourceLocation("ke2:colored_gemstone"), event);
 		registerItem(GEM_SHARD, new ResourceLocation("ke2:gem_shard"), event);
 		registerItem(GEM_DUST, new ResourceLocation("ke2:gem_dust"), event);
 		

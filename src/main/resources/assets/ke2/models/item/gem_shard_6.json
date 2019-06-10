@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "ke2:items/gem_shard_6"
+		"layer0": "ke2:items/gem_shard/6"
 	}
 }

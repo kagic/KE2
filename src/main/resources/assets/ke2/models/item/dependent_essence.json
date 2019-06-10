@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "ke2:items/dependent_essence"
+		"layer0": "ke2:items/essence/dependent"
 	}
 }

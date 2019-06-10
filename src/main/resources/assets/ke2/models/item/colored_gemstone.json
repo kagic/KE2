@@ -1,0 +1,146 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "ke2:items/colored_gemstone/0"
+	},
+	"overrides": [
+        {
+            "predicate": {
+                "cut": 0.0000
+            },
+            "model": "ke2:item/colored_gemstone_0"
+        },
+        {
+            "predicate": {
+                "cut": 0.0001
+            },
+            "model": "ke2:item/colored_gemstone_1"
+        },
+        {
+            "predicate": {
+                "cut": 0.0002
+            },
+            "model": "ke2:item/colored_gemstone_2"
+        },
+        {
+            "predicate": {
+                "cut": 0.0003
+            },
+            "model": "ke2:item/colored_gemstone_3"
+        },
+        {
+            "predicate": {
+                "cut": 0.0004
+            },
+            "model": "ke2:item/colored_gemstone_4"
+        },
+        {
+            "predicate": {
+                "cut": 0.0005
+            },
+            "model": "ke2:item/colored_gemstone_5"
+        },
+        {
+            "predicate": {
+                "cut": 0.0006
+            },
+            "model": "ke2:item/colored_gemstone_6"
+        },
+        {
+            "predicate": {
+                "cut": 0.0007
+            },
+            "model": "ke2:item/colored_gemstone_7"
+        },
+        {
+            "predicate": {
+                "cut": 0.0008
+            },
+            "model": "ke2:item/colored_gemstone_8"
+        },
+        {
+            "predicate": {
+                "cut": 0.0009
+            },
+            "model": "ke2:item/colored_gemstone_9"
+        },
+        {
+            "predicate": {
+                "cut": 0.0010
+            },
+            "model": "ke2:item/colored_gemstone_10"
+        },
+        {
+            "predicate": {
+                "cut": 0.0011
+            },
+            "model": "ke2:item/colored_gemstone_11"
+        },
+        {
+            "predicate": {
+                "cut": 0.0012
+            },
+            "model": "ke2:item/colored_gemstone_12"
+        },
+        {
+            "predicate": {
+                "cut": 0.0013
+            },
+            "model": "ke2:item/colored_gemstone_13"
+        },
+        {
+            "predicate": {
+                "cut": 0.0014
+            },
+            "model": "ke2:item/colored_gemstone_14"
+        },
+        {
+            "predicate": {
+                "cut": 0.0015
+            },
+            "model": "ke2:item/colored_gemstone_15"
+        },
+        {
+            "predicate": {
+                "cut": 0.0016
+            },
+            "model": "ke2:item/colored_gemstone_16"
+        },
+        {
+            "predicate": {
+                "cut": 0.0017
+            },
+            "model": "ke2:item/colored_gemstone_17"
+        },
+        {
+            "predicate": {
+                "cut": 0.0018
+            },
+            "model": "ke2:item/colored_gemstone_18"
+        },
+        {
+            "predicate": {
+                "cut": 0.0019
+            },
+            "model": "ke2:item/colored_gemstone_19"
+        },
+        {
+            "predicate": {
+                "cut": 0.0020
+            },
+            "model": "ke2:item/colored_gemstone_20"
+        },
+        {
+            "predicate": {
+                "cut": 0.0021
+            },
+            "model": "ke2:item/colored_gemstone_21"
+        },
+        {
+            "predicate": {
+                "cut": 0.0022
+            },
+            "model": "ke2:item/colored_gemstone_22"
+        }
+    ]
+}

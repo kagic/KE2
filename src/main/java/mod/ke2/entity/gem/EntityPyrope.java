@@ -21,4 +21,8 @@ public class EntityPyrope extends AbstractGarnet {
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	@Override
+	public int generateGemstoneCut() {
+		return 0;
+	}
 }

@@ -21,4 +21,8 @@ public class EntityMelanite extends AbstractGarnet {
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	@Override
+	public int generateGemstoneCut() {
+		return 0;
+	}
 }

@@ -49,4 +49,8 @@ public class EntityDesertGlass extends EntityGem {
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	@Override
+	public int generateGemstoneCut() {
+		return 0;
+	}
 }

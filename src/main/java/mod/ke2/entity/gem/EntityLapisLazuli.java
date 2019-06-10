@@ -43,6 +43,10 @@ public class EntityLapisLazuli extends EntityGem {
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	@Override
+	public int generateGemstoneCut() {
+		return 0;
+	}
 	public void setWinged(boolean winged) {
 		this.dataManager.set(WINGED, winged);
 	}

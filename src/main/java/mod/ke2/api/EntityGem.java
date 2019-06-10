@@ -79,7 +79,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	protected static final DataParameter<String>		 VARIANT_HAIR		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<String>		 VARIANT_SKIN		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<Integer>		 GEMSTONE_POS 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<String>		 GEMSTONE_CUT 		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
+	protected static final DataParameter<Integer>		 GEMSTONE_CUT 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Boolean>		 IS_DEFECTIVE		= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Boolean>		 IS_PERFECT			= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Integer>		 FLOWER_IN_HAIR		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
@@ -125,8 +125,8 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.dataManager.register(VARIANT_OUTFIT, "");
 		this.dataManager.register(VARIANT_HAIR, "");
 		this.dataManager.register(VARIANT_SKIN, "");
-		this.dataManager.register(GEMSTONE_POS, 0);
-		this.dataManager.register(GEMSTONE_CUT, "");
+		this.dataManager.register(GEMSTONE_POS, -1);
+		this.dataManager.register(GEMSTONE_CUT, -1);
 		this.dataManager.register(IS_DEFECTIVE, false);
 		this.dataManager.register(IS_PERFECT, false);
 		this.dataManager.register(FLOWER_IN_HAIR, 0);
@@ -183,7 +183,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setSkinColor(compound.getInteger("SkinColor"));
 		this.setHairColor(compound.getInteger("HairColor"));
 		this.setGemstoneColor(compound.getInteger("GemstoneColor"));
-		this.setGemstoneCut(compound.getString("GemstoneCut"));
+		this.setGemstoneCut(compound.getInteger("GemstoneCut"));
 		this.setOutfitVariant(compound.getString("OutfitVariant"));
 		this.setHairVariant(compound.getString("HairVariant"));
 		this.setSkinVariant(compound.getString("SkinVariant"));
@@ -226,7 +226,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		compound.setInteger("SkinColor", this.getSkinColor());
 		compound.setInteger("HairColor", this.getHairColor());
 		compound.setInteger("GemstoneColor", this.getGemstoneColor());
-		compound.setString("GemstoneCut", this.getGemstoneCut());
+		compound.setInteger("GemstoneCut", this.getGemstoneCut());
 		compound.setString("OutfitVariant", this.getOutfitVariant());
 		compound.setString("HairVariant", this.getHairVariant());
 		compound.setString("SkinVariant", this.getSkinVariant());
@@ -452,7 +452,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public int getOriginalDimension() {
 		return this.dataManager.get(ORIGINAL_DIM);
 	}
-	public String getNameFromCut(String cut) {
+	public String getNameFromCut(int cut) {
 		return "Cut";
 	}
 	public String getDescriptor(int piece) {
@@ -544,10 +544,10 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 			return this.dataManager.get(COLOR_RGB_GEMSTONE);
 		}
 	}
-	public void setGemstoneCut(String cut) {
+	public void setGemstoneCut(int cut) {
 		this.dataManager.set(GEMSTONE_CUT, cut);
 	}
-	public String getGemstoneCut() {
+	public int getGemstoneCut() {
 		return this.dataManager.get(GEMSTONE_CUT);
 	}
 	public void setHairVariant(String variant) {
@@ -770,10 +770,6 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	@Override
 	public int generateGemstoneColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone");
-	}
-	@Override
-	public String generateGemstoneCut() {
-		return VariantHelper.loadVariantPath(this, "ke2:texture.gemstone");
 	}
 	@Override
 	public String generateOutfitVariant() {
