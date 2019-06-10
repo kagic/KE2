@@ -74,5 +74,6 @@ public class ModelJadeBell extends ModelGem {
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netbipedHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netbipedHeadYaw, headPitch, scaleFactor, entity);
+		this.bipedRightEar.mirror = true;
 	}
 }
