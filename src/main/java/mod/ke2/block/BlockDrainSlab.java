@@ -1,5 +1,7 @@
 package mod.ke2.block;
 
+import java.util.Random;
+
 import mod.ke2.init.Ke2Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
@@ -119,9 +121,13 @@ public class BlockDrainSlab extends Block {
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
 		if (world.getBlockState(pos.up()).getBlock() instanceof BlockDrainBlock) {
-			world.destroyBlock(pos.up(), false);
+			world.destroyBlock(pos.up(), true);
 		}
 		super.breakBlock(world, pos, state);
+    }
+	@Override
+	public int quantityDropped(Random random) {
+        return 0;
     }
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
