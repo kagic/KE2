@@ -1,0 +1,19 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "minecraft:upper_slab",
+		"textures": {
+			"side": "ke2:blocks/light_orange_drain_block_side",
+			"top": "ke2:blocks/light_orange_drain_block_top",
+			"bottom": "ke2:blocks/light_orange_drain_block_top"
+		}
+	},
+	"variants": {
+		"inventory": {
+		    "model": "minecraft:upper_slab"
+		},
+		"normal": {
+		    "model": "minecraft:upper_slab"
+		}
+	}
+}

@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.UUID;
 
 import mod.ke2.api.EntityGem;
+import mod.ke2.block.BlockDrainBlock;
 import mod.ke2.entity.EntityGemBurst;
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2Cruxes;
@@ -21,9 +22,13 @@ import net.minecraft.world.World;
 
 public class InjectorResult {
 	public static final Block[] RED_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_RED_DRAIN_BLOCK, Ke2Blocks.BANDED_RED_DRAIN_BLOCK, Ke2Blocks.DARK_RED_DRAIN_BLOCK, Ke2Blocks.ERODED_RED_DRAIN_BLOCK };
+	public static final Block[] RED_DRAIN_ROOFS = new Block[] { Ke2Blocks.LIGHT_RED_DRAIN_ROOF, Ke2Blocks.BANDED_RED_DRAIN_ROOF, Ke2Blocks.DARK_RED_DRAIN_ROOF };
 	public static final Block[] ORANGE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_ORANGE_DRAIN_BLOCK, Ke2Blocks.BANDED_ORANGE_DRAIN_BLOCK, Ke2Blocks.DARK_ORANGE_DRAIN_BLOCK, Ke2Blocks.ERODED_ORANGE_DRAIN_BLOCK };
+	public static final Block[] ORANGE_DRAIN_ROOFS = new Block[] { Ke2Blocks.LIGHT_ORANGE_DRAIN_ROOF, Ke2Blocks.BANDED_ORANGE_DRAIN_ROOF, Ke2Blocks.DARK_ORANGE_DRAIN_ROOF };
 	public static final Block[] PURPLE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_PURPLE_DRAIN_BLOCK, Ke2Blocks.BANDED_PURPLE_DRAIN_BLOCK, Ke2Blocks.DARK_PURPLE_DRAIN_BLOCK, Ke2Blocks.ERODED_PURPLE_DRAIN_BLOCK };
+	public static final Block[] PURPLE_DRAIN_ROOFS = new Block[] { Ke2Blocks.LIGHT_PURPLE_DRAIN_ROOF, Ke2Blocks.BANDED_PURPLE_DRAIN_ROOF, Ke2Blocks.DARK_PURPLE_DRAIN_ROOF };
 	public static final Block[] BLUE_DRAIN_BLOCKS = new Block[] { Ke2Blocks.LIGHT_BLUE_DRAIN_BLOCK, Ke2Blocks.BANDED_BLUE_DRAIN_BLOCK, Ke2Blocks.DARK_BLUE_DRAIN_BLOCK, Ke2Blocks.ERODED_BLUE_DRAIN_BLOCK };
+	public static final Block[] BLUE_DRAIN_ROOFS = new Block[] { Ke2Blocks.LIGHT_BLUE_DRAIN_ROOF, Ke2Blocks.BANDED_BLUE_DRAIN_ROOF, Ke2Blocks.DARK_BLUE_DRAIN_ROOF };
 	public static final double CRUX_MARGIN = 1.0D;
 	private final EntityGem gem;
 	private final BlockPos position;
@@ -169,7 +174,7 @@ public class InjectorResult {
 					world.setBlockState(pos, blocks[2].getDefaultState());
 				}
 			}
-			if (material == Material.SAND) {
+			if (material == Material.SAND || material == Material.GROUND) {
 				world.setBlockState(pos, blocks[3].getDefaultState());
 			}
 			if (material == Material.PLANTS) {
@@ -190,10 +195,56 @@ public class InjectorResult {
 					world.setBlockState(pos, InjectorResult.getDrainLily(world, pos));
 				}
 			}
+			if (material == Material.LAVA) {
+				blocks = RED_DRAIN_BLOCKS;
+				if (pos.getY() % 6 == 0 || pos.getY() % 6 == 1) {
+					world.setBlockState(pos, blocks[0].getDefaultState());
+				}
+				else if (pos.getY() % 5 == 0) {
+					world.setBlockState(pos, blocks[1].getDefaultState());
+				}
+				else {
+					world.setBlockState(pos, blocks[2].getDefaultState());
+				}
+			}
 		}
 	}
 	public static void drain(World world, BlockPos pos) {
 		InjectorResult.drain(world, pos, null);
+	}
+	public static void drainSlab(World world, BlockPos pos, Block[] blocks) {
+		if (blocks == null) {
+			blocks = PURPLE_DRAIN_ROOFS;
+			if (world.provider.isNether()) {
+				blocks = RED_DRAIN_ROOFS;
+			}
+			else {
+				float temp = world.getBiome(pos).getTemperature(pos);
+				if (world.canSnowAt(pos, false)) {
+					blocks = BLUE_DRAIN_ROOFS;
+				}
+				else if (temp > 0.95) {
+					blocks = ORANGE_DRAIN_ROOFS;
+				}
+				else {
+					blocks = PURPLE_DRAIN_ROOFS;
+				}
+			}
+		}
+		if (world.isAirBlock(pos) && world.getBlockState(pos.up()).getBlock() instanceof BlockDrainBlock) {
+			if (pos.getY() % 6 == 0 || pos.getY() % 6 == 1) {
+				world.setBlockState(pos, blocks[0].getDefaultState());
+			}
+			else if (pos.getY() % 5 == 0) {
+				world.setBlockState(pos, blocks[1].getDefaultState());
+			}
+			else {
+				world.setBlockState(pos, blocks[2].getDefaultState());
+			}
+		}
+	}
+	public static void drainSlab(World world, BlockPos pos) {
+		InjectorResult.drainSlab(world, pos, null);
 	}
 	public static IBlockState getDrainLily(World world, BlockPos pos) {
 		if (world.provider.isNether()) {

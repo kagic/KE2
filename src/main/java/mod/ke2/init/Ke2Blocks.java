@@ -7,6 +7,7 @@ import mod.ke2.block.BlockCarbonite;
 import mod.ke2.block.BlockCluster;
 import mod.ke2.block.BlockDrainBlock;
 import mod.ke2.block.BlockDrainLily;
+import mod.ke2.block.BlockDrainRoof;
 import mod.ke2.block.BlockMagicMoss;
 import mod.ke2.block.BlockMossRose;
 import mod.ke2.block.BlockWailingStone;
@@ -36,20 +37,32 @@ public class Ke2Blocks {
 	public static final BlockDrainLily NETHER_DRAIN_LILY = new BlockDrainLily("nether");
 	
 	public static final BlockDrainBlock LIGHT_PURPLE_DRAIN_BLOCK = new BlockDrainBlock(false, "purple", 0);
+	public static final BlockDrainRoof LIGHT_PURPLE_DRAIN_ROOF = new BlockDrainRoof("purple", 0);
 	public static final BlockDrainBlock BANDED_PURPLE_DRAIN_BLOCK = new BlockDrainBlock(false, "purple", 1);
+	public static final BlockDrainRoof BANDED_PURPLE_DRAIN_ROOF = new BlockDrainRoof("purple", 1);
 	public static final BlockDrainBlock DARK_PURPLE_DRAIN_BLOCK = new BlockDrainBlock(false, "purple", 2);
+	public static final BlockDrainRoof DARK_PURPLE_DRAIN_ROOF = new BlockDrainRoof("purple", 2);
 	public static final BlockDrainBlock ERODED_PURPLE_DRAIN_BLOCK = new BlockDrainBlock(true, "purple", 3);
 	public static final BlockDrainBlock LIGHT_ORANGE_DRAIN_BLOCK = new BlockDrainBlock(false, "orange", 0);
+	public static final BlockDrainRoof LIGHT_ORANGE_DRAIN_ROOF = new BlockDrainRoof("orange", 0);
 	public static final BlockDrainBlock BANDED_ORANGE_DRAIN_BLOCK = new BlockDrainBlock(false, "orange", 1);
+	public static final BlockDrainRoof BANDED_ORANGE_DRAIN_ROOF = new BlockDrainRoof("orange", 1);
 	public static final BlockDrainBlock DARK_ORANGE_DRAIN_BLOCK = new BlockDrainBlock(false, "orange", 2);
+	public static final BlockDrainRoof DARK_ORANGE_DRAIN_ROOF = new BlockDrainRoof("orange", 2);
 	public static final BlockDrainBlock ERODED_ORANGE_DRAIN_BLOCK = new BlockDrainBlock(true, "orange", 3);
 	public static final BlockDrainBlock LIGHT_BLUE_DRAIN_BLOCK = new BlockDrainBlock(false, "blue", 0);
+	public static final BlockDrainRoof LIGHT_BLUE_DRAIN_ROOF = new BlockDrainRoof("blue", 0);
 	public static final BlockDrainBlock BANDED_BLUE_DRAIN_BLOCK = new BlockDrainBlock(false, "blue", 1);
+	public static final BlockDrainRoof BANDED_BLUE_DRAIN_ROOF = new BlockDrainRoof("blue", 1);
 	public static final BlockDrainBlock DARK_BLUE_DRAIN_BLOCK = new BlockDrainBlock(false, "blue", 2);
+	public static final BlockDrainRoof DARK_BLUE_DRAIN_ROOF = new BlockDrainRoof("blue", 2);
 	public static final BlockDrainBlock ERODED_BLUE_DRAIN_BLOCK = new BlockDrainBlock(true, "blue", 3);
 	public static final BlockDrainBlock LIGHT_RED_DRAIN_BLOCK = new BlockDrainBlock(false, "red", 0);
+	public static final BlockDrainRoof LIGHT_RED_DRAIN_ROOF = new BlockDrainRoof("red", 0);
 	public static final BlockDrainBlock BANDED_RED_DRAIN_BLOCK = new BlockDrainBlock(false, "red", 1);
+	public static final BlockDrainRoof BANDED_RED_DRAIN_ROOF = new BlockDrainRoof("red", 1);
 	public static final BlockDrainBlock DARK_RED_DRAIN_BLOCK = new BlockDrainBlock(false, "red", 2);
+	public static final BlockDrainRoof DARK_RED_DRAIN_ROOF = new BlockDrainRoof("red", 2);
 	public static final BlockDrainBlock ERODED_RED_DRAIN_BLOCK = new BlockDrainBlock(true, "red", 3);
 
 	public static final BlockCarbonite WHITE_CARBONITE = new BlockCarbonite(BlockCarbonite.Variety.INERT, Ke2Gems.BASIC_WHITE);
@@ -205,26 +218,42 @@ public class Ke2Blocks {
 		registerBlock(WAILING_STONE, new ResourceLocation("ke2:wailing_stone"), event);
 		registerBlock(MAGIC_MOSS, new ResourceLocation("ke2:magic_moss"), event);
 		registerBlock(MOSS_ROSE, new ResourceLocation("ke2:moss_rose"), event);
+		
 		registerBlock(VALLEY_DRAIN_LILY, new ResourceLocation("ke2:valley_drain_lily"), event);
 		registerBlock(DESERT_DRAIN_LILY, new ResourceLocation("ke2:desert_drain_lily"), event);
 		registerBlock(ALPINE_DRAIN_LILY, new ResourceLocation("ke2:alpine_drain_lily"), event);
 		registerBlock(NETHER_DRAIN_LILY, new ResourceLocation("ke2:nether_drain_lily"), event);
+		
 		registerBlock(LIGHT_PURPLE_DRAIN_BLOCK, new ResourceLocation("ke2:light_purple_drain_block"), event);
+		registerBlock(LIGHT_PURPLE_DRAIN_ROOF, new ResourceLocation("ke2:light_purple_drain_roof"), event);
 		registerBlock(BANDED_PURPLE_DRAIN_BLOCK, new ResourceLocation("ke2:banded_purple_drain_block"), event);
+		registerBlock(BANDED_PURPLE_DRAIN_ROOF, new ResourceLocation("ke2:banded_purple_drain_roof"), event);
 		registerBlock(DARK_PURPLE_DRAIN_BLOCK, new ResourceLocation("ke2:dark_purple_drain_block"), event);
+		registerBlock(DARK_PURPLE_DRAIN_ROOF, new ResourceLocation("ke2:dark_purple_drain_roof"), event);
 		registerBlock(ERODED_PURPLE_DRAIN_BLOCK, new ResourceLocation("ke2:eroded_purple_drain_block"), event);
 		registerBlock(LIGHT_ORANGE_DRAIN_BLOCK, new ResourceLocation("ke2:light_orange_drain_block"), event);
+		registerBlock(LIGHT_ORANGE_DRAIN_ROOF, new ResourceLocation("ke2:light_orange_drain_roof"), event);
 		registerBlock(BANDED_ORANGE_DRAIN_BLOCK, new ResourceLocation("ke2:banded_orange_drain_block"), event);
+		registerBlock(BANDED_ORANGE_DRAIN_ROOF, new ResourceLocation("ke2:banded_orange_drain_roof"), event);
 		registerBlock(DARK_ORANGE_DRAIN_BLOCK, new ResourceLocation("ke2:dark_orange_drain_block"), event);
+		registerBlock(DARK_ORANGE_DRAIN_ROOF, new ResourceLocation("ke2:dark_orange_drain_roof"), event);
 		registerBlock(ERODED_ORANGE_DRAIN_BLOCK, new ResourceLocation("ke2:eroded_orange_drain_block"), event);
 		registerBlock(LIGHT_BLUE_DRAIN_BLOCK, new ResourceLocation("ke2:light_blue_drain_block"), event);
+		registerBlock(LIGHT_BLUE_DRAIN_ROOF, new ResourceLocation("ke2:light_blue_drain_roof"), event);
 		registerBlock(BANDED_BLUE_DRAIN_BLOCK, new ResourceLocation("ke2:banded_blue_drain_block"), event);
+		registerBlock(BANDED_BLUE_DRAIN_ROOF, new ResourceLocation("ke2:banded_blue_drain_roof"), event);
 		registerBlock(DARK_BLUE_DRAIN_BLOCK, new ResourceLocation("ke2:dark_blue_drain_block"), event);
+		registerBlock(DARK_BLUE_DRAIN_ROOF, new ResourceLocation("ke2:dark_blue_drain_roof"), event);
 		registerBlock(ERODED_BLUE_DRAIN_BLOCK, new ResourceLocation("ke2:eroded_blue_drain_block"), event);
 		registerBlock(LIGHT_RED_DRAIN_BLOCK, new ResourceLocation("ke2:light_red_drain_block"), event);
+		registerBlock(LIGHT_RED_DRAIN_ROOF, new ResourceLocation("ke2:light_red_drain_roof"), event);
 		registerBlock(BANDED_RED_DRAIN_BLOCK, new ResourceLocation("ke2:banded_red_drain_block"), event);
+		registerBlock(BANDED_RED_DRAIN_ROOF, new ResourceLocation("ke2:banded_red_drain_roof"), event);
 		registerBlock(DARK_RED_DRAIN_BLOCK, new ResourceLocation("ke2:dark_red_drain_block"), event);
+		registerBlock(DARK_RED_DRAIN_ROOF, new ResourceLocation("ke2:dark_red_drain_roof"), event);
 		registerBlock(ERODED_RED_DRAIN_BLOCK, new ResourceLocation("ke2:eroded_red_drain_block"), event);
+		
+		
 		registerBlock(WHITE_CARBONITE, new ResourceLocation("ke2:white_carbonite"), event);
 		registerBlock(WHITE_CARBONITE_OFF, new ResourceLocation("ke2:white_carbonite_off"), event);
 		registerBlock(WHITE_CARBONITE_ON, new ResourceLocation("ke2:white_carbonite_on"), event);
@@ -321,6 +350,7 @@ public class Ke2Blocks {
 		registerBlock(BLACK_DECORATIVE_CARBONITE, new ResourceLocation("ke2:black_decorative_carbonite"), event);
 		registerBlock(BLACK_HOLOGRAPHIC_CARBONITE_OFF, new ResourceLocation("ke2:black_holographic_carbonite_off"), event);
 		registerBlock(BLACK_HOLOGRAPHIC_CARBONITE_ON, new ResourceLocation("ke2:black_holographic_carbonite_on"), event);
+		
 		registerBlock(WHITE_WARP_PAD_CORE, new ResourceLocation("ke2:white_warp_pad_core"), event);
 		registerBlock(WHITE_WARP_PAD_FRAME, new ResourceLocation("ke2:white_warp_pad_frame"), event);
 		registerBlock(WHITE_WARP_PAD_EDGE, new ResourceLocation("ke2:white_warp_pad_edge"), event);

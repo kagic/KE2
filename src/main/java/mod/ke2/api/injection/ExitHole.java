@@ -13,13 +13,15 @@ public class ExitHole {
 	private final boolean canCreate;
 	private final boolean meltRocks;
 	private final boolean direction;
+	private final boolean addSlabs;
 	private final int minY;
-	public ExitHole(BlockPos[] blocks, EnumFacing facing, boolean canCreate, boolean meltRocks, boolean direction, int y) {
+	public ExitHole(BlockPos[] blocks, EnumFacing facing, boolean canCreate, boolean meltRocks, boolean direction, boolean addSlabs, int y) {
 		this.blocks = blocks;
 		this.facing = facing;
 		this.canCreate = canCreate;
 		this.meltRocks = meltRocks;
 		this.direction = direction;
+		this.addSlabs = addSlabs;
 		this.minY = y;
 	}
 	public EnumFacing getFacing() {
@@ -45,6 +47,11 @@ public class ExitHole {
 				InjectorResult.drain(world, block.up());
 			}
 		}
+		for (BlockPos block : this.blocks) {
+			if (!world.isAirBlock(block.up())) {
+				InjectorResult.drainSlab(world, block);
+			}
+		}
 	}
 	public static ExitHole create(World world, BlockPos pos, double height, double width, boolean meltRocks) {
 		ArrayList<BlockPos> blocksToDelete = new ArrayList<BlockPos>();
@@ -52,6 +59,8 @@ public class ExitHole {
 		exitQueue.add(new ExitPotential(false, 0, 10, 'o'));
 		int widthBegin = (int)(Math.ceil(width / -2.0));
 		int widthEnd = (int)(Math.ceil(width / 2.0));
+		boolean addSlabs = height % 1.0D > 0.0D && height % 1.0D < 0.5D;
+		height = Math.ceil(height);
 		for (int x = -1; x >= -9; --x) {
 			BlockPos check = pos.add(x, 0, 0);
 			if (world.isAirBlock(check)) {
@@ -136,6 +145,6 @@ public class ExitHole {
 			break;
 		}
 		boolean direction = exit.direction == 'e' || exit.direction == 'w';
-		return new ExitHole(blocksToDelete.toArray(new BlockPos[0]), facing, blocksToDelete.size() <= height * width, meltRocks, direction, pos.getY());
+		return new ExitHole(blocksToDelete.toArray(new BlockPos[0]), facing, blocksToDelete.size() <= height * width, meltRocks, direction, addSlabs, pos.getY());
 	}
 }
