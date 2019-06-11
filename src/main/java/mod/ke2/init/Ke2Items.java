@@ -8,6 +8,7 @@ import mod.ke2.item.ItemGemShard;
 import mod.ke2.item.ItemGemStaff;
 import mod.ke2.item.ItemGemstone;
 import mod.ke2.item.ItemManual;
+import mod.ke2.item.ItemTablet;
 import mod.ke2.item.ItemTemperplasm;
 import mod.ke2.item.ItemWarpWhistle;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -36,6 +37,7 @@ public class Ke2Items {
 	public static final ItemGemstone COLORED_GEMSTONE = new ItemGemstone("colored_gemstone");
 	public static final ItemGemShard GEM_SHARD = new ItemGemShard();
 	public static final ItemGemDust GEM_DUST = new ItemGemDust();
+	public static final ItemTablet TABLET = new ItemTablet();
 	
 	public static void register(RegistryEvent.Register<Item> event) {
 		registerItem(ANXIOUS_ESSENCE, new ResourceLocation("ke2:anxious_essence"), event);
@@ -54,6 +56,7 @@ public class Ke2Items {
 		registerItem(COLORED_GEMSTONE, new ResourceLocation("ke2:colored_gemstone"), event);
 		registerItem(GEM_SHARD, new ResourceLocation("ke2:gem_shard"), event);
 		registerItem(GEM_DUST, new ResourceLocation("ke2:gem_dust"), event);
+		registerItem(TABLET, new ResourceLocation("ke2:tablet"), event);
 		
 		for (Item item : Ke2Blocks.ITEMS) {
 			registerItem(item, null, event);

@@ -62,6 +62,7 @@ item.gem_destabilizer.name=Gem Destabilizer
 item.colored_gemstone.name=Gemstone
 item.gem_shard.name=Gem Shard
 item.gem_dust.name=Gem Dust
+item.tablet.name=Tablet
 
 tile.wailing_stone.name=Wailing Stone
 tile.magic_moss.name=Magic Moss

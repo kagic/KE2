@@ -19,7 +19,7 @@ public class HandleBubbleEnchant {
 			List<EntityItem> items = world.<EntityItem>getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(pos).grow(1, 1, 1));
 				for (EntityItem item : items) {
 					if (!item.isDead) {
-						for (EntityItem Item : items) {
+						for (@SuppressWarnings("unused") EntityItem Item : items) {
 							EntityBubble bubble = new EntityBubble(world);
 							bubble.setColor(0);
 							bubble.setItem(item.getItem());
