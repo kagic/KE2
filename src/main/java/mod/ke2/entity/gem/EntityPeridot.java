@@ -28,7 +28,7 @@ public class EntityPeridot extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/color_skin"), VariantColor.class), EntityPeridot.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/color_visor"), VariantColor.class), EntityPeridot.class);
 	}
-	protected static final DataParameter<Boolean> SQUARE_HAIR = EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
+	protected static final DataParameter<Boolean> SQUARE_HAIR = EntityDataManager.<Boolean>createKey(EntityPeridot.class, DataSerializers.BOOLEAN);
 	public EntityPeridot(World world) {
 		super(world);
 		this.dataManager.register(SQUARE_HAIR, false);
