@@ -62,9 +62,11 @@ item.gem_destabilizer.name=Gem Destabilizer
 item.colored_gemstone.name=Gemstone
 item.gem_shard.name=Gem Shard
 item.gem_dust.name=Gem Dust
+
 tile.wailing_stone.name=Wailing Stone
 tile.magic_moss.name=Magic Moss
 tile.moss_rose.name=Moss Rose
+tile.cluster.name=Cluster of Shards
 
 tile.valley_drain_lily.name=Valley Drain Lily
 tile.desert_drain_lily.name=Desert Drain Lily
