@@ -286,11 +286,11 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	}
 	@Override
 	public void onUpdate() {
-        super.onUpdate();
-        this.motionY *= this.getFallSpeed();
-        if (this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
+        if (!this.world.isRemote && this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
             this.dead = this.getHealth() > 0;
         }
+        super.onUpdate();
+        this.motionY *= this.getFallSpeed();
         this.updateCape();
     }
 	@Override
