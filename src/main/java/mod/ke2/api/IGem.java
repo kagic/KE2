@@ -14,4 +14,5 @@ public interface IGem extends INpc {
 	public String generateOutfitVariant();
 	public String generateHairVariant();
 	public String generateSkinVariant();
+	public String generateNameVariant();
 }

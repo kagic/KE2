@@ -13,6 +13,7 @@ import mod.ke2.init.Ke2Gems;
 import mod.ke2.world.data.WorldDataAuthorities;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.IRangedAttackMob;
@@ -41,6 +42,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -78,6 +80,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	protected static final DataParameter<String>		 VARIANT_OUTFIT		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<String>		 VARIANT_HAIR		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<String>		 VARIANT_SKIN		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
+	protected static final DataParameter<String>		 VARIANT_NAME		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<Integer>		 GEMSTONE_POS 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>		 GEMSTONE_CUT 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<ItemStack>		 GEMSTONE_ITEM 	= EntityDataManager.<ItemStack>createKey(EntityGem.class, DataSerializers.ITEM_STACK);
@@ -126,12 +129,14 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.dataManager.register(VARIANT_OUTFIT, "");
 		this.dataManager.register(VARIANT_HAIR, "");
 		this.dataManager.register(VARIANT_SKIN, "");
+		this.dataManager.register(VARIANT_NAME, "");
 		this.dataManager.register(GEMSTONE_POS, -1);
 		this.dataManager.register(GEMSTONE_CUT, -1);
 		this.dataManager.register(GEMSTONE_ITEM, ItemStack.EMPTY);
 		this.dataManager.register(IS_DEFECTIVE, false);
 		this.dataManager.register(IS_PERFECT, false);
 		this.dataManager.register(FLOWER_IN_HAIR, 0);
+		this.setAlwaysRenderNameTag(true);
 	}
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
@@ -152,6 +157,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setOutfitVariant(this.generateOutfitVariant());
 		this.setHairVariant(this.generateHairVariant());
 		this.setSkinVariant(this.generateSkinVariant());
+		this.setNameVariant(this.generateNameVariant());
 		this.setOutfitColor(this.generateOutfitColor());
 		this.setVisorColor(this.generateVisorColor());
 		this.setSkinColor(this.generateSkinColor());
@@ -190,6 +196,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setOutfitVariant(compound.getString("OutfitVariant"));
 		this.setHairVariant(compound.getString("HairVariant"));
 		this.setSkinVariant(compound.getString("SkinVariant"));
+		this.setNameVariant(compound.getString("NameVariant"));
 		this.setGemstonePosition(compound.getInteger("GemstonePosition"));
 		this.setDefective(compound.getBoolean("Defective"));
 		this.setPerfective(compound.getBoolean("Perfective"));
@@ -235,6 +242,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		compound.setString("OutfitVariant", this.getOutfitVariant());
 		compound.setString("HairVariant", this.getHairVariant());
 		compound.setString("SkinVariant", this.getSkinVariant());
+		compound.setString("NameVariant", this.getNameVariant());
 		compound.setInteger("GemstonePosition", this.getGemstonePosition());
 		compound.setBoolean("Defective", this.isDefective());
 		compound.setBoolean("Perfective", this.isPerfective());
@@ -251,6 +259,22 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		compound.setTag("Inventory", inventory);
 		this.setGemstoneItem();
 	}
+	@Override
+	public String getName() {
+        if (this.hasCustomName()) {
+            return this.getCustomNameTag();
+        }
+        else {
+            String name = this.getNameVariant();
+            if (name == null || name.isEmpty()) {
+            	name = EntityList.getEntityString(this);
+            	if (name == null) {
+            		name = "gem";
+            	}
+            }
+            return I18n.translateToLocal("entity." + name + ".name");
+        }
+    }
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
@@ -594,6 +618,12 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public String getSkinVariant() {
 		return this.dataManager.get(VARIANT_SKIN);
 	}
+	public void setNameVariant(String variant) {
+		this.dataManager.set(VARIANT_NAME, variant);
+	}
+	public String getNameVariant() {
+		return this.dataManager.get(VARIANT_NAME);
+	}
 	public void setGemstonePosition(int pos) {
 		this.dataManager.set(GEMSTONE_POS, pos);
 	}
@@ -812,5 +842,9 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	@Override
 	public String generateSkinVariant() {
 		return VariantHelper.loadVariantPath(this, "ke2:texture.skin");
+	}
+	@Override
+	public String generateNameVariant() {
+		return VariantHelper.loadVariantName(this, "ke2:name");
 	}
 }

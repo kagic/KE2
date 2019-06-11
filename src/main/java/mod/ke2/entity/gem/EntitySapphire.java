@@ -78,6 +78,10 @@ public class EntitySapphire extends EntityGem {
 		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone", this.getSapphireColor());
 	}
 	@Override
+	public String generateNameVariant() {
+		return VariantHelper.loadVariantName(this, "ke2:name", this.getSapphireColor());
+	}
+	@Override
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}

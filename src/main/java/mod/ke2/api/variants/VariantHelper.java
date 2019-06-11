@@ -114,7 +114,7 @@ public class VariantHelper {
 	}
 	public static String loadVariantName(EntityGem gem, String... tags) {
 		ArrayList<ResourceLocation> variants = Ke2Variants.TABLE.get(Ke2Gems.REGISTRY_REVERSE.get(gem.getClass()));
-		String name = "null"; int rolls = 30;
+		String name = ""; int rolls = 30;
 		for (int r = 0; r < rolls; ++r) {
 			for (int i = 0; i < variants.size(); ++i) {
 				IVariant<?> v = Ke2Variants.REGISTRY.get(variants.get(i));
