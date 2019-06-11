@@ -20,13 +20,17 @@ public class ModelBismuth extends ModelGem {
 		this.bipedSkirt.addBox(-6.0F, 4.0F, -3.0F, 12, 12, 6, 0.5F);
 		this.bipedBody.addChild(this.bipedSkirt);
 		this.bipedRightArm = new ModelRenderer(this, 0, 38);
-		this.bipedRightArm.addBox(-6.0F, -8.0F, -2.5F, 5, 16, 5, 0.0F);
+		this.bipedRightArm.addBox(-6.0F, 0.0F, -2.5F, 5, 16, 5, 0.0F);
+		this.bipedRightArm.offsetY = -0.5F;
 		this.bipedLeftArm = new ModelRenderer(this, 0, 16);
-		this.bipedLeftArm.addBox(1.0F, -8.0F, -2.5F, 5, 16, 5, 0.0F);
+		this.bipedLeftArm.addBox(1.0F, 0.0F, -2.5F, 5, 16, 5, 0.0F);
+		this.bipedLeftArm.offsetY = -0.5F;
 		this.bipedRightLeg = new ModelRenderer(this, 56, 38);
-		this.bipedRightLeg.addBox(-5.0F, -4.0F, -2.0F, 4, 16, 4);
+		this.bipedRightLeg.addBox(-5.0F, 0.0F, -2.0F, 4, 16, 4);
+		this.bipedRightLeg.offsetY = -0.25F;
 		this.bipedLeftLeg = new ModelRenderer(this, 56, 16);
-		this.bipedLeftLeg.addBox(2.0F, -4.0F, -2.0F, 4, 16, 4);
+		this.bipedLeftLeg.addBox(2.0F, 0.0F, -2.0F, 4, 16, 4);
+		this.bipedLeftLeg.offsetY = -0.25F;
 	}
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {

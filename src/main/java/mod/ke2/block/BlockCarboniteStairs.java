@@ -8,7 +8,7 @@ public class BlockCarboniteStairs extends BlockStairs {
 	public BlockCarboniteStairs(Block block) {
 		super(block.getDefaultState());
 		this.setUnlocalizedName(block.getUnlocalizedName().replace("tile.", "") + "_stairs");
-    	this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_BLOCKS);
         this.setResistance(30);
         this.setHardness(2);
 	}

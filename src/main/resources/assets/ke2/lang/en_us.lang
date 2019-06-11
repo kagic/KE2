@@ -1,6 +1,8 @@
 ke2.config.title=Configure KAGIC
-itemGroup.ke2_gemstones=Gemstones (KAGIC)
-itemGroup.ke2_gem_tech=Gem Tech (KAGIC)
+itemGroup.ke2_gem_stones=Gemstones & Shards (KAGIC)
+itemGroup.ke2_gem_creation=Gem Creation (KAGIC)
+itemGroup.ke2_gem_tech=Gem Tech & Tools (KAGIC)
+itemGroup.ke2_gem_blocks=Gem Relics & Blocks (KAGIC)
 
 key.ke2.category=KAGIC
 key.bug.report=Report Bug
@@ -67,7 +69,7 @@ item.tablet.name=Tablet
 tile.wailing_stone.name=Wailing Stone
 tile.magic_moss.name=Magic Moss
 tile.moss_rose.name=Moss Rose
-tile.cluster.name=Cluster of Shards
+tile.cluster.name=Shard Cluster
 
 tile.valley_drain_lily.name=Valley Drain Lily
 tile.desert_drain_lily.name=Desert Drain Lily

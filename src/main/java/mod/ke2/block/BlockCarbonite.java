@@ -132,7 +132,7 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
         	this.setResistance(30);
         	this.setHardness(2);
     	}
-    	this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_BLOCKS);
 	}
 	public BlockCarbonite(Variety variety, int color) {
 		this(variety, color, false);

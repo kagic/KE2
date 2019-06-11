@@ -24,9 +24,11 @@ public class ModelTopaz extends ModelGem {
 		this.bipedBody.addBox(-8.0F, -24.0F, -6.0F, 16, 32, 12, 0.0F);
 		this.bipedBody.setRotationPoint(0F, 0F, 0F);
 		this.bipedRightLeg = new ModelRenderer(this, 84, 18);
-		this.bipedRightLeg.addBox(-8.0F, -4.0F, -3.0F, 6, 16, 6, 0.0F);
+		this.bipedRightLeg.addBox(-8.0F, 0.0F, -3.0F, 6, 16, 6, 0.0F);
+		this.bipedRightLeg.offsetY = -0.25F;
 		this.bipedLeftLeg = new ModelRenderer(this, 84, 40);
-		this.bipedLeftLeg.addBox(2.0F, -4.0F, -3.0F, 6, 16, 6, 0.0F);
+		this.bipedLeftLeg.addBox(2.0F, 0.0F, -3.0F, 6, 16, 6, 0.0F);
+		this.bipedLeftLeg.offsetY = -0.25F;
 	}
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {

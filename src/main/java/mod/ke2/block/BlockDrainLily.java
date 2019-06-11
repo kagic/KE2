@@ -23,7 +23,7 @@ public class BlockDrainLily extends BlockBush {
 		this.setLightLevel(4.0F);
 		this.setTickRandomly(true);
 		this.prefix = prefix;
-    	this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 	}
 	@Override
 	protected boolean canSustainBush(IBlockState state) {

@@ -12,7 +12,7 @@ public class BlockCluster extends Block{
     	this.setResistance(35);
     	this.setHardness(2);
 		this.setHarvestLevel("pickaxe", 1);
-        this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
+        this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
         this.setSoundType(SoundType.METAL);        
         this.setLightLevel(5f);
         

@@ -27,6 +27,7 @@ import com.google.gson.Gson;
 
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2Configs;
+import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.init.Ke2Cruxes;
 import mod.ke2.init.Ke2Enchants;
 import mod.ke2.init.Ke2Entities;

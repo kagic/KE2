@@ -100,11 +100,6 @@ public class ItemGemDestabilizer extends Item {
 	}
     @Override
 	@SideOnly(Side.CLIENT)
-	public boolean hasEffect(ItemStack stack) {
-		return stack.hasTagCompound() ? stack.getTagCompound().getBoolean("Primed") : super.hasEffect(stack);
-	}
-    @Override
-	@SideOnly(Side.CLIENT)
     public boolean isFull3D() {
         return true;
     }
