@@ -13,7 +13,7 @@ public class Ke2Colors {
 				if (stack.hasTagCompound()) { return stack.getTagCompound().getInteger("GemstoneColor"); }
 				return 0xffffff;
 			}
-		}, Ke2Items.GEM_DUST, Ke2Items.GEM_SHARD);
+		}, Ke2Items.GEM_DUST, Ke2Items.GEM_SHARD, Ke2Items.COLORED_GEMSTONE);
 		registerColor(new IItemColor() {
 			@Override
 			public int colorMultiplier(ItemStack stack, int layer) {

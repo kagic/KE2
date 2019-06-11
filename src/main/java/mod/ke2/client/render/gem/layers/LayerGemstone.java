@@ -15,20 +15,10 @@ public class LayerGemstone implements LayerRenderer<EntityGem> {
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getGemstoneCut() > -1) {
-            this.renderer.getModel().renderGemOnBody(gem.getGemstonePosition(), scale);
-			int color = gem.getGemstoneColor();
-			float r = ((color & 16711680) >> 16) / 255.0F;
-	        float g = ((color & 65280) >> 8) / 255.0F;
-	        float b = ((color & 255) >> 0) / 255.0F;
-			GlStateManager.color(r, g, b);
-            GlStateManager.pushMatrix();
 			GlStateManager.pushMatrix();
-			GlStateManager.translate(0, 0, -0.25);
-			GlStateManager.scale(0.25, 0.25, 0.25);
-            Minecraft.getMinecraft().getItemRenderer().renderItemSide(gem, gem.getGemstoneItem(), TransformType.FIXED, false);
-            GlStateManager.popMatrix();
-            GlStateManager.popMatrix();
-	        GlStateManager.disableBlend();
+            this.renderer.getModel().renderGemOnBody(gem.getGemstonePosition(), scale);
+			Minecraft.getMinecraft().getItemRenderer().renderItemSide(gem, gem.getGemstoneItem(), TransformType.FIXED, false);
+			GlStateManager.popMatrix();
 		}
 	}
 	@Override

@@ -10,6 +10,7 @@ import mod.ke2.api.injection.GemSpawnData;
 import mod.ke2.api.variants.VariantHelper;
 import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Gems;
+import mod.ke2.init.Ke2Items;
 import mod.ke2.world.data.WorldDataAuthorities;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -50,6 +51,8 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
 public abstract class EntityGem extends EntityMob implements IGem, IInventoryChangedListener, IRangedAttackMob, IEntityAdditionalSpawnData {
+	public static final String[] BLACKLISTED_NBT_TAGS = new String[] { "Pos", "Motion", "Rotation", "FallDistance", "Fire", "Air", "OnGround", "Dimension", "Invulnerable", "PortalCooldown", "UUID", "NoGravity", "Glowing", "Passengers", "NoAI", "Health", "HurtTime", "HurtByTimestamp", "DeathTime", "AbsorptionAmount", "ActiveEffects", "GemstoneItem" };
+	
 	public enum Pose {
 		DEFAULT,
 		NOCKING_BOW,
@@ -83,7 +86,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	protected static final DataParameter<String>		 VARIANT_NAME		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
 	protected static final DataParameter<Integer>		 GEMSTONE_POS 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Integer>		 GEMSTONE_CUT 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<ItemStack>		 GEMSTONE_ITEM 	= EntityDataManager.<ItemStack>createKey(EntityGem.class, DataSerializers.ITEM_STACK);
+	protected static final DataParameter<ItemStack>		 GEMSTONE_ITEM 		= EntityDataManager.<ItemStack>createKey(EntityGem.class, DataSerializers.ITEM_STACK);
 	protected static final DataParameter<Boolean>		 IS_DEFECTIVE		= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Boolean>		 IS_PERFECT			= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Integer>		 FLOWER_IN_HAIR		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
@@ -152,8 +155,6 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setOriginalPosition(this.getPosition());
 		this.setOriginalDimension(this.dimension);
 		this.setGemstonePosition(this.rand.nextInt(18));
-		this.setGemstoneColor(this.generateGemstoneColor());
-		this.setGemstoneCut(this.generateGemstoneCut());
 		this.setOutfitVariant(this.generateOutfitVariant());
 		this.setHairVariant(this.generateHairVariant());
 		this.setSkinVariant(this.generateSkinVariant());
@@ -163,9 +164,11 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setSkinColor(this.generateSkinColor());
 		this.setHairColor(this.generateHairColor());
 		this.setEmotion(this.generateEmotion());
+		this.setGemstoneColor(this.generateGemstoneColor());
+		this.setGemstoneCut(this.generateGemstoneCut());
+		this.setGemstoneItem(this.generateGemstoneItem());
 		this.setHealth(this.getMaxHealth());
 		this.stepHeight = Math.min(0.5F, this.height / 2);
-		this.setGemstoneItem();
 		return data;
 	}
 	@Override
@@ -191,13 +194,10 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		this.setVisorColor(compound.getInteger("VisorColor"));
 		this.setSkinColor(compound.getInteger("SkinColor"));
 		this.setHairColor(compound.getInteger("HairColor"));
-		this.setGemstoneColor(compound.getInteger("GemstoneColor"));
-		this.setGemstoneCut(compound.getInteger("GemstoneCut"));
 		this.setOutfitVariant(compound.getString("OutfitVariant"));
 		this.setHairVariant(compound.getString("HairVariant"));
 		this.setSkinVariant(compound.getString("SkinVariant"));
 		this.setNameVariant(compound.getString("NameVariant"));
-		this.setGemstonePosition(compound.getInteger("GemstonePosition"));
 		this.setDefective(compound.getBoolean("Defective"));
 		this.setPerfective(compound.getBoolean("Perfective"));
 		this.setFlowerInHair(compound.getInteger("FlowerInHair"));
@@ -210,7 +210,10 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 				this.inventory.setInventorySlotContents(s, new ItemStack(tag));
 			}
 		}
-		this.setGemstoneItem();
+		this.setGemstonePosition(compound.getInteger("GemstonePosition"));
+		this.setGemstoneColor(compound.getInteger("GemstoneColor"));
+		this.setGemstoneCut(compound.getInteger("GemstoneCut"));
+		this.setGemstoneItem(new ItemStack(compound.getCompoundTag("GemstoneItem")));
 	}
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
@@ -236,14 +239,10 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		compound.setInteger("VisorColor", this.getVisorColor());
 		compound.setInteger("SkinColor", this.getSkinColor());
 		compound.setInteger("HairColor", this.getHairColor());
-		compound.setInteger("GemstoneColor", this.getGemstoneColor());
-		compound.setInteger("GemstoneCut", this.getGemstoneCut());
-		compound.setTag("GemstoneItem", this.getGemstoneItem().serializeNBT());
 		compound.setString("OutfitVariant", this.getOutfitVariant());
 		compound.setString("HairVariant", this.getHairVariant());
 		compound.setString("SkinVariant", this.getSkinVariant());
 		compound.setString("NameVariant", this.getNameVariant());
-		compound.setInteger("GemstonePosition", this.getGemstonePosition());
 		compound.setBoolean("Defective", this.isDefective());
 		compound.setBoolean("Perfective", this.isPerfective());
 		compound.setInteger("FlowerInHair", this.getFlowerInHair());
@@ -251,13 +250,19 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		NBTTagList inventory = new NBTTagList();
 		for (int i = 0; i < this.inventory.getSizeInventory(); ++i) {
 			ItemStack stack = this.inventory.getStackInSlot(i);
-			NBTTagCompound tag = new NBTTagCompound();
-			tag.setByte("Slot", (byte)(i));
-			stack.writeToNBT(tag);
-			inventory.appendTag(tag);
+			if (stack.getTagCompound() == null ||
+			   !stack.getTagCompound().getBoolean("IsGem")) {
+				NBTTagCompound tag = new NBTTagCompound();
+				tag.setByte("Slot", (byte)(i));
+				stack.writeToNBT(tag);
+				inventory.appendTag(tag);
+			}
 		}
 		compound.setTag("Inventory", inventory);
-		this.setGemstoneItem();
+		compound.setInteger("GemstonePosition", this.getGemstonePosition());
+		compound.setInteger("GemstoneColor", this.getGemstoneColor());
+		compound.setInteger("GemstoneCut", this.getGemstoneCut());
+		compound.setTag("GemstoneItem", this.getGemstoneItem().serializeNBT());
 	}
 	@Override
 	public String getName() {
@@ -306,6 +311,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 				fusion.setDead();
 			}
 			else {
+				this.setGemstoneItem();
 				if (this.world.getGameRules().getBoolean("showDeathMessages")) {
 					if (!this.hasCustomName()) {
 						this.setCustomNameTag(String.format("%s-%s", this.getName(), this.getDescriptor(3)));
@@ -316,6 +322,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 						this.sendMessage(cause.getDeathMessage(this).getUnformattedText());
 					}
 				}
+				this.entityDropItem(this.getGemstoneItem(), 0.0F);
 			}
 		}
 		super.onDeath(cause);
@@ -402,10 +409,12 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		return this.isOwnedBy(gem.getGemGlobalID());
 	}
 	public boolean isOwnedBy(UUID id) {
+		/*
 		WorldDataAuthorities auth = WorldDataAuthorities.get(this.world);
 		if (auth.isAuthorized(id, this.getGemOwnerID()) || this.getGemLeaderID() == id) {
 			return true;
 		}
+		*/
 		return false;
 	}
 	public void setGemGlobalID(UUID id) {
@@ -581,7 +590,9 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		return this.dataManager.get(GEMSTONE_CUT);
 	}
 	public void setGemstoneItem(Item item, int quantity, int meta) {
-		this.dataManager.set(GEMSTONE_ITEM, new ItemStack(item, quantity, quantity, this.writeToNBT(new NBTTagCompound())));
+		ItemStack stack = new ItemStack(item, quantity, meta);
+		stack.setTagCompound(this.getGemstoneTags());
+		this.dataManager.set(GEMSTONE_ITEM, stack);
 	}
 	public void setGemstoneItem(ItemStack stack) {
 		this.setGemstoneItem(stack.getItem(), stack.getCount(), stack.getMetadata());
@@ -591,7 +602,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	}
 	public void setGemstoneItem() {
 		if (this.getGemstoneItem().isEmpty()) {
-			this.generateGemstoneItem();
+			this.setGemstoneItem(this.generateGemstoneItem());
 		}
 		else {
 			this.setGemstoneItem(this.getGemstoneItem());
@@ -599,6 +610,13 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	}
 	public ItemStack getGemstoneItem() {
 		return this.dataManager.get(GEMSTONE_ITEM);
+	}
+	public NBTTagCompound getGemstoneTags() {
+		NBTTagCompound compound = this.writeToNBT(new NBTTagCompound());
+		for (String tag : EntityGem.BLACKLISTED_NBT_TAGS) {
+			compound.removeTag(tag);
+		}
+		return compound;
 	}
 	public void setHairVariant(String variant) {
 		this.dataManager.set(VARIANT_HAIR, variant);
@@ -629,9 +647,6 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	}
 	public int getGemstonePosition() {
 		return this.dataManager.get(GEMSTONE_POS);
-	}
-	public boolean canGemstoneGlow() {
-		return this.world.getLight(this.getPosition().down()) < 5;
 	}
 	public void setDefective(boolean defective) {
 		this.dataManager.set(IS_DEFECTIVE, defective);
@@ -829,7 +844,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	}
 	@Override
 	public ItemStack generateGemstoneItem() {
-		return ItemStack.EMPTY;
+		return new ItemStack(Ke2Items.COLORED_GEMSTONE);
 	}
 	@Override
 	public String generateOutfitVariant() {
