@@ -57,7 +57,6 @@ task deobf(type: Jar) {
 	from sourceSets.main.output
 	from sourceSets.api.output
 	appendix = "deobf"
-	classifier = "deobf"
 }
 artifacts {
 	archives deobf
