@@ -9,6 +9,9 @@ import java.util.HashMap;
 import mod.ke2.KAGIC;
 import mod.ke2.api.EntityGem;
 import mod.ke2.api.variants.IVariant;
+import mod.ke2.api.variants.VariantIndex;
+import mod.ke2.api.variants.types.VariantColor;
+import mod.ke2.api.variants.types.VariantName;
 import mod.ke2.api.variants.types.VariantPath;
 import mod.ke2.entity.gem.AbstractGarnet;
 import mod.ke2.entity.gem.AbstractQuartz;
@@ -73,6 +76,37 @@ public class Ke2Variants {
 	public static void addVariantToGem(ResourceLocation loc, Class<? extends EntityGem>... gem) {
 		for (int i = 0; i < gem.length; ++i) { 
 			addVariantToGem(loc, Ke2Gems.REGISTRY_REVERSE.get(gem[i]));
+		}
+	}
+	public static void addVariantIndexFile(ResourceLocation loc, ResourceLocation... gem) {
+		try {
+			InputStream in = Ke2Gems.class.getResourceAsStream("/assets/" + loc.getResourceDomain() + "/" + loc.getResourcePath() + ".json");
+			VariantIndex index = KAGIC.JSON.fromJson(new BufferedReader(new InputStreamReader(in)), VariantIndex.class);
+			for (int i = 0; i < gem.length; ++i) {
+				if (index.matches(gem[i])) {
+					for (int t = 0; t < index.colors.length; ++t) {
+						addVariantToGem(registerVariant(new ResourceLocation(index.colors[t]), VariantColor.class), gem[i]);
+					}
+					for (int t = 0; t < index.textures.length; ++t) {
+						addVariantToGem(registerVariant(new ResourceLocation(index.textures[t]), VariantPath.class), gem[i]);
+					}
+					for (int t = 0; t < index.names.length; ++t) {
+						addVariantToGem(registerVariant(new ResourceLocation(index.names[t]), VariantName.class), gem[i]);
+					}
+				}
+				else {
+					KAGIC.LOGGER.warn("Gem '{}' doesn't match its registered index! Skipping!", gem[i].toString());
+					KAGIC.LOGGER.warn("Report this to addon or mod author!");
+				}
+			}
+		} catch (NullPointerException e) {
+			KAGIC.LOGGER.warn("Index '{}' doesn't exist in source! Skipping!", loc.toString());
+			KAGIC.LOGGER.warn("Report this to addon or mod author!");
+		}
+	}
+	public static void addVariantIndexFile(ResourceLocation loc, Class<? extends EntityGem>... gem) {
+		for (int i = 0; i < gem.length; ++i) {
+			addVariantIndexFile(loc, Ke2Gems.REGISTRY_REVERSE.get(gem[i]));
 		}
 	}
 }
