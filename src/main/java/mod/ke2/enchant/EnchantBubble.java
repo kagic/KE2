@@ -11,10 +11,11 @@ public class EnchantBubble extends Enchantment {
 		super(Rarity.RARE, EnumEnchantmentType.ALL, new EntityEquipmentSlot[] { EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND });
 		this.setRegistryName(new ResourceLocation("ke2:bubble"));
 		this.setName("bubble");
+		
 	}
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
-        return false;
+        return true;
     }
     @Override
 	public boolean isTreasureEnchantment() {
@@ -22,11 +23,11 @@ public class EnchantBubble extends Enchantment {
     }
     @Override
 	public boolean isCurse() {
-        return true;
+        return false;
     }
 	@Override
 	public boolean isAllowedOnBooks() {
-		return false;
+		return true;
 	}
 	@Override
 	public int getMinEnchantability(int enchantmentLevel) {
@@ -40,4 +41,5 @@ public class EnchantBubble extends Enchantment {
 	public int getMaxLevel() {
         return 1;
     }
+	
 }

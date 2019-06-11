@@ -1,6 +1,7 @@
 package mod.ke2.init;
 
 import mod.ke2.handles.HandleBubbling;
+import mod.ke2.handles.HandleBubbleEnchant;
 import mod.ke2.handles.HandleCapturing;
 import mod.ke2.handles.HandleGuarding;
 import mod.ke2.handles.HandleShattering;
@@ -12,6 +13,7 @@ public class Ke2Handles {
 		registerHandle(new HandleCapturing());
 		registerHandle(new HandleShattering());
 		registerHandle(new HandleGuarding());
+		registerHandle(new HandleBubbleEnchant());
 	}
 	public static void registerHandle(Object handler) {
 		MinecraftForge.EVENT_BUS.register(handler);
