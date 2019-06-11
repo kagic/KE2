@@ -19,15 +19,15 @@ public class ModelPeridot extends ModelGem {
 		this.bipedHead.addChild(this.bipedHeadwear);
 		this.bipedBody = new ModelRenderer(this, 8, 16);
 	    this.bipedBody.addBox(-3.0F, 4.0F, -2.0F, 6, 10, 4);
-	    this.bipedRightArm = new ModelRenderer(this, 28, 16);
+	    this.bipedRightArm = new ModelRenderer(this, 0, 16);
 	    this.bipedRightArm.addBox(0.0F, 0.0F, -1.0F, 2, 10, 2);
 	    this.bipedRightArm.offsetY = 0.25F;
-	    this.bipedLeftArm = new ModelRenderer(this, 28, 28);
+	    this.bipedLeftArm = new ModelRenderer(this, 0, 28);
 	    this.bipedLeftArm.addBox(-2.0F, 0.0F, -1.0F, 2, 10, 2);
 	    this.bipedLeftArm.offsetY = 0.25F;
-	    this.bipedRightLeg = new ModelRenderer(this, 0, 16);
+	    this.bipedRightLeg = new ModelRenderer(this, 28, 16);
 	    this.bipedRightLeg.addBox(-3.0F, 2.0F, -1.0F, 2, 10, 2);
-	    this.bipedLeftLeg = new ModelRenderer(this, 0, 28);
+	    this.bipedLeftLeg = new ModelRenderer(this, 28, 28);
 	    this.bipedLeftLeg.addBox(1.0F, 2.0F, -1.0F, 2, 10, 2);
 	}
 	@Override
