@@ -21,7 +21,7 @@ public class ItemTablet extends Item{
 	@SuppressWarnings("deprecation")
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-		playerIn.sendMessage(new TextComponentString(I18n.translateToLocal("kagic.tablet_use")));
+		//playerIn.sendMessage(new TextComponentString(I18n.translateToLocal("kagic.tablet_use")));
 		return super.onItemRightClick(worldIn, playerIn, handIn);
 	}
 }
