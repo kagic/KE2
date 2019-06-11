@@ -27,9 +27,9 @@ public class ModelZircon extends ModelGem {
         this.bipedSkirt.addBox(-5.0F, 2.0F, -3.0F, 10, 6, 6, 0.0F);
         this.bipedBody.addChild(this.bipedSkirt);
         this.bipedLeftLeg = new ModelRenderer(this, 40, 16);
-        this.bipedLeftLeg.addBox(-2.5F, 0.0F, -1.5F, 3, 12, 3, 0.0F);
+        this.bipedLeftLeg.addBox(-3.0F, 0.0F, -1.5F, 3, 12, 3, 0.0F);
         this.bipedRightLeg = new ModelRenderer(this, 40, 31);
-        this.bipedRightLeg.addBox(1.5F, 0.0F, -1.5F, 3, 12, 3, 0.0F);
+        this.bipedRightLeg.addBox(0.0F, 0.0F, -1.5F, 3, 12, 3, 0.0F);
     }
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
