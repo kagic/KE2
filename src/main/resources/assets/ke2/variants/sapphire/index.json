@@ -1,0 +1,51 @@
+{
+	"applicant": "ke2:sapphire",
+	"colors": [
+		"ke2:variants/sapphire/color_skin_blue",
+		"ke2:variants/sapphire/color_skin_purple",
+		"ke2:variants/sapphire/color_skin_pink",
+		"ke2:variants/sapphire/color_skin_green",
+		"ke2:variants/sapphire/color_skin_peach",
+		"ke2:variants/sapphire/color_skin_yellow",
+		"ke2:variants/sapphire/color_skin_white",
+		"ke2:variants/sapphire/color_skin_black",
+		"ke2:variants/sapphire/color_gemstone_blue",
+		"ke2:variants/sapphire/color_gemstone_purple",
+		"ke2:variants/sapphire/color_gemstone_pink",
+		"ke2:variants/sapphire/color_gemstone_green",
+		"ke2:variants/sapphire/color_gemstone_peach",
+		"ke2:variants/sapphire/color_gemstone_yellow",
+		"ke2:variants/sapphire/color_gemstone_white",
+		"ke2:variants/sapphire/color_gemstone_black",
+		"ke2:variants/sapphire/color_hair_blue",
+		"ke2:variants/sapphire/color_hair_purple",
+		"ke2:variants/sapphire/color_hair_pink",
+		"ke2:variants/sapphire/color_hair_green",
+		"ke2:variants/sapphire/color_hair_peach",
+		"ke2:variants/sapphire/color_hair_yellow",
+		"ke2:variants/sapphire/color_hair_white",
+		"ke2:variants/sapphire/color_hair_black",
+		"ke2:variants/sapphire/color_outfit_blue",
+		"ke2:variants/sapphire/color_outfit_purple",
+		"ke2:variants/sapphire/color_outfit_pink",
+		"ke2:variants/sapphire/color_outfit_green",
+		"ke2:variants/sapphire/color_outfit_peach",
+		"ke2:variants/sapphire/color_outfit_yellow",
+		"ke2:variants/sapphire/color_outfit_white",
+		"ke2:variants/sapphire/color_outfit_black"
+	],
+	"textures": [
+		"ke2:variants/sapphire/skin_default",
+		"ke2:variants/sapphire/hair_floof",
+		"ke2:variants/sapphire/hair_short",
+		"ke2:variants/sapphire/hair_bangs",
+		"ke2:variants/sapphire/hair_messy",
+		"ke2:variants/sapphire/hair_poofy",
+		"ke2:variants/sapphire/outfit_default",
+		"ke2:variants/sapphire/outfit_overskirt",
+		"ke2:variants/sapphire/outfit_pinafore"
+	],
+	"names": [
+		"ke2:variants/sapphire/name_peach"
+	]
+}

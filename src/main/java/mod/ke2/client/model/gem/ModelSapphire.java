@@ -13,7 +13,7 @@ public class ModelSapphire extends ModelGem {
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-4.0F, -6.0F, -4.0F, 8, 8, 8);
 		this.bipedHead.offsetY = 0.25F;
-	    this.bipedHeadwear = new ModelRenderer(this, 36, 0);
+	    this.bipedHeadwear = new ModelRenderer(this, 32, 0);
 		this.bipedHeadwear.addBox(-4.0F, -2.0F, -4.0F, 8, 14, 8, 0.5F);
 		this.bipedHeadwear.offsetY = -0.25F;
 		this.bipedHead.addChild(this.bipedHeadwear);
@@ -23,7 +23,7 @@ public class ModelSapphire extends ModelGem {
 	    this.bipedLeftArm = new ModelRenderer(this, 0, 26);
 	    this.bipedLeftArm.addBox(-2.0F, -2.0F, -1.0F, 2, 8, 2);
 	    this.bipedLeftArm.offsetY = 0.5F;
-	    this.bipedBody = new ModelRenderer(this, 8, 16);
+	    this.bipedBody = new ModelRenderer(this, 12, 16);
 	    this.bipedBody.addBox(-3.0F, 6.0F, -3.0F, 6, 8, 6);
 	    this.bipedSkirt = new ModelRenderer(this, 0, 30);
 	    this.bipedSkirt.addBox(-6.0F, 14.0F, -6.0F, 12, 10, 12);
