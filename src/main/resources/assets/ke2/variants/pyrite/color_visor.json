@@ -1,0 +1,8 @@
+{
+	"function": "always_true",
+	"parameter": "true",
+	"tags": ["ke2:color.visor"],
+	"value": [
+		"ffaa00"
+	]
+}
