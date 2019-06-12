@@ -27,11 +27,11 @@ public class BlockMagicMoss extends Block {
     public static final PropertyBool SHORT = PropertyBool.create("short");
 	public BlockMagicMoss() {
 		super(Material.GROUND, MapColor.GREEN);
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 		this.setUnlocalizedName("magic_moss");
 		this.setHardness(0.4F);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(SHORT, false));
 		this.setTickRandomly(true);
-    	this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 	}
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
