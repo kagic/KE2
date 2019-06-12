@@ -10,6 +10,7 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -22,13 +23,11 @@ public class HandleBubbleEnchant {
 			if (!e.getWorld().isRemote) {
 				if(!e.getItemStack().isEmpty()) {
 					EntityPlayer player = e.getEntityPlayer();
-					ItemStack itemstack = player.getActiveItemStack();
-					System.out.println("oof1");
+					EnumHand hand = player.getActiveHand();
+					ItemStack itemstack = player.getHeldItem(hand);
 					if(itemstack.isItemEnchanted()) {
-						System.out.println("oof2");
 						Map<Enchantment, Integer> enchants = EnchantmentHelper.getEnchantments(itemstack);
 						if(enchants.containsKey(Ke2Enchants.BUBBLE)) {
-							System.out.println("oof3");
 							BlockPos pos = e.getPos();
 							World world = e.getWorld();			
 							List<EntityItem> items = world.<EntityItem>getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(pos).grow(1, 1, 1));
