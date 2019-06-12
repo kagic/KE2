@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:desert_glass",
+	"colors": [
+		"ke2:variants/desert_glass/color_skin",
+		"ke2:variants/desert_glass/color_gemstone",
+		"ke2:variants/desert_glass/color_hair",
+		"ke2:variants/desert_glass/color_outfit",
+		"ke2:variants/desert_glass/color_visor"
+	],
+	"textures": [
+		"ke2:variants/desert_glass/hair_default",
+		"ke2:variants/desert_glass/outfit_default",
+		"ke2:variants/desert_glass/skin_default"
+	],
+	"names": [
+	]
+}

@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:coral",
+	"colors": [
+		"ke2:variants/coral/color_skin",
+		"ke2:variants/coral/color_gemstone",
+		"ke2:variants/coral/color_hair",
+		"ke2:variants/coral/color_outfit",
+		"ke2:variants/coral/color_visor"
+	],
+	"textures": [
+		"ke2:variants/coral/hair_default",
+		"ke2:variants/coral/outfit_default",
+		"ke2:variants/coral/skin_default"
+	],
+	"names": [
+	]
+}

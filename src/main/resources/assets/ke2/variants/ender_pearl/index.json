@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:ender_pearl",
+	"colors": [
+		"ke2:variants/ender_pearl/color_skin",
+		"ke2:variants/ender_pearl/color_gemstone",
+		"ke2:variants/ender_pearl/color_hair",
+		"ke2:variants/ender_pearl/color_outfit",
+		"ke2:variants/ender_pearl/color_visor"
+	],
+	"textures": [
+		"ke2:variants/ender_pearl/hair_default",
+		"ke2:variants/ender_pearl/outfit_default",
+		"ke2:variants/ender_pearl/skin_default"
+	],
+	"names": [
+	]
+}

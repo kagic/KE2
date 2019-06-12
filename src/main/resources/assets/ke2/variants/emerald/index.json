@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:emerald",
+	"colors": [
+		"ke2:variants/emerald/color_skin",
+		"ke2:variants/emerald/color_gemstone",
+		"ke2:variants/emerald/color_hair",
+		"ke2:variants/emerald/color_outfit",
+		"ke2:variants/emerald/color_visor"
+	],
+	"textures": [
+		"ke2:variants/emerald/hair_default",
+		"ke2:variants/emerald/outfit_default",
+		"ke2:variants/emerald/skin_default"
+	],
+	"names": [
+	]
+}

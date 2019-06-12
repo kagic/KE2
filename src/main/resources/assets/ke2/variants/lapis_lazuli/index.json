@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:lapis_lazuli",
+	"colors": [
+		"ke2:variants/lapis_lazuli/color_skin",
+		"ke2:variants/lapis_lazuli/color_gemstone",
+		"ke2:variants/lapis_lazuli/color_hair",
+		"ke2:variants/lapis_lazuli/color_outfit",
+		"ke2:variants/lapis_lazuli/color_visor"
+	],
+	"textures": [
+		"ke2:variants/lapis_lazuli/hair_default",
+		"ke2:variants/lapis_lazuli/outfit_default",
+		"ke2:variants/lapis_lazuli/skin_default"
+	],
+	"names": [
+	]
+}

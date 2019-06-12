@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:nephrite",
+	"colors": [
+		"ke2:variants/nephrite/color_skin",
+		"ke2:variants/nephrite/color_gemstone",
+		"ke2:variants/nephrite/color_hair",
+		"ke2:variants/nephrite/color_outfit",
+		"ke2:variants/nephrite/color_visor"
+	],
+	"textures": [
+		"ke2:variants/nephrite/hair_default",
+		"ke2:variants/nephrite/outfit_default",
+		"ke2:variants/nephrite/skin_default"
+	],
+	"names": [
+	]
+}

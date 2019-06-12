@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:larimar",
+	"colors": [
+		"ke2:variants/watermelon_tourmaline/color_skin",
+		"ke2:variants/watermelon_tourmaline/color_gemstone",
+		"ke2:variants/watermelon_tourmaline/color_hair",
+		"ke2:variants/watermelon_tourmaline/color_outfit",
+		"ke2:variants/watermelon_tourmaline/color_visor"
+	],
+	"textures": [
+		"ke2:variants/watermelon_tourmaline/hair_default",
+		"ke2:variants/watermelon_tourmaline/outfit_default",
+		"ke2:variants/watermelon_tourmaline/skin_default"
+	],
+	"names": [
+	]
+}

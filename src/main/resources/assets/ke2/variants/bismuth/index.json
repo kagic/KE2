@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:bismuth",
+	"colors": [
+		"ke2:variants/bismuth/color_skin",
+		"ke2:variants/bismuth/color_gemstone",
+		"ke2:variants/bismuth/color_hair",
+		"ke2:variants/bismuth/color_outfit",
+		"ke2:variants/bismuth/color_visor"
+	],
+	"textures": [
+		"ke2:variants/bismuth/hair_default",
+		"ke2:variants/bismuth/outfit_default",
+		"ke2:variants/bismuth/skin_default"
+	],
+	"names": [
+	]
+}

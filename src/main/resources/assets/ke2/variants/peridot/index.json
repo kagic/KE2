@@ -1,0 +1,19 @@
+{
+	"applicant": "ke2:peridot",
+	"colors": [
+		"ke2:variants/peridot/color_skin",
+		"ke2:variants/peridot/color_gemstone",
+		"ke2:variants/peridot/color_hair",
+		"ke2:variants/peridot/color_outfit",
+		"ke2:variants/peridot/color_visor"
+	],
+	"textures": [
+		"ke2:variants/peridot/outfit_default",
+		"ke2:variants/peridot/skin_default",
+		"ke2:variants/peridot/hair_square",
+		"ke2:variants/peridot/hair_triangle",
+		"ke2:variants/peridot/outfit_shorts"
+	],
+	"names": [
+	]
+}

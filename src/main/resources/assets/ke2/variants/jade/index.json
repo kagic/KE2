@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:jade",
+	"colors": [
+		"ke2:variants/jade/color_skin",
+		"ke2:variants/jade/color_gemstone",
+		"ke2:variants/jade/color_hair",
+		"ke2:variants/jade/color_outfit",
+		"ke2:variants/jade/color_visor"
+	],
+	"textures": [
+		"ke2:variants/jade/hair_default",
+		"ke2:variants/jade/outfit_default",
+		"ke2:variants/jade/skin_default"
+	],
+	"names": [
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"applicant": "ke2:demantoid",
+	"colors": [
+		"ke2:variants/demantoid/color_skin",
+		"ke2:variants/demantoid/color_gemstone",
+		"ke2:variants/demantoid/color_hair",
+		"ke2:variants/demantoid/color_outfit",
+		"ke2:variants/demantoid/color_visor"
+	],
+	"textures": [
+	],
+	"names": [
+	]
+}

@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:aquamarine",
+	"colors": [
+		"ke2:variants/aquamarine/color_skin",
+		"ke2:variants/aquamarine/color_gemstone",
+		"ke2:variants/aquamarine/color_hair",
+		"ke2:variants/aquamarine/color_outfit",
+		"ke2:variants/aquamarine/color_visor"
+	],
+	"textures": [
+		"ke2:variants/aquamarine/hair_default",
+		"ke2:variants/aquamarine/outfit_default",
+		"ke2:variants/aquamarine/skin_default"
+	],
+	"names": [
+	]
+}

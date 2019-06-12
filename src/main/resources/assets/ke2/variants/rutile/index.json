@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:rutile",
+	"colors": [
+		"ke2:variants/rutile/color_skin",
+		"ke2:variants/rutile/color_gemstone",
+		"ke2:variants/rutile/color_hair",
+		"ke2:variants/rutile/color_outfit",
+		"ke2:variants/rutile/color_visor"
+	],
+	"textures": [
+		"ke2:variants/rutile/hair_default",
+		"ke2:variants/rutile/outfit_default",
+		"ke2:variants/rutile/skin_default"
+	],
+	"names": [
+	]
+}

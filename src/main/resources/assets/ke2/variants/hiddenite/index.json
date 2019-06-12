@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:hiddenite",
+	"colors": [
+		"ke2:variants/hiddenite/color_skin",
+		"ke2:variants/hiddenite/color_gemstone",
+		"ke2:variants/hiddenite/color_hair",
+		"ke2:variants/hiddenite/color_outfit",
+		"ke2:variants/hiddenite/color_visor"
+	],
+	"textures": [
+		"ke2:variants/hiddenite/hair_default",
+		"ke2:variants/hiddenite/outfit_default",
+		"ke2:variants/hiddenite/skin_default"
+	],
+	"names": [
+	]
+}

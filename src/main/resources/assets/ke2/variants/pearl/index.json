@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:pearl",
+	"colors": [
+		"ke2:variants/pearl/color_skin",
+		"ke2:variants/pearl/color_gemstone",
+		"ke2:variants/pearl/color_hair",
+		"ke2:variants/pearl/color_outfit",
+		"ke2:variants/pearl/color_visor"
+	],
+	"textures": [
+		"ke2:variants/pearl/hair_default",
+		"ke2:variants/pearl/outfit_default",
+		"ke2:variants/pearl/skin_default"
+	],
+	"names": [
+	]
+}

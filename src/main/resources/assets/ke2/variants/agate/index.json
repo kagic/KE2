@@ -1,0 +1,15 @@
+{
+	"applicant": "ke2:agate",
+	"colors": [
+		"ke2:variants/agate/color_skin",
+		"ke2:variants/agate/color_gemstone",
+		"ke2:variants/agate/color_hair",
+		"ke2:variants/agate/color_outfit",
+		"ke2:variants/agate/color_visor",
+		"ke2:variants/agate/color_eyes"
+	],
+	"textures": [
+	],
+	"names": [
+	]
+}

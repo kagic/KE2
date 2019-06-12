@@ -1,0 +1,15 @@
+{
+	"applicant": "ke2:rose_quartz",
+	"colors": [
+		"ke2:variants/rose_quartz/color_skin",
+		"ke2:variants/rose_quartz/color_gemstone",
+		"ke2:variants/rose_quartz/color_hair",
+		"ke2:variants/rose_quartz/color_outfit",
+		"ke2:variants/rose_quartz/color_visor",
+		"ke2:variants/rose_quartz/color_eyes"
+	],
+	"textures": [
+	],
+	"names": [
+	]
+}

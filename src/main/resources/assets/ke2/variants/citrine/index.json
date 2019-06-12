@@ -1,0 +1,15 @@
+{
+	"applicant": "ke2:citrine",
+	"colors": [
+		"ke2:variants/citrine/color_skin",
+		"ke2:variants/citrine/color_gemstone",
+		"ke2:variants/citrine/color_hair",
+		"ke2:variants/citrine/color_outfit",
+		"ke2:variants/citrine/color_visor",
+		"ke2:variants/citrine/color_eyes"
+	],
+	"textures": [
+	],
+	"names": [
+	]
+}

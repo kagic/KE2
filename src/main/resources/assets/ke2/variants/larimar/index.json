@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:larimar",
+	"colors": [
+		"ke2:variants/larimar/color_skin",
+		"ke2:variants/larimar/color_gemstone",
+		"ke2:variants/larimar/color_hair",
+		"ke2:variants/larimar/color_outfit",
+		"ke2:variants/larimar/color_visor"
+	],
+	"textures": [
+		"ke2:variants/larimar/hair_default",
+		"ke2:variants/larimar/outfit_default",
+		"ke2:variants/larimar/skin_default"
+	],
+	"names": [
+	]
+}

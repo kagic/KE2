@@ -1,0 +1,20 @@
+{
+	"applicant": "ke2:ruby",
+	"colors": [
+		"ke2:variants/ruby/color_skin",
+		"ke2:variants/ruby/color_gemstone",
+		"ke2:variants/ruby/color_hair",
+		"ke2:variants/ruby/color_outfit",
+		"ke2:variants/ruby/color_visor"
+	],
+	"textures": [
+		"ke2:variants/ruby/hair_default",
+		"ke2:variants/ruby/outfit_default",
+		"ke2:variants/ruby/hair_forehead",
+		"ke2:variants/ruby/outfit_doc",
+		"ke2:variants/ruby/outfit_navy",
+		"ke2:variants/ruby/skin_default"
+	],
+	"names": [
+	]
+}

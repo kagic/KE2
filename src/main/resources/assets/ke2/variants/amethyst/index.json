@@ -1,0 +1,15 @@
+{
+	"applicant": "ke2:amethyst",
+	"colors": [
+		"ke2:variants/amethyst/color_skin",
+		"ke2:variants/amethyst/color_gemstone",
+		"ke2:variants/amethyst/color_hair",
+		"ke2:variants/amethyst/color_outfit",
+		"ke2:variants/amethyst/color_visor",
+		"ke2:variants/amethyst/color_eyes"
+	],
+	"textures": [
+	],
+	"names": [
+	]
+}

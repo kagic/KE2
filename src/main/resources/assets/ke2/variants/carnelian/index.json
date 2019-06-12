@@ -1,0 +1,15 @@
+{
+	"applicant": "ke2:carnelian",
+	"colors": [
+		"ke2:variants/carnelian/color_skin",
+		"ke2:variants/carnelian/color_gemstone",
+		"ke2:variants/carnelian/color_hair",
+		"ke2:variants/carnelian/color_outfit",
+		"ke2:variants/carnelian/color_visor",
+		"ke2:variants/carnelian/color_eyes"
+	],
+	"textures": [
+	],
+	"names": [
+	]
+}

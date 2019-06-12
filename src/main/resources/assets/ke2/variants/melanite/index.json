@@ -1,0 +1,14 @@
+{
+	"applicant": "ke2:melanite",
+	"colors": [
+		"ke2:variants/melanite/color_skin",
+		"ke2:variants/melanite/color_gemstone",
+		"ke2:variants/melanite/color_hair",
+		"ke2:variants/melanite/color_outfit",
+		"ke2:variants/melanite/color_visor"
+	],
+	"textures": [
+	],
+	"names": [
+	]
+}

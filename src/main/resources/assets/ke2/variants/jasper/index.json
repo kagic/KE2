@@ -1,0 +1,15 @@
+{
+	"applicant": "ke2:jasper",
+	"colors": [
+		"ke2:variants/jasper/color_skin",
+		"ke2:variants/jasper/color_gemstone",
+		"ke2:variants/jasper/color_hair",
+		"ke2:variants/jasper/color_outfit",
+		"ke2:variants/jasper/color_visor",
+		"ke2:variants/jasper/color_eyes"
+	],
+	"textures": [
+	],
+	"names": [
+	]
+}

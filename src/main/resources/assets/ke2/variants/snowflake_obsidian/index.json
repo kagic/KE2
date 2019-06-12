@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:snowflake_obsidian",
+	"colors": [
+		"ke2:variants/snowflake_obsidian/color_skin",
+		"ke2:variants/snowflake_obsidian/color_gemstone",
+		"ke2:variants/snowflake_obsidian/color_hair",
+		"ke2:variants/snowflake_obsidian/color_outfit",
+		"ke2:variants/snowflake_obsidian/color_visor"
+	],
+	"textures": [
+		"ke2:variants/snowflake_obsidian/hair_default",
+		"ke2:variants/snowflake_obsidian/outfit_default",
+		"ke2:variants/snowflake_obsidian/skin_default"
+	],
+	"names": [
+	]
+}

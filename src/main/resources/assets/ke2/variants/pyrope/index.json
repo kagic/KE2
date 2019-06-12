@@ -1,0 +1,14 @@
+{
+	"applicant": "ke2:pyrope",
+	"colors": [
+		"ke2:variants/pyrope/color_skin",
+		"ke2:variants/pyrope/color_gemstone",
+		"ke2:variants/pyrope/color_hair",
+		"ke2:variants/pyrope/color_outfit",
+		"ke2:variants/pyrope/color_visor"
+	],
+	"textures": [
+	],
+	"names": [
+	]
+}

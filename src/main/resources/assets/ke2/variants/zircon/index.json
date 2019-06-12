@@ -1,0 +1,17 @@
+{
+	"applicant": "ke2:zircon",
+	"colors": [
+		"ke2:variants/zircon/color_skin",
+		"ke2:variants/zircon/color_gemstone",
+		"ke2:variants/zircon/color_hair",
+		"ke2:variants/zircon/color_outfit",
+		"ke2:variants/zircon/color_visor"
+	],
+	"textures": [
+		"ke2:variants/zircon/hair_default",
+		"ke2:variants/zircon/outfit_default",
+		"ke2:variants/zircon/skin_default"
+	],
+	"names": [
+	]
+}
