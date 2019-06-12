@@ -16,9 +16,9 @@ public class BlockMossRose extends BlockBush {
 	protected static final AxisAlignedBB MOSS_ROSE_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, -0.125D, 1.0D);
 	public BlockMossRose() {
 		super(Material.PLANTS, MapColor.PINK);
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 		this.setUnlocalizedName("moss_rose");
 		this.setLightLevel(4.0F);
-    	this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 	}
 	@Override
 	protected boolean canSustainBush(IBlockState state) {

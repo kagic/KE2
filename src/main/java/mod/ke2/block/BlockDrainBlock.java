@@ -30,6 +30,7 @@ public class BlockDrainBlock extends Block {
 	private final String color;
 	public BlockDrainBlock(boolean canBeEnriched, String color, int level) {
 		super(BlockDrainBlock.DRAINED);
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 		switch (level) {
 		case 0:
 			this.setUnlocalizedName("light_" + color + "_drain_block");
@@ -50,7 +51,6 @@ public class BlockDrainBlock extends Block {
 		this.setHardness(3);
 		this.setTickRandomly(true);
 		this.setHarvestLevel("pickaxe", 0);
-    	this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 	}
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {

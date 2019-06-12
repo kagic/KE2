@@ -19,11 +19,11 @@ public class BlockDrainLily extends BlockBush {
 	private final String prefix;
 	public BlockDrainLily(String prefix) {
 		super(Material.PLANTS);
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 		this.setUnlocalizedName(prefix + "_drain_lily");
 		this.setLightLevel(4.0F);
 		this.setTickRandomly(true);
 		this.prefix = prefix;
-    	this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 	}
 	@Override
 	protected boolean canSustainBush(IBlockState state) {

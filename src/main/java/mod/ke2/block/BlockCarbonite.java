@@ -114,6 +114,7 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
 	private int color;
 	public BlockCarbonite(Variety variety, int color, boolean powered) {
 		super(Material.ROCK);
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_BLOCKS);
 		String name = EnumDyeColor.byMetadata(color).toString().toLowerCase();
 		this.canBePowered = variety.canBePowered(); this.variety = variety;
         this.powered = powered; this.color = color;
@@ -132,7 +133,6 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
         	this.setResistance(30);
         	this.setHardness(2);
     	}
-    	this.setCreativeTab(Ke2CreativeTabs.GEM_BLOCKS);
 	}
 	public BlockCarbonite(Variety variety, int color) {
 		this(variety, color, false);

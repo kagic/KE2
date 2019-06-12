@@ -22,11 +22,11 @@ public class BlockWarpPadCore extends Block implements ITileEntityProvider {
 	private final int color;
 	public BlockWarpPadCore(int color) {
 		super(Material.ROCK);
+        this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
         this.color = color;
 		this.setUnlocalizedName(EnumDyeColor.byMetadata(color).toString().toLowerCase() + "_warp_pad_core");
     	this.setResistance(30);
     	this.setHardness(2);
-        this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	public int getColor() {
 		return this.color;

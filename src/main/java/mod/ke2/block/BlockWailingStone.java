@@ -38,12 +38,12 @@ public class BlockWailingStone extends BlockFalling implements ITileEntityProvid
 	public static final PropertyDirection FACING = BlockHorizontal.FACING;
 	public BlockWailingStone() {
 		super(Material.ROCK);
+    	this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 		this.setUnlocalizedName("wailing_stone");
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 		this.setResistance(30);
 		this.setHardness(2);
 		this.setHarvestLevel("pickaxe", 0);
-    	this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 	}
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
