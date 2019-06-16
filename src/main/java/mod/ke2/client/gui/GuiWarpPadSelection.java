@@ -9,7 +9,7 @@ import org.lwjgl.input.Keyboard;
 
 import mod.ke2.api.warping.WarpPadDataEntry;
 import mod.ke2.api.warping.WarpPadPos;
-import mod.ke2.world.data.WorldDataWarpPads;
+import mod.ke2.world.data.WorldDataWarps;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
@@ -24,7 +24,7 @@ public class GuiWarpPadSelection extends GuiScreen {
 	protected GuiWarpPadList list;
 	
 	public GuiWarpPadSelection(HashMap<WarpPadPos, WarpPadDataEntry> data, WarpPadDataEntry pad) {
-		this.positions = WorldDataWarpPads.getSortedPositions(data, pad.getPos());
+		this.positions = WorldDataWarps.getSortedPositions(data, pad.getPos());
 		this.data = data;
 		this.pad = pad;
 	}

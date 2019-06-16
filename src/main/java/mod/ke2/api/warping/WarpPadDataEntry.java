@@ -7,7 +7,6 @@ public class WarpPadDataEntry {
 	protected String name = "";
 	protected boolean valid = false;
 	protected boolean clear = false;
-	
 	public WarpPadDataEntry(String name, boolean valid, boolean clear, WarpPadPos pos) {
 		this.name = name;
 		this.valid = valid;

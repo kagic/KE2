@@ -11,7 +11,7 @@ import mod.ke2.api.variants.VariantHelper;
 import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Gems;
 import mod.ke2.init.Ke2Items;
-import mod.ke2.world.data.WorldDataAuthorities;
+import mod.ke2.world.data.WorldDataFactions;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -52,7 +52,6 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 
 public abstract class EntityGem extends EntityMob implements IGem, IInventoryChangedListener, IRangedAttackMob, IEntityAdditionalSpawnData {
 	public static final String[] BLACKLISTED_NBT_TAGS = new String[] { "Pos", "Motion", "Rotation", "FallDistance", "Fire", "Air", "OnGround", "Dimension", "Invulnerable", "PortalCooldown", "UUID", "NoGravity", "Glowing", "Passengers", "NoAI", "Health", "HurtTime", "HurtByTimestamp", "DeathTime", "AbsorptionAmount", "ActiveEffects", "GemstoneItem" };
-	
 	public enum Pose {
 		DEFAULT,
 		NOCKING_BOW,
@@ -65,8 +64,8 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		YELLING,
 		HEAD_BANGING
 	}
-	protected static final DataParameter<Optional<UUID>> GEM_GLOBAL_ID 		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
-	protected static final DataParameter<Optional<UUID>> GEM_OWNER_ID 		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
+	protected static final DataParameter<Optional<UUID>> GEM_UNIQUE_ID 		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
+	protected static final DataParameter<Optional<UUID>> GEM_FACTION_ID 		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
 	protected static final DataParameter<Optional<UUID>> GEM_LEADER_ID		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
 	protected static final DataParameter<Integer>		 GEM_ALIGNMENT 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
 	protected static final DataParameter<Float>			 GEM_EMOTION 		= EntityDataManager.<Float>createKey(EntityGem.class, DataSerializers.FLOAT);
@@ -114,8 +113,8 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		super(world);
 		this.tasks.addTask(7, new EntityAIWatchClosest(this, Entity.class, 8.0F));
 		this.tasks.addTask(7, new EntityAIWander(this, 0.3D));
-		this.dataManager.register(GEM_GLOBAL_ID, Optional.absent());
-		this.dataManager.register(GEM_OWNER_ID, Optional.absent());
+		this.dataManager.register(GEM_UNIQUE_ID, Optional.absent());
+		this.dataManager.register(GEM_FACTION_ID, Optional.absent());
 		this.dataManager.register(GEM_LEADER_ID, Optional.absent());
 		this.dataManager.register(GEM_ALIGNMENT, 0);
 		this.dataManager.register(GEM_EMOTION, Ke2Gems.EMOTION_HAPPY);
@@ -143,10 +142,10 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	}
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
-		this.setGemGlobalID(UUID.randomUUID());
+		this.setGemUniqueID(UUID.randomUUID());
 		if (data instanceof GemSpawnData) {
 			GemSpawnData gemSpawnData = (GemSpawnData)(data);
-			this.setGemOwnerID(gemSpawnData.getOwner());
+			this.setFactionID(gemSpawnData.getOwner());
 			this.setGemAlignment(Ke2Gems.ALIGNED_WITH_PLAYERS);
 			this.setInsigniaColor(gemSpawnData.getColor());
 			this.setDefective(gemSpawnData.isDefective());
@@ -174,11 +173,11 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
-		if (compound.hasKey("GemGlobalID")) {
-			this.setGemGlobalID(UUID.fromString(compound.getString("GemGlobalID")));
+		if (compound.hasKey("GemUniqueID")) {
+			this.setGemUniqueID(UUID.fromString(compound.getString("GemUniqueID")));
 		}
-		if (compound.hasKey("GemOwnerID")) {
-			this.setGemOwnerID(UUID.fromString(compound.getString("GemOwnerID")));
+		if (compound.hasKey("FactionID")) {
+			this.setFactionID(UUID.fromString(compound.getString("FactionID")));
 		}
 		if (compound.hasKey("GemLeaderID")) {
 			this.setGemLeaderID(UUID.fromString(compound.getString("GemLeaderID")));
@@ -219,11 +218,11 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
 		compound.setString("Species", Ke2Gems.REGISTRY_REVERSE.get(this.getClass()).toString());
-		if (this.getGemGlobalID() != null) {
-			compound.setString("GemGlobalID", this.getGemGlobalID().toString());
+		if (this.getGemUniqueID() != null) {
+			compound.setString("GemUniqueID", this.getGemUniqueID().toString());
 		}
-		if (this.getGemOwnerID() != null) {
-			compound.setString("GemOwner", this.getGemOwnerID().toString());
+		if (this.getFactionID() != null) {
+			compound.setString("Faction", this.getFactionID().toString());
 		}
 		if (this.getGemLeaderID() != null) {
 			compound.setString("GemLeaderID", this.getGemLeaderID().toString());
@@ -296,8 +295,28 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	@Override
 	protected boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote) {
-			if (hand == EnumHand.MAIN_HAND) {
-				// TODO: weapon and gem staff code
+			ItemStack stack = player.getHeldItem(hand);
+			Item item = stack.getItem();
+			if (this.isOwnedBy(player)) {
+				if (item == Ke2Items.GEM_STAFF) {
+					if (this.isLeader(player)) {
+						this.tell(player, "I'll stop following you now.");
+						this.setLeader(this);
+					}
+					else {
+						this.tell(player, "I'll follow you now.");
+						this.setLeader(player);
+					}
+				}
+			}
+			else if (this.hasFaction()) {
+				this.tell(player, "YOU DON'T KNOW ME!");
+			}
+			else {
+				if (item == Ke2Items.GEM_STAFF) {
+					this.tell(player, "I'm forever at your service!");
+					this.setFactionID(player.getUniqueID());
+				}
 			}
 		}
 		return super.processInteract(player, hand);
@@ -305,6 +324,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	@Override
 	public void onDeath(DamageSource cause) {
 		if (!this.world.isRemote) {
+			boolean reverse = false;
 			if (this instanceof EntityGemFusion) {
 				EntityGemFusion fusion = (EntityGemFusion)(this);
 				fusion.unfuse();
@@ -315,11 +335,13 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 				if (this.world.getGameRules().getBoolean("showDeathMessages")) {
 					if (!this.hasCustomName()) {
 						this.setCustomNameTag(String.format("%s-%s", this.getName(), this.getDescriptor(3)));
-						this.sendMessage(cause.getDeathMessage(this).getUnformattedText());
-						this.setCustomNameTag("");
+						reverse = true;
 					}
-					else {
-						this.sendMessage(cause.getDeathMessage(this).getUnformattedText());
+					for (EntityPlayer player : this.world.playerEntities) {
+						player.sendMessage(cause.getDeathMessage(this));
+					}
+					if (reverse) {
+						this.setCustomNameTag("");
 					}
 				}
 				this.entityDropItem(this.getGemstoneItem(), 0.0F);
@@ -376,7 +398,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		if (stack.getItem() == Items.TIPPED_ARROW) {
 			arrow.setPotionEffect(stack);
 		}
-		this.playSound(SoundEvents.ENTITY_ARROW_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+		this.playSound(SoundEvents.ENTITY_ARROW_SHOOT, 1.0F, 1.0F / (this.rand.nextFloat() * 0.4F + 0.8F));
 		this.world.spawnEntity(arrow);
 	}
 	public boolean isHoldingRangedWeapon() {
@@ -391,43 +413,71 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 	public double getFallSpeed() {
 		return 1.0D;
 	}
-	public void sendMessageTo(EntityPlayer player, String line, Object... formatting) {
+	public void tell(EntityPlayer player, String line, Object... formatting) {
 		player.sendMessage(new TextComponentString("<" + this.getName() + "> " + String.format(line, formatting)));
 	}
-	public void sendMessage(String line, Object... formatting) {
+	public void say(String line, Object... formatting) {
 		List<EntityPlayer> list = this.world.playerEntities;
 		for (EntityPlayer player : list) {
-			if (this.isOwnedBy(player)) {
-				this.sendMessageTo(player, line, formatting);
+			if (this.isOwnedBy(player) || player.getDistance(this) < 16.0F) {
+				this.tell(player, line, formatting);
 			}
 		}
+	}
+	public boolean isLeader(EntityPlayer player) {
+		return this.isLeader(player.getUniqueID());
+	}
+	public boolean isLeader(EntityGem gem) {
+		return this.isLeader(gem.getGemUniqueID());
+	}
+	public boolean isLeader(UUID id) {
+		return this.getGemLeaderID().equals(id);
+	}
+	public EntityLivingBase getLeader() {
+		EntityPlayer player = this.world.getPlayerEntityByUUID(this.getGemLeaderID());
+		if (player == null) {
+			List<EntityGem> gems = this.world.getEntitiesWithinAABB(EntityGem.class, this.getEntityBoundingBox().grow(8.0D, 4.0D, 8.0D));
+			for (EntityGem gem : gems) {
+				if (gem.getGemUniqueID().equals(this.getGemLeaderID())) {
+					return gem;
+				}
+			}
+		}
+		return player;
+	}
+	public void setLeader(EntityPlayer player) {
+		this.setGemLeaderID(player.getUniqueID());
+	}
+	public void setLeader(EntityGem gem) {
+		this.setGemLeaderID(gem.getGemUniqueID());
 	}
 	public boolean isOwnedBy(EntityPlayer player) {
 		return this.isOwnedBy(player.getUniqueID());
 	}
 	public boolean isOwnedBy(EntityGem gem) {
-		return this.isOwnedBy(gem.getGemGlobalID());
+		return this.isOwnedBy(gem.getGemUniqueID());
 	}
 	public boolean isOwnedBy(UUID id) {
-		/*
-		WorldDataAuthorities auth = WorldDataAuthorities.get(this.world);
-		if (auth.isAuthorized(id, this.getGemOwnerID()) || this.getGemLeaderID() == id) {
+		WorldDataFactions faction = WorldDataFactions.get(this.world);
+		if (faction.isAuthorized(id, this.getFactionID())) {
 			return true;
 		}
-		*/
 		return false;
 	}
-	public void setGemGlobalID(UUID id) {
-		this.dataManager.set(GEM_GLOBAL_ID, Optional.<UUID>fromNullable(id));
+	public boolean hasFaction() {
+		return this.getFactionID() != null;
 	}
-	public UUID getGemGlobalID() {
-		return this.dataManager.get(GEM_GLOBAL_ID).orNull();
+	public void setFactionID(UUID id) {
+		this.dataManager.set(GEM_FACTION_ID, Optional.<UUID>fromNullable(id));
 	}
-	public void setGemOwnerID(UUID id) {
-		this.dataManager.set(GEM_OWNER_ID, Optional.<UUID>fromNullable(id));
+	public UUID getFactionID() {
+		return this.dataManager.get(GEM_FACTION_ID).orNull();
 	}
-	public UUID getGemOwnerID() {
-		return this.dataManager.get(GEM_OWNER_ID).orNull();
+	public void setGemUniqueID(UUID id) {
+		this.dataManager.set(GEM_UNIQUE_ID, Optional.<UUID>fromNullable(id));
+	}
+	public UUID getGemUniqueID() {
+		return this.dataManager.get(GEM_UNIQUE_ID).orNull();
 	}
 	public void setGemLeaderID(UUID id) {
 		this.dataManager.set(GEM_LEADER_ID, Optional.<UUID>fromNullable(id));

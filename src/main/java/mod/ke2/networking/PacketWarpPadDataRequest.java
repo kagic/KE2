@@ -2,7 +2,7 @@ package mod.ke2.networking;
 
 import io.netty.buffer.ByteBuf;
 import mod.ke2.init.Ke2Messages;
-import mod.ke2.world.data.WorldDataWarpPads;
+import mod.ke2.world.data.WorldDataWarps;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -52,7 +52,7 @@ public class PacketWarpPadDataRequest implements IMessage {
 		private void handle(PacketWarpPadDataRequest message, MessageContext context) {
 			EntityPlayerMP player = context.getServerHandler().player;
 			World world = player.getEntityWorld();
-			WorldDataWarpPads data = WorldDataWarpPads.get(world);
+			WorldDataWarps data = WorldDataWarps.get(world);
 			Ke2Messages.INSTANCE.sendTo(new PacketWarpPadData(
 				data.writeToNBT(new NBTTagCompound())),
 			context.getServerHandler().player);

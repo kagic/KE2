@@ -86,9 +86,9 @@ public abstract class EntityGemFusion extends EntityGem {
 	public boolean fuse(EntityGem gem) {
 		NBTTagCompound compound = new NBTTagCompound();
 		gem.writeEntityToNBT(compound);
-		this.getFusionComponents().setTag(gem.getGemGlobalID().toString(), compound);
+		this.getFusionComponents().setTag(gem.getFactionID().toString(), compound);
 		this.setGemAlignment(gem.getGemAlignment());
-		this.setGemOwnerID(gem.getGemOwnerID());
+		this.setFactionID(gem.getFactionID());
 		this.setGemLeaderID(gem.getGemLeaderID());
 		if (this.getFusionGemCount() > 0) {
 			this.setLocationAndAngles((this.posX + gem.posX) / 2, (this.posY + gem.posY) / 2, (this.posZ + gem.posZ) / 2, (this.rotationYaw + gem.rotationYaw) / 2, (this.rotationPitch + gem.rotationPitch) / 2);
