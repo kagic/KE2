@@ -777,6 +777,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		super.setSize(width, height);
 		this.eyeHeight = eyeHeight;
 	}
+	@Override
 	public float getEyeHeight() {
 		return this.eyeHeight;
 	}

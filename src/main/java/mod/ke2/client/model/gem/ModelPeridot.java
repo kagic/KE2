@@ -4,7 +4,6 @@ import mod.ke2.client.model.ModelGem;
 import mod.ke2.entity.gem.EntityPeridot;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

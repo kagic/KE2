@@ -3,7 +3,6 @@ package mod.ke2.init;
 import mod.ke2.enchant.EnchantBubble;
 import mod.ke2.enchant.EnchantShard;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
 
 public class Ke2Enchants {

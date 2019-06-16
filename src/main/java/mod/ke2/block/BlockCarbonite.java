@@ -3,7 +3,6 @@ package mod.ke2.block;
 import java.util.HashMap;
 import java.util.Random;
 
-import mod.ke2.KAGIC;
 import mod.ke2.init.Ke2Blocks;
 import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.tileentity.TileEntityCarbonite;

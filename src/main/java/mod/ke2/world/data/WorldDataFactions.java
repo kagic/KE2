@@ -2,7 +2,6 @@ package mod.ke2.world.data;
 
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map.Entry;
 import java.util.UUID;
 
 import net.minecraft.nbt.NBTTagCompound;

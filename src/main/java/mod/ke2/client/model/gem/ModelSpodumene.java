@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import mod.ke2.client.model.ModelGem;
 import mod.ke2.init.Ke2Gems;
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
@@ -33,7 +34,7 @@ public class ModelSpodumene extends ModelGem {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.bipedHeadwear.render(scale);
 		GlStateManager.enableBlend();
-        ModelCoral.copyModelAngles(this.bipedHead, this.bipedHeadwear);
+        ModelBase.copyModelAngles(this.bipedHead, this.bipedHeadwear);
         GlStateManager.blendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         GlStateManager.color(1.0F, 1.0F, 1.0F, 0.25F);
 		this.bipedHead.render(scale);

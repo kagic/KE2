@@ -1,6 +1,5 @@
 package mod.ke2.init;
 
-import mod.ke2.KAGIC;
 import mod.ke2.item.ItemEssence;
 import mod.ke2.item.ItemGemDestabilizer;
 import mod.ke2.item.ItemGemDust;
