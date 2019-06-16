@@ -18,8 +18,11 @@ public class WorldDataFactions extends WorldSavedData {
 			WorldDataFactions instance = (WorldDataFactions)(storage.getOrLoadData(WorldDataFactions.class, WorldDataFactions.NAMESPACE));
 			if (instance == null) {
 				storage.setData(WorldDataFactions.NAMESPACE, new WorldDataFactions());
+				return WorldDataFactions.get(world);
 			}
-			return instance;
+			else {
+				return instance;
+			}
 		}
 		return null;
 	}
