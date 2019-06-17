@@ -1,9 +1,7 @@
 package mod.ke2.proxy;
 
-import mod.ke2.KAGIC;
 import mod.ke2.block.BlockCarbonite;
 import mod.ke2.client.gui.GuiWarpPad;
-import mod.ke2.command.CommandReportBug;
 import mod.ke2.init.Ke2Colors;
 import mod.ke2.tileentity.TileEntityWarpPadCore;
 import net.minecraft.client.Minecraft;
@@ -13,8 +11,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.client.ClientCommandHandler;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -22,11 +18,10 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ClientProxy implements CommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent e) {
-		ClientRegistry.registerKeyBinding(KAGIC.KEY_BUG_REPORT);
+		
 	}
 	@Override
 	public void init(FMLInitializationEvent e) {
-		ClientCommandHandler.instance.registerCommand(new CommandReportBug());
 		Ke2Colors.register();
 	}
 	@Override

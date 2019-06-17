@@ -66,8 +66,7 @@ public class KAGIC {
     public static final String MCVERSION = "1.12.2";
 	public static final String MODID = "ke2";
 
-	public static final KeyBinding KEY_BUG_REPORT = new KeyBinding("key.bug.report", Keyboard.KEY_GRAVE, "key.ke2.category");
-	public static final String EYEBALL_ENDPOINT = "https://akriv.us/report";
+	public static final String EYEBALL_ENDPOINT = "http://0.0.0.0:7324/report";
 	
 	public static final Logger LOGGER = LogManager.getLogger(KAGIC.MODID);
 	public static final Gson JSON = new Gson();
@@ -91,7 +90,15 @@ public class KAGIC {
 	    				try {
 	    					String crashReport = new String(Files.readAllBytes(Paths.get("./" + crash)), StandardCharsets.UTF_8);
 	    					if (crashReport.contains("at mod.ke2")) {
-	    						KAGIC.submitReport("Minecraft automatically", "a " + sides[i] + "-side crash occurred involving KAGIC.", crash, "logs/latest.log");
+	    						try {
+	    							CloseableHttpClient client = HttpClients.createDefault();
+	    						    HttpPost post = new HttpPost(KAGIC.EYEBALL_ENDPOINT + "?name=" + URLEncoder.encode(Minecraft.getMinecraft().getSession().getUsername(), "UTF-8") + "&token=" + URLEncoder.encode(Minecraft.getMinecraft().getSession().getToken(), "UTF-8") + "&version=" + KAGIC.VERSION);
+	    						    post.setEntity(new FileEntity(new File(crash), ContentType.TEXT_PLAIN));
+	    						    client.execute(post);
+	    						    client.close();
+	    				    	} catch (Exception e) {
+	    				    		return;
+	    						}
 	    						return;
 	    					}
 	    				} catch (Exception e) {
@@ -127,32 +134,6 @@ public class KAGIC {
     public static boolean isServer() {
     	return proxy.isServer();
     }
-    public static String submitReport(String name, String description, String... files) {
-    	try {
-	    	FileOutputStream f = new FileOutputStream("./report.zip"); ZipOutputStream zip = new ZipOutputStream(f);
-			for (int i = 0; i < files.length; ++i) {
-				zip.putNextEntry(new ZipEntry(files[i]));
-				FileInputStream input = new FileInputStream("./" + files[i]);
-	            byte[] buffer = new byte[1024]; int offset;
-	            while ((offset = input.read(buffer)) > 0) {
-	                zip.write(buffer, 0, offset);
-	            }
-	            zip.closeEntry();
-	            input.close();
-			}
-	        zip.close();
-	        f.close();
-			CloseableHttpClient client = HttpClients.createDefault();
-		    HttpPost post = new HttpPost(KAGIC.EYEBALL_ENDPOINT + "?name=" + URLEncoder.encode(name, "UTF-8") + "&desc=" + URLEncoder.encode(description, "UTF-8"));
-		    post.setEntity(new FileEntity(new File("./report.zip"), ContentType.DEFAULT_BINARY));
-		    CloseableHttpResponse response = client.execute(post);
-		    String body = EntityUtils.toString(response.getEntity(), "UTF-8");
-		    client.close();
-		    return body;
-    	} catch (Exception e) {
-    		return e.getMessage();
-		}
-    }
     @Mod.EventBusSubscriber(modid = KAGIC.MODID)
 	public static class RegistrationHandler {
     	@SubscribeEvent
@@ -174,18 +155,6 @@ public class KAGIC {
 		@SubscribeEvent
 		public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
 			Ke2Recipes.register(event);
-		}
-		@SubscribeEvent
-		public static void useKeyBindings(KeyInputEvent event) {
-			if (KAGIC.isClient() && KAGIC.KEY_BUG_REPORT.isPressed()) {
-				EntityPlayerSP sender = Minecraft.getMinecraft().player;
-				try {
-					ScreenShotHelper.saveScreenshot(Minecraft.getMinecraft().mcDataDir, "latest.png", Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().getFramebuffer());
-					sender.sendMessage(new TextComponentString(KAGIC.submitReport(sender.getName() + " automatically", "pressed bug report button.", "screenshots/latest.png", "logs/latest.log")));
-				} catch (Exception e) {
-					sender.sendMessage(new TextComponentString("Command failed; " + e.getMessage()));
-				}
-			}
 		}
 	}
 }
