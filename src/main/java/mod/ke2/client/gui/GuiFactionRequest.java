@@ -2,18 +2,24 @@ package mod.ke2.client.gui;
 
 import java.io.IOException;
 
+import mod.ke2.init.Ke2Messages;
+import mod.ke2.networking.MessageFactionResponse;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GuiFactionRequest extends GuiScreen {
-	private final EntityPlayer player;
+	private final EntityPlayer requester;
+	private final EntityPlayer responder;
 	protected GuiButton buttonYes;
 	protected GuiButton buttonNo;
-	public GuiFactionRequest(EntityPlayer player) {
-		this.player = player;
-		this.buttonYes = new GuiButton(2, 6, 7, 40, 20, "Yes");
-		this.buttonNo = new GuiButton(2, 6, 7, 40, 20, "No");
+	public GuiFactionRequest(EntityPlayer requester, EntityPlayer responder) {
+		this.requester = requester;
+		this.responder = responder;
+		this.addButton(this.buttonYes = new GuiButton(0, 0, 0, 40, 20, "Yes"));
+		this.addButton(this.buttonNo = new GuiButton(1, 0, 0, 40, 20, "No"));
 	}
 	@Override
 	public boolean doesGuiPauseGame() {
@@ -21,25 +27,27 @@ public class GuiFactionRequest extends GuiScreen {
 	}
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		drawDefaultBackground();
-        this.drawCenteredString(this.fontRenderer, player.getName() + " would like you to join their faction.", this.width / 2, this.height / 2 - 30, 0xFFFFF);
-        this.drawCenteredString(this.fontRenderer, "Do you accept?", this.width / 2, this.height / 2 - 30, 0xFFFFF);
+		this.drawDefaultBackground();
+        this.drawCenteredString(this.fontRenderer, requester.getName() + " would like you to join their faction.", this.width / 2, this.height / 2 - 60, 0xFFFFFF);
+        this.drawCenteredString(this.fontRenderer, "Do you accept?", this.width / 2, this.height / 2 - 30, 0xFFFFFF);
+        this.buttonYes.x = this.width / 2 + 5; this.buttonYes.y = this.height / 2;
         this.buttonYes.drawButton(this.mc, mouseX, mouseY, partialTicks);
+        this.buttonNo.x = this.width / 2 - 45; this.buttonNo.y = this.height / 2;
         this.buttonNo.drawButton(this.mc, mouseX, mouseY, partialTicks);
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
 	@Override
-	public void initGui() {
-		super.initGui();
-	}
-	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
-		super.actionPerformed(button);
+		if (button.enabled) {
+			switch (button.id) {
+			case 1:
+				Ke2Messages.INSTANCE.sendTo(new MessageFactionResponse(this.requester.getUniqueID(), this.responder.getUniqueID(), false), (EntityPlayerMP)(this.requester));
+				break;
+			case 0:
+				Ke2Messages.INSTANCE.sendTo(new MessageFactionResponse(this.requester.getUniqueID(), this.responder.getUniqueID(), true), (EntityPlayerMP)(this.requester));
+				break;
+			}
+			Minecraft.getMinecraft().player.closeScreen();
+		}
 	}
-	@Override
-	public void onGuiClosed() {
-		super.onGuiClosed();
-	}
-	
-	
 }

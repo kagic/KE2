@@ -35,18 +35,18 @@ public class BlockWarpPadCore extends Block implements ITileEntityProvider {
 		return (TileEntityWarpPadCore) world.getTileEntity(pos);
 	}
 	@Override
-	public TileEntity createNewTileEntity(World worldIn, int meta) {
+	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityWarpPadCore();
 	}
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
-		if (worldIn.isRemote) {
-			ItemStack heldItem = playerIn.getHeldItem(hand);
+	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
+		if (world.isRemote) {
+			ItemStack heldItem = player.getHeldItem(hand);
 			if (heldItem.getItem() == Ke2Items.GEM_STAFF) {
-				TileEntityWarpPadCore entityPad = this.getWarpPad(worldIn, pos);
+				TileEntityWarpPadCore entityPad = this.getWarpPad(world, pos);
 				entityPad.validateWarpPad();
 				if (entityPad.isValidPad()) {
-					playerIn.openGui(KAGIC.instance, CommonProxy.GUI_WARP_PAD, worldIn, pos.getX(), pos.getY(), pos.getZ());
+					player.openGui(KAGIC.instance, CommonProxy.GUI_WARP_PAD, world, pos.getX(), pos.getY(), pos.getZ());
 					return true;
 				}
 			}

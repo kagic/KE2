@@ -1,5 +1,8 @@
 package mod.ke2.init;
 
+import mod.ke2.KAGIC;
+import mod.ke2.networking.MessageFactionRequest;
+import mod.ke2.networking.MessageFactionResponse;
 import mod.ke2.networking.PacketEntityTeleport;
 import mod.ke2.networking.PacketWarpPadData;
 import mod.ke2.networking.PacketWarpPadDataRequest;
@@ -12,13 +15,16 @@ import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class Ke2Messages {
-	public static SimpleNetworkWrapper INSTANCE = null;
+	public static SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(KAGIC.MODID);
 	private static int ID = 0;
 	public static void register(String channel) {
 		Ke2Messages.INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(channel);
 		register();
 	}
 	public static void register() {
+		registerMessage(MessageFactionRequest.Handler.class, MessageFactionRequest.class, Side.CLIENT);
+		registerMessage(MessageFactionResponse.Handler.class, MessageFactionResponse.class, Side.SERVER);
+		
 		registerMessage(PacketWarpPadName.Handler.class, PacketWarpPadName.class, Side.SERVER);
 		registerMessage(PacketWarpPadDataRequest.Handler.class, PacketWarpPadDataRequest.class, Side.SERVER);
 		registerMessage(PacketWarpPadData.Handler.class, PacketWarpPadData.class, Side.CLIENT);
