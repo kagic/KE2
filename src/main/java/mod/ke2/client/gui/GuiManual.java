@@ -8,7 +8,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
 
-public class GuiManual extends GuiScreen{
+public class GuiManual extends GuiScreen {
 	
 	final ResourceLocation texture = new ResourceLocation(KAGIC.MODID, "textures/gui/dictionary.png");
 	int guiWidth = 146;

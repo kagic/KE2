@@ -4,8 +4,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import mod.ke2.KAGIC;
+import mod.ke2.api.warping.WarpPadPos;
 import mod.ke2.init.Ke2Messages;
 import mod.ke2.networking.PacketEntityTeleport;
+import mod.ke2.world.data.WorldDataWarps;
 import net.minecraft.block.BlockQuartz;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.BlockStairs.EnumHalf;
@@ -234,7 +236,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 			if (this.remainingActionTicks > 0) {
 				--this.remainingActionTicks;
 				if (this.remainingActionTicks <= 0) {
-					this.WARP();
+					this.warp();
 				}
 			} 
 			
@@ -308,53 +310,42 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 			System.out.println("ERROR: setName called on client");
 		}
 	}
-	
 	public boolean canInteractWith(EntityPlayer player) {
 		return !this.isInvalid() && player.getDistanceSq(this.pos.add(0.5D, 0.5D, 0.5D)) <= 3.0D;
 	}
-	
 	public void destroy() {
-		//WorldDataWarpPads.get(this.world).removeWarpPadEntry(this.pos);
+		//WorldDataWarps.get(this.world).removeWarpPadEntry(new WarpPadPos(this.pos, ));
 	}
-	
 	public void loadPadChunks(TileEntityWarpPadCore pad, Ticket ticket) {
 		if (ticket == null) {
 			System.out.println("WARNING: warp pad could not load pad chunks. Strange glitches may occur!");
 			return;
 		}
-		
         int xStart = (pad.getPos().getX() - 2) >> 4;
         int zStart = (pad.getPos().getZ() - 2) >> 4;
         int xEnd = (pad.getPos().getX() + 2) >> 4;
         int zEnd = (pad.getPos().getZ() + 2) >> 4;
-
-        for (int i = xStart; i <= xEnd; ++i)
-        {
-            for (int j = zStart; j <= zEnd; ++j)
-            {
+        for (int i = xStart; i <= xEnd; ++i) {
+            for (int j = zStart; j <= zEnd; ++j) {
             	//KAGIC.instance.chatInfoMessage("Loading chunk " + i + ", " + j);
         		ForgeChunkManager.forceChunk(ticket, new ChunkPos(i, j));
             }
         }
-        
         this.ticket = ticket;
         this.remainingLoadingChunkTicks = TileEntityWarpPadCore.TICKS_FOR_LOADING_CHUNKS;
 	}
-	
 	public void beginWarp(BlockPos destination) {
 		Ticket ticket = ForgeChunkManager.requestTicket(KAGIC.instance, this.world, Type.NORMAL);
 		TileEntityWarpPadCore destPad = (TileEntityWarpPadCore) this.world.getTileEntity(destination);
 		this.loadPadChunks(this, ticket);
 		this.loadPadChunks(destPad, ticket);
-		
 		this.remainingActionTicks = TileEntityWarpPadCore.TICKS_FOR_ACTION;
 		this.destination = destination;
 		this.warping = true;
 		this.setDirty();
 		//this.world.playSound(null, this.pos, Ke2Sounds.WARP_PAD, SoundCategory.BLOCKS, 20.0f, 1.0f);
 	}
-	
-	public void WARP() {
+	public void warp() {
 		BlockPos minorCorner = new BlockPos(this.pos.getX() - 1, this.pos.getY() + 1, this.pos.getZ() - 1);
 		BlockPos majorCorner = new BlockPos(this.pos.getX() + 2, this.pos.getY() + 5, this.pos.getZ() + 2);
 		AxisAlignedBB warpArea = new AxisAlignedBB(minorCorner, majorCorner);
@@ -368,34 +359,30 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 			return;
 		}
 		ChunkPos cPos = destPad.world.getChunkFromBlockCoords(destPad.pos).getPos();
-		
 		while (it.hasNext()) {
 			Entity entity = it.next();
 			double posX = this.destination.getX() + entity.posX - this.pos.getX();
 			double posY = this.destination.getY() + entity.posY - this.pos.getY();
 			double posZ = this.destination.getZ() + entity.posZ - this.pos.getZ();
-
 			if (entity instanceof EntityPlayerMP) {
 				entity.setPositionAndUpdate(posX, posY, posZ);
-			} else if (entity instanceof EntityLivingBase) {
+			}
+			else if (entity instanceof EntityLivingBase) {
 				entity.setPositionAndUpdate(posX, posY, posZ);
 			}
 			else {
 				entity.setLocationAndAngles(posX, posY, posZ, entity.rotationYaw, entity.rotationPitch);
 				entity.setRotationYawHead(entity.rotationYaw);
 			}
-			
 			for (EntityPlayer player : ((WorldServer) this.world).getEntityTracker().getTrackingPlayers(entity)) {
 				Ke2Messages.INSTANCE.sendTo(new PacketEntityTeleport(entity.getEntityId(), posX, posY, posZ), (EntityPlayerMP) player);
 			}
 		}
-		
 		this.warping = false;
 		this.cooling = true;
 		this.remainingCooldownTicks = TileEntityWarpPadCore.TICKS_FOR_COOLDOWN;
 		this.setDirty();
 	}
-	
 	public static TileEntityWarpPadCore getEntityPad(Entity entityIn) {
 		for (int i = -1; i <= 1; ++i) {
 			for (int j = -1; j <= 1; ++j) {
@@ -407,11 +394,9 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		}
 		return null;
 	}
-	
 	public boolean isWarping() {
 		return this.warping || this.cooling;
 	}
-	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public AxisAlignedBB getRenderBoundingBox() {
