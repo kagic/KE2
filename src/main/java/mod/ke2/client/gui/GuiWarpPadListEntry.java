@@ -1,6 +1,6 @@
-package mod.ke2.api.warping;
+package mod.ke2.client.gui;
 
-import mod.ke2.client.gui.GuiWarpPadList;
+import mod.ke2.api.warping.WarpPadDataEntry;
 import mod.ke2.init.Ke2Messages;
 import mod.ke2.networking.PacketWarpPadSignal;
 import net.minecraft.client.Minecraft;
@@ -9,12 +9,12 @@ import net.minecraft.client.gui.GuiListExtended;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextFormatting;
 
-public class WarpPadListEntry implements GuiListExtended.IGuiListEntry {
+public class GuiWarpPadListEntry implements GuiListExtended.IGuiListEntry {
 	private final GuiWarpPadList parent;
 	private final BlockPos source;
 	private final WarpPadDataEntry pad;
 	private final GuiButton button;
-	public WarpPadListEntry(GuiWarpPadList parent, BlockPos source, WarpPadDataEntry pad) {
+	public GuiWarpPadListEntry(GuiWarpPadList parent, BlockPos source, WarpPadDataEntry pad) {
 		this.parent = parent;
 		this.source = source;
 		this.pad = pad;
