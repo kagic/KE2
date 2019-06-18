@@ -458,9 +458,11 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		return this.isOwnedBy(gem.getGemUniqueID());
 	}
 	public boolean isOwnedBy(UUID id) {
-		WorldDataFactions faction = WorldDataFactions.get(this.world);
-		if (faction.isAuthorized(id, this.getFactionID())) {
-			return true;
+		if (this.hasFaction()) {
+			WorldDataFactions faction = WorldDataFactions.get(this.world);
+			if (faction.isAuthorized(id, this.getFactionID())) {
+				return true;
+			}
 		}
 		return false;
 	}
