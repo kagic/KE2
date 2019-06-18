@@ -431,7 +431,7 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
 		return this.isLeader(gem.getGemUniqueID());
 	}
 	public boolean isLeader(UUID id) {
-		return this.getGemLeaderID().equals(id);
+		return this.getGemLeaderID() != null && this.getGemLeaderID().equals(id);
 	}
 	public EntityLivingBase getLeader() {
 		EntityPlayer player = this.world.getPlayerEntityByUUID(this.getGemLeaderID());
