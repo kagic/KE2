@@ -12,18 +12,15 @@ import net.minecraft.world.storage.WorldSavedData;
 public class WorldDataFactions extends WorldSavedData {
 	private static final String NAMESPACE = "ke2_factions";
 	public static WorldDataFactions get(World world) {
-		if (!world.isRemote) {
-			MapStorage storage = world.getMapStorage();
-			WorldDataFactions instance = (WorldDataFactions)(storage.getOrLoadData(WorldDataFactions.class, WorldDataFactions.NAMESPACE));
-			if (instance == null) {
-				storage.setData(WorldDataFactions.NAMESPACE, new WorldDataFactions());
-				return WorldDataFactions.get(world);
-			}
-			else {
-				return instance;
-			}
+		MapStorage storage = world.getMapStorage();
+		WorldDataFactions instance = (WorldDataFactions)(storage.getOrLoadData(WorldDataFactions.class, WorldDataFactions.NAMESPACE));
+		if (instance == null) {
+			storage.setData(WorldDataFactions.NAMESPACE, new WorldDataFactions());
+			return WorldDataFactions.get(world);
 		}
-		return null;
+		else {
+			return instance;
+		}
 	}
 	private final HashMap<UUID, UUID> factions = new HashMap<UUID, UUID>();
 	public WorldDataFactions(String name) {

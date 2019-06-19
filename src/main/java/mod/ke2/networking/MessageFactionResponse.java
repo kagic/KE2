@@ -3,6 +3,7 @@ package mod.ke2.networking;
 import java.util.UUID;
 
 import io.netty.buffer.ByteBuf;
+import mod.ke2.world.data.WorldDataFactions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -28,10 +29,16 @@ public class MessageFactionResponse implements IMessage {
 	}
 	@Override
 	public void toBytes(ByteBuf buf) {
-		buf.writeInt(this.accepted ? 1 : 0);
+		buf.writeInt(this.requester.length()); buf.writeBytes(this.requester.getBytes());
+		buf.writeInt(this.responder.length()); buf.writeBytes(this.responder.getBytes());
+		buf.writeInt(this.accepted ? 0 : 1);
 	}
 	@Override
 	public void fromBytes(ByteBuf buf) {
+		byte[] bytes = new byte[buf.readInt()]; buf.readBytes(bytes);
+		this.requester = new String(bytes);
+		bytes = new byte[buf.readInt()]; buf.readBytes(bytes);
+		this.responder = new String(bytes);
 		this.accepted = buf.readInt() == 1;
 	}
 	public UUID getRequesterUUID() {
@@ -48,14 +55,18 @@ public class MessageFactionResponse implements IMessage {
 		public IMessage onMessage(MessageFactionResponse message, MessageContext context) {
 			EntityPlayer requester = Minecraft.getMinecraft().world.getPlayerEntityByUUID(message.getRequesterUUID());
 			EntityPlayer responder = Minecraft.getMinecraft().world.getPlayerEntityByUUID(message.getResponderUUID());
+			WorldDataFactions factions = WorldDataFactions.get(Minecraft.getMinecraft().world);
 			if (requester != null && responder != null) {
 				if (message.accepted()) {
-					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.request_accepted", responder.getName()));
-					responder.sendMessage(new TextComponentTranslation("gui.ke2.faction.accepted_request", requester.getName()));
+					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.accepted_the_request", responder.getName()));
+					responder.sendMessage(new TextComponentTranslation("gui.ke2.faction.joined_faction", requester.getName()));
+					System.out.println(requester.getName());
+					System.out.println(responder.getName());
+					factions.setFaction(responder.getUniqueID(), factions.getFaction(requester.getUniqueID()));
 				}
 				else {
-					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.request_rejected", responder.getName()));
-					responder.sendMessage(new TextComponentTranslation("gui.ke2.faction.rejected_request", requester.getName()));
+					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.rejected_the_request", responder.getName()));
+					responder.sendMessage(new TextComponentTranslation("gui.ke2.faction.rejected_faction", requester.getName()));
 				}
 			}
 			return null;
