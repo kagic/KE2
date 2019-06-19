@@ -34,7 +34,7 @@ public class ItemGemstone extends Item {
 			@SideOnly(Side.CLIENT)
 			public float apply(ItemStack stack, World world, EntityLivingBase entity) {
 				if (stack.hasTagCompound()) {
-					return stack.getTagCompound().getInteger("GemstoneCut") / 1000.0F;
+					return (float)(stack.getTagCompound().getInteger("GemstoneCut")) / 10000.0F;
 				}
 				return 0.0F;
 			}

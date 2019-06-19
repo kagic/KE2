@@ -40,6 +40,7 @@ import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentString;
@@ -123,7 +124,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.dataManager.register(EntityGem.GEM_FACTION_ID, Optional.absent());
 		this.dataManager.register(EntityGem.GEM_LEADER_ID, Optional.absent());
 		this.dataManager.register(EntityGem.GEM_ALIGNMENT, 0);
-		this.dataManager.register(EntityGem.GEM_EMOTION, 0.0F);
+		this.dataManager.register(EntityGem.GEM_EMOTION, 565.0F);
 		this.dataManager.register(EntityGem.POSE, 0);
 		this.dataManager.register(EntityGem.IS_HIGHLIGHTED, false);
 		this.dataManager.register(EntityGem.ORIGINAL_POS, BlockPos.ORIGIN);
@@ -295,6 +296,55 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
+		if (this.world.isRemote) {
+			double x, y, z, vx, vy, vz;
+			switch (this.getEmotionalState()) {
+				case Ke2Gems.EMOTION_ROMANCE :
+					if (this.ticksExisted % 5 == 0) {
+						x  = this.posX + this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.8 : 0.8);
+						y  = this.posY + this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5) + this.height / 2.0;
+						z  = this.posZ + this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.8 : 0.8);
+						vx = 0.0;
+						vy = this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5);
+						vz = 0.0;
+						this.world.spawnParticle(EnumParticleTypes.HEART, x, y, z, vx, vy, vz);
+					}
+					break;
+				case Ke2Gems.EMOTION_PLEASED :
+					if (this.ticksExisted % 10 == 0) {
+						x  = this.posX + this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.8 : 0.8);
+						y  = this.posY + this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5) + this.height / 2.0;
+						z  = this.posZ + this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.8 : 0.8);
+						vx = this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5);
+						vy = this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5);
+						vz = this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5);
+						this.world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, x, y, z, vx, vy, vz);
+					}
+					break;
+				case Ke2Gems.EMOTION_SADNESS :
+					if (this.ticksExisted % 1 == 0) {
+						x  = this.posX - Math.sin(Math.PI / 180.0 * this.rotationYawHead) * (this.rand.nextBoolean() ? 0.3 : -0.3); 
+						y  = this.posY + this.eyeHeight + this.rand.nextDouble() * 0.5;
+						z  = this.posZ + Math.cos(Math.PI / 180.0 * this.rotationYawHead) * (this.rand.nextBoolean() ? 0.3 : -0.3);
+						vx = this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5);
+						vy = this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.8 : 0.8);
+						vz = this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5);
+						this.world.spawnParticle(EnumParticleTypes.WATER_DROP, x, y, z, vx, vy, vz);
+					}
+					break;
+				case Ke2Gems.EMOTION_FEARFUL :
+					if (this.ticksExisted % 10 == 0) {
+						x  = this.posX + this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5);
+						y  = this.posY + this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5) + this.height;
+						z  = this.posZ + this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5);
+						vx = 0.0;
+						vy = this.rand.nextDouble() * (this.rand.nextBoolean() ? -0.5 : 0.5);
+						vz = 0.0;
+						this.world.spawnParticle(EnumParticleTypes.DAMAGE_INDICATOR, x, y, z, vx, vy, vz);
+					}
+					break;
+			}
+		}
 	}
 
 	@Override
@@ -535,6 +585,38 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 
 	public float getEmotion() {
 		return this.dataManager.get(EntityGem.GEM_EMOTION);
+	}
+	
+	public int getEmotionalState() {
+		if (this.getEmotion() < 470.0F) {
+			return Ke2Gems.EMOTION_ROMANCE;
+		} else if (this.getEmotion() < 530.0F) {
+			return Ke2Gems.EMOTION_PLEASED;
+		} else if (this.getEmotion() < 600.0F) {
+			return Ke2Gems.EMOTION_RELAXED;
+		} else if (this.getEmotion() < 660.0F) {
+			return Ke2Gems.EMOTION_NERVOUS;
+		} else if (this.getEmotion() < 725.0F) {
+			return Ke2Gems.EMOTION_SADNESS;
+		} else {
+			return Ke2Gems.EMOTION_FEARFUL;
+		}
+	}
+	
+	public boolean setEmotionalState(float emotion, float step) {
+		if (this.getEmotion() != emotion) {
+			if (this.getEmotion() < emotion) {
+				this.setEmotion((this.getEmotion() + Math.min(emotion - this.getEmotion(), step)) % 1);
+			} else {
+				this.setEmotion((this.getEmotion() - Math.min(emotion - this.getEmotion(), step)) % 1);
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isFeeling(float emotion) {
+		return false;
 	}
 
 	@Override
@@ -890,22 +972,6 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.chasingPosX += x * 0.25D;
 		this.chasingPosY += y * 0.25D;
 		this.chasingPosZ += z * 0.25D;
-	}
-
-	public boolean setEmotion(float emotion, float step) {
-		if (this.getEmotion() != emotion) {
-			if (this.getEmotion() < emotion) {
-				this.setEmotion((this.getEmotion() + Math.min(emotion - this.getEmotion(), step)) % 1);
-			} else {
-				this.setEmotion((this.getEmotion() - Math.min(emotion - this.getEmotion(), step)) % 1);
-			}
-			return true;
-		}
-		return false;
-	}
-
-	public boolean isFeeling(float emotion) {
-		return false;
 	}
 
 	@Override

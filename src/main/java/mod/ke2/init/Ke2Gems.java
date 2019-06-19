@@ -85,6 +85,44 @@ public class Ke2Gems {
 	public static final int GEMSTONE_RIGHT_FOOT = 16;
 	/** Foot placement; analogous to Pisces. */
 	public static final int GEMSTONE_LEFT_FOOT = 17;
+	
+	/** 
+	 * Emotional phase at which attachments
+	 * (typically romantic) occur. */
+	public static final float EMOPHASE_ROMANCE = 405.0F;
+	/** 
+	 * Emotional phase at which the gem has
+	 * everything it needs and is most efficient. */
+	public static final float EMOPHASE_PLEASED = 470.0F;
+	/** 
+	 * Natural emotional phase for most gems;
+	 * often accompanies positive bias. */
+	public static final float EMOPHASE_RELAXED = 530.0F;
+	/** 
+	 * Natural emotional phase for most gems;
+	 * often accompanies negative bias. */
+	public static final float EMOPHASE_NERVOUS = 600.0F;
+	/** 
+	 * Emotional phase at which the gem has lost
+	 * something it needs and is least efficient. */
+	public static final float EMOPHASE_SADNESS = 660.0F;
+	/** 
+	 * Emotional phase at which surrender and fights
+	 * occur based on the gem's personality. */
+	public static final float EMOPHASE_FEARFUL = 725.0F;
+	
+	/** Hearts appear in this emotional state. */
+	public static final int EMOTION_ROMANCE = 0;
+	/** Stars appear in this emotional state. */
+	public static final int EMOTION_PLEASED = 1;
+	/** No particles appear in this emotional state. */
+	public static final int EMOTION_RELAXED = 2;
+	/** No particles appear in this emotional state. */
+	public static final int EMOTION_NERVOUS = 3;
+	/** Tear drops appear in this emotional state. */
+	public static final int EMOTION_SADNESS = 4;
+	/** Portals appear in this emotional state */
+	public static final int EMOTION_FEARFUL = 5;
 
 	/** Dye damage is 0, block meta is 15. */
 	public static final int BASIC_WHITE = 0;
