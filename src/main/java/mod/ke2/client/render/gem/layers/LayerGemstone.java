@@ -4,7 +4,7 @@ import mod.ke2.api.EntityGem;
 import mod.ke2.client.render.RenderGem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.renderer.block.model.ItemCameraTransforms.TransformType;
+import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 
 public class LayerGemstone implements LayerRenderer<EntityGem> {
@@ -19,7 +19,7 @@ public class LayerGemstone implements LayerRenderer<EntityGem> {
 		if (gem.getGemstoneCut() > -1) {
 			GlStateManager.pushMatrix();
 			this.renderer.getModel().renderGemOnBody(gem.getGemstonePosition(), scale);
-			Minecraft.getMinecraft().getItemRenderer().renderItemSide(gem, gem.getGemstoneItem(), TransformType.FIXED, false);
+			Minecraft.getMinecraft().getItemRenderer().renderItemSide(gem, gem.getGemstoneItem(), ItemCameraTransforms.TransformType.THIRD_PERSON_LEFT_HAND, false);
 			GlStateManager.popMatrix();
 		}
 	}

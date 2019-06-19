@@ -3,6 +3,7 @@ package mod.ke2.client.model.gem;
 import mod.ke2.client.model.ModelGem;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -45,7 +46,9 @@ public class ModelRuby extends ModelGem {
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
+				GlStateManager.translate(0.0, -0.03, -0.29);
 				this.bipedHead.postRender(scale);
+				GlStateManager.scale(0.5, 0.5, 0.5);
 				break;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
 				this.bipedHead.postRender(scale);
@@ -73,6 +76,8 @@ public class ModelRuby extends ModelGem {
 				break;
 			case Ke2Gems.GEMSTONE_CHEST :
 				this.bipedBody.postRender(scale);
+				GlStateManager.translate(0.0, 0.55, -0.16);
+				GlStateManager.scale(0.5, 0.5, 0.5);
 				break;
 			case Ke2Gems.GEMSTONE_BACK :
 				this.bipedBody.postRender(scale);
