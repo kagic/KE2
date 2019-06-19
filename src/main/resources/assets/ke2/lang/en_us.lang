@@ -72,6 +72,8 @@ item.gem_shard.name=Gem Shard
 item.gem_dust.name=Gem Dust
 item.tablet.name=Tablet
 
+tile.tungsten_ore.name=Tungsten Ore
+
 tile.wailing_stone.name=Wailing Stone
 tile.magic_moss.name=Magic Moss
 tile.moss_rose.name=Moss Rose

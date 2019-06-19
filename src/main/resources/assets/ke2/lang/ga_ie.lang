@@ -1,6 +1,16 @@
 ke2.config.title=Cumraigh KAGIC
-itemGroup.ke2_gemstones=Geamchloiche (KAGIC)
-itemGroup.ke2_gem_tech=Geam Teic (KAGIC)
+gui.ke2.faction.sent_request_to=D'iarr tú ar %s dul isteach i do dhruid.
+gui.ke2.faction.in_same_faction=Tá tú féin agus %s sa dhruid chéanna.
+gui.ke2.faction.in_different_factions=NÍL tú féin agus %s sa dhruid chéanna.
+gui.ke2.faction.accepted_the_request=Ghlac %s le d’iarratas a bheith páirteach i do dhruid.
+gui.ke2.faction.rejected_the_request=Dhiúltaigh %s d’iarratas chun do dhruid a cheangal.
+gui.ke2.faction.joined_faction=Tá tú anois ina bhall de dhruid %s.
+gui.ke2.faction.rejected_faction=Dhiúltaigh tú d'iarraidh %s a ndruid a cheangal.
+
+itemGroup.ke2_gemstones=Geamchloiche & Sceardanna (KAGIC)
+itemGroup.ke2_gem_tech=Geam Teic & Uirlisí(KAGIC)
+itemGroup.ke2_gem_creation=Cruthú Geam (KAGIC)
+itemGroup.ke2_gem_blocks=Bloicíní & Taisí Geam (KAGIC)
 
 entity.agate.name=Agáit
 entity.amethyst.name=Aimitis
@@ -42,6 +52,16 @@ entity.gem_shard.name=Sceard Geam
 entity.bubble.name=Bolgán
 entity.palanquin.name=Palanquin
 
+item.anxious_essence.name=Anxious Úscra
+item.awkward_essence.name=Awkward Úscra
+item.prideful_essence.name=Prideful Úscra
+item.impulsive_essence.name=Impulsive Úscra
+item.jealous_essence.name=Jealous Úscra
+item.obsessive_essence.name=Obsessive Úscra
+item.dependent_essence.name=Dependent Úscra
+item.careless_essence.name=Careless Úscra
+item.temperplasm.name=Temperplasm
+item.manual.name=Kindergartener's Guide
 item.gem_staff.name=Cliath Geam
 
 item.white_gem_destabilizer.name=Dícobhsaitheoir Geam Bán

@@ -3,18 +3,7 @@ package mod.ke2.init;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import mod.ke2.block.BlockCarbonite;
-import mod.ke2.block.BlockCarboniteStairs;
-import mod.ke2.block.BlockCluster;
-import mod.ke2.block.BlockDrainBlock;
-import mod.ke2.block.BlockDrainLily;
-import mod.ke2.block.BlockDrainSlab;
-import mod.ke2.block.BlockMagicMoss;
-import mod.ke2.block.BlockMossRose;
-import mod.ke2.block.BlockWailingStone;
-import mod.ke2.block.BlockWarpPadCore;
-import mod.ke2.block.BlockWarpPadEdge;
-import mod.ke2.block.BlockWarpPadFrame;
+import mod.ke2.block.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -229,6 +218,8 @@ public class Ke2Blocks {
 	public static final BlockWarpPadEdge BLACK_WARP_PAD_EDGE = new BlockWarpPadEdge(Ke2Blocks.BLACK_WARP_PAD_FRAME.getDefaultState());
 	
 	public static final BlockCluster CLUSTER = new BlockCluster();
+
+	public static final BlockOre TUNGSTEN_ORE = new BlockOre("tungsten");
 	
 	public static void register(RegistryEvent.Register<Block> event) {
 		Ke2Blocks.registerBlock(Ke2Blocks.CLUSTER, new ResourceLocation("ke2:cluster"), event);
@@ -431,6 +422,8 @@ public class Ke2Blocks {
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_WARP_PAD_CORE, new ResourceLocation("ke2:black_warp_pad_core"), event);
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_WARP_PAD_FRAME, new ResourceLocation("ke2:black_warp_pad_frame"), event);
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_WARP_PAD_EDGE, new ResourceLocation("ke2:black_warp_pad_edge"), event);
+
+		Ke2Blocks.registerOre(Ke2Blocks.TUNGSTEN_ORE, new ResourceLocation("ke2:tungsten_ore"), event, "tungsten_ore");
 	}
 	
 	public static void registerOre(Block block, ResourceLocation location, RegistryEvent.Register<Block> event, String... ores) {

@@ -2,6 +2,7 @@ package mod.ke2.init;
 
 import java.util.Random;
 
+import mod.ke2.world.gen.OreWorldGenerator;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -18,6 +19,7 @@ public class Ke2WorldGen implements IWorldGenerator {
 	
 	public static final void register() {
 		GameRegistry.registerWorldGenerator(new Ke2WorldGen(Type.ORES), 2);
+		GameRegistry.registerWorldGenerator(new OreWorldGenerator(), 0);
 	}
 	
 	public Ke2WorldGen(Type type) {
