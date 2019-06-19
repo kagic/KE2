@@ -22,7 +22,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityTippedArrow;
 import net.minecraft.init.Enchantments;
@@ -50,7 +49,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
-public abstract class EntityGem extends EntityMob implements IGem, IInventoryChangedListener, IRangedAttackMob, IEntityAdditionalSpawnData {
+public abstract class EntityGem extends EntityGemBase implements IGem, IInventoryChangedListener, IRangedAttackMob, IEntityAdditionalSpawnData {
 	public static final String[] BLACKLISTED_NBT_TAGS = new String[] { "Pos", "Motion", "Rotation", "FallDistance", "Fire", "Air", "OnGround", "Dimension", "Invulnerable", "PortalCooldown", "UUID", "NoGravity", "Glowing", "Passengers", "NoAI", "Health", "HurtTime", "HurtByTimestamp", "DeathTime", "AbsorptionAmount", "ActiveEffects", "GemstoneItem" };
 	public enum Pose {
 		DEFAULT,
