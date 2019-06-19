@@ -280,6 +280,10 @@ public abstract class EntityGem extends EntityMob implements IGem, IInventoryCha
         }
     }
 	@Override
+	public boolean canDespawn() {
+		return false;
+	}
+	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 	}
