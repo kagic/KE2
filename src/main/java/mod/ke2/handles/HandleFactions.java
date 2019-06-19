@@ -23,11 +23,11 @@ public class HandleFactions {
 				WorldDataFactions factions = WorldDataFactions.get(e.getWorld());
 				if (factions.getFaction(requester.getUniqueID()).equals(factions.getFaction(responder.getUniqueID()))) {
 					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.in_same_faction", responder.getName()));
-				} else if (responder.isSneaking()) {
+				} else if (requester.isSneaking()) {
 					Ke2Messages.INSTANCE.sendTo(new MessageFactionRequest(requester.getUniqueID(), responder.getUniqueID()), (EntityPlayerMP) responder);
 					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.sent_request_to", responder.getName()));
 				} else {
-					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.in_different_faction", responder.getName()));
+					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.in_different_factions", responder.getName()));
 				}
 			}
 		}

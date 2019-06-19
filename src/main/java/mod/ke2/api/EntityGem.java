@@ -8,6 +8,7 @@ import com.google.common.base.Optional;
 import io.netty.buffer.ByteBuf;
 import mod.ke2.api.injection.GemSpawnData;
 import mod.ke2.api.variants.VariantHelper;
+import mod.ke2.entity.gem.ai.EntityAIFollowTheLeader;
 import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Gems;
 import mod.ke2.init.Ke2Items;
@@ -101,7 +102,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	/** Handles inventory events for AI purposes. */
 	public InvWrapper storageHandler;
 	/**
-	 * Gem storage, all gems have this but, not all use it
+	 * Gem storage, all gems have this, not all use it
 	 * though.
 	 */
 	public InventoryBasic inventory;
@@ -115,6 +116,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	
 	public EntityGem(World world) {
 		super(world);
+		this.tasks.addTask(3, new EntityAIFollowTheLeader(this, 0.5D));
 		this.tasks.addTask(7, new EntityAIWatchClosest(this, Entity.class, 8.0F));
 		this.tasks.addTask(7, new EntityAIWander(this, 0.3D));
 		this.dataManager.register(EntityGem.GEM_UNIQUE_ID, Optional.absent());
@@ -517,7 +519,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	}
 	
 	public UUID getGemLeaderID() {
-		return this.dataManager.get(EntityGem.GEM_LEADER_ID).orNull();
+		return this.dataManager.get(EntityGem.GEM_LEADER_ID).or(this.getUniqueID());
 	}
 	
 	public void setGemAlignment(int alignment) {
