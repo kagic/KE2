@@ -34,6 +34,6 @@ public class EntityRuby extends EntityGem {
 
 	@Override
 	public int generateGemstoneCut() {
-		return 0;
+		return 1;
 	}
 }

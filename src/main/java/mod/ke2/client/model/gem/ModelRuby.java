@@ -3,6 +3,7 @@ package mod.ke2.client.model.gem;
 import mod.ke2.client.model.ModelGem;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -45,40 +46,58 @@ public class ModelRuby extends ModelGem {
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
+				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
+				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
+				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
+				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_NOSE :
+				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
+				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
+				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
+				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
+				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_CHEST :
+				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_BACK :
+				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_NAVEL :
+				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
+				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_THIGH :
+				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
+				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_KNEE :
+				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
+				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT :
+				this.bipedLeftLeg.postRender(scale);
 				break;
 		}
 	}
