@@ -37,7 +37,7 @@ public class Ke2Items {
 	public static final ItemGemShard GEM_SHARD = new ItemGemShard();
 	public static final ItemGemDust GEM_DUST = new ItemGemDust();
 	public static final ItemTablet TABLET = new ItemTablet();
-
+	
 	public static void register(RegistryEvent.Register<Item> event) {
 		Ke2Items.registerItem(Ke2Items.ANXIOUS_ESSENCE, new ResourceLocation("ke2:anxious_essence"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Items.registerItem(Ke2Items.AWKWARD_ESSENCE, new ResourceLocation("ke2:awkward_essence"), event, Ke2CreativeTabs.GEM_CREATION);
@@ -56,12 +56,12 @@ public class Ke2Items {
 		Ke2Items.registerItem(Ke2Items.GEM_SHARD, new ResourceLocation("ke2:gem_shard"), event, Ke2CreativeTabs.GEM_STONES);
 		Ke2Items.registerItem(Ke2Items.GEM_DUST, new ResourceLocation("ke2:gem_dust"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Items.registerItem(Ke2Items.TABLET, new ResourceLocation("ke2:tablet"), event, Ke2CreativeTabs.GEM_TECH);
-
+		
 		for (Item item : Ke2Blocks.ITEMS) {
 			Ke2Items.registerItem(item, null, event, Ke2CreativeTabs.GEM_BLOCKS);
 		}
 	}
-
+	
 	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event, CreativeTabs tab) {
 		event.getRegistry().register(item.getRegistryName() == null ? item.setCreativeTab(tab).setRegistryName(name) : item.setCreativeTab(tab));
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {

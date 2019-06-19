@@ -18,19 +18,19 @@ public class RenderPalanquin extends RenderLiving<EntityPalanquin> {
 		this.layerRenderers.add(new LayerPalanquinHighlights(this));
 		this.layerRenderers.add(new LayerPalanquinVeil(this));
 	}
-
+	
 	@Override
 	protected ResourceLocation getEntityTexture(EntityPalanquin entity) {
 		return new ResourceLocation("ke2:textures/entities/white.png");
 	}
-
+	
 	public static class LayerPalanquinColor implements LayerRenderer<EntityPalanquin> {
 		private final RenderPalanquin renderer;
-
+		
 		public LayerPalanquinColor(RenderPalanquin renderer) {
 			this.renderer = renderer;
 		}
-
+		
 		@Override
 		public void doRenderLayer(EntityPalanquin entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 			float[] rgb = EnumDyeColor.byDyeDamage(entity.getBodyColor()).getColorComponentValues();
@@ -41,20 +41,20 @@ public class RenderPalanquin extends RenderLiving<EntityPalanquin> {
 				GlStateManager.disableBlend();
 			}
 		}
-
+		
 		@Override
 		public boolean shouldCombineTextures() {
 			return false;
 		}
 	}
-
+	
 	public class LayerPalanquinHighlights implements LayerRenderer<EntityPalanquin> {
 		private final RenderPalanquin renderer;
-
+		
 		public LayerPalanquinHighlights(RenderPalanquin renderer) {
 			this.renderer = renderer;
 		}
-
+		
 		@Override
 		public void doRenderLayer(EntityPalanquin entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 			float[] rgb = EnumDyeColor.byDyeDamage(entity.getHighlightColor()).getColorComponentValues();
@@ -65,20 +65,20 @@ public class RenderPalanquin extends RenderLiving<EntityPalanquin> {
 				GlStateManager.disableBlend();
 			}
 		}
-
+		
 		@Override
 		public boolean shouldCombineTextures() {
 			return false;
 		}
 	}
-
+	
 	public class LayerPalanquinVeil implements LayerRenderer<EntityPalanquin> {
 		private final RenderPalanquin renderer;
-
+		
 		public LayerPalanquinVeil(RenderPalanquin renderer) {
 			this.renderer = renderer;
 		}
-
+		
 		@Override
 		public void doRenderLayer(EntityPalanquin entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 			float[] rgb = EnumDyeColor.byDyeDamage(entity.getVeilColor()).getColorComponentValues();
@@ -90,7 +90,7 @@ public class RenderPalanquin extends RenderLiving<EntityPalanquin> {
 				this.renderer.getMainModel().render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 			}
 		}
-
+		
 		@Override
 		public boolean shouldCombineTextures() {
 			return false;

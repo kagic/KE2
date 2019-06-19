@@ -15,7 +15,7 @@ public class MessageFactionResponse implements IMessage {
 	private String requester;
 	private String responder;
 	private boolean accepted;
-
+	
 	public MessageFactionResponse(UUID requester, UUID responder, boolean accepted) {
 		if (requester != null) {
 			this.requester = requester.toString();
@@ -25,11 +25,11 @@ public class MessageFactionResponse implements IMessage {
 		}
 		this.accepted = accepted;
 	}
-
+	
 	public MessageFactionResponse() {
 		this(null, null, false);
 	}
-
+	
 	@Override
 	public void toBytes(ByteBuf buf) {
 		buf.writeInt(this.requester.length());
@@ -38,7 +38,7 @@ public class MessageFactionResponse implements IMessage {
 		buf.writeBytes(this.responder.getBytes());
 		buf.writeInt(this.accepted ? 0 : 1);
 	}
-
+	
 	@Override
 	public void fromBytes(ByteBuf buf) {
 		byte[] bytes = new byte[buf.readInt()];
@@ -49,19 +49,19 @@ public class MessageFactionResponse implements IMessage {
 		this.responder = new String(bytes);
 		this.accepted = buf.readInt() == 1;
 	}
-
+	
 	public UUID getRequesterUUID() {
 		return UUID.fromString(this.requester);
 	}
-
+	
 	public UUID getResponderUUID() {
 		return UUID.fromString(this.responder);
 	}
-
+	
 	public boolean accepted() {
 		return this.accepted;
 	}
-
+	
 	public static class Handler implements IMessageHandler<MessageFactionResponse, IMessage> {
 		@Override
 		public IMessage onMessage(MessageFactionResponse message, MessageContext context) {

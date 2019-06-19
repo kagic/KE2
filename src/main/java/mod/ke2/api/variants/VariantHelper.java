@@ -15,19 +15,19 @@ public class VariantHelper {
 	public enum Colors {
 		WHITE, ORANGE, MAGENTA, LIGHTBLUE, YELLOW, LIME, PINK, GRAY, SILVER, CYAN, PURPLE, BLUE, BROWN, GREEN, RED, BLACK;
 	}
-
+	
 	public enum Positions {
 		FOREHEAD, BACK_OF_HEAD, RIGHT_EYE, LEFT_EYE, NOSE, RIGHT_SHOULDER, LEFT_SHOULDER, RIGHT_HAND, LEFT_HAND, CHEST, BACK, NAVEL, RIGHT_THIGH, LEFT_THIGH, RIGHT_KNEE, LEFT_KNEE, RIGHT_FOOT, LEFT_FOOT
 	}
-
+	
 	public enum Functions {
 		SPAWNED_BELOW, SPAWNED_ABOVE, SPAWNED_IN_BIOME, IS_DEFECTIVE, IS_PERFECTIVE, IS_NORMAL, GEM_POSITION, INSIGNIA_COLOR, ALWAYS_TRUE, RANDOM, WEIGHTED;
 	}
-
+	
 	public static boolean tryAlwaysTrue(EntityGem gem, String value) {
 		return true && Boolean.parseBoolean(value);
 	}
-
+	
 	public static boolean tryRandom(EntityGem gem, String value) {
 		Random rand = gem.world.rand;
 		int bound = 10;
@@ -38,7 +38,7 @@ public class VariantHelper {
 		}
 		return rand.nextInt(bound) == 0;
 	}
-
+	
 	public static boolean tryWeighted(EntityGem gem, String value) {
 		Random rand = gem.world.rand;
 		float bound = 0.5F;
@@ -49,15 +49,15 @@ public class VariantHelper {
 		}
 		return rand.nextFloat() < bound;
 	}
-
+	
 	public static boolean tryGemPosition(EntityGem gem, String value) {
 		return gem.getGemstonePosition() == Positions.valueOf(value.toUpperCase()).ordinal();
 	}
-
+	
 	public static boolean tryInsigniaColor(EntityGem gem, String value) {
 		return gem.getInsigniaColor() == Colors.valueOf(value.toUpperCase()).ordinal();
 	}
-
+	
 	public static boolean tryIsNormal(EntityGem gem, String value) {
 		if (VariantHelper.tryIsDefective(gem, value)) {
 			return false;
@@ -67,15 +67,15 @@ public class VariantHelper {
 		}
 		return true;
 	}
-
+	
 	public static boolean tryIsPerfective(EntityGem gem, String value) {
 		return gem.isPerfective() == Boolean.parseBoolean(value);
 	}
-
+	
 	public static boolean tryIsDefective(EntityGem gem, String value) {
 		return gem.isDefective() == Boolean.parseBoolean(value);
 	}
-
+	
 	public static boolean trySpawnedInBiome(EntityGem gem, String value) {
 		String[] biomes = value.split(",");
 		for (int i = 0; i < biomes.length; ++i) {
@@ -85,7 +85,7 @@ public class VariantHelper {
 		}
 		return false;
 	}
-
+	
 	public static boolean trySpawnedAbove(EntityGem gem, String value) {
 		int depth = 64;
 		try {
@@ -95,7 +95,7 @@ public class VariantHelper {
 		}
 		return gem.getPosition().getY() < depth;
 	}
-
+	
 	public static boolean trySpawnedBelow(EntityGem gem, String value) {
 		int depth = 64;
 		try {
@@ -105,7 +105,7 @@ public class VariantHelper {
 		}
 		return gem.getPosition().getY() > depth;
 	}
-
+	
 	public static int loadVariantColor(EntityGem gem, String... tags) {
 		ArrayList<ResourceLocation> variants = Ke2Variants.TABLE.get(Ke2Gems.REGISTRY_REVERSE.get(gem.getClass()));
 		int color = 0xFFFFFF;
@@ -122,7 +122,7 @@ public class VariantHelper {
 		}
 		return color;
 	}
-
+	
 	public static String loadVariantName(EntityGem gem, String... tags) {
 		ArrayList<ResourceLocation> variants = Ke2Variants.TABLE.get(Ke2Gems.REGISTRY_REVERSE.get(gem.getClass()));
 		String name = "";
@@ -139,7 +139,7 @@ public class VariantHelper {
 		}
 		return name;
 	}
-
+	
 	public static String loadVariantPath(EntityGem gem, String... tags) {
 		ArrayList<ResourceLocation> variants = Ke2Variants.TABLE.get(Ke2Gems.REGISTRY_REVERSE.get(gem.getClass()));
 		ResourceLocation path = VariantPath.getDefaultPath();

@@ -24,37 +24,37 @@ public class EntityDesertGlass extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/desert_glass/color_visor"), VariantColor.class), EntityDesertGlass.class);
 	}
 	protected static final DataParameter<Boolean> HAS_JAR = EntityDataManager.<Boolean>createKey(EntityDesertGlass.class, DataSerializers.BOOLEAN);
-
+	
 	public EntityDesertGlass(World world) {
 		super(world);
 		this.dataManager.register(EntityDesertGlass.HAS_JAR, false);
 	}
-
+	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
 		this.setHasJar(compound.getBoolean("HasJar"));
 	}
-
+	
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
 		compound.setBoolean("HasJar", this.hasJar());
 	}
-
+	
 	public void setHasJar(boolean hasJar) {
 		this.dataManager.set(EntityDesertGlass.HAS_JAR, hasJar);
 	}
-
+	
 	public boolean hasJar() {
 		return this.dataManager.get(EntityDesertGlass.HAS_JAR);
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

@@ -37,7 +37,7 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 	private static final DataParameter<Integer> HIGHLIGHT_COLOR = EntityDataManager.<Integer>createKey(EntityPalanquin.class, DataSerializers.VARINT);
 	private static final DataParameter<Integer> VEIL_COLOR = EntityDataManager.<Integer>createKey(EntityPalanquin.class, DataSerializers.VARINT);
 	protected float jumpPower;
-
+	
 	public EntityPalanquin(World world) {
 		super(world);
 		this.setSize(3.0F, 7.0F);
@@ -52,7 +52,7 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 		this.dataManager.register(EntityPalanquin.VEIL_COLOR, world.rand.nextInt(16));
 		this.isImmuneToFire = true;
 	}
-
+	
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
@@ -60,7 +60,7 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 		compound.setInteger("HighlightColor", this.getHighlightColor());
 		compound.setInteger("VeilColor", this.getVeilColor());
 	}
-
+	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
@@ -68,7 +68,7 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 		this.setHighlightColor(compound.getInteger("HighlightColor"));
 		this.setVeilColor(compound.getInteger("VeilColor"));
 	}
-
+	
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
 		livingdata = super.onInitialSpawn(difficulty, livingdata);
@@ -78,7 +78,7 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 		this.setVeilColor(this.world.rand.nextInt(16));
 		return livingdata;
 	}
-
+	
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote) {
@@ -103,7 +103,7 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 		}
 		return super.processInteract(player, hand);
 	}
-
+	
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
@@ -123,7 +123,7 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 			}
 		}
 	}
-
+	
 	@Override
 	public void onDeath(DamageSource cause) {
 		if (!this.world.isRemote) {
@@ -133,7 +133,7 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 		}
 		super.onDeath(cause);
 	}
-
+	
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if (source.getTrueSource() != null && !this.isRidingOrBeingRiddenBy(source.getTrueSource())) {
@@ -141,28 +141,28 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 		}
 		return false;
 	}
-
+	
 	@Override
 	public void fall(float distance, float damageMultiplier) {
 		return;
 	}
-
+	
 	@Override
 	public void updatePassenger(Entity passenger) {
 		super.updatePassenger(passenger);
 		passenger.setPosition(this.posX, this.posY + 1.2F, this.posZ);
 	}
-
+	
 	@Override
 	public boolean shouldDismountInWater(Entity rider) {
 		return false;
 	}
-
+	
 	@Override
 	protected float getWaterSlowDown() {
 		return 1.0F;
 	}
-
+	
 	@Override
 	public Entity getControllingPassenger() {
 		for (Entity entity : this.getPassengers()) {
@@ -172,17 +172,17 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 		}
 		return null;
 	}
-
+	
 	@Override
 	protected boolean canFitPassenger(Entity passenger) {
 		return this.getPassengers().isEmpty();
 	}
-
+	
 	@Override
 	public boolean canBeSteered() {
 		return true;
 	}
-
+	
 	@Override
 	public void travel(float strafe, float vertical, float forward) {
 		this.jumpMovementFactor = 0.1F;
@@ -234,15 +234,15 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 			super.travel(strafe, vertical, forward);
 		}
 	}
-
+	
 	@Override
 	public void handleStartJump(int power) {
 	}
-
+	
 	@Override
 	public void handleStopJump() {
 	}
-
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void setJumpPower(int jumpPower) {
@@ -257,62 +257,62 @@ public class EntityPalanquin extends EntityGemMachine implements IJumpingMount {
 			}
 		}
 	}
-
+	
 	@Override
 	public boolean canJump() {
 		return true;
 	}
-
+	
 	@Override
 	public boolean canBreatheUnderwater() {
 		return true;
 	}
-
+	
 	@Override
 	public boolean canDespawn() {
 		return false;
 	}
-
+	
 	@Override
 	protected boolean canTriggerWalking() {
 		return false;
 	}
-
+	
 	@Override
 	public EnumPushReaction getPushReaction() {
 		return EnumPushReaction.DESTROY;
 	}
-
+	
 	@Override
 	protected void playStepSound(BlockPos pos, Block block) {
 		this.playSound(SoundEvents.BLOCK_ANVIL_LAND, 1.0F, 1.0F);
 	}
-
+	
 	@Override
 	public SoundEvent getHurtSound(DamageSource cause) {
 		return SoundEvents.BLOCK_ANVIL_PLACE;
 	}
-
+	
 	public void setBodyColor(int color) {
 		this.dataManager.set(EntityPalanquin.BODY_COLOR, color);
 	}
-
+	
 	public int getBodyColor() {
 		return this.dataManager.get(EntityPalanquin.BODY_COLOR);
 	}
-
+	
 	public void setHighlightColor(int color) {
 		this.dataManager.set(EntityPalanquin.HIGHLIGHT_COLOR, color);
 	}
-
+	
 	public int getHighlightColor() {
 		return this.dataManager.get(EntityPalanquin.HIGHLIGHT_COLOR);
 	}
-
+	
 	public void setVeilColor(int color) {
 		this.dataManager.set(EntityPalanquin.VEIL_COLOR, color);
 	}
-
+	
 	public int getVeilColor() {
 		return this.dataManager.get(EntityPalanquin.VEIL_COLOR);
 	}

@@ -16,7 +16,7 @@ public class ItemGemStaff extends Item {
 		this.setUnlocalizedName("gem_staff");
 		this.setMaxStackSize(1);
 	}
-
+	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		ItemStack stack = player.getHeldItem(hand);
@@ -27,7 +27,7 @@ public class ItemGemStaff extends Item {
 		player.swingArm(hand);
 		return new ActionResult<ItemStack>(EnumActionResult.PASS, stack);
 	}
-
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isFull3D() {

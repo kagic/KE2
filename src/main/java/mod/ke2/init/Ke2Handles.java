@@ -15,7 +15,7 @@ public class Ke2Handles {
 		Ke2Handles.registerHandle(new HandleShattering());
 		Ke2Handles.registerHandle(new HandleGuarding());
 	}
-
+	
 	public static void registerHandle(Object handler) {
 		MinecraftForge.EVENT_BUS.register(handler);
 	}

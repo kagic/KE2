@@ -19,16 +19,16 @@ public class EntityEnderPearl extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/ender_pearl/color_skin"), VariantColor.class), EntityEnderPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/ender_pearl/color_visor"), VariantColor.class), EntityEnderPearl.class);
 	}
-
+	
 	public EntityEnderPearl(World world) {
 		super(world);
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

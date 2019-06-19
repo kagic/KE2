@@ -18,17 +18,17 @@ public class Ke2WorldGen implements IWorldGenerator {
 	public enum Type {
 		ORES, STRUCTURES, OTHER
 	}
-
+	
 	public Type type;
-
+	
 	public static final void register() {
 		GameRegistry.registerWorldGenerator(new Ke2WorldGen(Type.ORES), 2);
 	}
-
+	
 	public Ke2WorldGen(Type type) {
 		this.type = type;
 	}
-
+	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 		BlockPos base = new BlockPos(chunkX * 16, 0, chunkZ * 16);

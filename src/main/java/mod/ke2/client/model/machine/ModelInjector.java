@@ -26,7 +26,7 @@ public class ModelInjector extends ModelBase {
 	public ModelRenderer frontRightLeg;
 	public ModelRenderer backLeftLeg;
 	public ModelRenderer backRightLeg;
-
+	
 	public ModelInjector() {
 		this.textureWidth = 96;
 		this.textureHeight = 96;
@@ -119,7 +119,7 @@ public class ModelInjector extends ModelBase {
 		this.bottomSlab.addChild(this.body);
 		this.body.addChild(this.neck);
 	}
-
+	
 	public void resetRotationAngles() {
 		this.frontLeftLeg.rotateAngleX = 0.7853981633974483F;
 		this.frontLeftLeg.rotateAngleY = 0;
@@ -134,7 +134,7 @@ public class ModelInjector extends ModelBase {
 		this.backRightLeg.rotateAngleY = -1.5707963267948966F;
 		this.backRightLeg.rotateAngleZ = 0;
 	}
-
+	
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		this.resetRotationAngles();
@@ -147,7 +147,7 @@ public class ModelInjector extends ModelBase {
 		this.backLeftLeg.rotateAngleZ += MathHelper.cos(limbSwing * 0.6662F * 2.0F + 0.0F) * 0.8F * limbSwingAmount;
 		this.backRightLeg.rotateAngleZ += -MathHelper.cos(limbSwing * 0.6662F * 2.0F + 0.0F) * 0.8F * limbSwingAmount;
 	}
-
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headYaw, float scale) {
 		this.bottomSlab.render(scale);

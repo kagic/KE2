@@ -9,11 +9,11 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 
 public class LayerGemstone implements LayerRenderer<EntityGem> {
 	private final RenderGem<?> renderer;
-
+	
 	public LayerGemstone(RenderGem<?> renderer) {
 		this.renderer = renderer;
 	}
-
+	
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getGemstoneCut() > -1) {
@@ -23,7 +23,7 @@ public class LayerGemstone implements LayerRenderer<EntityGem> {
 			GlStateManager.popMatrix();
 		}
 	}
-
+	
 	@Override
 	public boolean shouldCombineTextures() {
 		return false;

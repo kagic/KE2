@@ -15,7 +15,7 @@ public class BlockCluster extends Block {
 		this.setHarvestLevel("pickaxe", 1);
 		this.setSoundType(SoundType.METAL);
 		this.setLightLevel(5f);
-
+		
 	}
-
+	
 }

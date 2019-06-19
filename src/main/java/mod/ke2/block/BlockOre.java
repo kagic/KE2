@@ -5,7 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 public class BlockOre extends Block {
-	
+
 	public BlockOre(String ore) {
 		super(Material.GROUND);
 		this.setCreativeTab(Ke2CreativeTabs.GEM_BLOCKS);

@@ -25,7 +25,7 @@ public class BlockMagicMoss extends Block {
 	protected static final AxisAlignedBB MAGIC_MOSS_BLOCK_SELECTION = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.0D, 1.0D);
 	protected static final AxisAlignedBB MAGIC_MOSS_AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
 	public static final PropertyBool SHORT = PropertyBool.create("short");
-
+	
 	public BlockMagicMoss() {
 		super(Material.GROUND, MapColor.GREEN);
 		this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
@@ -34,7 +34,7 @@ public class BlockMagicMoss extends Block {
 		this.setDefaultState(this.blockState.getBaseState().withProperty(BlockMagicMoss.SHORT, false));
 		this.setTickRandomly(true);
 	}
-
+	
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity) {
 		if (entity instanceof EntityLivingBase) {
@@ -44,7 +44,7 @@ public class BlockMagicMoss extends Block {
 		entity.motionY = 0.0D;
 		entity.motionZ = 0.0D;
 	}
-
+	
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {
 		super.updateTick(world, pos, state, random);
@@ -60,27 +60,27 @@ public class BlockMagicMoss extends Block {
 			}
 		}
 	}
-
+	
 	@Override
 	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
 		boolean set = world.getBlockState(pos.up()).getBlock() == Ke2Blocks.MOSS_ROSE || world.isAirBlock(pos.up());
 		return this.getDefaultState().withProperty(BlockMagicMoss.SHORT, set);
 	}
-
+	
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
 		boolean set = world.getBlockState(pos.up()).getBlock() == Ke2Blocks.MOSS_ROSE || world.isAirBlock(pos.up());
 		world.setBlockState(pos, state.withProperty(BlockMagicMoss.SHORT, set));
 		super.neighborChanged(state, world, pos, block, fromPos);
 	}
-
+	
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
 		boolean set = world.getBlockState(pos.up()).getBlock() == Ke2Blocks.MOSS_ROSE || world.isAirBlock(pos.up());
 		world.setBlockState(pos, state.withProperty(BlockMagicMoss.SHORT, set));
 		super.onBlockAdded(world, pos, state);
 	}
-
+	
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		if (state.getValue(BlockMagicMoss.SHORT)) {
@@ -89,32 +89,32 @@ public class BlockMagicMoss extends Block {
 			return BlockMagicMoss.MAGIC_MOSS_BLOCK_SELECTION;
 		}
 	}
-
+	
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
 		return BlockMagicMoss.MAGIC_MOSS_AABB;
 	}
-
+	
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-
+	
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
-
+	
 	@Override
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
 		return true;
 	}
-
+	
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 		return this.getDefaultState().withProperty(BlockMagicMoss.SHORT, meta == 0);
 	}
-
+	
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		if (state.getValue(BlockMagicMoss.SHORT)) {
@@ -122,7 +122,7 @@ public class BlockMagicMoss extends Block {
 		}
 		return 1;
 	}
-
+	
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, new IProperty[]{BlockMagicMoss.SHORT});

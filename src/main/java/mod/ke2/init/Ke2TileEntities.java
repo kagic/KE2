@@ -16,7 +16,7 @@ public class Ke2TileEntities {
 		Ke2TileEntities.registerTileEntity(TileEntityWailingStone.class, new ResourceLocation("ke2:wailing_stone"));
 		Ke2TileEntities.registerTileEntity(TileEntityCarbonite.class, new ResourceLocation("ke2:carbonite"));
 	}
-
+	
 	@SuppressWarnings("deprecation")
 	public static void registerTileEntity(Class<? extends TileEntity> tileentity, ResourceLocation location) {
 		try {

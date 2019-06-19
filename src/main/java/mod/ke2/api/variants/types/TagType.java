@@ -6,20 +6,20 @@ import java.util.Collections;
 public class TagType implements Comparable<TagType> {
 	private final int weight;
 	private final String tag;
-
+	
 	public TagType(int weight, String tag) {
 		this.weight = weight;
 		this.tag = tag;
 	}
-
+	
 	public int getWeight() {
 		return this.weight;
 	}
-
+	
 	public String getTag() {
 		return this.tag;
 	}
-
+	
 	public static TagType weigh(ArrayList<TagType> tags) {
 		Collections.shuffle(tags);
 		int volume = 0;
@@ -35,7 +35,7 @@ public class TagType implements Comparable<TagType> {
 		}
 		return null;
 	}
-
+	
 	@Override
 	public int compareTo(TagType tag) {
 		return Integer.compare(this.getWeight(), tag.getWeight());

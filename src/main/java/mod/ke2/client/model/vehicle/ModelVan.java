@@ -13,7 +13,7 @@ public class ModelVan extends ModelBase {
 	public ModelRenderer wheelBackLeft;
 	public ModelRenderer wheelBackRight;
 	public ModelRenderer seats;
-
+	
 	public ModelVan() {
 		this.textureWidth = 96;
 		this.textureHeight = 112;
@@ -48,13 +48,13 @@ public class ModelVan extends ModelBase {
 		this.seats.addBox(-10.0F, -10.0F, 1.0F, 20, 16, 10, -0.01F);
 		this.cabin.addChild(this.seats);
 	}
-
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headYaw, float scale) {
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headYaw, scale, entity);
 		this.cabin.render(scale);
 	}
-
+	
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		this.windshield.rotateAngleX = -0.2617993877991494F;

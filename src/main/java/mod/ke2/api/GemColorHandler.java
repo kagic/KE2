@@ -25,7 +25,7 @@ public class GemColorHandler implements IItemColor {
 		int b = (int) (set * bB + (1 - set) * eB);
 		return (r << 16) + (g << 8) + b;
 	}
-
+	
 	@Override
 	public int colorMultiplier(ItemStack stack, int tint) {
 		if (stack.hasTagCompound()) {

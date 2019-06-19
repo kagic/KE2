@@ -40,21 +40,21 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 	protected int remainingCooldownTicks = 0;
 	protected int remainingActionTicks = 0;
 	protected BlockPos destination = null;
-
+	
 	public int renderCooldown = 0;
 	public int renderTicks = 0;
-
+	
 	public String name = "";
 	private Ticket ticket = null;
-
+	
 	private int ticksSinceLastCheck = 0;
-
+	
 	protected final int clearanceHeight = 6;
 	protected boolean isClear = false;
 	protected boolean isPadValid = false;
 	protected boolean warping = false;
 	protected boolean cooling = false;
-
+	
 	protected void setDirty() {
 		this.markDirty();
 		this.world.notifyBlockUpdate(this.pos, this.world.getBlockState(this.pos), this.world.getBlockState(this.pos), 3);
@@ -64,14 +64,14 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 			// this.isClear, this.pos);
 		}
 	}
-
+	
 	protected boolean isStair(IBlockState state) {
 		if (state.getBlock() != Blocks.QUARTZ_STAIRS || state.getValue(BlockStairs.HALF) != EnumHalf.BOTTOM) {
 			return false;
 		}
 		return true;
 	}
-
+	
 	protected boolean validateStairs() {
 		IBlockState state = this.world.getBlockState(this.pos.add(2, 0, 0));
 		if (state.getBlock() != Blocks.QUARTZ_STAIRS || state.getValue(BlockStairs.FACING) != EnumFacing.WEST || state.getValue(BlockStairs.HALF) != EnumHalf.BOTTOM || state.getValue(BlockStairs.SHAPE) != EnumShape.STRAIGHT) {
@@ -97,7 +97,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 			// no south quartz stair");
 			return false;
 		}
-
+		
 		// Corners
 		state = this.world.getBlockState(this.pos.add(-2, 0, -1));
 		if (!this.isStair(state)) {
@@ -117,7 +117,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		state = state.withProperty(BlockStairs.FACING, EnumFacing.EAST);
 		state = state.withProperty(BlockStairs.SHAPE, EnumShape.OUTER_RIGHT);
 		this.world.setBlockState(this.pos.add(-1, 0, -2), state);
-
+		
 		state = this.world.getBlockState(this.pos.add(2, 0, -1));
 		if (!this.isStair(state)) {
 			// KAGICTech.instance.chatInfoMessage("Pad has
@@ -136,7 +136,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		state = state.withProperty(BlockStairs.FACING, EnumFacing.WEST);
 		state = state.withProperty(BlockStairs.SHAPE, EnumShape.OUTER_LEFT);
 		this.world.setBlockState(this.pos.add(1, 0, -2), state);
-
+		
 		state = this.world.getBlockState(this.pos.add(2, 0, 1));
 		if (!this.isStair(state)) {
 			// KAGICTech.instance.chatInfoMessage("Pad has
@@ -155,7 +155,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		state = state.withProperty(BlockStairs.FACING, EnumFacing.WEST);
 		state = state.withProperty(BlockStairs.SHAPE, EnumShape.OUTER_RIGHT);
 		this.world.setBlockState(this.pos.add(1, 0, 2), state);
-
+		
 		state = this.world.getBlockState(this.pos.add(-2, 0, 1));
 		if (!this.isStair(state)) {
 			// KAGICTech.instance.chatInfoMessage("Pad has
@@ -174,12 +174,12 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		state = state.withProperty(BlockStairs.FACING, EnumFacing.EAST);
 		state = state.withProperty(BlockStairs.SHAPE, EnumShape.OUTER_LEFT);
 		this.world.setBlockState(this.pos.add(-1, 0, 2), state);
-
+		
 		// KAGICTech.instance.chatInfoMessage("Pad has all
 		// quartz stairs");
 		return true;
 	}
-
+	
 	protected boolean validatePad() {
 		for (int i = -1; i <= 1; i++) {
 			for (int j = -1; j <= 1; j++) {
@@ -195,13 +195,13 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 				}
 			}
 		}
-
+		
 		// KAGICTech.instance.chatInfoMessage("Pad is
 		// surrounded by vertical quartz
 		// columns");
 		return true && this.validateStairs();
 	}
-
+	
 	private boolean validateClearance() {
 		for (int i = -1; i <= 1; ++i) {
 			for (int j = 1; j <= this.clearanceHeight; ++j) {
@@ -214,35 +214,35 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		}
 		return true;
 	}
-
+	
 	public boolean validateWarpPad() {
 		boolean valid = this.validatePad();
 		if (this.isPadValid != valid) {
 			this.isPadValid = valid;
 			this.setDirty();
 		}
-
+		
 		boolean clear = this.validateClearance();
 		if (this.isClear != clear) {
 			this.isClear = clear;
 			this.setDirty();
 		}
-
+		
 		return valid && clear;
 	}
-
+	
 	public boolean isValidPad() {
 		return this.isPadValid && this.isClear;
 	}
-
+	
 	public boolean isClear() {
 		return this.isClear;
 	}
-
+	
 	public boolean isValid() {
 		return this.isPadValid;
 	}
-
+	
 	@Override
 	public void update() {
 		if (!this.world.isRemote) {
@@ -251,21 +251,21 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 				this.validateWarpPad();
 				this.ticksSinceLastCheck = 0;
 			}
-
+			
 			if (this.remainingActionTicks > 0) {
 				--this.remainingActionTicks;
 				if (this.remainingActionTicks <= 0) {
 					this.warp();
 				}
 			}
-
+			
 			if (this.remainingCooldownTicks >= 0) {
 				--this.remainingCooldownTicks;
 			} else if (this.cooling) {
 				this.cooling = false;
 				this.setDirty();
 			}
-
+			
 			if (this.ticket != null) {
 				--this.remainingLoadingChunkTicks;
 			}
@@ -278,7 +278,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 			}
 		}
 	}
-
+	
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
@@ -290,7 +290,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		compound.setInteger("renderTicks", this.remainingActionTicks);
 		return compound;
 	}
-
+	
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
@@ -304,22 +304,22 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		this.name = compound.getString("name");
 		this.renderTicks = compound.getInteger("renderTicks");
 	}
-
+	
 	@Override
 	public NBTTagCompound getUpdateTag() {
 		return this.writeToNBT(new NBTTagCompound());
 	}
-
+	
 	@Override
 	public SPacketUpdateTileEntity getUpdatePacket() {
 		return new SPacketUpdateTileEntity(this.pos, 1, this.writeToNBT(new NBTTagCompound()));
 	}
-
+	
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
 		this.readFromNBT(packet.getNbtCompound());
 	}
-
+	
 	public void setName(String name) {
 		if (!this.world.isRemote) {
 			System.out.println("Name Set");
@@ -330,17 +330,17 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 			System.out.println("ERROR: setName called on client");
 		}
 	}
-
+	
 	public boolean canInteractWith(EntityPlayer player) {
 		return !this.isInvalid() && player.getDistanceSq(this.pos.add(0.5D, 0.5D, 0.5D)) <= 3.0D;
 	}
-
+	
 	public void destroy() {
 		// WorldDataWarps.get(this.world).removeWarpPadEntry(new
 		// WarpPadPos(this.pos,
 		// ));
 	}
-
+	
 	public void loadPadChunks(TileEntityWarpPadCore pad, Ticket ticket) {
 		if (ticket == null) {
 			System.out.println("WARNING: warp pad could not load pad chunks. Strange glitches may occur!");
@@ -360,7 +360,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		this.ticket = ticket;
 		this.remainingLoadingChunkTicks = TileEntityWarpPadCore.TICKS_FOR_LOADING_CHUNKS;
 	}
-
+	
 	public void beginWarp(BlockPos destination) {
 		Ticket ticket = ForgeChunkManager.requestTicket(KAGIC.instance, this.world, Type.NORMAL);
 		TileEntityWarpPadCore destPad = (TileEntityWarpPadCore) this.world.getTileEntity(destination);
@@ -374,7 +374,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		// Ke2Sounds.WARP_PAD,
 		// SoundCategory.BLOCKS, 20.0f, 1.0f);
 	}
-
+	
 	public void warp() {
 		BlockPos minorCorner = new BlockPos(this.pos.getX() - 1, this.pos.getY() + 1, this.pos.getZ() - 1);
 		BlockPos majorCorner = new BlockPos(this.pos.getX() + 2, this.pos.getY() + 5, this.pos.getZ() + 2);
@@ -411,7 +411,7 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		this.remainingCooldownTicks = TileEntityWarpPadCore.TICKS_FOR_COOLDOWN;
 		this.setDirty();
 	}
-
+	
 	public static TileEntityWarpPadCore getEntityPad(Entity entityIn) {
 		for (int i = -1; i <= 1; ++i) {
 			for (int j = -1; j <= 1; ++j) {
@@ -423,11 +423,11 @@ public class TileEntityWarpPadCore extends TileEntity implements ITickable {
 		}
 		return null;
 	}
-
+	
 	public boolean isWarping() {
 		return this.warping || this.cooling;
 	}
-
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public AxisAlignedBB getRenderBoundingBox() {

@@ -23,11 +23,11 @@ public class ModelGem extends ModelBiped {
 	public float flowerOffsetX;
 	public float flowerOffsetY;
 	public float flowerOffsetZ;
-
+	
 	public ModelGem(float modelSize, float offset, int width, int height) {
 		super(modelSize, offset, width, height);
 	}
-
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
@@ -35,7 +35,7 @@ public class ModelGem extends ModelBiped {
 			this.setLivingAnimations((EntityLivingBase) entity, limbSwingAmount, ageInTicks, ageInTicks % 1.0F);
 		}
 	}
-
+	
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float limbSwingAmount, float ageInTicks, float partialTickTime) {
 		this.rightArmPose = ModelBiped.ArmPose.EMPTY;
@@ -56,8 +56,8 @@ public class ModelGem extends ModelBiped {
 		}
 		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
 	}
-
+	
 	public void renderGemOnBody(int pos, float scale) {
-
+		
 	}
 }

@@ -15,7 +15,7 @@ public class ExitHole {
 	private final boolean direction;
 	private final boolean addSlabs;
 	private final int minY;
-
+	
 	public ExitHole(BlockPos[] blocks, EnumFacing facing, boolean canCreate, boolean meltRocks, boolean direction, boolean addSlabs, int y) {
 		this.blocks = blocks;
 		this.facing = facing;
@@ -25,23 +25,23 @@ public class ExitHole {
 		this.addSlabs = addSlabs;
 		this.minY = y;
 	}
-
+	
 	public EnumFacing getFacing() {
 		return this.facing;
 	}
-
+	
 	public float getAngle() {
 		return this.facing.getHorizontalAngle();
 	}
-
+	
 	public boolean canCreate() {
 		return this.canCreate;
 	}
-
+	
 	public boolean createRockMelt() {
 		return this.meltRocks;
 	}
-
+	
 	public void emerge(World world) {
 		for (BlockPos block : this.blocks) {
 			world.destroyBlock(block, false);
@@ -59,7 +59,7 @@ public class ExitHole {
 			}
 		}
 	}
-
+	
 	public static ExitHole create(World world, BlockPos pos, double height, double width, boolean meltRocks) {
 		ArrayList<BlockPos> blocksToDelete = new ArrayList<BlockPos>();
 		PriorityQueue<ExitPotential> exitQueue = new PriorityQueue<ExitPotential>(4, new ExitPotential());

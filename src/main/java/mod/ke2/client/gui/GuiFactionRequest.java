@@ -12,17 +12,17 @@ import net.minecraft.entity.player.EntityPlayer;
 public class GuiFactionRequest extends GuiScreen {
 	private final EntityPlayer requester;
 	private final EntityPlayer responder;
-
+	
 	public GuiFactionRequest(EntityPlayer requester, EntityPlayer responder) {
 		this.requester = requester;
 		this.responder = responder;
 	}
-
+	
 	@Override
 	public boolean doesGuiPauseGame() {
 		return false;
 	}
-
+	
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		if (this.buttonList.size() == 2) {
@@ -39,7 +39,7 @@ public class GuiFactionRequest extends GuiScreen {
 			this.addButton(new GuiButton(1, 0, 0, 50, 20, "No"));
 		}
 	}
-
+	
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
 		Minecraft.getMinecraft().player.closeScreen();

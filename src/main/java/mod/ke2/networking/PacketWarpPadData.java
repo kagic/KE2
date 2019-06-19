@@ -22,14 +22,14 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class PacketWarpPadData implements IMessage {
 	private NBTTagCompound data;
-
+	
 	public PacketWarpPadData() {
 	}
-
+	
 	public PacketWarpPadData(NBTTagCompound data) {
 		this.data = data;
 	}
-
+	
 	@Override
 	public void fromBytes(ByteBuf buf) {
 		byte[] bytes = new byte[buf.readInt()];
@@ -41,7 +41,7 @@ public class PacketWarpPadData implements IMessage {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@Override
 	public void toBytes(ByteBuf buf) {
 		ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -53,18 +53,18 @@ public class PacketWarpPadData implements IMessage {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public NBTTagCompound getData() {
 		return this.data;
 	}
-
+	
 	public static class Handler implements IMessageHandler<PacketWarpPadData, IMessage> {
 		@Override
 		public IMessage onMessage(PacketWarpPadData message, MessageContext context) {
 			FMLCommonHandler.instance().getWorldThread(context.netHandler).addScheduledTask(() -> this.handle(message, context));
 			return null;
 		}
-
+		
 		private LinkedHashMap<WarpPadPos, WarpPadDataEntry> generate(NBTTagCompound data) {
 			LinkedHashMap<WarpPadPos, WarpPadDataEntry> map = new LinkedHashMap<WarpPadPos, WarpPadDataEntry>();
 			NBTTagList list = data.getTagList("WarpPads", Constants.NBT.TAG_COMPOUND);
@@ -74,7 +74,7 @@ public class PacketWarpPadData implements IMessage {
 			}
 			return map;
 		}
-
+		
 		private void handle(PacketWarpPadData message, MessageContext context) {
 			GuiScreen screen = new GuiWarpPadSelection(this.generate(message.getData()), WarpPadDataEntry.readFromNBT(message.getData()));
 			KAGIC.proxy.openGuiScreen(screen);

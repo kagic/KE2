@@ -26,7 +26,7 @@ public class ModelWatermelonTourmaline extends ModelGem {
 		this.bipedLeftLeg.addBox(0.0F, 0.0F, -3.0F, 6, 20, 6);
 		this.bipedLeftLeg.offsetY = -0.5F;
 	}
-
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -38,7 +38,7 @@ public class ModelWatermelonTourmaline extends ModelGem {
 		this.bipedLeftLeg.render(scale);
 		this.bipedRightLeg.render(scale);
 	}
-
+	
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {

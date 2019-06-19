@@ -34,34 +34,34 @@ public class InjectorResult {
 	private final BlockPos position;
 	private final ExitHole exitHole;
 	private final GemSpawnData data;
-
+	
 	public InjectorResult(EntityGem gem, BlockPos position, ExitHole exitHole, GemSpawnData data) {
 		this.gem = gem;
 		this.position = position;
 		this.exitHole = exitHole;
 		this.data = data;
 	}
-
+	
 	public EntityGem getGem() {
 		return this.gem;
 	}
-
+	
 	public String getName() {
 		return this.gem.getName();
 	}
-
+	
 	public BlockPos getPosition() {
 		return this.position;
 	}
-
+	
 	public GemSpawnData getData() {
 		return this.data;
 	}
-
+	
 	public ExitHole getExitHole() {
 		return this.exitHole;
 	}
-
+	
 	public void generate(World world) {
 		this.exitHole.emerge(world);
 		this.gem.onInitialSpawn(world.getDifficultyForLocation(this.getPosition()), this.data);
@@ -69,11 +69,11 @@ public class InjectorResult {
 			world.spawnEntity(this.gem);
 		}
 	}
-
+	
 	public static InjectorResult create(World world, BlockPos pos, boolean generate) {
 		return InjectorResult.create(world, pos, generate, new UUID(0, 0), -1);
 	}
-
+	
 	public static InjectorResult create(World world, BlockPos pos, boolean generate, UUID owner, int color) {
 		HashMap<ResourceLocation, ArrayList<CruxEntry>> cruxes = Ke2Cruxes.TABLE;
 		ArrayList<CruxCandidate> image = new ArrayList<CruxCandidate>();
@@ -152,7 +152,7 @@ public class InjectorResult {
 		GemSpawnData data = new GemSpawnData(owner, color, random < volume * 0.1, random > volume * 0.8);
 		return new InjectorResult(gem, pos, exit, data);
 	}
-
+	
 	public static void drain(World world, BlockPos pos, Block[] blocks) {
 		if (blocks == null) {
 			blocks = InjectorResult.PURPLE_DRAIN_BLOCKS;
@@ -213,11 +213,11 @@ public class InjectorResult {
 			}
 		}
 	}
-
+	
 	public static void drain(World world, BlockPos pos) {
 		InjectorResult.drain(world, pos, null);
 	}
-
+	
 	public static void drainSlab(World world, BlockPos pos, Block[] blocks) {
 		if (blocks == null) {
 			blocks = InjectorResult.PURPLE_DRAIN_SLABS;
@@ -244,11 +244,11 @@ public class InjectorResult {
 			}
 		}
 	}
-
+	
 	public static void drainSlab(World world, BlockPos pos) {
 		InjectorResult.drainSlab(world, pos, null);
 	}
-
+	
 	public static IBlockState getDrainLily(World world, BlockPos pos) {
 		if (world.provider.isNether()) {
 			return Ke2Blocks.NETHER_DRAIN_LILY.getDefaultState();

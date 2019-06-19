@@ -24,38 +24,38 @@ public class EntityAquamarine extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/color_visor"), VariantColor.class), EntityAquamarine.class);
 	}
 	protected static final DataParameter<Boolean> WINGED = EntityDataManager.<Boolean>createKey(EntityAquamarine.class, DataSerializers.BOOLEAN);
-
+	
 	public EntityAquamarine(World world) {
 		super(world);
 		this.dataManager.register(EntityAquamarine.WINGED, false);
 	}
-
+	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
 		this.setWinged(compound.getBoolean("Winged"));
 	}
-
+	
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
 		compound.setBoolean("Winged", this.isWinged());
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-
+	
 	public void setWinged(boolean winged) {
 		this.dataManager.set(EntityAquamarine.WINGED, winged);
 	}
-
+	
 	public boolean isWinged() {
 		return this.dataManager.get(EntityAquamarine.WINGED);
 	}

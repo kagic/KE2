@@ -19,16 +19,16 @@ public class EntityHiddenite extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/hiddenite/color_skin"), VariantColor.class), EntityHiddenite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/hiddenite/color_visor"), VariantColor.class), EntityHiddenite.class);
 	}
-
+	
 	public EntityHiddenite(World world) {
 		super(world);
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

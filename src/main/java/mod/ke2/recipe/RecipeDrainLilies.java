@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class RecipeDrainLilies implements IRecipe {
 	private ResourceLocation name;
-
+	
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inventory) {
 		for (int slot = 0; slot < inventory.getInventoryStackLimit(); ++slot) {
@@ -35,7 +35,7 @@ public class RecipeDrainLilies implements IRecipe {
 		}
 		return ItemStack.EMPTY;
 	}
-
+	
 	@Override
 	public boolean matches(InventoryCrafting inventory, World world) {
 		int lilies = 0;
@@ -60,33 +60,33 @@ public class RecipeDrainLilies implements IRecipe {
 		}
 		return lilies == 1;
 	}
-
+	
 	@Override
 	public ItemStack getRecipeOutput() {
 		return ItemStack.EMPTY;
 	}
-
+	
 	@Override
 	public Class<IRecipe> getRegistryType() {
 		return IRecipe.class;
 	}
-
+	
 	@Override
 	public boolean canFit(int width, int height) {
 		return width + height >= 1;
 	}
-
+	
 	@Override
 	public IRecipe setRegistryName(ResourceLocation name) {
 		this.name = name;
 		return this;
 	}
-
+	
 	@Override
 	public ResourceLocation getRegistryName() {
 		return this.name;
 	}
-
+	
 	private static NBTTagCompound generateDust(int color) {
 		NBTTagCompound compound = new NBTTagCompound();
 		compound.setInteger("GemstoneColor", color);

@@ -19,16 +19,16 @@ public class EntityEmerald extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/emerald/color_skin"), VariantColor.class), EntityEmerald.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/emerald/color_visor"), VariantColor.class), EntityEmerald.class);
 	}
-
+	
 	public EntityEmerald(World world) {
 		super(world);
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

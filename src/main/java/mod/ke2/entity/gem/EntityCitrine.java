@@ -15,16 +15,16 @@ public class EntityCitrine extends AbstractQuartz {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/citrine/color_visor"), VariantColor.class), EntityCitrine.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/citrine/color_eyes"), VariantColor.class), EntityCitrine.class);
 	}
-
+	
 	public EntityCitrine(World world) {
 		super(world);
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
