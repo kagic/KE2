@@ -11,6 +11,7 @@ public class EntityGemVehicle extends EntityGemMachine {
 	public EntityGemVehicle(World world) {
 		super(world);
 	}
+	
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote) {
@@ -22,41 +23,48 @@ public class EntityGemVehicle extends EntityGemMachine {
 			}
 		}
 		return super.processInteract(player, hand);
-    }
+	}
+	
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		if ((source.getTrueSource() != null && !this.isRidingOrBeingRiddenBy(source.getTrueSource()))) {
+		if (source.getTrueSource() != null && !this.isRidingOrBeingRiddenBy(source.getTrueSource())) {
 			return super.attackEntityFrom(source, amount);
 		}
 		return false;
 	}
+	
 	@Override
 	public void fall(float distance, float damageMultiplier) {
 		return;
 	}
+	
 	@Override
 	public boolean shouldDismountInWater(Entity rider) {
 		return false;
 	}
+	
 	@Override
 	protected float getWaterSlowDown() {
-        return 1.0F;
-    }
-    @Override
+		return 1.0F;
+	}
+	
+	@Override
 	public Entity getControllingPassenger() {
-        for (Entity entity : this.getPassengers()) {
-        	if (entity instanceof EntityPlayer) {
-        		return entity;
-        	}
-        }
-        return null;
-    }
-    @Override
+		for (Entity entity : this.getPassengers()) {
+			if (entity instanceof EntityPlayer) {
+				return entity;
+			}
+		}
+		return null;
+	}
+	
+	@Override
 	protected boolean canFitPassenger(Entity passenger) {
-        return this.getPassengers().isEmpty();
-    }
+		return this.getPassengers().isEmpty();
+	}
+	
 	@Override
 	public boolean canBeSteered() {
 		return true;
-    }
+	}
 }

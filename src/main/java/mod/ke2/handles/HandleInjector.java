@@ -17,27 +17,23 @@ public class HandleInjector {
 		if (state.getBlock() == Blocks.STAINED_GLASS) {
 			metadata = state.getValue(BlockStainedGlass.COLOR).getDyeDamage();
 			state = e.getWorld().getBlockState(e.getPos().down(1));
-			if (state.getBlock() == Blocks.STAINED_GLASS
-			&&  state.getValue(BlockStainedGlass.COLOR).getDyeDamage() == metadata) {
+			if (state.getBlock() == Blocks.STAINED_GLASS && state.getValue(BlockStainedGlass.COLOR).getDyeDamage() == metadata) {
 				state = e.getWorld().getBlockState(e.getPos().down(2));
 				if (state.getBlock() == Blocks.ANVIL) {
 					state = e.getWorld().getBlockState(e.getPos().down(3));
-					if (state.getBlock() == Blocks.DISPENSER
-					&&  state.getValue(BlockDispenser.FACING) == EnumFacing.DOWN) {
+					if (state.getBlock() == Blocks.DISPENSER && state.getValue(BlockDispenser.FACING) == EnumFacing.DOWN) {
 						IBlockState north = e.getWorld().getBlockState(e.getPos().down(3).north());
 						IBlockState south = e.getWorld().getBlockState(e.getPos().down(3).south());
-						IBlockState east  = e.getWorld().getBlockState(e.getPos().down(3).east());
-						IBlockState west  = e.getWorld().getBlockState(e.getPos().down(3).west());
-						if (north.getBlock() == Blocks.IRON_BARS && south.getBlock() == Blocks.IRON_BARS
-						&& east.getBlock() == Blocks.IRON_BARS && west.getBlock() == Blocks.IRON_BARS) {
+						IBlockState east = e.getWorld().getBlockState(e.getPos().down(3).east());
+						IBlockState west = e.getWorld().getBlockState(e.getPos().down(3).west());
+						if (north.getBlock() == Blocks.IRON_BARS && south.getBlock() == Blocks.IRON_BARS && east.getBlock() == Blocks.IRON_BARS && west.getBlock() == Blocks.IRON_BARS) {
 							state = e.getWorld().getBlockState(e.getPos().down(4));
 							if (state.getBlock() == Blocks.HOPPER) {
 								north = e.getWorld().getBlockState(e.getPos().down(4).north());
 								south = e.getWorld().getBlockState(e.getPos().down(4).south());
-								east  = e.getWorld().getBlockState(e.getPos().down(4).east());
-								west  = e.getWorld().getBlockState(e.getPos().down(4).west());
-								if (north.getBlock() == Blocks.IRON_BARS && south.getBlock() == Blocks.IRON_BARS
-								&& east.getBlock() == Blocks.IRON_BARS && west.getBlock() == Blocks.IRON_BARS) {
+								east = e.getWorld().getBlockState(e.getPos().down(4).east());
+								west = e.getWorld().getBlockState(e.getPos().down(4).west());
+								if (north.getBlock() == Blocks.IRON_BARS && south.getBlock() == Blocks.IRON_BARS && east.getBlock() == Blocks.IRON_BARS && west.getBlock() == Blocks.IRON_BARS) {
 									e.getItemInHand().shrink(1);
 									e.getWorld().destroyBlock(e.getPos().down(1), false);
 									e.getWorld().destroyBlock(e.getPos().down(2), false);

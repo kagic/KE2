@@ -8,9 +8,11 @@ import net.minecraft.util.ResourceLocation;
 
 public class LayerUniform implements LayerRenderer<EntityGem> {
 	private final RenderGem<?> renderer;
+	
 	public LayerUniform(RenderGem<?> renderer) {
 		this.renderer = renderer;
 	}
+	
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getOutfitVariant() != null) {
@@ -20,10 +22,11 @@ public class LayerUniform implements LayerRenderer<EntityGem> {
 			float g = ((color & 65280) >> 8) / 255.0F;
 			float b = ((color & 255) >> 0) / 255.0F;
 			GlStateManager.color(r, g, b);
-	        this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-	        GlStateManager.disableBlend();
+			this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			GlStateManager.disableBlend();
 		}
 	}
+	
 	@Override
 	public boolean shouldCombineTextures() {
 		return true;

@@ -19,6 +19,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 public class RenderRutile<T extends EntityRutile> extends RenderGem<T> {
 	private static final ModelRutileTwins DEFECT_MODEL = new ModelRutileTwins();
 	private static final ModelRutile NORMAL_MODEL = new ModelRutile();
+	
 	public RenderRutile(RenderManager manager) {
 		super(manager, RenderRutile.NORMAL_MODEL, 0.5F);
 		this.addLayer(new LayerSkin(this));
@@ -32,13 +33,13 @@ public class RenderRutile<T extends EntityRutile> extends RenderGem<T> {
 		this.addLayer(new LayerHeldItem(this));
 		this.addLayer(new LayerFlower(this));
 	}
+	
 	@Override
 	public void preRenderCallback(T gem, float partialTickTime) {
 		super.preRenderCallback(gem, partialTickTime);
 		if (gem.isDefective()) {
 			this.mainModel = RenderRutile.DEFECT_MODEL;
-		}
-		else {
+		} else {
 			this.mainModel = RenderRutile.NORMAL_MODEL;
 		}
 	}

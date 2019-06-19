@@ -23,6 +23,7 @@ public class RenderJade<T extends EntityJade> extends RenderGem<T> {
 	private static final ModelJadeSpur SPUR_MODEL = new ModelJadeSpur();
 	private static final ModelJadeRack RACK_MODEL = new ModelJadeRack();
 	private static final ModelJadeWorm WORM_MODEL = new ModelJadeWorm();
+	
 	public RenderJade(RenderManager manager) {
 		super(manager, RenderJade.BELL_MODEL, 0.5F);
 		this.addLayer(new LayerSkin(this));
@@ -36,22 +37,23 @@ public class RenderJade<T extends EntityJade> extends RenderGem<T> {
 		this.addLayer(new LayerHeldItem(this));
 		this.addLayer(new LayerFlower(this));
 	}
+	
 	@Override
 	public void preRenderCallback(T gem, float partialTickTime) {
 		super.preRenderCallback(gem, partialTickTime);
 		switch (gem.getJadeShape()) {
-		case "ke2:jade.shape.bell":
-			this.mainModel = RenderJade.BELL_MODEL;
-			break;
-		case "ke2:jade.shape.spur":
-			this.mainModel = RenderJade.SPUR_MODEL;
-			break;
-		case "ke2:jade.shape.rack":
-			this.mainModel = RenderJade.RACK_MODEL;
-			break;
-		case "ke2:jade.shape.worm":
-			this.mainModel = RenderJade.WORM_MODEL;
-			break;
+			case "ke2:jade.shape.bell" :
+				this.mainModel = RenderJade.BELL_MODEL;
+				break;
+			case "ke2:jade.shape.spur" :
+				this.mainModel = RenderJade.SPUR_MODEL;
+				break;
+			case "ke2:jade.shape.rack" :
+				this.mainModel = RenderJade.RACK_MODEL;
+				break;
+			case "ke2:jade.shape.worm" :
+				this.mainModel = RenderJade.WORM_MODEL;
+				break;
 		}
 	}
 }

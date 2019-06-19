@@ -18,6 +18,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 public class TileEntityWailingStone extends TileEntity implements ITickable {
 	private boolean wailing = false;
 	private int ticksExisted = 0;
+	
 	@Override
 	public void update() {
 		++this.ticksExisted;
@@ -51,23 +52,28 @@ public class TileEntityWailingStone extends TileEntity implements ITickable {
 			}
 		}
 	}
+	
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound){
+	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
 		compound.setBoolean("Wailing", this.wailing);
 		return compound;
 	}
+	
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		this.wailing = compound.getBoolean("Wailing");
 	}
+	
 	public boolean isWailing() {
 		return (this.wailing || this.world.isBlockPowered(this.pos)) && this.world.isAirBlock(this.pos.up());
 	}
+	
 	public void setWailing(boolean wailing) {
 		this.wailing = wailing;
 	}
+	
 	public void toggle() {
 		this.wailing = !this.wailing;
 		this.markDirty();

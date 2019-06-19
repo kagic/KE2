@@ -23,37 +23,40 @@ public class ModelGem extends ModelBiped {
 	public float flowerOffsetX;
 	public float flowerOffsetY;
 	public float flowerOffsetZ;
+	
 	public ModelGem(float modelSize, float offset, int width, int height) {
 		super(modelSize, offset, width, height);
-    }
+	}
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
 		if (entity instanceof EntityLivingBase) {
-			this.setLivingAnimations((EntityLivingBase)(entity), limbSwingAmount, ageInTicks, ageInTicks % 1.0F);
+			this.setLivingAnimations((EntityLivingBase) entity, limbSwingAmount, ageInTicks, ageInTicks % 1.0F);
 		}
 	}
+	
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float limbSwingAmount, float ageInTicks, float partialTickTime) {
 		this.rightArmPose = ModelBiped.ArmPose.EMPTY;
 		this.leftArmPose = ModelBiped.ArmPose.EMPTY;
 		if (entity instanceof EntityGem) {
 			ItemStack stack = entity.getHeldItem(EnumHand.MAIN_HAND);
-			EntityGem gem = (EntityGem)(entity);
+			EntityGem gem = (EntityGem) entity;
 			if (stack != null && stack.getItem() == Items.BOW && gem.isSwingingArms()) {
 				if (gem.getPrimaryHand() == EnumHandSide.RIGHT) {
 					this.rightArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
-				}
-				else {
+				} else {
 					this.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
 				}
 			}
 			if (gem.getPose() == EntityGem.Pose.HEAD_BANGING) {
-				this.bipedHead.rotateAngleX = (float)(Math.sin(ageInTicks)) / 5.0F;
+				this.bipedHead.rotateAngleX = (float) Math.sin(ageInTicks) / 5.0F;
 			}
 		}
 		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
 	}
+	
 	public void renderGemOnBody(int pos, float scale) {
 		
 	}

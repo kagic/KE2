@@ -11,13 +11,14 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class PacketWarpPadName implements IMessage{
+public class PacketWarpPadName implements IMessage {
 	private String name;
 	private int x;
 	private int y;
 	private int z;
 	
-	public PacketWarpPadName() {}
+	public PacketWarpPadName() {
+	}
 	
 	public PacketWarpPadName(String name, int x, int y, int z) {
 		this.name = name;
@@ -45,7 +46,7 @@ public class PacketWarpPadName implements IMessage{
 	public static class Handler implements IMessageHandler<PacketWarpPadName, IMessage> {
 		@Override
 		public IMessage onMessage(PacketWarpPadName message, MessageContext context) {
-			FMLCommonHandler.instance().getWorldThread(context.netHandler).addScheduledTask(() -> handle(message, context));
+			FMLCommonHandler.instance().getWorldThread(context.netHandler).addScheduledTask(() -> this.handle(message, context));
 			return null;
 		}
 		

@@ -19,13 +19,16 @@ public class EntityMotherOfPearl extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_skin"), VariantColor.class), EntityMotherOfPearl.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/mother_of_pearl/color_visor"), VariantColor.class), EntityMotherOfPearl.class);
 	}
+	
 	public EntityMotherOfPearl(World world) {
 		super(world);
 	}
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

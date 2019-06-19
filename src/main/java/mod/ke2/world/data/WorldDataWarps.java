@@ -18,6 +18,7 @@ import net.minecraft.world.storage.WorldSavedData;
 
 public class WorldDataWarps extends WorldSavedData {
 	private static final String NAMESPACE = "ke2_warp_pads";
+	
 	public static WorldDataWarps get(World world) {
 		if (!world.isRemote) {
 			MapStorage storage = world.getPerWorldStorage();
@@ -30,13 +31,17 @@ public class WorldDataWarps extends WorldSavedData {
 		}
 		return null;
 	}
+	
 	private final HashMap<WarpPadPos, WarpPadDataEntry> warps = new HashMap<WarpPadPos, WarpPadDataEntry>();
+	
 	public WorldDataWarps() {
 		super(WorldDataWarps.NAMESPACE);
 	}
+	
 	public WorldDataWarps(String identifier) {
 		super(identifier);
 	}
+	
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		NBTTagList list = new NBTTagList();
@@ -47,6 +52,7 @@ public class WorldDataWarps extends WorldSavedData {
 		compound.setTag("WarpPads", list);
 		return compound;
 	}
+	
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		NBTTagList list = compound.getTagList("WarpPads", 10);
@@ -55,22 +61,27 @@ public class WorldDataWarps extends WorldSavedData {
 			this.warps.put(entry.getPos(), entry);
 		}
 	}
+	
 	public void addWarpPadEntry(String name, boolean valid, boolean clear, WarpPadPos pos) {
 		this.warps.put(pos, new WarpPadDataEntry(name, valid, clear, pos));
 		this.markDirty();
 	}
+	
 	public void removeWarpPadEntry(WarpPadPos pos) {
 		if (this.warps.containsKey(pos)) {
 			this.warps.remove(pos);
 			this.markDirty();
 		}
 	}
+	
 	public WarpPadDataEntry getWarpPadEntry(WarpPadPos pos) {
 		return this.warps.get(pos);
 	}
+	
 	public HashMap<WarpPadPos, WarpPadDataEntry> getWarpPadData() {
 		return this.warps;
 	}
+	
 	public static SortedMap<Double, WarpPadDataEntry> getSortedPositions(HashMap<WarpPadPos, WarpPadDataEntry> data, BlockPos pos) {
 		SortedMap<Double, WarpPadDataEntry> sortedWarpPads = new TreeMap<Double, WarpPadDataEntry>();
 		Set<Entry<WarpPadPos, WarpPadDataEntry>> set = data.entrySet();

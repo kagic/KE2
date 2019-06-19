@@ -24,8 +24,10 @@ public class ModelBubble extends ModelBase {
 	public ModelRenderer corner4;
 	public ModelRenderer bottom;
 	public ModelRenderer top;
+	
 	public ModelBubble() {
-		this.textureHeight = 16; this.textureWidth = 24;
+		this.textureHeight = 16;
+		this.textureWidth = 24;
 		this.anteLat1 = new ModelRenderer(this, 0, 0);
 		this.anteLat1.addBox(-4, -5, 4, 8, 1, 1);
 		this.anteLat1.setRotationPoint(0, 0, 0);
@@ -75,20 +77,21 @@ public class ModelBubble extends ModelBase {
 		this.corner4.addBox(-5, -4, 4, 1, 8, 1);
 		this.corner4.setRotationPoint(0, 0, 0);
 		this.bottom = new ModelRenderer(this, 0, 0);
-		this.bottom.addBox(-4, -6, -4,  8, 1, 8);
+		this.bottom.addBox(-4, -6, -4, 8, 1, 8);
 		this.bottom.setRotationPoint(0, 0, 0);
 		this.top = new ModelRenderer(this, 0, 0);
-		this.top.addBox(-4,  5, -4,  8, 1, 8);
+		this.top.addBox(-4, 5, -4, 8, 1, 8);
 		this.top.setRotationPoint(0, 0, 0);
 	}
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
 		GlStateManager.pushMatrix();
 		GlStateManager.translate(0, 1.28, 0);
-        GlStateManager.scale(0.5, 0.5, 0.5);
-        GlStateManager.rotate(ageInTicks, 1, 1, 1);
-        this.anteLat1.render(scale);
+		GlStateManager.scale(0.5, 0.5, 0.5);
+		GlStateManager.rotate(ageInTicks, 1, 1, 1);
+		this.anteLat1.render(scale);
 		this.simmLat1.render(scale);
 		this.postLat1.render(scale);
 		this.anteLat2.render(scale);
@@ -106,6 +109,6 @@ public class ModelBubble extends ModelBase {
 		this.corner4.render(scale);
 		this.bottom.render(scale);
 		this.top.render(scale);
-        GlStateManager.popMatrix();
+		GlStateManager.popMatrix();
 	}
 }

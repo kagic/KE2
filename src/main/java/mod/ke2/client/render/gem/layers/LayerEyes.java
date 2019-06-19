@@ -8,9 +8,11 @@ import net.minecraft.util.ResourceLocation;
 
 public class LayerEyes implements LayerRenderer<AbstractQuartz> {
 	private final RenderLivingBase<?> renderer;
+	
 	public LayerEyes(RenderLivingBase<?> renderer) {
 		this.renderer = renderer;
 	}
+	
 	@Override
 	public void doRenderLayer(AbstractQuartz quartz, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (quartz.getEyesVariant() != null) {
@@ -21,10 +23,11 @@ public class LayerEyes implements LayerRenderer<AbstractQuartz> {
 			float g = ((color & 65280) >> 8) / 255.0F;
 			float b = ((color & 255) >> 0) / 255.0F;
 			GlStateManager.color(r, g, b);
-	        this.renderer.getMainModel().render(quartz, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-	        GlStateManager.disableBlend();
+			this.renderer.getMainModel().render(quartz, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+			GlStateManager.disableBlend();
 		}
 	}
+	
 	@Override
 	public boolean shouldCombineTextures() {
 		return false;

@@ -13,16 +13,21 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 public class PacketWarpPadSignal implements IMessage {
 	private BlockPos sourcePad;
 	private BlockPos destinationPad;
+	
 	public PacketWarpPadSignal(BlockPos source, BlockPos dest) {
 		this.sourcePad = source;
 		this.destinationPad = dest;
 	}
-	public PacketWarpPadSignal() {}
+	
+	public PacketWarpPadSignal() {
+	}
+	
 	@Override
 	public void fromBytes(ByteBuf buf) {
 		this.sourcePad = new BlockPos(buf.readInt(), buf.readInt(), buf.readInt());
 		this.destinationPad = new BlockPos(buf.readInt(), buf.readInt(), buf.readInt());
 	}
+	
 	@Override
 	public void toBytes(ByteBuf buf) {
 		buf.writeInt(this.sourcePad.getX());
@@ -32,12 +37,14 @@ public class PacketWarpPadSignal implements IMessage {
 		buf.writeInt(this.destinationPad.getY());
 		buf.writeInt(this.destinationPad.getZ());
 	}
+	
 	public static class Handler implements IMessageHandler<PacketWarpPadSignal, IMessage> {
 		@Override
 		public IMessage onMessage(PacketWarpPadSignal message, MessageContext ctx) {
-			FMLCommonHandler.instance().getWorldThread(ctx.netHandler).addScheduledTask(() -> handle(message, ctx));
+			FMLCommonHandler.instance().getWorldThread(ctx.netHandler).addScheduledTask(() -> this.handle(message, ctx));
 			return null;
 		}
+		
 		private void handle(PacketWarpPadSignal message, MessageContext ctx) {
 			EntityPlayerMP playerEntity = ctx.getServerHandler().player;
 			World world = playerEntity.getEntityWorld();

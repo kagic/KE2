@@ -24,8 +24,8 @@ public class HandlePalanquin {
 				for (int x = -1; x <= 1; ++x) {
 					for (int z = -1; z <= 1; ++z) {
 						state = e.getWorld().getBlockState(e.getPos().add(x, -1, z));
-						if (state.getBlock() == Blocks.CONCRETE && state.getValue(BlockColored.COLOR).getDyeDamage() == bodyColor) { }
-						else {
+						if (state.getBlock() == Blocks.CONCRETE && state.getValue(BlockColored.COLOR).getDyeDamage() == bodyColor) {
+						} else {
 							failed = true;
 							break;
 						}
@@ -35,7 +35,8 @@ public class HandlePalanquin {
 					}
 				}
 				if (!failed) {
-					int airX = 0; int airZ = 0;
+					int airX = 0;
+					int airZ = 0;
 					for (int y = 0; y <= 3; ++y) {
 						for (int x = -1; x <= 1; ++x) {
 							for (int z = -1; z <= 1; ++z) {
@@ -46,47 +47,39 @@ public class HandlePalanquin {
 											failed = true;
 											break;
 										}
-									}
-									else {
+									} else {
 										if (state.getBlock() != Blocks.AIR) {
 											failed = true;
 											break;
 										}
 									}
-								}
-								else {
+								} else {
 									System.out.println(state);
 									if (state.getBlock() == Blocks.AIR) {
 										if (y == 0) {
-											airX = x; airZ = z;
-										}
-										else if (airX == x && airZ == z) {
+											airX = x;
+											airZ = z;
+										} else if (airX == x && airZ == z) {
 											continue;
-										}
-										else {
+										} else {
 											failed = true;
 											break;
 										}
-									}
-									else {
+									} else {
 										if (airX == x && airZ == z) {
 											failed = true;
 											break;
-										}
-										else {
+										} else {
 											if (state.getBlock() == Blocks.STAINED_GLASS) {
 												if (veilColor == -1) {
 													veilColor = state.getValue(BlockStainedGlass.COLOR).getDyeDamage();
-												}
-												else if (state.getValue(BlockStainedGlass.COLOR).getDyeDamage() == veilColor) {
+												} else if (state.getValue(BlockStainedGlass.COLOR).getDyeDamage() == veilColor) {
 													continue;
-												}
-												else {
+												} else {
 													failed = true;
 													break;
 												}
-											}
-											else {
+											} else {
 												failed = true;
 												break;
 											}
@@ -107,8 +100,8 @@ public class HandlePalanquin {
 					for (int x = -1; x <= 1; ++x) {
 						for (int z = -1; z <= 1; ++z) {
 							state = e.getWorld().getBlockState(e.getPos().add(x, 4, z));
-							if (state.getBlock() == Blocks.CONCRETE && state.getValue(BlockColored.COLOR).getDyeDamage() == bodyColor) { }
-							else {
+							if (state.getBlock() == Blocks.CONCRETE && state.getValue(BlockColored.COLOR).getDyeDamage() == bodyColor) {
+							} else {
 								failed = true;
 								break;
 							}

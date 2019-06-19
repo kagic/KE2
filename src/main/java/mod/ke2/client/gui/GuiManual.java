@@ -14,15 +14,14 @@ public class GuiManual extends GuiScreen {
 	int guiWidth = 146;
 	int guiHeight = 180;
 	
-	
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
-		drawDefaultBackground();
-		Minecraft.getMinecraft().renderEngine.bindTexture(texture);
-		int centreX = (width / 2) - guiWidth / 2;
-		int centreY = (height / 2) - guiHeight / 2;
-		drawTexturedModalRect(centreX, centreY, 0, 0, guiWidth, guiHeight);
-		drawString(mc.fontRenderer, "Test!", centreX + 15, centreY + 15, 0xffffff);
+		this.drawDefaultBackground();
+		Minecraft.getMinecraft().renderEngine.bindTexture(this.texture);
+		int centreX = this.width / 2 - this.guiWidth / 2;
+		int centreY = this.height / 2 - this.guiHeight / 2;
+		this.drawTexturedModalRect(centreX, centreY, 0, 0, this.guiWidth, this.guiHeight);
+		this.drawString(this.mc.fontRenderer, "Test!", centreX + 15, centreY + 15, 0xffffff);
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
 	
@@ -45,6 +44,5 @@ public class GuiManual extends GuiScreen {
 	public void onGuiClosed() {
 		super.onGuiClosed();
 	}
-	
 	
 }

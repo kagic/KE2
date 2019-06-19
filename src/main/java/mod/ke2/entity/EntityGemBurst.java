@@ -19,16 +19,16 @@ public class EntityGemBurst extends EntityGem {
 		super(world);
 		this.setSize(1.0F, 2.0F);
 	}
+	
 	@Override
 	public void onUpdate() {
 		int color = this.getInsigniaColor() == -1 ? this.rand.nextInt(16) : this.getInsigniaColor();
 		List<EntityLivingBase> entities = this.world.<EntityLivingBase>getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox().grow(6.0, 2.0, 6.0));
 		for (EntityLivingBase entity : entities) {
-			if (!entity.equals(this) && !entity.isImmuneToFire() && entity.canEntityBeSeen(this)) {
-				entity.setFire(5);
-			}
 			if (entity instanceof EntitySheep) {
 				entity.setCustomNameTag("jeb_");
+			} else if (!entity.equals(this) && !entity.isImmuneToFire() && entity.canEntityBeSeen(this)) {
+				entity.setFire(5);
 			}
 		}
 		if (!this.hasNoGravity()) {
@@ -41,25 +41,23 @@ public class EntityGemBurst extends EntityGem {
 				this.dropItem(Ke2Items.GEM_DUST, 1);
 			}
 			this.setDead();
-		}
-		else {
+		} else {
 			for (int i = 0; i < 48; ++i) {
-				KAGIC.proxy.addParticle(Ke2Particles.SHARD, this.world,
-					this.posX + this.rand.nextDouble() - 0.5, this.posY + this.rand.nextDouble() - 0.5, this.posZ + this.rand.nextDouble() - 0.5,
-					this.rand.nextDouble() * 1.5 - 0.5, this.rand.nextDouble() * 1.5 - 0.5, this.rand.nextDouble() * 1.5 - 0.5,
-					EnumDyeColor.values()[color].getColorValue()
-				);
+				KAGIC.proxy.addParticle(Ke2Particles.SHARD, this.world, this.posX + this.rand.nextDouble() - 0.5, this.posY + this.rand.nextDouble() - 0.5, this.posZ + this.rand.nextDouble() - 0.5, this.rand.nextDouble() * 1.5 - 0.5, this.rand.nextDouble() * 1.5 - 0.5, this.rand.nextDouble() * 1.5 - 0.5, EnumDyeColor.values()[color].getColorValue());
 			}
 		}
 	}
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	
 	@Override
 	public int generateGemstoneCut() {
 		return -1;
 	}
+	
 	@Override
 	public ItemStack generateGemstoneItem() {
 		return ItemStack.EMPTY;

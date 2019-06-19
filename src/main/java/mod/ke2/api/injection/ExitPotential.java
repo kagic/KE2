@@ -14,12 +14,14 @@ public class ExitPotential implements Comparator<ExitPotential> {
 		this.length = 9;
 		this.direction = 'o';
 	}
+	
 	public ExitPotential(boolean canSeeSky, int lightLevel, int length, char direction) {
 		this.canSeeSky = canSeeSky;
 		this.lightLevel = lightLevel;
 		this.length = length;
 		this.direction = direction;
 	}
+	
 	@Override
 	public int compare(ExitPotential arg0, ExitPotential arg1) {
 		if (arg0.canSeeSky && !arg1.canSeeSky) {

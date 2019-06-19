@@ -6,8 +6,8 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class ModelWatermelonTourmaline extends ModelGem {
-    public ModelWatermelonTourmaline() {
-    	super(0.0F, 0.0F, 96, 80);
+	public ModelWatermelonTourmaline() {
+		super(0.0F, 0.0F, 96, 80);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-4.0F, -12.0F, -4.0F, 8, 8, 8);
 		this.bipedHead.offsetY = -1.0F;
@@ -25,9 +25,10 @@ public class ModelWatermelonTourmaline extends ModelGem {
 		this.bipedLeftLeg = new ModelRenderer(this, 0, 46);
 		this.bipedLeftLeg.addBox(0.0F, 0.0F, -3.0F, 6, 20, 6);
 		this.bipedLeftLeg.offsetY = -0.5F;
-    }
-    @Override
-    public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
+	}
+	
+	@Override
+	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		this.bipedHead.render(scale);
 		this.bipedHeadwear.render(scale);
@@ -37,44 +38,45 @@ public class ModelWatermelonTourmaline extends ModelGem {
 		this.bipedLeftLeg.render(scale);
 		this.bipedRightLeg.render(scale);
 	}
+	
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {
-			case Ke2Gems.GEMSTONE_FOREHEAD:
+			case Ke2Gems.GEMSTONE_FOREHEAD :
 				break;
-			case Ke2Gems.GEMSTONE_BACK_OF_HEAD:
+			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_EYE:
+			case Ke2Gems.GEMSTONE_RIGHT_EYE :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_EYE:
+			case Ke2Gems.GEMSTONE_LEFT_EYE :
 				break;
-			case Ke2Gems.GEMSTONE_NOSE:
+			case Ke2Gems.GEMSTONE_NOSE :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER:
+			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_SHOULDER:
+			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_HAND:
+			case Ke2Gems.GEMSTONE_RIGHT_HAND :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_HAND:
+			case Ke2Gems.GEMSTONE_LEFT_HAND :
 				break;
-			case Ke2Gems.GEMSTONE_CHEST:
+			case Ke2Gems.GEMSTONE_CHEST :
 				break;
-			case Ke2Gems.GEMSTONE_BACK:
+			case Ke2Gems.GEMSTONE_BACK :
 				break;
-			case Ke2Gems.GEMSTONE_NAVEL:
+			case Ke2Gems.GEMSTONE_NAVEL :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_THIGH:
+			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_THIGH:
+			case Ke2Gems.GEMSTONE_LEFT_THIGH :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_KNEE:
+			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_KNEE:
+			case Ke2Gems.GEMSTONE_LEFT_KNEE :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_FOOT:
+			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_FOOT:
+			case Ke2Gems.GEMSTONE_LEFT_FOOT :
 				break;
 		}
 	}

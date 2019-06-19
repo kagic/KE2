@@ -19,13 +19,16 @@ public class EntityNephrite extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/nephrite/color_skin"), VariantColor.class), EntityNephrite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/nephrite/color_visor"), VariantColor.class), EntityNephrite.class);
 	}
+	
 	public EntityNephrite(World world) {
 		super(world);
 	}
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

@@ -50,100 +50,106 @@ import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import net.minecraftforge.items.wrapper.InvWrapper;
 
 public abstract class EntityGem extends EntityGemBase implements IGem, IInventoryChangedListener, IRangedAttackMob, IEntityAdditionalSpawnData {
-	public static final String[] BLACKLISTED_NBT_TAGS = new String[] { "Pos", "Motion", "Rotation", "FallDistance", "Fire", "Air", "OnGround", "Dimension", "Invulnerable", "PortalCooldown", "UUID", "NoGravity", "Glowing", "Passengers", "NoAI", "Health", "HurtTime", "HurtByTimestamp", "DeathTime", "AbsorptionAmount", "ActiveEffects", "GemstoneItem" };
-	public enum Pose {
-		DEFAULT,
-		NOCKING_BOW,
-		FLAILING,
-		USING_POWERS,
-		SALUTING,
-		WAVING,
-		DABBING,
-		POSSESSED,
-		YELLING,
-		HEAD_BANGING
-	}
-	protected static final DataParameter<Optional<UUID>> GEM_UNIQUE_ID 		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
-	protected static final DataParameter<Optional<UUID>> GEM_FACTION_ID 		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
-	protected static final DataParameter<Optional<UUID>> GEM_LEADER_ID		= EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);	
-	protected static final DataParameter<Integer>		 GEM_ALIGNMENT 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Float>			 GEM_EMOTION 		= EntityDataManager.<Float>createKey(EntityGem.class, DataSerializers.FLOAT);
-	protected static final DataParameter<Integer> 		 POSE	 			= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Boolean> 		 IS_HIGHLIGHTED 	= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
-	protected static final DataParameter<BlockPos> 		 ORIGINAL_POS 		= EntityDataManager.<BlockPos>createKey(EntityGem.class, DataSerializers.BLOCK_POS);
-	protected static final DataParameter<Integer> 		 ORIGINAL_DIM 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Integer>		 COLOR_DYE_INSIGNIA = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Integer>		 COLOR_RGB_OUTFIT 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Integer>		 COLOR_RGB_VISOR 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Integer>		 COLOR_RGB_SKIN 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Integer>		 COLOR_RGB_HAIR 	= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Integer>	 	 COLOR_RGB_GEMSTONE = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<String>		 VARIANT_OUTFIT		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
-	protected static final DataParameter<String>		 VARIANT_HAIR		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
-	protected static final DataParameter<String>		 VARIANT_SKIN		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
-	protected static final DataParameter<String>		 VARIANT_NAME		= EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
-	protected static final DataParameter<Integer>		 GEMSTONE_POS 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<Integer>		 GEMSTONE_CUT 		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	protected static final DataParameter<ItemStack>		 GEMSTONE_ITEM 		= EntityDataManager.<ItemStack>createKey(EntityGem.class, DataSerializers.ITEM_STACK);
-	protected static final DataParameter<Boolean>		 IS_DEFECTIVE		= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
-	protected static final DataParameter<Boolean>		 IS_PERFECT			= EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
-	protected static final DataParameter<Integer>		 FLOWER_IN_HAIR		= EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	public static final String[] BLACKLISTED_NBT_TAGS = new String[]{"Pos", "Motion", "Rotation", "FallDistance", "Fire", "Air", "OnGround", "Dimension", "Invulnerable", "PortalCooldown", "UUID", "NoGravity", "Glowing", "Passengers", "NoAI", "Health", "HurtTime", "HurtByTimestamp", "DeathTime", "AbsorptionAmount", "ActiveEffects", "GemstoneItem"};
 	
-	/** If true, then the gem is 50% size when defective and 150% size when perfective. */
+	public enum Pose {
+		DEFAULT, NOCKING_BOW, FLAILING, USING_POWERS, SALUTING, WAVING, DABBING, POSSESSED, YELLING, HEAD_BANGING
+	}
+	
+	protected static final DataParameter<Optional<UUID>> GEM_UNIQUE_ID = EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);
+	protected static final DataParameter<Optional<UUID>> GEM_FACTION_ID = EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);
+	protected static final DataParameter<Optional<UUID>> GEM_LEADER_ID = EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);
+	protected static final DataParameter<Integer> GEM_ALIGNMENT = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Float> GEM_EMOTION = EntityDataManager.<Float>createKey(EntityGem.class, DataSerializers.FLOAT);
+	protected static final DataParameter<Integer> POSE = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Boolean> IS_HIGHLIGHTED = EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
+	protected static final DataParameter<BlockPos> ORIGINAL_POS = EntityDataManager.<BlockPos>createKey(EntityGem.class, DataSerializers.BLOCK_POS);
+	protected static final DataParameter<Integer> ORIGINAL_DIM = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Integer> COLOR_DYE_INSIGNIA = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Integer> COLOR_RGB_OUTFIT = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Integer> COLOR_RGB_VISOR = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Integer> COLOR_RGB_SKIN = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Integer> COLOR_RGB_HAIR = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Integer> COLOR_RGB_GEMSTONE = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<String> VARIANT_OUTFIT = EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
+	protected static final DataParameter<String> VARIANT_HAIR = EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
+	protected static final DataParameter<String> VARIANT_SKIN = EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
+	protected static final DataParameter<String> VARIANT_NAME = EntityDataManager.<String>createKey(EntityGem.class, DataSerializers.STRING);
+	protected static final DataParameter<Integer> GEMSTONE_POS = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<Integer> GEMSTONE_CUT = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	protected static final DataParameter<ItemStack> GEMSTONE_ITEM = EntityDataManager.<ItemStack>createKey(EntityGem.class, DataSerializers.ITEM_STACK);
+	protected static final DataParameter<Boolean> IS_DEFECTIVE = EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
+	protected static final DataParameter<Boolean> IS_PERFECT = EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
+	protected static final DataParameter<Integer> FLOWER_IN_HAIR = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
+	
+	/**
+	 * If true, then the gem is 50% size when defective and
+	 * 150% size when perfective.
+	 */
 	protected boolean changesScaleBasedOnCondition = true;
-	/** Default outfit color is analog to KAGIC's native color. */
+	/**
+	 * Default outfit color is analog to KAGIC's native
+	 * color.
+	 */
 	protected int defaultOutfitColor = 0;
-	/** Eye height placeholder value used for scaling with height. */
+	/**
+	 * Eye height placeholder value used for scaling with
+	 * height.
+	 */
 	protected float eyeHeight = 0.85F;
 	
 	/** Handles inventory events for AI purposes. */
 	public InvWrapper storageHandler;
-	/** Gem storage, all gems have this but, not all use it though. */
+	/**
+	 * Gem storage, all gems have this but, not all use it
+	 * though.
+	 */
 	public InventoryBasic inventory;
 	
 	public double prevChasingPosX;
-    public double prevChasingPosY;
-    public double prevChasingPosZ;
-    public double chasingPosX;
-    public double chasingPosY;
-    public double chasingPosZ;
+	public double prevChasingPosY;
+	public double prevChasingPosZ;
+	public double chasingPosX;
+	public double chasingPosY;
+	public double chasingPosZ;
 	
 	public EntityGem(World world) {
 		super(world);
 		this.tasks.addTask(7, new EntityAIWatchClosest(this, Entity.class, 8.0F));
 		this.tasks.addTask(7, new EntityAIWander(this, 0.3D));
-		this.dataManager.register(GEM_UNIQUE_ID, Optional.absent());
-		this.dataManager.register(GEM_FACTION_ID, Optional.absent());
-		this.dataManager.register(GEM_LEADER_ID, Optional.absent());
-		this.dataManager.register(GEM_ALIGNMENT, 0);
-		this.dataManager.register(GEM_EMOTION, Ke2Gems.EMOTION_HAPPY);
-		this.dataManager.register(POSE, 0);
-		this.dataManager.register(IS_HIGHLIGHTED, false);
-		this.dataManager.register(ORIGINAL_POS, BlockPos.ORIGIN);
-		this.dataManager.register(ORIGINAL_DIM, 0);
-		this.dataManager.register(COLOR_DYE_INSIGNIA, -1);
-		this.dataManager.register(COLOR_RGB_OUTFIT, 0);
-		this.dataManager.register(COLOR_RGB_VISOR, 0);
-		this.dataManager.register(COLOR_RGB_SKIN, 0);
-		this.dataManager.register(COLOR_RGB_HAIR, 0);
-		this.dataManager.register(COLOR_RGB_GEMSTONE, 0);
-		this.dataManager.register(VARIANT_OUTFIT, "");
-		this.dataManager.register(VARIANT_HAIR, "");
-		this.dataManager.register(VARIANT_SKIN, "");
-		this.dataManager.register(VARIANT_NAME, "");
-		this.dataManager.register(GEMSTONE_POS, -1);
-		this.dataManager.register(GEMSTONE_CUT, -1);
-		this.dataManager.register(GEMSTONE_ITEM, ItemStack.EMPTY);
-		this.dataManager.register(IS_DEFECTIVE, false);
-		this.dataManager.register(IS_PERFECT, false);
-		this.dataManager.register(FLOWER_IN_HAIR, 0);
+		this.dataManager.register(EntityGem.GEM_UNIQUE_ID, Optional.absent());
+		this.dataManager.register(EntityGem.GEM_FACTION_ID, Optional.absent());
+		this.dataManager.register(EntityGem.GEM_LEADER_ID, Optional.absent());
+		this.dataManager.register(EntityGem.GEM_ALIGNMENT, 0);
+		this.dataManager.register(EntityGem.GEM_EMOTION, Ke2Gems.EMOTION_HAPPY);
+		this.dataManager.register(EntityGem.POSE, 0);
+		this.dataManager.register(EntityGem.IS_HIGHLIGHTED, false);
+		this.dataManager.register(EntityGem.ORIGINAL_POS, BlockPos.ORIGIN);
+		this.dataManager.register(EntityGem.ORIGINAL_DIM, 0);
+		this.dataManager.register(EntityGem.COLOR_DYE_INSIGNIA, -1);
+		this.dataManager.register(EntityGem.COLOR_RGB_OUTFIT, 0);
+		this.dataManager.register(EntityGem.COLOR_RGB_VISOR, 0);
+		this.dataManager.register(EntityGem.COLOR_RGB_SKIN, 0);
+		this.dataManager.register(EntityGem.COLOR_RGB_HAIR, 0);
+		this.dataManager.register(EntityGem.COLOR_RGB_GEMSTONE, 0);
+		this.dataManager.register(EntityGem.VARIANT_OUTFIT, "");
+		this.dataManager.register(EntityGem.VARIANT_HAIR, "");
+		this.dataManager.register(EntityGem.VARIANT_SKIN, "");
+		this.dataManager.register(EntityGem.VARIANT_NAME, "");
+		this.dataManager.register(EntityGem.GEMSTONE_POS, -1);
+		this.dataManager.register(EntityGem.GEMSTONE_CUT, -1);
+		this.dataManager.register(EntityGem.GEMSTONE_ITEM, ItemStack.EMPTY);
+		this.dataManager.register(EntityGem.IS_DEFECTIVE, false);
+		this.dataManager.register(EntityGem.IS_PERFECT, false);
+		this.dataManager.register(EntityGem.FLOWER_IN_HAIR, 0);
 		this.setAlwaysRenderNameTag(true);
 	}
+	
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
 		this.setGemUniqueID(UUID.randomUUID());
 		if (data instanceof GemSpawnData) {
-			GemSpawnData gemSpawnData = (GemSpawnData)(data);
+			GemSpawnData gemSpawnData = (GemSpawnData) data;
 			this.setFactionID(gemSpawnData.getOwner());
 			this.setGemAlignment(Ke2Gems.ALIGNED_WITH_PLAYERS);
 			this.setInsigniaColor(gemSpawnData.getColor());
@@ -169,6 +175,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.stepHeight = Math.min(0.5F, this.height / 2);
 		return data;
 	}
+	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
@@ -213,6 +220,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.setGemstoneCut(compound.getInteger("GemstoneCut"));
 		this.setGemstoneItem(new ItemStack(compound.getCompoundTag("GemstoneItem")));
 	}
+	
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
@@ -248,10 +256,9 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		NBTTagList inventory = new NBTTagList();
 		for (int i = 0; i < this.inventory.getSizeInventory(); ++i) {
 			ItemStack stack = this.inventory.getStackInSlot(i);
-			if (stack.getTagCompound() == null ||
-			   !stack.getTagCompound().getBoolean("IsGem")) {
+			if (stack.getTagCompound() == null || !stack.getTagCompound().getBoolean("IsGem")) {
 				NBTTagCompound tag = new NBTTagCompound();
-				tag.setByte("Slot", (byte)(i));
+				tag.setByte("Slot", (byte) i);
 				stack.writeToNBT(tag);
 				inventory.appendTag(tag);
 			}
@@ -262,39 +269,43 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		compound.setInteger("GemstoneCut", this.getGemstoneCut());
 		compound.setTag("GemstoneItem", this.getGemstoneItem().serializeNBT());
 	}
+	
 	@Override
 	public String getName() {
-        if (this.hasCustomName()) {
-            return this.getCustomNameTag();
-        }
-        else {
-            String name = this.getNameVariant();
-            if (name == null || name.isEmpty()) {
-            	name = EntityList.getEntityString(this);
-            	if (name == null) {
-            		name = "gem";
-            	}
-            }
-            return I18n.translateToLocal("entity." + name + ".name");
-        }
-    }
+		if (this.hasCustomName()) {
+			return this.getCustomNameTag();
+		} else {
+			String name = this.getNameVariant();
+			if (name == null || name.isEmpty()) {
+				name = EntityList.getEntityString(this);
+				if (name == null) {
+					name = "gem";
+				}
+			}
+			return I18n.translateToLocal("entity." + name + ".name");
+		}
+	}
+	
 	@Override
 	public boolean canDespawn() {
 		return false;
 	}
+	
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 	}
+	
 	@Override
 	public void onUpdate() {
-        if (!this.world.isRemote && this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
-            this.dead = this.getHealth() > 0;
-        }
-        super.onUpdate();
-        this.motionY *= this.getFallSpeed();
-        this.updateCape();
-    }
+		if (!this.world.isRemote && this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
+			this.dead = this.getHealth() > 0;
+		}
+		super.onUpdate();
+		this.motionY *= this.getFallSpeed();
+		this.updateCape();
+	}
+	
 	@Override
 	protected boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote) {
@@ -305,17 +316,14 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 					if (this.isLeader(player)) {
 						this.tell(player, "I'll stop following you now.");
 						this.setLeader(this);
-					}
-					else {
+					} else {
 						this.tell(player, "I'll follow you now.");
 						this.setLeader(player);
 					}
 				}
-			}
-			else if (this.hasFaction()) {
+			} else if (this.hasFaction()) {
 				this.tell(player, "YOU DON'T KNOW ME!");
-			}
-			else {
+			} else {
 				if (item == Ke2Items.GEM_STAFF) {
 					this.tell(player, "I'm forever at your service!");
 					this.setFactionID(player.getUniqueID());
@@ -324,16 +332,16 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return super.processInteract(player, hand);
 	}
+	
 	@Override
 	public void onDeath(DamageSource cause) {
 		if (!this.world.isRemote) {
 			boolean reverse = false;
 			if (this instanceof EntityGemFusion) {
-				EntityGemFusion fusion = (EntityGemFusion)(this);
+				EntityGemFusion fusion = (EntityGemFusion) this;
 				fusion.unfuse();
 				fusion.setDead();
-			}
-			else {
+			} else {
 				this.setGemstoneItem();
 				if (this.world.getGameRules().getBoolean("showDeathMessages")) {
 					if (!this.hasCustomName()) {
@@ -352,35 +360,37 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		super.onDeath(cause);
 	}
+	
 	@Override
 	protected void dropEquipment(boolean wasRecentlyHit, int lootingModifier) {
 		return;
 	}
+	
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if (!this.world.isRemote) {
-			// TODO: Ensure we have all the (universal) damage types listed.
+			// TODO: Ensure we have all the (universal)
+			// damage types listed.
 			if (source.damageType.matches("(?i:magic|drown|vacuum|oxygen_suffocation|electricity|radiation)")) {
 				return false;
 			}
 			float health = this.getHealth() - amount;
 			if (health < -70) {
 				source = Ke2Damage.SHATTER;
-			}
-			else if (health < -30) {
+			} else if (health < -30) {
 				source = Ke2Damage.CRACK;
-			}
-			else {
+			} else {
 				source = Ke2Damage.POOF;
 			}
 		}
 		return super.attackEntityFrom(source, amount);
 	}
+	
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
 		EntityTippedArrow arrow = new EntityTippedArrow(this.world, this);
 		double distanceFromTargetX = target.posX - this.posX;
-		double distanceFromTargetY = target.getEntityBoundingBox().minY + (target.height) - arrow.posY;
+		double distanceFromTargetY = target.getEntityBoundingBox().minY + target.height - arrow.posY;
 		double distanceFromTargetZ = target.posZ - this.posZ;
 		double distanceFromTargetS = MathHelper.sqrt(distanceFromTargetX * distanceFromTargetX + distanceFromTargetY * distanceFromTargetY);
 		arrow.shoot(distanceFromTargetX, distanceFromTargetY + distanceFromTargetS * 0.20000000298023224D, distanceFromTargetZ, 1.6F, 0.0F);
@@ -404,21 +414,24 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.playSound(SoundEvents.ENTITY_ARROW_SHOOT, 1.0F, 1.0F / (this.rand.nextFloat() * 0.4F + 0.8F));
 		this.world.spawnEntity(arrow);
 	}
+	
 	public boolean isHoldingRangedWeapon() {
 		ItemStack stack = this.getHeldItem(EnumHand.MAIN_HAND);
 		if (stack.getItem().getItemUseAction(stack) == EnumAction.BOW) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
+	
 	public double getFallSpeed() {
 		return 1.0D;
 	}
+	
 	public void tell(EntityPlayer player, String line, Object... formatting) {
 		player.sendMessage(new TextComponentString("<" + this.getName() + "> " + String.format(line, formatting)));
 	}
+	
 	public void say(String line, Object... formatting) {
 		List<EntityPlayer> list = this.world.playerEntities;
 		for (EntityPlayer player : list) {
@@ -427,15 +440,19 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			}
 		}
 	}
+	
 	public boolean isLeader(EntityPlayer player) {
 		return this.isLeader(player.getUniqueID());
 	}
+	
 	public boolean isLeader(EntityGem gem) {
 		return this.isLeader(gem.getGemUniqueID());
 	}
+	
 	public boolean isLeader(UUID id) {
 		return this.getGemLeaderID() != null && this.getGemLeaderID().equals(id);
 	}
+	
 	public EntityLivingBase getLeader() {
 		EntityPlayer player = this.world.getPlayerEntityByUUID(this.getGemLeaderID());
 		if (player == null) {
@@ -448,18 +465,23 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return player;
 	}
+	
 	public void setLeader(EntityPlayer player) {
 		this.setGemLeaderID(player.getUniqueID());
 	}
+	
 	public void setLeader(EntityGem gem) {
 		this.setGemLeaderID(gem.getGemUniqueID());
 	}
+	
 	public boolean isOwnedBy(EntityPlayer player) {
 		return this.isOwnedBy(player.getUniqueID());
 	}
+	
 	public boolean isOwnedBy(EntityGem gem) {
 		return this.isOwnedBy(gem.getGemUniqueID());
 	}
+	
 	public boolean isOwnedBy(UUID id) {
 		if (this.hasFaction()) {
 			WorldDataFactions faction = WorldDataFactions.get(this.world);
@@ -469,203 +491,238 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return false;
 	}
+	
 	public boolean hasFaction() {
 		return this.getFactionID() != null;
 	}
+	
 	public void setFactionID(UUID id) {
-		this.dataManager.set(GEM_FACTION_ID, Optional.<UUID>fromNullable(id));
+		this.dataManager.set(EntityGem.GEM_FACTION_ID, Optional.<UUID>fromNullable(id));
 	}
+	
 	public UUID getFactionID() {
-		return this.dataManager.get(GEM_FACTION_ID).orNull();
+		return this.dataManager.get(EntityGem.GEM_FACTION_ID).orNull();
 	}
+	
 	public void setGemUniqueID(UUID id) {
-		this.dataManager.set(GEM_UNIQUE_ID, Optional.<UUID>fromNullable(id));
+		this.dataManager.set(EntityGem.GEM_UNIQUE_ID, Optional.<UUID>fromNullable(id));
 	}
+	
 	public UUID getGemUniqueID() {
-		return this.dataManager.get(GEM_UNIQUE_ID).orNull();
+		return this.dataManager.get(EntityGem.GEM_UNIQUE_ID).orNull();
 	}
+	
 	public void setGemLeaderID(UUID id) {
-		this.dataManager.set(GEM_LEADER_ID, Optional.<UUID>fromNullable(id));
+		this.dataManager.set(EntityGem.GEM_LEADER_ID, Optional.<UUID>fromNullable(id));
 	}
+	
 	public UUID getGemLeaderID() {
-		return this.dataManager.get(GEM_LEADER_ID).orNull();
+		return this.dataManager.get(EntityGem.GEM_LEADER_ID).orNull();
 	}
+	
 	public void setGemAlignment(int alignment) {
-		this.dataManager.set(GEM_ALIGNMENT, alignment);
+		this.dataManager.set(EntityGem.GEM_ALIGNMENT, alignment);
 	}
+	
 	public int getGemAlignment() {
-		return this.dataManager.get(GEM_ALIGNMENT);
+		return this.dataManager.get(EntityGem.GEM_ALIGNMENT);
 	}
+	
 	public void setEmotion(float emotion) {
-		this.dataManager.set(GEM_EMOTION, emotion);
+		this.dataManager.set(EntityGem.GEM_EMOTION, emotion);
 	}
+	
 	public float getEmotion() {
-		return this.dataManager.get(GEM_EMOTION);
+		return this.dataManager.get(EntityGem.GEM_EMOTION);
 	}
+	
 	@Override
 	public void setSwingingArms(boolean swinging) {
 		if (swinging) {
 			this.setPose(Pose.NOCKING_BOW);
-		}
-		else if (this.isSwingingArms()) {
+		} else if (this.isSwingingArms()) {
 			this.setPose(Pose.DEFAULT);
 		}
 	}
+	
 	public boolean isSwingingArms() {
 		return this.getPose() == Pose.NOCKING_BOW;
 	}
+	
 	public void setPose(Pose pose) {
-		this.dataManager.set(POSE, pose.ordinal());
+		this.dataManager.set(EntityGem.POSE, pose.ordinal());
 	}
+	
 	public Pose getPose() {
-		return Pose.values()[this.dataManager.get(POSE)];
+		return Pose.values()[this.dataManager.get(EntityGem.POSE)];
 	}
+	
 	public void setHighlighted(boolean highlighted) {
-		this.dataManager.set(IS_HIGHLIGHTED, highlighted);
+		this.dataManager.set(EntityGem.IS_HIGHLIGHTED, highlighted);
 	}
+	
 	public boolean isHighlighted() {
-		return this.dataManager.get(IS_HIGHLIGHTED);
+		return this.dataManager.get(EntityGem.IS_HIGHLIGHTED);
 	}
+	
 	public void setOriginalPosition(BlockPos pos) {
 		if (pos != null) {
-			this.dataManager.set(ORIGINAL_POS, pos);
+			this.dataManager.set(EntityGem.ORIGINAL_POS, pos);
 		}
 	}
+	
 	public BlockPos getOriginalPosition() {
-		BlockPos pos = this.dataManager.get(ORIGINAL_POS);
+		BlockPos pos = this.dataManager.get(EntityGem.ORIGINAL_POS);
 		if (pos == null) {
 			return BlockPos.ORIGIN;
-		}
-		else {
+		} else {
 			return pos;
 		}
 	}
+	
 	public void setOriginalDimension(int dimension) {
-		this.dataManager.set(ORIGINAL_DIM, dimension);
+		this.dataManager.set(EntityGem.ORIGINAL_DIM, dimension);
 	}
+	
 	public int getOriginalDimension() {
-		return this.dataManager.get(ORIGINAL_DIM);
+		return this.dataManager.get(EntityGem.ORIGINAL_DIM);
 	}
+	
 	public String getNameFromCut(int cut) {
 		return "Cut";
 	}
+	
 	public String getDescriptor(int piece) {
 		BlockPos pos = this.getOriginalPosition();
 		String prefix = "";
 		switch (piece) {
-		case 0:
-			prefix = "Facet";
-		case 1:
-			String facet = Integer.toString(Math.abs(((pos.getX() / 16) + (pos.getZ() / 16)) / 3), 36).toUpperCase();
-			return String.format("%s %s", prefix, facet);
-		case 2:
-			prefix = this.getNameFromCut(this.getGemstoneCut());
-		case 3:
-            String cutX = Integer.toString(Math.abs((pos.getX() % 10))).toUpperCase();
-            String cutY = Integer.toString(Math.abs((pos.getY() / 4) % 36), 36).toUpperCase();
-            String cutZ = Integer.toString(Math.abs((pos.getZ() % 26) + 10), 36).toUpperCase();
-            return String.format("%s %s%s%s", prefix, cutX, cutZ, cutY);
-		default:
-			return String.format("%s %s", this.getDescriptor(0), this.getDescriptor(2));
+			case 0 :
+				prefix = "Facet";
+			case 1 :
+				String facet = Integer.toString(Math.abs((pos.getX() / 16 + pos.getZ() / 16) / 3), 36).toUpperCase();
+				return String.format("%s %s", prefix, facet);
+			case 2 :
+				prefix = this.getNameFromCut(this.getGemstoneCut());
+			case 3 :
+				String cutX = Integer.toString(Math.abs(pos.getX() % 10)).toUpperCase();
+				String cutY = Integer.toString(Math.abs(pos.getY() / 4 % 36), 36).toUpperCase();
+				String cutZ = Integer.toString(Math.abs(pos.getZ() % 26 + 10), 36).toUpperCase();
+				return String.format("%s %s%s%s", prefix, cutX, cutZ, cutY);
+			default :
+				return String.format("%s %s", this.getDescriptor(0), this.getDescriptor(2));
 		}
 	}
+	
 	public String getDescriptor() {
 		return this.getDescriptor(-1);
 	}
+	
 	public void setInsigniaColor(int color) {
-		this.dataManager.set(COLOR_DYE_INSIGNIA, color);
+		this.dataManager.set(EntityGem.COLOR_DYE_INSIGNIA, color);
 	}
+	
 	public int getInsigniaColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return Ke2Gems.BASIC_WHITE;
-		}
-		else {
-			return this.dataManager.get(COLOR_DYE_INSIGNIA);
+		} else {
+			return this.dataManager.get(EntityGem.COLOR_DYE_INSIGNIA);
 		}
 	}
+	
 	public void setOutfitColor(int color) {
-		this.dataManager.set(COLOR_RGB_OUTFIT, color);
+		this.dataManager.set(EntityGem.COLOR_RGB_OUTFIT, color);
 	}
+	
 	public int getOutfitColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
-		}
-		else {
-			return this.dataManager.get(COLOR_RGB_OUTFIT);
+		} else {
+			return this.dataManager.get(EntityGem.COLOR_RGB_OUTFIT);
 		}
 	}
+	
 	public void setVisorColor(int color) {
-		this.dataManager.set(COLOR_RGB_VISOR, color);
+		this.dataManager.set(EntityGem.COLOR_RGB_VISOR, color);
 	}
+	
 	public int getVisorColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
-		}
-		else {
-			return this.dataManager.get(COLOR_RGB_VISOR);
+		} else {
+			return this.dataManager.get(EntityGem.COLOR_RGB_VISOR);
 		}
 	}
+	
 	public void setSkinColor(int color) {
-		this.dataManager.set(COLOR_RGB_SKIN, color);
+		this.dataManager.set(EntityGem.COLOR_RGB_SKIN, color);
 	}
+	
 	public int getSkinColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
-		}
-		else {
-			return this.dataManager.get(COLOR_RGB_SKIN);
+		} else {
+			return this.dataManager.get(EntityGem.COLOR_RGB_SKIN);
 		}
 	}
+	
 	public void setHairColor(int color) {
-		this.dataManager.set(COLOR_RGB_HAIR, color);
+		this.dataManager.set(EntityGem.COLOR_RGB_HAIR, color);
 	}
+	
 	public int getHairColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
-		}
-		else {
-			return this.dataManager.get(COLOR_RGB_HAIR);
+		} else {
+			return this.dataManager.get(EntityGem.COLOR_RGB_HAIR);
 		}
 	}
+	
 	public void setGemstoneColor(int color) {
-		this.dataManager.set(COLOR_RGB_GEMSTONE, color);
+		this.dataManager.set(EntityGem.COLOR_RGB_GEMSTONE, color);
 	}
+	
 	public int getGemstoneColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
-		}
-		else {
-			return this.dataManager.get(COLOR_RGB_GEMSTONE);
+		} else {
+			return this.dataManager.get(EntityGem.COLOR_RGB_GEMSTONE);
 		}
 	}
+	
 	public void setGemstoneCut(int cut) {
-		this.dataManager.set(GEMSTONE_CUT, cut);
+		this.dataManager.set(EntityGem.GEMSTONE_CUT, cut);
 	}
+	
 	public int getGemstoneCut() {
-		return this.dataManager.get(GEMSTONE_CUT);
+		return this.dataManager.get(EntityGem.GEMSTONE_CUT);
 	}
+	
 	public void setGemstoneItem(Item item, int quantity, int meta) {
 		ItemStack stack = new ItemStack(item, quantity, meta);
 		stack.setTagCompound(this.getGemstoneTags());
-		this.dataManager.set(GEMSTONE_ITEM, stack);
+		this.dataManager.set(EntityGem.GEMSTONE_ITEM, stack);
 	}
+	
 	public void setGemstoneItem(ItemStack stack) {
 		this.setGemstoneItem(stack.getItem(), stack.getCount(), stack.getMetadata());
 	}
+	
 	public void setGemstoneItem(Item item) {
 		this.setGemstoneItem(new ItemStack(item));
 	}
+	
 	public void setGemstoneItem() {
 		if (this.getGemstoneItem().isEmpty()) {
 			this.setGemstoneItem(this.generateGemstoneItem());
-		}
-		else {
+		} else {
 			this.setGemstoneItem(this.getGemstoneItem());
 		}
 	}
+	
 	public ItemStack getGemstoneItem() {
-		return this.dataManager.get(GEMSTONE_ITEM);
+		return this.dataManager.get(EntityGem.GEMSTONE_ITEM);
 	}
+	
 	public NBTTagCompound getGemstoneTags() {
 		NBTTagCompound compound = this.writeToNBT(new NBTTagCompound());
 		for (String tag : EntityGem.BLACKLISTED_NBT_TAGS) {
@@ -673,74 +730,92 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return compound;
 	}
+	
 	public void setHairVariant(String variant) {
-		this.dataManager.set(VARIANT_HAIR, variant);
+		this.dataManager.set(EntityGem.VARIANT_HAIR, variant);
 	}
+	
 	public String getHairVariant() {
-		return this.dataManager.get(VARIANT_HAIR);
+		return this.dataManager.get(EntityGem.VARIANT_HAIR);
 	}
+	
 	public void setOutfitVariant(String variant) {
-		this.dataManager.set(VARIANT_OUTFIT, variant);
+		this.dataManager.set(EntityGem.VARIANT_OUTFIT, variant);
 	}
+	
 	public String getOutfitVariant() {
-		return this.dataManager.get(VARIANT_OUTFIT);
+		return this.dataManager.get(EntityGem.VARIANT_OUTFIT);
 	}
+	
 	public void setSkinVariant(String variant) {
-		this.dataManager.set(VARIANT_SKIN, variant);
+		this.dataManager.set(EntityGem.VARIANT_SKIN, variant);
 	}
+	
 	public String getSkinVariant() {
-		return this.dataManager.get(VARIANT_SKIN);
+		return this.dataManager.get(EntityGem.VARIANT_SKIN);
 	}
+	
 	public void setNameVariant(String variant) {
-		this.dataManager.set(VARIANT_NAME, variant);
+		this.dataManager.set(EntityGem.VARIANT_NAME, variant);
 	}
+	
 	public String getNameVariant() {
-		return this.dataManager.get(VARIANT_NAME);
+		return this.dataManager.get(EntityGem.VARIANT_NAME);
 	}
+	
 	public void setGemstonePosition(int pos) {
-		this.dataManager.set(GEMSTONE_POS, pos);
+		this.dataManager.set(EntityGem.GEMSTONE_POS, pos);
 	}
+	
 	public int getGemstonePosition() {
-		return this.dataManager.get(GEMSTONE_POS);
+		return this.dataManager.get(EntityGem.GEMSTONE_POS);
 	}
+	
 	public void setDefective(boolean defective) {
-		this.dataManager.set(IS_DEFECTIVE, defective);
+		this.dataManager.set(EntityGem.IS_DEFECTIVE, defective);
 		if (this.isDefective() && this.changesScaleBasedOnCondition) {
 			this.setSize(this.width * 0.5F, this.height * 0.5F, this.eyeHeight * 0.5F);
 		}
 	}
+	
 	public boolean isDefective() {
-		return this.dataManager.get(IS_DEFECTIVE);
+		return this.dataManager.get(EntityGem.IS_DEFECTIVE);
 	}
+	
 	public void setPerfective(boolean perfective) {
-		this.dataManager.set(IS_PERFECT, perfective);
+		this.dataManager.set(EntityGem.IS_PERFECT, perfective);
 		if (this.isPerfective() && this.changesScaleBasedOnCondition) {
 			this.setSize(this.width * 1.5F, this.height * 1.5F, this.eyeHeight * 1.5F);
 		}
 	}
+	
 	public boolean isPerfective() {
-		return this.dataManager.get(IS_PERFECT);
+		return this.dataManager.get(EntityGem.IS_PERFECT);
 	}
+	
 	public void setFlowerInHair(int flower) {
-		this.dataManager.set(FLOWER_IN_HAIR, flower);
+		this.dataManager.set(EntityGem.FLOWER_IN_HAIR, flower);
 	}
+	
 	public int getFlowerInHair() {
-		return this.dataManager.get(FLOWER_IN_HAIR);
+		return this.dataManager.get(EntityGem.FLOWER_IN_HAIR);
 	}
+	
 	@Override
 	protected void updateEquipmentIfNeeded(EntityItem item) {
-        ItemStack stack = item.getItem();
-        ItemStack inventory = this.inventory.addItem(stack);
-        if (inventory.isEmpty()) {
-        	item.setDead();
-        }
-        else {
-        	stack.setCount(inventory.getCount());
-        }
+		ItemStack stack = item.getItem();
+		ItemStack inventory = this.inventory.addItem(stack);
+		if (inventory.isEmpty()) {
+			item.setDead();
+		} else {
+			stack.setCount(inventory.getCount());
+		}
 	}
+	
 	public boolean canPickUpItem(Item item) {
 		return false;
 	}
+	
 	public boolean canUnloadInventory() {
 		if (this.inventory.getSizeInventory() > 0) {
 			float max = this.inventory.getSizeInventory() + 1;
@@ -756,164 +831,186 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return false;
 	}
+	
 	private void createInventory() {
-        InventoryBasic inventory = this.inventory;
-        this.inventory = new InventoryBasic("inventory", false, this.getMaxInventorySlots());
-        if (inventory != null) {
-        	inventory.removeInventoryChangeListener(this);
-            for (int i = 0; i < this.inventory.getSizeInventory(); ++i) {
-                ItemStack stack = inventory.getStackInSlot(i);
-                this.inventory.setInventorySlotContents(i, stack.copy());
-            }
-        }
-        this.inventory.addInventoryChangeListener(this);
-        this.storageHandler = new InvWrapper(this.inventory);
-    }
+		InventoryBasic inventory = this.inventory;
+		this.inventory = new InventoryBasic("inventory", false, this.getMaxInventorySlots());
+		if (inventory != null) {
+			inventory.removeInventoryChangeListener(this);
+			for (int i = 0; i < this.inventory.getSizeInventory(); ++i) {
+				ItemStack stack = inventory.getStackInSlot(i);
+				this.inventory.setInventorySlotContents(i, stack.copy());
+			}
+		}
+		this.inventory.addInventoryChangeListener(this);
+		this.storageHandler = new InvWrapper(this.inventory);
+	}
+	
 	public void openGUI(EntityPlayer player) {
-        if (!this.world.isRemote) {
-            this.inventory.setCustomName(this.getName() + (this.getName().matches("(z|s)$") ? "'" : "'s") + " Gem");
-            player.displayGUIChest(this.inventory);
-        }
-    }
+		if (!this.world.isRemote) {
+			this.inventory.setCustomName(this.getName() + (this.getName().matches("(z|s)$") ? "'" : "'s") + " Gem");
+			player.displayGUIChest(this.inventory);
+		}
+	}
+	
 	public int getMaxInventorySlots() {
 		return 0;
 	}
+	
 	protected void setSize(float width, float height, float eyeHeight) {
 		super.setSize(width, height);
 		this.eyeHeight = eyeHeight;
 	}
+	
 	@Override
 	public float getEyeHeight() {
 		return this.eyeHeight;
 	}
+	
 	private void updateCape() {
-        this.prevChasingPosX = this.chasingPosX;
-        this.prevChasingPosY = this.chasingPosY;
-        this.prevChasingPosZ = this.chasingPosZ;
-        double x = this.posX - this.chasingPosX;
-        double y = this.posY - this.chasingPosY;
-        double z = this.posZ - this.chasingPosZ;
-        if (x > 10.0D || x < -10.0D) {
-            this.prevChasingPosX = this.chasingPosX;
-            this.chasingPosX = this.posX;
-        }
-        if (y > 10.0D || y < -10.0D) {
-            this.prevChasingPosY = this.chasingPosY;
-            this.chasingPosY = this.posY;
-        }
-        if (z > 10.0D || z < -10.0D) {
-            this.prevChasingPosZ = this.chasingPosZ;
-            this.chasingPosZ = this.posZ;
-        }
-        this.chasingPosX += x * 0.25D;
-        this.chasingPosY += y * 0.25D;
-        this.chasingPosZ += z * 0.25D;
-    }
-	public float getClosestEmotion() {
-    	int emotion = Ke2Gems.EMOTIONAL_WAVELENGTHS[(int)(this.getEmotion() % 1 * 8)];
-    	switch (emotion) {
-    	case 0:
-    		return Ke2Gems.EMOTION_DREAD;
-    	case 1:
-    		return Ke2Gems.EMOTION_GRIEF;
-    	case 2:
-    		return Ke2Gems.EMOTION_DOUBT;
-    	case 3:
-    		return Ke2Gems.EMOTION_SHAME;
-    	case 4:
-    		return Ke2Gems.EMOTION_HYPED;
-    	case 5:
-    		return Ke2Gems.EMOTION_HAPPY;
-    	case 6:
-    		return Ke2Gems.EMOTION_PRIDE;
-    	case 7:
-    		return Ke2Gems.EMOTION_ANGER;
-    	default:
-        	return Ke2Gems.EMOTION_DREAD;
-    	}
+		this.prevChasingPosX = this.chasingPosX;
+		this.prevChasingPosY = this.chasingPosY;
+		this.prevChasingPosZ = this.chasingPosZ;
+		double x = this.posX - this.chasingPosX;
+		double y = this.posY - this.chasingPosY;
+		double z = this.posZ - this.chasingPosZ;
+		if (x > 10.0D || x < -10.0D) {
+			this.prevChasingPosX = this.chasingPosX;
+			this.chasingPosX = this.posX;
+		}
+		if (y > 10.0D || y < -10.0D) {
+			this.prevChasingPosY = this.chasingPosY;
+			this.chasingPosY = this.posY;
+		}
+		if (z > 10.0D || z < -10.0D) {
+			this.prevChasingPosZ = this.chasingPosZ;
+			this.chasingPosZ = this.posZ;
+		}
+		this.chasingPosX += x * 0.25D;
+		this.chasingPosY += y * 0.25D;
+		this.chasingPosZ += z * 0.25D;
 	}
+	
+	public float getClosestEmotion() {
+		int emotion = Ke2Gems.EMOTIONAL_WAVELENGTHS[(int) (this.getEmotion() % 1 * 8)];
+		switch (emotion) {
+			case 0 :
+				return Ke2Gems.EMOTION_DREAD;
+			case 1 :
+				return Ke2Gems.EMOTION_GRIEF;
+			case 2 :
+				return Ke2Gems.EMOTION_DOUBT;
+			case 3 :
+				return Ke2Gems.EMOTION_SHAME;
+			case 4 :
+				return Ke2Gems.EMOTION_HYPED;
+			case 5 :
+				return Ke2Gems.EMOTION_HAPPY;
+			case 6 :
+				return Ke2Gems.EMOTION_PRIDE;
+			case 7 :
+				return Ke2Gems.EMOTION_ANGER;
+			default :
+				return Ke2Gems.EMOTION_DREAD;
+		}
+	}
+	
 	public boolean setEmotion(float emotion, float step) {
 		if (this.getEmotion() != emotion) {
 			if (this.getEmotion() < emotion) {
 				this.setEmotion((this.getEmotion() + Math.min(emotion - this.getEmotion(), step)) % 1);
-			}
-			else {
+			} else {
 				this.setEmotion((this.getEmotion() - Math.min(emotion - this.getEmotion(), step)) % 1);
 			}
 			return true;
 		}
 		return false;
 	}
+	
 	public boolean canFeel(float range) {
 		double maxDist = Double.MAX_VALUE;
-	    float r = (this.getSkinColor() & 16711680) >> 16;
-        float g = (this.getSkinColor() & 65280) >> 8;
+		float r = (this.getSkinColor() & 16711680) >> 16;
+		float g = (this.getSkinColor() & 65280) >> 8;
 		float b = (this.getSkinColor() & 255) >> 0;
-    	int color = Ke2Gems.EMOTIONAL_WAVELENGTHS[(int)(range * 8)];
-    	int closestColor = -1;
-    	for (int i = 0; i < Ke2Gems.EMOTIONAL_WAVELENGTHS.length; ++i) {
+		int color = Ke2Gems.EMOTIONAL_WAVELENGTHS[(int) (range * 8)];
+		int closestColor = -1;
+		for (int i = 0; i < Ke2Gems.EMOTIONAL_WAVELENGTHS.length; ++i) {
 			float eR = (color & 16711680) >> 16;
-	        float eG = (color & 65280) >> 8;
-	        float eB = (color & 255) >> 0;
+			float eG = (color & 65280) >> 8;
+			float eB = (color & 255) >> 0;
 			double dist = Math.sqrt(Math.pow(eR - r, 2) + Math.pow(eG - g, 2) + Math.pow(eB - b, 2));
 			if (dist < maxDist) {
 				maxDist = dist;
 				closestColor = i;
 			}
-    	}
+		}
 		return closestColor == color;
 	}
+	
 	public boolean isFeeling(float emotion) {
 		return false;
 	}
+	
 	protected float generateEmotion() {
 		return Ke2Gems.EMOTION_HAPPY;
 	}
+	
 	@Override
 	public void writeSpawnData(ByteBuf buffer) {
 		buffer.writeFloat(this.width);
 		buffer.writeFloat(this.height);
 	}
+	
 	@Override
 	public void readSpawnData(ByteBuf buffer) {
 		this.setSize(buffer.readFloat(), buffer.readFloat());
 	}
+	
 	@Override
 	public int generateSkinColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.skin");
 	}
+	
 	@Override
 	public int generateHairColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.hair");
 	}
+	
 	@Override
 	public int generateOutfitColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.outfit");
 	}
+	
 	@Override
 	public int generateVisorColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.visor");
 	}
+	
 	@Override
 	public int generateGemstoneColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone");
 	}
+	
 	@Override
 	public ItemStack generateGemstoneItem() {
 		return new ItemStack(Ke2Items.COLORED_GEMSTONE);
 	}
+	
 	@Override
 	public String generateOutfitVariant() {
 		return VariantHelper.loadVariantPath(this, "ke2:texture.outfit");
 	}
+	
 	@Override
 	public String generateHairVariant() {
 		return VariantHelper.loadVariantPath(this, "ke2:texture.hair");
 	}
+	
 	@Override
 	public String generateSkinVariant() {
 		return VariantHelper.loadVariantPath(this, "ke2:texture.skin");
 	}
+	
 	@Override
 	public String generateNameVariant() {
 		return VariantHelper.loadVariantName(this, "ke2:name");

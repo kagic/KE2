@@ -17,7 +17,8 @@ public class PacketWarpPadDataRequest implements IMessage {
 	private int y;
 	private int z;
 	
-	public PacketWarpPadDataRequest() {}
+	public PacketWarpPadDataRequest() {
+	}
 	
 	public PacketWarpPadDataRequest(boolean isGalaxy, int x, int y, int z) {
 		this.isGalaxy = isGalaxy;
@@ -33,7 +34,7 @@ public class PacketWarpPadDataRequest implements IMessage {
 		this.y = buf.readInt();
 		this.z = buf.readInt();
 	}
-
+	
 	@Override
 	public void toBytes(ByteBuf buf) {
 		buf.writeBoolean(this.isGalaxy);
@@ -41,11 +42,11 @@ public class PacketWarpPadDataRequest implements IMessage {
 		buf.writeInt(this.y);
 		buf.writeInt(this.z);
 	}
-
+	
 	public static class Handler implements IMessageHandler<PacketWarpPadDataRequest, IMessage> {
 		@Override
 		public IMessage onMessage(PacketWarpPadDataRequest message, MessageContext context) {
-			((WorldServer) context.getServerHandler().player.world).addScheduledTask(() -> handle(message, context));
+			((WorldServer) context.getServerHandler().player.world).addScheduledTask(() -> this.handle(message, context));
 			return null;
 		}
 		
@@ -53,9 +54,7 @@ public class PacketWarpPadDataRequest implements IMessage {
 			EntityPlayerMP player = context.getServerHandler().player;
 			World world = player.getEntityWorld();
 			WorldDataWarps data = WorldDataWarps.get(world);
-			Ke2Messages.INSTANCE.sendTo(new PacketWarpPadData(
-				data.writeToNBT(new NBTTagCompound())),
-			context.getServerHandler().player);
+			Ke2Messages.INSTANCE.sendTo(new PacketWarpPadData(data.writeToNBT(new NBTTagCompound())), context.getServerHandler().player);
 		}
 	}
 }

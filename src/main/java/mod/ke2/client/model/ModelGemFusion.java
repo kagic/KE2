@@ -7,5 +7,5 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModelGemFusion extends ModelGem {
 	public ModelGemFusion(float modelSize, float offset, int width, int height) {
 		super(modelSize, offset, width, height);
-    }
+	}
 }

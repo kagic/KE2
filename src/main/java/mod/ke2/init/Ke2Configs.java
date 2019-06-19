@@ -95,7 +95,8 @@ public class Ke2Configs {
 			Ke2Configs.register();
 		}
 	}
+	
 	public static void register() {
-    	
+		
 	}
 }

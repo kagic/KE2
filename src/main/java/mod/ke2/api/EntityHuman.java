@@ -46,11 +46,12 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 	public static final DataParameter<Boolean> BACKPACKED = EntityDataManager.<Boolean>createKey(EntityHuman.class, DataSerializers.BOOLEAN);
 	public InventoryBasic backpack;
 	public InvWrapper backpackHandler;
+	
 	public EntityHuman(World world) {
 		super(world);
 		
 		// Register backpacks.
-		this.dataManager.register(BACKPACKED, true);
+		this.dataManager.register(EntityHuman.BACKPACKED, true);
 		this.initStorage();
 		
 		// See doors.
@@ -64,82 +65,92 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 			public boolean apply(EntityCreeper input) {
 				return input.getCreeperState() == 1;
 			}
-        }, 6.0F, 1.0D, 1.2D));
+		}, 6.0F, 1.0D, 1.2D));
 		this.tasks.addTask(2, new EntityAIAttackMelee(this, 1.0D, true));
-        this.tasks.addTask(3, new EntityAIMoveTowardsTarget(this, 0.414D, 32.0F));
-        this.tasks.addTask(3, new EntityAIMoveThroughVillage(this, 0.8D, true));
-        this.tasks.addTask(5, new EntityAIOpenDoor(this, true));
-        this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
-        //this.tasks.addTask(6, new EntityAIPickUpLoot(this, 0.9D));
-        this.tasks.addTask(7, new EntityAIWander(this, 0.6D));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 16.0F));
-        this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityMob.class, 16.0F));
+		this.tasks.addTask(3, new EntityAIMoveTowardsTarget(this, 0.414D, 32.0F));
+		this.tasks.addTask(3, new EntityAIMoveThroughVillage(this, 0.8D, true));
+		this.tasks.addTask(5, new EntityAIOpenDoor(this, true));
+		this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
+		// this.tasks.addTask(6, new
+		// EntityAIPickUpLoot(this, 0.9D));
+		this.tasks.addTask(7, new EntityAIWander(this, 0.6D));
+		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 16.0F));
+		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityMob.class, 16.0F));
 	}
+	
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
-        super.writeEntityToNBT(compound);
-        NBTTagList list = new NBTTagList();
-        for (int slot = 0; slot < this.backpack.getSizeInventory(); ++slot) {
-            ItemStack stack = this.backpack.getStackInSlot(slot);
-            NBTTagCompound tag = new NBTTagCompound();
-            tag.setByte("slot", (byte)(slot));
-            stack.writeToNBT(tag);
-            list.appendTag(tag);
-        }
-        compound.setTag("items", list);
-        compound.setBoolean("backpacked", this.isBackpacked());
+		super.writeEntityToNBT(compound);
+		NBTTagList list = new NBTTagList();
+		for (int slot = 0; slot < this.backpack.getSizeInventory(); ++slot) {
+			ItemStack stack = this.backpack.getStackInSlot(slot);
+			NBTTagCompound tag = new NBTTagCompound();
+			tag.setByte("slot", (byte) slot);
+			stack.writeToNBT(tag);
+			list.appendTag(tag);
+		}
+		compound.setTag("items", list);
+		compound.setBoolean("backpacked", this.isBackpacked());
 	}
+	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
-        super.readEntityFromNBT(compound);
-        this.initStorage();
-        NBTTagList list = compound.getTagList("items", 10);
-        for (int i = 0; i < list.tagCount(); ++i) {
-            NBTTagCompound tag = list.getCompoundTagAt(i);
-            int slot = tag.getByte("slot") & 255;
-            if (slot >= 0 && slot < this.backpack.getSizeInventory()) {
-                this.backpack.setInventorySlotContents(slot, new ItemStack(tag));
-            }
-        }
-        this.setBackpack(compound.getBoolean("backpacked"));
+		super.readEntityFromNBT(compound);
+		this.initStorage();
+		NBTTagList list = compound.getTagList("items", 10);
+		for (int i = 0; i < list.tagCount(); ++i) {
+			NBTTagCompound tag = list.getCompoundTagAt(i);
+			int slot = tag.getByte("slot") & 255;
+			if (slot >= 0 && slot < this.backpack.getSizeInventory()) {
+				this.backpack.setInventorySlotContents(slot, new ItemStack(tag));
+			}
+		}
+		this.setBackpack(compound.getBoolean("backpacked"));
 	}
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	
 	public void initStorage() {
-        InventoryBasic gemstorage = this.backpack;
-        this.backpack = new InventoryBasic("backpack", false, 27);
-        if (gemstorage != null) {
-            gemstorage.removeInventoryChangeListener(this);
-            for (int i = 0; i < this.backpack.getSizeInventory(); ++i) {
-                ItemStack itemstack = gemstorage.getStackInSlot(i);
-                this.backpack.setInventorySlotContents(i, itemstack.copy());
-            }
-        }
-        this.backpack.addInventoryChangeListener(this);
-        this.backpackHandler = new InvWrapper(this.backpack);
-        this.setCanPickUpLoot(this.isBackpacked());
-    }
-	public boolean isBackpacked() {
-		return this.dataManager.get(BACKPACKED);
+		InventoryBasic gemstorage = this.backpack;
+		this.backpack = new InventoryBasic("backpack", false, 27);
+		if (gemstorage != null) {
+			gemstorage.removeInventoryChangeListener(this);
+			for (int i = 0; i < this.backpack.getSizeInventory(); ++i) {
+				ItemStack itemstack = gemstorage.getStackInSlot(i);
+				this.backpack.setInventorySlotContents(i, itemstack.copy());
+			}
+		}
+		this.backpack.addInventoryChangeListener(this);
+		this.backpackHandler = new InvWrapper(this.backpack);
+		this.setCanPickUpLoot(this.isBackpacked());
 	}
+	
+	public boolean isBackpacked() {
+		return this.dataManager.get(EntityHuman.BACKPACKED);
+	}
+	
 	public void setBackpack(boolean backpacked) {
-		this.dataManager.set(BACKPACKED, backpacked);
+		this.dataManager.set(EntityHuman.BACKPACKED, backpacked);
 		this.setCanPickUpLoot(backpacked);
 	}
+	
 	@Override
 	public boolean canDespawn() {
 		return false;
-    }
-    public boolean shouldAttackEntity(EntityLivingBase attacker, EntityLivingBase target) {
-        return true;
-    }
-    @Override
+	}
+	
+	public boolean shouldAttackEntity(EntityLivingBase attacker, EntityLivingBase target) {
+		return true;
+	}
+	
+	@Override
 	public boolean attackEntityAsMob(Entity entity) {
-    	EntityLivingBase living = entity instanceof EntityLivingBase ? (EntityLivingBase)(entity) : null;
-    	float amount = (float)(this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue());
-    	int i = 0;
+		EntityLivingBase living = entity instanceof EntityLivingBase ? (EntityLivingBase) entity : null;
+		float amount = (float) this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
+		int i = 0;
 		if (entity instanceof EntityLivingBase) {
 			amount += EnchantmentHelper.getModifierForCreature(this.getHeldItemMainhand(), living.getCreatureAttribute());
 			i += EnchantmentHelper.getKnockbackModifier(this);
@@ -157,44 +168,46 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 				entity.setFire(j * 4);
 			}
 			if (entity instanceof EntityPlayer) {
-				EntityPlayer player = (EntityPlayer)(entity);
+				EntityPlayer player = (EntityPlayer) entity;
 				ItemStack stack = this.getHeldItemMainhand();
 				ItemStack held = player.isHandActive() ? player.getActiveItemStack() : ItemStack.EMPTY;
 				if (stack.getItem() instanceof ItemAxe && held.getItem() == Items.SHIELD) {
 					float f1 = 0.25F + EnchantmentHelper.getEfficiencyModifier(this) * 0.05F;
 					if (this.rand.nextFloat() < f1) {
 						player.getCooldownTracker().setCooldown(Items.SHIELD, 100);
-						this.world.setEntityState(player, (byte)(30));
+						this.world.setEntityState(player, (byte) 30);
 					}
 				}
 			}
 			this.applyEnchantments(this, entity);
 		}
 		return flag;
-    }
-    @Override
+	}
+	
+	@Override
 	public void onLivingUpdate() {
-    	this.updateArmSwingProgress();
-    	super.onLivingUpdate();
-    	if (!this.world.isRemote) {
-	    	if (this.isBackpacked() && this.getHealth() < 10.0F) {
-	    		for (int i = 0; i < this.backpack.getSizeInventory(); ++i) {
-    				ItemStack stack = this.backpack.getStackInSlot(i);
-	    			if (stack.getItem() instanceof ItemFood) {
-    					ItemFood food = (ItemFood)(stack.getItem());
-    					int amount = food.getHealAmount(stack);
-    					if (this.getHealth() + amount <= 20.0F) {
-    						this.playSound(SoundEvents.ENTITY_GENERIC_EAT, this.getSoundVolume(), this.getSoundPitch());
-    						this.heal(amount);
-    					}
-    				}
-    			}
-	    	}
-    	}
-    	if (!this.getDisplayName().getUnformattedText().equals(this.getRealName())) {
-    		this.setCustomNameTag(this.getRealName());
-    	}
-    }
+		this.updateArmSwingProgress();
+		super.onLivingUpdate();
+		if (!this.world.isRemote) {
+			if (this.isBackpacked() && this.getHealth() < 10.0F) {
+				for (int i = 0; i < this.backpack.getSizeInventory(); ++i) {
+					ItemStack stack = this.backpack.getStackInSlot(i);
+					if (stack.getItem() instanceof ItemFood) {
+						ItemFood food = (ItemFood) stack.getItem();
+						int amount = food.getHealAmount(stack);
+						if (this.getHealth() + amount <= 20.0F) {
+							this.playSound(SoundEvents.ENTITY_GENERIC_EAT, this.getSoundVolume(), this.getSoundPitch());
+							this.heal(amount);
+						}
+					}
+				}
+			}
+		}
+		if (!this.getDisplayName().getUnformattedText().equals(this.getRealName())) {
+			this.setCustomNameTag(this.getRealName());
+		}
+	}
+	
 	@Override
 	public void onDeath(DamageSource cause) {
 		if (!this.world.isRemote) {
@@ -204,30 +217,35 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 		}
 		super.onDeath(cause);
 	}
+	
 	@Override
 	protected void updateEquipmentIfNeeded(EntityItem item) {
-        ItemStack stack = item.getItem();
-        ItemStack held = this.backpack.addItem(stack);
-        if (held.isEmpty()) {
-            item.setDead();
-        }
-        else {
-        	stack.setCount(held.getCount());
-        }
-    }
+		ItemStack stack = item.getItem();
+		ItemStack held = this.backpack.addItem(stack);
+		if (held.isEmpty()) {
+			item.setDead();
+		} else {
+			stack.setCount(held.getCount());
+		}
+	}
+	
 	public void openGUI(EntityPlayer player) {
-        if (!this.world.isRemote && this.isBackpacked()) {
-        	String name = new TextComponentTranslation("command.ke2." + this.getRealName().toLowerCase() + ".name").getUnformattedComponentText();
-            this.backpack.setCustomName(name); player.displayGUIChest(this.backpack);
-        }
-    }
+		if (!this.world.isRemote && this.isBackpacked()) {
+			String name = new TextComponentTranslation("command.ke2." + this.getRealName().toLowerCase() + ".name").getUnformattedComponentText();
+			this.backpack.setCustomName(name);
+			player.displayGUIChest(this.backpack);
+		}
+	}
+	
 	public String getRealName() {
 		return "Human";
 	}
+	
 	@Override
 	protected float getSoundPitch() {
 		return 1.0F;
 	}
+	
 	@Override
 	public int getTalkInterval() {
 		return 200;

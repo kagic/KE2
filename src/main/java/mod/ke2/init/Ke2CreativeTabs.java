@@ -11,13 +11,15 @@ public class Ke2CreativeTabs extends CreativeTabs {
 	public static final Ke2CreativeTabs GEM_TECH = new Ke2CreativeTabs(2, "gem_tech");
 	public static final Ke2CreativeTabs GEM_BLOCKS = new Ke2CreativeTabs(3, "gem_blocks");
 	private final int item;
+	
 	public Ke2CreativeTabs(int item, String suffix) {
 		super(KAGIC.MODID + "_" + suffix);
 		this.item = item;
 	}
+	
 	@Override
 	public ItemStack getTabIconItem() {
-		if (this.item == 0) {		// Gemstones.
+		if (this.item == 0) { // Gemstones.
 			ItemStack stack = new ItemStack(Ke2Items.COLORED_GEMSTONE);
 			NBTTagCompound compound = new NBTTagCompound();
 			compound.setInteger("GemstoneColor", 0xd172dc);
@@ -25,11 +27,11 @@ public class Ke2CreativeTabs extends CreativeTabs {
 			stack.setTagCompound(compound);
 			return stack;
 		}
-		if (this.item == 1) {		// Gem Creation.
+		if (this.item == 1) { // Gem Creation.
 			ItemStack stack = new ItemStack(Ke2Items.GEM_STAFF);
 			return stack;
 		}
-		if (this.item == 2) {		// Gem Tech.
+		if (this.item == 2) { // Gem Tech.
 			ItemStack stack = new ItemStack(Ke2Items.GEM_DESTABILIZER);
 			NBTTagCompound compound = new NBTTagCompound();
 			compound.setInteger("UpperColor", 0xa5e3a0);
@@ -38,7 +40,7 @@ public class Ke2CreativeTabs extends CreativeTabs {
 			stack.setTagCompound(compound);
 			return stack;
 		}
-		if (this.item == 3) {		// Gem Blocks.
+		if (this.item == 3) { // Gem Blocks.
 			ItemStack stack = new ItemStack(Ke2Items.OBSESSIVE_ESSENCE);
 			return stack;
 		}

@@ -4,15 +4,25 @@ import net.minecraft.entity.INpc;
 import net.minecraft.item.ItemStack;
 
 public interface IGem extends INpc {
-	public int generateSkinColor();
-	public int generateHairColor();
-	public int generateOutfitColor();
-	public int generateVisorColor();
-	public int generateGemstoneColor();
-	public int generateGemstoneCut();
-	public ItemStack generateGemstoneItem();
-	public String generateOutfitVariant();
-	public String generateHairVariant();
-	public String generateSkinVariant();
-	public String generateNameVariant();
+	int generateSkinColor();
+	
+	int generateHairColor();
+	
+	int generateOutfitColor();
+	
+	int generateVisorColor();
+	
+	int generateGemstoneColor();
+	
+	int generateGemstoneCut();
+	
+	ItemStack generateGemstoneItem();
+	
+	String generateOutfitVariant();
+	
+	String generateHairVariant();
+	
+	String generateSkinVariant();
+	
+	String generateNameVariant();
 }

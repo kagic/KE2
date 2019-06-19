@@ -20,7 +20,7 @@ public class WarpRenderer extends TileEntitySpecialRenderer<TileEntityWarpPadCor
 	private void renderVertex(BufferBuilder renderer, double x, double y, double z, double u, double v) {
 		renderer.pos(x, y, z).tex(u, v).color(1.0f, 1.0f, 1.0f, 0.75f).lightmap(0, 255).endVertex();
 	}
-
+	
 	@Override
 	public void render(TileEntityWarpPadCore pad, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
 		if (pad.isWarping() && pad.isValidPad()) {
@@ -34,50 +34,54 @@ public class WarpRenderer extends TileEntitySpecialRenderer<TileEntityWarpPadCor
 			GlStateManager.depthMask(false);
 			GlStateManager.enableDepth();
 			GlStateManager.enableTexture2D();
-			this.bindTexture(WARP_STREAM_TEXTURE);
+			this.bindTexture(WarpRenderer.WARP_STREAM_TEXTURE);
 			GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);
 			BufferBuilder renderer = tessellator.getBuffer();
-			double progress = pad.renderCooldown > 0 ? 0 : (pad.renderTicks / TileEntityWarpPadCore.TICKS_FOR_ACTION) - partialTicks / TileEntityWarpPadCore.TICKS_FOR_ACTION;
+			double progress = pad.renderCooldown > 0 ? 0 : pad.renderTicks / TileEntityWarpPadCore.TICKS_FOR_ACTION - partialTicks / TileEntityWarpPadCore.TICKS_FOR_ACTION;
 			double height = WarpRenderer.STREAM_HEIGHT - progress * WarpRenderer.STREAM_HEIGHT;
 			double offset = -1.0;
 			
 			renderer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
-			renderVertex(renderer,		offset,	   height - 1,		offset,	1, 0.5);
-			renderVertex(renderer,	1 - offset,	   height - 1,		offset,	0, 0.5);
-			renderVertex(renderer,	1 - offset,				0,		offset,	0, 1.0);
-			renderVertex(renderer, 		offset, 			0,		offset,	1, 1.0);
-			renderVertex(renderer,	1 - offset,    height - 1,	1 - offset, 1, 0.5);
-			renderVertex(renderer,		offset,    height - 1,	1 - offset, 0, 0.5);
-			renderVertex(renderer,		offset, 			0,	1 - offset, 0, 1.0);
-			renderVertex(renderer,	1 - offset, 			0,	1 - offset, 1, 1.0);
-			renderVertex(renderer,		offset,    height - 1, 	1 - offset, 1, 0.5);
-			renderVertex(renderer,		offset,    height - 1, 		offset, 0, 0.5);
-			renderVertex(renderer,		offset,				0, 		offset, 0, 1.0);
-			renderVertex(renderer,		offset,				0,	1 - offset, 1, 1.0);
-			renderVertex(renderer,	1 - offset,	   height - 1,		offset, 1, 0.5);
-			renderVertex(renderer,	1 - offset,    height - 1,	1 - offset, 0, 0.5);
-			renderVertex(renderer,	1 - offset, 			0,	1 - offset, 0, 1.0);
-			renderVertex(renderer,	1 - offset,				0,		offset, 1, 1.0);
-			renderVertex(renderer,		offset,		   height,		offset, 1, 0.0);
-			renderVertex(renderer,	1 - offset,		   height, 		offset, 0, 0.0);
-			renderVertex(renderer,	1 - offset,	   height - 1, 		offset, 0, 0.5);
-			renderVertex(renderer,		offset,	   height - 1, 		offset, 1, 0.5);
-			renderVertex(renderer,	1 - offset, 	   height,	1 - offset, 1, 0.0);
-			renderVertex(renderer,		offset, 	   height,	1 - offset, 0, 0.0);
-			renderVertex(renderer,		offset,	   height - 1,	1 - offset, 0, 0.5);
-			renderVertex(renderer,	1 - offset,    height - 1,	1 - offset, 1, 0.5);
-			renderVertex(renderer, 		offset,		   height,	1 - offset, 1, 0.0);
-			renderVertex(renderer, 		offset,		   height,		offset, 0, 0.0);
-			renderVertex(renderer,		offset,    height - 1,		offset, 0, 0.5);
-			renderVertex(renderer,		offset,    height - 1,	1 - offset, 1, 0.5);
-			renderVertex(renderer,	1 - offset,		   height,		offset, 1, 0.0);
-			renderVertex(renderer,	1 - offset,		   height,	1 - offset, 0, 0.0);
-			renderVertex(renderer,	1 - offset,    height - 1,	1 - offset, 0, 0.5);
-			renderVertex(renderer,	1 - offset,    height - 1,		offset, 1, 0.5);
+			this.renderVertex(renderer, offset, height - 1, offset, 1, 0.5);
+			this.renderVertex(renderer, 1 - offset, height - 1, offset, 0, 0.5);
+			this.renderVertex(renderer, 1 - offset, 0, offset, 0, 1.0);
+			this.renderVertex(renderer, offset, 0, offset, 1, 1.0);
+			this.renderVertex(renderer, 1 - offset, height - 1, 1 - offset, 1, 0.5);
+			this.renderVertex(renderer, offset, height - 1, 1 - offset, 0, 0.5);
+			this.renderVertex(renderer, offset, 0, 1 - offset, 0, 1.0);
+			this.renderVertex(renderer, 1 - offset, 0, 1 - offset, 1, 1.0);
+			this.renderVertex(renderer, offset, height - 1, 1 - offset, 1, 0.5);
+			this.renderVertex(renderer, offset, height - 1, offset, 0, 0.5);
+			this.renderVertex(renderer, offset, 0, offset, 0, 1.0);
+			this.renderVertex(renderer, offset, 0, 1 - offset, 1, 1.0);
+			this.renderVertex(renderer, 1 - offset, height - 1, offset, 1, 0.5);
+			this.renderVertex(renderer, 1 - offset, height - 1, 1 - offset, 0, 0.5);
+			this.renderVertex(renderer, 1 - offset, 0, 1 - offset, 0, 1.0);
+			this.renderVertex(renderer, 1 - offset, 0, offset, 1, 1.0);
+			this.renderVertex(renderer, offset, height, offset, 1, 0.0);
+			this.renderVertex(renderer, 1 - offset, height, offset, 0, 0.0);
+			this.renderVertex(renderer, 1 - offset, height - 1, offset, 0, 0.5);
+			this.renderVertex(renderer, offset, height - 1, offset, 1, 0.5);
+			this.renderVertex(renderer, 1 - offset, height, 1 - offset, 1, 0.0);
+			this.renderVertex(renderer, offset, height, 1 - offset, 0, 0.0);
+			this.renderVertex(renderer, offset, height - 1, 1 - offset, 0, 0.5);
+			this.renderVertex(renderer, 1 - offset, height - 1, 1 - offset, 1, 0.5);
+			this.renderVertex(renderer, offset, height, 1 - offset, 1, 0.0);
+			this.renderVertex(renderer, offset, height, offset, 0, 0.0);
+			this.renderVertex(renderer, offset, height - 1, offset, 0, 0.5);
+			this.renderVertex(renderer, offset, height - 1, 1 - offset, 1, 0.5);
+			this.renderVertex(renderer, 1 - offset, height, offset, 1, 0.0);
+			this.renderVertex(renderer, 1 - offset, height, 1 - offset, 0, 0.0);
+			this.renderVertex(renderer, 1 - offset, height - 1, 1 - offset, 0, 0.5);
+			this.renderVertex(renderer, 1 - offset, height - 1, offset, 1, 0.5);
 			tessellator.draw();
 			
-			if (pad.renderTicks > 0)	{ --pad.renderTicks;	}
-			if (pad.renderCooldown > 0) { --pad.renderCooldown; }
+			if (pad.renderTicks > 0) {
+				--pad.renderTicks;
+			}
+			if (pad.renderCooldown > 0) {
+				--pad.renderCooldown;
+			}
 			if (pad.renderTicks == 0 && pad.renderCooldown == 0) {
 				pad.renderCooldown = TileEntityWarpPadCore.TICKS_FOR_COOLDOWN;
 			}

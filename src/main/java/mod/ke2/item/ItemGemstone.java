@@ -29,17 +29,18 @@ public class ItemGemstone extends Item {
 		this.setUnlocalizedName(name);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(60);
-        this.addPropertyOverride(new ResourceLocation("cut"), new IItemPropertyGetter() {
-            @Override
+		this.addPropertyOverride(new ResourceLocation("cut"), new IItemPropertyGetter() {
+			@Override
 			@SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, World world, EntityLivingBase entity) {
-                if (stack.hasTagCompound()) {
-                	return (stack.getTagCompound().getInteger("GemstoneCut")) / 1000.0F;
-                }
-                return 0.0F;
-            }
-        });
+			public float apply(ItemStack stack, World world, EntityLivingBase entity) {
+				if (stack.hasTagCompound()) {
+					return stack.getTagCompound().getInteger("GemstoneCut") / 1000.0F;
+				}
+				return 0.0F;
+			}
+		});
 	}
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
@@ -57,8 +58,7 @@ public class ItemGemstone extends Item {
 					tooltip.add(name);
 				}
 			}
-		}
-		catch (NullPointerException e) {
+		} catch (NullPointerException e) {
 			tooltip.add("No information available.");
 		}
 	}
@@ -69,20 +69,21 @@ public class ItemGemstone extends Item {
 			ItemStack stack = player.getHeldItem(hand);
 			if (stack.getItemDamage() == 0) {
 				RayTraceResult raytraceresult = this.rayTrace(world, player, true);
-		        if (raytraceresult != null && raytraceresult.typeOfHit == RayTraceResult.Type.BLOCK) {
-		            BlockPos blockpos = raytraceresult.getBlockPos();
-		            if (world.isBlockModifiable(player, blockpos) && player.canPlayerEdit(blockpos, raytraceresult.sideHit, stack)) {
-		            	boolean spawned = spawnGem(world, player, blockpos, stack);
+				if (raytraceresult != null && raytraceresult.typeOfHit == RayTraceResult.Type.BLOCK) {
+					BlockPos blockpos = raytraceresult.getBlockPos();
+					if (world.isBlockModifiable(player, blockpos) && player.canPlayerEdit(blockpos, raytraceresult.sideHit, stack)) {
+						boolean spawned = this.spawnGem(world, player, blockpos, stack);
 						if (!player.capabilities.isCreativeMode && spawned) {
 							stack.shrink(1);
 						}
-	            	}
-	            }
+					}
+				}
 			}
-	       	return EnumActionResult.SUCCESS;
+			return EnumActionResult.SUCCESS;
 		}
 		return EnumActionResult.PASS;
 	}
+	
 	@Override
 	public boolean onEntityItemUpdate(EntityItem entity) {
 		entity.extinguish();
@@ -92,7 +93,7 @@ public class ItemGemstone extends Item {
 				stack.setItemDamage(Math.max(stack.getItemDamage() - 2, 0));
 			}
 			if (stack.getItemDamage() == 0) {
-				ItemGemstone gem = (ItemGemstone)(stack.getItem());
+				ItemGemstone gem = (ItemGemstone) stack.getItem();
 				boolean spawned = gem.spawnGem(entity.world, null, entity.getPosition(), entity.getItem());
 				if (spawned) {
 					entity.setDead();
@@ -104,19 +105,21 @@ public class ItemGemstone extends Item {
 		if (entity.ticksExisted > 600) {
 			entity.setNoDespawn();
 		}
-        return false;
-    }
+		return false;
+	}
+	
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {
 		if (world.getWorldTime() % 20 == 0 && stack.getItemDamage() > 0) {
-			stack.setItemDamage(Math.max(stack.getItemDamage() - (1 * (isSelected ? 2 : 1)), 0));
+			stack.setItemDamage(Math.max(stack.getItemDamage() - 1 * (isSelected ? 2 : 1), 0));
 		}
 	}
+	
 	public boolean spawnGem(World world, EntityPlayer player, BlockPos pos, ItemStack stack) {
 		if (!world.isRemote) {
 			try {
 				NBTTagCompound tag = stack.getTagCompound();
-				EntityGem gem = (EntityGem)(Ke2Gems.REGISTRY.get(new ResourceLocation(tag.getString("Species"))).getConstructors()[0].newInstance(world));
+				EntityGem gem = (EntityGem) Ke2Gems.REGISTRY.get(new ResourceLocation(tag.getString("Species"))).getConstructors()[0].newInstance(world);
 				gem.onInitialSpawn(world.getDifficultyForLocation(pos), null);
 				gem.readFromNBT(stack.getTagCompound());
 				gem.setUniqueId(MathHelper.getRandomUUID(world.rand));
@@ -125,14 +128,14 @@ public class ItemGemstone extends Item {
 				gem.extinguish();
 				gem.clearActivePotions();
 				world.spawnEntity(gem);
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("Error creating gem: " + e.getMessage());
 			}
 		}
 		return false;
 	}
+	
 	public void setData(EntityGem gem, ItemStack stack) {
 		stack.setTagCompound(gem.writeToNBT(new NBTTagCompound()));
 		stack.getTagCompound().setString("Name", gem.getName());

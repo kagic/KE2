@@ -39,28 +39,29 @@ public class Ke2Items {
 	public static final ItemTablet TABLET = new ItemTablet();
 	
 	public static void register(RegistryEvent.Register<Item> event) {
-		registerItem(ANXIOUS_ESSENCE, new ResourceLocation("ke2:anxious_essence"), event, Ke2CreativeTabs.GEM_CREATION);
-		registerItem(AWKWARD_ESSENCE, new ResourceLocation("ke2:awkward_essence"), event, Ke2CreativeTabs.GEM_CREATION);
-		registerItem(PRIDEFUL_ESSENCE, new ResourceLocation("ke2:prideful_essence"), event, Ke2CreativeTabs.GEM_CREATION);
-		registerItem(IMPULSIVE_ESSENCE, new ResourceLocation("ke2:impulsive_essence"), event, Ke2CreativeTabs.GEM_CREATION);
-		registerItem(JEALOUS_ESSENCE, new ResourceLocation("ke2:jealous_essence"), event, Ke2CreativeTabs.GEM_CREATION);
-		registerItem(OBSESSIVE_ESSENCE, new ResourceLocation("ke2:obsessive_essence"), event, Ke2CreativeTabs.GEM_CREATION);
-		registerItem(DEPENDENT_ESSENCE, new ResourceLocation("ke2:dependent_essence"), event, Ke2CreativeTabs.GEM_CREATION);
-		registerItem(CARELESS_ESSENCE, new ResourceLocation("ke2:careless_essence"), event, Ke2CreativeTabs.GEM_CREATION);
-		registerItem(TEMPERPLASM, new ResourceLocation("ke2:temperplasm"), event, Ke2CreativeTabs.GEM_CREATION);
-		registerItem(MANUAL, new ResourceLocation("ke2:manual"), event, Ke2CreativeTabs.GEM_TECH);
-		registerItem(GEM_STAFF, new ResourceLocation("ke2:gem_staff"), event, Ke2CreativeTabs.GEM_CREATION);
-		registerItem(WARP_WHISTLE, new ResourceLocation("ke2:warp_whistle"), event, Ke2CreativeTabs.GEM_TECH);
-		registerItem(GEM_DESTABILIZER, new ResourceLocation("ke2:gem_destabilizer"), event, Ke2CreativeTabs.GEM_TECH);
-		registerItem(COLORED_GEMSTONE, new ResourceLocation("ke2:colored_gemstone"), event, Ke2CreativeTabs.GEM_STONES);
-		registerItem(GEM_SHARD, new ResourceLocation("ke2:gem_shard"), event, Ke2CreativeTabs.GEM_STONES);
-		registerItem(GEM_DUST, new ResourceLocation("ke2:gem_dust"), event, Ke2CreativeTabs.GEM_CREATION);
-		registerItem(TABLET, new ResourceLocation("ke2:tablet"), event, Ke2CreativeTabs.GEM_TECH);
+		Ke2Items.registerItem(Ke2Items.ANXIOUS_ESSENCE, new ResourceLocation("ke2:anxious_essence"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Items.registerItem(Ke2Items.AWKWARD_ESSENCE, new ResourceLocation("ke2:awkward_essence"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Items.registerItem(Ke2Items.PRIDEFUL_ESSENCE, new ResourceLocation("ke2:prideful_essence"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Items.registerItem(Ke2Items.IMPULSIVE_ESSENCE, new ResourceLocation("ke2:impulsive_essence"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Items.registerItem(Ke2Items.JEALOUS_ESSENCE, new ResourceLocation("ke2:jealous_essence"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Items.registerItem(Ke2Items.OBSESSIVE_ESSENCE, new ResourceLocation("ke2:obsessive_essence"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Items.registerItem(Ke2Items.DEPENDENT_ESSENCE, new ResourceLocation("ke2:dependent_essence"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Items.registerItem(Ke2Items.CARELESS_ESSENCE, new ResourceLocation("ke2:careless_essence"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Items.registerItem(Ke2Items.TEMPERPLASM, new ResourceLocation("ke2:temperplasm"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Items.registerItem(Ke2Items.MANUAL, new ResourceLocation("ke2:manual"), event, Ke2CreativeTabs.GEM_TECH);
+		Ke2Items.registerItem(Ke2Items.GEM_STAFF, new ResourceLocation("ke2:gem_staff"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Items.registerItem(Ke2Items.WARP_WHISTLE, new ResourceLocation("ke2:warp_whistle"), event, Ke2CreativeTabs.GEM_TECH);
+		Ke2Items.registerItem(Ke2Items.GEM_DESTABILIZER, new ResourceLocation("ke2:gem_destabilizer"), event, Ke2CreativeTabs.GEM_TECH);
+		Ke2Items.registerItem(Ke2Items.COLORED_GEMSTONE, new ResourceLocation("ke2:colored_gemstone"), event, Ke2CreativeTabs.GEM_STONES);
+		Ke2Items.registerItem(Ke2Items.GEM_SHARD, new ResourceLocation("ke2:gem_shard"), event, Ke2CreativeTabs.GEM_STONES);
+		Ke2Items.registerItem(Ke2Items.GEM_DUST, new ResourceLocation("ke2:gem_dust"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Items.registerItem(Ke2Items.TABLET, new ResourceLocation("ke2:tablet"), event, Ke2CreativeTabs.GEM_TECH);
 		
 		for (Item item : Ke2Blocks.ITEMS) {
-			registerItem(item, null, event, Ke2CreativeTabs.GEM_BLOCKS);
+			Ke2Items.registerItem(item, null, event, Ke2CreativeTabs.GEM_BLOCKS);
 		}
 	}
+	
 	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event, CreativeTabs tab) {
 		event.getRegistry().register(item.getRegistryName() == null ? item.setCreativeTab(tab).setRegistryName(name) : item.setCreativeTab(tab));
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {

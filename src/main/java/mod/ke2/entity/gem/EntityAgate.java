@@ -15,13 +15,16 @@ public class EntityAgate extends AbstractQuartz {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_visor"), VariantColor.class), EntityAgate.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/agate/color_eyes"), VariantColor.class), EntityAgate.class);
 	}
+	
 	public EntityAgate(World world) {
 		super(world);
 	}
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
 		
 	}
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

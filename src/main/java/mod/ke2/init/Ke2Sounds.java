@@ -13,13 +13,14 @@ public class Ke2Sounds {
 	public static final SoundEvent DESTABILIZER = new SoundEvent(new ResourceLocation("ke2:item.destabilizer"));
 	
 	public static void register(RegistryEvent.Register<SoundEvent> event) {
-		registerSound(BUBBLE_CREATE, new ResourceLocation("ke2:misc.bubble.create"), event);
-		registerSound(BUBBLE_POP, new ResourceLocation("ke2:misc.bubble.pop"), event);
-		registerSound(BUBBLE_SEND, new ResourceLocation("ke2:misc.bubble.send"), event);
-		registerSound(GEM_BURST, new ResourceLocation("ke2:misc.burst"), event);
-		registerSound(WAILING_STONE, new ResourceLocation("ke2:block.wailing_stone"), event);
-		registerSound(DESTABILIZER, new ResourceLocation("ke2:item.destabilizer"), event);
+		Ke2Sounds.registerSound(Ke2Sounds.BUBBLE_CREATE, new ResourceLocation("ke2:misc.bubble.create"), event);
+		Ke2Sounds.registerSound(Ke2Sounds.BUBBLE_POP, new ResourceLocation("ke2:misc.bubble.pop"), event);
+		Ke2Sounds.registerSound(Ke2Sounds.BUBBLE_SEND, new ResourceLocation("ke2:misc.bubble.send"), event);
+		Ke2Sounds.registerSound(Ke2Sounds.GEM_BURST, new ResourceLocation("ke2:misc.burst"), event);
+		Ke2Sounds.registerSound(Ke2Sounds.WAILING_STONE, new ResourceLocation("ke2:block.wailing_stone"), event);
+		Ke2Sounds.registerSound(Ke2Sounds.DESTABILIZER, new ResourceLocation("ke2:item.destabilizer"), event);
 	}
+	
 	private static void registerSound(SoundEvent sound, ResourceLocation location, RegistryEvent.Register<SoundEvent> event) {
 		sound.setRegistryName(location);
 		event.getRegistry().register(sound);

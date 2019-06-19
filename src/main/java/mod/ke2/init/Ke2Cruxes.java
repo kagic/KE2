@@ -10,6 +10,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class Ke2Cruxes {
 	public static final HashMap<ResourceLocation, ArrayList<CruxEntry>> TABLE = new HashMap<ResourceLocation, ArrayList<CruxEntry>>();
+	
 	public static void register() {
 		if (Ke2Configs.enableAgate) {
 			
@@ -78,7 +79,7 @@ public class Ke2Cruxes {
 			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_TOTAL, "blockAluminium");
 			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_TOTAL, "blockAluminum");
 			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_BLOCK, "blockRuby");
-			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_TOTAL, "oreRuby");;
+			CruxEntry.fromOreDict(EntityRuby.class, CruxEntry.CRUX_TOTAL, "oreRuby");
 		}
 		if (Ke2Configs.enableRutile) {
 			
@@ -96,9 +97,11 @@ public class Ke2Cruxes {
 			
 		}
 	}
+	
 	public static void addCrux(Class<? extends EntityGem> gem, CruxEntry entry) {
-		addCrux(Ke2Gems.REGISTRY_REVERSE.get(gem), entry);
+		Ke2Cruxes.addCrux(Ke2Gems.REGISTRY_REVERSE.get(gem), entry);
 	}
+	
 	public static void addCrux(ResourceLocation gem, CruxEntry entry) {
 		Ke2Cruxes.TABLE.get(gem).add(entry);
 	}

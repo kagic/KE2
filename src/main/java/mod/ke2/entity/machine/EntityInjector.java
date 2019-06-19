@@ -25,44 +25,50 @@ import net.minecraft.world.World;
 public class EntityInjector extends EntityGemMachine {
 	private static final DataParameter<Integer> COLOR = EntityDataManager.<Integer>createKey(EntityInjector.class, DataSerializers.VARINT);
 	private static final DataParameter<Integer> SEEDS = EntityDataManager.<Integer>createKey(EntityInjector.class, DataSerializers.VARINT);
-	/** List of owner IDs in the order that they placed gem seeds into the injector. */
+	/**
+	 * List of owner IDs in the order that they placed gem
+	 * seeds into the injector.
+	 */
 	public ArrayList<UUID> latestOwnerIDs = new ArrayList<UUID>();
 	
 	public EntityInjector(World world) {
 		super(world);
 		this.setSize(0.9F, 4.6F);
 		this.setCanPickUpLoot(true);
-		this.dataManager.register(COLOR, world.rand.nextInt(16));
-		this.dataManager.register(SEEDS, 0);
+		this.dataManager.register(EntityInjector.COLOR, world.rand.nextInt(16));
+		this.dataManager.register(EntityInjector.SEEDS, 0);
 		this.isImmuneToFire = true;
-        this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20.0D);
 	}
+	
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
-        super.writeEntityToNBT(compound);
-        compound.setInteger("Color", this.getColor());
-        compound.setInteger("Count", this.getSeedCount());
-        NBTTagList list = new NBTTagList();
-        for (int i = 0; i < this.latestOwnerIDs.size(); ++i) {
-        	NBTTagCompound tag = new NBTTagCompound();
-        	tag.setUniqueId("OwnerID", this.latestOwnerIDs.get(i));
-        	list.appendTag(tag);
-        }
-        compound.setTag("LatestOwnerIDs", list);
+		super.writeEntityToNBT(compound);
+		compound.setInteger("Color", this.getColor());
+		compound.setInteger("Count", this.getSeedCount());
+		NBTTagList list = new NBTTagList();
+		for (int i = 0; i < this.latestOwnerIDs.size(); ++i) {
+			NBTTagCompound tag = new NBTTagCompound();
+			tag.setUniqueId("OwnerID", this.latestOwnerIDs.get(i));
+			list.appendTag(tag);
+		}
+		compound.setTag("LatestOwnerIDs", list);
 	}
+	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
-        super.readEntityFromNBT(compound);
-        this.setColor(compound.getInteger("Color"));
-        this.setSeedCount(compound.getInteger("Count"));
-        this.latestOwnerIDs.clear();
-        NBTTagList list = compound.getTagList("LatestOwnerIDs", 10);
-        for (int i = 0; i < list.tagCount(); ++i) {
-        	this.latestOwnerIDs.add(list.getCompoundTagAt(i).getUniqueId("OwnerID"));
-        }
+		super.readEntityFromNBT(compound);
+		this.setColor(compound.getInteger("Color"));
+		this.setSeedCount(compound.getInteger("Count"));
+		this.latestOwnerIDs.clear();
+		NBTTagList list = compound.getTagList("LatestOwnerIDs", 10);
+		for (int i = 0; i < list.tagCount(); ++i) {
+			this.latestOwnerIDs.add(list.getCompoundTagAt(i).getUniqueId("OwnerID"));
+		}
 	}
+	
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
 		livingdata = super.onInitialSpawn(difficulty, livingdata);
@@ -70,6 +76,7 @@ public class EntityInjector extends EntityGemMachine {
 		this.setColor(this.world.rand.nextInt(16));
 		return livingdata;
 	}
+	
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote) {
@@ -77,19 +84,16 @@ public class EntityInjector extends EntityGemMachine {
 			if (stack.getItem() == Ke2Items.GEM_STAFF) {
 				if (player.isSneaking()) {
 					this.say(player, this.getName() + " can produce " + this.getSeedCount() + " gems.");
-				}
-				else {
+				} else {
 					if (this.getPlayerBeingFollowed() != null && this.getPlayerBeingFollowed().isEntityEqual(player)) {
 						this.say(player, this.getName() + " will not follow you.");
 						this.setPlayerBeingFollowed(null);
-					}
-					else {
+					} else {
 						this.say(player, this.getName() + " will follow you.");
 						this.setPlayerBeingFollowed(player);
 					}
 				}
-			}
-			else if (this.isEssence(stack)) {
+			} else if (this.isEssence(stack)) {
 				this.setSeedCount(this.getSeedCount() + 1);
 				this.say(player, this.getName() + " can produce " + this.getSeedCount() + " gems.");
 				this.latestOwnerIDs.add(player.getUniqueID());
@@ -98,6 +102,7 @@ public class EntityInjector extends EntityGemMachine {
 		}
 		return super.processInteract(player, hand);
 	}
+	
 	@Override
 	protected void updateEquipmentIfNeeded(EntityItem entity) {
 		ItemStack stack = entity.getItem();
@@ -106,13 +111,13 @@ public class EntityInjector extends EntityGemMachine {
 			if (total > 64) {
 				stack.setCount(64 - total);
 				this.setSeedCount(64);
-			}
-			else {
+			} else {
 				this.setSeedCount(total);
 				entity.setDead();
 			}
 		}
 	}
+	
 	@Override
 	public void onDeath(DamageSource cause) {
 		if (!this.world.isRemote) {
@@ -121,21 +126,25 @@ public class EntityInjector extends EntityGemMachine {
 			this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.ANVIL)), 0);
 			this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.DISPENSER)), 0);
 			this.entityDropItem(new ItemStack(Item.getItemFromBlock(Blocks.HOPPER)), 0);
-			//this.entityDropItem(new ItemStack(Item.getItemFromBlock(Ke2Blocks.GEM_SEED), this.getSeedCount()), 0);
+			// this.entityDropItem(new
+			// ItemStack(Item.getItemFromBlock(Ke2Blocks.GEM_SEED),
+			// this.getSeedCount()), 0);
 		}
 		super.onDeath(cause);
 	}
+	
 	public boolean canInject() {
 		return this.getPlayerBeingFollowed() == null && this.getSeedCount() > 0;
 	}
+	
 	public boolean isEssence(ItemStack stack) {
 		return stack.getItem() instanceof ItemEssence;
 	}
+	
 	public UUID getLatestOwnerID(boolean remove) {
 		if (this.latestOwnerIDs.isEmpty()) {
 			return new UUID(0, 0);
-		}
-		else {
+		} else {
 			UUID uuid = this.latestOwnerIDs.get(0);
 			if (remove) {
 				return this.latestOwnerIDs.remove(0);
@@ -143,19 +152,24 @@ public class EntityInjector extends EntityGemMachine {
 			return uuid;
 		}
 	}
+	
 	public UUID getLatestOwnerID() {
 		return this.getLatestOwnerID(false);
 	}
+	
 	public void setColor(int color) {
-		this.dataManager.set(COLOR, color);
+		this.dataManager.set(EntityInjector.COLOR, color);
 	}
+	
 	public int getColor() {
-		return this.dataManager.get(COLOR);
+		return this.dataManager.get(EntityInjector.COLOR);
 	}
+	
 	public void setSeedCount(int count) {
-		this.dataManager.set(SEEDS, count);
+		this.dataManager.set(EntityInjector.SEEDS, count);
 	}
+	
 	public int getSeedCount() {
-		return this.dataManager.get(SEEDS);
+		return this.dataManager.get(EntityInjector.SEEDS);
 	}
 }

@@ -24,32 +24,33 @@ public abstract class AbstractGarnet extends EntityGem {
 	public static final ArrayList<Class<? extends AbstractGarnet>> GLOBAL_VARIANT_CLASSES = new ArrayList<Class<? extends AbstractGarnet>>();
 	public static final ArrayList<ResourceLocation> GLOBAL_VARIANT_PATHS = new ArrayList<ResourceLocation>();
 	static {
-		GLOBAL_VARIANT_CLASSES.add(EntityDemantoid.class);
-		GLOBAL_VARIANT_CLASSES.add(EntityHessonite.class);
-		GLOBAL_VARIANT_CLASSES.add(EntityMelanite.class);
-		GLOBAL_VARIANT_CLASSES.add(EntityPyrope.class);
+		AbstractGarnet.GLOBAL_VARIANT_CLASSES.add(EntityDemantoid.class);
+		AbstractGarnet.GLOBAL_VARIANT_CLASSES.add(EntityHessonite.class);
+		AbstractGarnet.GLOBAL_VARIANT_CLASSES.add(EntityMelanite.class);
+		AbstractGarnet.GLOBAL_VARIANT_CLASSES.add(EntityPyrope.class);
 	}
+	
 	public AbstractGarnet(World world) {
 		super(world);
 		this.setSize(0.9F, 2.3F);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.3D);
 	}
-    @Override
-    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
-    	if (this.isPerfective()) {
-    		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(16.0D);
-    		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(180.0D);
-    	}
-    	else if (this.isDefective()) {
-    		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
-    		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60.0D);
-    	}
-    	else {
-    		this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
-    		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120.0D);
-    	}
-        return super.onInitialSpawn(difficulty, livingdata);
-    }
+	
+	@Override
+	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
+		if (this.isPerfective()) {
+			this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(16.0D);
+			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(180.0D);
+		} else if (this.isDefective()) {
+			this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(60.0D);
+		} else {
+			this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(12.0D);
+			this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(120.0D);
+		}
+		return super.onInitialSpawn(difficulty, livingdata);
+	}
+	
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if (source instanceof EntityDamageSourceIndirect && this.teleportToEntity(source.getTrueSource())) {
@@ -57,6 +58,7 @@ public abstract class AbstractGarnet extends EntityGem {
 		}
 		return super.attackEntityFrom(source, amount);
 	}
+	
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
 		boolean attacked = super.attackEntityAsMob(entity);
@@ -68,9 +70,11 @@ public abstract class AbstractGarnet extends EntityGem {
 		}
 		return attacked;
 	}
+	
 	private float getDisarmChance() {
 		return this.isPerfective() ? 1.0F : this.isDefective() ? 0.0F : 0.5F;
 	}
+	
 	public boolean disarm(EntityLivingBase enemy) {
 		if (enemy.hasItemInSlot(EntityEquipmentSlot.MAINHAND)) {
 			ItemStack stack = enemy.getHeldItemMainhand();
@@ -84,6 +88,7 @@ public abstract class AbstractGarnet extends EntityGem {
 			return false;
 		}
 	}
+	
 	private boolean teleportToEntity(Entity target) {
 		Vec3d vec3d = new Vec3d(this.posX - target.posX, this.getEntityBoundingBox().minY + this.height / 2.0F - target.posY + target.getEyeHeight(), this.posZ - target.posZ);
 		if (vec3d.lengthVector() < 4F) {
@@ -94,16 +99,17 @@ public abstract class AbstractGarnet extends EntityGem {
 		double dZ = target.posZ + (this.rand.nextDouble() - 0.5D) * 2.0D;
 		return this.attemptTeleport(dX, dY, dZ);
 	}
+	
 	@Override
 	protected boolean canEquipItem(ItemStack stack) {
 		Item weapon = stack.getItem();
 		if (weapon instanceof ItemSword || weapon instanceof ItemTool || weapon instanceof ItemBow) {
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
+	
 	@Override
 	public boolean canPickUpLoot() {
 		return true;

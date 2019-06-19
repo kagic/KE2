@@ -30,6 +30,7 @@ public class ModelTopaz extends ModelGem {
 		this.bipedLeftLeg.addBox(2.0F, 0.0F, -3.0F, 6, 16, 6, 0.0F);
 		this.bipedLeftLeg.offsetY = -0.25F;
 	}
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -40,50 +41,52 @@ public class ModelTopaz extends ModelGem {
 		this.bipedRightLeg.render(scale);
 		this.bipedLeftLeg.render(scale);
 	}
+	
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
 	}
+	
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {
-			case Ke2Gems.GEMSTONE_FOREHEAD:
+			case Ke2Gems.GEMSTONE_FOREHEAD :
 				break;
-			case Ke2Gems.GEMSTONE_BACK_OF_HEAD:
+			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_EYE:
+			case Ke2Gems.GEMSTONE_RIGHT_EYE :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_EYE:
+			case Ke2Gems.GEMSTONE_LEFT_EYE :
 				break;
-			case Ke2Gems.GEMSTONE_NOSE:
+			case Ke2Gems.GEMSTONE_NOSE :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER:
+			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_SHOULDER:
+			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_HAND:
+			case Ke2Gems.GEMSTONE_RIGHT_HAND :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_HAND:
+			case Ke2Gems.GEMSTONE_LEFT_HAND :
 				break;
-			case Ke2Gems.GEMSTONE_CHEST:
+			case Ke2Gems.GEMSTONE_CHEST :
 				break;
-			case Ke2Gems.GEMSTONE_BACK:
+			case Ke2Gems.GEMSTONE_BACK :
 				break;
-			case Ke2Gems.GEMSTONE_NAVEL:
+			case Ke2Gems.GEMSTONE_NAVEL :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_THIGH:
+			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_THIGH:
+			case Ke2Gems.GEMSTONE_LEFT_THIGH :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_KNEE:
+			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_KNEE:
+			case Ke2Gems.GEMSTONE_LEFT_KNEE :
 				break;
-			case Ke2Gems.GEMSTONE_RIGHT_FOOT:
+			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
 				break;
-			case Ke2Gems.GEMSTONE_LEFT_FOOT:
+			case Ke2Gems.GEMSTONE_LEFT_FOOT :
 				break;
 		}
 	}

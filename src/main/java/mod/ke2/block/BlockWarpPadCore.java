@@ -20,24 +20,29 @@ import net.minecraft.world.World;
 
 public class BlockWarpPadCore extends Block implements ITileEntityProvider {
 	private final int color;
+	
 	public BlockWarpPadCore(int color) {
 		super(Material.ROCK);
-        this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
-        this.color = color;
+		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
+		this.color = color;
 		this.setUnlocalizedName(EnumDyeColor.byMetadata(color).toString().toLowerCase() + "_warp_pad_core");
-    	this.setResistance(30);
-    	this.setHardness(2);
+		this.setResistance(30);
+		this.setHardness(2);
 	}
+	
 	public int getColor() {
 		return this.color;
 	}
+	
 	protected TileEntityWarpPadCore getWarpPad(World world, BlockPos pos) {
 		return (TileEntityWarpPadCore) world.getTileEntity(pos);
 	}
+	
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityWarpPadCore();
 	}
+	
 	@Override
 	public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumHand hand, EnumFacing side, float hitX, float hitY, float hitZ) {
 		if (world.isRemote) {
@@ -53,6 +58,7 @@ public class BlockWarpPadCore extends Block implements ITileEntityProvider {
 		}
 		return false;
 	}
+	
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
 		this.getWarpPad(world, pos).destroy();

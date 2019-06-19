@@ -17,23 +17,22 @@ public class HandleFactions {
 	@SubscribeEvent
 	public void onEntityInteract(PlayerInteractEvent.EntityInteract e) {
 		if (e.getTarget() instanceof EntityPlayerMP) {
-			EntityPlayer requester = (EntityPlayer)(e.getEntityPlayer());
-			EntityPlayer responder = (EntityPlayer)(e.getTarget());
+			EntityPlayer requester = e.getEntityPlayer();
+			EntityPlayer responder = (EntityPlayer) e.getTarget();
 			if (e.getItemStack().getItem() == Ke2Items.GEM_STAFF) {
 				WorldDataFactions factions = WorldDataFactions.get(e.getWorld());
 				if (factions.getFaction(requester.getUniqueID()).equals(factions.getFaction(responder.getUniqueID()))) {
 					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.in_same_faction", responder.getName()));
-				}
-				else if (responder.isSneaking()) {
-					Ke2Messages.INSTANCE.sendTo(new MessageFactionRequest(requester.getUniqueID(), responder.getUniqueID()), (EntityPlayerMP)(responder));
+				} else if (responder.isSneaking()) {
+					Ke2Messages.INSTANCE.sendTo(new MessageFactionRequest(requester.getUniqueID(), responder.getUniqueID()), (EntityPlayerMP) responder);
 					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.sent_request_to", responder.getName()));
-				}
-				else {
+				} else {
 					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.in_different_faction", responder.getName()));
 				}
 			}
 		}
 	}
+	
 	@SubscribeEvent
 	public void onLoadFromFile(PlayerEvent.LoadFromFile e) {
 		if (e.getEntity() instanceof EntityPlayer) {

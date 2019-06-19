@@ -12,6 +12,7 @@ public class RenderVan extends RenderLiving<EntityVan> {
 	public RenderVan(RenderManager manager) {
 		super(manager, new ModelVan(), 0.0F);
 	}
+	
 	@Override
 	protected void preRenderCallback(EntityVan entity, float partialTickTime) {
 		super.preRenderCallback(entity, partialTickTime);
@@ -24,7 +25,8 @@ public class RenderVan extends RenderLiving<EntityVan> {
 		} catch (Exception e) {
 			RenderGem.updateModelsDespiteTheFactItCausesMemoryLeaks = false;
 		}
-    }
+	}
+	
 	@Override
 	protected ResourceLocation getEntityTexture(EntityVan entity) {
 		return new ResourceLocation("ke2:textures/entities/van.png");

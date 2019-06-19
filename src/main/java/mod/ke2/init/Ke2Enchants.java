@@ -25,24 +25,25 @@ public class Ke2Enchants {
 	public static final EnchantBubble BUBBLE = new EnchantBubble();
 	
 	public static void register(RegistryEvent.Register<Enchantment> event) {
-		registerEnchant(WHITE_GEM_SHARD, event);
-		registerEnchant(ORANGE_GEM_SHARD, event);
-		registerEnchant(MAGENTA_GEM_SHARD, event);
-		registerEnchant(LIGHTBLUE_GEM_SHARD, event);
-		registerEnchant(YELLOW_GEM_SHARD, event);
-		registerEnchant(LIME_GEM_SHARD, event);
-		registerEnchant(PINK_GEM_SHARD, event);
-		registerEnchant(GRAY_GEM_SHARD, event);
-		registerEnchant(SILVER_GEM_SHARD, event);
-		registerEnchant(CYAN_GEM_SHARD, event);
-		registerEnchant(PURPLE_GEM_SHARD, event);
-		registerEnchant(BLUE_GEM_SHARD, event);
-		registerEnchant(BROWN_GEM_SHARD, event);
-		registerEnchant(GREEN_GEM_SHARD, event);
-		registerEnchant(RED_GEM_SHARD, event);
-		registerEnchant(BLACK_GEM_SHARD, event);
-		registerEnchant(BUBBLE, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.WHITE_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.ORANGE_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.MAGENTA_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.LIGHTBLUE_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.YELLOW_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.LIME_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.PINK_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.GRAY_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.SILVER_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.CYAN_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.PURPLE_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.BLUE_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.BROWN_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.GREEN_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.RED_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.BLACK_GEM_SHARD, event);
+		Ke2Enchants.registerEnchant(Ke2Enchants.BUBBLE, event);
 	}
+	
 	private static void registerEnchant(Enchantment enchant, RegistryEvent.Register<Enchantment> event) {
 		event.getRegistry().register(enchant);
 	}

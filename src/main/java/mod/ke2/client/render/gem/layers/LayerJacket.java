@@ -9,9 +9,11 @@ import net.minecraft.util.ResourceLocation;
 
 public class LayerJacket implements LayerRenderer<EntityGem> {
 	private final RenderLivingBase<?> renderer;
+	
 	public LayerJacket(RenderLivingBase<?> renderer) {
 		this.renderer = renderer;
 	}
+	
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getOutfitVariant() != null) {
@@ -25,11 +27,12 @@ public class LayerJacket implements LayerRenderer<EntityGem> {
 				GlStateManager.color(r, g, b);
 				GlStateManager.scale(1.0F, 1.1F, 1.1F);
 				GlStateManager.translate(0.0F, -0.05F, 0.0F);
-		        this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-		        GlStateManager.disableBlend();
+				this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+				GlStateManager.disableBlend();
 			}
 		}
 	}
+	
 	@Override
 	public boolean shouldCombineTextures() {
 		return false;

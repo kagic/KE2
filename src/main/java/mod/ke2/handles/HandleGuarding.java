@@ -12,7 +12,7 @@ public class HandleGuarding {
 	@SubscribeEvent
 	public void onEntitySpawn(EntityJoinWorldEvent e) {
 		if (e.getEntity() instanceof EntityMob) {
-			EntityMob mob = (EntityMob)(e.getEntity());
+			EntityMob mob = (EntityMob) e.getEntity();
 			double height = mob.height;
 			mob.tasks.addTask(0, new EntityAIAvoidEntity<AbstractQuartz>(mob, AbstractQuartz.class, new Predicate<AbstractQuartz>() {
 				@Override

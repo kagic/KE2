@@ -10,12 +10,14 @@ import net.minecraft.world.World;
 
 public class RecipeEssences implements IRecipe {
 	private ResourceLocation name;
+	
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inventory) {
-		int i = 0; ItemEssence[] items = new ItemEssence[2];
+		int i = 0;
+		ItemEssence[] items = new ItemEssence[2];
 		for (int slot = 0; slot < inventory.getInventoryStackLimit(); ++slot) {
 			if (inventory.getStackInSlot(slot).getItem() instanceof ItemEssence) {
-				items[i] = (ItemEssence)(inventory.getStackInSlot(slot).getItem());
+				items[i] = (ItemEssence) inventory.getStackInSlot(slot).getItem();
 				++i;
 			}
 		}
@@ -101,43 +103,48 @@ public class RecipeEssences implements IRecipe {
 				return new ItemStack(Ke2Items.AWKWARD_ESSENCE, 2);
 			}
 		}
-        return ItemStack.EMPTY;
-    }
+		return ItemStack.EMPTY;
+	}
+	
 	@Override
 	public boolean matches(InventoryCrafting inventory, World world) {
 		int essences = 0;
-        for (int y = 0; y < inventory.getHeight(); ++y) {
-            for (int x = 0; x < inventory.getWidth(); ++x) {
-                ItemStack stack = inventory.getStackInRowAndColumn(x, y);
-                if (stack.getItem() instanceof ItemEssence) {
-                    ++essences;
-                }
-                else if (!stack.isEmpty()) {
-                	return false;
-                }
-            }
-        }
-        return essences == 2;
+		for (int y = 0; y < inventory.getHeight(); ++y) {
+			for (int x = 0; x < inventory.getWidth(); ++x) {
+				ItemStack stack = inventory.getStackInRowAndColumn(x, y);
+				if (stack.getItem() instanceof ItemEssence) {
+					++essences;
+				} else if (!stack.isEmpty()) {
+					return false;
+				}
+			}
+		}
+		return essences == 2;
 	}
+	
 	@Override
 	public ItemStack getRecipeOutput() {
 		return ItemStack.EMPTY;
 	}
+	
 	@Override
 	public Class<IRecipe> getRegistryType() {
 		return IRecipe.class;
 	}
+	
 	@Override
 	public boolean canFit(int width, int height) {
 		return width + height >= 2;
 	}
+	
 	@Override
 	public IRecipe setRegistryName(ResourceLocation name) {
 		this.name = name;
 		return this;
 	}
+	
 	@Override
 	public ResourceLocation getRegistryName() {
-		return name;
+		return this.name;
 	}
 }

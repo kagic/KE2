@@ -9,18 +9,21 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 
 public class LayerGemstone implements LayerRenderer<EntityGem> {
 	private final RenderGem<?> renderer;
+	
 	public LayerGemstone(RenderGem<?> renderer) {
 		this.renderer = renderer;
 	}
+	
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getGemstoneCut() > -1) {
 			GlStateManager.pushMatrix();
-            this.renderer.getModel().renderGemOnBody(gem.getGemstonePosition(), scale);
+			this.renderer.getModel().renderGemOnBody(gem.getGemstonePosition(), scale);
 			Minecraft.getMinecraft().getItemRenderer().renderItemSide(gem, gem.getGemstoneItem(), TransformType.FIXED, false);
 			GlStateManager.popMatrix();
 		}
 	}
+	
 	@Override
 	public boolean shouldCombineTextures() {
 		return false;

@@ -10,18 +10,26 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.IGuiHandler;
 
 public interface CommonProxy extends IGuiHandler {
-	public static final int GUI_WARP_PAD = 0;
-	public static final int GUI_WARP_PAD_SELECTION = 1;
+	int GUI_WARP_PAD = 0;
+	int GUI_WARP_PAD_SELECTION = 1;
 	
-	public void preInit(FMLPreInitializationEvent e);
-	public void init(FMLInitializationEvent e);
-	public void postInit(FMLPostInitializationEvent e);
-	public boolean isClient();
-	public boolean isServer();
-	public void addParticle(IParticleFactory factory, World world, double x, double y, double z, double dX, double dY, double dZ, int color);
+	void preInit(FMLPreInitializationEvent e);
+	
+	void init(FMLInitializationEvent e);
+	
+	void postInit(FMLPostInitializationEvent e);
+	
+	boolean isClient();
+	
+	boolean isServer();
+	
+	void addParticle(IParticleFactory factory, World world, double x, double y, double z, double dX, double dY, double dZ, int color);
+	
 	@Override
-	public Object getServerGuiElement(int i, EntityPlayer player, World world, int x, int y, int z);
+	Object getServerGuiElement(int i, EntityPlayer player, World world, int x, int y, int z);
+	
 	@Override
-	public Object getClientGuiElement(int i, EntityPlayer player, World world, int x, int y, int z);
-	public void openGuiScreen(GuiScreen screen);
+	Object getClientGuiElement(int i, EntityPlayer player, World world, int x, int y, int z);
+	
+	void openGuiScreen(GuiScreen screen);
 }

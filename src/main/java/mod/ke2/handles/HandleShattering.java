@@ -30,7 +30,7 @@ public class HandleShattering {
 				NBTTagList enchantments = stack.getEnchantmentTagList();
 				for (int i = 0; i < enchantments.tagCount(); i++) {
 					if (Enchantment.getEnchantmentByID(enchantments.getCompoundTagAt(i).getInteger("id")) instanceof EnchantShard) {
-						EnchantShard en = (EnchantShard)(Enchantment.getEnchantmentByID(enchantments.getCompoundTagAt(i).getInteger("id")));
+						EnchantShard en = (EnchantShard) Enchantment.getEnchantmentByID(enchantments.getCompoundTagAt(i).getInteger("id"));
 						e.getEntityLiving().addPotionEffect(en.getBuff(en.color));
 					}
 				}
@@ -38,6 +38,7 @@ public class HandleShattering {
 		}
 		return false;
 	}
+	
 	@SubscribeEvent
 	public void onItemExpire(ItemExpireEvent e) {
 		ItemStack stack = e.getEntityItem().getItem();
@@ -46,7 +47,7 @@ public class HandleShattering {
 			for (int i = 0; i < enchantments.tagCount(); i++) {
 				if (Enchantment.getEnchantmentByID(enchantments.getCompoundTagAt(i).getInteger("id")) instanceof EnchantShard) {
 					if (!e.getEntityItem().world.isRemote) {
-						EnchantShard en = (EnchantShard)(Enchantment.getEnchantmentByID(enchantments.getCompoundTagAt(i).getInteger("id")));
+						EnchantShard en = (EnchantShard) Enchantment.getEnchantmentByID(enchantments.getCompoundTagAt(i).getInteger("id"));
 						EntityGemShard shard = new EntityGemShard(e.getEntityItem().world);
 						shard.setPositionAndRotation(e.getEntityItem().posX, e.getEntityItem().posY, e.getEntityItem().posZ, e.getEntityItem().rotationYaw, e.getEntityItem().rotationPitch);
 						shard.setColor(en.color);
@@ -58,6 +59,7 @@ public class HandleShattering {
 			}
 		}
 	}
+	
 	@SubscribeEvent
 	public void onAnvilRepair(AnvilRepairEvent e) {
 		if (e.getIngredientInput().getItem() instanceof ItemGemShard) {
@@ -79,11 +81,12 @@ public class HandleShattering {
 			}
 		}
 	}
+	
 	@SubscribeEvent
 	public void onAnvilUpdate(AnvilUpdateEvent e) {
 		Random rand = new Random(e.getRight().hashCode());
 		if (e.getRight().getItem() instanceof ItemGemShard) {
-			ItemGemShard gem = (ItemGemShard)(e.getRight().getItem());
+			ItemGemShard gem = (ItemGemShard) e.getRight().getItem();
 			boolean enchantItem = true;
 			NBTTagList enchantments = e.getLeft().getEnchantmentTagList();
 			for (int i = 0; i < enchantments.tagCount(); i++) {
@@ -104,36 +107,36 @@ public class HandleShattering {
 		if (e.getLeft().getItem() instanceof ItemGemstone) {
 			boolean canBreak = false;
 			if (e.getRight().getItem() instanceof ItemPickaxe) {
-				ItemPickaxe tool = (ItemPickaxe)(e.getRight().getItem());
+				ItemPickaxe tool = (ItemPickaxe) e.getRight().getItem();
 				ToolMaterial mat = ToolMaterial.valueOf(tool.getToolMaterialName());
 				canBreak = mat.getHarvestLevel() > 1;
 			}
 			if (canBreak) {
-			    int gemColor = rand.nextInt(16777215);
-			    if (e.getLeft().hasTagCompound()) {
-			    	NBTTagCompound nbt = e.getLeft().getTagCompound();
-			    	if (nbt.hasKey("GemstoneColor")) {
-			    		gemColor = nbt.getInteger("GemstoneColor");
-			    	}
-			    }
-			    double maxDist = Double.MAX_VALUE;
-			    int dyeColor = 0;
-			    float r = (gemColor & 16711680) >> 16;
-		        float g = (gemColor & 65280) >> 8;
-		        float b = (gemColor & 255) >> 0;
-			    for (int i = 0; i < EntityGemShard.PARTICLE_COLORS.length; ++i) {
-			    	int color = EntityGemShard.PARTICLE_COLORS[i];
+				int gemColor = rand.nextInt(16777215);
+				if (e.getLeft().hasTagCompound()) {
+					NBTTagCompound nbt = e.getLeft().getTagCompound();
+					if (nbt.hasKey("GemstoneColor")) {
+						gemColor = nbt.getInteger("GemstoneColor");
+					}
+				}
+				double maxDist = Double.MAX_VALUE;
+				int dyeColor = 0;
+				float r = (gemColor & 16711680) >> 16;
+				float g = (gemColor & 65280) >> 8;
+				float b = (gemColor & 255) >> 0;
+				for (int i = 0; i < EntityGemShard.PARTICLE_COLORS.length; ++i) {
+					int color = EntityGemShard.PARTICLE_COLORS[i];
 					float shardR = (color & 16711680) >> 16;
-			        float shardG = (color & 65280) >> 8;
-			        float shardB = (color & 255) >> 0;
+					float shardG = (color & 65280) >> 8;
+					float shardB = (color & 255) >> 0;
 					double dist = Math.sqrt(Math.pow(shardR - r, 2) + Math.pow(shardG - g, 2) + Math.pow(shardB - b, 2));
 					if (dist < maxDist) {
 						maxDist = dist;
 						dyeColor = i;
 					}
-			    }
-			    e.setOutput(new ItemStack(Ke2Items.GEM_SHARD, 9));
-			    if (!e.getOutput().isEmpty()) {
+				}
+				e.setOutput(new ItemStack(Ke2Items.GEM_SHARD, 9));
+				if (!e.getOutput().isEmpty()) {
 					e.setResult(Result.ALLOW);
 					e.setCost(1);
 				}

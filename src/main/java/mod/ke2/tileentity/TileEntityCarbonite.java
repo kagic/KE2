@@ -13,6 +13,7 @@ public class TileEntityCarbonite extends TileEntity implements ITickable {
 	private boolean isPoweredByRedstone = false;
 	private boolean isAttachedToPoweredBlock = false;
 	public int ticksExisted = 0;
+	
 	@Override
 	public void update() {
 		++this.ticksExisted;
@@ -21,24 +22,22 @@ public class TileEntityCarbonite extends TileEntity implements ITickable {
 				this.isPoweredByRedstone = true;
 				this.turnOn();
 				return;
-			}
-			else if (this.isPoweredByRedstone) {
+			} else if (this.isPoweredByRedstone) {
 				this.turnOff();
 				return;
-			}
-			else {
+			} else {
 				for (int i = 0; i < EnumFacing.VALUES.length; ++i) {
-					EnumFacing face = EnumFacing.VALUES[i]; BlockPos check = this.pos.offset(face);
+					EnumFacing face = EnumFacing.VALUES[i];
+					BlockPos check = this.pos.offset(face);
 					Block block = this.world.getBlockState(check).getBlock();
 					if (block instanceof BlockCarbonite) {
-						TileEntityCarbonite entity = (TileEntityCarbonite)(this.world.getTileEntity(check));
+						TileEntityCarbonite entity = (TileEntityCarbonite) this.world.getTileEntity(check);
 						if (entity.isPowered()) {
 							if (entity.isAttachedToPoweredBlock()) {
 								this.isAttachedToPoweredBlock = entity.isPoweredByRedstone();
 								this.turnOn();
 								return;
-							}
-							else if (entity.isPoweredByRedstone()) {
+							} else if (entity.isPoweredByRedstone()) {
 								this.isAttachedToPoweredBlock = true;
 								this.turnOn();
 								return;
@@ -51,41 +50,47 @@ public class TileEntityCarbonite extends TileEntity implements ITickable {
 			this.turnOff();
 		}
 	}
+	
 	@Override
 	public boolean shouldRefresh(World world, BlockPos pos, IBlockState original, IBlockState state) {
-        return state.getBlock() instanceof BlockCarbonite;
-    }
+		return state.getBlock() instanceof BlockCarbonite;
+	}
+	
 	public void turnOff() {
 		this.ticksExisted = 0;
 		Block block = this.world.getBlockState(this.pos).getBlock();
 		if (block instanceof BlockCarbonite) {
-			BlockCarbonite carbonite = (BlockCarbonite)(block);
+			BlockCarbonite carbonite = (BlockCarbonite) block;
 			if (carbonite.isPowered() && carbonite.canBePowered()) {
 				this.world.setBlockState(this.pos, carbonite.getReverseState());
 			}
 		}
 	}
+	
 	public void turnOn() {
 		this.ticksExisted = 0;
 		Block block = this.world.getBlockState(this.pos).getBlock();
 		if (block instanceof BlockCarbonite) {
-			BlockCarbonite carbonite = (BlockCarbonite)(block);
+			BlockCarbonite carbonite = (BlockCarbonite) block;
 			if (!carbonite.isPowered() && carbonite.canBePowered()) {
 				this.world.setBlockState(this.pos, carbonite.getReverseState());
 			}
 		}
 	}
+	
 	public boolean isPowered() {
 		Block block = this.world.getBlockState(this.pos).getBlock();
 		if (block instanceof BlockCarbonite) {
-			BlockCarbonite carbonite = (BlockCarbonite)(block);
+			BlockCarbonite carbonite = (BlockCarbonite) block;
 			return carbonite.isPowered() && carbonite.canBePowered();
 		}
 		return false;
 	}
+	
 	public boolean isAttachedToPoweredBlock() {
 		return this.isAttachedToPoweredBlock;
 	}
+	
 	public boolean isPoweredByRedstone() {
 		return this.isPoweredByRedstone;
 	}

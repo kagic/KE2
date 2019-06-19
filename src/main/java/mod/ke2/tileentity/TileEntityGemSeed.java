@@ -10,24 +10,23 @@ public class TileEntityGemSeed extends TileEntity implements ITickable {
 	private GemSpawnData data;
 	private InjectorResult preResult;
 	private int ticksExisted = 0;
+	
 	@Override
 	public void update() {
 		if (this.ticksExisted > 3600) {
 			InjectorResult result = InjectorResult.create(this.world, this.pos, true, this.data.getOwner(), this.data.getColor());
 			result.generate(this.world);
-		}
-		else if (this.hasPreResult()) {
+		} else if (this.hasPreResult()) {
 			++this.ticksExisted;
-		}
-		else if (!this.hasData()) {
+		} else if (!this.hasData()) {
 			this.data = new GemSpawnData();
-		}
-		else {
+		} else {
 			this.preResult = InjectorResult.create(this.world, this.pos, false);
 		}
 	}
+	
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound){
+	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
 		compound.setInteger("TicksExisted", this.ticksExisted);
 		if (this.hasData()) {
@@ -38,31 +37,34 @@ public class TileEntityGemSeed extends TileEntity implements ITickable {
 		}
 		return compound;
 	}
+	
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
 		this.ticksExisted = compound.getInteger("TicksExisted");
 		try {
-			this.data = new GemSpawnData(compound.getUniqueId("Owner"),
-				compound.getInteger("Color"),
-				compound.getBoolean("Defective"),
-				compound.getBoolean("Perfective"));
+			this.data = new GemSpawnData(compound.getUniqueId("Owner"), compound.getInteger("Color"), compound.getBoolean("Defective"), compound.getBoolean("Perfective"));
 		} catch (Exception e) {
 			this.data = null;
 		}
 	}
+	
 	public GemSpawnData getData() {
 		return this.data;
 	}
+	
 	public void setData(GemSpawnData data) {
 		this.data = data;
 	}
+	
 	public boolean hasData() {
 		return this.data != null;
 	}
+	
 	public InjectorResult getPreResult() {
 		return this.preResult;
 	}
+	
 	public boolean hasPreResult() {
 		return this.preResult != null;
 	}

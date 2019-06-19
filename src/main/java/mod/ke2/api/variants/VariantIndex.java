@@ -7,6 +7,7 @@ public class VariantIndex {
 	public String[] colors;
 	public String[] textures;
 	public String[] names;
+	
 	public boolean matches(ResourceLocation applicant) {
 		return applicant.equals(new ResourceLocation(this.applicant));
 	}

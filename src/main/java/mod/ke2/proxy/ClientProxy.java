@@ -20,45 +20,53 @@ public class ClientProxy implements CommonProxy {
 	public void preInit(FMLPreInitializationEvent e) {
 		
 	}
+	
 	@Override
 	public void init(FMLInitializationEvent e) {
 		Ke2Colors.register();
 	}
+	
 	@Override
 	public void postInit(FMLPostInitializationEvent e) {
-    	BlockCarbonite.registerConversionTables();
+		BlockCarbonite.registerConversionTables();
 	}
+	
 	@Override
 	public boolean isClient() {
 		return true;
 	}
+	
 	@Override
 	public boolean isServer() {
 		return false;
 	}
+	
 	@Override
 	public void addParticle(IParticleFactory factory, World world, double x, double y, double z, double dX, double dY, double dZ, int color) {
 		Minecraft.getMinecraft().effectRenderer.addEffect(factory.createParticle(-1, world, x, y, z, dX, dY, dZ, color));
 	}
+	
 	@Override
 	public Object getClientGuiElement(int i, EntityPlayer player, World world, int x, int y, int z) {
 		if (world == null || world.isRemote) {
 			switch (i) {
-			case CommonProxy.GUI_WARP_PAD:
-				TileEntity pad = world.getTileEntity(new BlockPos(x, y, z));
-				if (pad instanceof TileEntityWarpPadCore) {
-					return new GuiWarpPad((TileEntityWarpPadCore)(pad));
-				}
-			case CommonProxy.GUI_WARP_PAD_SELECTION:
-				break;
+				case CommonProxy.GUI_WARP_PAD :
+					TileEntity pad = world.getTileEntity(new BlockPos(x, y, z));
+					if (pad instanceof TileEntityWarpPadCore) {
+						return new GuiWarpPad((TileEntityWarpPadCore) pad);
+					}
+				case CommonProxy.GUI_WARP_PAD_SELECTION :
+					break;
 			}
 		}
 		return null;
 	}
+	
 	@Override
 	public Object getServerGuiElement(int i, EntityPlayer player, World world, int x, int y, int z) {
 		return null;
 	}
+	
 	@Override
 	public void openGuiScreen(GuiScreen screen) {
 		Minecraft.getMinecraft().displayGuiScreen(screen);

@@ -28,13 +28,25 @@ public class Ke2Gems {
 	public static final int ALIGNED_WITH_ITSELF = 4;
 	/** Gem is controlled and owned by White. */
 	public static final int CONTROLLED_BY_WHITE = 5;
-	/** Gem is controlled by White but reverts to player ownership. */
+	/**
+	 * Gem is controlled by White but reverts to player
+	 * ownership.
+	 */
 	public static final int CONTROLLED_BY_WHITE_BUT_ALIGNED_WITH_PLAYERS = 6;
-	/** Gem is controlled by White but reverts to Yellow/Blue's ownership. */
+	/**
+	 * Gem is controlled by White but reverts to
+	 * Yellow/Blue's ownership.
+	 */
 	public static final int CONTROLLED_BY_WHITE_BUT_ALIGNED_WITH_DIAMONDS = 7;
-	/** Gem is controlled by White but reverts to Pink/Rose/Steven's ownership. */
+	/**
+	 * Gem is controlled by White but reverts to
+	 * Pink/Rose/Steven's ownership.
+	 */
 	public static final int CONTROLLED_BY_WHITE_BUT_ALIGNED_WITH_REBELS = 8;
-	/** Gem is controlled by White but reverts to self ownership. */
+	/**
+	 * Gem is controlled by White but reverts to self
+	 * ownership.
+	 */
 	public static final int CONTROLLED_BY_WHITE_BUT_ALIGNED_WITH_ITSELF = 9;
 	
 	/** Forehead placement; analogous to Aquarius. */
@@ -51,9 +63,9 @@ public class Ke2Gems {
 	public static final int GEMSTONE_RIGHT_SHOULDER = 5;
 	/** Shoulder placement; analogous to Libra. */
 	public static final int GEMSTONE_LEFT_SHOULDER = 6;
-	/** Hand placement; analogous to Gemini.  */
+	/** Hand placement; analogous to Gemini. */
 	public static final int GEMSTONE_RIGHT_HAND = 7;
-	/** Hand placement; analogous to Gemini.  */
+	/** Hand placement; analogous to Gemini. */
 	public static final int GEMSTONE_LEFT_HAND = 8;
 	/** Chest placement; analogous to Cancer. */
 	public static final int GEMSTONE_CHEST = 9;
@@ -75,34 +87,25 @@ public class Ke2Gems {
 	public static final int GEMSTONE_LEFT_FOOT = 17;
 	
 	/** The pure terror that causes those to flee. */
-	public static final float EMOTION_DREAD = 1.0F / 8.0F * 0.0F;	// RED
+	public static final float EMOTION_DREAD = 1.0F / 8.0F * 0.0F; // RED
 	/** The feeling of having lost something. */
-	public static final float EMOTION_GRIEF = 1.0F / 8.0F * 1.0F;	// ORANGE
+	public static final float EMOTION_GRIEF = 1.0F / 8.0F * 1.0F; // ORANGE
 	/** When your brain is deciding to fight or flee. */
-	public static final float EMOTION_DOUBT = 1.0F / 8.0F * 2.0F;	// YELLOW
-	/** Self-deprecation that lowers attack potency. */ 
-	public static final float EMOTION_SHAME = 1.0F / 8.0F * 3.0F;	// GREEN
+	public static final float EMOTION_DOUBT = 1.0F / 8.0F * 2.0F; // YELLOW
+	/** Self-deprecation that lowers attack potency. */
+	public static final float EMOTION_SHAME = 1.0F / 8.0F * 3.0F; // GREEN
 	/** Sudden barrage of input that speeds up a gem. */
-	public static final float EMOTION_HYPED = 1.0F / 8.0F * 4.0F;	// CYAN
-	/** The feeling of being content and satisfied. */ 
-	public static final float EMOTION_HAPPY = 1.0F / 8.0F * 5.0F;	// BLUE
+	public static final float EMOTION_HYPED = 1.0F / 8.0F * 4.0F; // CYAN
+	/** The feeling of being content and satisfied. */
+	public static final float EMOTION_HAPPY = 1.0F / 8.0F * 5.0F; // BLUE
 	/** Self-justification that increases attack potency. */
-	public static final float EMOTION_PRIDE = 1.0F / 8.0F * 6.0F;	// VIOLET
+	public static final float EMOTION_PRIDE = 1.0F / 8.0F * 6.0F; // VIOLET
 	/** The pure power that causes those to fight. */
-	public static final float EMOTION_ANGER = 1.0F / 8.0F * 7.0F;	// PINK
+	public static final float EMOTION_ANGER = 1.0F / 8.0F * 7.0F; // PINK
 	/** Used to reset the emotional spectrum. */
-	public static final float EMOTION_LIMIT = 1.0F;					// RESET
+	public static final float EMOTION_LIMIT = 1.0F; // RESET
 	/** Used for colormatching to emotional deficiencies. */
-	public static final int[] EMOTIONAL_WAVELENGTHS = new int[] {
-		0xFF0000,
-		0xFF8800,
-		0xFFFF00,
-		0x00FF00,
-		0x00FFFF,
-		0x0000FF,
-		0xFF0088,
-		0xFF00FF
-	};
+	public static final int[] EMOTIONAL_WAVELENGTHS = new int[]{0xFF0000, 0xFF8800, 0xFFFF00, 0x00FF00, 0x00FFFF, 0x0000FF, 0xFF0088, 0xFF00FF};
 	
 	/** Dye damage is 0, block meta is 15. */
 	public static final int BASIC_WHITE = 0;
@@ -176,8 +179,7 @@ public class Ke2Gems {
 			Ke2Gems.REGISTRY_REVERSE.put(entity, loc);
 			Ke2Variants.TABLE.put(loc, new ArrayList<ResourceLocation>());
 			Ke2Cruxes.TABLE.put(loc, new ArrayList<CruxEntry>());
-		}
-		else {
+		} else {
 			KAGIC.LOGGER.warn("Gem '{}' already exists! Skipping!", loc.toString());
 			KAGIC.LOGGER.warn("Report this to addon or mod author!");
 		}

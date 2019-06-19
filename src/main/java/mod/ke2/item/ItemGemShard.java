@@ -13,15 +13,15 @@ public class ItemGemShard extends Item {
 	public ItemGemShard() {
 		this.setUnlocalizedName("gem_shard");
 		this.setMaxStackSize(64);
-        this.addPropertyOverride(new ResourceLocation("variant"), new IItemPropertyGetter() {
-            @Override
+		this.addPropertyOverride(new ResourceLocation("variant"), new IItemPropertyGetter() {
+			@Override
 			@SideOnly(Side.CLIENT)
-            public float apply(ItemStack stack, World world, EntityLivingBase entity) {
-                if (stack.hasTagCompound()) {
-                	return (stack.getTagCompound().getInteger("Variant")) / 16.0F;
-                }
-                return 0.0F;
-            }
-        });
+			public float apply(ItemStack stack, World world, EntityLivingBase entity) {
+				if (stack.hasTagCompound()) {
+					return stack.getTagCompound().getInteger("Variant") / 16.0F;
+				}
+				return 0.0F;
+			}
+		});
 	}
 }

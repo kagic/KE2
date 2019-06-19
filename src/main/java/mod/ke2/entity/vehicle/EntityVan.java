@@ -24,8 +24,9 @@ public class EntityVan extends EntityGemMachine {
 		this.setSize(3.0F, 7.0F);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.4D);
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(12.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(12.0D);
 	}
+	
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote) {
@@ -35,15 +36,13 @@ public class EntityVan extends EntityGemMachine {
 					if (this.getPlayerBeingFollowed() != null && this.getPlayerBeingFollowed().isEntityEqual(player)) {
 						this.say(player, this.getName() + " will not follow you.");
 						this.setPlayerBeingFollowed(null);
-					}
-					else {
+					} else {
 						this.say(player, this.getName() + " will follow you.");
 						this.setPlayerBeingFollowed(player);
 					}
 					return true;
 				}
-			}
-			else if (!this.isRidingOrBeingRiddenBy(player)) {
+			} else if (!this.isRidingOrBeingRiddenBy(player)) {
 				player.rotationYaw = this.rotationYaw;
 				player.rotationPitch = this.rotationPitch;
 				player.startRiding(this);
@@ -51,7 +50,8 @@ public class EntityVan extends EntityGemMachine {
 			}
 		}
 		return super.processInteract(player, hand);
-    }
+	}
+	
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
@@ -63,7 +63,7 @@ public class EntityVan extends EntityGemMachine {
 					if (this.posY > entity.posY) {
 						damage = 40.0F;
 					}
-					entity.attackEntityFrom(DamageSource.causeIndirectDamage(this, (EntityLivingBase)(this.getControllingPassenger())), damage);
+					entity.attackEntityFrom(DamageSource.causeIndirectDamage(this, (EntityLivingBase) this.getControllingPassenger()), damage);
 					entity.motionY += this.motionX + this.motionZ;
 					entity.motionX += this.motionX * 1.5D;
 					entity.motionZ += this.motionZ * 1.5D;
@@ -71,81 +71,95 @@ public class EntityVan extends EntityGemMachine {
 			}
 		}
 	}
+	
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
-		if ((source.getTrueSource() != null && !this.isRidingOrBeingRiddenBy(source.getTrueSource()))) {
+		if (source.getTrueSource() != null && !this.isRidingOrBeingRiddenBy(source.getTrueSource())) {
 			return super.attackEntityFrom(source, amount);
 		}
 		return false;
 	}
+	
 	@Override
 	public void fall(float distance, float damageMultiplier) {
 		return;
 	}
+	
 	@Override
 	public void updatePassenger(Entity passenger) {
-        super.updatePassenger(passenger);
-        passenger.setPosition(this.posX, this.posY + 0.375F, this.posZ);
-    }
+		super.updatePassenger(passenger);
+		passenger.setPosition(this.posX, this.posY + 0.375F, this.posZ);
+	}
+	
 	@Override
 	public boolean shouldDismountInWater(Entity rider) {
 		return false;
 	}
+	
 	@Override
 	protected float getWaterSlowDown() {
-        return 1.0F;
-    }
-    @Override
+		return 1.0F;
+	}
+	
+	@Override
 	public Entity getControllingPassenger() {
-        for (Entity entity : this.getPassengers()) {
-        	if (entity instanceof EntityPlayer) {
-        		return entity;
-        	}
-        }
-        return null;
-    }
-    @Override
+		for (Entity entity : this.getPassengers()) {
+			if (entity instanceof EntityPlayer) {
+				return entity;
+			}
+		}
+		return null;
+	}
+	
+	@Override
 	protected boolean canFitPassenger(Entity passenger) {
-        return this.getPassengers().isEmpty();
-    }
+		return this.getPassengers().isEmpty();
+	}
+	
 	@Override
 	public boolean canBeSteered() {
 		return true;
-    }
+	}
+	
 	@Override
 	public void travel(float strafe, float vertical, float forward) {
-        if (this.isBeingRidden() && this.canBeSteered()) {
-            EntityLivingBase player = (EntityLivingBase)(this.getControllingPassenger());
-            this.setRotation(this.rotationYaw - player.moveStrafing, this.rotationPitch);
-            if (this.canPassengerSteer()) {
-            	this.setAIMoveSpeed(0.2F);
-                super.travel(0.0F, vertical, player.moveForward);
-            }
-        }
-        else {
-            super.travel(strafe, vertical, forward);
-        }
-    }
+		if (this.isBeingRidden() && this.canBeSteered()) {
+			EntityLivingBase player = (EntityLivingBase) this.getControllingPassenger();
+			this.setRotation(this.rotationYaw - player.moveStrafing, this.rotationPitch);
+			if (this.canPassengerSteer()) {
+				this.setAIMoveSpeed(0.2F);
+				super.travel(0.0F, vertical, player.moveForward);
+			}
+		} else {
+			super.travel(strafe, vertical, forward);
+		}
+	}
+	
 	@Override
 	public boolean canBreatheUnderwater() {
-        return true;
-    }
-    @Override
+		return true;
+	}
+	
+	@Override
 	public boolean canDespawn() {
 		return false;
-    }
+	}
+	
 	@Override
 	protected boolean canTriggerWalking() {
-        return false;
+		return false;
 	}
-    @Override
-    public EnumPushReaction getPushReaction() {
-        return EnumPushReaction.DESTROY;
-    }
+	
+	@Override
+	public EnumPushReaction getPushReaction() {
+		return EnumPushReaction.DESTROY;
+	}
+	
 	@Override
 	protected void playStepSound(BlockPos pos, Block block) {
 		this.playSound(SoundEvents.BLOCK_ANVIL_LAND, 1.0F, 1.0F);
 	}
+	
 	@Override
 	public SoundEvent getHurtSound(DamageSource cause) {
 		return SoundEvents.BLOCK_ANVIL_PLACE;
