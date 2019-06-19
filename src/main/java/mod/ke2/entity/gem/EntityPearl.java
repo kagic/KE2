@@ -41,73 +41,73 @@ public class EntityPearl extends EntityGem {
 		EntityPearl.PEARL_COLORS.add(new TagType(1, "ke2:pearl.color.black"));
 	}
 	protected static final DataParameter<String> PEARL_COLOR = EntityDataManager.<String>createKey(EntityPearl.class, DataSerializers.STRING);
-	
+
 	public EntityPearl(World world) {
 		super(world);
 		this.dataManager.register(EntityPearl.PEARL_COLOR, "ke2:pearl.color.blue");
 	}
-	
+
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
 		this.setPearlColor(this.generatePearlColor());
 		return super.onInitialSpawn(difficulty, data);
 	}
-	
+
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
 		this.setPearlColor(compound.getString("PearlColor"));
 	}
-	
+
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
 		compound.setString("PearlColor", this.getPearlColor());
 	}
-	
+
 	@Override
 	public int generateSkinColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.skin", this.getPearlColor());
 	}
-	
+
 	@Override
 	public int generateHairColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.hair", this.getPearlColor());
 	}
-	
+
 	@Override
 	public int generateOutfitColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.outfit", this.getPearlColor());
 	}
-	
+
 	@Override
 	public int generateVisorColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.visor", this.getPearlColor());
 	}
-	
+
 	@Override
 	public int generateGemstoneColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone", this.getPearlColor());
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-	
+
 	public void setPearlColor(String color) {
 		this.dataManager.set(EntityPearl.PEARL_COLOR, color);
 	}
-	
+
 	public String getPearlColor() {
 		return this.dataManager.get(EntityPearl.PEARL_COLOR);
 	}
-	
+
 	public String generatePearlColor() {
 		return TagType.weigh(EntityPearl.PEARL_COLORS).getTag();
 	}

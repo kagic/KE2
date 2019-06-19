@@ -9,7 +9,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class ModelConnie extends ModelBiped {
 	private ModelRenderer bipedSkirt;
-	
+
 	public ModelConnie() {
 		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -29,7 +29,7 @@ public class ModelConnie extends ModelBiped {
 		this.bipedLeftLeg = new ModelRenderer(this, 0, 16);
 		this.bipedLeftLeg.addBox(1.0F, 2.0F, -1.0F, 2, 10, 2);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
@@ -42,7 +42,7 @@ public class ModelConnie extends ModelBiped {
 		this.bipedRightLeg.render(scale);
 		this.bipedLeftLeg.render(scale);
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);

@@ -29,7 +29,7 @@ public class ModelPalanquin extends ModelBase {
 	public ModelRenderer bottomFrontRightLeg;
 	public ModelRenderer bottomBackLeftLeg;
 	public ModelRenderer bottomBackRightLeg;
-	
+
 	public ModelPalanquin() {
 		this.textureWidth = 256;
 		this.textureHeight = 128;
@@ -142,7 +142,7 @@ public class ModelPalanquin extends ModelBase {
 		this.body.addChild(this.topBackRightLeg);
 		this.cage.addChild(this.tip);
 	}
-	
+
 	public void resetRotationAngles() {
 		this.topFrontLeftLeg.rotateAngleX = 0.5235987755982988F;
 		this.topFrontLeftLeg.rotateAngleY = 0.0F;
@@ -157,7 +157,7 @@ public class ModelPalanquin extends ModelBase {
 		this.topBackRightLeg.rotateAngleY = 0.0F;
 		this.topBackRightLeg.rotateAngleZ = -0.5235987755982988F;
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		this.resetRotationAngles();
@@ -172,7 +172,7 @@ public class ModelPalanquin extends ModelBase {
 			this.topBackRightLeg.rotateAngleZ += -MathHelper.cos(limbSwing * 0.6662F * 2.0F + 0.0F) * 0.4F * limbSwingAmount;
 		}
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headYaw, float scale) {
 		GlStateManager.pushMatrix();

@@ -19,17 +19,17 @@ public class EntityRutile extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rutile/color_skin"), VariantColor.class), EntityRutile.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rutile/color_visor"), VariantColor.class), EntityRutile.class);
 	}
-	
+
 	public EntityRutile(World world) {
 		super(world);
 		this.changesScaleBasedOnCondition = false;
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

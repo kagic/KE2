@@ -1,7 +1,6 @@
 package mod.ke2.entity.gem.ai;
 
 import mod.ke2.api.EntityGem;
-import mod.ke2.init.Ke2Gems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.RandomPositionGenerator;
@@ -41,8 +40,7 @@ public class EntityAIFollowTheLeader extends EntityAIBase {
 			Vec3d step = RandomPositionGenerator.findRandomTargetBlockTowards(this.follower, 8, 8, this.leader.getPositionVector());
 			if (step != null) {
 				this.pathToLeader = this.follower.getNavigator().getPathToXYZ(step.x, step.y, step.z);
-			}
-			else {
+			} else {
 				return;
 			}
 		} else {
@@ -52,7 +50,7 @@ public class EntityAIFollowTheLeader extends EntityAIBase {
 	}
 	@Override
 	public boolean shouldContinueExecuting() {
-		return this.follower.hasPath() && (!this.transitToBlock && this.follower.getDistance(this.leader) > 3.0F);
+		return this.follower.hasPath() && !this.transitToBlock && this.follower.getDistance(this.leader) > 3.0F;
 	}
 	@Override
 	public void resetTask() {

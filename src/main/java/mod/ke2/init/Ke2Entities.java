@@ -95,7 +95,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class Ke2Entities {
 	private static int ID = 0;
-	
+
 	public static void register(int pass) {
 		Ke2Entities.registerGem("agate", EntityAgate.class, RenderAgate::new, 0x000000, 0xFFFFFF, pass);
 		Ke2Entities.registerGem("amethyst", EntityAmethyst.class, RenderAmethyst::new, 0x000000, 0xFFFFFF, pass);
@@ -139,25 +139,25 @@ public class Ke2Entities {
 		Ke2Entities.registerEntity("bubble", EntityBubble.class, RenderBubble::new, pass);
 		Ke2Entities.registerEntity("van", EntityVan.class, RenderVan::new, pass);
 	}
-	
+
 	public static <T extends EntityGem> void registerGem(String name, Class<T> entity, IRenderFactory<T> renderer, int back, int fore, int pass) {
 		Ke2Entities.registerMob(name, entity, renderer, back, fore, pass);
 		if (pass > 0) {
 			Ke2Gems.registerGemEntity(new ResourceLocation("ke2:" + name), entity);
 		}
 	}
-	
+
 	public static <T extends EntityGem> void registerGem(String name, Class<T> entity, IRenderFactory<T> renderer, int pass) {
 		Ke2Entities.registerEntity(name, entity, renderer, pass);
 	}
-	
+
 	public static <T extends EntityLiving> void registerMob(String name, Class<T> entity, IRenderFactory<T> renderer, int back, int fore, int pass) {
 		Ke2Entities.registerEntity(name, entity, renderer, pass);
 		if (pass > 0) {
 			EntityRegistry.registerEgg(new ResourceLocation("ke2:" + name), back, fore);
 		}
 	}
-	
+
 	public static <T extends Entity> void registerEntity(String name, Class<T> entity, IRenderFactory<T> renderer, int pass) {
 		if (pass > 0) {
 			EntityRegistry.registerModEntity(new ResourceLocation("ke2:" + name), entity, name, Ke2Entities.ID, KAGIC.instance, 256, 1, true);

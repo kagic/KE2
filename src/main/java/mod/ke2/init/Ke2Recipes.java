@@ -15,14 +15,14 @@ public class Ke2Recipes {
 			Ke2Recipes.registerRecipe(new RecipeDrainLilies(), new ResourceLocation("ke2:drain_lilies"));
 			Ke2Recipes.registerRecipe(new RecipeEssences(), new ResourceLocation("ke2:essences"));
 		} else {
-			
+
 		}
 	}
-	
+
 	public static void registerSmeltingRecipe(ItemStack input, ItemStack output, int xp) {
 		GameRegistry.addSmelting(input, output, xp);
 	}
-	
+
 	public static void registerRecipe(IRecipe recipe, ResourceLocation name) {
 		ForgeRegistries.RECIPES.register(recipe.setRegistryName(name));
 	}

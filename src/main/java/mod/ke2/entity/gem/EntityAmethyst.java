@@ -15,16 +15,16 @@ public class EntityAmethyst extends AbstractQuartz {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/amethyst/color_visor"), VariantColor.class), EntityAmethyst.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/amethyst/color_eyes"), VariantColor.class), EntityAmethyst.class);
 	}
-	
+
 	public EntityAmethyst(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

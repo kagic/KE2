@@ -15,7 +15,7 @@ public class ModelJadeWorm extends ModelGem {
 	public ModelRenderer bipedCog1;
 	public ModelRenderer bipedCog2;
 	public ModelRenderer bipedCog3;
-	
+
 	public ModelJadeWorm() {
 		super(0.0F, 0.0F, 64, 80);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -62,21 +62,21 @@ public class ModelJadeWorm extends ModelGem {
 		this.bipedCog3.addBox(-5.0F, 0.0F, 0.0F, 10, 16, 0, 0.0F);
 		this.bipedSkirt.addChild(this.bipedCog3);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netbipedHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netbipedHeadYaw, headPitch, scale);
 		this.bipedHead.render(scale);
 		this.bipedBody.render(scale);
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netbipedHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netbipedHeadYaw, headPitch, scaleFactor, entity);
 		this.bipedCog2.rotateAngleY = 0.7853981633974483F;
 		this.bipedCog3.rotateAngleY = 0.7853981633974483F;
 	}
-	
+
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {

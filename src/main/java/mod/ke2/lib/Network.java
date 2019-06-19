@@ -11,7 +11,7 @@ public class Network {
 	private InputNeuron[] input;
 	private HiddenNeuron[] hidden;
 	private OutputNeuron output;
-	
+
 	public Network(int inputs, int hiddentotal) {
 		this.input = new InputNeuron[inputs];
 		for (int i = 0; i < this.input.length - 1; ++i) {
@@ -36,9 +36,9 @@ public class Network {
 			this.hidden[i].addConnection(connection);
 			this.output.addConnection(connection);
 		}
-		
+
 	}
-	
+
 	public float feedForward(float[] inputs) {
 		for (int i = 0; i < inputs.length; i++) {
 			this.input[i].input(inputs[i]);
@@ -49,7 +49,7 @@ public class Network {
 		this.output.calcOutput();
 		return this.output.getOutput();
 	}
-	
+
 	public float train(float[] inputs, float answer) {
 		float result = this.feedForward(inputs);
 		float delta = result * (1 - result) * (answer - result);

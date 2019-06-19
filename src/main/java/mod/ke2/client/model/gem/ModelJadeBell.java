@@ -16,7 +16,7 @@ public class ModelJadeBell extends ModelGem {
 	public ModelRenderer bipedRightBun;
 	public ModelRenderer bipedLeftBun;
 	public ModelRenderer bipedBottomBun;
-	
+
 	public ModelJadeBell() {
 		super(0.0F, 0.0F, 64, 80);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -67,20 +67,20 @@ public class ModelJadeBell extends ModelGem {
 		this.bipedRightArm.addBox(-1.0F, 0.0F, 0.0F, 2, 12, 2, 0.0F);
 		this.bipedBody.addChild(this.bipedRightArm);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netbipedHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netbipedHeadYaw, headPitch, scale);
 		this.bipedHead.render(scale);
 		this.bipedBody.render(scale);
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netbipedHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netbipedHeadYaw, headPitch, scaleFactor, entity);
 		this.bipedRightEar.mirror = true;
 	}
-	
+
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {

@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 
 public class ModelPearl extends ModelGem {
 	public ModelRenderer bipedNose;
-	
+
 	public ModelPearl() {
 		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -33,7 +33,7 @@ public class ModelPearl extends ModelGem {
 		this.bipedRightLeg = new ModelRenderer(this, 28, 30);
 		this.bipedRightLeg.addBox(1.0F, 0.0F, -1.0F, 2, 12, 2, 0.0F);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -44,14 +44,14 @@ public class ModelPearl extends ModelGem {
 		this.bipedLeftLeg.render(scale);
 		this.bipedRightLeg.render(scale);
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
 	}
-	
+
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {

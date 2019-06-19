@@ -7,7 +7,7 @@ import net.minecraft.item.EnumDyeColor;
 
 public class BlockWarpPadEdge extends BlockStairs {
 	private final int color;
-	
+
 	public BlockWarpPadEdge(IBlockState state) {
 		super(state);
 		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
@@ -16,7 +16,7 @@ public class BlockWarpPadEdge extends BlockStairs {
 		this.setResistance(30);
 		this.setHardness(2);
 	}
-	
+
 	public int getColor() {
 		return this.color;
 	}

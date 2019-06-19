@@ -9,13 +9,13 @@ import net.minecraft.world.World;
 
 @SuppressWarnings("deprecation")
 public class ItemTablet extends Item {
-	
+
 	public ItemTablet() {
 		super();
 		this.setUnlocalizedName("tablet");
 		this.setMaxStackSize(1);
 	}
-	
+
 	@SuppressWarnings("deprecation")
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {

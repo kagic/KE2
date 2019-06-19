@@ -15,11 +15,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class LayerHeldItem implements LayerRenderer<EntityGem> {
 	protected final RenderGem<?> renderer;
-	
+
 	public LayerHeldItem(RenderGem<?> renderer) {
 		this.renderer = renderer;
 	}
-	
+
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		boolean righty = gem.getPrimaryHand() == EnumHandSide.RIGHT;
@@ -32,12 +32,12 @@ public class LayerHeldItem implements LayerRenderer<EntityGem> {
 			GlStateManager.popMatrix();
 		}
 	}
-	
+
 	@Override
 	public boolean shouldCombineTextures() {
 		return false;
 	}
-	
+
 	private void renderHeldItem(EntityGem gem, ItemStack stack, ItemCameraTransforms.TransformType camera, EnumHandSide side) {
 		if (!stack.isEmpty()) {
 			GlStateManager.pushMatrix();
@@ -54,7 +54,7 @@ public class LayerHeldItem implements LayerRenderer<EntityGem> {
 			GlStateManager.popMatrix();
 		}
 	}
-	
+
 	protected void setSide(EnumHandSide side) {
 		((ModelBiped) this.renderer.getMainModel()).postRenderArm(this.renderer.getModel().heldItemHandOffset, side);
 	}

@@ -13,11 +13,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ParticleShard extends Particle {
 	private final double shardicleScale;
 	private final int particleColor;
-	
+
 	public ParticleShard(World world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed) {
 		this(world, xCoord, yCoord, zCoord, xSpeed, ySpeed, zSpeed, 0xFFFFFF);
 	}
-	
+
 	public ParticleShard(World world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, int color) {
 		super(world, xCoord, yCoord, zCoord, xSpeed, ySpeed, zSpeed);
 		this.motionX = xSpeed;
@@ -35,7 +35,7 @@ public class ParticleShard extends Particle {
 		this.particleMaxAge = (int) (Math.random() * 10.0D) + 40;
 		this.setParticleTextureIndex((int) (Math.random() * 8.0D));
 	}
-	
+
 	@Override
 	public void renderParticle(BufferBuilder buffer, Entity entity, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ) {
 		float f = (this.particleAge + partialTicks) / this.particleMaxAge * 32.0F;
@@ -43,7 +43,7 @@ public class ParticleShard extends Particle {
 		this.particleScale = (float) (this.shardicleScale * f);
 		super.renderParticle(buffer, entity, partialTicks, rotationX, rotationZ, rotationYZ, rotationXY, rotationXZ);
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		this.prevPosX = this.posX;
@@ -66,7 +66,7 @@ public class ParticleShard extends Particle {
 			this.motionZ *= 0.699999988079071D;
 		}
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public static class Factory implements IParticleFactory {
 		@Override

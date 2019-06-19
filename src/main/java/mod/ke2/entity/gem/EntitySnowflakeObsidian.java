@@ -19,16 +19,16 @@ public class EntitySnowflakeObsidian extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_skin"), VariantColor.class), EntitySnowflakeObsidian.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/snowflake_obsidian/color_visor"), VariantColor.class), EntitySnowflakeObsidian.class);
 	}
-	
+
 	public EntitySnowflakeObsidian(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

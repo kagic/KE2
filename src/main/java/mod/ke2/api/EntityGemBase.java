@@ -19,24 +19,24 @@ public class EntityGemBase extends EntityCreature {
 		super(world);
 		this.experienceValue = 5;
 	}
-	
+
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
 		this.updateArmSwingProgress();
 		super.onLivingUpdate();
 	}
-	
+
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		return this.isEntityInvulnerable(source) ? false : super.attackEntityFrom(source, amount);
 	}
-	
+
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
 		double damage = this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue();
@@ -72,32 +72,32 @@ public class EntityGemBase extends EntityCreature {
 		}
 		return causingDamage;
 	}
-	
+
 	@Override
 	protected SoundEvent getHurtSound(DamageSource source) {
 		return SoundEvents.ENTITY_HOSTILE_HURT;
 	}
-	
+
 	@Override
 	protected SoundEvent getDeathSound() {
 		return SoundEvents.ENTITY_HOSTILE_DEATH;
 	}
-	
+
 	@Override
 	protected SoundEvent getFallSound(int height) {
 		return height > 4 ? SoundEvents.ENTITY_HOSTILE_BIG_FALL : SoundEvents.ENTITY_HOSTILE_SMALL_FALL;
 	}
-	
+
 	@Override
 	protected SoundEvent getSwimSound() {
 		return SoundEvents.ENTITY_HOSTILE_SWIM;
 	}
-	
+
 	@Override
 	protected SoundEvent getSplashSound() {
 		return SoundEvents.ENTITY_HOSTILE_SPLASH;
 	}
-	
+
 	@Override
 	public SoundCategory getSoundCategory() {
 		return SoundCategory.PLAYERS;

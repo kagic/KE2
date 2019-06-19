@@ -9,11 +9,11 @@ import net.minecraft.util.ResourceLocation;
 
 public class LayerJacket implements LayerRenderer<EntityGem> {
 	private final RenderLivingBase<?> renderer;
-	
+
 	public LayerJacket(RenderLivingBase<?> renderer) {
 		this.renderer = renderer;
 	}
-	
+
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getOutfitVariant() != null) {
@@ -32,7 +32,7 @@ public class LayerJacket implements LayerRenderer<EntityGem> {
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean shouldCombineTextures() {
 		return false;
