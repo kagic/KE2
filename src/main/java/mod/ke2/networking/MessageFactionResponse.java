@@ -4,9 +4,9 @@ import java.util.UUID;
 
 import io.netty.buffer.ByteBuf;
 import mod.ke2.world.data.WorldDataFactions;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -53,15 +53,13 @@ public class MessageFactionResponse implements IMessage {
 	public static class Handler implements IMessageHandler<MessageFactionResponse, IMessage> {
 		@Override
 		public IMessage onMessage(MessageFactionResponse message, MessageContext context) {
-			EntityPlayer requester = Minecraft.getMinecraft().world.getPlayerEntityByUUID(message.getRequesterUUID());
-			EntityPlayer responder = Minecraft.getMinecraft().world.getPlayerEntityByUUID(message.getResponderUUID());
-			WorldDataFactions factions = WorldDataFactions.get(Minecraft.getMinecraft().world);
+			EntityPlayer responder = context.getServerHandler().player; World world = responder.world;
+			EntityPlayer requester = world.getPlayerEntityByUUID(message.getRequesterUUID());
+			WorldDataFactions factions = WorldDataFactions.get(world);
 			if (requester != null && responder != null) {
 				if (message.accepted()) {
 					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.accepted_the_request", responder.getName()));
 					responder.sendMessage(new TextComponentTranslation("gui.ke2.faction.joined_faction", requester.getName()));
-					System.out.println(requester.getName());
-					System.out.println(responder.getName());
 					factions.setFaction(responder.getUniqueID(), factions.getFaction(requester.getUniqueID()));
 				}
 				else {

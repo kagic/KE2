@@ -1,8 +1,10 @@
 gui.ke2.config.title=Configure KAGIC
-gui.ke2.faction.sent_request_to=You've sent %s a request to join your faction.
-gui.ke2.faction.accepted_the_request=%s is now a member of your faction and has access to your gems.
-gui.ke2.faction.rejected_the_request=%s rejected your request for them to join your faction.
-gui.ke2.faction.joined_faction=You are now a member of %s's faction and have access to their gems.
+gui.ke2.faction.sent_request_to=You have request %s to join your faction.
+gui.ke2.faction.in_same_faction=You and %s are in the same faction.
+gui.ke2.faction.in_different_factions=You and %s are NOT in the same faction.
+gui.ke2.faction.accepted_the_request=%s accepted your request to join your faction.
+gui.ke2.faction.rejected_the_request=%s rejected your request to join your faction.
+gui.ke2.faction.joined_faction=You are now a member of %s's faction.
 gui.ke2.faction.rejected_faction=You rejected %s's request to join their faction.
 
 itemGroup.ke2_gem_stones=Gemstones & Shards (KAGIC)

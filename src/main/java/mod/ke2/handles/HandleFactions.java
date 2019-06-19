@@ -16,13 +16,22 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class HandleFactions {
 	@SubscribeEvent
 	public void onEntityInteract(PlayerInteractEvent.EntityInteract e) {
-		EntityPlayer requester = (EntityPlayer)(e.getEntityPlayer());
-		EntityPlayer responder = (EntityPlayer)(e.getTarget());
-		if (e.getItemStack().getItem() == Ke2Items.GEM_STAFF && responder instanceof EntityPlayerMP) {
-			Ke2Messages.INSTANCE.sendTo(new MessageFactionRequest(requester.getUniqueID(), responder.getUniqueID()), (EntityPlayerMP)(responder));
-			requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.sent_request_to", responder.getName()));
-			System.out.println(requester.getName());
-			System.out.println(responder.getName());
+		if (e.getTarget() instanceof EntityPlayerMP) {
+			EntityPlayer requester = (EntityPlayer)(e.getEntityPlayer());
+			EntityPlayer responder = (EntityPlayer)(e.getTarget());
+			if (e.getItemStack().getItem() == Ke2Items.GEM_STAFF) {
+				WorldDataFactions factions = WorldDataFactions.get(e.getWorld());
+				if (factions.getFaction(requester.getUniqueID()).equals(factions.getFaction(responder.getUniqueID()))) {
+					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.in_same_faction", responder.getName()));
+				}
+				else if (responder.isSneaking()) {
+					Ke2Messages.INSTANCE.sendTo(new MessageFactionRequest(requester.getUniqueID(), responder.getUniqueID()), (EntityPlayerMP)(responder));
+					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.sent_request_to", responder.getName()));
+				}
+				else {
+					requester.sendMessage(new TextComponentTranslation("gui.ke2.faction.in_different_faction", responder.getName()));
+				}
+			}
 		}
 	}
 	@SubscribeEvent
