@@ -29,9 +29,9 @@ public class GuiFactionRequest extends GuiScreen {
 			this.drawDefaultBackground();
 			this.drawCenteredString(this.fontRenderer, this.requester.getName() + " would like you to join their faction.", this.width / 2, this.height / 2 - 60, 0xFFFFFF);
 			this.drawCenteredString(this.fontRenderer, "Do you accept?", this.width / 2, this.height / 2 - 30, 0xFFFFFF);
-			this.buttonList.get(0).x = this.width / 2 - 45;
+			this.buttonList.get(0).x = this.width / 2 - 55;
 			this.buttonList.get(0).y = this.height / 2;
-			this.buttonList.get(1).x = this.width / 2 + 5;
+			this.buttonList.get(1).x = this.width / 2 + 10;
 			this.buttonList.get(1).y = this.height / 2;
 			super.drawScreen(mouseX, mouseY, partialTicks);
 		} else {
