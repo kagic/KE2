@@ -35,6 +35,6 @@ public class LayerJacket implements LayerRenderer<EntityGem> {
 	
 	@Override
 	public boolean shouldCombineTextures() {
-		return false;
+		return true;
 	}
 }

@@ -31,6 +31,6 @@ public class LayerNoDyeOverlay implements LayerRenderer<EntityGem> {
 	
 	@Override
 	public boolean shouldCombineTextures() {
-		return false;
+		return true;
 	}
 }

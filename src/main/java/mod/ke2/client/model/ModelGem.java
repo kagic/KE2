@@ -1,6 +1,7 @@
 package mod.ke2.client.model;
 
 import mod.ke2.api.EntityGem;
+import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -32,7 +33,7 @@ public class ModelGem extends ModelBiped {
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
 		if (entity instanceof EntityLivingBase) {
-			this.setLivingAnimations((EntityLivingBase) entity, limbSwingAmount, ageInTicks, ageInTicks % 1.0F);
+			this.setLivingAnimations((EntityLivingBase)(entity), limbSwingAmount, ageInTicks, ageInTicks % 1.0F);
 		}
 	}
 	
@@ -49,6 +50,15 @@ public class ModelGem extends ModelBiped {
 				} else {
 					this.leftArmPose = ModelBiped.ArmPose.BOW_AND_ARROW;
 				}
+			}
+			if (gem.getEmotion() > 660.0F) {
+				this.bipedRightArm.rotateAngleZ += (0.5 - gem.world.rand.nextDouble() / 2.0) * 0.1;
+				this.bipedRightArm.rotateAngleX += (0.5 - gem.world.rand.nextDouble() / 2.0) * 0.1;
+				this.bipedLeftArm.rotateAngleZ += (0.5 - gem.world.rand.nextDouble() / 2.0) * 0.1;
+				this.bipedLeftArm.rotateAngleX += (0.5 - gem.world.rand.nextDouble() / 2.0) * 0.1;
+			} else if (gem.getEmotionalState() == Ke2Gems.EMOTION_ROMANCE) {
+				this.bipedRightArm.rotateAngleZ *= Math.sin(ageInTicks);
+				this.bipedLeftArm.rotateAngleZ *= Math.cos(ageInTicks);
 			}
 			if (gem.getPose() == EntityGem.Pose.HEAD_BANGING) {
 				this.bipedHead.rotateAngleX = (float) Math.sin(ageInTicks) / 5.0F;

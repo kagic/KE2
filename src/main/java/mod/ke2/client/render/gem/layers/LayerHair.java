@@ -22,13 +22,13 @@ public class LayerHair implements LayerRenderer<EntityGem> {
 			float g = ((color & 65280) >> 8) / 255.0F;
 			float b = ((color & 255) >> 0) / 255.0F;
 			GlStateManager.color(r, g, b);
-			this.renderer.getMainModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-			GlStateManager.disableBlend();
+			this.renderer.getModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+
 		}
 	}
 	
 	@Override
 	public boolean shouldCombineTextures() {
-		return false;
+		return true;
 	}
 }

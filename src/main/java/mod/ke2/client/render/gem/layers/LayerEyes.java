@@ -30,6 +30,6 @@ public class LayerEyes implements LayerRenderer<AbstractQuartz> {
 	
 	@Override
 	public boolean shouldCombineTextures() {
-		return false;
+		return true;
 	}
 }
