@@ -19,16 +19,16 @@ public class EntityKunzite extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/color_skin"), VariantColor.class), EntityKunzite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/color_visor"), VariantColor.class), EntityKunzite.class);
 	}
-	
+
 	public EntityKunzite(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

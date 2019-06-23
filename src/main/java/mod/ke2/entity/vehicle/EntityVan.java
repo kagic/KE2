@@ -26,7 +26,7 @@ public class EntityVan extends EntityGemMachine {
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(12.0D);
 	}
-	
+
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote) {
@@ -51,7 +51,7 @@ public class EntityVan extends EntityGemMachine {
 		}
 		return super.processInteract(player, hand);
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
@@ -71,7 +71,7 @@ public class EntityVan extends EntityGemMachine {
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if (source.getTrueSource() != null && !this.isRidingOrBeingRiddenBy(source.getTrueSource())) {
@@ -79,28 +79,28 @@ public class EntityVan extends EntityGemMachine {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public void fall(float distance, float damageMultiplier) {
 		return;
 	}
-	
+
 	@Override
 	public void updatePassenger(Entity passenger) {
 		super.updatePassenger(passenger);
 		passenger.setPosition(this.posX, this.posY + 0.375F, this.posZ);
 	}
-	
+
 	@Override
 	public boolean shouldDismountInWater(Entity rider) {
 		return false;
 	}
-	
+
 	@Override
 	protected float getWaterSlowDown() {
 		return 1.0F;
 	}
-	
+
 	@Override
 	public Entity getControllingPassenger() {
 		for (Entity entity : this.getPassengers()) {
@@ -110,17 +110,17 @@ public class EntityVan extends EntityGemMachine {
 		}
 		return null;
 	}
-	
+
 	@Override
 	protected boolean canFitPassenger(Entity passenger) {
 		return this.getPassengers().isEmpty();
 	}
-	
+
 	@Override
 	public boolean canBeSteered() {
 		return true;
 	}
-	
+
 	@Override
 	public void travel(float strafe, float vertical, float forward) {
 		if (this.isBeingRidden() && this.canBeSteered()) {
@@ -134,32 +134,32 @@ public class EntityVan extends EntityGemMachine {
 			super.travel(strafe, vertical, forward);
 		}
 	}
-	
+
 	@Override
 	public boolean canBreatheUnderwater() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean canDespawn() {
 		return false;
 	}
-	
+
 	@Override
 	protected boolean canTriggerWalking() {
 		return false;
 	}
-	
+
 	@Override
 	public EnumPushReaction getPushReaction() {
 		return EnumPushReaction.DESTROY;
 	}
-	
+
 	@Override
 	protected void playStepSound(BlockPos pos, Block block) {
 		this.playSound(SoundEvents.BLOCK_ANVIL_LAND, 1.0F, 1.0F);
 	}
-	
+
 	@Override
 	public SoundEvent getHurtSound(DamageSource cause) {
 		return SoundEvents.BLOCK_ANVIL_PLACE;

@@ -10,7 +10,7 @@ public class ModelQuartz extends ModelGem {
 	public ModelRenderer bipedTopBun;
 	public ModelRenderer bipedSideBuns;
 	public ModelRenderer bipedBackBun;
-	
+
 	public ModelQuartz() {
 		super(0.0F, 0.0F, 144, 80);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -46,7 +46,7 @@ public class ModelQuartz extends ModelGem {
 		this.bipedLeftLeg.addBox(0.0F, 0.0F, -3.0F, 6, 20, 6);
 		this.bipedLeftLeg.offsetY = -0.5F;
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -57,14 +57,14 @@ public class ModelQuartz extends ModelGem {
 		this.bipedRightLeg.render(scale);
 		this.bipedLeftLeg.render(scale);
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
 	}
-	
+
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {

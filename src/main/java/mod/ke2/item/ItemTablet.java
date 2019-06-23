@@ -8,13 +8,13 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 public class ItemTablet extends Item {
-	
+
 	public ItemTablet() {
 		super();
 		this.setUnlocalizedName("tablet");
 		this.setMaxStackSize(1);
 	}
-	
+
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 		// playerIn.sendMessage(new

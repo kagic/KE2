@@ -42,7 +42,7 @@ public class EntityGemShard extends EntityMob {
 	private static final DataParameter<NBTTagCompound> ITEM = EntityDataManager.<NBTTagCompound>createKey(EntityGemShard.class, DataSerializers.COMPOUND_TAG);
 	private static final DataParameter<Integer> COLOR = EntityDataManager.<Integer>createKey(EntityGemShard.class, DataSerializers.VARINT);
 	public static final int[] PARTICLE_COLORS = new int[]{0xFFFFFF, 0xFDC84D, 0xEB3DFE, 0xCEEDF4, 0xF4E900, 0xB6FEAB, 0xF8C2EB, 0x9AA4AF, 0xDDDDDD, 0xA8DCDF, 0xB185CF, 0xA0B7EB, 0xE9D5C9, 0x2ED6A8, 0xFD4813, 0x2E2941};
-	
+
 	public EntityGemShard(World world) {
 		super(world);
 		this.setSize(0.8F, 1.6F);
@@ -61,14 +61,14 @@ public class EntityGemShard extends EntityMob {
 		this.dataManager.register(EntityGemShard.ITEM, new ItemStack(Items.DIAMOND_SWORD).serializeNBT());
 		this.setStatsBasedOnItem();
 	}
-	
+
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		compound.setTag("item", this.getItem().serializeNBT());
 		compound.setInteger("color", this.getColor());
 		super.writeEntityToNBT(compound);
 	}
-	
+
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		NBTTagCompound itemStackTag = (NBTTagCompound) compound.getTag("item");
@@ -76,13 +76,13 @@ public class EntityGemShard extends EntityMob {
 		this.setColor(compound.getInteger("color"));
 		super.readEntityFromNBT(compound);
 	}
-	
+
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
 		this.setHealth(this.getMaxHealth());
 		return super.onInitialSpawn(difficulty, livingdata);
 	}
-	
+
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote && !this.dead) {
@@ -97,7 +97,7 @@ public class EntityGemShard extends EntityMob {
 		}
 		return super.processInteract(player, hand);
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
 		if (this.world.isRemote) {
@@ -107,7 +107,7 @@ public class EntityGemShard extends EntityMob {
 		}
 		super.onLivingUpdate();
 	}
-	
+
 	@Override
 	public void onDeath(DamageSource cause) {
 		if (!this.world.isRemote) {
@@ -115,49 +115,49 @@ public class EntityGemShard extends EntityMob {
 		}
 		super.onDeath(cause);
 	}
-	
+
 	@Override
 	public boolean canDespawn() {
 		return false;
 	}
-	
+
 	public ItemStack getItem() {
 		return new ItemStack(this.dataManager.get(EntityGemShard.ITEM));
 	}
-	
+
 	public void setItem(ItemStack item) {
 		this.dataManager.set(EntityGemShard.ITEM, item.serializeNBT());
 		this.setStatsBasedOnItem();
 	}
-	
+
 	@Override
 	public SoundEvent getHurtSound(DamageSource source) {
 		return SoundEvents.BLOCK_WOOD_BREAK;
 	}
-	
+
 	@Override
 	public SoundEvent getDeathSound() {
 		return SoundEvents.ENTITY_ITEM_BREAK;
 	}
-	
+
 	@Override
 	protected boolean canTriggerWalking() {
 		return false;
 	}
-	
+
 	@Override
 	public void fall(float distance, float damageMultiplier) {
 		return;
 	}
-	
+
 	public void setColor(int color) {
 		this.dataManager.set(EntityGemShard.COLOR, color);
 	}
-	
+
 	public int getColor() {
 		return this.dataManager.get(EntityGemShard.COLOR);
 	}
-	
+
 	public void setStatsBasedOnItem() {
 		ToolMaterial material = null;
 		Item item = this.getItem().getItem();

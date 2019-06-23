@@ -14,39 +14,39 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class ServerProxy implements CommonProxy {
 	@Override
 	public void preInit(FMLPreInitializationEvent e) {
-		
+
 	}
-	
+
 	@Override
 	public void init(FMLInitializationEvent e) {
-		
+
 	}
-	
+
 	@Override
 	public void postInit(FMLPostInitializationEvent e) {
 		BlockCarbonite.registerConversionTables();
 	}
-	
+
 	@Override
 	public boolean isClient() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isServer() {
 		return true;
 	}
-	
+
 	@Override
 	public void addParticle(IParticleFactory factory, World world, double x, double y, double z, double dX, double dY, double dZ, int color) {
 		// Reserved for client functionality.
 	}
-	
+
 	@Override
 	public Object getClientGuiElement(int i, EntityPlayer player, World world, int x, int y, int z) {
 		return null;
 	}
-	
+
 	@Override
 	public Object getServerGuiElement(int i, EntityPlayer player, World world, int x, int y, int z) {
 		switch (i) {
@@ -57,7 +57,7 @@ public class ServerProxy implements CommonProxy {
 		}
 		return null;
 	}
-	
+
 	@Override
 	public void openGuiScreen(GuiScreen screen) {
 		// Reserved for client functionality.

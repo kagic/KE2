@@ -35,73 +35,73 @@ public class EntityZircon extends EntityGem {
 		EntityZircon.ZIRCON_COLORS.add(new TagType(1, "ke2:zircon.color.green"));
 	}
 	protected static final DataParameter<String> ZIRCON_COLOR = EntityDataManager.<String>createKey(EntityZircon.class, DataSerializers.STRING);
-	
+
 	public EntityZircon(World world) {
 		super(world);
 		this.dataManager.register(EntityZircon.ZIRCON_COLOR, "ke2:zircon.color.blue");
 	}
-	
+
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
 		this.setZirconColor(this.generateZirconColor());
 		return super.onInitialSpawn(difficulty, data);
 	}
-	
+
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
 		this.setZirconColor(compound.getString("ZirconColor"));
 	}
-	
+
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
 		compound.setString("ZirconColor", this.getZirconColor());
 	}
-	
+
 	@Override
 	public int generateSkinColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.skin", this.getZirconColor());
 	}
-	
+
 	@Override
 	public int generateHairColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.hair", this.getZirconColor());
 	}
-	
+
 	@Override
 	public int generateOutfitColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.outfit", this.getZirconColor());
 	}
-	
+
 	@Override
 	public int generateVisorColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.visor", this.getZirconColor());
 	}
-	
+
 	@Override
 	public int generateGemstoneColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone", this.getZirconColor());
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-	
+
 	public void setZirconColor(String color) {
 		this.dataManager.set(EntityZircon.ZIRCON_COLOR, color);
 	}
-	
+
 	public String getZirconColor() {
 		return this.dataManager.get(EntityZircon.ZIRCON_COLOR);
 	}
-	
+
 	public String generateZirconColor() {
 		return TagType.weigh(EntityZircon.ZIRCON_COLORS).getTag();
 	}

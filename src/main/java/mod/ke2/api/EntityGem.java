@@ -53,11 +53,11 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 
 public abstract class EntityGem extends EntityGemBase implements IGem, IInventoryChangedListener, IRangedAttackMob, IEntityAdditionalSpawnData {
 	public static final String[] BLACKLISTED_NBT_TAGS = new String[]{"Pos", "Motion", "Rotation", "FallDistance", "Fire", "Air", "OnGround", "Dimension", "Invulnerable", "PortalCooldown", "UUID", "NoGravity", "Glowing", "Passengers", "NoAI", "Health", "HurtTime", "HurtByTimestamp", "DeathTime", "AbsorptionAmount", "ActiveEffects", "GemstoneItem"};
-	
+
 	public enum Pose {
 		DEFAULT, NOCKING_BOW, FLAILING, USING_POWERS, SALUTING, WAVING, DABBING, POSSESSED, YELLING, HEAD_BANGING
 	}
-	
+
 	protected static final DataParameter<Optional<UUID>> GEM_UNIQUE_ID = EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);
 	protected static final DataParameter<Optional<UUID>> GEM_FACTION_ID = EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);
 	protected static final DataParameter<Optional<UUID>> GEM_LEADER_ID = EntityDataManager.<Optional<UUID>>createKey(EntityGem.class, DataSerializers.OPTIONAL_UNIQUE_ID);
@@ -83,7 +83,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	protected static final DataParameter<Boolean> IS_DEFECTIVE = EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Boolean> IS_PERFECT = EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Integer> FLOWER_IN_HAIR = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	
+
 	/**
 	 * If true, then the gem is 50% size when defective and
 	 * 150% size when perfective.
@@ -99,7 +99,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	 * height.
 	 */
 	protected float eyeHeight = 0.85F;
-	
+
 	/** Handles inventory events for AI purposes. */
 	public InvWrapper storageHandler;
 	/**
@@ -107,14 +107,14 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	 * though.
 	 */
 	public InventoryBasic inventory;
-	
+
 	public double prevChasingPosX;
 	public double prevChasingPosY;
 	public double prevChasingPosZ;
 	public double chasingPosX;
 	public double chasingPosY;
 	public double chasingPosZ;
-	
+
 	public EntityGem(World world) {
 		super(world);
 		this.tasks.addTask(3, new EntityAIFollowTheLeader(this, 0.5D));
@@ -147,7 +147,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.dataManager.register(EntityGem.FLOWER_IN_HAIR, 0);
 		this.setAlwaysRenderNameTag(true);
 	}
-	
+
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
 		this.setGemUniqueID(UUID.randomUUID());
@@ -177,7 +177,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.stepHeight = Math.min(0.5F, this.height / 2);
 		return data;
 	}
-	
+
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
@@ -222,7 +222,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.setGemstoneCut(compound.getInteger("GemstoneCut"));
 		this.setGemstoneItem(new ItemStack(compound.getCompoundTag("GemstoneItem")));
 	}
-	
+
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
@@ -271,7 +271,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		compound.setInteger("GemstoneCut", this.getGemstoneCut());
 		compound.setTag("GemstoneItem", this.getGemstoneItem().serializeNBT());
 	}
-	
+
 	@Override
 	public String getName() {
 		if (this.hasCustomName()) {
@@ -287,12 +287,12 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			return I18n.translateToLocal("entity." + name + ".name");
 		}
 	}
-	
+
 	@Override
 	public boolean canDespawn() {
 		return false;
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
@@ -346,7 +346,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			}
 		}
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		if (!this.world.isRemote && this.world.getDifficulty() == EnumDifficulty.PEACEFUL) {
@@ -356,7 +356,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.motionY *= this.getFallSpeed();
 		this.updateCape();
 	}
-	
+
 	@Override
 	protected boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote) {
@@ -383,7 +383,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return super.processInteract(player, hand);
 	}
-	
+
 	@Override
 	public void onDeath(DamageSource cause) {
 		if (!this.world.isRemote) {
@@ -411,12 +411,12 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		super.onDeath(cause);
 	}
-	
+
 	@Override
 	protected void dropEquipment(boolean wasRecentlyHit, int lootingModifier) {
 		return;
 	}
-	
+
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if (!this.world.isRemote) {
@@ -436,7 +436,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return super.attackEntityFrom(source, amount);
 	}
-	
+
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
 		EntityTippedArrow arrow = new EntityTippedArrow(this.world, this);
@@ -465,7 +465,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.playSound(SoundEvents.ENTITY_ARROW_SHOOT, 1.0F, 1.0F / (this.rand.nextFloat() * 0.4F + 0.8F));
 		this.world.spawnEntity(arrow);
 	}
-	
+
 	public boolean isHoldingRangedWeapon() {
 		ItemStack stack = this.getHeldItem(EnumHand.MAIN_HAND);
 		if (stack.getItem().getItemUseAction(stack) == EnumAction.BOW) {
@@ -474,15 +474,15 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			return false;
 		}
 	}
-	
+
 	public double getFallSpeed() {
 		return 1.0D;
 	}
-	
+
 	public void tell(EntityPlayer player, String line, Object... formatting) {
 		player.sendMessage(new TextComponentString("<" + this.getName() + "> " + String.format(line, formatting)));
 	}
-	
+
 	public void say(String line, Object... formatting) {
 		List<EntityPlayer> list = this.world.playerEntities;
 		for (EntityPlayer player : list) {
@@ -491,19 +491,19 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			}
 		}
 	}
-	
+
 	public boolean isLeader(EntityPlayer player) {
 		return this.isLeader(player.getUniqueID());
 	}
-	
+
 	public boolean isLeader(EntityGem gem) {
 		return this.isLeader(gem.getGemUniqueID());
 	}
-	
+
 	public boolean isLeader(UUID id) {
 		return this.getGemLeaderID() != null && this.getGemLeaderID().equals(id);
 	}
-	
+
 	public EntityLivingBase getLeader() {
 		EntityPlayer player = this.world.getPlayerEntityByUUID(this.getGemLeaderID());
 		if (player == null) {
@@ -516,23 +516,23 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return player;
 	}
-	
+
 	public void setLeader(EntityPlayer player) {
 		this.setGemLeaderID(player.getUniqueID());
 	}
-	
+
 	public void setLeader(EntityGem gem) {
 		this.setGemLeaderID(gem.getGemUniqueID());
 	}
-	
+
 	public boolean isOwnedBy(EntityPlayer player) {
 		return this.isOwnedBy(player.getUniqueID());
 	}
-	
+
 	public boolean isOwnedBy(EntityGem gem) {
 		return this.isOwnedBy(gem.getGemUniqueID());
 	}
-	
+
 	public boolean isOwnedBy(UUID id) {
 		if (this.hasFaction()) {
 			WorldDataFactions faction = WorldDataFactions.get(this.world);
@@ -542,51 +542,51 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return false;
 	}
-	
+
 	public boolean hasFaction() {
 		return this.getFactionID() != null;
 	}
-	
+
 	public void setFactionID(UUID id) {
 		this.dataManager.set(EntityGem.GEM_FACTION_ID, Optional.<UUID>fromNullable(id));
 	}
-	
+
 	public UUID getFactionID() {
 		return this.dataManager.get(EntityGem.GEM_FACTION_ID).orNull();
 	}
-	
+
 	public void setGemUniqueID(UUID id) {
 		this.dataManager.set(EntityGem.GEM_UNIQUE_ID, Optional.<UUID>fromNullable(id));
 	}
-	
+
 	public UUID getGemUniqueID() {
 		return this.dataManager.get(EntityGem.GEM_UNIQUE_ID).orNull();
 	}
-	
+
 	public void setGemLeaderID(UUID id) {
 		this.dataManager.set(EntityGem.GEM_LEADER_ID, Optional.<UUID>fromNullable(id));
 	}
-	
+
 	public UUID getGemLeaderID() {
 		return this.dataManager.get(EntityGem.GEM_LEADER_ID).or(this.getUniqueID());
 	}
-	
+
 	public void setGemAlignment(int alignment) {
 		this.dataManager.set(EntityGem.GEM_ALIGNMENT, alignment);
 	}
-	
+
 	public int getGemAlignment() {
 		return this.dataManager.get(EntityGem.GEM_ALIGNMENT);
 	}
-	
+
 	public void setEmotion(float emotion) {
 		this.dataManager.set(EntityGem.GEM_EMOTION, emotion);
 	}
-	
+
 	public float getEmotion() {
 		return this.dataManager.get(EntityGem.GEM_EMOTION);
 	}
-
+	
 	public int getEmotionalState() {
 		if (this.getEmotion() < 470.0F) {
 			return Ke2Gems.EMOTION_ROMANCE;
@@ -602,7 +602,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			return Ke2Gems.EMOTION_FEARFUL;
 		}
 	}
-
+	
 	public boolean setEmotionalState(float emotion, float step) {
 		if (this.getEmotion() != emotion) {
 			if (this.getEmotion() < emotion) {
@@ -614,11 +614,11 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return false;
 	}
-	
+
 	public boolean isFeeling(float emotion) {
 		return false;
 	}
-	
+
 	@Override
 	public void setSwingingArms(boolean swinging) {
 		if (swinging) {
@@ -627,33 +627,33 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			this.setPose(Pose.DEFAULT);
 		}
 	}
-	
+
 	public boolean isSwingingArms() {
 		return this.getPose() == Pose.NOCKING_BOW;
 	}
-	
+
 	public void setPose(Pose pose) {
 		this.dataManager.set(EntityGem.POSE, pose.ordinal());
 	}
-	
+
 	public Pose getPose() {
 		return Pose.values()[this.dataManager.get(EntityGem.POSE)];
 	}
-	
+
 	public void setHighlighted(boolean highlighted) {
 		this.dataManager.set(EntityGem.IS_HIGHLIGHTED, highlighted);
 	}
-	
+
 	public boolean isHighlighted() {
 		return this.dataManager.get(EntityGem.IS_HIGHLIGHTED);
 	}
-	
+
 	public void setOriginalPosition(BlockPos pos) {
 		if (pos != null) {
 			this.dataManager.set(EntityGem.ORIGINAL_POS, pos);
 		}
 	}
-	
+
 	public BlockPos getOriginalPosition() {
 		BlockPos pos = this.dataManager.get(EntityGem.ORIGINAL_POS);
 		if (pos == null) {
@@ -662,19 +662,19 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			return pos;
 		}
 	}
-	
+
 	public void setOriginalDimension(int dimension) {
 		this.dataManager.set(EntityGem.ORIGINAL_DIM, dimension);
 	}
-	
+
 	public int getOriginalDimension() {
 		return this.dataManager.get(EntityGem.ORIGINAL_DIM);
 	}
-	
+
 	public String getNameFromCut(int cut) {
 		return "Cut";
 	}
-	
+
 	public String getDescriptor(int piece) {
 		BlockPos pos = this.getOriginalPosition();
 		String prefix = "";
@@ -695,15 +695,15 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 				return String.format("%s %s", this.getDescriptor(0), this.getDescriptor(2));
 		}
 	}
-	
+
 	public String getDescriptor() {
 		return this.getDescriptor(-1);
 	}
-	
+
 	public void setInsigniaColor(int color) {
 		this.dataManager.set(EntityGem.COLOR_DYE_INSIGNIA, color);
 	}
-	
+
 	public int getInsigniaColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return Ke2Gems.BASIC_WHITE;
@@ -711,11 +711,11 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			return this.dataManager.get(EntityGem.COLOR_DYE_INSIGNIA);
 		}
 	}
-	
+
 	public void setOutfitColor(int color) {
 		this.dataManager.set(EntityGem.COLOR_RGB_OUTFIT, color);
 	}
-	
+
 	public int getOutfitColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
@@ -723,11 +723,11 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			return this.dataManager.get(EntityGem.COLOR_RGB_OUTFIT);
 		}
 	}
-	
+
 	public void setVisorColor(int color) {
 		this.dataManager.set(EntityGem.COLOR_RGB_VISOR, color);
 	}
-	
+
 	public int getVisorColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
@@ -735,11 +735,11 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			return this.dataManager.get(EntityGem.COLOR_RGB_VISOR);
 		}
 	}
-	
+
 	public void setSkinColor(int color) {
 		this.dataManager.set(EntityGem.COLOR_RGB_SKIN, color);
 	}
-	
+
 	public int getSkinColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
@@ -747,11 +747,11 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			return this.dataManager.get(EntityGem.COLOR_RGB_SKIN);
 		}
 	}
-	
+
 	public void setHairColor(int color) {
 		this.dataManager.set(EntityGem.COLOR_RGB_HAIR, color);
 	}
-	
+
 	public int getHairColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
@@ -759,11 +759,11 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			return this.dataManager.get(EntityGem.COLOR_RGB_HAIR);
 		}
 	}
-	
+
 	public void setGemstoneColor(int color) {
 		this.dataManager.set(EntityGem.COLOR_RGB_GEMSTONE, color);
 	}
-	
+
 	public int getGemstoneColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xFFFFFF;
@@ -771,29 +771,29 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			return this.dataManager.get(EntityGem.COLOR_RGB_GEMSTONE);
 		}
 	}
-	
+
 	public void setGemstoneCut(int cut) {
 		this.dataManager.set(EntityGem.GEMSTONE_CUT, cut);
 	}
-	
+
 	public int getGemstoneCut() {
 		return this.dataManager.get(EntityGem.GEMSTONE_CUT);
 	}
-	
+
 	public void setGemstoneItem(Item item, int quantity, int meta) {
 		ItemStack stack = new ItemStack(item, quantity, meta);
 		stack.setTagCompound(this.getGemstoneTags());
 		this.dataManager.set(EntityGem.GEMSTONE_ITEM, stack);
 	}
-	
+
 	public void setGemstoneItem(ItemStack stack) {
 		this.setGemstoneItem(stack.getItem(), stack.getCount(), stack.getMetadata());
 	}
-	
+
 	public void setGemstoneItem(Item item) {
 		this.setGemstoneItem(new ItemStack(item));
 	}
-	
+
 	public void setGemstoneItem() {
 		if (this.getGemstoneItem().isEmpty()) {
 			this.setGemstoneItem(this.generateGemstoneItem());
@@ -801,11 +801,11 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			this.setGemstoneItem(this.getGemstoneItem());
 		}
 	}
-	
+
 	public ItemStack getGemstoneItem() {
 		return this.dataManager.get(EntityGem.GEMSTONE_ITEM);
 	}
-	
+
 	public NBTTagCompound getGemstoneTags() {
 		NBTTagCompound compound = this.writeToNBT(new NBTTagCompound());
 		for (String tag : EntityGem.BLACKLISTED_NBT_TAGS) {
@@ -813,77 +813,77 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return compound;
 	}
-	
+
 	public void setHairVariant(String variant) {
 		this.dataManager.set(EntityGem.VARIANT_HAIR, variant);
 	}
-	
+
 	public String getHairVariant() {
 		return this.dataManager.get(EntityGem.VARIANT_HAIR);
 	}
-	
+
 	public void setOutfitVariant(String variant) {
 		this.dataManager.set(EntityGem.VARIANT_OUTFIT, variant);
 	}
-	
+
 	public String getOutfitVariant() {
 		return this.dataManager.get(EntityGem.VARIANT_OUTFIT);
 	}
-	
+
 	public void setSkinVariant(String variant) {
 		this.dataManager.set(EntityGem.VARIANT_SKIN, variant);
 	}
-	
+
 	public String getSkinVariant() {
 		return this.dataManager.get(EntityGem.VARIANT_SKIN);
 	}
-	
+
 	public void setNameVariant(String variant) {
 		this.dataManager.set(EntityGem.VARIANT_NAME, variant);
 	}
-	
+
 	public String getNameVariant() {
 		return this.dataManager.get(EntityGem.VARIANT_NAME);
 	}
-	
+
 	public void setGemstonePosition(int pos) {
 		this.dataManager.set(EntityGem.GEMSTONE_POS, pos);
 	}
-	
+
 	public int getGemstonePosition() {
 		return this.dataManager.get(EntityGem.GEMSTONE_POS);
 	}
-	
+
 	public void setDefective(boolean defective) {
 		this.dataManager.set(EntityGem.IS_DEFECTIVE, defective);
 		if (this.isDefective() && this.changesScaleBasedOnCondition) {
 			this.setSize(this.width * 0.5F, this.height * 0.5F, this.eyeHeight * 0.5F);
 		}
 	}
-	
+
 	public boolean isDefective() {
 		return this.dataManager.get(EntityGem.IS_DEFECTIVE);
 	}
-	
+
 	public void setPerfective(boolean perfective) {
 		this.dataManager.set(EntityGem.IS_PERFECT, perfective);
 		if (this.isPerfective() && this.changesScaleBasedOnCondition) {
 			this.setSize(this.width * 1.5F, this.height * 1.5F, this.eyeHeight * 1.5F);
 		}
 	}
-	
+
 	public boolean isPerfective() {
 		return this.dataManager.get(EntityGem.IS_PERFECT);
 	}
-	
+
 	public void setFlowerInHair(int flower) {
 		this.dataManager.set(EntityGem.FLOWER_IN_HAIR, flower);
 	}
-	
+
 	public int getFlowerInHair() {
 		return this.dataManager.get(EntityGem.FLOWER_IN_HAIR);
 	}
-	
+
 	@Override
 	protected void updateEquipmentIfNeeded(EntityItem item) {
 		ItemStack stack = item.getItem();
@@ -894,11 +894,11 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			stack.setCount(inventory.getCount());
 		}
 	}
-	
+
 	public boolean canPickUpItem(Item item) {
 		return false;
 	}
-	
+
 	public boolean canUnloadInventory() {
 		if (this.inventory.getSizeInventory() > 0) {
 			float max = this.inventory.getSizeInventory() + 1;
@@ -914,7 +914,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		return false;
 	}
-	
+
 	private void createInventory() {
 		InventoryBasic inventory = this.inventory;
 		this.inventory = new InventoryBasic("inventory", false, this.getMaxInventorySlots());
@@ -928,28 +928,28 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.inventory.addInventoryChangeListener(this);
 		this.storageHandler = new InvWrapper(this.inventory);
 	}
-	
+
 	public void openGUI(EntityPlayer player) {
 		if (!this.world.isRemote) {
 			this.inventory.setCustomName(this.getName() + (this.getName().matches("(z|s)$") ? "'" : "'s") + " Gem");
 			player.displayGUIChest(this.inventory);
 		}
 	}
-	
+
 	public int getMaxInventorySlots() {
 		return 0;
 	}
-	
+
 	protected void setSize(float width, float height, float eyeHeight) {
 		super.setSize(width, height);
 		this.eyeHeight = eyeHeight;
 	}
-	
+
 	@Override
 	public float getEyeHeight() {
 		return this.eyeHeight;
 	}
-	
+
 	private void updateCape() {
 		this.prevChasingPosX = this.chasingPosX;
 		this.prevChasingPosY = this.chasingPosY;
@@ -973,63 +973,63 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.chasingPosY += y * 0.25D;
 		this.chasingPosZ += z * 0.25D;
 	}
-	
+
 	@Override
 	public void writeSpawnData(ByteBuf buffer) {
 		buffer.writeFloat(this.width);
 		buffer.writeFloat(this.height);
 	}
-	
+
 	@Override
 	public void readSpawnData(ByteBuf buffer) {
 		this.setSize(buffer.readFloat(), buffer.readFloat());
 	}
-	
+
 	@Override
 	public int generateSkinColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.skin");
 	}
-	
+
 	@Override
 	public int generateHairColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.hair");
 	}
-	
+
 	@Override
 	public int generateOutfitColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.outfit");
 	}
-	
+
 	@Override
 	public int generateVisorColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.visor");
 	}
-	
+
 	@Override
 	public int generateGemstoneColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone");
 	}
-	
+
 	@Override
 	public ItemStack generateGemstoneItem() {
 		return new ItemStack(Ke2Items.COLORED_GEMSTONE);
 	}
-	
+
 	@Override
 	public String generateOutfitVariant() {
 		return VariantHelper.loadVariantPath(this, "ke2:texture.outfit");
 	}
-	
+
 	@Override
 	public String generateHairVariant() {
 		return VariantHelper.loadVariantPath(this, "ke2:texture.hair");
 	}
-	
+
 	@Override
 	public String generateSkinVariant() {
 		return VariantHelper.loadVariantPath(this, "ke2:texture.skin");
 	}
-	
+
 	@Override
 	public String generateNameVariant() {
 		return VariantHelper.loadVariantName(this, "ke2:name");

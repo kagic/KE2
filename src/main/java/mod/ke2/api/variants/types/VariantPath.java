@@ -7,7 +7,7 @@ public class VariantPath extends AbstractVariant<String> implements IVariant<Str
 	public ResourceLocation getPath() {
 		return new ResourceLocation(this.getValue());
 	}
-	
+
 	public static ResourceLocation getDefaultPath() {
 		return new ResourceLocation("ke2:textures/entities/none/null");
 	}

@@ -24,7 +24,7 @@ public class ModelBubble extends ModelBase {
 	public ModelRenderer corner4;
 	public ModelRenderer bottom;
 	public ModelRenderer top;
-	
+
 	public ModelBubble() {
 		this.textureHeight = 16;
 		this.textureWidth = 24;
@@ -83,7 +83,7 @@ public class ModelBubble extends ModelBase {
 		this.top.addBox(-4, 5, -4, 8, 1, 8);
 		this.top.setRotationPoint(0, 0, 0);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);

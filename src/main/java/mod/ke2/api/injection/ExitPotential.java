@@ -7,21 +7,21 @@ public class ExitPotential implements Comparator<ExitPotential> {
 	public final int lightLevel;
 	public final int length;
 	public final char direction;
-	
+
 	public ExitPotential() {
 		this.canSeeSky = false;
 		this.lightLevel = 0;
 		this.length = 9;
 		this.direction = 'o';
 	}
-	
+
 	public ExitPotential(boolean canSeeSky, int lightLevel, int length, char direction) {
 		this.canSeeSky = canSeeSky;
 		this.lightLevel = lightLevel;
 		this.length = length;
 		this.direction = direction;
 	}
-	
+
 	@Override
 	public int compare(ExitPotential arg0, ExitPotential arg1) {
 		if (arg0.canSeeSky && !arg1.canSeeSky) {

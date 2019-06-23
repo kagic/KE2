@@ -11,12 +11,12 @@ public class Ke2CreativeTabs extends CreativeTabs {
 	public static final Ke2CreativeTabs GEM_TECH = new Ke2CreativeTabs(2, "gem_tech");
 	public static final Ke2CreativeTabs GEM_BLOCKS = new Ke2CreativeTabs(3, "gem_blocks");
 	private final int item;
-	
+
 	public Ke2CreativeTabs(int item, String suffix) {
 		super(KAGIC.MODID + "_" + suffix);
 		this.item = item;
 	}
-	
+
 	@Override
 	public ItemStack getTabIconItem() {
 		if (this.item == 0) { // Gemstones.
