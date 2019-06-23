@@ -21,8 +21,8 @@ targetCompatibility = "1.8"
 minecraft {
     replace "@version", project.version
     version = "1.12.2-14.23.5.2838"
-    runDir = "run"
     mappings = "snapshot_20171003"
+    runDir = "run"
 }
 processResources {
     inputs.property "version", project.version
