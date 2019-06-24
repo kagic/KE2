@@ -1,5 +1,7 @@
 package mod.ke2.init;
 
+import java.util.Iterator;
+
 import mod.ke2.item.ItemEssence;
 import mod.ke2.item.ItemGemDestabilizer;
 import mod.ke2.item.ItemGemDust;
@@ -62,8 +64,9 @@ public class Ke2Items {
 		
 		Ke2Items.registerOre(Ke2Items.TUNGSTEN_INGOT, new ResourceLocation("ke2:tungsten_ingot"), event, Ke2CreativeTabs.GEM_TECH, "ingotTungsten");
 		
-		for (Item item : Ke2Blocks.ITEMS) {
-			Ke2Items.registerItem(item, null, event, Ke2CreativeTabs.GEM_BLOCKS);
+		Iterator<Block> blocks = Ke2Blocks.ITEMS.keySet().iterator();
+		while (blocks.hasNext()) {
+			registerItem(Ke2Blocks.ITEMS.get(blocks.next()), null, event, Ke2CreativeTabs.GEM_BLOCKS);
 		}
 	}
 

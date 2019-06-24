@@ -6,6 +6,7 @@ import mod.ke2.init.Ke2Blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
@@ -38,6 +39,11 @@ public class BlockDrainSlab extends Block {
 		this.setHarvestLevel("pickaxe", 0);
 	}
 
+	@Override
+	public CreativeTabs getCreativeTabToDisplayOn() {
+        return null; // Drain slabs are part of a multi-block structure, and as such should be as hidden from the user.
+    }
+	
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
 		if (this == Ke2Blocks.LIGHT_PURPLE_DRAIN_SLAB) {
