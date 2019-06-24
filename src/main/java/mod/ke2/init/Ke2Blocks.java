@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 import mod.ke2.block.BlockCarbonite;
 import mod.ke2.block.BlockCarboniteStairs;
-import mod.ke2.block.BlockCluster;
 import mod.ke2.block.BlockDrainBlock;
 import mod.ke2.block.BlockDrainLily;
 import mod.ke2.block.BlockDrainSlab;
@@ -229,12 +228,9 @@ public class Ke2Blocks {
 	public static final BlockWarpPadFrame BLACK_WARP_PAD_FRAME = new BlockWarpPadFrame(Ke2Gems.BASIC_BLACK);
 	public static final BlockWarpPadEdge BLACK_WARP_PAD_EDGE = new BlockWarpPadEdge(Ke2Blocks.BLACK_WARP_PAD_FRAME.getDefaultState());
 
-	public static final BlockCluster CLUSTER = new BlockCluster();
-	
 	public static final BlockOre TUNGSTEN_ORE = new BlockOre("tungsten");
 
 	public static void register(RegistryEvent.Register<Block> event) {
-		Ke2Blocks.registerBlock(Ke2Blocks.CLUSTER, new ResourceLocation("ke2:cluster"), event);
 		Ke2Blocks.registerBlock(Ke2Blocks.WAILING_STONE, new ResourceLocation("ke2:wailing_stone"), event);
 		Ke2Blocks.registerBlock(Ke2Blocks.MAGIC_MOSS, new ResourceLocation("ke2:magic_moss"), event);
 		Ke2Blocks.registerBlock(Ke2Blocks.MOSS_ROSE, new ResourceLocation("ke2:moss_rose"), event);
