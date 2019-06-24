@@ -63,7 +63,7 @@ public class Ke2Items {
 	public static final Item TUNGSTEN_BOOTS = new ItemArmor(Ke2Items.TUNGSTEN_ARMOR, 2, EntityEquipmentSlot.FEET).setUnlocalizedName("tungsten_boots");
 	public static final Item TUNGSTEN_SWORD = new ItemSword(Ke2Items.TUNGSTEN_TOOLS).setUnlocalizedName("tungsten_sword");
 	public static final Item TUNGSTEN_HOE = new ItemHoe(Ke2Items.TUNGSTEN_TOOLS).setUnlocalizedName("tungsten_hoe");
-	public static final Item TUNGSTEN_SPADE = new ItemSpade(Ke2Items.TUNGSTEN_TOOLS).setUnlocalizedName("tungsten_spade");
+	public static final Item TUNGSTEN_SHOVEL = new ItemSpade(Ke2Items.TUNGSTEN_TOOLS).setUnlocalizedName("tungsten_shovel");
 	public static final Item TUNGSTEN_PICKAXE = new TungPickaxe().setUnlocalizedName("tungsten_pickaxe");
 	public static final Item TUNGSTEN_AXE = new TungAxe().setUnlocalizedName("tungsten_axe");
 	public static final ItemGemStaff GEM_STAFF = new ItemGemStaff();
@@ -98,7 +98,7 @@ public class Ke2Items {
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_BOOTS, new ResourceLocation("ke2:tungsten_boots"), event, Ke2CreativeTabs.GEM_TECH);
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_SWORD, new ResourceLocation("ke2:tungsten_sword"), event, Ke2CreativeTabs.GEM_TECH);
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_HOE, new ResourceLocation("ke2:tungsten_hoe"), event, Ke2CreativeTabs.GEM_TECH);
-		Ke2Items.registerItem(Ke2Items.TUNGSTEN_SPADE, new ResourceLocation("ke2:tungsten_spade"), event, Ke2CreativeTabs.GEM_TECH);
+		Ke2Items.registerItem(Ke2Items.TUNGSTEN_SHOVEL, new ResourceLocation("ke2:tungsten_shovel"), event, Ke2CreativeTabs.GEM_TECH);
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_PICKAXE, new ResourceLocation("ke2:tungsten_pickaxe"), event, Ke2CreativeTabs.GEM_TECH);
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_AXE, new ResourceLocation("ke2:tungsten_axe"), event, Ke2CreativeTabs.GEM_TECH);
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_INGOT, new ResourceLocation("ke2:tungsten_ingot"), event, Ke2CreativeTabs.GEM_TECH);
