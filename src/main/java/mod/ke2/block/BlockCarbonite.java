@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Random;
 
 import mod.ke2.init.Ke2Blocks;
-import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.tileentity.TileEntityCarbonite;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -118,7 +117,6 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
 
 	public BlockCarbonite(Variety variety, int color, boolean powered) {
 		super(Material.ROCK);
-		this.setCreativeTab(Ke2CreativeTabs.GEM_BLOCKS);
 		String name = EnumDyeColor.byMetadata(color).toString().toLowerCase();
 		this.canBePowered = variety.canBePowered();
 		this.variety = variety;

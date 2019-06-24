@@ -3,7 +3,6 @@ package mod.ke2.block;
 import java.util.Random;
 
 import mod.ke2.init.Ke2Blocks;
-import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.tileentity.TileEntityWailingStone;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.BlockHorizontal;
@@ -39,7 +38,6 @@ public class BlockWailingStone extends BlockFalling implements ITileEntityProvid
 
 	public BlockWailingStone() {
 		super(Material.ROCK);
-		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 		this.setUnlocalizedName("wailing_stone");
 		this.setDefaultState(this.blockState.getBaseState().withProperty(BlockWailingStone.FACING, EnumFacing.NORTH));
 		this.setResistance(30);

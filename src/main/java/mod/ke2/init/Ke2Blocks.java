@@ -227,6 +227,7 @@ public class Ke2Blocks {
 	public static final BlockWarpPadEdge BLACK_WARP_PAD_EDGE = new BlockWarpPadEdge(Ke2Blocks.BLACK_WARP_PAD_FRAME.getDefaultState());
 
 	public static final BlockOre TUNGSTEN_ORE = new BlockOre("tungsten");
+	public static final BlockOre TUNGSTEN_ORE = new BlockOre("tungsten");
 
 	public static void register(RegistryEvent.Register<Block> event) {
 		Ke2Blocks.registerBlock(Ke2Blocks.WAILING_STONE, new ResourceLocation("ke2:wailing_stone"), event, Ke2CreativeTabs.GEM_TECH);
@@ -430,6 +431,7 @@ public class Ke2Blocks {
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_WARP_PAD_EDGE, new ResourceLocation("ke2:black_warp_pad_edge"), event, Ke2CreativeTabs.GEM_BLOCKS);
 		
 		Ke2Blocks.registerOre(Ke2Blocks.TUNGSTEN_ORE, new ResourceLocation("ke2:tungsten_ore"), event, Ke2CreativeTabs.GEM_CREATION, "oreTungsten");
+		Ke2Blocks.registerOre(Ke2Blocks.TUNGSTEN_BLOCK, new ResourceLocation("ke2:tungsten_block"), event, Ke2CreativeTabs.GEM_CREATION, "blockTungsten");
 	}
 
 	public static void registerOre(Block block, ResourceLocation name, RegistryEvent.Register<Block> event, CreativeTabs tab, String... ores) {

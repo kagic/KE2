@@ -1,7 +1,6 @@
 package mod.ke2.block;
 
 import mod.ke2.KAGIC;
-import mod.ke2.init.Ke2CreativeTabs;
 import mod.ke2.init.Ke2Items;
 import mod.ke2.proxy.CommonProxy;
 import mod.ke2.tileentity.TileEntityWarpPadCore;
@@ -23,7 +22,6 @@ public class BlockWarpPadCore extends Block implements ITileEntityProvider {
 
 	public BlockWarpPadCore(int color) {
 		super(Material.ROCK);
-		this.setCreativeTab(Ke2CreativeTabs.GEM_TECH);
 		this.color = color;
 		this.setUnlocalizedName(EnumDyeColor.byMetadata(color).toString().toLowerCase() + "_warp_pad_core");
 		this.setResistance(30);

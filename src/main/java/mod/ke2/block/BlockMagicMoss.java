@@ -3,7 +3,6 @@ package mod.ke2.block;
 import java.util.Random;
 
 import mod.ke2.init.Ke2Blocks;
-import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -28,7 +27,6 @@ public class BlockMagicMoss extends Block {
 
 	public BlockMagicMoss() {
 		super(Material.GROUND, MapColor.GREEN);
-		this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 		this.setUnlocalizedName("magic_moss");
 		this.setHardness(0.4F);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(BlockMagicMoss.SHORT, false));
