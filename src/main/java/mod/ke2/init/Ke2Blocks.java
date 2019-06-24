@@ -435,18 +435,18 @@ public class Ke2Blocks {
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_WARP_PAD_FRAME, new ResourceLocation("ke2:black_warp_pad_frame"), event);
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_WARP_PAD_EDGE, new ResourceLocation("ke2:black_warp_pad_edge"), event);
 		
-		Ke2Blocks.registerOre(Ke2Blocks.TUNGSTEN_ORE, new ResourceLocation("ke2:tungsten_ore"), event, "tungsten_ore");
+		Ke2Blocks.registerOre(Ke2Blocks.TUNGSTEN_ORE, new ResourceLocation("ke2:tungsten_ore"), event, "oreTungsten");
 	}
 
-	public static void registerOre(Block block, ResourceLocation location, RegistryEvent.Register<Block> event, String... ores) {
-		Ke2Blocks.registerBlock(block, location, event);
+	public static void registerOre(Block block, ResourceLocation name, RegistryEvent.Register<Block> event, String... ores) {
+		Ke2Blocks.registerBlock(block, name, event);
 		for (int i = 0; i < ores.length; ++i) {
 			OreDictionary.registerOre(ores[i], Ke2Blocks.ITEMS.get(Ke2Blocks.ITEMS.size() - 1));
 		}
 	}
 
-	public static void registerBlock(Block block, ResourceLocation location, RegistryEvent.Register<Block> event, String... meta) {
-		event.getRegistry().register(block.setRegistryName(location));
-		Ke2Blocks.ITEMS.add(new ItemBlock(block).setRegistryName(location));
+	public static void registerBlock(Block block, ResourceLocation name, RegistryEvent.Register<Block> event, String... meta) {
+		event.getRegistry().register(block.setRegistryName(name));
+		Ke2Blocks.ITEMS.add(new ItemBlock(block).setRegistryName(name));
 	}
 }

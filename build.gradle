@@ -39,16 +39,17 @@ compileJava {
     targetCompatibility = project.targetCompatibility
 }
 configurations {
-	customCompile
+	embeds
 }
 dependencies {
-	customCompile fileTree(dir: 'lib', includes: ['*.jar'])
-	compile configurations.customCompile
+	compile fileTree(dir: 'lib/opt', includes: ['*.jar'])
+	embeds fileTree(dir: 'lib/req', includes: ['*.jar'])
+	compile configurations.embeds
 }
 jar {
 	from sourceSets.api.output
 	from (
-		configurations.customCompile.collect {
+		configurations.embeds.collect {
 			it.isDirectory() ? it : zipTree(it)
 		}
 	) { exclude 'META-INF/**' }

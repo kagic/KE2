@@ -15,7 +15,7 @@ public class Ke2Recipes {
 			Ke2Recipes.registerRecipe(new RecipeDrainLilies(), new ResourceLocation("ke2:drain_lilies"));
 			Ke2Recipes.registerRecipe(new RecipeEssences(), new ResourceLocation("ke2:essences"));
 		} else {
-
+			Ke2Recipes.registerSmeltingRecipe(new ItemStack(Ke2Blocks.TUNGSTEN_ORE), new ItemStack(Ke2Items.TUNGSTEN_INGOT), 1);
 		}
 	}
 
