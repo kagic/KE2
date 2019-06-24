@@ -72,6 +72,16 @@ item.gem_shard.name=Gem Shard
 item.gem_dust.name=Gem Dust
 item.tablet.name=Tablet
 
+item.tungsten_helmet.name=Tungsten Helmet
+item.tungsten_chestplate.name=Tungsten Chestplate
+item.tungsten_leggings.name=Tungsten Leggings
+item.tungsten_boots.name=Tungsten Boots
+item.tungsten_sword.name=Tungsten Sword
+item.tungsten_hoe.name=Tungsten Hoe
+item.tungsten_spade.name=Tungsten Spade
+item.tungsten_pickaxe.name=Tungsten Pickaxe
+item.tungsten_axe.name=Tungsten Axe
+item.tungsten_arrow.name=Tungsten Arrow
 item.tungsten_ingot.name=Tungsten Ingot
 tile.tungsten_block.name=Tungsten Block
 tile.tungsten_ore.name=Tungsten Ore

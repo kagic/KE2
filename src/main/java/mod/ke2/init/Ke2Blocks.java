@@ -9,7 +9,7 @@ import mod.ke2.block.BlockDrainLily;
 import mod.ke2.block.BlockDrainSlab;
 import mod.ke2.block.BlockMagicMoss;
 import mod.ke2.block.BlockMossRose;
-import mod.ke2.block.BlockOre;
+import mod.ke2.block.BlockTungsten;
 import mod.ke2.block.BlockWailingStone;
 import mod.ke2.block.BlockWarpPadCore;
 import mod.ke2.block.BlockWarpPadEdge;
@@ -229,7 +229,7 @@ public class Ke2Blocks {
 	public static final BlockWarpPadEdge BLACK_WARP_PAD_EDGE = new BlockWarpPadEdge(Ke2Blocks.BLACK_WARP_PAD_FRAME.getDefaultState());
 
 	public static final Block TUNGSTEN_BLOCK = new Block(Material.ROCK, MapColor.BLACK).setUnlocalizedName("tungsten_block");
-	public static final BlockOre TUNGSTEN_ORE = new BlockOre("tungsten");
+	public static final BlockTungsten TUNGSTEN_ORE = new BlockTungsten("tungsten");
 
 	public static void register(RegistryEvent.Register<Block> event) {
 		Ke2Blocks.registerBlock(Ke2Blocks.WAILING_STONE, new ResourceLocation("ke2:wailing_stone"), event, Ke2CreativeTabs.GEM_TECH);
@@ -431,18 +431,9 @@ public class Ke2Blocks {
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_WARP_PAD_CORE, new ResourceLocation("ke2:black_warp_pad_core"), event, Ke2CreativeTabs.GEM_BLOCKS);
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_WARP_PAD_FRAME, new ResourceLocation("ke2:black_warp_pad_frame"), event, Ke2CreativeTabs.GEM_BLOCKS);
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_WARP_PAD_EDGE, new ResourceLocation("ke2:black_warp_pad_edge"), event, Ke2CreativeTabs.GEM_BLOCKS);
-		
-		Ke2Blocks.registerOre(Ke2Blocks.TUNGSTEN_BLOCK, new ResourceLocation("ke2:tungsten_block"), event, Ke2CreativeTabs.GEM_CREATION, "blockTungsten");
-		Ke2Blocks.registerOre(Ke2Blocks.TUNGSTEN_ORE, new ResourceLocation("ke2:tungsten_ore"), event, Ke2CreativeTabs.GEM_CREATION, "oreTungsten");
+		Ke2Blocks.registerBlock(Ke2Blocks.TUNGSTEN_BLOCK, new ResourceLocation("ke2:tungsten_block"), event, Ke2CreativeTabs.GEM_CREATION);
+		Ke2Blocks.registerBlock(Ke2Blocks.TUNGSTEN_ORE, new ResourceLocation("ke2:tungsten_ore"), event, Ke2CreativeTabs.GEM_CREATION);
 	}
-
-	public static void registerOre(Block block, ResourceLocation name, RegistryEvent.Register<Block> event, CreativeTabs tab, String... ores) {
-		Ke2Blocks.registerBlock(block, name, event, tab);
-		for (int i = 0; i < ores.length; ++i) {
-			OreDictionary.registerOre(ores[i], Ke2Blocks.ITEMS.get(block));
-		}
-	}
-
 	public static void registerBlock(Block block, ResourceLocation name, RegistryEvent.Register<Block> event, CreativeTabs tab) {
 		event.getRegistry().register(block.setRegistryName(name).setCreativeTab(tab));
 		Ke2Blocks.ITEMS.put(block, new ItemBlock(block).setRegistryName(name));

@@ -26,6 +26,7 @@ import mod.ke2.init.Ke2Entities;
 import mod.ke2.init.Ke2Handles;
 import mod.ke2.init.Ke2Items;
 import mod.ke2.init.Ke2Messages;
+import mod.ke2.init.Ke2Ores;
 import mod.ke2.init.Ke2Potions;
 import mod.ke2.init.Ke2Recipes;
 import mod.ke2.init.Ke2Sounds;
@@ -101,6 +102,7 @@ public class KAGIC {
 		Ke2Recipes.register(null);
 		Ke2Entities.register(0);
 		Ke2Messages.register();
+		Ke2Ores.register();
 		KAGIC.proxy.preInit(event);
 	}
 
