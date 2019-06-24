@@ -34,7 +34,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class Ke2Items {
-	public static final ArmorMaterial TUNGSTEN_ARMOR = EnumHelper.addArmorMaterial("TUNGSTEN_ARMOR", "ke2:tungsten", 24, new int[]{4, 8, 8, 4}, 6, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F).setRepairItem(new ItemStack(Ke2Items.TUNGSTEN_INGOT));
+	public static final ArmorMaterial TUNGSTEN_ARMOR = EnumHelper.addArmorMaterial("TUNGSTEN_ARMOR", "ke2:tungsten", 24, new int[]{3, 6, 7, 3}, 6, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 3.0F).setRepairItem(new ItemStack(Ke2Items.TUNGSTEN_INGOT));
 	public static final ToolMaterial TUNGSTEN_TOOLS = EnumHelper.addToolMaterial("TUNGSTEN", 3, 909, 7.0F, 2.0F, 9);
 	public static class TungPickaxe extends ItemPickaxe {
 		protected TungPickaxe() {
