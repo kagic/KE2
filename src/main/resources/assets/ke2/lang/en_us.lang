@@ -73,6 +73,7 @@ item.gem_dust.name=Gem Dust
 item.tablet.name=Tablet
 
 item.tungsten_ingot.name=Tungsten Ingot
+tile.tungsten_block.name=Tungsten Block
 tile.tungsten_ore.name=Tungsten Ore
 
 tile.wailing_stone.name=Wailing Stone
