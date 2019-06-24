@@ -9,7 +9,6 @@ import mod.ke2.item.ItemGemShard;
 import mod.ke2.item.ItemGemStaff;
 import mod.ke2.item.ItemGemstone;
 import mod.ke2.item.ItemManual;
-import mod.ke2.item.ItemTablet;
 import mod.ke2.item.ItemTemperplasm;
 import mod.ke2.item.ItemWarpWhistle;
 import net.minecraft.block.Block;
@@ -41,7 +40,6 @@ public class Ke2Items {
 	public static final ItemGemShard GEM_SHARD = new ItemGemShard();
 	public static final ItemGemDust GEM_DUST = new ItemGemDust();
 	public static final ItemManual MANUAL = new ItemManual();
-	public static final ItemTablet TABLET = new ItemTablet();
 
 	public static void register(RegistryEvent.Register<Item> event) {
 		Ke2Items.registerItem(Ke2Items.ANXIOUS_ESSENCE, new ResourceLocation("ke2:anxious_essence"), event, Ke2CreativeTabs.GEM_CREATION);
@@ -60,7 +58,6 @@ public class Ke2Items {
 		Ke2Items.registerItem(Ke2Items.GEM_SHARD, new ResourceLocation("ke2:gem_shard"), event, Ke2CreativeTabs.GEM_STONES);
 		Ke2Items.registerItem(Ke2Items.GEM_DUST, new ResourceLocation("ke2:gem_dust"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Items.registerItem(Ke2Items.MANUAL, new ResourceLocation("ke2:manual"), event, Ke2CreativeTabs.GEM_TECH);
-		Ke2Items.registerItem(Ke2Items.TABLET, new ResourceLocation("ke2:tablet"), event, Ke2CreativeTabs.GEM_TECH);
 		
 		Ke2Items.registerOre(Ke2Items.TUNGSTEN_INGOT, new ResourceLocation("ke2:tungsten_ingot"), event, Ke2CreativeTabs.GEM_TECH, "ingotTungsten");
 		
