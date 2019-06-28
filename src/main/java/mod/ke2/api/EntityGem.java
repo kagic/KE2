@@ -20,6 +20,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.IRangedAttackMob;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIAttackMelee;
+import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.item.EntityItem;
@@ -32,6 +34,7 @@ import net.minecraft.inventory.IInventoryChangedListener;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -83,7 +86,12 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	protected static final DataParameter<Boolean> IS_DEFECTIVE = EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Boolean> IS_PERFECT = EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Integer> FLOWER_IN_HAIR = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	
+	protected static final DataParameter<Boolean> DEFENDER = EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
+
+	/**
+	Attack AI
+    */
+	private final EntityAIBase meleeAttack = new EntityAIAttackMelee(this, 1.2D, true);
 	/**
 	 * If true, then the gem is 50% size when defective and
 	 * 150% size when perfective.
@@ -145,6 +153,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.dataManager.register(EntityGem.IS_DEFECTIVE, false);
 		this.dataManager.register(EntityGem.IS_PERFECT, false);
 		this.dataManager.register(EntityGem.FLOWER_IN_HAIR, 0);
+		this.dataManager.register(EntityGem.DEFENDER, false);
 		this.setAlwaysRenderNameTag(true);
 	}
 	
@@ -208,6 +217,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.setDefective(compound.getBoolean("Defective"));
 		this.setPerfective(compound.getBoolean("Perfective"));
 		this.setFlowerInHair(compound.getInteger("FlowerInHair"));
+		this.setDefender(compound.getBoolean("Defender"));
 		this.createInventory();
 		NBTTagList inventory = compound.getTagList("Inventory", 10);
 		for (int i = 0; i < inventory.tagCount(); ++i) {
@@ -254,6 +264,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		compound.setBoolean("Defective", this.isDefective());
 		compound.setBoolean("Perfective", this.isPerfective());
 		compound.setInteger("FlowerInHair", this.getFlowerInHair());
+		compound.setBoolean("Defender", this.isDefender());
 		this.createInventory();
 		NBTTagList inventory = new NBTTagList();
 		for (int i = 0; i < this.inventory.getSizeInventory(); ++i) {
@@ -355,6 +366,15 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		super.onUpdate();
 		this.motionY *= this.getFallSpeed();
 		this.updateCape();
+	}
+
+	public void setAttackAI() {
+		//this.tasks.removeTask(this.rangedAttack);
+		this.tasks.removeTask(this.meleeAttack);
+		/*if (this.getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof ItemBow) {
+			this.tasks.addTask(1, this.rangedAttack);
+		}*/
+		this.tasks.addTask(1, this.meleeAttack);
 	}
 	
 	@Override
@@ -882,6 +902,14 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	
 	public int getFlowerInHair() {
 		return this.dataManager.get(EntityGem.FLOWER_IN_HAIR);
+	}
+
+	public void setDefender(boolean defender) {
+		this.dataManager.set(EntityGem.DEFENDER, defender);
+	}
+
+	public boolean isDefender() {
+		return this.dataManager.get(EntityGem.DEFENDER);
 	}
 	
 	@Override
