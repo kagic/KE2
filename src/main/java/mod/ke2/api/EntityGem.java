@@ -109,7 +109,11 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	 * though.
 	 */
 	public InventoryBasic inventory;
-
+	/**
+	 * Multiplier determining vocal pitch.
+	 */
+	public int vocalOctave;
+	
 	public double prevChasingPosX;
 	public double prevChasingPosY;
 	public double prevChasingPosZ;
@@ -175,6 +179,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.setGemstoneColor(this.generateGemstoneColor());
 		this.setGemstoneCut(this.generateGemstoneCut());
 		this.setGemstoneItem(this.generateGemstoneItem());
+		this.setVocalOctave(this.generateVocalOctave());
 		this.setHealth(this.getMaxHealth());
 		this.stepHeight = Math.min(0.5F, this.height / 2);
 		return data;
@@ -210,6 +215,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.setDefective(compound.getBoolean("Defective"));
 		this.setPerfective(compound.getBoolean("Perfective"));
 		this.setFlowerInHair(compound.getInteger("FlowerInHair"));
+		this.setVocalOctave(compound.getInteger("VocalOctave"));
 		this.createInventory();
 		NBTTagList inventory = compound.getTagList("Inventory", 10);
 		for (int i = 0; i < inventory.tagCount(); ++i) {
@@ -256,6 +262,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		compound.setBoolean("Defective", this.isDefective());
 		compound.setBoolean("Perfective", this.isPerfective());
 		compound.setInteger("FlowerInHair", this.getFlowerInHair());
+		compound.setInteger("VocalOctave", this.getVocalOctave());
 		this.createInventory();
 		NBTTagList inventory = new NBTTagList();
 		for (int i = 0; i < this.inventory.getSizeInventory(); ++i) {
@@ -941,6 +948,35 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	public int getMaxInventorySlots() {
 		return 0;
 	}
+	
+	public void setVocalOctave(int vocalOctave) {
+		this.vocalOctave = vocalOctave;
+	}
+	
+	public int getVocalOctave() {
+		return this.vocalOctave;
+	}
+	
+	/**
+	 * Generates a vocal octave. Vocal octaves
+	 * are simple pitch adjustments done to
+	 * the gem's original voice.
+	 * Ranging from 0-3, there is a rare
+	 * chance for gems to have higher
+	 * or lower pitched voices.
+	 * @return the selected octave.
+	 */
+	public int generateVocalOctave() {
+		if (this.rand.nextFloat() > 0.02) {
+			return this.rand.nextInt(6);
+		}
+		else if (this.rand.nextBoolean()) {
+			return this.rand.nextInt(3) * -1;
+		}
+		else { 
+			return this.rand.nextInt(3) +  6;
+		}
+	}
 
 	protected void setSize(float width, float height, float eyeHeight) {
 		super.setSize(width, height);
@@ -988,6 +1024,11 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	}
 	
 	@Override
+	protected float getSoundPitch() {
+		return ((float)(this.getVocalOctave()) / 6.0F) + ((this.getEmotion() - 405.0F) / 320.0F) + (this.rand.nextFloat() / 10.0F - 0.05F);
+	}
+	
+	@Override
 	protected SoundEvent getAmbientSound() {
         return this.getGemSound();
     }
@@ -1001,11 +1042,6 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
     protected SoundEvent getDeathSound() {
         return this.getGemSound();
     }
-	
-	@Override
-	protected float getSoundPitch() {
-		return 1.0F + (this.getEmotion() - 405.0F / 320.0F);
-	}
 
 	@Override
 	public int generateSkinColor() {

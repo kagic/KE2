@@ -127,7 +127,7 @@ public class ItemGemstone extends Item {
 				gem.setAttackTarget(null);
 				gem.extinguish();
 				gem.clearActivePotions();
-				world.spawnEntity(gem);
+				return world.spawnEntity(gem);
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("Error creating gem: " + e.getMessage());
