@@ -33,8 +33,6 @@ public class EntityRuby extends EntityGem {
 
 	public EntityRuby(World world) {
 		super(world);
-		this.setDefender(true);
-		this.setAttackAI();
 		this.tasks.addTask(5, new EntityAIDefendPlayer(this, 0.5D));
 		this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, false, new Class[0]));
 		this.targetTasks.addTask(4, new EntityAINearestAttackableTarget<EntityLiving>(this, EntityLiving.class, 10, true, false, new Predicate<EntityLiving>() {
