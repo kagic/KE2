@@ -1026,7 +1026,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	
 	@Override
 	protected float getSoundPitch() {
-		return ((float)(this.getVocalOctave()) / 6.0F) + ((this.getEmotion() - 405.0F) / 320.0F) + (this.rand.nextFloat() / 10.0F - 0.05F);
+		return ((float)(this.getVocalOctave()) / 6.0F) + ((this.getEmotion() - 405.0F) / 320.0F) + 0.5F + (this.rand.nextFloat() / 10.0F - 0.05F);
 	}
 	
 	@Override
