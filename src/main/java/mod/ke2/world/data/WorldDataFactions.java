@@ -38,7 +38,7 @@ public class WorldDataFactions extends WorldSavedData {
 		Iterator<String> it = compound.getKeySet().iterator();
 		while (it.hasNext()) {
 			String key = it.next();
-			this.factions.put(UUID.fromString(key), compound.getUniqueId(key));
+			this.factions.put(UUID.fromString(key), UUID.fromString(compound.getString(key)));
 		}
 	}
 
@@ -47,7 +47,7 @@ public class WorldDataFactions extends WorldSavedData {
 		Iterator<UUID> it = this.factions.keySet().iterator();
 		while (it.hasNext()) {
 			UUID key = it.next();
-			compound.setUniqueId(key.toString(), this.factions.get(key));
+			compound.setString(key.toString(), this.factions.get(key).toString());
 		}
 		return compound;
 	}

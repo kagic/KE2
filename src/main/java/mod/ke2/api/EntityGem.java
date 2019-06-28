@@ -239,7 +239,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 			compound.setString("GemUniqueID", this.getGemUniqueID().toString());
 		}
 		if (this.getFactionID() != null) {
-			compound.setString("Faction", this.getFactionID().toString());
+			compound.setString("FactionID", this.getFactionID().toString());
 		}
 		if (this.getGemLeaderID() != null) {
 			compound.setString("GemLeaderID", this.getGemLeaderID().toString());
@@ -369,6 +369,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	@Override
 	protected boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote) {
+			System.out.println(WorldDataFactions.get(world).getFaction(player.getUniqueID()));
 			ItemStack stack = player.getHeldItem(hand);
 			Item item = stack.getItem();
 			if (this.isOwnedBy(player)) {
