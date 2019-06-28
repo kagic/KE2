@@ -5,7 +5,9 @@ import com.google.common.base.Predicate;
 import mod.ke2.api.EntityGem;
 import mod.ke2.api.variants.types.VariantColor;
 import mod.ke2.api.variants.types.VariantPath;
-import mod.ke2.entity.gem.ai.EntityAIDefendPlayer;
+import mod.ke2.entity.gem.ai.EntityAIDefendTheLeader;
+import mod.ke2.entity.gem.ai.EntityAIEliminateThreats;
+import mod.ke2.entity.gem.ai.EntityAIFightForLeader;
 import mod.ke2.init.Ke2Sounds;
 import mod.ke2.init.Ke2Variants;
 import net.minecraft.entity.EntityLiving;
@@ -34,13 +36,10 @@ public class EntityRuby extends EntityGem {
 
 	public EntityRuby(World world) {
 		super(world);
-		this.tasks.addTask(5, new EntityAIDefendPlayer(this, 0.5D));
+		this.targetTasks.addTask(1, new EntityAIDefendTheLeader(this));
+		this.targetTasks.addTask(2, new EntityAIFightForLeader(this));
 		this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, false, new Class[0]));
-		this.targetTasks.addTask(4, new EntityAINearestAttackableTarget<EntityLiving>(this, EntityLiving.class, 10, true, false, new Predicate<EntityLiving>() {
-			public boolean apply(EntityLiving input) {
-				return input != null && IMob.VISIBLE_MOB_SELECTOR.apply(input);
-			}
-		}));
+		//this.targetTasks.addTask(4, new EntityAIEliminateThreats(this));
 	}
 
 	@Override
