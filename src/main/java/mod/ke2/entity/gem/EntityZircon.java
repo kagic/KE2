@@ -7,6 +7,7 @@ import mod.ke2.api.variants.VariantHelper;
 import mod.ke2.api.variants.types.TagType;
 import mod.ke2.api.variants.types.VariantColor;
 import mod.ke2.api.variants.types.VariantPath;
+import mod.ke2.init.Ke2Sounds;
 import mod.ke2.init.Ke2Variants;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.inventory.IInventory;
@@ -15,6 +16,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
@@ -104,5 +106,10 @@ public class EntityZircon extends EntityGem {
 
 	public String generateZirconColor() {
 		return TagType.weigh(EntityZircon.ZIRCON_COLORS).getTag();
+	}
+	
+	@Override
+	public SoundEvent getGemSound() {
+		return Ke2Sounds.GEM_ZIRCON;
 	}
 }

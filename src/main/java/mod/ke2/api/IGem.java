@@ -2,8 +2,10 @@ package mod.ke2.api;
 
 import net.minecraft.entity.INpc;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundEvent;
 
 public interface IGem extends INpc {
+	
 	int generateSkinColor();
 
 	int generateHairColor();
@@ -25,4 +27,6 @@ public interface IGem extends INpc {
 	String generateSkinVariant();
 
 	String generateNameVariant();
+	
+	SoundEvent getGemSound();
 }

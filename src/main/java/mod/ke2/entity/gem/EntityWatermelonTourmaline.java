@@ -5,6 +5,7 @@ import mod.ke2.api.variants.VariantHelper;
 import mod.ke2.api.variants.types.VariantColor;
 import mod.ke2.api.variants.types.VariantPath;
 import mod.ke2.init.Ke2Gems;
+import mod.ke2.init.Ke2Sounds;
 import mod.ke2.init.Ke2Variants;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.inventory.IInventory;
@@ -13,6 +14,7 @@ import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
@@ -77,5 +79,10 @@ public class EntityWatermelonTourmaline extends EntityGem {
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
+	}
+	
+	@Override
+	public SoundEvent getGemSound() {
+		return Ke2Sounds.GEM_WATERMELON_TOURMALINE;
 	}
 }

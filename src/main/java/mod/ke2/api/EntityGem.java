@@ -989,17 +989,17 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	
 	@Override
 	protected SoundEvent getAmbientSound() {
-        return Ke2Sounds.GEM_GENERIC;
+        return this.getGemSound();
     }
 
 	@Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return Ke2Sounds.GEM_GENERIC;
+        return this.getGemSound();
     }
 
 	@Override
     protected SoundEvent getDeathSound() {
-        return Ke2Sounds.GEM_GENERIC;
+        return this.getGemSound();
     }
 	
 	@Override
@@ -1055,5 +1055,10 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	@Override
 	public String generateNameVariant() {
 		return VariantHelper.loadVariantName(this, "ke2:name");
+	}
+	
+	@Override
+	public SoundEvent getGemSound() {
+		return Ke2Sounds.GEM_GENERIC;
 	}
 }
