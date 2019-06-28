@@ -33,6 +33,26 @@ public class ModelPalanquin extends ModelBase {
 	public ModelPalanquin() {
 		this.textureWidth = 256;
 		this.textureHeight = 128;
+		this.body = new ModelRenderer(this, 0, 0);
+		this.body.setRotationPoint(0.0F, 20.0F, 0.0F);
+		this.body.addBox(-12.0F, 0.0F, -12.0F, 24, 2, 24, 0.0F);
+		this.body.rotateAngleY = 0.017453292519943295F;
+		this.base = new ModelRenderer(this, 72, 0);
+		this.base.setRotationPoint(0.0F, -2.0F, 0.0F);
+		this.base.addBox(-11.0F, 0.0F, -11.0F, 22, 2, 22, 0.0F);
+		this.body.addChild(this.base);
+		this.cage = new ModelRenderer(this, 164, 18);
+		this.cage.setRotationPoint(0.0F, 0.0F, 0.0F);
+		this.cage.addBox(-10.0F, -36.0F, -10.0F, 20, 36, 20, 0.0F);
+		this.base.addChild(this.cage);
+		this.tip = new ModelRenderer(this, 0, 59);
+		this.tip.setRotationPoint(0.0F, -38.0F, 0.0F);
+		this.tip.addBox(-11.5F, 0.0F, -11.5F, 23, 2, 23, 0.0F);
+		this.cage.addChild(this.tip);
+		this.veil = new ModelRenderer(this, 74, 24);
+		this.veil.setRotationPoint(0.0F, 0.0F, 0.0F);
+		this.veil.addBox(-11.0F, -36.0F, -11.0F, 22, 36, 22, 0.0F);
+		this.base.addChild(this.veil);
 		this.top = new ModelRenderer(this, 140, 24);
 		this.top.setRotationPoint(0.0F, 0.0F, 0.0F);
 		this.top.addBox(-5.0F, -3.0F, -5.0F, 10, 3, 10, 0.0F);
@@ -47,14 +67,6 @@ public class ModelPalanquin extends ModelBase {
 		this.capBottom.addBox(-4.0F, -6.0F, 0.0F, 8, 6, 0, 0.0F);
 		this.capBottom.rotateAngleY = -0.7853981633974483F;
 		this.top.addChild(this.capBottom);
-		this.body = new ModelRenderer(this, 0, 0);
-		this.body.setRotationPoint(0.0F, 20.0F, 0.0F);
-		this.body.addBox(-12.0F, 0.0F, -12.0F, 24, 2, 24, 0.0F);
-		this.body.rotateAngleY = 0.017453292519943295F;
-		this.base = new ModelRenderer(this, 72, 0);
-		this.base.setRotationPoint(0.0F, -2.0F, 0.0F);
-		this.base.addBox(-11.0F, 0.0F, -11.0F, 22, 2, 22, 0.0F);
-		this.body.addChild(this.base);
 		this.legTopFrontLeft = new ModelRenderer(this, 30, 26);
 		this.legTopFrontLeft.setRotationPoint(12.0F, 0.0F, -12.0F);
 		this.legTopFrontLeft.addBox(-1.5F, -20.0F, -1.5F, 3, 20, 3, 0.0F);
@@ -129,18 +141,6 @@ public class ModelPalanquin extends ModelBase {
 		this.backBottom.setRotationPoint(4.0F, -4.0F, -0.2F);
 		this.backBottom.addBox(0.0F, -6.0F, 0.0F, 6, 6, 1, 0.0F);
 		this.backMiddle.addChild(this.backBottom);
-		this.cage = new ModelRenderer(this, 164, 18);
-		this.cage.setRotationPoint(0.0F, 0.0F, 0.0F);
-		this.cage.addBox(-10.0F, -36.0F, -10.0F, 20, 36, 20, 0.0F);
-		this.base.addChild(this.cage);
-		this.tip = new ModelRenderer(this, 0, 59);
-		this.tip.setRotationPoint(0.0F, -38.0F, 0.0F);
-		this.tip.addBox(-11.5F, 0.0F, -11.5F, 23, 2, 23, 0.0F);
-		this.cage.addChild(this.tip);
-		this.veil = new ModelRenderer(this, 74, 24);
-		this.veil.setRotationPoint(0.0F, 0.0F, 0.0F);
-		this.veil.addBox(-11.0F, -36.0F, -11.0F, 22, 36, 22, 0.0F);
-		this.base.addChild(this.veil);
 	}
 
 	public void resetRotationAngles() {
