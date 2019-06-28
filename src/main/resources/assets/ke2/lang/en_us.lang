@@ -88,13 +88,14 @@ tile.tungsten_ore.name=Tungsten Ore
 
 tile.wailing_stone.name=Wailing Stone
 
-tile.magic_moss.name=Magic Moss
-tile.moss_rose.name=Moss Rose
 
 tile.valley_drain_lily.name=Valley Drain Lily
 tile.desert_drain_lily.name=Desert Drain Lily
 tile.alpine_drain_lily.name=Alpine Drain Lily
 tile.nether_drain_lily.name=Nether Drain Lily
+
+tile.magic_moss.name=Magic Moss
+tile.moss_rose.name=Moss Rose
 
 tile.light_purple_drain_block.name=Light Purple Drained Block
 tile.banded_purple_drain_block.name=Banded Purple Drained Block
