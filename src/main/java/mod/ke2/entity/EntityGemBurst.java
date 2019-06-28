@@ -33,13 +33,10 @@ public class EntityGemBurst extends EntityGem {
 		}
 		if (!this.hasNoGravity()) {
 			this.world.newExplosion(this, this.posX, this.posY, this.posZ, 6.0F, true, false);
-			this.playSound(Ke2Sounds.GEM_BURST, 3.0F, 1.0F);
+			this.playSound(Ke2Sounds.MISC_GEM_BURST, 3.0F, 1.0F);
 			this.setNoGravity(true);
 		}
 		if (this.ticksExisted > 200) {
-			if (!this.world.isRemote) {
-				this.dropItem(Ke2Items.GEM_DUST, 1);
-			}
 			this.setDead();
 		} else {
 			for (int i = 0; i < 48; ++i) {

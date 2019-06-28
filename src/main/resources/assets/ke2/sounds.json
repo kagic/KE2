@@ -1,24 +1,4 @@
 {
-    "misc.bubble.create": {
-        "sounds": [
-            { "name": "ke2:misc/bubble/create" }
-        ]
-    },
-    "misc.bubble.pop": {
-        "sounds": [
-            { "name": "ke2:misc/bubble/pop" }
-        ]
-    },
-    "misc.bubble.send": {
-        "sounds": [
-            { "name": "ke2:misc/bubble/send" }
-        ]
-    },
-    "misc.burst": {
-        "sounds": [
-            { "name": "ke2:misc/burst" }
-        ]
-    },
     "block.wailing_stone": {
     	"sounds": [
     		{ "name": "ke2:block/wailing_stone" }
@@ -29,218 +9,243 @@
     		{ "name": "ke2:item/destabilizer" }
     	]
     },
-    "entity.agate": {
+    "entity.bubble.create": {
+        "sounds": [
+            { "name": "ke2:entity/bubble/create" }
+        ]
+    },
+    "entity.bubble.pop": {
+        "sounds": [
+            { "name": "ke2:entity/bubble/pop" }
+        ]
+    },
+    "entity.bubble.send": {
+        "sounds": [
+            { "name": "ke2:entity/bubble/send" }
+        ]
+    },
+    "entity.misc.gem_burst": {
+        "sounds": [
+            { "name": "ke2:entity/misc/gem_burst" }
+        ]
+    },
+    "entity.mech.robonoid": {
     	"sounds": [
-    		{ "name": "ke2:entity/agate" }
+    		{ "name": "ke2:entity/mech/robonoid" }
     	]
     },
-    "entity.amethyst": {
+    "entity.mech.prism": {
     	"sounds": [
-    		{ "name": "ke2:entity/amethyst" }
+    		{ "name": "ke2:entity/mech/prism" }
     	]
     },
-    "entity.aqua_aura_quartz": {
+    "entity.gem.cluster": {
     	"sounds": [
-    		{ "name": "ke2:entity/aqua_aura_quartz" }
+    		{ "name": "ke2:entity/gem/cluster" }
     	]
     },
-    "entity.aquamarine": {
+    "entity.gem.pebble": {
     	"sounds": [
-    		{ "name": "ke2:entity/aquamarine" }
+    		{ "name": "ke2:entity/gem/pebble" }
     	]
     },
-    "entity.bismuth": {
+    "entity.gem.generic": {
     	"sounds": [
-    		{ "name": "ke2:entity/bismuth" }
+    		{ "name": "ke2:entity/gem/generic" }
     	]
     },
-    "entity.carnelian": {
+    "entity.gem.agate": {
     	"sounds": [
-    		{ "name": "ke2:entity/carnelian" }
+    		{ "name": "ke2:entity/gem/agate" }
     	]
     },
-    "entity.citrine": {
+    "entity.gem.amethyst": {
     	"sounds": [
-    		{ "name": "ke2:entity/citrine" }
+    		{ "name": "ke2:entity/gem/amethyst" }
     	]
     },
-    "entity.coral": {
+    "entity.gem.aqua_aura_quartz": {
     	"sounds": [
-    		{ "name": "ke2:entity/coral" }
+    		{ "name": "ke2:entity/gem/aqua_aura_quartz" }
     	]
     },
-    "entity.demantoid": {
+    "entity.gem.aquamarine": {
     	"sounds": [
-    		{ "name": "ke2:entity/demantoid" }
+    		{ "name": "ke2:entity/gem/aquamarine" }
     	]
     },
-    "entity.desert_glass": {
+    "entity.gem.bismuth": {
     	"sounds": [
-    		{ "name": "ke2:entity/desert_glass" }
+    		{ "name": "ke2:entity/gem/bismuth" }
     	]
     },
-    "entity.emerald": {
+    "entity.gem.blue_diamond": {
     	"sounds": [
-    		{ "name": "ke2:entity/emerald" }
+    		{ "name": "ke2:entity/gem/blue_diamond" }
     	]
     },
-    "entity.ender_pearl": {
+    "entity.gem.carnelian": {
     	"sounds": [
-    		{ "name": "ke2:entity/ender_pearl/note0" },
-    		{ "name": "ke2:entity/ender_pearl/note1" },
-    		{ "name": "ke2:entity/ender_pearl/note2" },
-    		{ "name": "ke2:entity/ender_pearl/note3" },
-    		{ "name": "ke2:entity/ender_pearl/note4" }
+    		{ "name": "ke2:entity/gem/carnelian" }
     	]
     },
-    "entity.hessonite": {
+    "entity.gem.citrine": {
     	"sounds": [
-    		{ "name": "ke2:entity/hessonite" }
+    		{ "name": "ke2:entity/gem/citrine" }
     	]
     },
-    "entity.hiddenite": {
+    "entity.gem.coral": {
     	"sounds": [
-    		{ "name": "ke2:entity/hiddenite" }
+    		{ "name": "ke2:entity/gem/coral" }
     	]
     },
-    "entity.jade": {
+    "entity.gem.demantoid": {
     	"sounds": [
-    		{ "name": "ke2:entity/jade" }
+    		{ "name": "ke2:entity/gem/demantoid" }
     	]
     },
-    "entity.jasper": {
+    "entity.gem.desert_glass": {
     	"sounds": [
-    		{ "name": "ke2:entity/jasper" }
+    		{ "name": "ke2:entity/gem/desert_glass" }
     	]
     },
-    "entity.kunzite": {
+    "entity.gem.emerald": {
     	"sounds": [
-    		{ "name": "ke2:entity/kunzite" }
+    		{ "name": "ke2:entity/gem/emerald" }
     	]
     },
-    "entity.lapis_lazuli": {
+    "entity.gem.ender_pearl": {
     	"sounds": [
-    		{ "name": "ke2:entity/lapis_lazuli" }
+    		{ "name": "ke2:entity/gem/ender_pearl/note1" },
+    		{ "name": "ke2:entity/gem/ender_pearl/note2" },
+    		{ "name": "ke2:entity/gem/ender_pearl/note3" },
+    		{ "name": "ke2:entity/gem/ender_pearl/note4" },
+    		{ "name": "ke2:entity/gem/ender_pearl/note5" }
     	]
     },
-    "entity.larimar": {
+    "entity.gem.hessonite": {
     	"sounds": [
-    		{ "name": "ke2:entity/larimar" }
+    		{ "name": "ke2:entity/gem/hessonite" }
     	]
     },
-    "entity.melanite": {
+    "entity.gem.hiddenite": {
     	"sounds": [
-    		{ "name": "ke2:entity/melanite" }
+    		{ "name": "ke2:entity/gem/hiddenite" }
     	]
     },
-    "entity.mother_of_pearl": {
+    "entity.gem.jade": {
     	"sounds": [
-    		{ "name": "ke2:entity/mother_of_pearl" }
+    		{ "name": "ke2:entity/gem/jade" }
     	]
     },
-    "entity.nephrite": {
+    "entity.gem.jasper": {
     	"sounds": [
-    		{ "name": "ke2:entity/nephrite" }
+    		{ "name": "ke2:entity/gem/jasper" }
     	]
     },
-    "entity.pearl": {
+    "entity.gem.kunzite": {
     	"sounds": [
-    		{ "name": "ke2:entity/pearl" }
+    		{ "name": "ke2:entity/gem/kunzite" }
     	]
     },
-    "entity.peridot": {
+    "entity.gem.lapis_lazuli": {
     	"sounds": [
-    		{ "name": "ke2:entity/peridot" }
+    		{ "name": "ke2:entity/gem/lapis_lazuli" }
     	]
     },
-    "entity.pyrite": {
+    "entity.gem.larimar": {
     	"sounds": [
-    		{ "name": "ke2:entity/pyrite" }
+    		{ "name": "ke2:entity/gem/larimar" }
     	]
     },
-    "entity.pyrope": {
+    "entity.gem.melanite": {
     	"sounds": [
-    		{ "name": "ke2:entity/pyrope" }
+    		{ "name": "ke2:entity/gem/melanite" }
     	]
     },
-    "entity.rose_quartz": {
+    "entity.gem.mother_of_pearl": {
     	"sounds": [
-    		{ "name": "ke2:entity/rose_quartz" }
+    		{ "name": "ke2:entity/gem/mother_of_pearl" }
     	]
     },
-    "entity.ruby": {
+    "entity.gem.nephrite": {
     	"sounds": [
-    		{ "name": "ke2:entity/ruby" }
+    		{ "name": "ke2:entity/gem/nephrite" }
     	]
     },
-    "entity.rutile": {
+    "entity.gem.pearl": {
     	"sounds": [
-    		{ "name": "ke2:entity/rutile" }
+    		{ "name": "ke2:entity/gem/pearl" }
     	]
     },
-    "entity.sapphire": {
+    "entity.gem.peridot": {
     	"sounds": [
-    		{ "name": "ke2:entity/sapphire" }
+    		{ "name": "ke2:entity/gem/peridot" }
     	]
     },
-    "entity.snowflake_obsidian": {
+    "entity.gem.pink_diamond": {
     	"sounds": [
-    		{ "name": "ke2:entity/snowflake_obsidian" }
+    		{ "name": "ke2:entity/gem/pink_diamond" }
     	]
     },
-    "entity.topaz": {
+    "entity.gem.pyrite": {
     	"sounds": [
-    		{ "name": "ke2:entity/topaz" }
+    		{ "name": "ke2:entity/gem/pyrite" }
     	]
     },
-    "entity.watermelon_tourmaline": {
+    "entity.gem.pyrope": {
     	"sounds": [
-    		{ "name": "ke2:entity/watermelon_tourmaline" }
+    		{ "name": "ke2:entity/gem/pyrope" }
     	]
     },
-    "entity.zircon": {
+    "entity.gem.rose_quartz": {
     	"sounds": [
-    		{ "name": "ke2:entity/zircon" }
+    		{ "name": "ke2:entity/gem/rose_quartz" }
     	]
     },
-    "entity.robonoids": {
+    "entity.gem.ruby": {
     	"sounds": [
-    		{ "name": "ke2:entity/robonoids" }
+    		{ "name": "ke2:entity/gem/ruby" }
     	]
     },
-    "entity.cluster": {
+    "entity.gem.rutile": {
     	"sounds": [
-    		{ "name": "ke2:entity/cluster" }
+    		{ "name": "ke2:entity/gem/rutile" }
     	]
     },
-    "entity.prism": {
+    "entity.gem.sapphire": {
     	"sounds": [
-    		{ "name": "ke2:entity/prism" }
+    		{ "name": "ke2:entity/gem/sapphire" }
     	]
     },
-    "entity.pebbles": {
+    "entity.gem.snowflake_obsidian": {
     	"sounds": [
-    		{ "name": "ke2:entity/pebbles" }
+    		{ "name": "ke2:entity/gem/snowflake_obsidian" }
     	]
     },
-    "entity.white_diamond": {
+    "entity.gem.topaz": {
     	"sounds": [
-    		{ "name": "ke2:entity/diamond/white" }
+    		{ "name": "ke2:entity/gem/topaz" }
     	]
     },
-    "entity.yellow_diamond": {
+    "entity.gem.watermelon_tourmaline": {
     	"sounds": [
-    		{ "name": "ke2:entity/diamond/yellow" }
+    		{ "name": "ke2:entity/gem/watermelon_tourmaline" }
     	]
     },
-    "entity.blue_diamond": {
+    "entity.gem.white_diamond": {
     	"sounds": [
-    		{ "name": "ke2:entity/diamond/blue" }
+    		{ "name": "ke2:entity/gem/white_diamond" }
     	]
     },
-    "entity.pink_diamond": {
+    "entity.gem.yellow_diamond": {
     	"sounds": [
-    		{ "name": "ke2:entity/diamond/pink" }
+    		{ "name": "ke2:entity/gem/yellow_diamond" }
+    	]
+    },
+    "entity.gem.zircon": {
+    	"sounds": [
+    		{ "name": "ke2:entity/gem/zircon" }
     	]
     }
 }
