@@ -13,36 +13,22 @@ public class ModelMotherOfPearl extends ModelGem {
 	public ModelMotherOfPearl() {
 		super(0.0F, 0.0F, 96, 96);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
-		this.bipedHead.addBox(-4F, -8F, -4F, 8, 8, 8);
-		this.bipedHead.setRotationPoint(0F, 0F, 0F);
+		this.bipedHead.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8);
 		this.bipedHeadwear = new ModelRenderer(this, 32, 0);
-		this.bipedHeadwear.addBox(-4F, -8F, -4F, 8, 8, 8, 0.5F);
-		this.bipedHeadwear.setRotationPoint(0F, 0F, 0F);
+		this.bipedHeadwear.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8, 0.5F);
 		this.bipedShelmet = new ModelRenderer(this, 0, 32);
-		this.bipedShelmet.addBox(-6F, -12F, -4F, 12, 12, 12);
-		this.bipedShelmet.setRotationPoint(0F, 0F, 0F);
+		this.bipedShelmet.addBox(-6.0F, -12.0F, -4.0F, 12, 12, 12);
 		this.bipedNose = new ModelRenderer(this, 36, 16);
-		this.bipedNose.addBox(-0.5F, -3F, -6F, 1, 1, 2);
-		this.bipedNose.setRotationPoint(0F, 0F, 0F);
+		this.bipedNose.addBox(-0.5F, -3.0F, -6.0F, 1, 1, 2);
 		this.bipedBody = new ModelRenderer(this, 8, 16);
-		this.bipedBody.addBox(-3F, 0F, -2F, 6, 12, 4);
-		this.bipedBody.setRotationPoint(0F, 0F, 0F);
+		this.bipedBody.addBox(-3.0F, 0.0F, -2.0F, 6, 12, 4);
 		this.bipedSkirt = new ModelRenderer(this, 64, 0);
-		this.bipedSkirt.addBox(-4F, 12F, -4F, 8, 18, 8);
-		this.bipedSkirt.setRotationPoint(0F, 0F, 0F);
+		this.bipedSkirt.addBox(-4.0F, 12.0F, -4.0F, 8, 18, 8);
 		this.bipedRightArm = new ModelRenderer(this, 28, 16);
-		this.bipedRightArm.addBox(0F, 0F, -1F, 2, 12, 2);
-		this.bipedRightArm.setRotationPoint(0F, 0F, 0F);
-		this.bipedRightArm.mirror = true;
+		this.bipedRightArm.addBox(0.0F, 0.0F, -1.0F, 2, 12, 2);
 		this.bipedLeftArm = new ModelRenderer(this, 0, 16);
-		this.bipedLeftArm.addBox(-2F, 0F, -1F, 2, 12, 2);
+		this.bipedLeftArm.addBox(-2.0F, 0.0F, -1.0F, 2, 12, 2);
 		this.bipedLeftArm.setRotationPoint(0F, 0F, 0F);
-		this.bipedRightLeg = new ModelRenderer(this, 28, 16);
-		this.bipedRightLeg.addBox(1F, 0F, -1F, 2, 12, 2);
-		this.bipedRightLeg.setRotationPoint(0F, 12F, 0F);
-		this.bipedLeftLeg = new ModelRenderer(this, 28, 16);
-		this.bipedLeftLeg.addBox(-3F, 0F, -1F, 2, 12, 2);
-		this.bipedLeftLeg.setRotationPoint(0F, 12F, 0F);
 	}
 
 	@Override
@@ -54,12 +40,8 @@ public class ModelMotherOfPearl extends ModelGem {
 		this.bipedNose.render(scale);
 		this.bipedBody.render(scale);
 		this.bipedSkirt.render(scale);
-		this.bipedRightArm.mirror = true;
 		this.bipedRightArm.render(scale);
-		this.bipedLeftArm.mirror = false;
 		this.bipedLeftArm.render(scale);
-		this.bipedRightLeg.render(scale);
-		this.bipedLeftLeg.render(scale);
 	}
 
 	@Override
@@ -68,15 +50,16 @@ public class ModelMotherOfPearl extends ModelGem {
 		super.copyModelAngles(this.bipedHead, this.bipedShelmet);
 		super.copyModelAngles(this.bipedBody, this.bipedSkirt);
 		super.copyModelAngles(this.bipedHead, this.bipedNose);
-		this.bipedRightLeg.rotateAngleX = 0;
-		this.bipedRightLeg.rotateAngleY = 0;
-		this.bipedRightLeg.rotateAngleZ = 0;
-		this.bipedLeftLeg.rotateAngleX = 0;
-		this.bipedLeftLeg.rotateAngleY = 0;
-		this.bipedLeftLeg.rotateAngleZ = 0;
 		this.bipedShelmet.rotateAngleX += -0.1F;
-		this.bipedShelmet.offsetY = 0.02F;
+		this.bipedShelmet.offsetY = -0.355F;
 		this.bipedShelmet.offsetZ = 0.02F;
+		this.bipedSkirt.offsetY = -0.375F;
+		this.bipedBody.offsetY = -0.375F;
+		this.bipedRightArm.offsetY = -0.375F;
+		this.bipedLeftArm.offsetY = -0.375F;
+		this.bipedHead.offsetY = -0.375F;
+		this.bipedHeadwear.offsetY = -0.375F;
+		this.bipedNose.offsetY = -0.375F;
 	}
 
 	@Override

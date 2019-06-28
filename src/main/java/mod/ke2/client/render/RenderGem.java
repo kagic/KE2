@@ -15,7 +15,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
-	public static boolean updateModelsDespiteTheFactItCausesMemoryLeaks = false;
+	public static boolean updateModelsDespiteTheFactItCausesMemoryLeaks = true;
 
 	public RenderGem(RenderManager manager, ModelGem model, float shadowSize) {
 		super(manager, model, shadowSize);
