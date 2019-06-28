@@ -4,7 +4,6 @@ import java.util.Random;
 
 import mod.ke2.api.injection.InjectorResult;
 import mod.ke2.init.Ke2Blocks;
-import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.MapColor;
@@ -17,26 +16,25 @@ import net.minecraft.world.World;
 
 public class BlockDrainLily extends BlockBush {
 	private final String prefix;
-	
+
 	public BlockDrainLily(String prefix) {
 		super(Material.PLANTS);
-		this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 		this.setUnlocalizedName(prefix + "_drain_lily");
 		this.setLightLevel(4.0F);
 		this.setTickRandomly(true);
 		this.prefix = prefix;
 	}
-	
+
 	@Override
 	protected boolean canSustainBush(IBlockState state) {
 		return state.isTopSolid();
 	}
-	
+
 	@Override
 	public boolean canPlaceBlockAt(World world, BlockPos pos) {
 		return world.isSideSolid(pos.down(), EnumFacing.UP);
 	}
-	
+
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {
 		IBlockState down = world.getBlockState(pos.down());
@@ -78,7 +76,7 @@ public class BlockDrainLily extends BlockBush {
 			world.destroyBlock(pos, true);
 		}
 	}
-	
+
 	@Override
 	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
 		switch (this.prefix) {

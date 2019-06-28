@@ -16,7 +16,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
 	public static boolean updateModelsDespiteTheFactItCausesMemoryLeaks = false;
-	
+
 	public RenderGem(RenderManager manager, ModelGem model, float shadowSize) {
 		super(manager, model, shadowSize);
 		for (Iterator<LayerRenderer<T>> it = this.layerRenderers.iterator(); it.hasNext();) {
@@ -26,7 +26,7 @@ public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
 			}
 		}
 	}
-	
+
 	@Override
 	protected void preRenderCallback(T gem, float partialTickTime) {
 		try {
@@ -44,7 +44,7 @@ public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
 			GlStateManager.scale(1.5F, 1.5F, 1.5F);
 		}
 	}
-	
+
 	@Override
 	protected void renderEntityName(T entity, double x, double y, double z, String name, double distanceSq) {
 		if (Ke2Configs.showDescriptors) {
@@ -54,17 +54,17 @@ public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
 			this.renderLivingLabel(entity, name, x, y, z, 64);
 		}
 	}
-	
+
 	@Override
 	protected ResourceLocation getEntityTexture(EntityGem gem) {
 		ResourceLocation texture = Ke2Gems.REGISTRY_REVERSE.get(gem.getClass());
 		return new ResourceLocation(texture.getResourceDomain() + ":textures/entities/" + texture.getResourcePath() + "/" + texture.getResourcePath() + ".png");
 	}
-	
+
 	public ResourceLocation getBaseTexture(EntityGem gem) {
 		return this.getEntityTexture(gem);
 	}
-	
+
 	public ModelGem getModel() {
 		return (ModelGem) this.getMainModel();
 	}

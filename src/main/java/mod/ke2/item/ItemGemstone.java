@@ -40,7 +40,7 @@ public class ItemGemstone extends Item {
 			}
 		});
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
@@ -62,7 +62,7 @@ public class ItemGemstone extends Item {
 			tooltip.add("No information available.");
 		}
 	}
-	
+
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!world.isRemote) {
@@ -83,38 +83,41 @@ public class ItemGemstone extends Item {
 		}
 		return EnumActionResult.PASS;
 	}
-	
+
 	@Override
 	public boolean onEntityItemUpdate(EntityItem entity) {
+		boolean spawned = false;
 		entity.extinguish();
 		if (!entity.world.isRemote && entity.ticksExisted > 600) {
+			ItemGemstone gem = (ItemGemstone)(entity.getItem().getItem());
 			ItemStack stack = entity.getItem();
-			if (entity.getEntityWorld().getWorldTime() % 20 == 0 && stack.getItemDamage() > 0) {
+			if (stack.getItemDamage() == 0) {
+				spawned = gem.spawnGem(entity.world, null, entity.getPosition(), entity.getItem());
+			}
+			else if (entity.getEntityWorld().getWorldTime() % 20 == 0 && stack.getItemDamage() > 0) {
 				stack.setItemDamage(Math.max(stack.getItemDamage() - 2, 0));
 			}
-			if (stack.getItemDamage() == 0) {
-				ItemGemstone gem = (ItemGemstone) stack.getItem();
-				boolean spawned = gem.spawnGem(entity.world, null, entity.getPosition(), entity.getItem());
-				if (spawned) {
-					entity.setDead();
-				}
-			}
 		}
-		entity.setEntityInvulnerable(true);
-		entity.isDead = false;
-		if (entity.ticksExisted > 600) {
-			entity.setNoDespawn();
+		if (spawned) {
+			entity.setDead();
+		}
+		else {
+			entity.setEntityInvulnerable(true);
+			entity.isDead = false;
+			if (entity.ticksExisted > 600) {
+				entity.setNoDespawn();
+			}
 		}
 		return false;
 	}
-	
+
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {
 		if (world.getWorldTime() % 20 == 0 && stack.getItemDamage() > 0) {
 			stack.setItemDamage(Math.max(stack.getItemDamage() - 1 * (isSelected ? 2 : 1), 0));
 		}
 	}
-	
+
 	public boolean spawnGem(World world, EntityPlayer player, BlockPos pos, ItemStack stack) {
 		if (!world.isRemote) {
 			try {
@@ -127,7 +130,7 @@ public class ItemGemstone extends Item {
 				gem.setAttackTarget(null);
 				gem.extinguish();
 				gem.clearActivePotions();
-				world.spawnEntity(gem);
+				return world.spawnEntity(gem);
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("Error creating gem: " + e.getMessage());
@@ -135,7 +138,7 @@ public class ItemGemstone extends Item {
 		}
 		return false;
 	}
-	
+
 	public void setData(EntityGem gem, ItemStack stack) {
 		stack.setTagCompound(gem.writeToNBT(new NBTTagCompound()));
 		stack.getTagCompound().setString("Name", gem.getName());

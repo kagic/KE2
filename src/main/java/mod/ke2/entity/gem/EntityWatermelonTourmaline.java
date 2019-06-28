@@ -28,39 +28,39 @@ public class EntityWatermelonTourmaline extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/watermelon_tourmaline/color_visor"), VariantColor.class), EntityWatermelonTourmaline.class);
 	}
 	private static final DataParameter<Integer> COLOR_RGB_TOP = EntityDataManager.<Integer>createKey(EntityWatermelonTourmaline.class, DataSerializers.VARINT);
-	
+
 	public EntityWatermelonTourmaline(World world) {
 		super(world);
 		this.dataManager.register(EntityWatermelonTourmaline.COLOR_RGB_TOP, 0);
 	}
-	
+
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
 		data = super.onInitialSpawn(difficulty, data);
 		this.setTopColor(this.generateTopColor());
 		return data;
 	}
-	
+
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
 		this.setTopColor(compound.getInteger("TopColor"));
 	}
-	
+
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
 		compound.setInteger("TopColor", this.getTopColor());
 	}
-	
+
 	public int generateTopColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:watermelon_tourmaline.color.top");
 	}
-	
+
 	public void setTopColor(int color) {
 		this.dataManager.set(EntityWatermelonTourmaline.COLOR_RGB_TOP, color);
 	}
-	
+
 	public int getTopColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xCCCCCC;
@@ -68,12 +68,12 @@ public class EntityWatermelonTourmaline extends EntityGem {
 			return this.dataManager.get(EntityWatermelonTourmaline.COLOR_RGB_TOP);
 		}
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

@@ -30,7 +30,7 @@ public class ModelRuby extends ModelGem {
 		this.bipedLeftLeg.addBox(0.0F, 0.0F, -2.0F, 4, 8, 4);
 		this.bipedLeftLeg.offsetY = 0.25F;
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -41,13 +41,13 @@ public class ModelRuby extends ModelGem {
 		this.bipedRightLeg.render(scale);
 		this.bipedLeftLeg.render(scale);
 	}
-	
+
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
-				GlStateManager.translate(0.0, -0.03, -0.29);
 				this.bipedHead.postRender(scale);
+				GlStateManager.translate(0.0, 0.2 * this.bipedHead.rotateAngleX - 0.03, -0.48 * this.bipedHead.rotateAngleX - 0.29);
 				GlStateManager.scale(0.5, 0.5, 0.5);
 				break;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :

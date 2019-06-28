@@ -36,7 +36,7 @@ public abstract class AbstractQuartz extends EntityGem {
 	public boolean chargedByTakingDamageNotDelivering;
 	private int ticksCharged = 0;
 	private int hitCount = 0;
-	
+
 	public AbstractQuartz(World world) {
 		super(world);
 		this.setSize(0.9F, 2.3F);
@@ -46,7 +46,7 @@ public abstract class AbstractQuartz extends EntityGem {
 		this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.2D);
 	}
-	
+
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
 		data = super.onInitialSpawn(difficulty, data);
@@ -54,7 +54,7 @@ public abstract class AbstractQuartz extends EntityGem {
 		this.setEyesColor(this.generateEyesColor());
 		return data;
 	}
-	
+
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
@@ -62,7 +62,7 @@ public abstract class AbstractQuartz extends EntityGem {
 		this.setEyesColor(compound.getInteger("EyesColor"));
 		this.setCharged(compound.getBoolean("Charged"));
 	}
-	
+
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
@@ -70,7 +70,7 @@ public abstract class AbstractQuartz extends EntityGem {
 		compound.setInteger("EyesColor", this.getEyesColor());
 		compound.setBoolean("Charged", this.isCharged());
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
 		if (this.ticksCharged < 0) {
@@ -82,7 +82,7 @@ public abstract class AbstractQuartz extends EntityGem {
 		}
 		super.onLivingUpdate();
 	}
-	
+
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if (this.chargedByTakingDamageNotDelivering) {
@@ -91,7 +91,7 @@ public abstract class AbstractQuartz extends EntityGem {
 		}
 		return super.attackEntityFrom(source, amount);
 	}
-	
+
 	@Override
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
 		if (!this.world.isRemote) {
@@ -99,7 +99,7 @@ public abstract class AbstractQuartz extends EntityGem {
 		}
 		super.attackEntityWithRangedAttack(target, distanceFactor);
 	}
-	
+
 	@Override
 	public boolean attackEntityAsMob(Entity target) {
 		if (!this.chargedByTakingDamageNotDelivering) {
@@ -108,27 +108,27 @@ public abstract class AbstractQuartz extends EntityGem {
 		}
 		return super.attackEntityAsMob(target);
 	}
-	
+
 	public String generateEyesVariant() {
 		return VariantHelper.loadVariantPath(this, "ke2:quartz.texture.eyes");
 	}
-	
+
 	public void setEyesVariant(String variant) {
 		this.dataManager.set(AbstractQuartz.VARIANT_EYES, variant);
 	}
-	
+
 	public String getEyesVariant() {
 		return this.dataManager.get(AbstractQuartz.VARIANT_EYES);
 	}
-	
+
 	public int generateEyesColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:quartz.color.eyes");
 	}
-	
+
 	public void setEyesColor(int color) {
 		this.dataManager.set(AbstractQuartz.COLOR_RGB_EYES, color);
 	}
-	
+
 	public int getEyesColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xCCCCCC;
@@ -136,21 +136,21 @@ public abstract class AbstractQuartz extends EntityGem {
 			return this.dataManager.get(AbstractQuartz.COLOR_RGB_EYES);
 		}
 	}
-	
+
 	@Override
 	public int getBrightnessForRender() {
 		return this.isCharged() ? 0xFFFFFF : super.getBrightnessForRender();
 	}
-	
+
 	@Override
 	public float getBrightness() {
 		return this.isCharged() ? 1.0F : super.getBrightness();
 	}
-	
+
 	public void setCharged(boolean charged) {
 		this.dataManager.set(AbstractQuartz.CHARGED, charged);
 	}
-	
+
 	public boolean isCharged() {
 		return this.dataManager.get(AbstractQuartz.CHARGED);
 	}

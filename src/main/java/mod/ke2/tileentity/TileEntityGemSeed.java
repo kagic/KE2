@@ -10,7 +10,7 @@ public class TileEntityGemSeed extends TileEntity implements ITickable {
 	private GemSpawnData data;
 	private InjectorResult preResult;
 	private int ticksExisted = 0;
-	
+
 	@Override
 	public void update() {
 		if (this.ticksExisted > 3600) {
@@ -24,7 +24,7 @@ public class TileEntityGemSeed extends TileEntity implements ITickable {
 			this.preResult = InjectorResult.create(this.world, this.pos, false);
 		}
 	}
-	
+
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		super.writeToNBT(compound);
@@ -37,7 +37,7 @@ public class TileEntityGemSeed extends TileEntity implements ITickable {
 		}
 		return compound;
 	}
-	
+
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		super.readFromNBT(compound);
@@ -48,23 +48,23 @@ public class TileEntityGemSeed extends TileEntity implements ITickable {
 			this.data = null;
 		}
 	}
-	
+
 	public GemSpawnData getData() {
 		return this.data;
 	}
-	
+
 	public void setData(GemSpawnData data) {
 		this.data = data;
 	}
-	
+
 	public boolean hasData() {
 		return this.data != null;
 	}
-	
+
 	public InjectorResult getPreResult() {
 		return this.preResult;
 	}
-	
+
 	public boolean hasPreResult() {
 		return this.preResult != null;
 	}

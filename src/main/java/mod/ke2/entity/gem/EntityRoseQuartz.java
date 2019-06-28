@@ -15,16 +15,16 @@ public class EntityRoseQuartz extends AbstractQuartz {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_visor"), VariantColor.class), EntityRoseQuartz.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_eyes"), VariantColor.class), EntityRoseQuartz.class);
 	}
-	
+
 	public EntityRoseQuartz(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

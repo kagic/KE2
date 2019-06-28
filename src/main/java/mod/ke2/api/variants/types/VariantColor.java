@@ -12,7 +12,7 @@ public class VariantColor extends AbstractVariant<String[]> implements IVariant<
 		}
 		return colors;
 	}
-	
+
 	public int getColor() {
 		return GemColorHandler.mix(this.getColors());
 	}

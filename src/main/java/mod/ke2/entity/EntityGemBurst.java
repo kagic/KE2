@@ -19,7 +19,7 @@ public class EntityGemBurst extends EntityGem {
 		super(world);
 		this.setSize(1.0F, 2.0F);
 	}
-	
+
 	@Override
 	public void onUpdate() {
 		int color = this.getInsigniaColor() == -1 ? this.rand.nextInt(16) : this.getInsigniaColor();
@@ -47,17 +47,17 @@ public class EntityGemBurst extends EntityGem {
 			}
 		}
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return -1;
 	}
-	
+
 	@Override
 	public ItemStack generateGemstoneItem() {
 		return ItemStack.EMPTY;

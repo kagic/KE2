@@ -4,7 +4,6 @@ import java.util.Random;
 
 import mod.ke2.api.injection.InjectorResult;
 import mod.ke2.init.Ke2Blocks;
-import mod.ke2.init.Ke2CreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.MapColor;
@@ -21,7 +20,7 @@ public class BlockDrainBlock extends Block {
 		public EnumPushReaction getMobilityFlag() {
 			return EnumPushReaction.BLOCK;
 		}
-		
+
 		@Override
 		public boolean isToolNotRequired() {
 			return false;
@@ -29,10 +28,9 @@ public class BlockDrainBlock extends Block {
 	};
 	private final boolean canBeEnriched;
 	private final String color;
-	
+
 	public BlockDrainBlock(boolean canBeEnriched, String color, int level) {
 		super(BlockDrainBlock.DRAINED);
-		this.setCreativeTab(Ke2CreativeTabs.GEM_CREATION);
 		switch (level) {
 			case 0 :
 				this.setUnlocalizedName("light_" + color + "_drain_block");
@@ -54,7 +52,7 @@ public class BlockDrainBlock extends Block {
 		this.setTickRandomly(true);
 		this.setHarvestLevel("pickaxe", 0);
 	}
-	
+
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {
 		super.updateTick(world, pos, state, random);
@@ -95,7 +93,7 @@ public class BlockDrainBlock extends Block {
 			}
 		}
 	}
-	
+
 	@Override
 	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
 		switch (this.color) {
@@ -111,7 +109,7 @@ public class BlockDrainBlock extends Block {
 				return MapColor.PURPLE_STAINED_HARDENED_CLAY;
 		}
 	}
-	
+
 	public IBlockState getErodedState() {
 		switch (this.color) {
 			case "purple" :

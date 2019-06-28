@@ -14,7 +14,7 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 public class MessageFactionRequest implements IMessage {
 	private String requester;
 	private String responder;
-	
+
 	public MessageFactionRequest(UUID requester, UUID responder) {
 		if (requester != null) {
 			this.requester = requester.toString();
@@ -23,11 +23,11 @@ public class MessageFactionRequest implements IMessage {
 			this.responder = responder.toString();
 		}
 	}
-	
+
 	public MessageFactionRequest() {
 		this(null, null);
 	}
-	
+
 	@Override
 	public void toBytes(ByteBuf buf) {
 		buf.writeInt(this.requester.length());
@@ -35,7 +35,7 @@ public class MessageFactionRequest implements IMessage {
 		buf.writeInt(this.responder.length());
 		buf.writeBytes(this.responder.getBytes());
 	}
-	
+
 	@Override
 	public void fromBytes(ByteBuf buf) {
 		byte[] bytes = new byte[buf.readInt()];
@@ -45,15 +45,15 @@ public class MessageFactionRequest implements IMessage {
 		buf.readBytes(bytes);
 		this.responder = new String(bytes);
 	}
-	
+
 	public UUID getRequesterUUID() {
 		return UUID.fromString(this.requester);
 	}
-	
+
 	public UUID getResponderUUID() {
 		return UUID.fromString(this.responder);
 	}
-	
+
 	public static class Handler implements IMessageHandler<MessageFactionRequest, IMessage> {
 		@Override
 		public IMessage onMessage(MessageFactionRequest message, MessageContext context) {

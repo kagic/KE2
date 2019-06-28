@@ -19,16 +19,16 @@ public class EntityCoral extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/coral/color_skin"), VariantColor.class), EntityCoral.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/coral/color_visor"), VariantColor.class), EntityCoral.class);
 	}
-	
+
 	public EntityCoral(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 0;

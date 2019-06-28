@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 public class RecipeEssences implements IRecipe {
 	private ResourceLocation name;
-	
+
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inventory) {
 		int i = 0;
@@ -105,7 +105,7 @@ public class RecipeEssences implements IRecipe {
 		}
 		return ItemStack.EMPTY;
 	}
-	
+
 	@Override
 	public boolean matches(InventoryCrafting inventory, World world) {
 		int essences = 0;
@@ -121,28 +121,28 @@ public class RecipeEssences implements IRecipe {
 		}
 		return essences == 2;
 	}
-	
+
 	@Override
 	public ItemStack getRecipeOutput() {
 		return ItemStack.EMPTY;
 	}
-	
+
 	@Override
 	public Class<IRecipe> getRegistryType() {
 		return IRecipe.class;
 	}
-	
+
 	@Override
 	public boolean canFit(int width, int height) {
 		return width + height >= 2;
 	}
-	
+
 	@Override
 	public IRecipe setRegistryName(ResourceLocation name) {
 		this.name = name;
 		return this;
 	}
-	
+
 	@Override
 	public ResourceLocation getRegistryName() {
 		return this.name;

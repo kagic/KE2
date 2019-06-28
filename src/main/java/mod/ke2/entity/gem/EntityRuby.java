@@ -30,7 +30,7 @@ public class EntityRuby extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/ruby/color_skin"), VariantColor.class), EntityRuby.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/ruby/color_visor"), VariantColor.class), EntityRuby.class);
 	}
-	
+
 	public EntityRuby(World world) {
 		super(world);
 		this.setDefender(true);
@@ -43,12 +43,12 @@ public class EntityRuby extends EntityGem {
 			}
 		}));
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 1;

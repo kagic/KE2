@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"XXX",
+		"X X",
+		"X X"
+	],
+	"key": {
+		"X": {
+			"item": "ke2:tungsten_ingot"
+		}
+	},
+	"result": {
+		"item": "ke2:tungsten_leggings"
+	}
+}
