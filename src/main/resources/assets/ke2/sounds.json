@@ -28,5 +28,219 @@
     	"sounds": [
     		{ "name": "ke2:item/destabilizer" }
     	]
+    },
+    "entity.agate": {
+    	"sounds": [
+    		{ "name": "ke2:entity/agate" }
+    	]
+    },
+    "entity.amethyst": {
+    	"sounds": [
+    		{ "name": "ke2:entity/amethyst" }
+    	]
+    },
+    "entity.aqua_aura_quartz": {
+    	"sounds": [
+    		{ "name": "ke2:entity/aqua_aura_quartz" }
+    	]
+    },
+    "entity.aquamarine": {
+    	"sounds": [
+    		{ "name": "ke2:entity/aquamarine" }
+    	]
+    },
+    "entity.bismuth": {
+    	"sounds": [
+    		{ "name": "ke2:entity/bismuth" }
+    	]
+    },
+    "entity.carnelian": {
+    	"sounds": [
+    		{ "name": "ke2:entity/carnelian" }
+    	]
+    },
+    "entity.citrine": {
+    	"sounds": [
+    		{ "name": "ke2:entity/citrine" }
+    	]
+    },
+    "entity.coral": {
+    	"sounds": [
+    		{ "name": "ke2:entity/coral" }
+    	]
+    },
+    "entity.demantoid": {
+    	"sounds": [
+    		{ "name": "ke2:entity/demantoid" }
+    	]
+    },
+    "entity.desert_glass": {
+    	"sounds": [
+    		{ "name": "ke2:entity/desert_glass" }
+    	]
+    },
+    "entity.emerald": {
+    	"sounds": [
+    		{ "name": "ke2:entity/emerald" }
+    	]
+    },
+    "entity.ender_pearl": {
+    	"sounds": [
+    		{ "name": "ke2:entity/ender_pearl/note0" },
+    		{ "name": "ke2:entity/ender_pearl/note1" },
+    		{ "name": "ke2:entity/ender_pearl/note2" },
+    		{ "name": "ke2:entity/ender_pearl/note3" },
+    		{ "name": "ke2:entity/ender_pearl/note4" }
+    	]
+    },
+    "entity.hessonite": {
+    	"sounds": [
+    		{ "name": "ke2:entity/hessonite" }
+    	]
+    },
+    "entity.hiddenite": {
+    	"sounds": [
+    		{ "name": "ke2:entity/hiddenite" }
+    	]
+    },
+    "entity.jade": {
+    	"sounds": [
+    		{ "name": "ke2:entity/jade" }
+    	]
+    },
+    "entity.jasper": {
+    	"sounds": [
+    		{ "name": "ke2:entity/jasper" }
+    	]
+    },
+    "entity.kunzite": {
+    	"sounds": [
+    		{ "name": "ke2:entity/kunzite" }
+    	]
+    },
+    "entity.lapis_lazuli": {
+    	"sounds": [
+    		{ "name": "ke2:entity/lapis_lazuli" }
+    	]
+    },
+    "entity.larimar": {
+    	"sounds": [
+    		{ "name": "ke2:entity/larimar" }
+    	]
+    },
+    "entity.melanite": {
+    	"sounds": [
+    		{ "name": "ke2:entity/melanite" }
+    	]
+    },
+    "entity.mother_of_pearl": {
+    	"sounds": [
+    		{ "name": "ke2:entity/mother_of_pearl" }
+    	]
+    },
+    "entity.nephrite": {
+    	"sounds": [
+    		{ "name": "ke2:entity/nephrite" }
+    	]
+    },
+    "entity.pearl": {
+    	"sounds": [
+    		{ "name": "ke2:entity/pearl" }
+    	]
+    },
+    "entity.peridot": {
+    	"sounds": [
+    		{ "name": "ke2:entity/peridot" }
+    	]
+    },
+    "entity.pyrite": {
+    	"sounds": [
+    		{ "name": "ke2:entity/pyrite" }
+    	]
+    },
+    "entity.pyrope": {
+    	"sounds": [
+    		{ "name": "ke2:entity/pyrope" }
+    	]
+    },
+    "entity.rose_quartz": {
+    	"sounds": [
+    		{ "name": "ke2:entity/rose_quartz" }
+    	]
+    },
+    "entity.ruby": {
+    	"sounds": [
+    		{ "name": "ke2:entity/ruby" }
+    	]
+    },
+    "entity.rutile": {
+    	"sounds": [
+    		{ "name": "ke2:entity/rutile" }
+    	]
+    },
+    "entity.sapphire": {
+    	"sounds": [
+    		{ "name": "ke2:entity/sapphire" }
+    	]
+    },
+    "entity.snowflake_obsidian": {
+    	"sounds": [
+    		{ "name": "ke2:entity/snowflake_obsidian" }
+    	]
+    },
+    "entity.topaz": {
+    	"sounds": [
+    		{ "name": "ke2:entity/topaz" }
+    	]
+    },
+    "entity.watermelon_tourmaline": {
+    	"sounds": [
+    		{ "name": "ke2:entity/watermelon_tourmaline" }
+    	]
+    },
+    "entity.zircon": {
+    	"sounds": [
+    		{ "name": "ke2:entity/zircon" }
+    	]
+    },
+    "entity.robonoids": {
+    	"sounds": [
+    		{ "name": "ke2:entity/robonoids" }
+    	]
+    },
+    "entity.cluster": {
+    	"sounds": [
+    		{ "name": "ke2:entity/cluster" }
+    	]
+    },
+    "entity.prism": {
+    	"sounds": [
+    		{ "name": "ke2:entity/prism" }
+    	]
+    },
+    "entity.pebbles": {
+    	"sounds": [
+    		{ "name": "ke2:entity/pebbles" }
+    	]
+    },
+    "entity.white_diamond": {
+    	"sounds": [
+    		{ "name": "ke2:entity/diamond/white" }
+    	]
+    },
+    "entity.yellow_diamond": {
+    	"sounds": [
+    		{ "name": "ke2:entity/diamond/yellow" }
+    	]
+    },
+    "entity.blue_diamond": {
+    	"sounds": [
+    		{ "name": "ke2:entity/diamond/blue" }
+    	]
+    },
+    "entity.pink_diamond": {
+    	"sounds": [
+    		{ "name": "ke2:entity/diamond/pink" }
+    	]
     }
 }
