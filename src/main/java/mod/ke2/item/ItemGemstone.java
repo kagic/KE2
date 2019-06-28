@@ -86,24 +86,27 @@ public class ItemGemstone extends Item {
 
 	@Override
 	public boolean onEntityItemUpdate(EntityItem entity) {
+		boolean spawned = false;
 		entity.extinguish();
 		if (!entity.world.isRemote && entity.ticksExisted > 600) {
+			ItemGemstone gem = (ItemGemstone)(entity.getItem().getItem());
 			ItemStack stack = entity.getItem();
-			if (entity.getEntityWorld().getWorldTime() % 20 == 0 && stack.getItemDamage() > 0) {
+			if (stack.getItemDamage() == 0) {
+				spawned = gem.spawnGem(entity.world, null, entity.getPosition(), entity.getItem());
+			}
+			else if (entity.getEntityWorld().getWorldTime() % 20 == 0 && stack.getItemDamage() > 0) {
 				stack.setItemDamage(Math.max(stack.getItemDamage() - 2, 0));
 			}
-			if (stack.getItemDamage() == 0) {
-				ItemGemstone gem = (ItemGemstone) stack.getItem();
-				boolean spawned = gem.spawnGem(entity.world, null, entity.getPosition(), entity.getItem());
-				if (spawned) {
-					entity.setDead();
-				}
-			}
 		}
-		entity.setEntityInvulnerable(true);
-		entity.isDead = false;
-		if (entity.ticksExisted > 600) {
-			entity.setNoDespawn();
+		if (spawned) {
+			entity.setDead();
+		}
+		else {
+			entity.setEntityInvulnerable(true);
+			entity.isDead = false;
+			if (entity.ticksExisted > 600) {
+				entity.setNoDespawn();
+			}
 		}
 		return false;
 	}
@@ -127,7 +130,7 @@ public class ItemGemstone extends Item {
 				gem.setAttackTarget(null);
 				gem.extinguish();
 				gem.clearActivePotions();
-				world.spawnEntity(gem);
+				return world.spawnEntity(gem);
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("Error creating gem: " + e.getMessage());
