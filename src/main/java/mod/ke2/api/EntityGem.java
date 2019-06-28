@@ -12,6 +12,7 @@ import mod.ke2.entity.gem.ai.EntityAIFollowTheLeader;
 import mod.ke2.init.Ke2Damage;
 import mod.ke2.init.Ke2Gems;
 import mod.ke2.init.Ke2Items;
+import mod.ke2.init.Ke2Sounds;
 import mod.ke2.world.data.WorldDataFactions;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -41,6 +42,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentString;
@@ -983,6 +985,26 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	@Override
 	public void readSpawnData(ByteBuf buffer) {
 		this.setSize(buffer.readFloat(), buffer.readFloat());
+	}
+	
+	@Override
+	protected SoundEvent getAmbientSound() {
+        return Ke2Sounds.GEM_GENERIC;
+    }
+
+	@Override
+    protected SoundEvent getHurtSound(DamageSource source) {
+        return Ke2Sounds.GEM_GENERIC;
+    }
+
+	@Override
+    protected SoundEvent getDeathSound() {
+        return Ke2Sounds.GEM_GENERIC;
+    }
+	
+	@Override
+	protected float getSoundPitch() {
+		return 1.0F + (this.getEmotion() - 405.0F / 320.0F);
 	}
 
 	@Override
