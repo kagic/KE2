@@ -989,17 +989,17 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	
 	@Override
 	protected SoundEvent getAmbientSound() {
-        return this.getGemSound() == null ? Ke2Sounds.GEM_GENERIC : this.getGemSound();
+        return this.getGemSound();
     }
 
 	@Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return this.getGemSound() == null ? Ke2Sounds.GEM_GENERIC : this.getGemSound();
+        return this.getGemSound();
     }
 
 	@Override
     protected SoundEvent getDeathSound() {
-        return this.getGemSound() == null ? Ke2Sounds.GEM_GENERIC : this.getGemSound();
+        return this.getGemSound();
     }
 	
 	@Override
