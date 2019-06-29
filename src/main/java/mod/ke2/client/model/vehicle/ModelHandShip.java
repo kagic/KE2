@@ -17,7 +17,7 @@ public class ModelHandShip extends ModelBase {
 	public ModelRenderer tipMiddle;
 	public ModelRenderer tipRing;
 	public ModelRenderer tipPinky;
-
+	
 	public ModelHandShip() {
 		this.textureWidth = 32;
 		this.textureHeight = 8;
@@ -69,13 +69,13 @@ public class ModelHandShip extends ModelBase {
 		this.hand.addChild(this.fingerMiddle);
 		this.fingerRing.addChild(this.tipRing);
 	}
-
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headYaw, float scale) {
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headYaw, scale, entity);
 		this.wrist.render(scale);
 	}
-
+	
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		this.hand.rotateAngleZ = (float) Math.toRadians(-15);

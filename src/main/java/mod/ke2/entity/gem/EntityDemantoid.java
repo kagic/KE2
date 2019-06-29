@@ -16,21 +16,21 @@ public class EntityDemantoid extends AbstractGarnet {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/demantoid/color_skin"), VariantColor.class), EntityDemantoid.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/demantoid/color_visor"), VariantColor.class), EntityDemantoid.class);
 	}
-
+	
 	public EntityDemantoid(World world) {
 		super(world);
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-	
+
 	@Override
 	public SoundEvent getGemSound() {
 		return Ke2Sounds.GEM_DEMANTOID;

@@ -24,21 +24,21 @@ public class EntityPyrite extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/color_skin"), VariantColor.class), EntityPyrite.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/color_visor"), VariantColor.class), EntityPyrite.class);
 	}
-
+	
 	public EntityPyrite(World world) {
 		super(world);
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-	
+
 	@Override
 	public SoundEvent getGemSound() {
 		return Ke2Sounds.GEM_PYRITE;

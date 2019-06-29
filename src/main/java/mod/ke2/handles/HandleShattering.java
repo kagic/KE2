@@ -38,7 +38,7 @@ public class HandleShattering {
 		}
 		return false;
 	}
-
+	
 	@SubscribeEvent
 	public void onItemExpire(ItemExpireEvent e) {
 		ItemStack stack = e.getEntityItem().getItem();
@@ -59,7 +59,7 @@ public class HandleShattering {
 			}
 		}
 	}
-
+	
 	@SubscribeEvent
 	public void onAnvilRepair(AnvilRepairEvent e) {
 		if (e.getIngredientInput().getItem() instanceof ItemGemShard) {
@@ -81,7 +81,7 @@ public class HandleShattering {
 			}
 		}
 	}
-
+	
 	@SubscribeEvent
 	public void onAnvilUpdate(AnvilUpdateEvent e) {
 		Random rand = new Random(e.getRight().hashCode());

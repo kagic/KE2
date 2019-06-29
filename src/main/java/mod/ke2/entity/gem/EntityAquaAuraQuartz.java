@@ -17,21 +17,21 @@ public class EntityAquaAuraQuartz extends AbstractQuartz {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_visor"), VariantColor.class), EntityAquaAuraQuartz.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_eyes"), VariantColor.class), EntityAquaAuraQuartz.class);
 	}
-
+	
 	public EntityAquaAuraQuartz(World world) {
 		super(world);
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-	
+
 	@Override
 	public SoundEvent getGemSound() {
 		return Ke2Sounds.GEM_AQUA_AURA_QUARTZ;

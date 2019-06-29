@@ -10,12 +10,12 @@ import net.minecraft.world.World;
 
 public class EntityAIFindInjectionPoint extends EntityAIMoveToBlock {
 	private final EntityInjector injector;
-
+	
 	public EntityAIFindInjectionPoint(EntityInjector injector, double speed) {
 		super(injector, speed, 16);
 		this.injector = injector;
 	}
-
+	
 	@Override
 	public boolean shouldExecute() {
 		if (this.injector.canInject()) {
@@ -30,22 +30,22 @@ public class EntityAIFindInjectionPoint extends EntityAIMoveToBlock {
 		}
 		return false;
 	}
-
+	
 	@Override
 	public boolean shouldContinueExecuting() {
 		return super.shouldContinueExecuting() && !this.injector.getNavigator().noPath();
 	}
-
+	
 	@Override
 	public void startExecuting() {
 		super.startExecuting();
 	}
-
+	
 	@Override
 	public void resetTask() {
 		super.resetTask();
 	}
-
+	
 	@Override
 	public void updateTask() {
 		super.updateTask();
@@ -68,12 +68,12 @@ public class EntityAIFindInjectionPoint extends EntityAIMoveToBlock {
 			 */
 		}
 	}
-
+	
 	@Override
 	protected boolean shouldMoveTo(World world, BlockPos pos) {
 		return this.getRelativeY(world, pos) > 0;
 	}
-
+	
 	public int getRelativeY(World world, BlockPos pos) {
 		if (!world.isAirBlock(pos)) {
 			int maxalt = pos.getY() - 4;
@@ -142,12 +142,12 @@ public class EntityAIFindInjectionPoint extends EntityAIMoveToBlock {
 		}
 		return -1;
 	}
-
+	
 	public boolean isBlockValidAt(World world, BlockPos pos) {
 		Block block = world.getBlockState(pos).getBlock();
 		return this.isBlockValid(block);
 	}
-
+	
 	public boolean isBlockValid(Block block) {
 		if (block == Blocks.AIR || block instanceof BlockLiquid) {
 			return false;

@@ -14,7 +14,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModelAquamarine extends ModelGem {
 	public ModelRenderer bipedRightWing;
 	public ModelRenderer bipedLeftWing;
-
+	
 	public ModelAquamarine() {
 		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -44,7 +44,7 @@ public class ModelAquamarine extends ModelGem {
 		this.bipedLeftLeg = new ModelRenderer(this, 24, 12);
 		this.bipedLeftLeg.addBox(1.0F, 10.0F, -1.0F, 2, 4, 2, 0.0F);
 	}
-
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -62,7 +62,7 @@ public class ModelAquamarine extends ModelGem {
 			}
 		}
 	}
-
+	
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
@@ -72,14 +72,14 @@ public class ModelAquamarine extends ModelGem {
 		this.bipedHeadwear.rotateAngleY = 0.0F;
 		this.bipedLeftWing.mirror = true;
 	}
-
+	
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float limbSwingAmount, float ageInTicks, float partialTickTime) {
 		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
 		this.bipedRightWing.rotateAngleY = MathHelper.cos(ageInTicks * 0.8F) * (float) Math.PI * 0.05F;
 		this.bipedLeftWing.rotateAngleY = -this.bipedRightWing.rotateAngleY;
 	}
-
+	
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {

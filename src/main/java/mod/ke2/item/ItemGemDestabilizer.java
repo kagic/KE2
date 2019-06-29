@@ -36,12 +36,12 @@ public class ItemGemDestabilizer extends Item {
 			}
 		});
 	}
-
+	
 	@Override
 	public int getMaxItemUseDuration(ItemStack stack) {
 		return 40;
 	}
-
+	
 	@Override
 	public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entity, int timeLeft) {
 		if (!world.isRemote && entity instanceof EntityPlayer) {
@@ -49,7 +49,7 @@ public class ItemGemDestabilizer extends Item {
 			player.getCooldownTracker().setCooldown(this, 0);
 		}
 	}
-
+	
 	@Override
 	public ItemStack onItemUseFinish(ItemStack stack, World world, EntityLivingBase entity) {
 		NBTTagCompound compound = stack.hasTagCompound() ? stack.getTagCompound() : new NBTTagCompound();
@@ -57,7 +57,7 @@ public class ItemGemDestabilizer extends Item {
 		stack.setTagCompound(compound);
 		return stack;
 	}
-
+	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
 		ItemStack stack = player.getHeldItem(hand);
@@ -67,7 +67,7 @@ public class ItemGemDestabilizer extends Item {
 		}
 		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, stack);
 	}
-
+	
 	@Override
 	public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
 		System.out.println("test");
@@ -82,7 +82,7 @@ public class ItemGemDestabilizer extends Item {
 		}
 		return false;
 	}
-
+	
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		if (this.isInCreativeTab(tab)) {
@@ -99,12 +99,12 @@ public class ItemGemDestabilizer extends Item {
 			}
 		}
 	}
-
+	
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
 		return false;
 	}
-
+	
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean isFull3D() {

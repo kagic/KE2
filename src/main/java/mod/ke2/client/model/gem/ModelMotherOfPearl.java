@@ -9,7 +9,7 @@ public class ModelMotherOfPearl extends ModelGem {
 	public ModelRenderer bipedShelmet;
 	public ModelRenderer bipedSkirt;
 	public ModelRenderer bipedNose;
-
+	
 	public ModelMotherOfPearl() {
 		super(0.0F, 0.0F, 96, 96);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -37,7 +37,7 @@ public class ModelMotherOfPearl extends ModelGem {
 		this.bipedLeftArm.addBox(-2.0F, 0.0F, -1.0F, 2, 12, 2);
 		this.bipedLeftArm.offsetY = -0.375F;
 	}
-
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -50,7 +50,7 @@ public class ModelMotherOfPearl extends ModelGem {
 		this.bipedRightArm.render(scale);
 		this.bipedLeftArm.render(scale);
 	}
-
+	
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
@@ -60,7 +60,7 @@ public class ModelMotherOfPearl extends ModelGem {
 		this.bipedShelmet.rotateAngleX += -0.1F;
 		this.bipedShelmet.offsetZ = 0.02F;
 	}
-
+	
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {

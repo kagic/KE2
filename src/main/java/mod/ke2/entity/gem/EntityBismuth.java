@@ -21,21 +21,21 @@ public class EntityBismuth extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/bismuth/color_skin"), VariantColor.class), EntityBismuth.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/bismuth/color_visor"), VariantColor.class), EntityBismuth.class);
 	}
-
+	
 	public EntityBismuth(World world) {
 		super(world);
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-	
+
 	@Override
 	public SoundEvent getGemSound() {
 		return Ke2Sounds.GEM_BISMUTH;

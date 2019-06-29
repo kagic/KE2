@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 public class BlockDrainSlab extends Block {
 	protected static final AxisAlignedBB DRAIN_SLAB_AABB = new AxisAlignedBB(0.0D, 0.5D, 0.0D, 1.0D, 1.0D, 1.0D);
 	private final String color;
-
+	
 	public BlockDrainSlab(String color, int level) {
 		super(BlockDrainBlock.DRAINED);
 		switch (level) {
@@ -38,12 +38,15 @@ public class BlockDrainSlab extends Block {
 		this.setHardness(3);
 		this.setHarvestLevel("pickaxe", 0);
 	}
-
+	
 	@Override
 	public CreativeTabs getCreativeTabToDisplayOn() {
-        return null; // Drain slabs are part of a multi-block structure, and as such should be as hidden from the user.
-    }
-	
+		return null; // Drain slabs are part of a
+						// multi-block structure, and as
+						// such should be as hidden from the
+						// user.
+	}
+
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
 		if (this == Ke2Blocks.LIGHT_PURPLE_DRAIN_SLAB) {
@@ -93,7 +96,7 @@ public class BlockDrainSlab extends Block {
 		}
 		return new ItemStack(this);
 	}
-
+	
 	@Override
 	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
 		switch (this.color) {
@@ -109,7 +112,7 @@ public class BlockDrainSlab extends Block {
 				return MapColor.PURPLE_STAINED_HARDENED_CLAY;
 		}
 	}
-
+	
 	@Override
 	public void neighborChanged(IBlockState state, World world, BlockPos pos, Block block, BlockPos fromPos) {
 		if (world.getBlockState(pos.up()).getBlock() instanceof BlockDrainBlock) {
@@ -118,7 +121,7 @@ public class BlockDrainSlab extends Block {
 			world.destroyBlock(pos, false);
 		}
 	}
-
+	
 	@Override
 	public void onBlockAdded(World world, BlockPos pos, IBlockState state) {
 		if (world.getBlockState(pos.up()).getBlock() instanceof BlockDrainBlock) {
@@ -127,7 +130,7 @@ public class BlockDrainSlab extends Block {
 			world.destroyBlock(pos, false);
 		}
 	}
-
+	
 	@Override
 	public void breakBlock(World world, BlockPos pos, IBlockState state) {
 		if (world.getBlockState(pos.up()).getBlock() instanceof BlockDrainBlock) {
@@ -135,32 +138,32 @@ public class BlockDrainSlab extends Block {
 		}
 		super.breakBlock(world, pos, state);
 	}
-
+	
 	@Override
 	public int quantityDropped(Random random) {
 		return 0;
 	}
-
+	
 	@Override
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
 		return BlockDrainSlab.DRAIN_SLAB_AABB;
 	}
-
+	
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
 		return BlockDrainSlab.DRAIN_SLAB_AABB;
 	}
-
+	
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-
+	
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return false;
 	}
-
+	
 	@Override
 	public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
 		return true;

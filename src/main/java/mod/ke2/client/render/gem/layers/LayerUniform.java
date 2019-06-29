@@ -8,11 +8,11 @@ import net.minecraft.util.ResourceLocation;
 
 public class LayerUniform implements LayerRenderer<EntityGem> {
 	private final RenderGem<?> renderer;
-
+	
 	public LayerUniform(RenderGem<?> renderer) {
 		this.renderer = renderer;
 	}
-
+	
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getOutfitVariant() != null) {
@@ -26,7 +26,7 @@ public class LayerUniform implements LayerRenderer<EntityGem> {
 			GlStateManager.disableBlend();
 		}
 	}
-
+	
 	@Override
 	public boolean shouldCombineTextures() {
 		return true;

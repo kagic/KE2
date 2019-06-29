@@ -30,7 +30,7 @@ public class EntityInjector extends EntityGemMachine {
 	 * seeds into the injector.
 	 */
 	public ArrayList<UUID> latestOwnerIDs = new ArrayList<UUID>();
-
+	
 	public EntityInjector(World world) {
 		super(world);
 		this.setSize(0.9F, 4.6F);
@@ -42,7 +42,7 @@ public class EntityInjector extends EntityGemMachine {
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(20.0D);
 	}
-
+	
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
@@ -56,7 +56,7 @@ public class EntityInjector extends EntityGemMachine {
 		}
 		compound.setTag("LatestOwnerIDs", list);
 	}
-
+	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
@@ -68,7 +68,7 @@ public class EntityInjector extends EntityGemMachine {
 			this.latestOwnerIDs.add(list.getCompoundTagAt(i).getUniqueId("OwnerID"));
 		}
 	}
-
+	
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
 		livingdata = super.onInitialSpawn(difficulty, livingdata);
@@ -76,7 +76,7 @@ public class EntityInjector extends EntityGemMachine {
 		this.setColor(this.world.rand.nextInt(16));
 		return livingdata;
 	}
-
+	
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote) {
@@ -102,7 +102,7 @@ public class EntityInjector extends EntityGemMachine {
 		}
 		return super.processInteract(player, hand);
 	}
-
+	
 	@Override
 	protected void updateEquipmentIfNeeded(EntityItem entity) {
 		ItemStack stack = entity.getItem();
@@ -117,7 +117,7 @@ public class EntityInjector extends EntityGemMachine {
 			}
 		}
 	}
-
+	
 	@Override
 	public void onDeath(DamageSource cause) {
 		if (!this.world.isRemote) {
@@ -132,15 +132,15 @@ public class EntityInjector extends EntityGemMachine {
 		}
 		super.onDeath(cause);
 	}
-
+	
 	public boolean canInject() {
 		return this.getPlayerBeingFollowed() == null && this.getSeedCount() > 0;
 	}
-
+	
 	public boolean isEssence(ItemStack stack) {
 		return stack.getItem() instanceof ItemEssence;
 	}
-
+	
 	public UUID getLatestOwnerID(boolean remove) {
 		if (this.latestOwnerIDs.isEmpty()) {
 			return new UUID(0, 0);
@@ -152,23 +152,23 @@ public class EntityInjector extends EntityGemMachine {
 			return uuid;
 		}
 	}
-
+	
 	public UUID getLatestOwnerID() {
 		return this.getLatestOwnerID(false);
 	}
-
+	
 	public void setColor(int color) {
 		this.dataManager.set(EntityInjector.COLOR, color);
 	}
-
+	
 	public int getColor() {
 		return this.dataManager.get(EntityInjector.COLOR);
 	}
-
+	
 	public void setSeedCount(int count) {
 		this.dataManager.set(EntityInjector.SEEDS, count);
 	}
-
+	
 	public int getSeedCount() {
 		return this.dataManager.get(EntityInjector.SEEDS);
 	}

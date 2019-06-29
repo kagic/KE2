@@ -75,7 +75,7 @@ public class Ke2Configs {
 	public static boolean enableWatermelonTourmaline = true;
 	@Config.Name("Grow Zircons?")
 	public static boolean enableZircon = true;
-
+	
 	@Config.Name("Spawn Meteor Gems?")
 	public static boolean enableMeteorGems = true;
 	@Config.Name("Spawn Crystal Gems?")
@@ -84,10 +84,10 @@ public class Ke2Configs {
 	public static boolean enableBeachCity = true;
 	@Config.Name("Spawn Rebellions?")
 	public static boolean enableRebellions = true;
-
+	
 	@Config.Name("Show descriptors?")
 	public static boolean showDescriptors = true;
-
+	
 	@SubscribeEvent
 	public static void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent e) {
 		if (e.getModID().equals(KAGIC.MODID)) {
@@ -95,8 +95,8 @@ public class Ke2Configs {
 			Ke2Configs.register();
 		}
 	}
-
+	
 	public static void register() {
-		
+
 	}
 }

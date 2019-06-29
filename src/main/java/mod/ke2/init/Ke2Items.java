@@ -46,7 +46,7 @@ public class Ke2Items {
 			super(Ke2Items.TUNGSTEN_TOOLS, 8.0F, -3.0F);
 		}
 	}
-
+	
 	public static final ItemEssence ANXIOUS_ESSENCE = new ItemEssence(ItemEssence.Color.WHITE);
 	public static final ItemEssence AWKWARD_ESSENCE = new ItemEssence(ItemEssence.Color.RED);
 	public static final ItemEssence PRIDEFUL_ESSENCE = new ItemEssence(ItemEssence.Color.ORANGE);
@@ -73,7 +73,7 @@ public class Ke2Items {
 	public static final ItemGemShard GEM_SHARD = new ItemGemShard();
 	public static final ItemGemDust GEM_DUST = new ItemGemDust();
 	public static final ItemManual MANUAL = new ItemManual();
-
+	
 	public static void register(RegistryEvent.Register<Item> event) {
 		Ke2Items.registerItem(Ke2Items.ANXIOUS_ESSENCE, new ResourceLocation("ke2:anxious_essence"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Items.registerItem(Ke2Items.AWKWARD_ESSENCE, new ResourceLocation("ke2:awkward_essence"), event, Ke2CreativeTabs.GEM_CREATION);
@@ -91,7 +91,7 @@ public class Ke2Items {
 		Ke2Items.registerItem(Ke2Items.GEM_SHARD, new ResourceLocation("ke2:gem_shard"), event, Ke2CreativeTabs.GEM_STONES);
 		Ke2Items.registerItem(Ke2Items.GEM_DUST, new ResourceLocation("ke2:gem_dust"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Items.registerItem(Ke2Items.MANUAL, new ResourceLocation("ke2:manual"), event, Ke2CreativeTabs.GEM_TECH);
-		
+
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_HELMET, new ResourceLocation("ke2:tungsten_helmet"), event, Ke2CreativeTabs.GEM_TECH);
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_CHESTPLATE, new ResourceLocation("ke2:tungsten_chestplate"), event, Ke2CreativeTabs.GEM_TECH);
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_LEGGINGS, new ResourceLocation("ke2:tungsten_leggings"), event, Ke2CreativeTabs.GEM_TECH);
@@ -102,13 +102,13 @@ public class Ke2Items {
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_PICKAXE, new ResourceLocation("ke2:tungsten_pickaxe"), event, Ke2CreativeTabs.GEM_TECH);
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_AXE, new ResourceLocation("ke2:tungsten_axe"), event, Ke2CreativeTabs.GEM_TECH);
 		Ke2Items.registerItem(Ke2Items.TUNGSTEN_INGOT, new ResourceLocation("ke2:tungsten_ingot"), event, Ke2CreativeTabs.GEM_TECH);
-		
+
 		Iterator<Block> blocks = Ke2Blocks.ITEMS.keySet().iterator();
 		while (blocks.hasNext()) {
 			Ke2Items.registerItem(Ke2Blocks.ITEMS.get(blocks.next()), null, event, Ke2CreativeTabs.GEM_BLOCKS);
 		}
 	}
-
+	
 	public static void registerItem(Item item, ResourceLocation name, RegistryEvent.Register<Item> event, CreativeTabs tab) {
 		event.getRegistry().register(item.getRegistryName() == null ? item.setCreativeTab(tab).setRegistryName(name) : item.setCreativeTab(tab));
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT) {

@@ -11,11 +11,11 @@ import net.minecraft.util.ResourceLocation;
 
 public class LayerPalanquinVeil implements LayerRenderer<EntityPalanquin> {
 	private final RenderPalanquin renderer;
-
+	
 	public LayerPalanquinVeil(RenderPalanquin renderer) {
 		this.renderer = renderer;
 	}
-
+	
 	@Override
 	public void doRenderLayer(EntityPalanquin entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		float[] rgb = EnumDyeColor.byDyeDamage(entity.getVeilColor()).getColorComponentValues();
@@ -27,7 +27,7 @@ public class LayerPalanquinVeil implements LayerRenderer<EntityPalanquin> {
 			this.renderer.getMainModel().render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 		}
 	}
-
+	
 	@Override
 	public boolean shouldCombineTextures() {
 		return false;

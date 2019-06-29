@@ -31,53 +31,53 @@ public class EntityPeridot extends EntityGem {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/color_visor"), VariantColor.class), EntityPeridot.class);
 	}
 	protected static final DataParameter<Boolean> SQUARE_HAIR = EntityDataManager.<Boolean>createKey(EntityPeridot.class, DataSerializers.BOOLEAN);
-
+	
 	public EntityPeridot(World world) {
 		super(world);
 		this.dataManager.register(EntityPeridot.SQUARE_HAIR, false);
 	}
-
+	
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
 		this.setSquareHair(this.rand.nextBoolean());
 		return super.onInitialSpawn(difficulty, data);
 	}
-
+	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
 		this.setSquareHair(compound.getBoolean("SquareHair"));
 	}
-
+	
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
 		compound.setBoolean("SquareHair", this.hasSquareHair());
 	}
-
+	
 	public void setSquareHair(boolean square) {
 		this.dataManager.set(EntityPeridot.SQUARE_HAIR, square);
 	}
-
+	
 	public boolean hasSquareHair() {
 		return this.dataManager.get(EntityPeridot.SQUARE_HAIR);
 	}
-
+	
 	@Override
 	public String generateHairVariant() {
 		return VariantHelper.loadVariantPath(this, "ke2:texture.hair", this.hasSquareHair() ? "ke2:peridot.hair.square" : "ke2:peridot.hair.triangle");
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-	
+
 	@Override
 	public SoundEvent getGemSound() {
 		return Ke2Sounds.GEM_PERIDOT;

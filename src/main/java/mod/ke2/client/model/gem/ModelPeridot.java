@@ -31,7 +31,7 @@ public class ModelPeridot extends ModelGem {
 		this.bipedLeftLeg = new ModelRenderer(this, 28, 28);
 		this.bipedLeftLeg.addBox(1.0F, 2.0F, -1.0F, 2, 10, 2);
 	}
-
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -42,7 +42,7 @@ public class ModelPeridot extends ModelGem {
 		this.bipedRightLeg.render(scale);
 		this.bipedLeftLeg.render(scale);
 	}
-
+	
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
@@ -64,7 +64,7 @@ public class ModelPeridot extends ModelGem {
 		}
 		this.bipedHeadwear.offsetZ = 0.001F;
 	}
-
+	
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {

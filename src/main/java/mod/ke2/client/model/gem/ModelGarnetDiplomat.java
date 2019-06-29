@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 
 public class ModelGarnetDiplomat extends ModelGem {
 	public ModelRenderer bipedNeck;
-
+	
 	public ModelGarnetDiplomat() {
 		super(0.0F, 0.0F, 80, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -31,7 +31,7 @@ public class ModelGarnetDiplomat extends ModelGem {
 		this.bipedSkirt.addBox(-5.0F, 4.0F, -5.0F, 10, 20, 10, 0.0F);
 		this.bipedBody.addChild(this.bipedSkirt);
 	}
-
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -40,14 +40,14 @@ public class ModelGarnetDiplomat extends ModelGem {
 		this.bipedLeftArm.render(scale);
 		this.bipedBody.render(scale);
 	}
-
+	
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
 	}
-
+	
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {

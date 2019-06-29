@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class BlockDrainLily extends BlockBush {
 	private final String prefix;
-
+	
 	public BlockDrainLily(String prefix) {
 		super(Material.PLANTS);
 		this.setUnlocalizedName(prefix + "_drain_lily");
@@ -24,17 +24,17 @@ public class BlockDrainLily extends BlockBush {
 		this.setTickRandomly(true);
 		this.prefix = prefix;
 	}
-
+	
 	@Override
 	protected boolean canSustainBush(IBlockState state) {
 		return state.isTopSolid();
 	}
-
+	
 	@Override
 	public boolean canPlaceBlockAt(World world, BlockPos pos) {
 		return world.isSideSolid(pos.down(), EnumFacing.UP);
 	}
-
+	
 	@Override
 	public void updateTick(World world, BlockPos pos, IBlockState state, Random random) {
 		IBlockState down = world.getBlockState(pos.down());
@@ -76,7 +76,7 @@ public class BlockDrainLily extends BlockBush {
 			world.destroyBlock(pos, true);
 		}
 	}
-
+	
 	@Override
 	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
 		switch (this.prefix) {

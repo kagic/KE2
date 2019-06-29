@@ -16,11 +16,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class WarpRenderer extends TileEntitySpecialRenderer<TileEntityWarpPadCore> {
 	private static final ResourceLocation WARP_STREAM_TEXTURE = new ResourceLocation("ke2:textures/blocks/warp.png");
 	private static final double STREAM_HEIGHT = 6.0;
-
+	
 	private void renderVertex(BufferBuilder renderer, double x, double y, double z, double u, double v) {
 		renderer.pos(x, y, z).tex(u, v).color(1.0f, 1.0f, 1.0f, 0.75f).lightmap(0, 255).endVertex();
 	}
-
+	
 	@Override
 	public void render(TileEntityWarpPadCore pad, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
 		if (pad.isWarping() && pad.isValidPad()) {
@@ -40,7 +40,7 @@ public class WarpRenderer extends TileEntitySpecialRenderer<TileEntityWarpPadCor
 			double progress = pad.renderCooldown > 0 ? 0 : pad.renderTicks / TileEntityWarpPadCore.TICKS_FOR_ACTION - partialTicks / TileEntityWarpPadCore.TICKS_FOR_ACTION;
 			double height = WarpRenderer.STREAM_HEIGHT - progress * WarpRenderer.STREAM_HEIGHT;
 			double offset = -1.0;
-
+			
 			renderer.begin(GL11.GL_QUADS, DefaultVertexFormats.PARTICLE_POSITION_TEX_COLOR_LMAP);
 			this.renderVertex(renderer, offset, height - 1, offset, 1, 0.5);
 			this.renderVertex(renderer, 1 - offset, height - 1, offset, 0, 0.5);
@@ -75,7 +75,7 @@ public class WarpRenderer extends TileEntitySpecialRenderer<TileEntityWarpPadCor
 			this.renderVertex(renderer, 1 - offset, height - 1, 1 - offset, 0, 0.5);
 			this.renderVertex(renderer, 1 - offset, height - 1, offset, 1, 0.5);
 			tessellator.draw();
-
+			
 			if (pad.renderTicks > 0) {
 				--pad.renderTicks;
 			}
@@ -85,7 +85,7 @@ public class WarpRenderer extends TileEntitySpecialRenderer<TileEntityWarpPadCor
 			if (pad.renderTicks == 0 && pad.renderCooldown == 0) {
 				pad.renderCooldown = TileEntityWarpPadCore.TICKS_FOR_COOLDOWN;
 			}
-
+			
 			GlStateManager.depthMask(true);
 			GlStateManager.enableLighting();
 			GlStateManager.popMatrix();

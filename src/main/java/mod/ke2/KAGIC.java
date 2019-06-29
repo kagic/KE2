@@ -55,18 +55,18 @@ public class KAGIC {
 	public static final String VERSION = "@version";
 	public static final String MCVERSION = "1.12.2";
 	public static final String MODID = "ke2";
-
+	
 	public static final String MANTIS_ENDPOINT = "https://akriv.us/report";
-
+	
 	public static final Logger LOGGER = LogManager.getLogger(KAGIC.MODID);
 	public static final Gson JSON = new Gson();
-
+	
 	@SidedProxy(clientSide = "mod.ke2.proxy.ClientProxy", serverSide = "mod.ke2.proxy.ServerProxy")
 	public static CommonProxy proxy;
-
+	
 	@Instance
 	public static KAGIC instance;
-
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		Runtime.getRuntime().addShutdownHook(new Thread() {
@@ -105,7 +105,7 @@ public class KAGIC {
 		Ke2Ores.register();
 		KAGIC.proxy.preInit(event);
 	}
-
+	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		Ke2Handles.register();
@@ -115,44 +115,44 @@ public class KAGIC {
 		Ke2Potions.register();
 		KAGIC.proxy.init(event);
 	}
-
+	
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		Ke2Configs.register();
 		Ke2Cruxes.register();
 		KAGIC.proxy.postInit(event);
 	}
-
+	
 	public static boolean isClient() {
 		return KAGIC.proxy.isClient();
 	}
-
+	
 	public static boolean isServer() {
 		return KAGIC.proxy.isServer();
 	}
-
+	
 	@Mod.EventBusSubscriber(modid = KAGIC.MODID)
 	public static class RegistrationHandler {
 		@SubscribeEvent
 		public static void registerEnchants(RegistryEvent.Register<Enchantment> event) {
 			Ke2Enchants.register(event);
 		}
-
+		
 		@SubscribeEvent
 		public static void registerItems(RegistryEvent.Register<Item> event) {
 			Ke2Items.register(event);
 		}
-
+		
 		@SubscribeEvent
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
 			Ke2Blocks.register(event);
 		}
-
+		
 		@SubscribeEvent
 		public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
 			Ke2Sounds.register(event);
 		}
-
+		
 		@SubscribeEvent
 		public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
 			Ke2Recipes.register(event);

@@ -16,21 +16,21 @@ public class EntityPyrope extends AbstractGarnet {
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrope/color_skin"), VariantColor.class), EntityPyrope.class);
 		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrope/color_visor"), VariantColor.class), EntityPyrope.class);
 	}
-
+	
 	public EntityPyrope(World world) {
 		super(world);
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-	
+
 	@Override
 	public SoundEvent getGemSound() {
 		return Ke2Sounds.GEM_PYROPE;

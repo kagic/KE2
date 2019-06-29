@@ -46,18 +46,18 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 	public static final DataParameter<Boolean> BACKPACKED = EntityDataManager.<Boolean>createKey(EntityHuman.class, DataSerializers.BOOLEAN);
 	public InventoryBasic backpack;
 	public InvWrapper backpackHandler;
-
+	
 	public EntityHuman(World world) {
 		super(world);
-
+		
 		// Register backpacks.
 		this.dataManager.register(EntityHuman.BACKPACKED, true);
 		this.initStorage();
-
+		
 		// See doors.
 		((PathNavigateGround) this.getNavigator()).setBreakDoors(true);
 		((PathNavigateGround) this.getNavigator()).setEnterDoors(true);
-
+		
 		// Apply tasks.
 		this.tasks.addTask(0, new EntityAISwimming(this));
 		this.tasks.addTask(1, new EntityAIAvoidEntity<EntityCreeper>(this, EntityCreeper.class, new Predicate<EntityCreeper>() {
@@ -77,7 +77,7 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 16.0F));
 		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityMob.class, 16.0F));
 	}
-
+	
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
@@ -92,7 +92,7 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 		compound.setTag("items", list);
 		compound.setBoolean("backpacked", this.isBackpacked());
 	}
-
+	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
@@ -107,12 +107,12 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 		}
 		this.setBackpack(compound.getBoolean("backpacked"));
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	public void initStorage() {
 		InventoryBasic gemstorage = this.backpack;
 		this.backpack = new InventoryBasic("backpack", false, 27);
@@ -127,25 +127,25 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 		this.backpackHandler = new InvWrapper(this.backpack);
 		this.setCanPickUpLoot(this.isBackpacked());
 	}
-
+	
 	public boolean isBackpacked() {
 		return this.dataManager.get(EntityHuman.BACKPACKED);
 	}
-
+	
 	public void setBackpack(boolean backpacked) {
 		this.dataManager.set(EntityHuman.BACKPACKED, backpacked);
 		this.setCanPickUpLoot(backpacked);
 	}
-
+	
 	@Override
 	public boolean canDespawn() {
 		return false;
 	}
-
+	
 	public boolean shouldAttackEntity(EntityLivingBase attacker, EntityLivingBase target) {
 		return true;
 	}
-
+	
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
 		EntityLivingBase living = entity instanceof EntityLivingBase ? (EntityLivingBase) entity : null;
@@ -183,7 +183,7 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 		}
 		return flag;
 	}
-
+	
 	@Override
 	public void onLivingUpdate() {
 		this.updateArmSwingProgress();
@@ -207,7 +207,7 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 			this.setCustomNameTag(this.getRealName());
 		}
 	}
-
+	
 	@Override
 	public void onDeath(DamageSource cause) {
 		if (!this.world.isRemote) {
@@ -217,7 +217,7 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 		}
 		super.onDeath(cause);
 	}
-
+	
 	@Override
 	protected void updateEquipmentIfNeeded(EntityItem item) {
 		ItemStack stack = item.getItem();
@@ -228,7 +228,7 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 			stack.setCount(held.getCount());
 		}
 	}
-
+	
 	public void openGUI(EntityPlayer player) {
 		if (!this.world.isRemote && this.isBackpacked()) {
 			String name = new TextComponentTranslation("command.ke2." + this.getRealName().toLowerCase() + ".name").getUnformattedComponentText();
@@ -236,16 +236,16 @@ public class EntityHuman extends EntityCreature implements IInventoryChangedList
 			player.displayGUIChest(this.backpack);
 		}
 	}
-
+	
 	public String getRealName() {
 		return "Human";
 	}
-
+	
 	@Override
 	protected float getSoundPitch() {
 		return 1.0F;
 	}
-
+	
 	@Override
 	public int getTalkInterval() {
 		return 200;

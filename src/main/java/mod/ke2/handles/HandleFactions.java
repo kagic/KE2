@@ -32,7 +32,7 @@ public class HandleFactions {
 			}
 		}
 	}
-
+	
 	@SubscribeEvent
 	public void onLoadFromFile(PlayerEvent.LoadFromFile e) {
 		if (e.getEntity() instanceof EntityPlayer) {

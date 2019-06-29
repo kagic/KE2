@@ -33,7 +33,7 @@ public class RenderAquaAuraQuartz<T extends EntityAquaAuraQuartz> extends Render
 		this.addLayer(new LayerHeldItem(this));
 		this.addLayer(new LayerFlower(this));
 	}
-
+	
 	@Override
 	protected ResourceLocation getEntityTexture(EntityGem gem) {
 		return new ResourceLocation("ke2:textures/entities/quartz/quartz.png");

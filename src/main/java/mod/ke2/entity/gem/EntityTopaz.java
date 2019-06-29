@@ -37,77 +37,77 @@ public class EntityTopaz extends EntityGem {
 		EntityTopaz.TOPAZ_COLORS.add(new TagType(1, "ke2:topaz.color.white"));
 	}
 	protected static final DataParameter<String> TOPAZ_COLOR = EntityDataManager.<String>createKey(EntityTopaz.class, DataSerializers.STRING);
-
+	
 	public EntityTopaz(World world) {
 		super(world);
 		this.dataManager.register(EntityTopaz.TOPAZ_COLOR, "ke2:topaz.color.yellow");
 	}
-
+	
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
 		this.setTopazColor(this.generateTopazColor());
 		return super.onInitialSpawn(difficulty, data);
 	}
-
+	
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
 		this.setTopazColor(compound.getString("TopazColor"));
 	}
-
+	
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
 		compound.setString("TopazColor", this.getTopazColor());
 	}
-
+	
 	@Override
 	public int generateSkinColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.skin", this.getTopazColor());
 	}
-
+	
 	@Override
 	public int generateHairColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.hair", this.getTopazColor());
 	}
-
+	
 	@Override
 	public int generateOutfitColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.outfit", this.getTopazColor());
 	}
-
+	
 	@Override
 	public int generateVisorColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.visor", this.getTopazColor());
 	}
-
+	
 	@Override
 	public int generateGemstoneColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone", this.getTopazColor());
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-
+	
 	public void setTopazColor(String color) {
 		this.dataManager.set(EntityTopaz.TOPAZ_COLOR, color);
 	}
-
+	
 	public String getTopazColor() {
 		return this.dataManager.get(EntityTopaz.TOPAZ_COLOR);
 	}
-
+	
 	public String generateTopazColor() {
 		return TagType.weigh(EntityTopaz.TOPAZ_COLORS).getTag();
 	}
-	
+
 	@Override
 	public SoundEvent getGemSound() {
 		return Ke2Sounds.GEM_TOPAZ;

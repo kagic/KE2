@@ -16,19 +16,19 @@ public class RenderInjector extends RenderLiving<EntityInjector> {
 		super(manager, new ModelInjector(), 0.25F);
 		this.addLayer(new LayerInjectorGlass(this));
 	}
-
+	
 	@Override
 	protected ResourceLocation getEntityTexture(EntityInjector entity) {
 		return new ResourceLocation("ke2:textures/entities/injector/injector.png");
 	}
-
+	
 	public static class LayerInjectorGlass implements LayerRenderer<EntityInjector> {
 		private final RenderInjector renderer;
-
+		
 		public LayerInjectorGlass(RenderInjector renderer) {
 			this.renderer = renderer;
 		}
-
+		
 		@Override
 		public void doRenderLayer(EntityInjector entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 			float[] rgb = EnumDyeColor.byDyeDamage(entity.getColor()).getColorComponentValues();
@@ -40,7 +40,7 @@ public class RenderInjector extends RenderLiving<EntityInjector> {
 				this.renderer.getMainModel().render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 			}
 		}
-
+		
 		@Override
 		public boolean shouldCombineTextures() {
 			return false;

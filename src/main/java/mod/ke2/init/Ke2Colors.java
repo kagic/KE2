@@ -29,7 +29,7 @@ public class Ke2Colors {
 			}
 		}, Ke2Items.GEM_DESTABILIZER, Ke2Items.WARP_WHISTLE);
 	}
-
+	
 	public static void registerColor(IItemColor handler, Item... items) {
 		Minecraft.getMinecraft().getItemColors().registerItemColorHandler(handler, items);
 	}

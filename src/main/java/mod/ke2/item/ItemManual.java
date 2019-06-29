@@ -20,9 +20,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemManual extends Item {
-
+	
 	public static final String[] manualArray = new String[]{"1"};
-
+	
 	public ItemManual() {
 		super();
 		this.setUnlocalizedName("manual");
@@ -35,9 +35,9 @@ public class ItemManual extends Item {
 			}
 		});
 	}
-
+	
 	int metadata;
-
+	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 		if (!worldIn.isRemote) {
@@ -45,11 +45,11 @@ public class ItemManual extends Item {
 			// debugging.
 		} else {
 			Minecraft.getMinecraft().displayGuiScreen(new GuiManual());
-
+			
 		}
 		return super.onItemRightClick(worldIn, playerIn, handIn);
 	}
-
+	
 	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		tooltip.add("Welcome to Kindergartening 101!");

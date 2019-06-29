@@ -9,11 +9,11 @@ import net.minecraft.util.ResourceLocation;
 
 public class LayerPalanquinColor implements LayerRenderer<EntityPalanquin> {
 	private final RenderPalanquin renderer;
-
+	
 	public LayerPalanquinColor(RenderPalanquin renderer) {
 		this.renderer = renderer;
 	}
-
+	
 	@Override
 	public void doRenderLayer(EntityPalanquin entity, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		float[] rgb = EnumDyeColor.byDyeDamage(entity.getBodyColor()).getColorComponentValues();
@@ -24,7 +24,7 @@ public class LayerPalanquinColor implements LayerRenderer<EntityPalanquin> {
 			GlStateManager.disableBlend();
 		}
 	}
-
+	
 	@Override
 	public boolean shouldCombineTextures() {
 		return false;

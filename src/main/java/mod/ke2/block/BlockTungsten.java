@@ -2,9 +2,6 @@ package mod.ke2.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.SoundEvents;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraftforge.common.util.EnumHelper;
 
 public class BlockTungsten extends Block {
 	public BlockTungsten(String ore) {

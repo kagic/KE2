@@ -6,35 +6,35 @@ import net.minecraft.entity.ai.EntityAITarget;
 
 public class EntityAIFightForLeader extends EntityAITarget {
 	private EntityGem gem;
-    private EntityLivingBase attacker;
-    private int timestamp;
-    
-    public EntityAIFightForLeader(EntityGem gem) {
-        super(gem, false);
-        this.gem = gem;
-        this.setMutexBits(1);
-    }
-
-    @Override
-    public boolean shouldExecute() {
-        EntityLivingBase leader = this.gem.getLeader();
-        if (leader != null) {
-            this.attacker = leader.getLastAttackedEntity();
-            int i = leader.getLastAttackedEntityTime();
-            if (i != this.timestamp) {
-            	return this.isSuitableTarget(this.attacker, false);
-            }
-        }
-        return false;
-    }
-    
-    @Override
-    public void startExecuting() {
-        this.taskOwner.setAttackTarget(this.attacker);
-        EntityLivingBase leader = this.gem.getLeader();
-        if (leader != null) {
-            this.timestamp = leader.getLastAttackedEntityTime();
-        }
-        super.startExecuting();
-    }
+	private EntityLivingBase attacker;
+	private int timestamp;
+	
+	public EntityAIFightForLeader(EntityGem gem) {
+		super(gem, false);
+		this.gem = gem;
+		this.setMutexBits(1);
+	}
+	
+	@Override
+	public boolean shouldExecute() {
+		EntityLivingBase leader = this.gem.getLeader();
+		if (leader != null) {
+			this.attacker = leader.getLastAttackedEntity();
+			int i = leader.getLastAttackedEntityTime();
+			if (i != this.timestamp) {
+				return this.isSuitableTarget(this.attacker, false);
+			}
+		}
+		return false;
+	}
+	
+	@Override
+	public void startExecuting() {
+		this.taskOwner.setAttackTarget(this.attacker);
+		EntityLivingBase leader = this.gem.getLeader();
+		if (leader != null) {
+			this.timestamp = leader.getLastAttackedEntityTime();
+		}
+		super.startExecuting();
+	}
 }

@@ -18,11 +18,11 @@ public class Ke2Recipes {
 			Ke2Recipes.registerSmeltingRecipe(new ItemStack(Ke2Blocks.TUNGSTEN_ORE), new ItemStack(Ke2Items.TUNGSTEN_INGOT), 1);
 		}
 	}
-
+	
 	public static void registerSmeltingRecipe(ItemStack input, ItemStack output, int xp) {
 		GameRegistry.addSmelting(input, output, xp);
 	}
-
+	
 	public static void registerRecipe(IRecipe recipe, ResourceLocation name) {
 		ForgeRegistries.RECIPES.register(recipe.setRegistryName(name));
 	}

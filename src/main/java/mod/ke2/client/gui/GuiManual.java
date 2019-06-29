@@ -9,11 +9,11 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiManual extends GuiScreen {
-
+	
 	final ResourceLocation texture = new ResourceLocation(KAGIC.MODID, "textures/gui/dictionary.png");
 	int guiWidth = 146;
 	int guiHeight = 180;
-
+	
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		this.drawDefaultBackground();
@@ -24,25 +24,25 @@ public class GuiManual extends GuiScreen {
 		this.drawString(this.mc.fontRenderer, "Test!", centreX + 15, centreY + 15, 0xffffff);
 		super.drawScreen(mouseX, mouseY, partialTicks);
 	}
-
+	
 	@Override
 	public void initGui() {
 		super.initGui();
 	}
-
+	
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
 		super.actionPerformed(button);
 	}
-
+	
 	@Override
 	public boolean doesGuiPauseGame() {
 		return false;
 	}
-
+	
 	@Override
 	public void onGuiClosed() {
 		super.onGuiClosed();
 	}
-
+	
 }

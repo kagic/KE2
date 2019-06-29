@@ -11,7 +11,7 @@ public class AbstractVariant<T> implements IVariant<T> {
 	protected String parameter;
 	protected String[] tags;
 	protected T value;
-
+	
 	@Override
 	public boolean matches(EntityGem gem, Class<?> type, String... tags) {
 		if (Arrays.asList(this.tags).containsAll(Arrays.asList(tags))) {
@@ -42,21 +42,21 @@ public class AbstractVariant<T> implements IVariant<T> {
 		}
 		return false;
 	}
-
+	
 	@Override
 	public String[] getTags() {
 		return this.tags;
 	}
-
+	
 	@Override
 	public T getValue() {
 		return this.value;
 	}
-
+	
 	public String getFunction() {
 		return this.function;
 	}
-
+	
 	public String getParameter() {
 		return this.parameter;
 	}

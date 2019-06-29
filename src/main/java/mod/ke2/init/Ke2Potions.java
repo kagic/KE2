@@ -38,7 +38,7 @@ public class Ke2Potions {
 	public static final PotionType POTION_OF_DEPRESSION = new PotionType(new PotionEffect[]{new PotionEffect(Ke2Potions.DEPRESSION, 3600)});
 	public static final PotionType POTION_OF_THE_SANGUINE = new PotionType(new PotionEffect[]{new PotionEffect(Ke2Potions.SANGUINE, 3600)});
 	public static final PotionType POTION_OF_LOVE = new PotionType(new PotionEffect[]{new PotionEffect(Ke2Potions.LOVE, 3600)});
-
+	
 	public static void register() {
 		Ke2Potions.registerPotion(Ke2Potions.TEMPERMENT, new ResourceLocation("ke2:temperment"));
 		Ke2Potions.registerPotion(Ke2Potions.MELANCHOLIC, new ResourceLocation("ke2:melancholic"));
@@ -68,15 +68,15 @@ public class Ke2Potions {
 		Ke2Potions.registerPotionType(Ke2Potions.POTION_OF_LOVE, new ResourceLocation("ke2:love"));
 		Ke2Potions.registerPotionMix(Ke2Potions.POTION_OF_THE_SANGUINE, Items.FERMENTED_SPIDER_EYE, Ke2Potions.POTION_OF_LOVE);
 	}
-
+	
 	public static void registerPotion(Potion potion, ResourceLocation name) {
 		ForgeRegistries.POTIONS.register(potion.setRegistryName(name));
 	}
-
+	
 	public static void registerPotionType(PotionType type, ResourceLocation name) {
 		ForgeRegistries.POTION_TYPES.register(type.setRegistryName(name));
 	}
-
+	
 	public static void registerPotionMix(PotionType start, Item modifier, PotionType output) {
 		PotionHelper.addMix(start, modifier, output);
 	}

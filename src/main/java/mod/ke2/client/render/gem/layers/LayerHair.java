@@ -8,11 +8,11 @@ import net.minecraft.util.ResourceLocation;
 
 public class LayerHair implements LayerRenderer<EntityGem> {
 	private final RenderGem<?> renderer;
-
+	
 	public LayerHair(RenderGem<?> renderer) {
 		this.renderer = renderer;
 	}
-
+	
 	@Override
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getHairVariant() != null) {
@@ -23,10 +23,10 @@ public class LayerHair implements LayerRenderer<EntityGem> {
 			float b = ((color & 255) >> 0) / 255.0F;
 			GlStateManager.color(r, g, b);
 			this.renderer.getModel().render(gem, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
-			
+
 		}
 	}
-
+	
 	@Override
 	public boolean shouldCombineTextures() {
 		return true;

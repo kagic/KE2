@@ -4,7 +4,6 @@ import java.util.List;
 
 import mod.ke2.KAGIC;
 import mod.ke2.api.EntityGem;
-import mod.ke2.init.Ke2Items;
 import mod.ke2.init.Ke2Particles;
 import mod.ke2.init.Ke2Sounds;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,7 +18,7 @@ public class EntityGemBurst extends EntityGem {
 		super(world);
 		this.setSize(1.0F, 2.0F);
 	}
-
+	
 	@Override
 	public void onUpdate() {
 		int color = this.getInsigniaColor() == -1 ? this.rand.nextInt(16) : this.getInsigniaColor();
@@ -44,17 +43,17 @@ public class EntityGemBurst extends EntityGem {
 			}
 		}
 	}
-
+	
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-
+		
 	}
-
+	
 	@Override
 	public int generateGemstoneCut() {
 		return -1;
 	}
-
+	
 	@Override
 	public ItemStack generateGemstoneItem() {
 		return ItemStack.EMPTY;
