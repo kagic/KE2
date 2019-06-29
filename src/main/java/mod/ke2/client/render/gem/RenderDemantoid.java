@@ -1,6 +1,6 @@
 package mod.ke2.client.render.gem;
 
-import mod.ke2.client.model.gem.ModelGarnetDemantoid;
+import mod.ke2.client.model.gem.ModelGarnetDiplomat;
 import mod.ke2.client.render.RenderGem;
 import mod.ke2.client.render.gem.layers.LayerFlower;
 import mod.ke2.client.render.gem.layers.LayerGemstone;
@@ -17,7 +17,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 
 public class RenderDemantoid<T extends EntityDemantoid> extends RenderGem<T> {
 	public RenderDemantoid(RenderManager manager) {
-		super(manager, new ModelGarnetDemantoid(), 0.5F);
+		super(manager, new ModelGarnetDiplomat(), 0.5F);
 		this.addLayer(new LayerSkin(this));
 		this.addLayer(new LayerUniform(this));
 		this.addLayer(new LayerInsignia(this));

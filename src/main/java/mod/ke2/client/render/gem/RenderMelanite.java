@@ -1,6 +1,6 @@
 package mod.ke2.client.render.gem;
 
-import mod.ke2.client.model.gem.ModelGarnetHessonite;
+import mod.ke2.client.model.gem.ModelGarnetGeneral;
 import mod.ke2.client.render.RenderGem;
 import mod.ke2.client.render.gem.layers.LayerFlower;
 import mod.ke2.client.render.gem.layers.LayerGemstone;
@@ -17,7 +17,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 
 public class RenderMelanite<T extends EntityMelanite> extends RenderGem<T> {
 	public RenderMelanite(RenderManager manager) {
-		super(manager, new ModelGarnetHessonite(), 0.5F);
+		super(manager, new ModelGarnetGeneral(), 0.5F);
 		this.addLayer(new LayerSkin(this));
 		this.addLayer(new LayerUniform(this));
 		this.addLayer(new LayerInsignia(this));

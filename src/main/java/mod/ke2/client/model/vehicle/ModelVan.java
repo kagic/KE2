@@ -59,9 +59,9 @@ public class ModelVan extends ModelBase {
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		this.windshield.rotateAngleX = -0.2617993877991494F;
 		this.hood.rotateAngleX = 0.17453292519943295F;
-		this.wheelFrontRight.rotateAngleX += entity.motionX + entity.motionZ;
-		this.wheelFrontLeft.rotateAngleX += entity.motionX + entity.motionZ;
-		this.wheelBackRight.rotateAngleX += entity.motionX + entity.motionZ;
-		this.wheelBackLeft.rotateAngleX += entity.motionX + entity.motionZ;
+		this.wheelFrontRight.rotateAngleX = (float)(-limbSwing * (entity.motionX + entity.motionZ));
+		this.wheelFrontLeft.rotateAngleX = this.wheelFrontRight.rotateAngleX;
+		this.wheelBackRight.rotateAngleX = this.wheelFrontRight.rotateAngleX;
+		this.wheelBackLeft.rotateAngleX = this.wheelFrontRight.rotateAngleX;
 	}
 }

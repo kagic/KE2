@@ -5,10 +5,10 @@ import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelGarnetDemantoid extends ModelGem {
+public class ModelGarnetDiplomat extends ModelGem {
 	public ModelRenderer bipedNeck;
 
-	public ModelGarnetDemantoid() {
+	public ModelGarnetDiplomat() {
 		super(0.0F, 0.0F, 80, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8, 0.0F);
