@@ -30,7 +30,7 @@ public class RenderGem<T extends EntityGem> extends RenderBiped<T> {
 	@Override
 	protected void preRenderCallback(T gem, float partialTickTime) {
 		try {
-			if (RenderGem.updateModelsDespiteTheFactItCausesMemoryLeaks && partialTickTime > 0.9F) {
+			if (RenderGem.updateModelsDespiteTheFactItCausesMemoryLeaks && partialTickTime > 0.8F) {
 				this.mainModel = this.getModel().getClass().newInstance();
 			}
 		} catch (Exception e) {

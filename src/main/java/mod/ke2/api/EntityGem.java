@@ -1,5 +1,7 @@
 package mod.ke2.api;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -42,6 +44,7 @@ import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -85,7 +88,12 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	protected static final DataParameter<Boolean> IS_DEFECTIVE = EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Boolean> IS_PERFECT = EntityDataManager.<Boolean>createKey(EntityGem.class, DataSerializers.BOOLEAN);
 	protected static final DataParameter<Integer> FLOWER_IN_HAIR = EntityDataManager.<Integer>createKey(EntityGem.class, DataSerializers.VARINT);
-	
+	/**
+	 * Resource location of entity is stored as the key and
+	 * the emotional resource is the value. Determines part
+	 * of the environmental emotional score.
+	 */
+	public HashMap<ResourceLocation, Float> biasTowardsMobs = new HashMap<ResourceLocation, Float>();
 	/**
 	 * If true, then the gem is 50% size when defective and
 	 * 150% size when perfective.
@@ -216,6 +224,11 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		this.setPerfective(compound.getBoolean("Perfective"));
 		this.setFlowerInHair(compound.getInteger("FlowerInHair"));
 		this.setVocalOctave(compound.getInteger("VocalOctave"));
+		NBTTagList biases = compound.getTagList("BiasTowardsMobs", 10);
+		for (int i = 0; i < biases.tagCount(); ++i) {
+			NBTTagCompound tag = biases.getCompoundTagAt(i);
+			this.biasTowardsMobs.put(new ResourceLocation(tag.getString("Mob")), tag.getFloat("Bias"));
+		}
 		this.createInventory();
 		NBTTagList inventory = compound.getTagList("Inventory", 10);
 		for (int i = 0; i < inventory.tagCount(); ++i) {
@@ -263,6 +276,16 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		compound.setBoolean("Perfective", this.isPerfective());
 		compound.setInteger("FlowerInHair", this.getFlowerInHair());
 		compound.setInteger("VocalOctave", this.getVocalOctave());
+		NBTTagList biases = new NBTTagList();
+		Iterator<ResourceLocation> it = this.biasTowardsMobs.keySet().iterator();
+		while (it.hasNext()) {
+			ResourceLocation key = it.next();
+			NBTTagCompound tag = new NBTTagCompound();
+			tag.setString("Mob", key.toString());
+			tag.setFloat("Bias", this.biasTowardsMobs.get(key));
+			biases.appendTag(tag);
+		}
+		compound.setTag("BiasTowardsMobs", biases);
 		this.createInventory();
 		NBTTagList inventory = new NBTTagList();
 		for (int i = 0; i < this.inventory.getSizeInventory(); ++i) {
