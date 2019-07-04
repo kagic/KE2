@@ -116,12 +116,7 @@
     },
     "entity.gem.ender_pearl": {
     	"sounds": [
-    		{ "name": "ke2:entity/gem/ender_pearl/note1" },
-    		{ "name": "ke2:entity/gem/ender_pearl/note2" },
-    		{ "name": "ke2:entity/gem/ender_pearl/note3" },
-    		{ "name": "ke2:entity/gem/ender_pearl/note4" },
-    		{ "name": "ke2:entity/gem/ender_pearl/note5" },
-    		{ "name": "ke2:entity/gem/ender_pearl/note6" }
+    		{ "name": "ke2:entity/gem/ender_pearl" }
     	]
     },
     "entity.gem.hessonite": {
