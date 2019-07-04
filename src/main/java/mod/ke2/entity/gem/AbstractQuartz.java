@@ -30,9 +30,9 @@ public abstract class AbstractQuartz extends EntityGem {
 		AbstractQuartz.GLOBAL_VARIANT_CLASSES.add(EntityJasper.class);
 		AbstractQuartz.GLOBAL_VARIANT_CLASSES.add(EntityRoseQuartz.class);
 	}
-	private static final DataParameter<String> VARIANT_EYES = EntityDataManager.<String>createKey(AbstractQuartz.class, DataSerializers.STRING);
-	private static final DataParameter<Integer> COLOR_RGB_EYES = EntityDataManager.<Integer>createKey(AbstractQuartz.class, DataSerializers.VARINT);
-	private static final DataParameter<Boolean> CHARGED = EntityDataManager.<Boolean>createKey(AbstractQuartz.class, DataSerializers.BOOLEAN);
+	protected static final DataParameter<String> VARIANT_EYES = EntityDataManager.<String>createKey(AbstractQuartz.class, DataSerializers.STRING);
+	protected static final DataParameter<Integer> COLOR_RGB_EYES = EntityDataManager.<Integer>createKey(AbstractQuartz.class, DataSerializers.VARINT);
+	protected static final DataParameter<Boolean> CHARGED = EntityDataManager.<Boolean>createKey(AbstractQuartz.class, DataSerializers.BOOLEAN);
 	public boolean chargedByTakingDamageNotDelivering;
 	private int ticksCharged = 0;
 	private int hitCount = 0;
