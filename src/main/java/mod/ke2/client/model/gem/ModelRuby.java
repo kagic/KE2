@@ -46,40 +46,45 @@ public class ModelRuby extends ModelGem {
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
-				GlStateManager.translate(0.0, -0.05, -0.3);
 				GlStateManager.scale(0.5, 0.5, 0.5);
-				this.bipedHead.postRender(0.0F);
+				this.bipedHead.postRender(scale);
+				GlStateManager.translate(0.0, -0.05, -0.57);
 				break;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
-				GlStateManager.translate(0.0, -0.05, -0.21);
-				GlStateManager.scale(0.5, 0.5, 6.0);
+				GlStateManager.scale(0.5, 0.5, 0.5);
 				this.bipedHead.postRender(scale);
+				GlStateManager.translate(0.0, 0.0, 0.46);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
+				GlStateManager.scale(0.5, 0.5, 0.5);
 				this.bipedHead.postRender(scale);
+				GlStateManager.translate(0.25, 0.27, -0.57);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
+				GlStateManager.scale(0.5, 0.5, 0.5);
 				this.bipedHead.postRender(scale);
+				GlStateManager.translate(-0.25, 0.27, -0.57);
 				break;
 			case Ke2Gems.GEMSTONE_NOSE :
+				GlStateManager.scale(0.3, 0.3, 0.3);
 				this.bipedHead.postRender(scale);
+				GlStateManager.translate(0.0, 0.9, -0.96);
+				GlStateManager.scale(1.0, 1.0, 1.5);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
-				this.bipedRightLeg.postRender(scale);
+				this.bipedRightArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
-				this.bipedLeftLeg.postRender(scale);
+				this.bipedLeftArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
-				this.bipedRightLeg.postRender(scale);
+				this.bipedRightArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
-				this.bipedLeftLeg.postRender(scale);
+				this.bipedLeftArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_CHEST :
 				this.bipedBody.postRender(scale);
-				GlStateManager.translate(0.0, 0.55, -0.16);
-				GlStateManager.scale(0.5, 0.5, 0.5);
 				break;
 			case Ke2Gems.GEMSTONE_BACK :
 				this.bipedBody.postRender(scale);

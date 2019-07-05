@@ -132,8 +132,8 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 	public EntityGem(World world) {
 		super(world);
 		this.tasks.addTask(3, new EntityAIFollowTheLeader(this, 0.5D));
-		this.tasks.addTask(7, new EntityAIWatchClosest(this, Entity.class, 8.0F));
-		this.tasks.addTask(7, new EntityAIWander(this, 0.3D));
+		//this.tasks.addTask(7, new EntityAIWatchClosest(this, Entity.class, 8.0F));
+		//this.tasks.addTask(7, new EntityAIWander(this, 0.3D));
 		this.dataManager.register(EntityGem.GEM_UNIQUE_ID, Optional.absent());
 		this.dataManager.register(EntityGem.GEM_FACTION_ID, Optional.absent());
 		this.dataManager.register(EntityGem.GEM_LEADER_ID, Optional.absent());
