@@ -91,6 +91,12 @@ public class ModelJadeSpur extends ModelGem {
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
 				this.bipedLeftLeg.postRender(scale);
 				break;
+			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
+				this.bipedHead.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
+				this.bipedHead.postRender(scale);
+				break;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
 				this.bipedRightLeg.postRender(scale);
 				break;

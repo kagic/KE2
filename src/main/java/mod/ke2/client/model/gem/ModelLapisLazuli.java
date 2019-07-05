@@ -107,6 +107,12 @@ public class ModelLapisLazuli extends ModelGem {
 			case Ke2Gems.GEMSTONE_NOSE :
 				this.bipedHead.postRender(scale);
 				break;
+			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
+				this.bipedHead.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
+				this.bipedHead.postRender(scale);
+				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
 				this.bipedRightLeg.postRender(scale);
 				break;
