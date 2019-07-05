@@ -48,8 +48,7 @@ public class LayerHeldItem implements LayerRenderer<EntityGem> {
 			GlStateManager.rotate(-90.0F, 1.0F, 0.0F, 0.0F);
 			GlStateManager.rotate(180.0F, 0.0F, 1.0F, 0.0F);
 			boolean lefty = side == EnumHandSide.LEFT;
-			GlStateManager.translate((lefty ? -1 : 1) / this.renderer.getModel().heldItemOffsetX, this.renderer.getModel().heldItemOffsetY, this.renderer
-																																																																																																																																																																																							.getModel().heldItemOffsetZ);
+			GlStateManager.translate((lefty ? -1 : 1) / this.renderer.getModel().heldItemOffsetX, this.renderer.getModel().heldItemOffsetY, this.renderer.getModel().heldItemOffsetZ);
 			Minecraft.getMinecraft().getItemRenderer().renderItemSide(gem, stack, camera, lefty);
 			GlStateManager.popMatrix();
 		}

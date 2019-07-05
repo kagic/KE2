@@ -46,11 +46,13 @@ public class ModelRuby extends ModelGem {
 	public void renderGemOnBody(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
-				this.bipedHead.postRender(scale);
-				GlStateManager.translate(0.0, 0.2 * this.bipedHead.rotateAngleX - 0.03, -0.48 * this.bipedHead.rotateAngleX - 0.29);
+				GlStateManager.translate(0.0, -0.05, -0.3);
 				GlStateManager.scale(0.5, 0.5, 0.5);
+				this.bipedHead.postRender(0.0F);
 				break;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
+				GlStateManager.translate(0.0, -0.05, -0.21);
+				GlStateManager.scale(0.5, 0.5, 6.0);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
