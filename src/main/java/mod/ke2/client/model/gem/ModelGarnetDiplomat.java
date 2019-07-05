@@ -53,65 +53,46 @@ public class ModelGarnetDiplomat extends ModelGem {
 		super.renderGemOnBody(pos, scale);
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
-				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
-				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
-				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
-				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_NOSE :
-				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
-				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
-				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
-				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
-				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
-				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
-				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_CHEST :
-				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_BACK :
-				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_NAVEL :
-				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
-				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_THIGH :
-				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
-				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_KNEE :
-				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
-				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT :
-				this.bipedLeftLeg.postRender(scale);
 				break;
 		}
+		this.bipedGem.postRender(scale);
 	}
 }

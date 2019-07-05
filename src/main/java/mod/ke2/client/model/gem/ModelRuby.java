@@ -47,91 +47,46 @@ public class ModelRuby extends ModelGem {
 		super.renderGemOnBody(pos, scale);
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
-				GlStateManager.scale(0.5, 0.5, 0.5);
-				this.bipedHead.postRender(scale);
-				GlStateManager.translate(0.0, -0.05, -0.57);
 				break;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
-				GlStateManager.scale(0.5, 0.5, 0.5);
-				this.bipedHead.postRender(scale);
-				GlStateManager.translate(0.0, 0.0, 0.46);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
-				GlStateManager.scale(0.5, 0.5, 0.5);
-				this.bipedHead.postRender(scale);
-				GlStateManager.translate(0.25, 0.27, -0.57);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
-				GlStateManager.scale(0.5, 0.5, 0.5);
-				this.bipedHead.postRender(scale);
-				GlStateManager.translate(-0.25, 0.27, -0.57);
 				break;
 			case Ke2Gems.GEMSTONE_NOSE :
-				GlStateManager.scale(0.3, 0.3, 0.3);
-				this.bipedHead.postRender(scale);
-				GlStateManager.translate(0.0, 0.9, -0.93);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
-				GlStateManager.scale(0.3, 0.3, 0.3);
-				this.bipedHead.postRender(scale);
-				GlStateManager.translate(0.6, 1.18, -0.93);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
-				GlStateManager.scale(0.3, 0.3, 0.3);
-				this.bipedHead.postRender(scale);
-				GlStateManager.translate(-0.6, 1.18, -0.93);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
-				GlStateManager.scale(0.4, 0.4, 0.4);
-				GlStateManager.translate(-1.025, 1.4, 0.0);
-				this.bipedRightArm.postRender(scale);
-				GlStateManager.rotate(90.0F, 0, 1, 0);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
-				GlStateManager.scale(0.4, 0.4, 0.4);
-				GlStateManager.translate(0.9, 1.4, 0.0);
-				this.bipedLeftArm.postRender(scale);
-				GlStateManager.rotate(90.0F, 0, 1, 0);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
-				GlStateManager.scale(0.4, 0.4, 0.4);
-				GlStateManager.translate(-1.1, 2.0, 0.0);
-				this.bipedRightArm.postRender(scale);
-				GlStateManager.rotate(90.0F, 0, 1, 0);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
-				GlStateManager.scale(0.4, 0.4, 0.4);
-				GlStateManager.translate(0.95, 2.0, 0.0);
-				this.bipedLeftArm.postRender(scale);
-				GlStateManager.rotate(90.0F, 0, 1, 0);
 				break;
 			case Ke2Gems.GEMSTONE_CHEST :
-				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_BACK :
-				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_NAVEL :
-				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
-				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_THIGH :
-				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
-				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_KNEE :
-				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
-				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT :
-				this.bipedLeftLeg.postRender(scale);
 				break;
 		}
+		this.bipedGem.postRender(scale);
 	}
 }
