@@ -4,6 +4,7 @@ import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
@@ -17,6 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ModelGem extends ModelBiped {
 	public ModelRenderer bipedCape;
 	public ModelRenderer bipedSkirt;
+	public ModelRenderer bipedGem;
 	public float heldItemHandOffset;
 	public float heldItemOffsetX;
 	public float heldItemOffsetY;
@@ -27,6 +29,8 @@ public class ModelGem extends ModelBiped {
 	
 	public ModelGem(float modelSize, float offset, int width, int height) {
 		super(modelSize, offset, width, height);
+		this.bipedGem = new ModelRenderer(this, 0, 0);
+		this.bipedGem.addBox(0.0F, 0.0F, 0.0F, 2, 2, 2);
 	}
 	
 	@Override
@@ -68,6 +72,76 @@ public class ModelGem extends ModelBiped {
 	}
 	
 	public void renderGemOnBody(int pos, float scale) {
-		
+		this.preRenderGem(pos, scale);
+	}
+	
+	public void preRenderGem(int pos, float scale) {
+		this.setGemRenderPositions(pos, scale);
+		this.bipedGem.render(scale);
+	}
+	
+	public void setGemRenderPositions(int pos, float scale) {
+		switch (pos) {
+			case Ke2Gems.GEMSTONE_FOREHEAD :
+				this.bipedHead.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
+				this.bipedHead.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_RIGHT_EYE :
+				this.bipedHead.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_LEFT_EYE :
+				this.bipedHead.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_NOSE :
+				this.bipedHead.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
+				this.bipedHead.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
+				this.bipedHead.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
+				this.bipedRightArm.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
+				this.bipedLeftArm.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_RIGHT_HAND :
+				this.bipedRightArm.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_LEFT_HAND :
+				this.bipedLeftArm.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_CHEST :
+				this.bipedBody.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_BACK :
+				this.bipedBody.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_NAVEL :
+				this.bipedBody.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
+				this.bipedRightLeg.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_LEFT_THIGH :
+				this.bipedLeftLeg.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
+				this.bipedRightLeg.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_LEFT_KNEE :
+				this.bipedLeftLeg.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
+				this.bipedRightLeg.postRender(scale);
+				break;
+			case Ke2Gems.GEMSTONE_LEFT_FOOT :
+				this.bipedLeftLeg.postRender(scale);
+				break;
+		}
 	}
 }

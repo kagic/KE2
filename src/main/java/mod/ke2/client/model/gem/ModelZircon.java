@@ -54,6 +54,7 @@ public class ModelZircon extends ModelGem {
 	
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
+		super.renderGemOnBody(pos, scale);
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
 				this.bipedHead.postRender(scale);

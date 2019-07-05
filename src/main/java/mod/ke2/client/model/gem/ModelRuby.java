@@ -44,6 +44,7 @@ public class ModelRuby extends ModelGem {
 	
 	@Override
 	public void renderGemOnBody(int pos, float scale) {
+		super.renderGemOnBody(pos, scale);
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
 				GlStateManager.scale(0.5, 0.5, 0.5);
@@ -68,30 +69,41 @@ public class ModelRuby extends ModelGem {
 			case Ke2Gems.GEMSTONE_NOSE :
 				GlStateManager.scale(0.3, 0.3, 0.3);
 				this.bipedHead.postRender(scale);
-				GlStateManager.translate(0.0, 0.9, -0.96);
-				GlStateManager.scale(1.0, 1.0, 1.5);
+				GlStateManager.translate(0.0, 0.9, -0.93);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
-				GlStateManager.scale(0.5, 0.5, 0.5);
+				GlStateManager.scale(0.3, 0.3, 0.3);
 				this.bipedHead.postRender(scale);
-				GlStateManager.translate(0.25, 0.27, -0.57);
+				GlStateManager.translate(0.6, 1.18, -0.93);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
-				GlStateManager.scale(0.5, 0.5, 0.5);
+				GlStateManager.scale(0.3, 0.3, 0.3);
 				this.bipedHead.postRender(scale);
-				GlStateManager.translate(-0.25, 0.27, -0.57);
+				GlStateManager.translate(-0.6, 1.18, -0.93);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
+				GlStateManager.scale(0.4, 0.4, 0.4);
+				GlStateManager.translate(-1.025, 1.4, 0.0);
 				this.bipedRightArm.postRender(scale);
+				GlStateManager.rotate(90.0F, 0, 1, 0);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
+				GlStateManager.scale(0.4, 0.4, 0.4);
+				GlStateManager.translate(0.9, 1.4, 0.0);
 				this.bipedLeftArm.postRender(scale);
+				GlStateManager.rotate(90.0F, 0, 1, 0);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
+				GlStateManager.scale(0.4, 0.4, 0.4);
+				GlStateManager.translate(-1.1, 2.0, 0.0);
 				this.bipedRightArm.postRender(scale);
+				GlStateManager.rotate(90.0F, 0, 1, 0);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
+				GlStateManager.scale(0.4, 0.4, 0.4);
+				GlStateManager.translate(0.95, 2.0, 0.0);
 				this.bipedLeftArm.postRender(scale);
+				GlStateManager.rotate(90.0F, 0, 1, 0);
 				break;
 			case Ke2Gems.GEMSTONE_CHEST :
 				this.bipedBody.postRender(scale);
