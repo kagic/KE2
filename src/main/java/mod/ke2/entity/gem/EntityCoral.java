@@ -12,14 +12,7 @@ import net.minecraft.world.World;
 
 public class EntityCoral extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/coral/hair_default"), VariantPath.class), EntityCoral.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/coral/outfit_default"), VariantPath.class), EntityCoral.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/coral/skin_default"), VariantPath.class), EntityCoral.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/coral/color_gemstone"), VariantColor.class), EntityCoral.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/coral/color_hair"), VariantColor.class), EntityCoral.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/coral/color_outfit"), VariantColor.class), EntityCoral.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/coral/color_skin"), VariantColor.class), EntityCoral.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/coral/color_visor"), VariantColor.class), EntityCoral.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/coral/index"), EntityCoral.class);
 	}
 	
 	public EntityCoral(World world) {

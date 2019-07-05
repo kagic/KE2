@@ -10,11 +10,7 @@ import net.minecraft.world.World;
 
 public class EntityPyrope extends AbstractGarnet {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrope/color_gemstone"), VariantColor.class), EntityPyrope.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrope/color_hair"), VariantColor.class), EntityPyrope.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrope/color_outfit"), VariantColor.class), EntityPyrope.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrope/color_skin"), VariantColor.class), EntityPyrope.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrope/color_visor"), VariantColor.class), EntityPyrope.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/pyrope/index"), EntityPyrope.class);
 	}
 	
 	public EntityPyrope(World world) {

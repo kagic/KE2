@@ -16,14 +16,7 @@ import net.minecraft.world.World;
 
 public class EntityLapisLazuli extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/hair_default"), VariantPath.class), EntityLapisLazuli.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/outfit_default"), VariantPath.class), EntityLapisLazuli.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/skin_default"), VariantPath.class), EntityLapisLazuli.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_gemstone"), VariantColor.class), EntityLapisLazuli.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_hair"), VariantColor.class), EntityLapisLazuli.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_outfit"), VariantColor.class), EntityLapisLazuli.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_skin"), VariantColor.class), EntityLapisLazuli.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/lapis_lazuli/color_visor"), VariantColor.class), EntityLapisLazuli.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/lapis_lazuli/index"), EntityLapisLazuli.class);
 	}
 	protected static final DataParameter<Boolean> WINGED = EntityDataManager.<Boolean>createKey(EntityLapisLazuli.class, DataSerializers.BOOLEAN);
 	

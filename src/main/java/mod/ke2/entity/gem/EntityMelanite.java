@@ -10,11 +10,7 @@ import net.minecraft.world.World;
 
 public class EntityMelanite extends AbstractGarnet {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/melanite/color_gemstone"), VariantColor.class), EntityMelanite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/melanite/color_hair"), VariantColor.class), EntityMelanite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/melanite/color_outfit"), VariantColor.class), EntityMelanite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/melanite/color_skin"), VariantColor.class), EntityMelanite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/melanite/color_visor"), VariantColor.class), EntityMelanite.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/melanite/index"), EntityMelanite.class);
 	}
 	
 	public EntityMelanite(World world) {

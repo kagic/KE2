@@ -10,12 +10,7 @@ import net.minecraft.world.World;
 
 public class EntityAquaAuraQuartz extends AbstractQuartz {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_gemstone"), VariantColor.class), EntityAquaAuraQuartz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_hair"), VariantColor.class), EntityAquaAuraQuartz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_outfit"), VariantColor.class), EntityAquaAuraQuartz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_skin"), VariantColor.class), EntityAquaAuraQuartz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_visor"), VariantColor.class), EntityAquaAuraQuartz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aqua_aura_quartz/color_eyes"), VariantColor.class), EntityAquaAuraQuartz.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/aqua_aura_quartz/index"), EntityAquaAuraQuartz.class);
 	}
 	
 	public EntityAquaAuraQuartz(World world) {

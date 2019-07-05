@@ -16,14 +16,7 @@ import net.minecraft.world.World;
 
 public class EntityAquamarine extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/hair_default"), VariantPath.class), EntityAquamarine.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/outfit_default"), VariantPath.class), EntityAquamarine.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/skin_default"), VariantPath.class), EntityAquamarine.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/color_gemstone"), VariantColor.class), EntityAquamarine.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/color_hair"), VariantColor.class), EntityAquamarine.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/color_outfit"), VariantColor.class), EntityAquamarine.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/color_skin"), VariantColor.class), EntityAquamarine.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/aquamarine/color_visor"), VariantColor.class), EntityAquamarine.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/aquamarine/index"), EntityAquamarine.class);
 	}
 	protected static final DataParameter<Boolean> WINGED = EntityDataManager.<Boolean>createKey(EntityAquamarine.class, DataSerializers.BOOLEAN);
 	

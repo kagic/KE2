@@ -12,14 +12,7 @@ import net.minecraft.world.World;
 
 public class EntityLarimar extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/hair_default"), VariantPath.class), EntityLarimar.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/outfit_default"), VariantPath.class), EntityLarimar.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/skin_default"), VariantPath.class), EntityLarimar.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/color_gemstone"), VariantColor.class), EntityLarimar.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/color_hair"), VariantColor.class), EntityLarimar.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/color_outfit"), VariantColor.class), EntityLarimar.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/color_skin"), VariantColor.class), EntityLarimar.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/larimar/color_visor"), VariantColor.class), EntityLarimar.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/larimar/index"), EntityLarimar.class);
 	}
 	
 	public EntityLarimar(World world) {

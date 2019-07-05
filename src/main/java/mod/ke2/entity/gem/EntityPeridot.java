@@ -19,16 +19,7 @@ import net.minecraft.world.World;
 
 public class EntityPeridot extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/hair_square"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/hair_triangle"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/outfit_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/outfit_shorts"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/skin_default"), VariantPath.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/color_gemstone"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/color_hair"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/color_outfit"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/color_skin"), VariantColor.class), EntityPeridot.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/peridot/color_visor"), VariantColor.class), EntityPeridot.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/peridot/index"), EntityPeridot.class);
 	}
 	protected static final DataParameter<Boolean> SQUARE_HAIR = EntityDataManager.<Boolean>createKey(EntityPeridot.class, DataSerializers.BOOLEAN);
 	

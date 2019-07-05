@@ -24,14 +24,7 @@ import net.minecraft.world.World;
 public class EntityPearl extends EntityGem {
 	public static final ArrayList<TagType> PEARL_COLORS = new ArrayList<TagType>();
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pearl/hair_default"), VariantPath.class), EntityPearl.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pearl/outfit_default"), VariantPath.class), EntityPearl.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pearl/skin_default"), VariantPath.class), EntityPearl.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pearl/color_gemstone"), VariantColor.class), EntityPearl.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pearl/color_hair"), VariantColor.class), EntityPearl.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pearl/color_outfit"), VariantColor.class), EntityPearl.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pearl/color_skin"), VariantColor.class), EntityPearl.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pearl/color_visor"), VariantColor.class), EntityPearl.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/pearl/index"), EntityPearl.class);
 		EntityPearl.PEARL_COLORS.add(new TagType(5, "ke2:pearl.color.red"));
 		EntityPearl.PEARL_COLORS.add(new TagType(5, "ke2:pearl.color.orange"));
 		EntityPearl.PEARL_COLORS.add(new TagType(5, "ke2:pearl.color.yellow"));

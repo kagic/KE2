@@ -23,14 +23,7 @@ import net.minecraft.world.World;
 public class EntityTopaz extends EntityGem {
 	public static final ArrayList<TagType> TOPAZ_COLORS = new ArrayList<TagType>();
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/hair_default"), VariantPath.class), EntityTopaz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/outfit_default"), VariantPath.class), EntityTopaz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/skin_default"), VariantPath.class), EntityTopaz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/color_gemstone"), VariantColor.class), EntityTopaz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/color_hair"), VariantColor.class), EntityTopaz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/color_outfit"), VariantColor.class), EntityTopaz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/color_skin"), VariantColor.class), EntityTopaz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/topaz/color_visor"), VariantColor.class), EntityTopaz.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/topaz/index"), EntityTopaz.class);
 		EntityTopaz.TOPAZ_COLORS.add(new TagType(20, "ke2:topaz.color.yellow"));
 		EntityTopaz.TOPAZ_COLORS.add(new TagType(5, "ke2:topaz.color.blue"));
 		EntityTopaz.TOPAZ_COLORS.add(new TagType(2, "ke2:topaz.color.pink"));

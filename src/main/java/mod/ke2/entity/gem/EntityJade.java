@@ -26,25 +26,14 @@ public class EntityJade extends EntityGem {
 	public static final ArrayList<TagType> JADE_SHAPES = new ArrayList<TagType>();
 	public static final ArrayList<TagType> JADE_COLORS = new ArrayList<TagType>();
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/hair_default"), VariantPath.class), EntityJade.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/outfit_default"), VariantPath.class), EntityJade.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/skin_default"), VariantPath.class), EntityJade.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/color_gemstone"), VariantColor.class), EntityJade.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/color_hair"), VariantColor.class), EntityJade.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/color_outfit"), VariantColor.class), EntityJade.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/color_skin"), VariantColor.class), EntityJade.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jade/color_visor"), VariantColor.class), EntityJade.class);
-		EntityJade.JADE_COLORS.add(new TagType(50, "ke2:jade.color.green")); // jump
-																				// boost
-		EntityJade.JADE_COLORS.add(new TagType(50, "ke2:jade.color.yellow")); // haste
-		EntityJade.JADE_COLORS.add(new TagType(15, "ke2:jade.color.purple")); // regeneration
-		EntityJade.JADE_COLORS.add(new TagType(5, "ke2:jade.color.orange")); // fire
-																				// resistance
-		EntityJade.JADE_COLORS.add(new TagType(3, "ke2:jade.color.red")); // strength
-		EntityJade.JADE_COLORS.add(new TagType(1, "ke2:jade.color.white")); // speed
-		EntityJade.JADE_COLORS.add(new TagType(1, "ke2:jade.color.black")); // wither
-																			// (to
-																			// enemies)
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/jade/index"), EntityJade.class);
+		EntityJade.JADE_COLORS.add(new TagType(50, "ke2:jade.color.green")); 
+		EntityJade.JADE_COLORS.add(new TagType(50, "ke2:jade.color.yellow"));
+		EntityJade.JADE_COLORS.add(new TagType(15, "ke2:jade.color.purple"));
+		EntityJade.JADE_COLORS.add(new TagType(5, "ke2:jade.color.orange"));
+		EntityJade.JADE_COLORS.add(new TagType(3, "ke2:jade.color.red"));
+		EntityJade.JADE_COLORS.add(new TagType(1, "ke2:jade.color.white"));
+		EntityJade.JADE_COLORS.add(new TagType(1, "ke2:jade.color.black"));
 		EntityJade.JADE_SHAPES.add(new TagType(50, "ke2:jade.shape.bell"));
 		EntityJade.JADE_SHAPES.add(new TagType(10, "ke2:jade.shape.spur"));
 		EntityJade.JADE_SHAPES.add(new TagType(10, "ke2:jade.shape.rack"));

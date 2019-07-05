@@ -10,12 +10,7 @@ import net.minecraft.world.World;
 
 public class EntityJasper extends AbstractQuartz {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_gemstone"), VariantColor.class), EntityJasper.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_hair"), VariantColor.class), EntityJasper.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_outfit"), VariantColor.class), EntityJasper.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_skin"), VariantColor.class), EntityJasper.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_visor"), VariantColor.class), EntityJasper.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/jasper/color_eyes"), VariantColor.class), EntityJasper.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/jasper/index"), EntityJasper.class);
 	}
 	
 	public EntityJasper(World world) {

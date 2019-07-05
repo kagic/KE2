@@ -23,14 +23,7 @@ import net.minecraft.world.World;
 public class EntityZircon extends EntityGem {
 	public static final ArrayList<TagType> ZIRCON_COLORS = new ArrayList<TagType>();
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/hair_default"), VariantPath.class), EntityZircon.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/outfit_default"), VariantPath.class), EntityZircon.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/skin_default"), VariantPath.class), EntityZircon.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/color_gemstone"), VariantColor.class), EntityZircon.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/color_hair"), VariantColor.class), EntityZircon.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/color_outfit"), VariantColor.class), EntityZircon.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/color_skin"), VariantColor.class), EntityZircon.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/zircon/color_visor"), VariantColor.class), EntityZircon.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/zircon/index"), EntityZircon.class);
 		EntityZircon.ZIRCON_COLORS.add(new TagType(10, "ke2:zircon.color.blue"));
 		EntityZircon.ZIRCON_COLORS.add(new TagType(5, "ke2:zircon.color.white"));
 		EntityZircon.ZIRCON_COLORS.add(new TagType(1, "ke2:zircon.color.brown"));

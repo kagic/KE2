@@ -12,17 +12,7 @@ import net.minecraft.world.World;
 
 public class EntityPyrite extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/hair_default"), VariantPath.class), EntityPyrite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/hair_forehead"), VariantPath.class), EntityPyrite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/outfit_default"), VariantPath.class), EntityPyrite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/outfit_doc"), VariantPath.class), EntityPyrite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/outfit_navy"), VariantPath.class), EntityPyrite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/skin_default"), VariantPath.class), EntityPyrite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/color_gemstone"), VariantColor.class), EntityPyrite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/color_hair"), VariantColor.class), EntityPyrite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/color_outfit"), VariantColor.class), EntityPyrite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/color_skin"), VariantColor.class), EntityPyrite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/pyrite/color_visor"), VariantColor.class), EntityPyrite.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/pyrite/index"), EntityPyrite.class);
 	}
 	
 	public EntityPyrite(World world) {

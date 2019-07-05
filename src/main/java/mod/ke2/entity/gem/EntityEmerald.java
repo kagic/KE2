@@ -12,14 +12,7 @@ import net.minecraft.world.World;
 
 public class EntityEmerald extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/emerald/hair_default"), VariantPath.class), EntityEmerald.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/emerald/outfit_default"), VariantPath.class), EntityEmerald.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/emerald/skin_default"), VariantPath.class), EntityEmerald.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/emerald/color_gemstone"), VariantColor.class), EntityEmerald.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/emerald/color_hair"), VariantColor.class), EntityEmerald.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/emerald/color_outfit"), VariantColor.class), EntityEmerald.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/emerald/color_skin"), VariantColor.class), EntityEmerald.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/emerald/color_visor"), VariantColor.class), EntityEmerald.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/emerald/index"), EntityAgate.class);
 	}
 	
 	public EntityEmerald(World world) {

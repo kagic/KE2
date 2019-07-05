@@ -10,12 +10,7 @@ import net.minecraft.world.World;
 
 public class EntityRoseQuartz extends AbstractQuartz {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_gemstone"), VariantColor.class), EntityRoseQuartz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_hair"), VariantColor.class), EntityRoseQuartz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_outfit"), VariantColor.class), EntityRoseQuartz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_skin"), VariantColor.class), EntityRoseQuartz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_visor"), VariantColor.class), EntityRoseQuartz.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/rose_quartz/color_eyes"), VariantColor.class), EntityRoseQuartz.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/rose_quartz/index"), EntityRoseQuartz.class);
 	}
 	
 	public EntityRoseQuartz(World world) {

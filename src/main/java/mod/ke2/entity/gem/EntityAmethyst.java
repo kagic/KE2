@@ -10,12 +10,7 @@ import net.minecraft.world.World;
 
 public class EntityAmethyst extends AbstractQuartz {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/amethyst/color_gemstone"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/amethyst/color_hair"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/amethyst/color_outfit"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/amethyst/color_skin"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/amethyst/color_visor"), VariantColor.class), EntityAmethyst.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/amethyst/color_eyes"), VariantColor.class), EntityAmethyst.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/amethyst/index"), EntityAmethyst.class);
 	}
 	
 	public EntityAmethyst(World world) {

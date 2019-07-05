@@ -10,11 +10,7 @@ import net.minecraft.world.World;
 
 public class EntityHessonite extends AbstractGarnet {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/hessonite/color_gemstone"), VariantColor.class), EntityHessonite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/hessonite/color_hair"), VariantColor.class), EntityHessonite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/hessonite/color_outfit"), VariantColor.class), EntityHessonite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/hessonite/color_skin"), VariantColor.class), EntityHessonite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/hessonite/color_visor"), VariantColor.class), EntityHessonite.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/hessonite/index"), EntityHessonite.class);
 	}
 	
 	public EntityHessonite(World world) {

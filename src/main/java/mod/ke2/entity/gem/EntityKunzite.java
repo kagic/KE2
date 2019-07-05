@@ -12,14 +12,7 @@ import net.minecraft.world.World;
 
 public class EntityKunzite extends EntityGem {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/hair_default"), VariantPath.class), EntityKunzite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/outfit_default"), VariantPath.class), EntityKunzite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/skin_default"), VariantPath.class), EntityKunzite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/color_gemstone"), VariantColor.class), EntityKunzite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/color_hair"), VariantColor.class), EntityKunzite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/color_outfit"), VariantColor.class), EntityKunzite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/color_skin"), VariantColor.class), EntityKunzite.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/kunzite/color_visor"), VariantColor.class), EntityKunzite.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/kunzite/index"), EntityKunzite.class);
 	}
 	
 	public EntityKunzite(World world) {

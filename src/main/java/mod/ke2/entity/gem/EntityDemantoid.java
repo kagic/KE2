@@ -10,11 +10,7 @@ import net.minecraft.world.World;
 
 public class EntityDemantoid extends AbstractGarnet {
 	static {
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/demantoid/color_gemstone"), VariantColor.class), EntityDemantoid.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/demantoid/color_hair"), VariantColor.class), EntityDemantoid.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/demantoid/color_outfit"), VariantColor.class), EntityDemantoid.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/demantoid/color_skin"), VariantColor.class), EntityDemantoid.class);
-		Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation("ke2:variants/demantoid/color_visor"), VariantColor.class), EntityDemantoid.class);
+		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/demantoid/index"), EntityDemantoid.class);
 	}
 	
 	public EntityDemantoid(World world) {
