@@ -175,7 +175,7 @@ public abstract class EntityGem extends EntityGemBase implements IGem, IInventor
 		}
 		this.setOriginalPosition(this.getPosition());
 		this.setOriginalDimension(this.dimension);
-		this.setGemstonePosition(this.rand.nextInt(18));
+		this.setGemstonePosition(this.rand.nextInt(20));
 		this.setOutfitVariant(this.generateOutfitVariant());
 		this.setHairVariant(this.generateHairVariant());
 		this.setSkinVariant(this.generateSkinVariant());
