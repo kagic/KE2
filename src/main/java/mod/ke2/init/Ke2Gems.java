@@ -57,34 +57,38 @@ public class Ke2Gems {
 	public static final int GEMSTONE_RIGHT_EYE = 2;
 	/** Eye placement; analogous to Scorpio. */
 	public static final int GEMSTONE_LEFT_EYE = 3;
+	/** Cheek placement; analogous to Scorpio. */
+	public static final int GEMSTONE_RIGHT_CHEEK = 4;
+	/** Cheek placement; analogous to Scorpio. */
+	public static final int GEMSTONE_LEFT_CHEEK = 5;
 	/** Nose placement; analogous to Aries. */
-	public static final int GEMSTONE_NOSE = 4;
+	public static final int GEMSTONE_NOSE = 6;
 	/** Shoulder placement; analogous to Libra. */
-	public static final int GEMSTONE_RIGHT_SHOULDER = 5;
+	public static final int GEMSTONE_RIGHT_SHOULDER = 7;
 	/** Shoulder placement; analogous to Libra. */
-	public static final int GEMSTONE_LEFT_SHOULDER = 6;
+	public static final int GEMSTONE_LEFT_SHOULDER = 8;
 	/** Hand placement; analogous to Gemini. */
-	public static final int GEMSTONE_RIGHT_HAND = 7;
+	public static final int GEMSTONE_RIGHT_HAND = 9;
 	/** Hand placement; analogous to Gemini. */
-	public static final int GEMSTONE_LEFT_HAND = 8;
+	public static final int GEMSTONE_LEFT_HAND = 10;
 	/** Chest placement; analogous to Cancer. */
-	public static final int GEMSTONE_CHEST = 9;
+	public static final int GEMSTONE_CHEST = 11;
 	/** Back placement; analogous to Virgo. */
-	public static final int GEMSTONE_BACK = 10;
+	public static final int GEMSTONE_BACK = 12;
 	/** Navel placement; analogous to Leo. */
-	public static final int GEMSTONE_NAVEL = 11;
+	public static final int GEMSTONE_NAVEL = 13;
 	/** Thigh placement; analogous to Sagittarius. */
-	public static final int GEMSTONE_RIGHT_THIGH = 12;
+	public static final int GEMSTONE_RIGHT_THIGH = 14;
 	/** Thigh placement; analogous to Sagittarius. */
-	public static final int GEMSTONE_LEFT_THIGH = 13;
+	public static final int GEMSTONE_LEFT_THIGH = 15;
 	/** Knee placement; analogous to Capricorn. */
-	public static final int GEMSTONE_RIGHT_KNEE = 14;
+	public static final int GEMSTONE_RIGHT_KNEE = 16;
 	/** Knee placement; analogous to Capricorn. */
-	public static final int GEMSTONE_LEFT_KNEE = 15;
+	public static final int GEMSTONE_LEFT_KNEE = 17;
 	/** Foot placement; analogous to Pisces. */
-	public static final int GEMSTONE_RIGHT_FOOT = 16;
+	public static final int GEMSTONE_RIGHT_FOOT = 18;
 	/** Foot placement; analogous to Pisces. */
-	public static final int GEMSTONE_LEFT_FOOT = 17;
+	public static final int GEMSTONE_LEFT_FOOT = 19;
 
 	/**
 	 * Emotional phase at which attachments (typically

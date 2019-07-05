@@ -71,6 +71,16 @@ public class ModelRuby extends ModelGem {
 				GlStateManager.translate(0.0, 0.9, -0.96);
 				GlStateManager.scale(1.0, 1.0, 1.5);
 				break;
+			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
+				GlStateManager.scale(0.5, 0.5, 0.5);
+				this.bipedHead.postRender(scale);
+				GlStateManager.translate(0.25, 0.27, -0.57);
+				break;
+			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
+				GlStateManager.scale(0.5, 0.5, 0.5);
+				this.bipedHead.postRender(scale);
+				GlStateManager.translate(-0.25, 0.27, -0.57);
+				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
 				this.bipedRightArm.postRender(scale);
 				break;
