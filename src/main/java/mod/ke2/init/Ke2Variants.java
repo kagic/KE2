@@ -77,7 +77,7 @@ public class Ke2Variants {
 			InputStream in = Ke2Gems.class.getResourceAsStream("/assets/" + loc.getResourceDomain() + "/" + loc.getResourcePath() + ".json");
 			VariantIndex index = KAGIC.JSON.fromJson(new BufferedReader(new InputStreamReader(in)), VariantIndex.class);
 			for (int i = 0; i < gem.length; ++i) {
-				if (index == null || index.matches(gem[i])) {
+				if (index.applicant.isEmpty() || index.matches(gem[i])) {
 					for (int t = 0; t < index.colors.length; ++t) {
 						Ke2Variants.addVariantToGem(Ke2Variants.registerVariant(new ResourceLocation(index.colors[t]), VariantColor.class), gem[i]);
 					}

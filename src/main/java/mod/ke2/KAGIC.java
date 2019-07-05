@@ -102,7 +102,6 @@ public class KAGIC {
 		Ke2Recipes.register(null);
 		Ke2Entities.register(0);
 		Ke2Messages.register();
-		Ke2Ores.register();
 		KAGIC.proxy.preInit(event);
 	}
 	
@@ -113,6 +112,7 @@ public class KAGIC {
 		Ke2Entities.register(1);
 		Ke2Variants.register();
 		Ke2Potions.register();
+		Ke2Ores.register();
 		KAGIC.proxy.init(event);
 	}
 	
