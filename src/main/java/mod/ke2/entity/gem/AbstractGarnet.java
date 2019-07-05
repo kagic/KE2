@@ -3,6 +3,8 @@ package mod.ke2.entity.gem;
 import java.util.ArrayList;
 
 import mod.ke2.api.EntityGem;
+import mod.ke2.api.variants.VariantHelper;
+import mod.ke2.api.variants.types.TagType;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -108,6 +110,40 @@ public abstract class AbstractGarnet extends EntityGem {
 		} else {
 			return false;
 		}
+	}
+	
+	public String getGarnetModel() {
+		return "ke2:garnet.model.fighter";
+	}
+	
+	@Override
+	public int generateSkinColor() {
+		return VariantHelper.loadVariantColor(this, "ke2:color.skin", this.getGarnetModel());
+	}
+	
+	@Override
+	public int generateHairColor() {
+		return VariantHelper.loadVariantColor(this, "ke2:color.hair", this.getGarnetModel());
+	}
+	
+	@Override
+	public int generateOutfitColor() {
+		return VariantHelper.loadVariantColor(this, "ke2:color.outfit", this.getGarnetModel());
+	}
+	
+	@Override
+	public int generateVisorColor() {
+		return VariantHelper.loadVariantColor(this, "ke2:color.visor", this.getGarnetModel());
+	}
+	
+	@Override
+	public int generateGemstoneColor() {
+		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone", this.getGarnetModel());
+	}
+	
+	@Override
+	public String generateNameVariant() {
+		return VariantHelper.loadVariantName(this, "ke2:name", this.getGarnetModel());
 	}
 	
 	@Override

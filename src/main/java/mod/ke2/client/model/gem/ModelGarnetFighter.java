@@ -5,10 +5,10 @@ import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelGarnetGeneral extends ModelGem {
+public class ModelGarnetFighter extends ModelGem {
 	public ModelRenderer bipedShoulderPads;
 	
-	public ModelGarnetGeneral() {
+	public ModelGarnetFighter() {
 		super(0.0F, 0.0F, 80, 80);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-6.0F, -12.0F, -4.0F, 12, 12, 8, 0.0F);

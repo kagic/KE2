@@ -27,6 +27,11 @@ public class EntityDemantoid extends AbstractGarnet {
 	}
 	
 	@Override
+	public String getGarnetModel() {
+		return "ke2:garnet.model.diplomat";
+	}
+	
+	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
