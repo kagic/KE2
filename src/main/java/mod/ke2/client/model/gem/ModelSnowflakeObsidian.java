@@ -47,10 +47,9 @@ public class ModelSnowflakeObsidian extends ModelGem {
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netbipedHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netbipedHeadYaw, headPitch, scaleFactor, entity);
 	}
-	
+
 	@Override
-	public void renderGemOnBody(int pos, float scale) {
-		super.renderGemOnBody(pos, scale);
+	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
 				break;

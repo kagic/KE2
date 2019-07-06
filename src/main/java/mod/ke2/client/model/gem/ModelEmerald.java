@@ -82,10 +82,9 @@ public class ModelEmerald extends ModelGem {
 		this.bipedLeftLeg.offsetY = -0.25F;
 		this.bipedHead.rotationPointY = -6.0F;
 	}
-	
+
 	@Override
-	public void renderGemOnBody(int pos, float scale) {
-		super.renderGemOnBody(pos, scale);
+	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
 				break;

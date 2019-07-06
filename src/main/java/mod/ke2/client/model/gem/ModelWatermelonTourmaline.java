@@ -38,10 +38,9 @@ public class ModelWatermelonTourmaline extends ModelGem {
 		this.bipedLeftLeg.render(scale);
 		this.bipedRightLeg.render(scale);
 	}
-	
+
 	@Override
-	public void renderGemOnBody(int pos, float scale) {
-		super.renderGemOnBody(pos, scale);
+	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
 				break;

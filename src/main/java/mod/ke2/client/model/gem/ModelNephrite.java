@@ -43,10 +43,9 @@ public class ModelNephrite extends ModelGem {
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
 	}
-	
+
 	@Override
-	public void renderGemOnBody(int pos, float scale) {
-		super.renderGemOnBody(pos, scale);
+	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
 				break;

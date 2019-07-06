@@ -70,10 +70,9 @@ public class ModelJadeRack extends ModelGem {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netbipedHeadYaw, headPitch, scaleFactor, entity);
 		this.bipedCog0.rotateAngleY = 0.7853981633974483F;
 	}
-	
+
 	@Override
-	public void renderGemOnBody(int pos, float scale) {
-		super.renderGemOnBody(pos, scale);
+	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
 				break;

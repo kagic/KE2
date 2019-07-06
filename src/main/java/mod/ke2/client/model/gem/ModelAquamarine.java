@@ -79,10 +79,9 @@ public class ModelAquamarine extends ModelGem {
 		this.bipedRightWing.rotateAngleY = MathHelper.cos(ageInTicks * 0.8F) * (float) Math.PI * 0.05F;
 		this.bipedLeftWing.rotateAngleY = -this.bipedRightWing.rotateAngleY;
 	}
-	
+
 	@Override
-	public void renderGemOnBody(int pos, float scale) {
-		super.renderGemOnBody(pos, scale);
+	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
 				break;

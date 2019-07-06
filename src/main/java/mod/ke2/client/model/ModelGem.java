@@ -64,9 +64,9 @@ public class ModelGem extends ModelBiped {
 				this.bipedRightArm.rotateAngleZ *= Math.sin(ageInTicks);
 				this.bipedLeftArm.rotateAngleZ *= Math.cos(ageInTicks);
 			}
-			if (gem.getPose() == EntityGem.Pose.HEAD_BANGING) {
+			//if (gem.getPose() == EntityGem.Pose.HEAD_BANGING) {
 				this.bipedHead.rotateAngleX = (float) Math.sin(ageInTicks) / 5.0F;
-			}
+			//}
 		}
 		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
 	}
@@ -77,6 +77,7 @@ public class ModelGem extends ModelBiped {
 	
 	public void preRenderGem(int pos, float scale) {
 		this.setGemRenderPositions(pos, scale);
+		this.preGemRenderCallback(pos, scale);
 		this.bipedGem.render(scale);
 	}
 	
@@ -143,5 +144,9 @@ public class ModelGem extends ModelBiped {
 				this.bipedLeftLeg.postRender(scale);
 				break;
 		}
+	}
+	
+	public void preGemRenderCallback(int pos, float scale) {
+		
 	}
 }
