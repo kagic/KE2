@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 public class EntityBubble extends EntityLiving {
 	private static final DataParameter<NBTTagCompound> ITEM = EntityDataManager.<NBTTagCompound>createKey(EntityBubble.class, DataSerializers.COMPOUND_TAG);
 	private static final DataParameter<Integer> COLOR = EntityDataManager.<Integer>createKey(EntityBubble.class, DataSerializers.VARINT);
-	
+
 	public EntityBubble(World world) {
 		super(world);
 		this.setSize(0.8F, 0.8F);
@@ -33,14 +33,14 @@ public class EntityBubble extends EntityLiving {
 		this.dataManager.register(EntityBubble.COLOR, 0xFFFFFF);
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(0.5D);
 	}
-	
+
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		compound.setTag("item", this.getItem().serializeNBT());
 		compound.setInteger("color", this.getColor());
 		super.writeEntityToNBT(compound);
 	}
-	
+
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		NBTTagCompound itemStackTag = (NBTTagCompound) compound.getTag("item");
@@ -48,14 +48,14 @@ public class EntityBubble extends EntityLiving {
 		this.setColor(compound.getInteger("color"));
 		super.readEntityFromNBT(compound);
 	}
-	
+
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData livingdata) {
 		livingdata = super.onInitialSpawn(difficulty, livingdata);
 		this.setHealth(0.5F);
 		return livingdata;
 	}
-	
+
 	@Override
 	public boolean processInteract(EntityPlayer player, EnumHand hand) {
 		if (!this.world.isRemote && hand == EnumHand.MAIN_HAND) {
@@ -104,14 +104,14 @@ public class EntityBubble extends EntityLiving {
 		}
 		return super.processInteract(player, hand);
 	}
-	
+
 	@Override
 	public void onLivingUpdate() {
 		this.setNoGravity(true);
 		super.onLivingUpdate();
 		this.motionY *= 0.9;
 	}
-	
+
 	@Override
 	public void onDeath(DamageSource cause) {
 		if (!this.world.isRemote) {
@@ -129,7 +129,7 @@ public class EntityBubble extends EntityLiving {
 		this.playPopSound();
 		super.onDeath(cause);
 	}
-	
+
 	@Override
 	public boolean attackEntityFrom(DamageSource source, float amount) {
 		if (source.getTrueSource() != null || source == DamageSource.CACTUS || source == DamageSource.CRAMMING || source == DamageSource.OUT_OF_WORLD || source == DamageSource.IN_WALL) {
@@ -137,56 +137,56 @@ public class EntityBubble extends EntityLiving {
 		}
 		return false;
 	}
-	
+
 	public ItemStack getItem() {
 		return new ItemStack(this.dataManager.get(EntityBubble.ITEM));
 	}
-	
+
 	public void setItem(ItemStack item) {
 		this.dataManager.set(EntityBubble.ITEM, item.serializeNBT());
 	}
-	
+
 	@Override
 	protected boolean canTriggerWalking() {
 		return false;
 	}
-	
+
 	@Override
 	public void fall(float distance, float damageMultiplier) {
 		return;
 	}
-	
+
 	@Override
 	public boolean canDespawn() {
 		return false;
 	}
-	
+
 	@Override
 	public SoundEvent getHurtSound(DamageSource source) {
 		return null;
 	}
-	
+
 	@Override
 	public SoundEvent getDeathSound() {
 		return null;
 	}
-	
+
 	public void setColor(int color) {
 		this.dataManager.set(EntityBubble.COLOR, color);
 	}
-	
+
 	public int getColor() {
 		return this.dataManager.get(EntityBubble.COLOR);
 	}
-	
+
 	public void playBubbleSound() {
 		this.playSound(Ke2Sounds.BUBBLE_CREATE, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 	}
-	
+
 	public void playPopSound() {
 		this.playSound(Ke2Sounds.BUBBLE_POP, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 	}
-	
+
 	public void playSendSound() {
 		this.playSound(Ke2Sounds.BUBBLE_SEND, this.getSoundVolume(), (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 	}

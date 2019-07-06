@@ -13,7 +13,7 @@ public class ModelCoral extends ModelGem {
 	public ModelRenderer bipedHair;
 	public ModelRenderer bipedTorso;
 	public ModelRenderer bipedNeck;
-	
+
 	public ModelCoral() {
 		super(0.0F, 0.0F, 72, 64);
 		this.bipedHeadwear = new ModelRenderer(this, 0, 0);
@@ -42,7 +42,7 @@ public class ModelCoral extends ModelGem {
 		this.bipedNeck.setRotationPoint(0.0F, 3.0F, 0.0F);
 		this.bipedNeck.addBox(-0.5F, -2.0F, -0.5F, 1, 2, 1, 0.0F);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -61,12 +61,12 @@ public class ModelCoral extends ModelGem {
 		this.bipedLeftLeg.render(scale);
 		GlStateManager.disableBlend();
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 	}
-
+	
 	@Override
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
@@ -112,7 +112,7 @@ public class ModelCoral extends ModelGem {
 				break;
 		}
 	}
-	
+
 	@Override
 	public void postGemRenderCallback(int pos, float scale) {
 		switch (pos) {

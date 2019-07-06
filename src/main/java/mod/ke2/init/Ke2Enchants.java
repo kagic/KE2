@@ -23,7 +23,7 @@ public class Ke2Enchants {
 	public static final EnchantShard RED_GEM_SHARD = new EnchantShard(Ke2Gems.BASIC_RED);
 	public static final EnchantShard BLACK_GEM_SHARD = new EnchantShard(Ke2Gems.BASIC_BLACK);
 	public static final EnchantBubble BUBBLE = new EnchantBubble();
-	
+
 	public static void register(RegistryEvent.Register<Enchantment> event) {
 		Ke2Enchants.registerEnchant(Ke2Enchants.WHITE_GEM_SHARD, event);
 		Ke2Enchants.registerEnchant(Ke2Enchants.ORANGE_GEM_SHARD, event);
@@ -43,7 +43,7 @@ public class Ke2Enchants {
 		Ke2Enchants.registerEnchant(Ke2Enchants.BLACK_GEM_SHARD, event);
 		Ke2Enchants.registerEnchant(Ke2Enchants.BUBBLE, event);
 	}
-	
+
 	private static void registerEnchant(Enchantment enchant, RegistryEvent.Register<Enchantment> event) {
 		event.getRegistry().register(enchant);
 	}

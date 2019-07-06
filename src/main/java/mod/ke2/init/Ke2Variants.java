@@ -20,24 +20,24 @@ import net.minecraft.util.ResourceLocation;
 public class Ke2Variants {
 	public static final HashMap<ResourceLocation, ArrayList<ResourceLocation>> TABLE = new HashMap<ResourceLocation, ArrayList<ResourceLocation>>();
 	public static final HashMap<ResourceLocation, IVariant<?>> REGISTRY = new HashMap<ResourceLocation, IVariant<?>>();
-	
+
 	public static void register() {
 		Ke2Variants.registerGarnetVariants();
 		Ke2Variants.registerQuartzVariants();
 	}
-	
+
 	public static void registerGarnetVariants() {
 		for (Class<? extends AbstractGarnet> garnet : AbstractGarnet.GLOBAL_VARIANT_CLASSES) {
 			Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/garnet/index"), garnet);
 		}
 	}
-	
+
 	public static void registerQuartzVariants() {
 		for (Class<? extends AbstractQuartz> quartz : AbstractQuartz.GLOBAL_VARIANT_CLASSES) {
 			Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/quartz/index"), quartz);
 		}
 	}
-	
+
 	public static ResourceLocation registerVariant(ResourceLocation loc, Class<? extends IVariant<?>> type) {
 		try {
 			InputStream in = Ke2Gems.class.getResourceAsStream("/assets/" + loc.getResourceDomain() + "/" + loc.getResourcePath() + ".json");
@@ -49,7 +49,7 @@ public class Ke2Variants {
 		}
 		return null;
 	}
-	
+
 	public static ResourceLocation registerVariant(ResourceLocation loc, IVariant<?> variant) {
 		if (!Ke2Variants.REGISTRY.containsKey(loc)) {
 			Ke2Variants.REGISTRY.put(loc, variant);
@@ -59,19 +59,19 @@ public class Ke2Variants {
 		}
 		return loc;
 	}
-	
+
 	public static void addVariantToGem(ResourceLocation loc, ResourceLocation... gem) {
 		for (int i = 0; i < gem.length; ++i) {
 			Ke2Variants.TABLE.get(gem[i]).add(loc);
 		}
 	}
-	
+
 	public static void addVariantToGem(ResourceLocation loc, Class<? extends EntityGem>... gem) {
 		for (int i = 0; i < gem.length; ++i) {
 			Ke2Variants.addVariantToGem(loc, Ke2Gems.REGISTRY_REVERSE.get(gem[i]));
 		}
 	}
-	
+
 	public static void addVariantIndexFile(ResourceLocation loc, ResourceLocation... gem) {
 		try {
 			InputStream in = Ke2Gems.class.getResourceAsStream("/assets/" + loc.getResourceDomain() + "/" + loc.getResourcePath() + ".json");
@@ -97,7 +97,7 @@ public class Ke2Variants {
 			KAGIC.LOGGER.warn("Report this to addon or mod author!");
 		}
 	}
-	
+
 	public static void addVariantIndexFile(ResourceLocation loc, Class<? extends EntityGem>... gem) {
 		for (int i = 0; i < gem.length; ++i) {
 			Ke2Variants.addVariantIndexFile(loc, Ke2Gems.REGISTRY_REVERSE.get(gem[i]));

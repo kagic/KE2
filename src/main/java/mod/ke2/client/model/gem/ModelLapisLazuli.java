@@ -11,7 +11,7 @@ import net.minecraft.util.math.Vec3d;
 public class ModelLapisLazuli extends ModelGem {
 	public ModelRenderer bipedRightWing;
 	public ModelRenderer bipedLeftWing;
-	
+
 	public ModelLapisLazuli() {
 		super(0.0F, 0.0F, 64, 72);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -36,7 +36,7 @@ public class ModelLapisLazuli extends ModelGem {
 		this.bipedSkirt.addBox(-4.0F, 12.0F, -4.0F, 8, 12, 8, 0.0F);
 		this.bipedBody.addChild(this.bipedSkirt);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -52,14 +52,14 @@ public class ModelLapisLazuli extends ModelGem {
 			}
 		}
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
 	}
-	
+
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float limbSwingAmount, float ageInTicks, float partialTickTime) {
 		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
@@ -88,7 +88,7 @@ public class ModelLapisLazuli extends ModelGem {
 			this.bipedLeftArm.rotateAngleX = (float) (-Math.PI / 2.0F);
 		}
 	}
-
+	
 	@Override
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
@@ -134,7 +134,7 @@ public class ModelLapisLazuli extends ModelGem {
 				break;
 		}
 	}
-	
+
 	@Override
 	public void postGemRenderCallback(int pos, float scale) {
 		switch (pos) {

@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import mod.ke2.api.EntityGem;
 import mod.ke2.api.variants.VariantHelper;
 import mod.ke2.api.variants.types.TagType;
-import mod.ke2.api.variants.types.VariantColor;
-import mod.ke2.api.variants.types.VariantPath;
 import mod.ke2.init.Ke2Gems;
 import mod.ke2.init.Ke2Sounds;
 import mod.ke2.init.Ke2Variants;
@@ -39,14 +37,14 @@ public class EntityPearl extends EntityGem {
 	protected static final DataParameter<String> VARIANT_EYES = EntityDataManager.<String>createKey(EntityPearl.class, DataSerializers.STRING);
 	protected static final DataParameter<Integer> COLOR_RGB_EYES = EntityDataManager.<Integer>createKey(EntityPearl.class, DataSerializers.VARINT);
 	protected static final DataParameter<String> PEARL_COLOR = EntityDataManager.<String>createKey(EntityPearl.class, DataSerializers.STRING);
-	
+
 	public EntityPearl(World world) {
 		super(world);
 		this.dataManager.register(EntityPearl.VARIANT_EYES, "");
 		this.dataManager.register(EntityPearl.COLOR_RGB_EYES, 0);
 		this.dataManager.register(EntityPearl.PEARL_COLOR, "ke2:pearl.color.blue");
 	}
-	
+
 	@Override
 	public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, IEntityLivingData data) {
 		this.setEyesVariant(this.generateEyesVariant());
@@ -54,7 +52,7 @@ public class EntityPearl extends EntityGem {
 		this.setPearlColor(this.generatePearlColor());
 		return super.onInitialSpawn(difficulty, data);
 	}
-	
+
 	@Override
 	public void readEntityFromNBT(NBTTagCompound compound) {
 		super.readEntityFromNBT(compound);
@@ -62,7 +60,7 @@ public class EntityPearl extends EntityGem {
 		this.setEyesColor(compound.getInteger("EyesColor"));
 		this.setPearlColor(compound.getString("PearlColor"));
 	}
-	
+
 	@Override
 	public void writeEntityToNBT(NBTTagCompound compound) {
 		super.writeEntityToNBT(compound);
@@ -70,62 +68,62 @@ public class EntityPearl extends EntityGem {
 		compound.setInteger("EyesColor", this.getEyesColor());
 		compound.setString("PearlColor", this.getPearlColor());
 	}
-	
+
 	@Override
 	public int generateSkinColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.skin", this.getPearlColor());
 	}
-	
+
 	@Override
 	public int generateHairColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.hair", this.getPearlColor());
 	}
-	
+
 	@Override
 	public int generateOutfitColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.outfit", this.getPearlColor());
 	}
-	
+
 	@Override
 	public int generateVisorColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.visor", this.getPearlColor());
 	}
-	
+
 	@Override
 	public int generateGemstoneColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:color.gemstone", this.getPearlColor());
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-	
+
 	public String generateEyesVariant() {
 		return VariantHelper.loadVariantPath(this, "ke2:pearl.texture.eyes");
 	}
-	
+
 	public void setEyesVariant(String variant) {
 		this.dataManager.set(EntityPearl.VARIANT_EYES, variant);
 	}
-	
+
 	public String getEyesVariant() {
 		return this.dataManager.get(EntityPearl.VARIANT_EYES);
 	}
-	
+
 	public int generateEyesColor() {
 		return VariantHelper.loadVariantColor(this, "ke2:quartz.color.eyes");
 	}
-	
+
 	public void setEyesColor(int color) {
 		this.dataManager.set(EntityPearl.COLOR_RGB_EYES, color);
 	}
-	
+
 	public int getEyesColor() {
 		if (this.getGemAlignment() >= Ke2Gems.CONTROLLED_BY_WHITE) {
 			return 0xCCCCCC;
@@ -133,19 +131,19 @@ public class EntityPearl extends EntityGem {
 			return this.dataManager.get(EntityPearl.COLOR_RGB_EYES);
 		}
 	}
-	
+
 	public void setPearlColor(String color) {
 		this.dataManager.set(EntityPearl.PEARL_COLOR, color);
 	}
-	
+
 	public String getPearlColor() {
 		return this.dataManager.get(EntityPearl.PEARL_COLOR);
 	}
-	
+
 	public String generatePearlColor() {
 		return TagType.weigh(EntityPearl.PEARL_COLORS).getTag();
 	}
-
+	
 	@Override
 	public SoundEvent getGemSound() {
 		return Ke2Sounds.GEM_PEARL;

@@ -17,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 public class EnchantShard extends Enchantment {
 	public static final HashMap<String, EnchantShard> ENCHANTS = new HashMap<String, EnchantShard>();
 	public final int color;
-	
+
 	public EnchantShard(int color) {
 		super(Rarity.UNCOMMON, null, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND});
 		String name = EnumDyeColor.byMetadata(color).toString().toLowerCase();
@@ -26,7 +26,7 @@ public class EnchantShard extends Enchantment {
 		EnchantShard.ENCHANTS.put(name + "_gem_shard", this);
 		this.color = color;
 	}
-	
+
 	@Override
 	public void onEntityDamaged(EntityLivingBase user, Entity target, int level) {
 		if (target instanceof EntityLivingBase) {
@@ -43,7 +43,7 @@ public class EnchantShard extends Enchantment {
 			}
 		}
 	}
-	
+
 	@Override
 	public void onUserHurt(EntityLivingBase user, Entity attacker, int level) {
 		for (EntityEquipmentSlot slot : EntityEquipmentSlot.values()) {
@@ -66,42 +66,42 @@ public class EnchantShard extends Enchantment {
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isTreasureEnchantment() {
 		return true;
 	}
-	
+
 	@Override
 	public boolean isCurse() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isAllowedOnBooks() {
 		return true;
 	}
-	
+
 	@Override
 	public int getMinEnchantability(int enchantmentLevel) {
 		return 2147483647;
 	}
-	
+
 	@Override
 	public int getMaxEnchantability(int enchantmentLevel) {
 		return 2147483647;
 	}
-	
+
 	@Override
 	public int getMaxLevel() {
 		return 1;
 	}
-	
+
 	public PotionEffect getDeBuff(int color) {
 		switch (color) {
 			case 0 : // White
@@ -140,7 +140,7 @@ public class EnchantShard extends Enchantment {
 				return new PotionEffect(MobEffects.WITHER, 400);
 		}
 	}
-	
+
 	public PotionEffect getBuff(int color) {
 		switch (color) {
 			case 0 : // White

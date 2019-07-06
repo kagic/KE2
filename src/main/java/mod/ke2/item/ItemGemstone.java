@@ -40,7 +40,7 @@ public class ItemGemstone extends Item {
 			}
 		});
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
@@ -62,7 +62,7 @@ public class ItemGemstone extends Item {
 			tooltip.add("No information available.");
 		}
 	}
-	
+
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World world, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (!world.isRemote) {
@@ -83,7 +83,7 @@ public class ItemGemstone extends Item {
 		}
 		return EnumActionResult.PASS;
 	}
-	
+
 	@Override
 	public boolean onEntityItemUpdate(EntityItem entity) {
 		boolean spawned = false;
@@ -108,14 +108,14 @@ public class ItemGemstone extends Item {
 		}
 		return false;
 	}
-	
+
 	@Override
 	public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {
 		if (world.getWorldTime() % 20 == 0 && stack.getItemDamage() > 0) {
 			stack.setItemDamage(Math.max(stack.getItemDamage() - 1 * (isSelected ? 2 : 1), 0));
 		}
 	}
-	
+
 	public boolean spawnGem(World world, EntityPlayer player, BlockPos pos, ItemStack stack) {
 		if (!world.isRemote) {
 			try {
@@ -136,7 +136,7 @@ public class ItemGemstone extends Item {
 		}
 		return false;
 	}
-	
+
 	public void setData(EntityGem gem, ItemStack stack) {
 		stack.setTagCompound(gem.writeToNBT(new NBTTagCompound()));
 		stack.getTagCompound().setString("Name", gem.getName());

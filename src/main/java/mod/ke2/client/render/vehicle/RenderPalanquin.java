@@ -16,7 +16,7 @@ public class RenderPalanquin extends RenderLiving<EntityPalanquin> {
 		this.layerRenderers.add(new LayerPalanquinHighlights(this));
 		this.layerRenderers.add(new LayerPalanquinVeil(this));
 	}
-	
+
 	@Override
 	protected ResourceLocation getEntityTexture(EntityPalanquin entity) {
 		return new ResourceLocation("ke2:textures/entities/none/null.png");

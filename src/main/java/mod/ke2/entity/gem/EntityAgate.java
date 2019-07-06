@@ -11,21 +11,21 @@ public class EntityAgate extends AbstractQuartz {
 	static {
 		Ke2Variants.addVariantIndexFile(new ResourceLocation("ke2:variants/agate/index"), EntityAgate.class);
 	}
-	
+
 	public EntityAgate(World world) {
 		super(world);
 	}
-	
+
 	@Override
 	public void onInventoryChanged(IInventory inventory) {
-		
+
 	}
-	
+
 	@Override
 	public int generateGemstoneCut() {
 		return 0;
 	}
-
+	
 	@Override
 	public SoundEvent getGemSound() {
 		return Ke2Sounds.GEM_AGATE;

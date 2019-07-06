@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 
 public class ModelGarnetFighter extends ModelGem {
 	public ModelRenderer bipedShoulderPads;
-	
+
 	public ModelGarnetFighter() {
 		super(0.0F, 0.0F, 80, 80);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -34,7 +34,7 @@ public class ModelGarnetFighter extends ModelGem {
 		this.bipedLeftLeg.addBox(0.0F, 0.0F, -2.0F, 4, 16, 4, 0.0F);
 		this.bipedLeftLeg.offsetY = -0.25F;
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -45,7 +45,7 @@ public class ModelGarnetFighter extends ModelGem {
 		this.bipedRightLeg.render(scale);
 		this.bipedLeftLeg.render(scale);
 	}
-
+	
 	@Override
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
@@ -91,7 +91,7 @@ public class ModelGarnetFighter extends ModelGem {
 				break;
 		}
 	}
-	
+
 	@Override
 	public void postGemRenderCallback(int pos, float scale) {
 		switch (pos) {

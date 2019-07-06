@@ -30,7 +30,7 @@ public class ModelSapphire extends ModelGem {
 		this.bipedSkirt.addBox(-6.0F, 14.0F, -6.0F, 12, 10, 12);
 		this.bipedBody.addChild(this.bipedSkirt);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -39,14 +39,14 @@ public class ModelSapphire extends ModelGem {
 		this.bipedRightArm.render(scale);
 		this.bipedLeftArm.render(scale);
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
 	}
-
+	
 	@Override
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
@@ -92,7 +92,7 @@ public class ModelSapphire extends ModelGem {
 				break;
 		}
 	}
-	
+
 	@Override
 	public void postGemRenderCallback(int pos, float scale) {
 		switch (pos) {

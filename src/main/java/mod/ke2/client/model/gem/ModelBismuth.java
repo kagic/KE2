@@ -32,7 +32,7 @@ public class ModelBismuth extends ModelGem {
 		this.bipedLeftLeg.addBox(2.0F, 0.0F, -2.0F, 4, 16, 4);
 		this.bipedLeftLeg.offsetY = -0.25F;
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -43,14 +43,14 @@ public class ModelBismuth extends ModelGem {
 		this.bipedRightLeg.render(scale);
 		this.bipedLeftLeg.render(scale);
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
 	}
-
+	
 	@Override
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
@@ -96,7 +96,7 @@ public class ModelBismuth extends ModelGem {
 				break;
 		}
 	}
-	
+
 	@Override
 	public void postGemRenderCallback(int pos, float scale) {
 		switch (pos) {

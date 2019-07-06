@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 
 public class ModelSnowflakeObsidian extends ModelGem {
 	public ModelRenderer bipedChest;
-	
+
 	public ModelSnowflakeObsidian() {
 		super(0.0F, 0.0F, 96, 96);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -35,19 +35,19 @@ public class ModelSnowflakeObsidian extends ModelGem {
 		this.bipedRightLeg.offsetY = -0.5F;
 		this.bipedBody.addChild(this.bipedRightLeg);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netbipedHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netbipedHeadYaw, headPitch, scale);
 		this.bipedHead.render(scale);
 		this.bipedBody.render(scale);
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netbipedHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netbipedHeadYaw, headPitch, scaleFactor, entity);
 	}
-
+	
 	@Override
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
@@ -93,7 +93,7 @@ public class ModelSnowflakeObsidian extends ModelGem {
 				break;
 		}
 	}
-	
+
 	@Override
 	public void postGemRenderCallback(int pos, float scale) {
 		switch (pos) {

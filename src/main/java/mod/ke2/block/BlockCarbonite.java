@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 
 public class BlockCarbonite extends Block implements ITileEntityProvider {
 	public static final HashMap<BlockCarbonite, BlockCarbonite> CONVERSION_TABLE = new HashMap<BlockCarbonite, BlockCarbonite>();
-	
+
 	public static void registerConversionTables() {
 		BlockCarbonite.CONVERSION_TABLE.put(Ke2Blocks.BLACK_HOLOGRAPHIC_CARBONITE_OFF, Ke2Blocks.BLACK_HOLOGRAPHIC_CARBONITE_ON);
 		BlockCarbonite.CONVERSION_TABLE.put(Ke2Blocks.BLUE_HOLOGRAPHIC_CARBONITE_OFF, Ke2Blocks.BLUE_HOLOGRAPHIC_CARBONITE_ON);
@@ -90,31 +90,31 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
 		BlockCarbonite.CONVERSION_TABLE.put(Ke2Blocks.WHITE_CARBONITE_ON, Ke2Blocks.WHITE_CARBONITE_OFF);
 		BlockCarbonite.CONVERSION_TABLE.put(Ke2Blocks.YELLOW_CARBONITE_ON, Ke2Blocks.YELLOW_CARBONITE_OFF);
 	}
-	
+
 	public enum Variety {
 		INERT(false, "$_carbonite"), ACTIVE(true, "$_carbonite"), DECORATIVE(false, "$_decorative_carbonite"), HOLOGRAPHIC(true, "$_holographic_carbonite");
 		private final boolean canBePowered;
 		private final String localName;
-		
+
 		Variety(boolean canBePowered, String localName) {
 			this.canBePowered = canBePowered;
 			this.localName = localName;
 		}
-		
+
 		public boolean canBePowered() {
 			return this.canBePowered;
 		}
-		
+
 		public String getName() {
 			return this.localName;
 		}
 	}
-	
+
 	private Variety variety = Variety.INERT;
 	private boolean canBePowered = true;
 	private boolean powered;
 	private int color;
-	
+
 	public BlockCarbonite(Variety variety, int color, boolean powered) {
 		super(Material.ROCK);
 		String name = EnumDyeColor.byMetadata(color).toString().toLowerCase();
@@ -136,16 +136,16 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
 			this.setHardness(2);
 		}
 	}
-	
+
 	public BlockCarbonite(Variety variety, int color) {
 		this(variety, color, false);
 	}
-	
+
 	@Override
 	public TileEntity createNewTileEntity(World world, int meta) {
 		return new TileEntityCarbonite();
 	}
-	
+
 	@Override
 	public AxisAlignedBB getCollisionBoundingBox(IBlockState state, IBlockAccess world, BlockPos pos) {
 		if (this.is(Variety.HOLOGRAPHIC) && this.isPowered()) {
@@ -154,7 +154,7 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
 			return Block.FULL_BLOCK_AABB;
 		}
 	}
-	
+
 	@Override
 	public BlockRenderLayer getBlockLayer() {
 		if (this.is(Variety.HOLOGRAPHIC) && this.isPowered()) {
@@ -163,27 +163,27 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
 			return BlockRenderLayer.SOLID;
 		}
 	}
-	
+
 	@Override
 	public MapColor getMapColor(IBlockState state, IBlockAccess world, BlockPos pos) {
 		return MapColor.getBlockColor(EnumDyeColor.byDyeDamage(this.color));
 	}
-	
+
 	@Override
 	public EnumPushReaction getMobilityFlag(IBlockState state) {
 		return EnumPushReaction.BLOCK;
 	}
-	
+
 	@Override
 	public boolean isFullCube(IBlockState state) {
 		return !(this.is(Variety.HOLOGRAPHIC) && this.isPowered());
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return !(this.is(Variety.HOLOGRAPHIC) && this.isPowered());
 	}
-	
+
 	@Override
 	public boolean shouldSideBeRendered(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing side) {
 		IBlockState offset = world.getBlockState(pos.offset(side));
@@ -198,24 +198,24 @@ public class BlockCarbonite extends Block implements ITileEntityProvider {
 		}
 		return super.shouldSideBeRendered(state, world, pos, side);
 	}
-	
+
 	@Override
 	public Item getItemDropped(IBlockState state, Random random, int fortune) {
 		return Item.getItemFromBlock(this);
 	}
-	
+
 	public boolean is(Variety variety) {
 		return this.variety == variety;
 	}
-	
+
 	public boolean isPowered() {
 		return this.powered;
 	}
-	
+
 	public boolean canBePowered() {
 		return this.canBePowered;
 	}
-	
+
 	public IBlockState getReverseState() {
 		if (this.canBePowered) {
 			return BlockCarbonite.CONVERSION_TABLE.get(this).getDefaultState();

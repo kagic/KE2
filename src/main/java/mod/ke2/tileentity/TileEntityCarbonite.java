@@ -13,7 +13,7 @@ public class TileEntityCarbonite extends TileEntity implements ITickable {
 	private boolean isPoweredByRedstone = false;
 	private boolean isAttachedToPoweredBlock = false;
 	public int ticksExisted = 0;
-	
+
 	@Override
 	public void update() {
 		++this.ticksExisted;
@@ -50,12 +50,12 @@ public class TileEntityCarbonite extends TileEntity implements ITickable {
 			this.turnOff();
 		}
 	}
-	
+
 	@Override
 	public boolean shouldRefresh(World world, BlockPos pos, IBlockState original, IBlockState state) {
 		return state.getBlock() instanceof BlockCarbonite;
 	}
-	
+
 	public void turnOff() {
 		this.ticksExisted = 0;
 		Block block = this.world.getBlockState(this.pos).getBlock();
@@ -66,7 +66,7 @@ public class TileEntityCarbonite extends TileEntity implements ITickable {
 			}
 		}
 	}
-	
+
 	public void turnOn() {
 		this.ticksExisted = 0;
 		Block block = this.world.getBlockState(this.pos).getBlock();
@@ -77,7 +77,7 @@ public class TileEntityCarbonite extends TileEntity implements ITickable {
 			}
 		}
 	}
-	
+
 	public boolean isPowered() {
 		Block block = this.world.getBlockState(this.pos).getBlock();
 		if (block instanceof BlockCarbonite) {
@@ -86,11 +86,11 @@ public class TileEntityCarbonite extends TileEntity implements ITickable {
 		}
 		return false;
 	}
-	
+
 	public boolean isAttachedToPoweredBlock() {
 		return this.isAttachedToPoweredBlock;
 	}
-	
+
 	public boolean isPoweredByRedstone() {
 		return this.isPoweredByRedstone;
 	}

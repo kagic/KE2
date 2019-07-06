@@ -10,7 +10,7 @@ public class ModelEmerald extends ModelGem {
 	public ModelRenderer bipedRightShoulder;
 	public ModelRenderer bipedHair;
 	public ModelRenderer bipedHips;
-	
+
 	public ModelEmerald() {
 		super(0.0F, 0.0F, 96, 80);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -48,7 +48,7 @@ public class ModelEmerald extends ModelGem {
 		this.bipedLeftLeg.addBox(-3.0F, 1.0F, -2.0F, 4, 16, 4, 0.0F);
 		this.bipedHips.addChild(this.bipedLeftLeg);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -58,7 +58,7 @@ public class ModelEmerald extends ModelGem {
 		this.bipedBody.render(scale);
 		this.bipedHips.render(scale);
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
@@ -82,7 +82,7 @@ public class ModelEmerald extends ModelGem {
 		this.bipedLeftLeg.offsetY = -0.25F;
 		this.bipedHead.rotationPointY = -6.0F;
 	}
-
+	
 	@Override
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
@@ -128,7 +128,7 @@ public class ModelEmerald extends ModelGem {
 				break;
 		}
 	}
-	
+
 	@Override
 	public void postGemRenderCallback(int pos, float scale) {
 		switch (pos) {

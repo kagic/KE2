@@ -14,7 +14,7 @@ public class RenderGemShard extends RenderLiving<EntityGemShard> {
 	public RenderGemShard(RenderManager manager) {
 		super(manager, new ModelNothing(), 0.25F);
 	}
-	
+
 	@Override
 	public void doRender(EntityGemShard entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		GlStateManager.pushMatrix();
@@ -38,7 +38,7 @@ public class RenderGemShard extends RenderLiving<EntityGemShard> {
 		GlStateManager.popMatrix();
 		super.doRender(entity, x, y, z, entityYaw, partialTicks);
 	}
-	
+
 	@Override
 	protected ResourceLocation getEntityTexture(EntityGemShard entity) {
 		return TextureMap.LOCATION_BLOCKS_TEXTURE;

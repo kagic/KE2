@@ -4,7 +4,6 @@ import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
-import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
@@ -26,13 +25,13 @@ public class ModelGem extends ModelBiped {
 	public float flowerOffsetX;
 	public float flowerOffsetY;
 	public float flowerOffsetZ;
-	
+
 	public ModelGem(float modelSize, float offset, int width, int height) {
 		super(modelSize, offset, width, height);
 		this.bipedGem = new ModelRenderer(this, 0, 0);
 		this.bipedGem.addBox(0.0F, 0.0F, 0.0F, 2, 2, 2);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
@@ -40,7 +39,7 @@ public class ModelGem extends ModelBiped {
 			this.setLivingAnimations((EntityLivingBase) entity, limbSwingAmount, ageInTicks, ageInTicks % 1.0F);
 		}
 	}
-	
+
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float limbSwingAmount, float ageInTicks, float partialTickTime) {
 		this.rightArmPose = ModelBiped.ArmPose.EMPTY;
@@ -64,17 +63,18 @@ public class ModelGem extends ModelBiped {
 				this.bipedRightArm.rotateAngleZ *= Math.sin(ageInTicks);
 				this.bipedLeftArm.rotateAngleZ *= Math.cos(ageInTicks);
 			}
-			//if (gem.getPose() == EntityGem.Pose.HEAD_BANGING) {
-				this.bipedHead.rotateAngleX = (float) Math.sin(ageInTicks) / 5.0F;
-			//}
+			// if (gem.getPose() ==
+			// EntityGem.Pose.HEAD_BANGING) {
+			this.bipedHead.rotateAngleX = (float) Math.sin(ageInTicks) / 5.0F;
+			// }
 		}
 		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
 	}
-	
+
 	public void renderGemOnBody(int pos, float scale) {
 		this.preRenderGem(pos, scale);
 	}
-	
+
 	public void preRenderGem(int pos, float scale) {
 		this.setGemRenderPositions(pos, scale);
 		this.preGemRenderCallback(pos, scale);
@@ -82,7 +82,7 @@ public class ModelGem extends ModelBiped {
 		this.bipedGem.postRender(scale);
 		this.postGemRenderCallback(pos, scale);
 	}
-	
+
 	public void setGemRenderPositions(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
@@ -147,12 +147,12 @@ public class ModelGem extends ModelBiped {
 				break;
 		}
 	}
-	
+
 	public void preGemRenderCallback(int pos, float scale) {
-		
+
 	}
-	
+
 	public void postGemRenderCallback(int pos, float scale) {
-		
+
 	}
 }

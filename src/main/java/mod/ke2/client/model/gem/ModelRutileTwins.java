@@ -10,7 +10,7 @@ public class ModelRutileTwins extends ModelGem {
 	public ModelRenderer bipedOtherHeadwear;
 	public ModelRenderer bipedLeftTorso;
 	public ModelRenderer bipedRightTorso;
-	
+
 	public ModelRutileTwins() {
 		super(0.0F, 0.0F, 64, 64);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
@@ -43,7 +43,7 @@ public class ModelRutileTwins extends ModelGem {
 		this.bipedBody = new ModelRenderer(this, 8, 25);
 		this.bipedBody.addBox(-3.0F, 8.0F, -2.0F, 6, 2, 4);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -55,7 +55,7 @@ public class ModelRutileTwins extends ModelGem {
 		this.bipedRightLeg.render(scale);
 		this.bipedLeftLeg.render(scale);
 	}
-	
+
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entity);
@@ -68,7 +68,7 @@ public class ModelRutileTwins extends ModelGem {
 		this.bipedLeftTorso.rotateAngleZ = -0.1F;
 		this.bipedRightTorso.rotateAngleZ = 0.1F;
 	}
-
+	
 	@Override
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
@@ -114,7 +114,7 @@ public class ModelRutileTwins extends ModelGem {
 				break;
 		}
 	}
-	
+
 	@Override
 	public void postGemRenderCallback(int pos, float scale) {
 		switch (pos) {

@@ -54,7 +54,7 @@ public class Ke2Sounds {
 	public static final SoundEvent GEM_WHITE_DIAMOND = new SoundEvent(new ResourceLocation("ke2:entity.gem.white_diamond"));
 	public static final SoundEvent GEM_YELLOW_DIAMOND = new SoundEvent(new ResourceLocation("ke2:entity.gem.yellow_diamond"));
 	public static final SoundEvent GEM_ZIRCON = new SoundEvent(new ResourceLocation("ke2:entity.gem.zircon"));
-	
+
 	public static void register(RegistryEvent.Register<SoundEvent> event) {
 		Ke2Sounds.registerSound(Ke2Sounds.WAILING_STONE, new ResourceLocation("ke2:block.wailing_stone"), event);
 		Ke2Sounds.registerSound(Ke2Sounds.DESTABILIZER, new ResourceLocation("ke2:item.destabilizer"), event);
@@ -106,7 +106,7 @@ public class Ke2Sounds {
 		Ke2Sounds.registerSound(Ke2Sounds.GEM_YELLOW_DIAMOND, new ResourceLocation("ke2:entity.gem.yellow_diamond"), event);
 		Ke2Sounds.registerSound(Ke2Sounds.GEM_ZIRCON, new ResourceLocation("ke2:entity.gem.zircon"), event);
 	}
-	
+
 	private static void registerSound(SoundEvent sound, ResourceLocation location, RegistryEvent.Register<SoundEvent> event) {
 		sound.setRegistryName(location);
 		event.getRegistry().register(sound);

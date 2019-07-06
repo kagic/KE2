@@ -29,7 +29,7 @@ public class ModelSpodumene extends ModelGem {
 		this.bipedLeftLeg = new ModelRenderer(this, 48, 16);
 		this.bipedLeftLeg.addBox(0.0F, 6.0F, -2.0F, 4, 6, 4, 0.0F);
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -46,7 +46,7 @@ public class ModelSpodumene extends ModelGem {
 		this.bipedRightLeg.render(scale);
 		GlStateManager.disableBlend();
 	}
-
+	
 	@Override
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
@@ -92,7 +92,7 @@ public class ModelSpodumene extends ModelGem {
 				break;
 		}
 	}
-	
+
 	@Override
 	public void postGemRenderCallback(int pos, float scale) {
 		switch (pos) {

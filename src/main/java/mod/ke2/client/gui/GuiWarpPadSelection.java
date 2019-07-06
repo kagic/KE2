@@ -22,13 +22,13 @@ public class GuiWarpPadSelection extends GuiScreen {
 	private final WarpPadDataEntry pad;
 	protected String title = "Select a destination to warp to.";
 	protected GuiWarpPadList list;
-	
+
 	public GuiWarpPadSelection(HashMap<WarpPadPos, WarpPadDataEntry> data, WarpPadDataEntry pad) {
 		this.positions = WorldDataWarps.getSortedPositions(data, pad.getPos());
 		this.data = data;
 		this.pad = pad;
 	}
-	
+
 	public WarpPadDataEntry getPadDataEntry(BlockPos pos) {
 		if (this.data.containsKey(pos)) {
 			return this.data.get(pos);
@@ -36,23 +36,23 @@ public class GuiWarpPadSelection extends GuiScreen {
 			return null;
 		}
 	}
-	
+
 	@Override
 	public boolean doesGuiPauseGame() {
 		return false;
 	}
-	
+
 	@Override
 	public void updateScreen() {
-		
+
 	}
-	
+
 	@Override
 	public void initGui() {
 		this.list = new GuiWarpPadList(this.pad.getPos(), this.positions, this.mc, this.width, this.height, 0, this.height, 50);
 		this.addButton(new GuiButton(0, this.width / 2 - 75, this.height - 25, 150, 20, I18n.format("gui.cancel", new Object[0])));
 	}
-	
+
 	@Override
 	protected void actionPerformed(GuiButton button) throws IOException {
 		switch (button.id) {
@@ -64,34 +64,34 @@ public class GuiWarpPadSelection extends GuiScreen {
 				super.actionPerformed(button);
 		}
 	}
-	
+
 	@Override
 	protected void keyTyped(char typedChar, int keyCode) throws IOException {
 		if (keyCode == Keyboard.KEY_ESCAPE) {
 			Minecraft.getMinecraft().player.closeScreen();
 		}
 	}
-	
+
 	@Override
 	public void handleMouseInput() throws IOException {
 		super.handleMouseInput();
 		this.list.handleMouseInput();
 	}
-	
+
 	@Override
 	protected void mouseClicked(int mouseX, int mouseY, int mouseButton) throws IOException {
 		if (!this.list.mouseClicked(mouseX, mouseY, mouseButton)) {
 			super.mouseClicked(mouseX, mouseY, mouseButton);
 		}
 	}
-	
+
 	@Override
 	protected void mouseReleased(int mouseX, int mouseY, int state) {
 		if (!this.list.mouseReleased(mouseX, mouseY, state)) {
 			super.mouseReleased(mouseX, mouseY, state);
 		}
 	}
-	
+
 	@Override
 	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
 		this.drawDefaultBackground();

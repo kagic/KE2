@@ -29,7 +29,7 @@ public class ModelPyrite extends ModelGem {
 		this.bipedLeftLeg.addBox(0.0F, 0.0F, -2.0F, 4, 8, 4);
 		this.bipedLeftLeg.offsetY = 0.25F;
 	}
-	
+
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		super.render(entity, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
@@ -40,7 +40,7 @@ public class ModelPyrite extends ModelGem {
 		this.bipedRightLeg.render(scale);
 		this.bipedLeftLeg.render(scale);
 	}
-
+	
 	@Override
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
@@ -86,7 +86,7 @@ public class ModelPyrite extends ModelGem {
 				break;
 		}
 	}
-	
+
 	@Override
 	public void postGemRenderCallback(int pos, float scale) {
 		switch (pos) {

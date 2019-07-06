@@ -25,17 +25,17 @@ import net.minecraftforge.event.RegistryEvent;
 
 public class Ke2Blocks {
 	public static final HashMap<Block, Item> ITEMS = new HashMap<Block, Item>();
-	
+
 	public static final BlockWailingStone WAILING_STONE = new BlockWailingStone();
-	
+
 	public static final BlockMagicMoss MAGIC_MOSS = new BlockMagicMoss();
 	public static final BlockMossRose MOSS_ROSE = new BlockMossRose();
-	
+
 	public static final BlockDrainLily VALLEY_DRAIN_LILY = new BlockDrainLily("valley");
 	public static final BlockDrainLily DESERT_DRAIN_LILY = new BlockDrainLily("desert");
 	public static final BlockDrainLily ALPINE_DRAIN_LILY = new BlockDrainLily("alpine");
 	public static final BlockDrainLily NETHER_DRAIN_LILY = new BlockDrainLily("nether");
-	
+
 	public static final BlockDrainBlock LIGHT_PURPLE_DRAIN_BLOCK = new BlockDrainBlock(false, "purple", 0);
 	public static final BlockDrainSlab LIGHT_PURPLE_DRAIN_SLAB = new BlockDrainSlab("purple", 0);
 	public static final BlockDrainBlock BANDED_PURPLE_DRAIN_BLOCK = new BlockDrainBlock(false, "purple", 1);
@@ -64,7 +64,7 @@ public class Ke2Blocks {
 	public static final BlockDrainBlock DARK_RED_DRAIN_BLOCK = new BlockDrainBlock(false, "red", 2);
 	public static final BlockDrainSlab DARK_RED_DRAIN_SLAB = new BlockDrainSlab("red", 2);
 	public static final BlockDrainBlock ERODED_RED_DRAIN_BLOCK = new BlockDrainBlock(true, "red", 3);
-	
+
 	public static final BlockCarbonite WHITE_CARBONITE = new BlockCarbonite(BlockCarbonite.Variety.INERT, Ke2Gems.BASIC_WHITE);
 	public static final BlockCarboniteStairs WHITE_CARBONITE_STAIRS = new BlockCarboniteStairs(Ke2Blocks.WHITE_CARBONITE);
 	public static final BlockCarbonite WHITE_CARBONITE_OFF = new BlockCarbonite(BlockCarbonite.Variety.ACTIVE, Ke2Gems.BASIC_WHITE, false);
@@ -177,7 +177,7 @@ public class Ke2Blocks {
 	public static final BlockCarbonite BLACK_DECORATIVE_CARBONITE = new BlockCarbonite(BlockCarbonite.Variety.DECORATIVE, Ke2Gems.BASIC_BLACK);
 	public static final BlockCarbonite BLACK_HOLOGRAPHIC_CARBONITE_OFF = new BlockCarbonite(BlockCarbonite.Variety.HOLOGRAPHIC, Ke2Gems.BASIC_BLACK, false);
 	public static final BlockCarbonite BLACK_HOLOGRAPHIC_CARBONITE_ON = new BlockCarbonite(BlockCarbonite.Variety.HOLOGRAPHIC, Ke2Gems.BASIC_BLACK, true);
-	
+
 	public static final BlockWarpPadCore WHITE_WARP_PAD_CORE = new BlockWarpPadCore(Ke2Gems.BASIC_WHITE);
 	public static final BlockWarpPadFrame WHITE_WARP_PAD_FRAME = new BlockWarpPadFrame(Ke2Gems.BASIC_WHITE);
 	public static final BlockWarpPadEdge WHITE_WARP_PAD_EDGE = new BlockWarpPadEdge(Ke2Blocks.WHITE_WARP_PAD_FRAME.getDefaultState());
@@ -226,20 +226,20 @@ public class Ke2Blocks {
 	public static final BlockWarpPadCore BLACK_WARP_PAD_CORE = new BlockWarpPadCore(Ke2Gems.BASIC_BLACK);
 	public static final BlockWarpPadFrame BLACK_WARP_PAD_FRAME = new BlockWarpPadFrame(Ke2Gems.BASIC_BLACK);
 	public static final BlockWarpPadEdge BLACK_WARP_PAD_EDGE = new BlockWarpPadEdge(Ke2Blocks.BLACK_WARP_PAD_FRAME.getDefaultState());
-	
+
 	public static final Block TUNGSTEN_BLOCK = new Block(Material.ROCK, MapColor.BLACK).setUnlocalizedName("tungsten_block");
 	public static final BlockTungsten TUNGSTEN_ORE = new BlockTungsten("tungsten");
-	
+
 	public static void register(RegistryEvent.Register<Block> event) {
 		Ke2Blocks.registerBlock(Ke2Blocks.WAILING_STONE, new ResourceLocation("ke2:wailing_stone"), event, Ke2CreativeTabs.GEM_TECH);
 		Ke2Blocks.registerBlock(Ke2Blocks.MAGIC_MOSS, new ResourceLocation("ke2:magic_moss"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Blocks.registerBlock(Ke2Blocks.MOSS_ROSE, new ResourceLocation("ke2:moss_rose"), event, Ke2CreativeTabs.GEM_CREATION);
-		
+
 		Ke2Blocks.registerBlock(Ke2Blocks.VALLEY_DRAIN_LILY, new ResourceLocation("ke2:valley_drain_lily"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Blocks.registerBlock(Ke2Blocks.DESERT_DRAIN_LILY, new ResourceLocation("ke2:desert_drain_lily"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Blocks.registerBlock(Ke2Blocks.ALPINE_DRAIN_LILY, new ResourceLocation("ke2:alpine_drain_lily"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Blocks.registerBlock(Ke2Blocks.NETHER_DRAIN_LILY, new ResourceLocation("ke2:nether_drain_lily"), event, Ke2CreativeTabs.GEM_CREATION);
-		
+
 		Ke2Blocks.registerBlock(Ke2Blocks.LIGHT_PURPLE_DRAIN_BLOCK, new ResourceLocation("ke2:light_purple_drain_block"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Blocks.registerBlock(Ke2Blocks.LIGHT_PURPLE_DRAIN_SLAB, new ResourceLocation("ke2:light_purple_drain_slab"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Blocks.registerBlock(Ke2Blocks.BANDED_PURPLE_DRAIN_BLOCK, new ResourceLocation("ke2:banded_purple_drain_block"), event, Ke2CreativeTabs.GEM_CREATION);
@@ -268,7 +268,7 @@ public class Ke2Blocks {
 		Ke2Blocks.registerBlock(Ke2Blocks.DARK_RED_DRAIN_BLOCK, new ResourceLocation("ke2:dark_red_drain_block"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Blocks.registerBlock(Ke2Blocks.DARK_RED_DRAIN_SLAB, new ResourceLocation("ke2:dark_red_drain_slab"), event, Ke2CreativeTabs.GEM_CREATION);
 		Ke2Blocks.registerBlock(Ke2Blocks.ERODED_RED_DRAIN_BLOCK, new ResourceLocation("ke2:eroded_red_drain_block"), event, Ke2CreativeTabs.GEM_CREATION);
-		
+
 		Ke2Blocks.registerBlock(Ke2Blocks.WHITE_CARBONITE, new ResourceLocation("ke2:white_carbonite"), event, Ke2CreativeTabs.GEM_BLOCKS);
 		Ke2Blocks.registerBlock(Ke2Blocks.WHITE_CARBONITE_STAIRS, new ResourceLocation("ke2:white_carbonite_stairs"), event, Ke2CreativeTabs.GEM_BLOCKS);
 		Ke2Blocks.registerBlock(Ke2Blocks.WHITE_CARBONITE_OFF, new ResourceLocation("ke2:white_carbonite_off"), event, Ke2CreativeTabs.GEM_BLOCKS);
@@ -381,7 +381,7 @@ public class Ke2Blocks {
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_DECORATIVE_CARBONITE, new ResourceLocation("ke2:black_decorative_carbonite"), event, Ke2CreativeTabs.GEM_BLOCKS);
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_HOLOGRAPHIC_CARBONITE_OFF, new ResourceLocation("ke2:black_holographic_carbonite_off"), event, Ke2CreativeTabs.GEM_BLOCKS);
 		Ke2Blocks.registerBlock(Ke2Blocks.BLACK_HOLOGRAPHIC_CARBONITE_ON, new ResourceLocation("ke2:black_holographic_carbonite_on"), event, Ke2CreativeTabs.GEM_BLOCKS);
-		
+
 		Ke2Blocks.registerBlock(Ke2Blocks.WHITE_WARP_PAD_CORE, new ResourceLocation("ke2:white_warp_pad_core"), event, Ke2CreativeTabs.GEM_BLOCKS);
 		Ke2Blocks.registerBlock(Ke2Blocks.WHITE_WARP_PAD_FRAME, new ResourceLocation("ke2:white_warp_pad_frame"), event, Ke2CreativeTabs.GEM_BLOCKS);
 		Ke2Blocks.registerBlock(Ke2Blocks.WHITE_WARP_PAD_EDGE, new ResourceLocation("ke2:white_warp_pad_edge"), event, Ke2CreativeTabs.GEM_BLOCKS);
