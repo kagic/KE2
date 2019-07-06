@@ -83,83 +83,83 @@ public class ModelGem extends ModelBiped {
 	public void setGemRenderPositions(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
-				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
+				GlStateManager.translate(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
-				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
+				GlStateManager.translate(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
-				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
+				GlStateManager.translate(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
-				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
+				GlStateManager.translate(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_NOSE :
-				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
+				GlStateManager.translate(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
-				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
+				GlStateManager.translate(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
-				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
+				GlStateManager.translate(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
-				GlStateManager.scale(this.bipedRightArm.offsetX, this.bipedRightArm.offsetY, this.bipedRightArm.offsetZ);
+				GlStateManager.translate(this.bipedRightArm.offsetX, this.bipedRightArm.offsetY, this.bipedRightArm.offsetZ);
 				this.bipedRightArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
-				GlStateManager.scale(this.bipedLeftArm.offsetX, this.bipedLeftArm.offsetY, this.bipedLeftArm.offsetZ);
+				GlStateManager.translate(this.bipedLeftArm.offsetX, this.bipedLeftArm.offsetY, this.bipedLeftArm.offsetZ);
 				this.bipedLeftArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
-				GlStateManager.scale(this.bipedRightArm.offsetX, this.bipedRightArm.offsetY, this.bipedRightArm.offsetZ);
+				GlStateManager.translate(this.bipedRightArm.offsetX, this.bipedRightArm.offsetY, this.bipedRightArm.offsetZ);
 				this.bipedRightArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
-				GlStateManager.scale(this.bipedLeftArm.offsetX, this.bipedLeftArm.offsetY, this.bipedLeftArm.offsetZ);
+				GlStateManager.translate(this.bipedLeftArm.offsetX, this.bipedLeftArm.offsetY, this.bipedLeftArm.offsetZ);
 				this.bipedLeftArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_CHEST :
-				GlStateManager.scale(this.bipedBody.offsetX, this.bipedBody.offsetY, this.bipedBody.offsetZ);
+				GlStateManager.translate(this.bipedBody.offsetX, this.bipedBody.offsetY, this.bipedBody.offsetZ);
 				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_BACK :
-				GlStateManager.scale(this.bipedBody.offsetX, this.bipedBody.offsetY, this.bipedBody.offsetZ);
+				GlStateManager.translate(this.bipedBody.offsetX, this.bipedBody.offsetY, this.bipedBody.offsetZ);
 				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_NAVEL :
-				GlStateManager.scale(this.bipedBody.offsetX, this.bipedBody.offsetY, this.bipedBody.offsetZ);
+				GlStateManager.translate(this.bipedBody.offsetX, this.bipedBody.offsetY, this.bipedBody.offsetZ);
 				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
-				GlStateManager.scale(this.bipedRightLeg.offsetX, this.bipedRightLeg.offsetY, this.bipedRightLeg.offsetZ);
+				GlStateManager.translate(this.bipedRightLeg.offsetX, this.bipedRightLeg.offsetY, this.bipedRightLeg.offsetZ);
 				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_THIGH :
-				GlStateManager.scale(this.bipedLeftLeg.offsetX, this.bipedLeftLeg.offsetY, this.bipedLeftLeg.offsetZ);
+				GlStateManager.translate(this.bipedLeftLeg.offsetX, this.bipedLeftLeg.offsetY, this.bipedLeftLeg.offsetZ);
 				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
-				GlStateManager.scale(this.bipedRightLeg.offsetX, this.bipedRightLeg.offsetY, this.bipedRightLeg.offsetZ);
+				GlStateManager.translate(this.bipedRightLeg.offsetX, this.bipedRightLeg.offsetY, this.bipedRightLeg.offsetZ);
 				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_KNEE :
-				GlStateManager.scale(this.bipedLeftLeg.offsetX, this.bipedLeftLeg.offsetY, this.bipedLeftLeg.offsetZ);
+				GlStateManager.translate(this.bipedLeftLeg.offsetX, this.bipedLeftLeg.offsetY, this.bipedLeftLeg.offsetZ);
 				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
-				GlStateManager.scale(this.bipedRightLeg.offsetX, this.bipedRightLeg.offsetY, this.bipedRightLeg.offsetZ);
+				GlStateManager.translate(this.bipedRightLeg.offsetX, this.bipedRightLeg.offsetY, this.bipedRightLeg.offsetZ);
 				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT :
-				GlStateManager.scale(this.bipedLeftLeg.offsetX, this.bipedLeftLeg.offsetY, this.bipedLeftLeg.offsetZ);
+				GlStateManager.translate(this.bipedLeftLeg.offsetX, this.bipedLeftLeg.offsetY, this.bipedLeftLeg.offsetZ);
 				this.bipedLeftLeg.postRender(scale);
 				break;
 		}

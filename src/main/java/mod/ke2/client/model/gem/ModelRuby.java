@@ -46,18 +46,25 @@ public class ModelRuby extends ModelGem {
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
+				GlStateManager.translate(0.0, -0.42, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
+				GlStateManager.translate(0.0, -0.25, 0.25);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
+				GlStateManager.translate(0.125, -0.27, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
+				GlStateManager.translate(-0.125, -0.27, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_NOSE :
+				GlStateManager.translate(0.0, -0.18, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
+				GlStateManager.translate(0.15, -0.1, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
+				GlStateManager.translate(-0.15, -0.1, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
 				GlStateManager.rotate(90.0F, 0, 1, 0);
@@ -76,22 +83,33 @@ public class ModelRuby extends ModelGem {
 				GlStateManager.translate(0.0, 0.35, 0.2);
 				break;
 			case Ke2Gems.GEMSTONE_CHEST :
+				GlStateManager.translate(0.0, 0.7, -0.125);
 				break;
 			case Ke2Gems.GEMSTONE_BACK :
+				GlStateManager.translate(0.0, 0.78, 0.125);
 				break;
 			case Ke2Gems.GEMSTONE_NAVEL :
+				GlStateManager.translate(0.0, 0.85, -0.125);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
+				GlStateManager.rotate(90.0F, 0, 1, 0);
+				GlStateManager.translate(0.0, 0.15, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_THIGH :
+				GlStateManager.rotate(90.0F, 0, 1, 0);
+				GlStateManager.translate(0.0, 0.15, 0.25);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
+				GlStateManager.translate(-0.125, 0.225, -0.125);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_KNEE :
+				GlStateManager.translate(0.125, 0.225, -0.125);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
+				GlStateManager.translate(-0.125, 0.35, -0.125);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT :
+				GlStateManager.translate(0.125, 0.35, -0.125);
 				break;
 		}
 	}
@@ -100,19 +118,19 @@ public class ModelRuby extends ModelGem {
 	public float getGemRenderScale(int pos) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_NOSE :
-				return 1.0F;
+				return 0.2F;
 			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
-				return 1.0F;
+				return 0.2F;
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
-				return 1.0F;
+				return 0.2F;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
 				return 0.2F;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
@@ -122,23 +140,23 @@ public class ModelRuby extends ModelGem {
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
 				return 0.2F;
 			case Ke2Gems.GEMSTONE_CHEST :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_BACK :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_NAVEL :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
-				return 1.0F;
+				return 0.25F;
 			case Ke2Gems.GEMSTONE_LEFT_THIGH :
-				return 1.0F;
+				return 0.25F;
 			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
-				return 1.0F;
+				return 0.25F;
 			case Ke2Gems.GEMSTONE_LEFT_KNEE :
-				return 1.0F;
+				return 0.25F;
 			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
-				return 1.0F;
+				return 0.25F;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT :
-				return 1.0F;
+				return 0.25F;
 		}
 		return 1.0F;
 	}
