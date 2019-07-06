@@ -110,7 +110,7 @@ public class ModelPeridot extends ModelGem {
 				GlStateManager.translate(0.0, 0.45, -0.125);
 				break;
 			case Ke2Gems.GEMSTONE_BACK :
-				GlStateManager.translate(0.0, 0.48, 0.125);
+				GlStateManager.translate(0.0, 0.4, 0.125);
 				break;
 			case Ke2Gems.GEMSTONE_NAVEL :
 				GlStateManager.translate(0.0, 0.72, -0.125);
