@@ -72,10 +72,6 @@ public class ModelGem extends ModelBiped {
 	}
 
 	public void renderGemOnBody(int pos, float scale) {
-		this.preRenderGem(pos, scale);
-	}
-
-	public void preRenderGem(int pos, float scale) {
 		this.setGemRenderPositions(pos, scale);
 		this.preGemRenderCallback(pos, scale);
 		this.bipedGem.render(scale);
