@@ -79,6 +79,8 @@ public class ModelGem extends ModelBiped {
 		this.setGemRenderPositions(pos, scale);
 		this.preGemRenderCallback(pos, scale);
 		this.bipedGem.render(scale);
+		this.bipedGem.postRender(scale);
+		this.postGemRenderCallback(pos, scale);
 	}
 	
 	public void setGemRenderPositions(int pos, float scale) {
@@ -147,6 +149,10 @@ public class ModelGem extends ModelBiped {
 	}
 	
 	public void preGemRenderCallback(int pos, float scale) {
+		
+	}
+	
+	public void postGemRenderCallback(int pos, float scale) {
 		
 	}
 }
