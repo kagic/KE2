@@ -18,7 +18,7 @@ public class LayerGemstone implements LayerRenderer<EntityGem> {
 	public void doRenderLayer(EntityGem gem, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		if (gem.getGemstoneCut() > -1) {
 			GlStateManager.pushMatrix();
-			this.renderer.getModel().renderGemOnBody(gem.getGemstonePosition(), scale);
+			this.renderer.getModel().renderGemOnBody(gem.getGemstonePosition(), renderer.getModel().getGemRenderScale(gem.getGemstonePosition()));
 			Minecraft.getMinecraft().getItemRenderer().renderItemSide(gem, gem.getGemstoneItem(), ItemCameraTransforms.TransformType.THIRD_PERSON_LEFT_HAND, false);
 			GlStateManager.popMatrix();
 		}

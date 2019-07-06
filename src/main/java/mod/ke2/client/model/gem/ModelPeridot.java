@@ -112,48 +112,49 @@ public class ModelPeridot extends ModelGem {
 	}
 
 	@Override
-	public void postGemRenderCallback(int pos, float scale) {
+	public float getGemRenderScale(int pos) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_NOSE :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_CHEST :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_BACK :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_NAVEL :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_THIGH :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_KNEE :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT :
-				break;
+				return 1.0F;
 		}
+		return 1.0F;
 	}
 }

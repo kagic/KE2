@@ -4,6 +4,7 @@ import mod.ke2.api.EntityGem;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
@@ -76,7 +77,7 @@ public class ModelGem extends ModelBiped {
 		this.preGemRenderCallback(pos, scale);
 		this.bipedGem.render(scale);
 		this.bipedGem.postRender(scale);
-		this.postGemRenderCallback(pos, scale);
+		GlStateManager.scale(scale, scale, scale);
 	}
 
 	public void setGemRenderPositions(int pos, float scale) {
@@ -148,7 +149,7 @@ public class ModelGem extends ModelBiped {
 
 	}
 
-	public void postGemRenderCallback(int pos, float scale) {
-
+	public float getGemRenderScale(int pos) {
+		return 1.0F;
 	}
 }

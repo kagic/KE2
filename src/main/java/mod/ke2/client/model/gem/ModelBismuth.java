@@ -50,96 +50,51 @@ public class ModelBismuth extends ModelGem {
 		this.bipedHeadwear.rotateAngleX = 0.0F;
 		this.bipedHeadwear.rotateAngleY = 0.0F;
 	}
-	
-	@Override
-	public void preGemRenderCallback(int pos, float scale) {
-		switch (pos) {
-			case Ke2Gems.GEMSTONE_FOREHEAD :
-				break;
-			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
-				break;
-			case Ke2Gems.GEMSTONE_RIGHT_EYE :
-				break;
-			case Ke2Gems.GEMSTONE_LEFT_EYE :
-				break;
-			case Ke2Gems.GEMSTONE_NOSE :
-				break;
-			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
-				break;
-			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
-				break;
-			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
-				break;
-			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
-				break;
-			case Ke2Gems.GEMSTONE_RIGHT_HAND :
-				break;
-			case Ke2Gems.GEMSTONE_LEFT_HAND :
-				break;
-			case Ke2Gems.GEMSTONE_CHEST :
-				break;
-			case Ke2Gems.GEMSTONE_BACK :
-				break;
-			case Ke2Gems.GEMSTONE_NAVEL :
-				break;
-			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
-				break;
-			case Ke2Gems.GEMSTONE_LEFT_THIGH :
-				break;
-			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
-				break;
-			case Ke2Gems.GEMSTONE_LEFT_KNEE :
-				break;
-			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
-				break;
-			case Ke2Gems.GEMSTONE_LEFT_FOOT :
-				break;
-		}
-	}
 
 	@Override
-	public void postGemRenderCallback(int pos, float scale) {
+	public float getGemRenderScale(int pos) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_NOSE :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_CHEST :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_BACK :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_NAVEL :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_THIGH :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_KNEE :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
-				break;
+				return 1.0F;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT :
-				break;
+				return 1.0F;
 		}
+		return 1.0F;
 	}
 }
