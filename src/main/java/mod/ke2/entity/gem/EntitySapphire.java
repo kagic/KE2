@@ -101,7 +101,7 @@ public class EntitySapphire extends EntityGem {
 
 	@Override
 	public int generateGemstoneCut() {
-		return 0;
+		return 2;
 	}
 
 	public void setSapphireColor(String color) {
