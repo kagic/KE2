@@ -2,5 +2,5 @@
 	"function": "gem_position",
 	"parameter": "forehead",
 	"tags": ["ke2:texture.hair"],
-	"value": "ke2:textures/entities/ruby/hair_forehead"
+	"value": "ke2:textures/entities/ruby/hairstyles/forehead"
 }

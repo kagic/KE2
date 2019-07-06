@@ -4,6 +4,7 @@ import mod.ke2.client.model.ModelGem;
 import mod.ke2.entity.gem.EntityPeridot;
 import mod.ke2.init.Ke2Gems;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -69,44 +70,70 @@ public class ModelPeridot extends ModelGem {
 	public void preGemRenderCallback(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
+				GlStateManager.translate(0.0, -0.42, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
+				GlStateManager.translate(0.0, -0.35, 0.375);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
+				GlStateManager.translate(0.125, -0.225, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
+				GlStateManager.translate(-0.125, -0.225, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_NOSE :
+				GlStateManager.translate(0.0, -0.15, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
+				GlStateManager.translate(0.15, -0.1, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
+				GlStateManager.translate(-0.15, -0.1, -0.25);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
+				GlStateManager.rotate(90.0F, 0, 1, 0);
+				GlStateManager.translate(0.0, 0.05, -0.00125);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
+				GlStateManager.rotate(90.0F, 0, 1, 0);
+				GlStateManager.translate(0.0, 0.05, 0.00125);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
+				GlStateManager.rotate(90.0F, 0, 1, 0);
+				GlStateManager.translate(0.0, 0.55, -0.00125);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
+				GlStateManager.rotate(90.0F, 0, 1, 0);
+				GlStateManager.translate(0.0, 0.55, 0.00125);
 				break;
 			case Ke2Gems.GEMSTONE_CHEST :
+				GlStateManager.translate(0.0, 0.45, -0.125);
 				break;
 			case Ke2Gems.GEMSTONE_BACK :
+				GlStateManager.translate(0.0, 0.48, 0.125);
 				break;
 			case Ke2Gems.GEMSTONE_NAVEL :
+				GlStateManager.translate(0.0, 0.72, -0.125);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
+				GlStateManager.rotate(90.0F, 0, 1, 0);
+				GlStateManager.translate(0.0, 0.15, -0.19);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_THIGH :
+				GlStateManager.rotate(90.0F, 0, 1, 0);
+				GlStateManager.translate(0.0, 0.25, 0.19);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
+				GlStateManager.translate(-0.125, 0.375, -0.0625);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_KNEE :
+				GlStateManager.translate(0.125, 0.375, -0.0625);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
+				GlStateManager.translate(-0.125, 0.68, -0.0625);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT :
+				GlStateManager.translate(0.125, 0.68, -0.0625);
 				break;
 		}
 	}
@@ -115,45 +142,45 @@ public class ModelPeridot extends ModelGem {
 	public float getGemRenderScale(int pos) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
-				return 1.0F;
+				return 0.25F;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
-				return 1.0F;
+				return 0.25F;
 			case Ke2Gems.GEMSTONE_NOSE :
-				return 1.0F;
+				return 0.2F;
 			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
-				return 1.0F;
+				return 0.2F;
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
-				return 1.0F;
+				return 0.2F;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
-				return 1.0F;
+				return 0.1F;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
-				return 1.0F;
+				return 0.1F;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
-				return 1.0F;
+				return 0.1F;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
-				return 1.0F;
+				return 0.1F;
 			case Ke2Gems.GEMSTONE_CHEST :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_BACK :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_NAVEL :
-				return 1.0F;
+				return 0.3F;
 			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
-				return 1.0F;
+				return 0.1F;
 			case Ke2Gems.GEMSTONE_LEFT_THIGH :
-				return 1.0F;
+				return 0.1F;
 			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
-				return 1.0F;
+				return 0.1F;
 			case Ke2Gems.GEMSTONE_LEFT_KNEE :
-				return 1.0F;
+				return 0.1F;
 			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
-				return 1.0F;
+				return 0.1F;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT :
-				return 1.0F;
+				return 0.1F;
 		}
 		return 1.0F;
 	}

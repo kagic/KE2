@@ -64,7 +64,7 @@ public class EntityPeridot extends EntityGem {
 
 	@Override
 	public int generateGemstoneCut() {
-		return 0;
+		return 10;
 	}
 	
 	@Override

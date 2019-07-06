@@ -19,6 +19,7 @@ public class LayerGemstone implements LayerRenderer<EntityGem> {
 		if (gem.getGemstoneCut() > -1) {
 			GlStateManager.pushMatrix();
 			this.renderer.getModel().renderGemOnBody(gem.getGemstonePosition(), scale);
+			GlStateManager.rotate(180, 1, 0, 0);
 			Minecraft.getMinecraft().getItemRenderer().renderItemSide(gem, gem.getGemstoneItem(), ItemCameraTransforms.TransformType.NONE, false);
 			GlStateManager.popMatrix();
 		}
