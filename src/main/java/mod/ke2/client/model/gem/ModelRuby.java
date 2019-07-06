@@ -60,14 +60,20 @@ public class ModelRuby extends ModelGem {
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
+				GlStateManager.rotate(90.0F, 0, 1, 0);
+				GlStateManager.translate(0.0, 0.15, -0.2);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
+				GlStateManager.rotate(90.0F, 0, 1, 0);
+				GlStateManager.translate(0.0, 0.15, 0.2);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
 				GlStateManager.rotate(90.0F, 0, 1, 0);
-				GlStateManager.translate(0.0, 0.75, -0.25);
+				GlStateManager.translate(0.0, 0.35, -0.2);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
+				GlStateManager.rotate(90.0F, 0, 1, 0);
+				GlStateManager.translate(0.0, 0.35, 0.2);
 				break;
 			case Ke2Gems.GEMSTONE_CHEST :
 				break;
@@ -108,13 +114,13 @@ public class ModelRuby extends ModelGem {
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
 				return 1.0F;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
-				return 1.0F;
+				return 0.2F;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
-				return 1.0F;
+				return 0.2F;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
-				return 1.0F;
+				return 0.2F;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
-				return 1.0F;
+				return 0.2F;
 			case Ke2Gems.GEMSTONE_CHEST :
 				return 1.0F;
 			case Ke2Gems.GEMSTONE_BACK :

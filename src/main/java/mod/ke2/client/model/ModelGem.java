@@ -26,13 +26,13 @@ public class ModelGem extends ModelBiped {
 	public float flowerOffsetX;
 	public float flowerOffsetY;
 	public float flowerOffsetZ;
-
+	
 	public ModelGem(float modelSize, float offset, int width, int height) {
 		super(modelSize, offset, width, height);
 		this.bipedGem = new ModelRenderer(this, 0, 0);
 		this.bipedGem.addBox(0.0F, 0.0F, 0.0F, 2, 2, 2);
 	}
-
+	
 	@Override
 	public void render(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
 		this.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale, entity);
@@ -40,7 +40,7 @@ public class ModelGem extends ModelBiped {
 			this.setLivingAnimations((EntityLivingBase) entity, limbSwingAmount, ageInTicks, ageInTicks % 1.0F);
 		}
 	}
-
+	
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float limbSwingAmount, float ageInTicks, float partialTickTime) {
 		this.rightArmPose = ModelBiped.ArmPose.EMPTY;
@@ -64,91 +64,111 @@ public class ModelGem extends ModelBiped {
 				this.bipedRightArm.rotateAngleZ *= Math.sin(ageInTicks);
 				this.bipedLeftArm.rotateAngleZ *= Math.cos(ageInTicks);
 			}
-			// if (gem.getPose() ==
-			// EntityGem.Pose.HEAD_BANGING) {
-			this.bipedHead.rotateAngleX = (float) Math.sin(ageInTicks) / 5.0F;
-			// }
+			if (gem.getPose() == EntityGem.Pose.HEAD_BANGING) {
+				this.bipedHead.rotateAngleX = (float) Math.sin(ageInTicks) / 5.0F;
+			}
 		}
 		super.setLivingAnimations(entity, limbSwingAmount, ageInTicks, partialTickTime);
 	}
-
+	
 	public void renderGemOnBody(int pos, float scale) {
+		float gemScale = this.getGemRenderScale(pos);
 		this.setGemRenderPositions(pos, scale);
 		this.preGemRenderCallback(pos, scale);
 		this.bipedGem.render(scale);
-		this.bipedGem.postRender(scale);
-		GlStateManager.scale(scale, scale, scale);
+		this.bipedGem.postRender(scale * gemScale);
+		GlStateManager.scale(gemScale, gemScale, gemScale);
 	}
-
+	
 	public void setGemRenderPositions(int pos, float scale) {
 		switch (pos) {
 			case Ke2Gems.GEMSTONE_FOREHEAD :
+				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_BACK_OF_HEAD :
+				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_EYE :
+				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_EYE :
+				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_NOSE :
+				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_CHEEK :
+				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_CHEEK :
+				GlStateManager.scale(this.bipedHead.offsetX, this.bipedHead.offsetY, this.bipedHead.offsetZ);
 				this.bipedHead.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_SHOULDER :
+				GlStateManager.scale(this.bipedRightArm.offsetX, this.bipedRightArm.offsetY, this.bipedRightArm.offsetZ);
 				this.bipedRightArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_SHOULDER :
+				GlStateManager.scale(this.bipedLeftArm.offsetX, this.bipedLeftArm.offsetY, this.bipedLeftArm.offsetZ);
 				this.bipedLeftArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_HAND :
+				GlStateManager.scale(this.bipedRightArm.offsetX, this.bipedRightArm.offsetY, this.bipedRightArm.offsetZ);
 				this.bipedRightArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_HAND :
+				GlStateManager.scale(this.bipedLeftArm.offsetX, this.bipedLeftArm.offsetY, this.bipedLeftArm.offsetZ);
 				this.bipedLeftArm.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_CHEST :
+				GlStateManager.scale(this.bipedBody.offsetX, this.bipedBody.offsetY, this.bipedBody.offsetZ);
 				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_BACK :
+				GlStateManager.scale(this.bipedBody.offsetX, this.bipedBody.offsetY, this.bipedBody.offsetZ);
 				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_NAVEL :
+				GlStateManager.scale(this.bipedBody.offsetX, this.bipedBody.offsetY, this.bipedBody.offsetZ);
 				this.bipedBody.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_THIGH :
+				GlStateManager.scale(this.bipedRightLeg.offsetX, this.bipedRightLeg.offsetY, this.bipedRightLeg.offsetZ);
 				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_THIGH :
+				GlStateManager.scale(this.bipedLeftLeg.offsetX, this.bipedLeftLeg.offsetY, this.bipedLeftLeg.offsetZ);
 				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_KNEE :
+				GlStateManager.scale(this.bipedRightLeg.offsetX, this.bipedRightLeg.offsetY, this.bipedRightLeg.offsetZ);
 				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_KNEE :
+				GlStateManager.scale(this.bipedLeftLeg.offsetX, this.bipedLeftLeg.offsetY, this.bipedLeftLeg.offsetZ);
 				this.bipedLeftLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_RIGHT_FOOT :
+				GlStateManager.scale(this.bipedRightLeg.offsetX, this.bipedRightLeg.offsetY, this.bipedRightLeg.offsetZ);
 				this.bipedRightLeg.postRender(scale);
 				break;
 			case Ke2Gems.GEMSTONE_LEFT_FOOT :
+				GlStateManager.scale(this.bipedLeftLeg.offsetX, this.bipedLeftLeg.offsetY, this.bipedLeftLeg.offsetZ);
 				this.bipedLeftLeg.postRender(scale);
 				break;
 		}
 	}
-
+	
 	public void preGemRenderCallback(int pos, float scale) {
-
+		
 	}
-
+	
 	public float getGemRenderScale(int pos) {
 		return 1.0F;
 	}
