@@ -56,7 +56,7 @@ public class KAGIC {
 	public static final String MCVERSION = "1.12.2";
 	public static final String MODID = "ke2";
 
-	public static final String MANTIS_ENDPOINT = "https://akriv.us/report";
+	public static final String MANTIS_ENDPOINT = "https://akriv.us/bug/report";
 
 	public static final Logger LOGGER = LogManager.getLogger(KAGIC.MODID);
 	public static final Gson JSON = new Gson();
