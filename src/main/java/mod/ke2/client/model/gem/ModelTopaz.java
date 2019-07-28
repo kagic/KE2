@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 
 public class ModelTopaz extends ModelGem {
 	public ModelTopaz() {
-		super(0.0F, 0.0F, 64, 64);
+		super(0.0F, 0.0F, 112, 112);
 		this.bipedHead = new ModelRenderer(this, 0, 0);
 		this.bipedHead.addBox(-5.0F, -11.0F, -5.0F, 10, 9, 10, 0.0F);
 		this.bipedHead.offsetY = -1.375F;
